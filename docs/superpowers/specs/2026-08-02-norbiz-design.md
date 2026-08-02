@@ -595,6 +595,78 @@ Ingen live API-kall i brukerflyten. All data leses fra egne tabeller.
 
 ---
 
+## 8b. PxWebApi v2 — verifisert kontrakt
+
+Lest ut av referanseimplementasjonen, `PxTools/PxWebApi`, ikke fra hukommelse.
+SSB kjører denne koden, så endepunktene og uttrykkssyntaksen under er
+autoritative. Kun SSBs egne konfigurasjonsverdier kan avvike.
+
+### Endepunkter
+
+| Metode | Sti | Bruk |
+|---|---|---|
+| GET | `/api/v2/tables?query=&pageNumber=&pageSize=` | søk og bla i tabeller |
+| GET | `/api/v2/tables/{id}` | tabellens metadata i kortform |
+| GET | `/api/v2/tables/{id}/metadata?lang=&defaultSelection=` | variabler og verdikoder |
+| GET | `/api/v2/tables/{id}/data?valuecodes[VAR]=…` | uttrekk via query-parametre |
+| POST | `/api/v2/tables/{id}/data` | uttrekk via JSON-body |
+
+Både GET og POST finnes. Det opprinnelige utkastet forutsatte POST; det
+stemmer fortsatt, men GET er ofte enklere og cachbart.
+
+POST-body (`VariablesSelection`):
+
+```json
+{
+  "selection": [
+    { "variableCode": "NACE2007", "valueCodes": ["96.021"], "codelist": null },
+    { "variableCode": "Tid", "valueCodes": ["FROM(2017)"] }
+  ],
+  "placement": { "stub": ["NACE2007"], "heading": ["Tid"] }
+}
+```
+
+### Uttrykkssyntaks i `valueCodes`
+
+Dette er den viktigste oppdagelsen for importen. Verdikoder er ikke bare
+literaler:
+
+| Uttrykk | Betydning |
+|---|---|
+| `*`, `?` | jokertegn |
+| `TOP(n)`, `TOP(n,offset)` | de n første, med valgfritt hopp |
+| `BOTTOM(n)`, `BOTTOM(n,offset)` | de n siste |
+| `RANGE(a,b)` | fra a til b |
+| `FROM(a)`, `TO(a)` | åpent i én ende |
+
+`FROM(2017)` henter hele tidsserien uten å liste årstallene, og `*` henter
+alle verdier på en variabel. Det gjør `import-ssb` vesentlig enklere enn om
+hver kode måtte enumereres.
+
+### Cellegrense — importen må deles opp
+
+Referansekonfigurasjonen setter `MaxDataCells: 10000`. Et uttrekk som
+overskrider grensen avvises; det trunkeres ikke.
+
+Det betyr at et naivt uttrekk — alle næringer × alle regioner × alle år × alle
+måltall — vil feile. `import-ssb` må dele opp langs en dimensjon, mest
+naturlig én NACE-gruppe per kall, og skrive resultatet inkrementelt.
+Idempotent upsert på nøkkelen gjør at en avbrutt import kan kjøres om igjen
+uten å duplisere.
+
+SSB kan ha satt en annen grense enn 10 000. Importen skal derfor lese
+`/api/v2/config` ved oppstart og dimensjonere batchene etter den faktiske
+verdien i stedet for å anta.
+
+### Fortsatt uverifisert
+
+Kontrakten over er sikker. Hvilke *variabler* de enkelte tabellene tilbyr —
+altså om 12936 har `driftsresultat`, om årgangene er tilbakeskrevet, om
+`arsverk` finnes — avgjøres av tabellene, ikke av API-et. Det svares først av
+et `GET /api/v2/tables/12936/metadata`, som må være første kall importen gjør.
+
+---
+
 ## 9. Overlevering til Lovable
 
 1. Opprett Supabase-prosjekt for Norbiz. Brukeren har i dag kun
