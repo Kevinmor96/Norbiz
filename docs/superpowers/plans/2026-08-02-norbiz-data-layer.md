@@ -1360,5 +1360,800 @@ git commit -m "feat(db): add favorites with RLS and public read policies"
 
 ---
 
-Planen fortsetter med Task 8-13 (seed-generatoren), Task 14
-(edge function-stubber) og Task 15 (Lovable-overlevering).
+## Task 8: Deterministisk PRNG og seed-konfigurasjon
+
+Seed-en må være reproduserbar. Samme frø gir samme `seed.sql`, så en diff
+viser en faktisk endring i generatoren, ikke tilfeldig støy.
+
+**Files:**
+- Create: `seed/rng.ts`, `seed/config.ts`
+- Test: `tests/seed.test.ts`
+
+- [ ] **Step 1: Skriv den feilende testen**
+
+`tests/seed.test.ts`:
+
+```ts
+import { describe, expect, it } from 'vitest';
+import { makeRng } from '../seed/rng.js';
+import { PROFILES, REGION_VINTAGES, YEARS } from '../seed/config.js';
+
+describe('rng', () => {
+  it('gir samme sekvens for samme frø', () => {
+    const a = makeRng(42);
+    const b = makeRng(42);
+    const seqA = Array.from({ length: 20 }, () => a.next());
+    const seqB = Array.from({ length: 20 }, () => b.next());
+    expect(seqA).toEqual(seqB);
+  });
+
+  it('gir ulik sekvens for ulikt frø', () => {
+    expect(makeRng(1).next()).not.toBe(makeRng(2).next());
+  });
+
+  it('holder seg innenfor range og jitter', () => {
+    const r = makeRng(7);
+    for (let i = 0; i < 500; i++) {
+      const v = r.range(10, 20);
+      expect(v).toBeGreaterThanOrEqual(10);
+      expect(v).toBeLessThan(20);
+      const j = r.jitter(0.1);
+      expect(j).toBeGreaterThan(0.89);
+      expect(j).toBeLessThan(1.11);
+    }
+  });
+});
+
+describe('config', () => {
+  it('dekker 2017-2023, ikke ti år', () => {
+    expect(YEARS).toEqual([2017, 2018, 2019, 2020, 2021, 2022, 2023]);
+  });
+
+  it('har tre fylkesårganger med 17, 11 og 15 fylker', () => {
+    expect(REGION_VINTAGES.map((v) => v.codes.length)).toEqual([17, 11, 15]);
+    expect(REGION_VINTAGES[2]!.to).toBeNull();
+  });
+
+  it('gir servering lavere marginbånd enn rådgivning', () => {
+    expect(PROFILES.servering.margin[1]).toBeLessThan(PROFILES.radgivning.margin[0]);
+  });
+});
+```
+
+- [ ] **Step 2: Kjør og bekreft at de feiler**
+
+Run: `npm test`
+Expected: FAIL med `Cannot find module '../seed/rng.js'`.
+
+- [ ] **Step 3: Skriv `seed/rng.ts`**
+
+```ts
+/** Deterministisk PRNG (mulberry32). Samme frø gir samme seed hver kjøring. */
+export interface Rng {
+  next(): number;
+  range(lo: number, hi: number): number;
+  jitter(pct: number): number;
+  pick<T>(arr: T[]): T;
+  chance(p: number): boolean;
+}
+
+export function makeRng(seed: number): Rng {
+  let a = seed >>> 0;
+  const next = () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  return {
+    next,
+    /** Uniformt tall i [lo, hi). */
+    range: (lo: number, hi: number) => lo + next() * (hi - lo),
+    /** Multiplikativ støy rundt 1, f.eks. jitter(0.06) -> 0.94..1.06 */
+    jitter: (pct: number) => 1 + (next() * 2 - 1) * pct,
+    pick: <T>(arr: T[]): T => arr[Math.floor(next() * arr.length)]!,
+    /** true med sannsynlighet p */
+    chance: (p: number) => next() < p,
+  };
+}
+```
+
+- [ ] **Step 4: Skriv `seed/config.ts`**
+
+```ts
+export const YEARS = [2017, 2018, 2019, 2020, 2021, 2022, 2023] as const;
+
+export type ProfileName =
+  | 'servering' | 'varehandel' | 'bygg' | 'tjenesteyting' | 'radgivning' | 'helse';
+
+export interface Profile {
+  margin: [number, number];
+  lonnsandel: [number, number];
+  invest: [number, number];
+  konkursrate: [number, number];
+  overlevelse5: [number, number];
+}
+
+export interface Vintage { from: number; to: number | null; codes: [string, string][] }
+
+/** Fylkesårganger. Statistikkrader legges på den som gjaldt i året. */
+export const REGION_VINTAGES: Vintage[] = [
+  { from: 2017, to: 2019, codes: [
+    ['01','Østfold'],['02','Akershus'],['03','Oslo'],['04','Hedmark'],['05','Oppland'],
+    ['06','Buskerud'],['07','Vestfold'],['08','Telemark'],['09','Aust-Agder'],['10','Vest-Agder'],
+    ['11','Rogaland'],['12','Hordaland'],['14','Sogn og Fjordane'],['15','Møre og Romsdal'],
+    ['18','Nordland'],['50','Trøndelag'],['54','Troms og Finnmark'] ] },
+  { from: 2020, to: 2023, codes: [
+    ['03','Oslo'],['11','Rogaland'],['15','Møre og Romsdal'],['18','Nordland'],
+    ['30','Viken'],['34','Innlandet'],['38','Vestfold og Telemark'],['42','Agder'],
+    ['46','Vestland'],['50','Trøndelag'],['54','Troms og Finnmark'] ] },
+  { from: 2024, to: null, codes: [
+    ['03','Oslo'],['11','Rogaland'],['15','Møre og Romsdal'],['18','Nordland'],
+    ['31','Østfold'],['32','Akershus'],['33','Buskerud'],['34','Innlandet'],
+    ['39','Vestfold'],['40','Telemark'],['42','Agder'],['46','Vestland'],
+    ['50','Trøndelag'],['55','Troms'],['56','Finnmark'] ] },
+];
+
+/** Bransjeprofiler: marginbånd, lønnsandel, kapitalintensitet, konkursrate. */
+export const PROFILES: Record<ProfileName, Profile> = {
+  servering:    { margin: [1.5, 6.0],  lonnsandel: [32, 42], invest: [18000, 45000],  konkursrate: [0.045, 0.085], overlevelse5: [28, 42] },
+  varehandel:   { margin: [2.5, 7.5],  lonnsandel: [14, 22], invest: [12000, 38000],  konkursrate: [0.025, 0.050], overlevelse5: [38, 52] },
+  bygg:         { margin: [4.0, 9.5],  lonnsandel: [26, 36], invest: [22000, 60000],  konkursrate: [0.035, 0.070], overlevelse5: [33, 48] },
+  tjenesteyting:{ margin: [8.0, 16.0], lonnsandel: [38, 52], invest: [8000, 25000],   konkursrate: [0.015, 0.035], overlevelse5: [48, 64] },
+  radgivning:   { margin: [14.0, 26.0],lonnsandel: [42, 58], invest: [6000, 20000],   konkursrate: [0.010, 0.025], overlevelse5: [55, 72] },
+  helse:        { margin: [6.0, 14.0], lonnsandel: [44, 60], invest: [15000, 42000],  konkursrate: [0.008, 0.020], overlevelse5: [60, 78] },
+};
+```
+
+- [ ] **Step 5: Kjør og bekreft at de passerer**
+
+Run: `npm test`
+Expected: PASS, 25 tester.
+
+- [ ] **Step 6: Commit**
+
+```bash
+git add seed/rng.ts seed/config.ts tests/seed.test.ts
+git commit -m "feat(seed): add deterministic rng and seed configuration"
+```
+
+---
+
+## Task 9: Næringshierarkiet
+
+65 femsifrede næringer med komplette 3- og 2-siffer-forfedre. Hierarkiet må
+være komplett fordi regionale rader kun finnes på nivå 2–3 — uten forfedrene
+har regionvisningen ingenting å slå opp.
+
+**Files:**
+- Create: `seed/industries.ts`
+- Modify: `tests/seed.test.ts`
+
+- [ ] **Step 1: Skriv den feilende testen**
+
+```ts
+import { buildIndustries } from '../seed/industries.js';
+
+describe('industries', () => {
+  const rows = buildIndustries();
+
+  it('har minst 60 femsifrede næringer', () => {
+    expect(rows.filter((r) => r.nace_level === 5).length).toBeGreaterThanOrEqual(60);
+  });
+
+  it('har unike koder og slugs', () => {
+    expect(new Set(rows.map((r) => r.nace_code)).size).toBe(rows.length);
+    expect(new Set(rows.map((r) => r.slug)).size).toBe(rows.length);
+  });
+
+  it('har komplett hierarki uten foreldreløse noder', () => {
+    const codes = new Set(rows.map((r) => r.nace_code));
+    const orphans = rows.filter((r) => r.parent_code !== null && !codes.has(r.parent_code));
+    expect(orphans).toEqual([]);
+  });
+
+  it('gir hvert 5-siffer en 3-siffer-forelder som selv har en 2-siffer-forelder', () => {
+    const byCode = new Map(rows.map((r) => [r.nace_code, r]));
+    for (const leaf of rows.filter((r) => r.nace_level === 5)) {
+      const parent = byCode.get(leaf.parent_code!);
+      expect(parent?.nace_level).toBe(3);
+      expect(byCode.get(parent!.parent_code!)?.nace_level).toBe(2);
+    }
+  });
+
+  it('dekker alle seks bransjeprofilene', () => {
+    expect(new Set(rows.map((r) => r.profile)).size).toBe(6);
+  });
+});
+```
+
+- [ ] **Step 2: Kjør og bekreft at de feiler**
+
+Run: `npm test`
+Expected: FAIL med `Cannot find module '../seed/industries.js'`.
+
+- [ ] **Step 3: Skriv `seed/industries.ts`**
+
+Legg til typene øverst, resten er som under:
+
+```ts
+import type { ProfileName } from './config.js';
+
+export interface IndustryRow {
+  nace_code: string;
+  nace_level: number;
+  parent_code: string | null;
+  name: string;
+  common_name: string;
+  slug: string;
+  profile: ProfileName;
+  search_terms: string[];
+}
+
+type Leaf = [string, string, string];
+type Group = [string, string, Leaf[]];
+type Top = [string, string, ProfileName, Group[]];
+
+/** 12 toppnæringer -> 3-siffer -> 60 femsifrede blader. */
+export const TREE: Top[] = [
+  ['56', 'Serveringsvirksomhet', 'servering', [
+    ['56.1', 'Restauranter', [['56.101','Drift av restauranter og kafeer','Restaurant'],
+                              ['56.102','Drift av gatekjøkken','Gatekjøkken'],
+                              ['56.104','Drift av kaffebarer','Kaffebar']]],
+    ['56.3', 'Drikkestedvirksomhet', [['56.301','Drift av puber','Pub'],
+                                      ['56.309','Drikkesteder ellers','Bar']]],
+    ['56.2', 'Cateringvirksomhet', [['56.210','Cateringvirksomhet','Cateringfirma'],
+                                    ['56.290','Kantiner drevet som selvstendig virksomhet','Kantinedrift']]]]],
+  ['47', 'Detaljhandel', 'varehandel', [
+    ['47.1', 'Butikkhandel med bredt vareutvalg', [['47.111','Dagligvareforretning','Dagligvarebutikk'],
+                                                    ['47.190','Butikkhandel ellers','Varehus']]],
+    ['47.7', 'Annen butikkhandel', [['47.710','Butikkhandel med klær','Klesbutikk'],
+                                    ['47.721','Butikkhandel med skotøy','Skobutikk'],
+                                    ['47.762','Butikkhandel med blomster','Blomsterbutikk'],
+                                    ['47.782','Butikkhandel med gull og sølv','Gullsmed'],
+                                    ['47.752','Butikkhandel med tapeter og gulvbelegg','Fargehandel'],
+                                    ['47.641','Butikkhandel med sportsutstyr','Sportsbutikk'],
+                                    ['47.761','Butikkhandel med blomster og planter','Hagesenter']]],
+    ['47.3', 'Detaljhandel med drivstoff', [['47.300','Detaljhandel med drivstoff','Bensinstasjon']]]]],
+  ['41', 'Oppføring av bygninger', 'bygg', [
+    ['41.1', 'Utvikling av byggeprosjekter', [['41.101','Boligbyggelag','Boligbyggelag'],
+                                              ['41.109','Utvikling av byggeprosjekter ellers','Boligutvikler']]],
+    ['41.2', 'Oppføring av bygninger', [['41.200','Oppføring av bygninger','Byggefirma']]]]],
+  ['43', 'Spesialisert bygge- og anleggsvirksomhet', 'bygg', [
+    ['43.2', 'Elektrisk installasjon og VVS', [['43.210','Elektrisk installasjonsarbeid','Elektriker'],
+                                               ['43.221','Rørleggerarbeid','Rørlegger'],
+                                               ['43.222','Ventilasjonsarbeid','Ventilasjonsfirma']]],
+    ['43.3', 'Ferdiggjøring av bygninger', [['43.310','Stukkatørarbeid og pussing','Murer'],
+                                            ['43.320','Snekkerarbeid','Snekker'],
+                                            ['43.341','Malerarbeid','Maler'],
+                                            ['43.390','Ferdiggjøring ellers','Byggtapetserer']]],
+    ['43.1', 'Riving og grunnarbeid', [['43.110','Riving av bygninger','Rivingsfirma'],
+                                       ['43.120','Grunnarbeid','Grunnentreprenør'],
+                                       ['43.130','Prøveboring','Borefirma']]],
+    ['43.9', 'Annen spesialisert bygge- og anleggsvirksomhet', [
+        ['43.910','Takarbeid','Takentreprenør'],
+        ['43.991','Blikkenslagerarbeid','Blikkenslager'],
+        ['43.999','Bygge- og anleggsvirksomhet ellers','Stillasfirma']]]]],
+  ['96', 'Annen personlig tjenesteyting', 'tjenesteyting', [
+    ['96.0', 'Annen personlig tjenesteyting', [['96.021','Frisering og annen skjønnhetspleie','Frisørsalong'],
+                                               ['96.022','Skjønnhetspleie','Hudpleiesalong'],
+                                               ['96.011','Vaskeri- og renserivirksomhet','Renseri'],
+                                               ['96.090','Personlig tjenesteyting ellers','Tatoveringsstudio']]]]],
+  ['93', 'Sport og fritid', 'tjenesteyting', [
+    ['93.1', 'Sports- og idrettsaktiviteter', [['93.130','Treningssentre','Treningssenter'],
+                                               ['93.110','Drift av idrettsanlegg','Idrettsanlegg'],
+                                               ['93.191','Idrettslag og -klubber','Idrettsklubb'],
+                                               ['93.120','Idrettslag og -klubber for enkeltidretter','Fotballklubb']]],
+    ['93.2', 'Fornøyelse og fritid', [['93.210','Drift av fornøyelsesetablissementer','Fornøyelsespark'],
+                                      ['93.291','Drift av treningsstudio for dans','Dansestudio'],
+                                      ['93.299','Fritidsvirksomhet ellers','Aktivitetssenter']]]]],
+  ['69', 'Juridisk og regnskapsmessig tjenesteyting', 'radgivning', [
+    ['69.1', 'Juridisk tjenesteyting', [['69.100','Juridisk tjenesteyting','Advokatfirma']]],
+    ['69.2', 'Regnskap og revisjon', [['69.201','Regnskap og bokføring','Regnskapsfører'],
+                                      ['69.202','Revisjon','Revisor']]]]],
+  ['70', 'Hovedkontortjenester og administrativ rådgivning', 'radgivning', [
+    ['70.2', 'Administrativ rådgivning', [['70.220','Bedriftsrådgivning','Bedriftsrådgiver'],
+                                          ['70.210','PR og kommunikasjon','PR-byrå']]],
+    ['70.1', 'Hovedkontortjenester', [['70.100','Hovedkontortjenester','Hovedkontor']]]]],
+  ['62', 'Tjenester tilknyttet informasjonsteknologi', 'radgivning', [
+    ['62.0', 'IT-tjenester', [['62.010','Programmeringstjenester','Programvarehus'],
+                              ['62.020','Konsulentvirksomhet tilknyttet IT','IT-konsulent'],
+                              ['62.030','Forvaltning og drift av IT-systemer','IT-drift']]]]],
+  ['86', 'Helsetjenester', 'helse', [
+    ['86.2', 'Lege- og tannlegetjenester', [['86.211','Allmenn legetjeneste','Legekontor'],
+                                            ['86.230','Tannhelsetjenester','Tannlege']]],
+    ['86.9', 'Andre helsetjenester', [['86.901','Fysioterapitjeneste','Fysioterapeut'],
+                                      ['86.907','Kiropraktortjeneste','Kiropraktor'],
+                                      ['86.905','Psykologtjeneste','Psykolog'],
+                                      ['86.909','Helsetjenester ellers','Naprapat']]]]],
+  ['88', 'Omsorg uten botilbud', 'helse', [
+    ['88.9', 'Barnehager og annet sosialt arbeid', [['88.911','Barnehager','Barnehage'],
+                                                    ['88.993','Dagsentre for eldre','Dagsenter']]]]],
+  ['81', 'Tjenester tilknyttet eiendomsdrift', 'tjenesteyting', [
+    ['81.2', 'Rengjøringsvirksomhet', [['81.210','Rengjøring av bygninger','Renholdsbyrå'],
+                                       ['81.291','Skadedyrkontroll','Skadedyrfirma'],
+                                       ['81.299','Rengjøringsvirksomhet ellers','Vinduspussfirma']]],
+    ['81.3', 'Beplantning av hager', [['81.300','Beplantning av hager og parkanlegg','Anleggsgartner']]]]],
+];
+
+const slugify = (s: string): string => s.toLowerCase()
+  .replace(/æ/g,'ae').replace(/ø/g,'o').replace(/å/g,'a')
+  .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+
+export function buildIndustries(): IndustryRow[] {
+  const out: IndustryRow[] = [];
+  for (const [c2, n2, profile, kids3] of TREE) {
+    out.push({ nace_code: c2, nace_level: 2, parent_code: null, name: n2,
+               common_name: n2, slug: slugify(n2), profile, search_terms: [] });
+    for (const [c3, n3, leaves] of kids3) {
+      out.push({ nace_code: c3, nace_level: 3, parent_code: c2, name: n3,
+                 common_name: n3, slug: slugify(c3 + '-' + n3), profile, search_terms: [] });
+      for (const [c5, n5, common] of leaves) {
+        out.push({ nace_code: c5, nace_level: 5, parent_code: c3, name: n5,
+                   common_name: common, slug: slugify(common), profile,
+                   search_terms: [common.toLowerCase(), n5.toLowerCase().split(' ')[0]] });
+      }
+    }
+  }
+  return out;
+}
+```
+
+- [ ] **Step 4: Kjør og bekreft at de passerer**
+
+Run: `npm test`
+Expected: PASS, 30 tester. Treet gir 12 toppnæringer, 25 grupper og 65 blader.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add seed/industries.ts tests/seed.test.ts
+git commit -m "feat(seed): add industry hierarchy with 65 five-digit codes"
+```
+
+---
+
+## Task 10: Regionårganger og folketall
+
+Fylkesinndelingen endret seg i 2020 og 2024. Statistikkrader legges på den
+årgangen som gjaldt i året; 15-fylkesårgangen finnes i `regions` men får
+ingen statistikkrader, siden serien slutter i 2023.
+
+**Files:**
+- Create: `seed/regions.ts`, `seed/types.ts`
+- Modify: `tests/seed.test.ts`
+
+- [ ] **Step 1: Skriv den feilende testen**
+
+```ts
+import { buildRegions, regionsByYear } from '../seed/regions.js';
+
+describe('regions', () => {
+  it('lager Norge pluss alle tre fylkesårgangene', () => {
+    const rows = buildRegions();
+    expect(rows.filter((r) => r.level === 'land')).toHaveLength(1);
+    expect(rows.filter((r) => r.level === 'fylke')).toHaveLength(17 + 11 + 15);
+  });
+
+  it('velger riktig årgang per år', () => {
+    const byYear = regionsByYear();
+    expect(byYear[2019]!).toHaveLength(17);
+    expect(byYear[2020]!).toHaveLength(11);
+    expect(byYear[2023]!).toHaveLength(11);
+    // 2024-årgangen er utenfor dataperioden og skal ikke ha statistikkår.
+    expect(byYear[2024]).toBeUndefined();
+  });
+
+  it('lar Oslo beholde koden 03 gjennom alle årganger', () => {
+    const oslo = buildRegions().filter((r) => r.code === '03');
+    expect(oslo).toHaveLength(3);
+    expect(new Set(oslo.map((r) => r.valid_from_year))).toEqual(new Set([2017, 2020, 2024]));
+  });
+});
+```
+
+- [ ] **Step 2: Kjør og bekreft at de feiler**
+
+Run: `npm test`
+Expected: FAIL med `Cannot find module '../seed/regions.js'`.
+
+- [ ] **Step 3: Skriv `seed/types.ts`**
+
+```ts
+export interface RegionRow {
+  code: string;
+  name: string;
+  level: 'land' | 'fylke' | 'kommune';
+  parent_code: string | null;
+  valid_from_year: number;
+  valid_to_year: number | null;
+}
+
+export interface RegionRef { code: string; name: string; vintage: number }
+
+export interface StatRow {
+  nace_code: string;
+  nace_level: number;
+  region_code: string;
+  region_level: 'land' | 'fylke';
+  year: number;
+  unit_type: 'foretak' | 'virksomhet';
+  n_enheter: number;
+  omsetning_total: number;
+  omsetning_per_enhet: number;
+  driftsresultat_total: number | null;
+  driftsmargin_pct: number | null;
+  lonnskostnad_total: number;
+  lonnsandel_pct: number | null;
+  sysselsatte_total: number;
+  sysselsatte_per_enhet: number | null;
+  arsverk_per_enhet: number | null;
+  bearbeidingsverdi_total: number | null;
+  verdiskaping_per_sysselsatt: number | null;
+  bruttoinvestering_total: number;
+  merknader: Record<string, string>;
+  source: string;
+  data_quality: 'mock';
+  coverage: 'alle';
+}
+
+export interface DemographyRow {
+  nace_code: string;
+  nace_level: number;
+  region_code: string;
+  region_level: 'land' | 'fylke';
+  year: number;
+  nyetableringer: number;
+  nedleggelser: number;
+  konkurser: number;
+  overlevelse_1ar_pct: number | null;
+  overlevelse_3ar_pct: number | null;
+  overlevelse_5ar_pct: number | null;
+  merknader: Record<string, string>;
+  source: string;
+  data_quality: 'mock';
+  coverage: 'alle';
+}
+```
+
+- [ ] **Step 4: Skriv `seed/regions.ts`**
+
+```ts
+import { REGION_VINTAGES, YEARS } from './config.js';
+import type { RegionRef, RegionRow } from './types.js';
+
+/** Norge pluss alle tre fylkesårgangene. */
+export function buildRegions(): RegionRow[] {
+  const rows: RegionRow[] = [{
+    code: '0', name: 'Norge', level: 'land',
+    parent_code: null, valid_from_year: 2017, valid_to_year: null,
+  }];
+  for (const v of REGION_VINTAGES) {
+    for (const [code, name] of v.codes) {
+      rows.push({
+        code, name, level: 'fylke', parent_code: '0',
+        valid_from_year: v.from, valid_to_year: v.to,
+      });
+    }
+  }
+  return rows;
+}
+
+/** Hvilke fylker som gjaldt i hvert statistikkår. */
+export function regionsByYear(): Record<number, RegionRef[]> {
+  const out: Record<number, RegionRef[]> = {};
+  for (const y of YEARS) {
+    const v = REGION_VINTAGES.find((x) => y >= x.from && (x.to === null || y <= x.to));
+    if (!v) continue;
+    out[y] = v.codes.map(([code, name]) => ({ code, name, vintage: v.from }));
+  }
+  return out;
+}
+```
+
+- [ ] **Step 5: Kjør og bekreft at de passerer**
+
+Run: `npm test`
+Expected: PASS, 33 tester.
+
+- [ ] **Step 6: Commit**
+
+```bash
+git add seed/regions.ts seed/types.ts tests/seed.test.ts
+git commit -m "feat(seed): add region vintages and per-year resolution"
+```
+
+---
+
+## Task 11: Statistikk og demografi
+
+Kjernen i generatoren. Genereringen er **top-down**: nasjonale totaler lages
+på 2-siffer, splittes til 3-siffer, så til 5-siffer, og 3-sifferet splittes
+utover fylkene. Konsistens blir dermed en egenskap ved konstruksjonen i
+stedet for noe som må sjekkes i etterkant.
+
+To ting seed-en må ha for å ligne ekte data:
+
+**Skjeve fylkesvekter.** Ekte fordeling har Oslo mangedobbelt av Finnmark. Med
+jevne vekter blir alle celler store, og da oppstår aldri undertrykking.
+
+**Undertrykte celler.** Små celler får `bearbeidingsverdi_total = NULL` med
+`merknader.bearbeidingsverdi_total = 'konfidensielt'`. Uten dem får frontend
+aldri testet hvordan et konfidensielt hull ser ut, som er forskjellig fra et
+upublisert hull.
+
+**Files:**
+- Create: `seed/stats.ts`
+- Modify: `tests/seed.test.ts`
+
+- [ ] **Step 1: Skriv den feilende testen**
+
+```ts
+import { buildStats } from '../seed/stats.js';
+import { regionsByYear } from '../seed/regions.js';
+
+describe('stats', () => {
+  const built = buildStats(makeRng(20260802), buildIndustries(), regionsByYear());
+
+  it('lager ingen regionale rader over 3-siffer', () => {
+    const bad = built.rows.filter((r) => r.region_level !== 'land' && r.nace_level > 3);
+    expect(bad).toEqual([]);
+  });
+
+  it('lar driftsmargin være NULL i alle regionale rader', () => {
+    const bad = built.rows.filter(
+      (r) => r.region_level !== 'land' && r.driftsmargin_pct !== null,
+    );
+    expect(bad).toEqual([]);
+  });
+
+  it('lager både foretak og virksomhet nasjonalt, kun virksomhet regionalt', () => {
+    const regionalUnits = new Set(
+      built.rows.filter((r) => r.region_level === 'fylke').map((r) => r.unit_type),
+    );
+    expect([...regionalUnits]).toEqual(['virksomhet']);
+  });
+
+  it('følger fylkesårgangene', () => {
+    const fylker = (y: number) => new Set(
+      built.rows.filter((r) => r.year === y && r.region_level === 'fylke')
+        .map((r) => r.region_code),
+    ).size;
+    expect(fylker(2019)).toBe(17);
+    expect(fylker(2023)).toBe(11);
+  });
+
+  it('produserer undertrykte celler med merknad', () => {
+    const suppressed = built.rows.filter(
+      (r) => r.merknader['bearbeidingsverdi_total'] === 'konfidensielt',
+    );
+    expect(suppressed.length).toBeGreaterThan(0);
+    for (const r of suppressed) expect(r.bearbeidingsverdi_total).toBeNull();
+  });
+
+  it('holder marginene innenfor bransjeprofilen', () => {
+    const radgivning = built.rows.filter(
+      (r) => r.nace_code === '69.201' && r.driftsmargin_pct !== null,
+    );
+    const servering = built.rows.filter(
+      (r) => r.nace_code === '56.101' && r.driftsmargin_pct !== null,
+    );
+    const avg = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
+    expect(avg(radgivning.map((r) => r.driftsmargin_pct!)))
+      .toBeGreaterThan(avg(servering.map((r) => r.driftsmargin_pct!)));
+  });
+
+  it('lager tidsserier med støy, ikke rette linjer', () => {
+    const serie = built.rows
+      .filter((r) => r.nace_code === '96.021' && r.region_level === 'land' && r.unit_type === 'foretak')
+      .sort((a, b) => a.year - b.year)
+      .map((r) => r.omsetning_total);
+    const diffs = serie.slice(1).map((v, i) => v - serie[i]!);
+    expect(new Set(diffs).size).toBeGreaterThan(1);
+  });
+
+  it('er deterministisk', () => {
+    const again = buildStats(makeRng(20260802), buildIndustries(), regionsByYear());
+    expect(again.rows[500]).toEqual(built.rows[500]);
+  });
+});
+```
+
+- [ ] **Step 2: Kjør og bekreft at de feiler**
+
+Run: `npm test`
+Expected: FAIL med `Cannot find module '../seed/stats.js'`.
+
+- [ ] **Step 3: Skriv `seed/stats.ts`**
+
+```ts
+import { PROFILES, YEARS } from './config.js';
+import type { Profile } from './config.js';
+import type { Rng } from './rng.js';
+import type { IndustryRow } from './industries.js';
+import type { StatRow, DemographyRow, RegionRef } from './types.js';
+
+/**
+ * Top-down generering. Nasjonale totaler lages på 2-siffer, splittes til
+ * 3-siffer, så til 5-siffer. Regionale rader splitter 3-sifferet utover
+ * fylkene. Konsistens er dermed en egenskap ved konstruksjonen, ikke noe
+ * som må sjekkes i etterkant.
+ */
+export function buildStats(
+  rng: Rng,
+  industries: IndustryRow[],
+  regionsByYear: Record<number, RegionRef[]>,
+): { rows: StatRow[]; demography: DemographyRow[] } {
+  const rows: StatRow[] = [];
+  const demography: DemographyRow[] = [];
+  const level2 = industries.filter((i) => i.nace_level === 2);
+
+  for (const top of level2) {
+    const profile = PROFILES[top.profile];
+    const base = rng.range(4_000, 30_000);            // enheter i 2017
+    const baseTurnoverPerUnit = rng.range(1.4e6, 9e6);
+    const drift = rng.range(-0.01, 0.055);            // årlig trend
+
+    for (const year of YEARS) {
+      const t = year - YEARS[0]!;
+      const growth = Math.pow(1 + drift, t) * rng.jitter(0.035);
+      const units2 = Math.round(base * growth);
+      const turnover2 = Math.round(units2 * baseTurnoverPerUnit * rng.jitter(0.05));
+      const margin2 = clamp(lerp(profile.margin, rng.next()) * rng.jitter(0.12), -8, 40);
+
+      // 2-siffer nasjonalt, begge enhetstyper
+      for (const unit of ['foretak', 'virksomhet']) {
+        const mult = unit === 'virksomhet' ? 1.18 : 1.0;
+        rows.push(mkRow(top, 'land', '0', year, unit,
+          Math.round(units2 * mult), Math.round(turnover2), margin2, profile, rng));
+      }
+
+      // 3-siffer: splitt 2-sifferet
+      const kids3 = industries.filter((i) => i.parent_code === top.nace_code);
+      const shares3 = normalise(kids3.map(() => rng.range(0.5, 1.5)));
+      kids3.forEach((kid, ix) => {
+        const u3 = Math.max(25, Math.round(units2 * shares3[ix]!));
+        const tv3 = Math.round(turnover2 * shares3[ix]!);
+        const m3 = clamp(margin2 * rng.jitter(0.22), -8, 40);
+
+        for (const unit of ['foretak', 'virksomhet']) {
+          const mult = unit === 'virksomhet' ? 1.18 : 1.0;
+          rows.push(mkRow(kid, 'land', '0', year, unit,
+            Math.round(u3 * mult), tv3, m3, profile, rng));
+        }
+        demography.push(mkDemo(kid, '0', 'land', year, u3, profile, rng));
+
+        // regionalt: kun 3-siffer, kun virksomhet, kun driftsdata uten resultat.
+        // Vektene er skjeve med vilje: ekte fylkesfordeling har Oslo mangedobbelt
+        // av Finnmark, og det er i de små cellene undertrykking faktisk skjer.
+        const regions = regionsByYear[year];
+        const sharesR = normalise(regions.map((r) => regionWeight(r.code) * rng.jitter(0.25)));
+        regions.forEach((r, ri) => {
+          const uR = Math.round(u3 * 1.18 * sharesR[ri]!);
+          if (uR < 5) return;
+          rows.push(mkRow(kid, 'fylke', r.code, year, 'virksomhet',
+            uR, Math.round(tv3 * sharesR[ri]!), null, profile, rng));
+          demography.push(mkDemo(kid, r.code, 'fylke', year, uR, profile, rng));
+        });
+
+        // 5-siffer: splitt 3-sifferet, kun nasjonalt
+        const kids5 = industries.filter((i) => i.parent_code === kid.nace_code);
+        const shares5 = normalise(kids5.map(() => rng.range(0.6, 1.6)));
+        kids5.forEach((leaf, li) => {
+          const u5 = Math.max(12, Math.round(u3 * shares5[li]!));
+          const tv5 = Math.round(tv3 * shares5[li]!);
+          const m5 = clamp(m3 * rng.jitter(0.3), -8, 40);
+          for (const unit of ['foretak', 'virksomhet']) {
+            const mult = unit === 'virksomhet' ? 1.18 : 1.0;
+            rows.push(mkRow(leaf, 'land', '0', year, unit,
+              Math.round(u5 * mult), tv5, m5, profile, rng));
+          }
+          demography.push(mkDemo(leaf, '0', 'land', year, u5, profile, rng));
+        });
+      });
+    }
+  }
+  return { rows, demography };
+}
+
+function mkRow(
+  ind: IndustryRow, regionLevel: 'land' | 'fylke', regionCode: string, year: number,
+  unit: 'foretak' | 'virksomhet', units: number, turnover: number,
+  margin: number | null, profile: Profile, rng: Rng,
+): StatRow {
+  const regional = regionLevel !== 'land';
+  // Regionalt publiserer SSB ikke driftsresultat -> NULL, ikke 0.
+  const driftsresultat = regional || margin === null
+    ? null : Math.round(turnover * (margin / 100));
+  const lonnsandel = lerp(profile.lonnsandel, rng.next()) * rng.jitter(0.08);
+  const sysselsatte = Math.round(units * rng.range(1.8, 7.5));
+  const merknader: Record<string, string> = {};
+  // Undertrykking treffer små celler. Seed-en må inneholde dem, ellers
+  // får frontend aldri testet hvordan konfidensielle hull ser ut.
+  let bearbeidingsverdi = Math.round(turnover * rng.range(0.28, 0.55));
+  if (units < 40 && rng.chance(0.45)) {
+    bearbeidingsverdi = null;
+    merknader.bearbeidingsverdi_total = 'konfidensielt';
+  }
+  return {
+    nace_code: ind.nace_code, nace_level: ind.nace_level,
+    region_code: regionCode, region_level: regionLevel, year, unit_type: unit,
+    n_enheter: units,
+    omsetning_total: turnover,
+    omsetning_per_enhet: Math.round(turnover / units),
+    driftsresultat_total: driftsresultat,
+    driftsmargin_pct: regional ? null : round2(margin),
+    lonnskostnad_total: Math.round(turnover * (lonnsandel / 100)),
+    lonnsandel_pct: round2(lonnsandel),
+    sysselsatte_total: sysselsatte,
+    sysselsatte_per_enhet: round2(sysselsatte / units),
+    arsverk_per_enhet: round2((sysselsatte / units) * rng.range(0.78, 0.94)),
+    bearbeidingsverdi_total: bearbeidingsverdi,
+    verdiskaping_per_sysselsatt: bearbeidingsverdi ? Math.round(bearbeidingsverdi / sysselsatte) : null,
+    bruttoinvestering_total: Math.round(sysselsatte * lerp(profile.invest, rng.next())),
+    merknader,
+    source: regional ? 'seed:12936' : 'seed:12910',
+    data_quality: 'mock',
+    coverage: 'alle',
+  };
+}
+
+function mkDemo(
+  ind: IndustryRow, regionCode: string, regionLevel: 'land' | 'fylke', year: number,
+  units: number, profile: Profile, rng: Rng,
+): DemographyRow {
+  const konkursrate = lerp(profile.konkursrate, rng.next()) * rng.jitter(0.25);
+  return {
+    nace_code: ind.nace_code, nace_level: ind.nace_level,
+    region_code: regionCode, region_level: regionLevel, year,
+    nyetableringer: Math.round(units * rng.range(0.06, 0.16)),
+    nedleggelser: Math.round(units * rng.range(0.04, 0.12)),
+    konkurser: Math.round(units * konkursrate),
+    overlevelse_1ar_pct: round2(clamp(lerp(profile.overlevelse5, rng.next()) + rng.range(28, 40), 0, 100)),
+    overlevelse_3ar_pct: round2(clamp(lerp(profile.overlevelse5, rng.next()) + rng.range(10, 20), 0, 100)),
+    overlevelse_5ar_pct: round2(lerp(profile.overlevelse5, rng.next()) * rng.jitter(0.08)),
+    merknader: {},
+    source: 'seed:foretaksdemografi', data_quality: 'mock', coverage: 'alle',
+  };
+}
+
+const lerp = ([lo, hi]: [number, number], t: number): number => lo + (hi - lo) * t;
+const clamp = (v: number, lo: number, hi: number): number => Math.min(hi, Math.max(lo, v));
+const round2 = (v: number | null): number | null => v === null ? null : Math.round(v * 100) / 100;
+function normalise(xs: number[]): number[] {
+  const s = xs.reduce((a, b) => a + b, 0);
+  return xs.map((x) => x / s);
+}
+
+/**
+ * Grov befolkningsvekt per fylkeskode, på tvers av alle tre årgangene.
+ * Trenger ikke være presis — den skal bare gi realistisk skjevhet, så
+ * små fylker får små celler og dermed undertrykking.
+ */
+const REGION_WEIGHTS: Record<string, number> = {
+  '03': 7.0, '30': 6.2, '46': 3.2, '11': 2.4, '50': 2.1, '34': 1.6, '38': 1.6,
+  '42': 1.4, '15': 1.4, '18': 0.9, '54': 0.7, '02': 3.0, '01': 1.4, '12': 2.2,
+  '31': 1.1, '32': 3.0, '33': 1.4, '39': 1.0, '40': 0.8, '55': 0.5, '56': 0.2,
+  '04': 0.7, '05': 0.7, '06': 1.2, '07': 0.9, '08': 0.7, '09': 0.4, '10': 0.7,
+  '14': 0.4,
+};
+const regionWeight = (code: string): number => REGION_WEIGHTS[code] ?? 1.0;
+```
+
+- [ ] **Step 4: Kjør og bekreft at de passerer**
+
+Run: `npm test`
+Expected: PASS, 41 tester. Generatoren gir omtrent 3800 statistikkrader og
+3000 demografirader, med rundt 38 undertrykte celler.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add seed/stats.ts tests/seed.test.ts
+git commit -m "feat(seed): generate statistics top-down with skewed regional weights"
+```
+
+---
+
+Planen fortsetter med Task 12 (emit + full lastetest), Task 13 (anslag og
+innsikt), Task 14 (edge function-stubber) og Task 15 (Lovable-overlevering).
