@@ -1156,5 +1156,209 @@ git commit -m "feat(db): add scoring view with mid-rank percentiles and weight r
 
 ---
 
-Planen fortsetter med Task 7 (RLS), Task 8-13 (seed-generatoren),
-Task 14 (edge function-stubber) og Task 15 (Lovable-overlevering).
+## Task 7: RLS og favoritter
+
+Næringssidene er offentlige — ingen innlogging foran dataene. Kun `favorites`
+er brukereid.
+
+Migrasjonen bruker `auth.uid()`, som finnes på Supabase men ikke i PGlite.
+Stubben hører derfor i testhjelperen, **ikke** i `supabase/migrations/`: en
+`create schema auth` i en migrasjon ville kollidert med Supabases eget
+auth-schema ved deploy.
+
+**Files:**
+- Create: `supabase/migrations/0007_rls.sql`
+- Create: `tests/helpers/supabase-stub.sql`
+- Modify: `tests/helpers/db.ts`
+- Test: `tests/rls.test.ts`
+
+- [ ] **Step 1: Legg inn Supabase-stubben for testmiljøet**
+
+`tests/helpers/supabase-stub.sql`:
+
+```sql
+-- Simulerer den delen av Supabase-miljøet migrasjonene lener seg på.
+-- Kjøres kun i tester. På ekte Supabase finnes alt dette fra før.
+create schema if not exists auth;
+create table if not exists auth.users (id uuid primary key);
+create or replace function auth.uid() returns uuid language sql stable as $$
+  select nullif(current_setting('request.jwt.claim.sub', true), '')::uuid
+$$;
+do $$ begin
+  if not exists (select 1 from pg_roles where rolname='anon') then create role anon; end if;
+  if not exists (select 1 from pg_roles where rolname='authenticated') then create role authenticated; end if;
+end $$;
+```
+
+- [ ] **Step 2: Kjør stubben før migrasjonene i testhjelperen**
+
+Erstatt `freshDb` i `tests/helpers/db.ts`:
+
+```ts
+const MIGRATIONS_DIR = join(process.cwd(), 'supabase', 'migrations');
+const STUB = join(process.cwd(), 'tests', 'helpers', 'supabase-stub.sql');
+
+/** Fersk in-memory Postgres med Supabase-stub og alle migrasjoner applisert. */
+export async function freshDb(): Promise<PGlite> {
+  const db = await PGlite.create();
+  await db.exec(await readFile(STUB, 'utf8'));
+  const files = (await readdir(MIGRATIONS_DIR)).filter((f) => f.endsWith('.sql')).sort();
+  for (const file of files) {
+    const sql = await readFile(join(MIGRATIONS_DIR, file), 'utf8');
+    try {
+      await db.exec(sql);
+    } catch (err) {
+      throw new Error(`Migrasjon ${file} feilet: ${(err as Error).message}`);
+    }
+  }
+  return db;
+}
+
+/** Kjører resten av transaksjonen som en innlogget bruker. */
+export async function actAs(db: PGlite, userId: string): Promise<void> {
+  await db.exec(`set role authenticated; set request.jwt.claim.sub = '${userId}';`);
+}
+
+export async function actAsAnon(db: PGlite): Promise<void> {
+  await db.exec(`reset role; set role anon; set request.jwt.claim.sub = '';`);
+}
+
+export async function actAsOwner(db: PGlite): Promise<void> {
+  await db.exec(`reset role;`);
+}
+```
+
+- [ ] **Step 3: Skriv de feilende testene**
+
+`tests/rls.test.ts`:
+
+```ts
+import { describe, expect, it } from 'vitest';
+import { actAs, actAsAnon, actAsOwner, freshDb } from './helpers/db.js';
+
+const ALICE = '11111111-1111-1111-1111-111111111111';
+const BOB = '22222222-2222-2222-2222-222222222222';
+
+describe('RLS', () => {
+  it('lar en bruker kun se egne favoritter', async () => {
+    const db = await freshDb();
+    await db.exec(`
+      insert into auth.users (id) values ('${ALICE}'), ('${BOB}');
+      insert into industries (nace_code, nace_level, name, common_name, slug)
+        values ('96', 2, 'x', 'x', 'pt');
+      insert into regions (code, name, level, valid_from_year)
+        values ('0', 'Norge', 'land', 2017);
+      insert into favorites (user_id, industry_id, region_id) values
+        ('${ALICE}', (select id from industries limit 1), (select id from regions limit 1)),
+        ('${BOB}',   (select id from industries limit 1), (select id from regions limit 1));
+    `);
+
+    await actAs(db, ALICE);
+    const mine = await db.query<{ count: string }>(`select count(*) from favorites`);
+    expect(mine.rows[0]!.count).toBe('1');
+
+    await actAsOwner(db);
+    await db.close();
+  });
+
+  it('gir anon lesetilgang til næringsdata uten innlogging', async () => {
+    const db = await freshDb();
+    await db.exec(`
+      insert into industries (nace_code, nace_level, name, common_name, slug)
+        values ('96.021', 5, 'Frisering', 'Frisørsalong', 'frisorsalong');
+    `);
+    await actAsAnon(db);
+    const r = await db.query<{ count: string }>(`select count(*) from industries`);
+    expect(r.rows[0]!.count).toBe('1');
+    await actAsOwner(db);
+    await db.close();
+  });
+
+  it('nekter anon å lese favoritter', async () => {
+    const db = await freshDb();
+    await actAsAnon(db);
+    // Ingen policy for anon på favorites, så tabellen ser tom ut.
+    const r = await db.query<{ count: string }>(`select count(*) from favorites`);
+    expect(r.rows[0]!.count).toBe('0');
+    await actAsOwner(db);
+    await db.close();
+  });
+
+  it('slår på RLS for alle offentlige tabeller', async () => {
+    const db = await freshDb();
+    const r = await db.query<{ count: string }>(`
+      select count(*) from pg_class
+      where relrowsecurity and relnamespace = 'public'::regnamespace
+    `);
+    // Tolv offentlige tabeller pluss favorites.
+    expect(r.rows[0]!.count).toBe('13');
+    await db.close();
+  });
+});
+```
+
+- [ ] **Step 4: Kjør og bekreft at de feiler**
+
+Run: `npm test`
+Expected: FAIL med `relation "favorites" does not exist`.
+
+- [ ] **Step 5: Skriv migrasjonen**
+
+`supabase/migrations/0007_rls.sql`:
+
+```sql
+-- Næringssidene er offentlige. Alt statistisk innhold leses av anon.
+create table favorites (
+  id          uuid primary key default gen_random_uuid(),
+  user_id     uuid not null references auth.users (id) on delete cascade,
+  industry_id uuid not null references industries (id) on delete cascade,
+  region_id   uuid not null references regions (id) on delete cascade,
+  created_at  timestamptz not null default now(),
+  unique (user_id, industry_id, region_id)
+);
+
+alter table favorites enable row level security;
+
+create policy favorites_select_own on favorites
+  for select using (auth.uid() = user_id);
+create policy favorites_insert_own on favorites
+  for insert with check (auth.uid() = user_id);
+create policy favorites_delete_own on favorites
+  for delete using (auth.uid() = user_id);
+
+-- Offentlig lesetilgang på alt som ikke er brukerdata.
+do $$
+declare t text;
+begin
+  foreach t in array array[
+    'industries','regions','region_population','industry_stats',
+    'industry_demography','companies','industry_estimates','ai_insights',
+    'ai_reports','industry_scores','score_weights','score_config'
+  ] loop
+    execute format('alter table %I enable row level security', t);
+    execute format('create policy %I on %I for select to anon, authenticated using (true)',
+                   t || '_public_read', t);
+    execute format('grant select on %I to anon, authenticated', t);
+  end loop;
+end $$;
+
+grant usage on schema public to anon, authenticated;
+grant select, insert, delete on favorites to authenticated;
+```
+
+- [ ] **Step 6: Kjør og bekreft at de passerer**
+
+Run: `npm test`
+Expected: PASS, 19 tester.
+
+- [ ] **Step 7: Commit**
+
+```bash
+git add supabase/migrations/0007_rls.sql tests/rls.test.ts tests/helpers/
+git commit -m "feat(db): add favorites with RLS and public read policies"
+```
+
+---
+
+Planen fortsetter med Task 8-13 (seed-generatoren), Task 14
+(edge function-stubber) og Task 15 (Lovable-overlevering).
