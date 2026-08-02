@@ -151,6 +151,7 @@ region_level : land | fylke | kommune
 unit_type    : foretak | virksomhet
 coverage     : alle | as_only
 konfidens    : lav | middels | høy
+mangel_arsak : ikke_publisert | konfidensielt | ikke_relevant | kommer_senere | brudd
 ```
 
 `coverage` er nytt og bærer ENK-forbeholdet på raden i stedet for i en
@@ -162,6 +163,19 @@ ufiltrert med en rad merket `alle`.
 der `omsetning_per_enhet` er regnet ut som total delt på antall er fortsatt
 `ssb`. `beregnet` er forbeholdt rader som i sin helhet er utledet fra andre
 rader, slik `industry_scores` er.
+
+`mangel_arsak` finnes fordi NULL ikke er ett svar, men fem. SSB bruker
+standardtegn i tabellene: `.` for at tallet ikke kan forekomme, `..` for
+manglende oppgave, `:` for at det kommer senere, og undertrykking av hensyn
+til konfidensialitet. På 5-siffer NACE krysset med region vil mange celler
+være undertrykt nettopp fordi det er få foretak igjen i cella.
+
+Forskjellen er ikke akademisk. «Ikke publisert» og «skjult fordi det er for
+få aktører til å oppgi tallet uten å røpe enkeltbedrifter» er to helt ulike
+beskjeder til en rådgiver — den andre er i seg selv informasjon om markedet.
+Derfor bærer statistikktabellene en `merknader jsonb` som kartlegger felt til
+årsak, for eksempel `{"driftsmargin_pct": "konfidensielt"}`. En kolonne per
+felt ville blåst opp skjemaet; ett jsonb-felt dekker alle.
 
 ### `industries`
 
@@ -235,6 +249,7 @@ Kjernetabellen. Én rad per næring × region × år × enhetstype.
 | bearbeidingsverdi_total | bigint | |
 | verdiskaping_per_sysselsatt | bigint | |
 | bruttoinvestering_total | bigint | |
+| merknader | jsonb | felt → `mangel_arsak`, f.eks. `{"driftsmargin_pct":"konfidensielt"}` |
 | source | text | f.eks. `SSB:12910` |
 | data_quality | data_quality | |
 | coverage | coverage | |
@@ -271,6 +286,7 @@ Samme granularitetsregler som `industry_stats`.
 | nedleggelser | int |
 | konkurser | int |
 | overlevelse_1ar_pct, overlevelse_3ar_pct, overlevelse_5ar_pct | numeric null |
+| merknader | jsonb |
 | source, data_quality, coverage | text / enum / enum |
 
 Unik på `(industry_id, region_id, year)`.
@@ -658,12 +674,56 @@ SSB kan ha satt en annen grense enn 10 000. Importen skal derfor lese
 `/api/v2/config` ved oppstart og dimensjonere batchene etter den faktiske
 verdien i stedet for å anta.
 
+### Standardtegn — NULL er fem forskjellige svar
+
+SSB fyller ikke tomme celler med tomhet. De bruker standardtegn: `.` for at
+tallet ikke kan forekomme, `..` for manglende oppgave, `:` for at det
+publiseres senere, `-` for ekte null, `0` for mindre enn en halv enhet, `*`
+for foreløpige tall, og egne markører for brudd i tidsserien. I tillegg
+undertrykkes celler av hensyn til konfidensialitet.
+
+Importen må oversette disse til `NULL` **pluss** en `mangel_arsak` i
+`merknader`. Et tall som er skjult fordi næringen har for få aktører i fylket
+er ikke det samme som et tall SSB ennå ikke har publisert, og en `-` er ikke
+et hull i det hele tatt — det er et ekte null som skal vises som 0.
+
+Dette er den enkeltfeilen som ville vært lettest å gjøre og vanskeligst å
+oppdage senere: leser man standardtegnene som manglende data, blir ekte
+nulltall borte, og undertrykte celler ser ut som datahull.
+
+### Rate limiting
+
+SSB advarer eksplisitt mot for hyppige kall og svarer med `429`. Ved
+publisering klokka 08.00 risikerer storforbrukere å få IP-en blokkert.
+
+`import-ssb` skal derfor kjøre med respekt for `Retry-After`, eksponentiell
+backoff på `429`, og planlegges utenfor publiseringsvinduet om morgenen.
+Importen er uansett en batch-jobb som kjøres sjelden, ikke noe som treffes fra
+brukerflyten.
+
+### Tabellsøk
+
+`/api/v2/tables?query=` bruker Lucene-syntaks: fraser i hermetegn, `title:`
+for å begrense til tabelltittel, `AND`/`OR`/`NOT`, `*` og `?` som jokertegn,
+og `~n` som nærhetsoperator. Nyttig for å finne riktige tabell-ID-er
+programmatisk i stedet for å hardkode dem — men ID-ene bør uansett festes i
+konfigurasjon når de først er funnet, så importen ikke bytter kilde av seg
+selv.
+
 ### Fortsatt uverifisert
 
 Kontrakten over er sikker. Hvilke *variabler* de enkelte tabellene tilbyr —
-altså om 12936 har `driftsresultat`, om årgangene er tilbakeskrevet, om
-`arsverk` finnes — avgjøres av tabellene, ikke av API-et. Det svares først av
-et `GET /api/v2/tables/12936/metadata`, som må være første kall importen gjør.
+altså om 12936 har `driftsresultat` og `bruttoinvestering`, om `arsverk`
+finnes — avgjøres av tabellene, ikke av API-et. Det svares av et
+`GET /api/v2/tables/12936/metadata`, som må være første kall importen gjør.
+
+Fylkesårgangene har derimot fått et delvis svar: SSB publiserer en egen
+oversikt over «tabeller som bruker ny regioninndeling også for årene før
+2024», altså tilbakeskrevne serier. Noen tabeller er tilbakeskrevet, andre
+ikke. Importen må slå opp den aktuelle tabellen der før den avgjør hvilken
+årgang radene hører til. Modellens strengeste antakelse — at hvert år bærer
+sin egen årgang — står ved lag inntil dette er sjekket per tabell, siden den
+takler begge utfall.
 
 ---
 

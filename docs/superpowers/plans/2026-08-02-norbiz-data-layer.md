@@ -28,7 +28,7 @@ får sin egen plan.
 | Fil | Ansvar |
 |---|---|
 | `package.json`, `tsconfig.json`, `vitest.config.ts` | verktøykjede |
-| `supabase/migrations/0001_enums.sql` | de fem enumene |
+| `supabase/migrations/0001_enums.sql` | de seks enumene |
 | `supabase/migrations/0002_reference.sql` | `industries`, `regions`, `region_population` |
 | `supabase/migrations/0003_statistics.sql` | `industry_stats`, `industry_demography` |
 | `supabase/migrations/0004_companies.sql` | `companies` |
@@ -180,7 +180,7 @@ import { describe, expect, it } from 'vitest';
 import { freshDb } from './helpers/db.js';
 
 describe('enums', () => {
-  it('definerer de fem enumene med riktige verdier', async () => {
+  it('definerer de seks enumene med riktige verdier', async () => {
     const db = await freshDb();
     const res = await db.query<{ typname: string; labels: string[] }>(`
       select t.typname, array_agg(e.enumlabel order by e.enumsortorder) as labels
@@ -196,6 +196,9 @@ describe('enums', () => {
     expect(byName['unit_type']).toEqual(['foretak', 'virksomhet']);
     expect(byName['coverage']).toEqual(['alle', 'as_only']);
     expect(byName['konfidens']).toEqual(['lav', 'middels', 'hoy']);
+    expect(byName['mangel_arsak']).toEqual([
+      'ikke_publisert', 'konfidensielt', 'ikke_relevant', 'kommer_senere', 'brudd',
+    ]);
     await db.close();
   });
 });
@@ -226,6 +229,12 @@ create type coverage as enum ('alle', 'as_only');
 
 -- Kun meningsfull for data_quality = 'ai_anslag'.
 create type konfidens as enum ('lav', 'middels', 'hoy');
+
+-- NULL er fem forskjellige svar. SSB bruker standardtegn: '.' ikke relevant,
+-- '..' oppgave mangler, ':' kommer senere, pluss undertrykking av hensyn til
+-- konfidensialitet. Et undertrykt tall er ikke det samme som et upublisert.
+create type mangel_arsak as enum
+  ('ikke_publisert', 'konfidensielt', 'ikke_relevant', 'kommer_senere', 'brudd');
 ```
 
 - [ ] **Step 9: Kjør testen og bekreft at den passerer**
@@ -515,6 +524,9 @@ create table industry_stats (
   verdiskaping_per_sysselsatt bigint,
   bruttoinvestering_total     bigint,
 
+  -- Felt -> mangel_arsak, f.eks. {"driftsmargin_pct": "konfidensielt"}.
+  merknader                   jsonb not null default '{}'::jsonb,
+
   source                      text not null,
   data_quality                data_quality not null,
   coverage                    coverage not null,
@@ -547,6 +559,8 @@ create table industry_demography (
   overlevelse_1ar_pct   numeric(5, 2),
   overlevelse_3ar_pct   numeric(5, 2),
   overlevelse_5ar_pct   numeric(5, 2),
+
+  merknader             jsonb not null default '{}'::jsonb,
 
   source                text not null,
   data_quality          data_quality not null,
