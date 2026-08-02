@@ -18,17 +18,31 @@ investorer og oppkjøpere; gründere.
 ## 1. Grunnregelen
 
 Dette er et shell-first-bygg. All data i første versjon er syntetisk, men
-**databaseskjemaet er endelig**.
+**databaseskjemaet er endelig**. Når ekte data importeres, endres kun innholdet
+i tabellene — ikke én linje frontend.
 
-Hver kolonne skal tilsvare et felt som faktisk finnes i SSBs statistikkbank
-eller Brønnøysundregistrenes åpne API. Ingen oppfunne felter. Når ekte data
-importeres, endres kun innholdet i tabellene — ikke én linje frontend.
+Verktøyet skal samle mye god, strukturert informasjon på ett sted. Ikke alt det
+en kjøper eller rådgiver trenger å vite finnes i offentlig statistikk. Der
+statistikken tier, skal verktøyet likevel svare — med anslag basert på
+bransjeerfaring, tydelig merket som nettopp det.
 
-Tre konsekvenser som gjelder overalt:
+Regelen er derfor ikke «bare målte tall». Den er **at et tall aldri skal kunne
+forveksles med noe det ikke er**. Tre nivåer, med hver sin merking:
 
-- Hver statistikkrad bærer `source`, `data_quality` og `coverage`.
-- Manglende data er NULL og vises som «ikke publisert». Aldri 0, aldri utfylt
-  med et estimat med mindre raden er merket `beregnet`.
+| Nivå | Hva det er | `data_quality` |
+|---|---|---|
+| Målt | Publisert av SSB eller Brreg | `ssb`, `brreg` |
+| Utledet | Regnet ut fra målte tall | `beregnet` |
+| Anslått | AI-vurdering der ingen kilde finnes | `ai_anslag` |
+
+Et anslag er et fullverdig svar, ikke en nødløsning. Men det skal aldri stå
+umerket ved siden av et målt tall, og aldri i samme kolonne.
+
+Konsekvenser som gjelder overalt:
+
+- Hver rad bærer `source`, `data_quality` og `coverage`.
+- Manglende data er NULL og vises som «ikke publisert» — aldri 0. Et hull kan
+  fylles med et anslag, men da som `ai_anslag`, ikke som en stille utfylling.
 - Frontend hardkoder aldri tall. Alt hentes fra Supabase via TanStack Query.
 
 ---
@@ -88,17 +102,42 @@ SSBs strukturstatistikk publiserer totaler og gjennomsnitt, ikke medianer.
 Feltet kan ikke fylles fra noen tilgjengelig kilde.
 `omsetning_per_enhet` beholdes — det er total delt på antall, som er utledbart.
 
-### 2.4 `score_kapitalbehov` som øyeblikksbilde — ANTAKELSE
+### 2.4 `score_kapitalbehov` deles i to
 
-Det åpne Regnskapsregister-API-et gir kun siste innsendte regnskapsår.
-Delscoren beregnes derfor én gang fra siste tilgjengelige år og holdes konstant
-over årene, tydelig merket som øyeblikksbilde med eget årstall.
+Det opprinnelige problemet: delscoren skulle bygge på median egenkapital fra
+Brreg, men det åpne API-et gir kun siste innsendte regnskapsår, så det finnes
+ingen tidsserie å score mot.
 
-Dette er den ene beslutningen brukeren ikke eksplisitt bekreftet. Alternativene
-var å bytte kilde til bruttoinvestering per sysselsatt fra strukturstatistikken
-(ekte tidsserie, men måler kapitalintensitet i drift heller enn
-etableringskostnad), eller å fjerne delscoren og bygge `score_total` på fem.
-Endringen er liten og isolert til scoremodellen.
+Beslutning 2.5 løser dette ved å splitte spørsmålet, fordi det egentlig var to:
+
+**Kapitalintensitet i drift** blir delscoren. Den beregnes fra
+`bruttoinvestering_total` per sysselsatt i strukturstatistikken — en ekte
+tidsserie, målt, og dermed gyldig input til `score_total`.
+
+**Etableringskapital** — hva det faktisk koster å komme i gang — blir en rad i
+`industry_estimates`. Det er det gründeren spør om, det finnes ikke i noen
+kilde, og det er nettopp den typen spørsmål anslagslaget er til for. Vises som
+spenn med konfidens ved siden av scoren, ikke inni den.
+
+Brreg-egenkapital brukes ikke til scoring. Den forblir tilgjengelig per
+selskap i `companies`.
+
+### 2.5 AI-anslag som eget nivå, ikke som utvisking av grensen
+
+Lagt til etter første gjennomlesning. Det opprinnelige utkastet tillot kun
+målte felter og forbød eksplisitt «typisk etableringskapital» og «median lønn
+til eier». Det er reversert: verktøyet skal svare også der statistikken tier,
+med anslag basert på bransjeerfaring.
+
+Grensen mellom målt og anslått består likevel, som en tredje verdi i
+`data_quality` og en egen tabell. Begrunnelsen er målgruppen: rådgivere,
+banker og næringsmeglere setter disse tallene inn i beslutninger for andre.
+Et anslag de kan se er et anslag, er nyttig. Et anslag de tror er statistikk,
+er en hefte.
+
+Praktisk følge: anslag vises fritt, i egen visuell form, med konfidens og
+begrunnelse — men de går ikke inn i `score_total`, og de deler aldri kolonne
+med et målt tall.
 
 ---
 
@@ -107,10 +146,11 @@ Endringen er liten og isolert til scoremodellen.
 ### Enums
 
 ```
-data_quality : mock | ssb | brreg | beregnet
+data_quality : mock | ssb | brreg | beregnet | ai_anslag
 region_level : land | fylke | kommune
 unit_type    : foretak | virksomhet
 coverage     : alle | as_only
+konfidens    : lav | middels | høy
 ```
 
 `coverage` er nytt og bærer ENK-forbeholdet på raden i stedet for i en
@@ -258,6 +298,71 @@ Kun siste tilgjengelige regnskapsår — det er alt det åpne Brreg-API-et gir.
 årsregnskap og `regnskapsar` finnes. Gjør ENK-avgrensningen etterprøvbar i
 basen i stedet for å være en påstand i en UI-tekst.
 
+### `industry_estimates`
+
+Der statistikken tier. Egen tabell, ikke kolonner i `industry_stats`, av to
+grunner: `industry_stats` skal forbli idempotent importerbar fra SSB uten at
+en import stryker anslag, og anslag har sin egen livssyklus — modell,
+promptversjon, konfidens, gyldighetsdato.
+
+| kolonne | type | merknad |
+|---|---|---|
+| id | uuid pk | |
+| industry_id | uuid fk | |
+| region_id | uuid fk null | NULL = gjelder nasjonalt |
+| metrikk | text | f.eks. `etableringskapital`, `sesongvariasjon` |
+| verdi_num | numeric null | når anslaget er et tall |
+| verdi_tekst | text null | når anslaget er kvalitativt |
+| enhet | text null | `NOK`, `pct`, `mnd` |
+| intervall_lav, intervall_hoy | numeric null | anslag oppgis helst som spenn |
+| konfidens | konfidens | |
+| begrunnelse | text | hvorfor dette anslaget |
+| basert_pa | jsonb | hvilke faktiske rader anslaget hviler på |
+| model, prompt_version | text | |
+| generated_at | timestamptz | |
+| source | text | `ai:<modell>` |
+| data_quality | data_quality | alltid `ai_anslag` |
+
+Unik på `(industry_id, region_id, metrikk)`.
+
+Anslag oppgis som **spenn med konfidens**, ikke som ett tall, når metrikken
+tåler det. «Etableringskapital 300 000–800 000, middels konfidens» er et
+ærlig svar. «Etableringskapital 512 000» er det ikke.
+
+`basert_pa` er det som skiller et anslag fra en gjetning: den skal peke på de
+faktiske radene modellen fikk se. Samme prinsipp som `forklaring` i
+scoringen — ingen svarte bokser.
+
+Metrikkene er en åpen liste, ikke kolonner, nettopp fordi de vil vokse.
+Startsettet: etableringskapital, typisk tid til lønnsomhet, sesongvariasjon,
+kundekonsentrasjon, reguleringsbyrde, digitaliseringsgrad.
+
+### `ai_insights`
+
+Innsikt knyttet til tall, ikke bare en rapporttekst. Én rad per observasjon,
+slik at innsikten kan vises ved siden av KPI-en den handler om, i stedet for
+som en vegg av tekst nederst på siden.
+
+| kolonne | type | merknad |
+|---|---|---|
+| id | uuid pk | |
+| industry_id, region_id | fk | |
+| year | int null | |
+| type | text | `risiko`, `mulighet`, `avvik`, `sammenligning`, `kontekst` |
+| tittel | text | én setning |
+| body | text | |
+| alvorlighet | int 1–5 | styrer rekkefølge og visuell vekt |
+| referanser | jsonb | hvilke rader og felter påstanden bygger på |
+| knyttet_til | text null | KPI-nøkkel, så innsikten kan ankres i UI-et |
+| model, prompt_version, generated_at | text / text / timestamptz |
+| data_quality | data_quality | `ai_anslag` |
+
+`referanser` er obligatorisk. En innsikt som ikke kan peke på tallene den
+bygger på, skal ikke lagres.
+
+`ai_reports` beholdes for den lange, sammenhengende rapporten.
+`ai_insights` er det korte, forankrede laget som ligger i selve dashbordet.
+
 ### `score_weights` og `score_config`
 
 `score_weights`: én rad per delscore med vekt. Vektene skal kunne justeres
@@ -304,7 +409,7 @@ næringer havner i midten.
 | Vekst | endring i `omsetning_total` over siste tre år |
 | Risiko | invers av `konkurser / n_enheter` og `overlevelse_5ar_pct` |
 | Konkurranse | `n_enheter` per 10 000 innbyggere i regionen |
-| Kapitalbehov | invers av median `egenkapital` — øyeblikksbilde, se 2.4 |
+| Kapitalbehov | `bruttoinvestering_total` per sysselsatt, se 2.4 |
 | Etterspørsel | endring i `n_enheter` og `sysselsatte_total` |
 
 Delscorer er nullable. Mangler `driftsmargin_pct` regionalt, er
@@ -320,6 +425,21 @@ bokser.
 Konkurransescoren trenger folketall per region og år. Det er en egen SSB-kilde
 og må inn i importen, med sin egen tabell `region_population`
 (`region_id`, `year`, `innbyggere`, `source`, `data_quality`).
+
+### Anslag går ikke inn i score_total
+
+`industry_scores` beregnes utelukkende fra målte og utledede tall. Rader fra
+`industry_estimates` inngår ikke.
+
+Grunnen er hvem verktøyet er for. En rådgiver som sammenligner to næringer på
+score må vite at forskjellen ligger i tallene, ikke i hvor selvsikker modellen
+var den dagen anslaget ble generert. Blandes anslag inn, blir scoren
+usammenlignbar på tvers av næringer — noen ville hvile på SSB-tall, andre på
+en språkmodell, uten at rangeringen viser forskjellen.
+
+Anslag vises ved siden av scoren, aldri inni den. Mangler en delscore
+datagrunnlag, er den NULL og `score_total` renormaliseres over de som finnes.
+Det er et ærligere svar enn å fylle hullet.
 
 ---
 
@@ -339,6 +459,12 @@ bare plausible verdier.
   siden serien slutter før 2024, men finnes i `regions` fordi
   Enhetsregisterdata er live og hører hjemme der
 - 300 rader i `companies`, plassert på dagens kommuner
+- `industry_estimates` for de 60 femsifrede næringene, med spenn og varierende
+  konfidens — ikke alle på «høy», ellers får frontend aldri testet hvordan lav
+  konfidens ser ut
+- `ai_insights` for de ti vanligste næringene, med utfylt `referanser` og
+  `knyttet_til`, og med minst én av hver `type`, så alle varianter av
+  `<InsightCard />` er dekket
 
 En seed som er penere enn virkeligheten er verre enn ingen seed: da bygger
 Lovables agent en frontend mot en form ekte data aldri vil ha, og
@@ -398,11 +524,26 @@ function henter tallene fra basen først og sender dem inn i prompten, slik at
 teksten er forankret i faktiske rader. Lagres i `ai_reports` og caches. I
 demoversjon: forhåndsgenerert tekst for de ti vanligste næringene.
 
-### Delt komponent
+### Delte komponenter
 
-`<DataBadge quality={...} source={...} year={...} coverage={...} />` brukes på
-hvert eneste KPI-kort og hver graf. `coverage` er lagt til så AS-avgrensningen
-er synlig der tallet står.
+`<DataBadge quality={...} source={...} year={...} coverage={...} konfidens={...} />`
+på hvert eneste KPI-kort og hver graf. `coverage` gjør AS-avgrensningen synlig
+der tallet står; `konfidens` vises kun for `ai_anslag`.
+
+Merkingen må være visuelt forskjellig, ikke bare tekstlig. Grå «Demo-data» for
+`mock`, nøytral kildeangivelse for `ssb` og `brreg`, og en tydelig annen form
+for `ai_anslag` — brukeren skal se forskjellen i periferisynet, uten å lese
+badgen.
+
+`<InsightCard />` rendrer én rad fra `ai_insights`, ankret ved KPI-en i
+`knyttet_til`, sortert på `alvorlighet`. Klikk utvider `referanser` slik at
+tallene bak påstanden vises.
+
+`<Footnotes />` nederst på hver side. Samler kildene som faktisk er brukt på
+den siden, med årstall, og bærer forbeholdet: at statistikk publiseres med
+etterslep, at siste tilgjengelige år kan være to–tre år gammelt, at anslag er
+anslag, og at ENK mangler i regnskapstall. Footnotene genereres fra radene
+siden faktisk viste — ikke en håndskrevet tekst som råtner når kildene endres.
 
 ---
 
@@ -441,6 +582,11 @@ Recharts, Framer Motion sparsomt.
   fra sist innsendte årsregnskap per orgnr; tre år finnes bare i den lukkede
   delen, som krever offentlig myndighet.
 - **`compute-scores`** — materialiserer `industry_scores` fra scoring-viewet.
+- **`generate-insights`** — henter tallene for en næring og region fra basen,
+  sender dem inn i prompten, og skriver strukturerte rader til `ai_insights`
+  og `industry_estimates`. Aldri fritekst uten `referanser` eller `basert_pa`.
+  Kjøres i batch, ikke i brukerflyten, og caches på
+  `(industry_id, region_id, prompt_version)`.
 
 Hver function har en kommentarblokk øverst med kilde, endepunkt og hvilke
 kolonner den fyller. Import er idempotent: upsert på nøkkelen.
@@ -457,21 +603,32 @@ Ingen live API-kall i brukerflyten. All data leses fra egne tabeller.
 3. Opprett Lovable-prosjekt, koblet til samme Supabase — ikke Lovable Cloud.
 4. `set_project_knowledge` med invariantene: DataBadge på hvert tall, ingen
    hardkodede verdier, NULL rendres som «ikke publisert», TanStack Query mot
-   basen, aldri sammenligne `as_only` med `alle` uten merking.
+   basen, aldri sammenligne `as_only` med `alle` uten merking, `ai_anslag` i
+   visuelt annen form enn målte tall, og `<Footnotes />` generert fra radene
+   siden faktisk viste.
 5. Én `send_message` per side, i rekkefølge, med skjemaet som kontrakt.
 
 ---
 
 ## 10. Ikke gjør
 
-- Ikke legg inn KPI-er som «median lønn til eier» eller «typisk
-  etableringskapital» — de finnes ikke i noen tilgjengelig kilde.
+- Ikke plasser anslag i `industry_stats`. De hører hjemme i
+  `industry_estimates`, med egen merking. Et anslag som deler kolonne med et
+  SSB-tall er umulig å skille fra det senere.
+- Ikke la anslag inngå i `score_total`. Se 4.
+- Ikke lagre en innsikt uten `referanser`, eller et anslag uten `basert_pa`.
+- Ikke oppgi et anslag som ett presist tall når metrikken tåler et spenn.
 - Ikke bland enkeltpersonforetak og aksjeselskaper i samme snitt uten å merke
   det. `coverage` finnes for dette.
 - Ikke hardkod tall i komponenter.
 - Ikke bygg innlogging bak alt — næringssidene er offentlige.
 - Ikke lag flere sider enn de seks.
 - Ikke fyll NULL med 0.
+
+Merk: «median lønn til eier» og «typisk etableringskapital» sto tidligere på
+denne lista fordi de ikke finnes i noen kilde. De er nå tillatt — som rader i
+`industry_estimates` med konfidens og begrunnelse, aldri som kolonner i
+statistikktabellene.
 
 ---
 
@@ -482,6 +639,6 @@ Ingen live API-kall i brukerflyten. All data leses fra egne tabeller.
 | Har den regionale SSB-tabellen `driftsresultat`? | Verifiseres først i `import-ssb`. Begge felter nullable, så designet tåler begge utfall. |
 | Publiseres 2017–2023 på datidens fylkesinndeling eller tilbakeskrevet til dagens 15? | Modellen antar det strengeste tilfellet. Verifiseres i `import-ssb`. |
 | Finnes `arsverk_per_enhet` i strukturstatistikken? | Usikkert — `sysselsatte` er sikker, årsverk ikke. Nullable; droppes hvis den ikke finnes. |
-| `score_kapitalbehov` som øyeblikksbilde | Antakelse, ikke bekreftet. Se 2.4. |
+| Finnes `bruttoinvestering` i den regionale SSB-tabellen? | Kreves nå av `score_kapitalbehov`. Nullable; delscoren blir NULL regionalt hvis ikke. |
 | Folketall per region og år | Fjerde SSB-kilde, kreves av konkurransescoren. |
 | `data.ssb.no` er blokkert i utviklingscontaineren | Påvirker ikke edge functions, som kjører på Supabase. Betyr at API-formen ikke kan valideres lokalt. |
