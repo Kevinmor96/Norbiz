@@ -2155,5 +2155,1086 @@ git commit -m "feat(seed): generate statistics top-down with skewed regional wei
 
 ---
 
-Planen fortsetter med Task 12 (emit + full lastetest), Task 13 (anslag og
-innsikt), Task 14 (edge function-stubber) og Task 15 (Lovable-overlevering).
+## Task 12: Selskaper, anslag og innsikt
+
+Tre generatorer som fyller ut resten av seed-en. Felles krav: anslag oppgis som
+**spenn med konfidens**, aldri som ett tall, og hver innsikt bærer
+`referanser` som peker på radene påstanden bygger på.
+
+Konfidensen skal variere. Er alt satt til `hoy`, får frontend aldri testet
+hvordan et lavkonfidens-anslag ser ut ved siden av et sikkert tall.
+
+**Files:**
+- Create: `seed/companies.ts`, `seed/ai.ts`
+- Modify: `seed/types.ts`, `tests/seed.test.ts`
+
+- [ ] **Step 1: Utvid `seed/types.ts`**
+
+```ts
+export interface CompanyRow {
+  org_nr: string;
+  navn: string;
+  nace_code: string;
+  kommune_code: string;
+  organisasjonsform: string;
+  ansatte: number;
+  omsetning: number | null;
+  driftsresultat: number | null;
+  egenkapital: number | null;
+  regnskapsar: number | null;
+}
+
+export interface EstimateRow {
+  industry_nace: string;
+  region_code: string | null;
+  metrikk: string;
+  intervall_lav: number;
+  intervall_hoy: number;
+  enhet: string;
+  konfidens: 'lav' | 'middels' | 'hoy';
+  begrunnelse: string;
+  basert_pa: unknown[];
+  model: string;
+  prompt_version: string;
+  source: string;
+  data_quality: 'ai_anslag';
+}
+
+export interface InsightRow {
+  industry_nace: string;
+  region_code: string;
+  year: number;
+  type: 'risiko' | 'mulighet' | 'avvik' | 'sammenligning' | 'kontekst';
+  tittel: string;
+  body: string;
+  alvorlighet: number;
+  referanser: unknown[];
+  knyttet_til: string;
+  model: string;
+  prompt_version: string;
+  data_quality: 'ai_anslag';
+}
+
+export interface PopulationRow {
+  region_code: string; vintage: number; year: number; innbyggere: number;
+}
+
+export interface SeedBundle {
+  industries: import('./industries.js').IndustryRow[];
+  regions: RegionRow[];
+  rows: StatRow[];
+  demography: DemographyRow[];
+  population: PopulationRow[];
+  companies: CompanyRow[];
+  estimates: EstimateRow[];
+  insights: InsightRow[];
+}
+```
+
+- [ ] **Step 2: Skriv de feilende testene**
+
+```ts
+import { buildCompanies } from '../seed/companies.js';
+import { buildEstimates, buildInsights } from '../seed/ai.js';
+
+describe('companies', () => {
+  const rows = buildCompanies(makeRng(1), buildIndustries(), ['0301', '1103', '4601']);
+
+  it('lager 300 selskaper med unike organisasjonsnummer', () => {
+    expect(rows).toHaveLength(300);
+    expect(new Set(rows.map((r) => r.org_nr)).size).toBe(300);
+  });
+
+  it('lar ENK stå uten regnskapstall', () => {
+    const enk = rows.filter((r) => r.organisasjonsform === 'ENK');
+    expect(enk.length).toBeGreaterThan(0);
+    for (const r of enk) {
+      expect(r.regnskapsar).toBeNull();
+      expect(r.omsetning).toBeNull();
+    }
+  });
+
+  it('gir AS regnskapstall for siste år', () => {
+    for (const r of rows.filter((x) => x.organisasjonsform === 'AS')) {
+      expect(r.regnskapsar).toBe(2023);
+      expect(r.omsetning).not.toBeNull();
+    }
+  });
+});
+
+describe('estimates', () => {
+  const rows = buildEstimates(makeRng(2), buildIndustries());
+
+  it('oppgir alltid et spenn, aldri ett tall', () => {
+    for (const r of rows) {
+      expect(r.intervall_hoy).toBeGreaterThanOrEqual(r.intervall_lav);
+    }
+  });
+
+  it('varierer konfidensen', () => {
+    expect(new Set(rows.map((r) => r.konfidens)).size).toBe(3);
+  });
+
+  it('har ikke-tom basert_pa og begrunnelse på hver rad', () => {
+    for (const r of rows) {
+      expect(r.basert_pa.length).toBeGreaterThan(0);
+      expect(r.begrunnelse.length).toBeGreaterThan(10);
+    }
+  });
+
+  it('gir rådgivning lavere etableringskapital enn servering', () => {
+    const forCode = (c: string) =>
+      rows.find((r) => r.industry_nace === c && r.metrikk === 'etableringskapital')!;
+    expect(forCode('69.201').intervall_hoy).toBeLessThan(forCode('56.101').intervall_hoy);
+  });
+});
+
+describe('insights', () => {
+  it('dekker alle fem innsiktstypene og har alltid referanser', () => {
+    const industries = buildIndustries();
+    const built = buildStats(makeRng(3), industries, regionsByYear());
+    const byNace = new Map<string, typeof built.rows>();
+    for (const r of built.rows) {
+      if (!byNace.has(r.nace_code)) byNace.set(r.nace_code, []);
+      byNace.get(r.nace_code)!.push(r);
+    }
+    const rows = buildInsights(makeRng(4), industries, byNace);
+
+    expect(new Set(rows.map((r) => r.type)).size).toBe(5);
+    for (const r of rows) {
+      expect(r.referanser.length).toBeGreaterThan(0);
+      expect(r.alvorlighet).toBeGreaterThanOrEqual(1);
+      expect(r.alvorlighet).toBeLessThanOrEqual(5);
+    }
+  });
+});
+```
+
+- [ ] **Step 3: Kjør og bekreft at de feiler**
+
+Run: `npm test`
+Expected: FAIL med `Cannot find module '../seed/companies.js'`.
+
+- [ ] **Step 4: Skriv `seed/companies.ts`**
+
+```ts
+import type { Rng } from './rng.js';
+import type { IndustryRow } from './industries.js';
+import type { CompanyRow } from './types.js';
+
+const FORMS: [string, number][] = [['AS', 0.62], ['ENK', 0.28], ['NUF', 0.05], ['ASA', 0.02], ['SA', 0.03]];
+const PREFIX = ['Nord','Vest','Sør','Øst','Fjell','Vik','Berg','Lund','Haug','Strand','Dal','Elv'];
+const SUFFIX = ['gruppen','partner','service','senter','kompaniet','verksted','huset','byrået'];
+
+/** 300 selskaper, kun siste regnskapsår. ENK mangler regnskapstall. */
+export function buildCompanies(
+  rng: Rng, industries: IndustryRow[], kommuner: string[], count = 300,
+): CompanyRow[] {
+  const leaves = industries.filter((i) => i.nace_level === 5);
+  const out: CompanyRow[] = [];
+  const seen = new Set<number>();
+  while (out.length < count) {
+    const ind = rng.pick(leaves);
+    const form = pickWeighted(rng, FORMS);
+    const orgNr = 800000000 + Math.floor(rng.next() * 199999999);
+    if (seen.has(orgNr)) continue;
+    seen.add(orgNr);
+    const filesAccounts = ['AS', 'ASA', 'NUF', 'SA'].includes(form);
+    const ansatte = Math.max(0, Math.round(rng.range(0, 45) ** 0.8));
+    const omsetning = filesAccounts ? Math.round(rng.range(4e5, 9e7)) : null;
+    out.push({
+      org_nr: String(orgNr),
+      navn: `${rng.pick(PREFIX)} ${ind.common_name.toLowerCase()} ${rng.pick(SUFFIX)} ${form}`
+        .replace(/\s+/g, ' '),
+      nace_code: ind.nace_code,
+      kommune_code: rng.pick(kommuner),
+      organisasjonsform: form,
+      ansatte,
+      omsetning,
+      // ENK leverer ikke årsregnskap, så tallene mangler - de er ikke null.
+      driftsresultat: omsetning === null ? null : Math.round(omsetning * rng.range(-0.08, 0.22)),
+      egenkapital: omsetning === null ? null : Math.round(omsetning * rng.range(0.05, 0.45)),
+      regnskapsar: filesAccounts ? 2023 : null,
+    });
+  }
+  return out;
+}
+
+function pickWeighted(rng: Rng, pairs: [string, number][]): string {
+  const t = rng.next();
+  let acc = 0;
+  for (const [v, w] of pairs) { acc += w; if (t <= acc) return v; }
+  return pairs[pairs.length - 1]![0];
+}
+```
+
+- [ ] **Step 5: Skriv `seed/ai.ts`**
+
+```ts
+import type { ProfileName } from './config.js';
+import type { Rng } from './rng.js';
+import type { IndustryRow } from './industries.js';
+import type { EstimateRow, InsightRow, StatRow } from './types.js';
+
+type Band = Record<ProfileName, [number, number]>;
+interface Metric { metrikk: string; enhet: string; band: Band; begrunnelse: string }
+
+const METRICS: Metric[] = [
+  { metrikk: 'etableringskapital', enhet: 'NOK',
+    band: { servering: [400000,1400000], varehandel: [350000,1200000], bygg: [250000,900000],
+            tjenesteyting: [150000,600000], radgivning: [50000,250000], helse: [300000,1500000] },
+    begrunnelse: 'Utstyr, lokaler og drift fram til positiv kontantstrøm.' },
+  { metrikk: 'tid_til_lonnsomhet', enhet: 'mnd',
+    band: { servering: [12,30], varehandel: [10,24], bygg: [6,18],
+            tjenesteyting: [6,15], radgivning: [3,10], helse: [9,20] },
+    begrunnelse: 'Typisk tid før driften bærer seg, gitt marginbåndet i næringen.' },
+  { metrikk: 'sesongvariasjon', enhet: 'pct',
+    band: { servering: [25,55], varehandel: [15,40], bygg: [20,45],
+            tjenesteyting: [8,22], radgivning: [5,15], helse: [4,12] },
+    begrunnelse: 'Spredning mellom sterkeste og svakeste kvartal.' },
+];
+
+/** Anslag oppgis som spenn med konfidens, aldri som ett presist tall. */
+export function buildEstimates(rng: Rng, industries: IndustryRow[]): EstimateRow[] {
+  const out: EstimateRow[] = [];
+  for (const ind of industries.filter((i) => i.nace_level === 5)) {
+    for (const m of METRICS) {
+      const [lo, hi] = m.band[ind.profile];
+      const low = Math.round(lo * rng.jitter(0.15));
+      const high = Math.round(hi * rng.jitter(0.15));
+      // Konfidensen varierer med vilje, ellers får frontend aldri testet
+      // hvordan et lavkonfidens-anslag ser ut ved siden av et høykonfidens.
+      const konfidens = rng.pick(['lav', 'middels', 'middels', 'hoy'] as const);
+      out.push({
+        industry_nace: ind.nace_code, region_code: null, metrikk: m.metrikk,
+        intervall_lav: Math.min(low, high), intervall_hoy: Math.max(low, high),
+        enhet: m.enhet, konfidens, begrunnelse: m.begrunnelse,
+        basert_pa: [{ table: 'industry_stats', nace_code: ind.nace_code, year: 2023,
+                      felt: ['driftsmargin_pct','bruttoinvestering_total'] }],
+        model: 'seed', prompt_version: 'v0', source: 'seed:ai', data_quality: 'ai_anslag',
+      });
+    }
+  }
+  return out;
+}
+
+const TYPES = ['risiko', 'mulighet', 'avvik', 'sammenligning', 'kontekst'] as const;
+type InsightType = (typeof TYPES)[number];
+
+/** Innsikt forankret i KPI-en den handler om, med obligatoriske referanser. */
+export function buildInsights(
+  rng: Rng, industries: IndustryRow[], statsByNace: Map<string, StatRow[]>,
+): InsightRow[] {
+  const out: InsightRow[] = [];
+  const leaves = industries.filter((i) => i.nace_level === 5).slice(0, 10);
+  for (const ind of leaves) {
+    const series = (statsByNace.get(ind.nace_code) ?? [])
+      .filter((r) => r.region_level === 'land' && r.unit_type === 'foretak')
+      .sort((a, b) => a.year - b.year);
+    if (series.length < 2) continue;
+    const first = series[0]!;
+    const last = series[series.length - 1]!;
+    const marginDelta = (last.driftsmargin_pct ?? 0) - (first.driftsmargin_pct ?? 0);
+    const unitDelta = last.n_enheter - first.n_enheter;
+
+    // Én av hver type, så alle varianter av InsightCard er dekket i seed.
+    for (const type of TYPES) {
+      out.push({
+        industry_nace: ind.nace_code, region_code: '0', year: last.year, type,
+        tittel: titleFor(type, ind, marginDelta, unitDelta),
+        body: bodyFor(type, ind, marginDelta, unitDelta, first, last),
+        alvorlighet: 1 + Math.floor(rng.next() * 5),
+        referanser: [{ table: 'industry_stats', nace_code: ind.nace_code,
+                       years: [first.year, last.year], felt: ['driftsmargin_pct','n_enheter'] }],
+        knyttet_til: type === 'avvik' ? 'driftsmargin' : type === 'konkurranse' ? 'n_enheter' : 'driftsmargin',
+        model: 'seed', prompt_version: 'v0', data_quality: 'ai_anslag',
+      });
+    }
+  }
+  return out;
+}
+
+const pct = (v: number): string => `${v > 0 ? '+' : ''}${v.toFixed(1)}`;
+function titleFor(type: InsightType, ind: IndustryRow, dm: number, du: number): string {
+  switch (type) {
+    case 'risiko': return `Marginpress i ${ind.common_name.toLowerCase()}`;
+    case 'mulighet': return `Rom for konsolidering i ${ind.common_name.toLowerCase()}`;
+    case 'avvik': return dm < 0 ? 'Marginen faller mens antall foretak øker'
+                                : 'Marginen stiger raskere enn foretaksveksten';
+    case 'sammenligning': return `${ind.common_name} mot resten av næringsgruppen`;
+    default: return `Slik leses tallene for ${ind.common_name.toLowerCase()}`;
+  }
+}
+function bodyFor(
+  type: InsightType, ind: IndustryRow, dm: number, du: number,
+  first: StatRow, last: StatRow,
+): string {
+  const base = `Fra ${first.year} til ${last.year} endret driftsmarginen seg ${pct(dm)} prosentpoeng, `
+    + `mens antall foretak endret seg med ${du > 0 ? '+' : ''}${du}.`;
+  switch (type) {
+    case 'risiko': return `${base} Fallende margin kombinert med flere aktører tyder på priskonkurranse.`;
+    case 'mulighet': return `${base} Et fragmentert marked med synkende margin er ofte modent for oppkjøp.`;
+    case 'avvik': return `${base} Retningene peker hver sin vei, som er verdt å undersøke nærmere.`;
+    case 'sammenligning': return `${base} Sammenlignet med søsternæringene i samme 3-siffer ligger dette i midtsjiktet.`;
+    default: return `${base} Tallene gjelder foretak nasjonalt; regionale tall finnes kun på 3-siffer.`;
+  }
+}
+```
+
+- [ ] **Step 6: Kjør og bekreft at de passerer**
+
+Run: `npm test`
+Expected: PASS, 49 tester. Generatoren gir 300 selskaper, 195 anslag og
+50 innsikter.
+
+- [ ] **Step 7: Commit**
+
+```bash
+git add seed/companies.ts seed/ai.ts seed/types.ts tests/seed.test.ts
+git commit -m "feat(seed): add companies, estimates as ranges, and anchored insights"
+```
+
+---
+
+## Task 13: Deterministiske id-er, SQL-emit og full lastetest
+
+Siste ledd. Generatoren skriver `supabase/seed/seed.sql` som ren tekst, som
+committes. Da er seed-en diffbar: en endring i filen viser en faktisk endring
+i generatoren, ikke tilfeldig støy.
+
+Id-ene utledes deterministisk fra naturlige nøkler, så SQL-en kan skrive
+eksplisitte UUID-er og referere dem direkte i stedet for å slå opp underveis.
+
+**Files:**
+- Create: `seed/ids.ts`, `seed/emit.ts`, `seed/index.ts`
+- Test: `tests/seed-load.test.ts`
+
+- [ ] **Step 1: Skriv den feilende lastetesten**
+
+`tests/seed-load.test.ts`:
+
+```ts
+import { beforeAll, describe, expect, it } from 'vitest';
+import type { PGlite } from '@electric-sql/pglite';
+import { freshDb } from './helpers/db.js';
+import { buildSeed } from '../seed/index.js';
+import { emitSeed } from '../seed/emit.js';
+
+describe('seed.sql', () => {
+  let db: PGlite;
+  let sql: string;
+
+  beforeAll(async () => {
+    sql = emitSeed(buildSeed());
+    db = await freshDb();
+    await db.exec(sql);
+  });
+
+  it('er deterministisk', () => {
+    expect(emitSeed(buildSeed())).toBe(sql);
+  });
+
+  it('laster uten å bryte noen constraint', async () => {
+    const counts = await db.query<{ t: string; c: string }>(`
+      select 'industries' t, count(*)::text c from industries
+      union all select 'regions', count(*)::text from regions
+      union all select 'industry_stats', count(*)::text from industry_stats
+      union all select 'companies', count(*)::text from companies
+      union all select 'industry_estimates', count(*)::text from industry_estimates
+      union all select 'ai_insights', count(*)::text from ai_insights
+    `);
+    const by = Object.fromEntries(counts.rows.map((r) => [r.t, Number(r.c)]));
+    expect(by['industries']).toBe(102);
+    expect(by['regions']).toBe(44);
+    expect(by['industry_stats']).toBe(3803);
+    expect(by['companies']).toBe(300);
+    expect(by['industry_estimates']).toBe(195);
+    expect(by['ai_insights']).toBe(50);
+  });
+
+  it('respekterer granularitetsregelen', async () => {
+    const r = await db.query<{ c: string }>(
+      `select count(*) c from industry_stats where region_level <> 'land' and nace_level > 3`,
+    );
+    expect(r.rows[0]!.c).toBe('0');
+  });
+
+  it('bevarer undertrykte celler som merknad', async () => {
+    const r = await db.query<{ c: string }>(
+      `select count(*) c from industry_stats where merknader <> '{}'::jsonb`,
+    );
+    expect(Number(r.rows[0]!.c)).toBeGreaterThan(0);
+  });
+
+  it('holder ENK utenfor regnskapssnittet', async () => {
+    const r = await db.query<{ c: string }>(
+      `select count(*) c from companies
+       where organisasjonsform = 'ENK' and inngar_i_regnskapssnitt`,
+    );
+    expect(r.rows[0]!.c).toBe('0');
+  });
+
+  it('gir scoring-viewet noe å regne på', async () => {
+    const r = await db.query<{ c: string }>(`select count(*) c from industry_scores_computed`);
+    expect(Number(r.rows[0]!.c)).toBeGreaterThan(3000);
+  });
+
+  it('er idempotent — ny kjøring gir samme radtall', async () => {
+    await db.exec(sql);
+    const r = await db.query<{ c: string }>(`select count(*) c from industry_stats`);
+    expect(r.rows[0]!.c).toBe('3803');
+  });
+});
+```
+
+- [ ] **Step 2: Kjør og bekreft at den feiler**
+
+Run: `npm test`
+Expected: FAIL med `Cannot find module '../seed/index.js'`.
+
+- [ ] **Step 3: Skriv `seed/ids.ts`**
+
+```ts
+import { createHash } from 'node:crypto';
+
+/** Fast namespace for Norbiz-seed. Vilkårlig, men må aldri endres. */
+const NS = '6f9b1f2c-3a4d-5e6f-8a9b-0c1d2e3f4a5b';
+
+/**
+ * Deterministisk UUID v5 fra en naturlig nøkkel. Gjør at seed.sql kan skrive
+ * eksplisitte id-er og referere dem direkte, uten oppslag under innlasting.
+ */
+export function uuid5(name: string): string {
+  const nsBytes = Buffer.from(NS.replace(/-/g, ''), 'hex');
+  const hash = createHash('sha1').update(Buffer.concat([nsBytes, Buffer.from(name, 'utf8')])).digest();
+  const b = Buffer.from(hash.subarray(0, 16));
+  b[6] = (b[6]! & 0x0f) | 0x50;
+  b[8] = (b[8]! & 0x3f) | 0x80;
+  const h = b.toString('hex');
+  return `${h.slice(0,8)}-${h.slice(8,12)}-${h.slice(12,16)}-${h.slice(16,20)}-${h.slice(20)}`;
+}
+
+export const industryId = (naceCode: string): string => uuid5(`industry:${naceCode}`);
+export const regionId = (code: string, validFrom: number): string => uuid5(`region:${code}:${validFrom}`);
+```
+
+- [ ] **Step 4: Skriv `seed/emit.ts`**
+
+```ts
+import { industryId, regionId } from './ids.js';
+import type { SeedBundle } from './types.js';
+
+type Val = string | number | null | undefined | boolean;
+
+const q = (v: Val): string => v === null || v === undefined ? 'NULL'
+  : typeof v === 'number' ? String(v)
+  : typeof v === 'boolean' ? (v ? 'true' : 'false')
+  : `'${String(v).replace(/'/g, "''")}'`;
+const arr = (xs: string[]): string => xs.length ? `ARRAY[${xs.map(q).join(',')}]` : `'{}'::text[]`;
+const jb = (o: unknown): string => `'${JSON.stringify(o).replace(/'/g, "''")}'::jsonb`;
+
+/** Deler lange INSERT-er i bolker så ingen enkeltsetning blir urimelig stor. */
+function insertMany(
+  table: string, cols: string[], rows: (string | number)[][], batch = 500,
+): string[] {
+  const out: string[] = [];
+  for (let i = 0; i < rows.length; i += batch) {
+    const chunk = rows.slice(i, i + batch);
+    out.push(`insert into ${table} (${cols.join(', ')}) values\n  ` +
+      chunk.map((r) => `(${r.join(', ')})`).join(',\n  ') + ';');
+  }
+  return out;
+}
+
+export function emitSeed(a: SeedBundle): string {
+  const parts = [
+    '-- Generert av seed/index.ts. Ikke rediger for hånd.',
+    '-- Deterministisk: samme frø gir identisk fil.',
+    'begin;',
+    '',
+    '-- Idempotent: en ny kjøring erstatter hele seed-settet.',
+    'truncate ai_insights, industry_estimates, ai_reports, industry_scores,',
+    '         industry_demography, industry_stats, region_population,',
+    '         companies, industries, regions restart identity cascade;',
+    '',
+  ];
+
+  const regFor = (code: string, year: number): string => {
+    const r = a.regions.find((x) => x.code === code
+      && x.valid_from_year <= year && (x.valid_to_year === null || x.valid_to_year >= year));
+    return regionId(r!.code, r!.valid_from_year);
+  };
+
+  // Hierarkiet må inn nivå for nivå, ellers feiler selvreferansen på parent_code.
+  for (const lvl of [2, 3, 5]) {
+    parts.push(...insertMany('industries',
+      ['id','nace_code','nace_level','parent_code','name','common_name','slug','search_terms'],
+      a.industries.filter((i) => i.nace_level === lvl).map((i) => [
+        q(industryId(i.nace_code)), q(i.nace_code), i.nace_level, q(i.parent_code),
+        q(i.name), q(i.common_name), q(i.slug), arr(i.search_terms),
+      ])));
+  }
+
+  parts.push(...insertMany('regions',
+    ['id','code','name','level','parent_code','valid_from_year','valid_to_year'],
+    a.regions.map((r) => [
+      q(regionId(r.code, r.valid_from_year)), q(r.code), q(r.name), q(r.level),
+      q(r.parent_code), r.valid_from_year, q(r.valid_to_year),
+    ])));
+
+  parts.push(...insertMany('region_population',
+    ['region_id','year','innbyggere','source','data_quality'],
+    a.population.map((p) => [
+      q(regionId(p.region_code, p.vintage)), p.year, p.innbyggere, q('seed:folketall'), q('mock'),
+    ])));
+
+  parts.push(...insertMany('industry_stats',
+    ['industry_id','region_id','year','unit_type','nace_level','region_level','n_enheter',
+     'omsetning_total','omsetning_per_enhet','driftsresultat_total','driftsmargin_pct',
+     'lonnskostnad_total','lonnsandel_pct','sysselsatte_total','sysselsatte_per_enhet',
+     'arsverk_per_enhet','bearbeidingsverdi_total','verdiskaping_per_sysselsatt',
+     'bruttoinvestering_total','merknader','source','data_quality','coverage'],
+    a.rows.map((r) => [
+      q(industryId(r.nace_code)), q(regFor(r.region_code, r.year)), r.year, q(r.unit_type),
+      r.nace_level, q(r.region_level), q(r.n_enheter), q(r.omsetning_total),
+      q(r.omsetning_per_enhet), q(r.driftsresultat_total), q(r.driftsmargin_pct),
+      q(r.lonnskostnad_total), q(r.lonnsandel_pct), q(r.sysselsatte_total),
+      q(r.sysselsatte_per_enhet), q(r.arsverk_per_enhet), q(r.bearbeidingsverdi_total),
+      q(r.verdiskaping_per_sysselsatt), q(r.bruttoinvestering_total), jb(r.merknader),
+      q(r.source), q('mock'), q('alle'),
+    ])));
+
+  parts.push(...insertMany('industry_demography',
+    ['industry_id','region_id','year','nace_level','region_level','nyetableringer','nedleggelser',
+     'konkurser','overlevelse_1ar_pct','overlevelse_3ar_pct','overlevelse_5ar_pct',
+     'merknader','source','data_quality','coverage'],
+    a.demography.map((d) => [
+      q(industryId(d.nace_code)), q(regFor(d.region_code, d.year)), d.year, d.nace_level,
+      q(d.region_level), q(d.nyetableringer), q(d.nedleggelser), q(d.konkurser),
+      q(d.overlevelse_1ar_pct), q(d.overlevelse_3ar_pct), q(d.overlevelse_5ar_pct),
+      jb(d.merknader), q(d.source), q('mock'), q('alle'),
+    ])));
+
+  parts.push(...insertMany('companies',
+    ['org_nr','navn','nace_code','kommune_code','organisasjonsform','ansatte','omsetning',
+     'driftsresultat','egenkapital','regnskapsar','source','data_quality'],
+    a.companies.map((c) => [
+      q(c.org_nr), q(c.navn), q(c.nace_code), q(c.kommune_code), q(c.organisasjonsform),
+      q(c.ansatte), q(c.omsetning), q(c.driftsresultat), q(c.egenkapital), q(c.regnskapsar),
+      q('seed:brreg'), q('mock'),
+    ])));
+
+  parts.push(...insertMany('industry_estimates',
+    ['industry_id','region_id','metrikk','intervall_lav','intervall_hoy','enhet','konfidens',
+     'begrunnelse','basert_pa','model','prompt_version','source','data_quality'],
+    a.estimates.map((e) => [
+      q(industryId(e.industry_nace)), 'NULL', q(e.metrikk), e.intervall_lav, e.intervall_hoy,
+      q(e.enhet), q(e.konfidens), q(e.begrunnelse), jb(e.basert_pa), q(e.model),
+      q(e.prompt_version), q(e.source), q('ai_anslag'),
+    ])));
+
+  parts.push(...insertMany('ai_insights',
+    ['industry_id','region_id','year','type','tittel','body','alvorlighet','referanser',
+     'knyttet_til','model','prompt_version','data_quality'],
+    a.insights.map((i) => [
+      q(industryId(i.industry_nace)), q(regFor(i.region_code, i.year)), i.year, q(i.type),
+      q(i.tittel), q(i.body), i.alvorlighet, jb(i.referanser), q(i.knyttet_til),
+      q(i.model), q(i.prompt_version), q('ai_anslag'),
+    ])));
+
+  parts.push('', 'commit;', '');
+  return parts.join('\n');
+}
+```
+
+- [ ] **Step 5: Skriv `seed/index.ts`**
+
+```ts
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { makeRng } from './rng.js';
+import { YEARS } from './config.js';
+import { buildIndustries } from './industries.js';
+import { buildRegions, regionsByYear } from './regions.js';
+import { buildStats } from './stats.js';
+import { buildCompanies } from './companies.js';
+import { buildEstimates, buildInsights } from './ai.js';
+import { emitSeed } from './emit.js';
+import type { PopulationRow, SeedBundle, StatRow } from './types.js';
+
+const SEED = 20260802;
+const KOMMUNER = ['0301','1103','4601','5001','3201','1806','1108','3801','4204','1507'];
+
+const hash = (s: string): number => {
+  let h = 0;
+  for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) | 0;
+  return h;
+};
+
+export function buildSeed(seed = SEED): SeedBundle {
+  const rng = makeRng(seed);
+  const industries = buildIndustries();
+  const regions = buildRegions();
+  const { rows, demography } = buildStats(rng, industries, regionsByYear());
+
+  const population: PopulationRow[] = [];
+  for (const r of regions) {
+    for (const y of YEARS) {
+      if (r.valid_from_year > y) continue;
+      if (r.valid_to_year !== null && r.valid_to_year < y) continue;
+      const base = r.level === 'land' ? 5_300_000 : 60_000 + (Math.abs(hash(r.code)) % 640_000);
+      population.push({
+        region_code: r.code, vintage: r.valid_from_year, year: y,
+        innbyggere: Math.round(base * (1 + (y - 2017) * 0.006)),
+      });
+    }
+  }
+
+  const companies = buildCompanies(rng, industries, KOMMUNER);
+
+  const byNace = new Map<string, StatRow[]>();
+  for (const r of rows) {
+    if (!byNace.has(r.nace_code)) byNace.set(r.nace_code, []);
+    byNace.get(r.nace_code)!.push(r);
+  }
+
+  return {
+    industries, regions, rows, demography, population, companies,
+    estimates: buildEstimates(rng, industries),
+    insights: buildInsights(rng, industries, byNace),
+  };
+}
+
+if (process.argv[1]?.endsWith('index.ts')) {
+  const target = join(process.cwd(), 'supabase', 'seed', 'seed.sql');
+  mkdirSync(dirname(target), { recursive: true });
+  const sql = emitSeed(buildSeed());
+  writeFileSync(target, sql);
+  console.log(`Skrev ${target} (${(sql.length / 1024 / 1024).toFixed(1)} MB)`);
+}
+```
+
+- [ ] **Step 6: Kjør og bekreft at testene passerer**
+
+Run: `npm test`
+Expected: PASS, 56 tester.
+
+- [ ] **Step 7: Generer seed.sql og commit den**
+
+Run: `npm run seed:build`
+Expected: `Skrev .../supabase/seed/seed.sql (1.7 MB)`
+
+```bash
+git add seed/ids.ts seed/emit.ts seed/index.ts supabase/seed/seed.sql tests/seed-load.test.ts
+git commit -m "feat(seed): emit deterministic seed.sql and verify it loads"
+```
+
+---
+
+## Task 14: Edge function-stubber
+
+Fire funksjoner, dokumentert men ikke implementert. De fylles når API-formene
+er verifisert mot ekte endepunkter — noe som ikke kan gjøres fra
+utviklingscontaineren, der `data.ssb.no` er blokkert av nettverkspolicyen.
+
+Hver stub skal ha en kommentarblokk med kilde, endepunkt og hvilke kolonner
+den fyller, og kaste en tydelig feil hvis den kalles.
+
+**Files:**
+- Create: `supabase/functions/import-ssb/index.ts`
+- Create: `supabase/functions/import-brreg/index.ts`
+- Create: `supabase/functions/compute-scores/index.ts`
+- Create: `supabase/functions/generate-insights/index.ts`
+
+- [ ] **Step 1: Skriv `supabase/functions/import-ssb/index.ts`**
+
+```ts
+/**
+ * import-ssb — henter fra SSBs statistikkbank (PxWebApi v2).
+ *
+ * Kilde:      https://data.ssb.no/api/pxwebapi/v2-beta
+ * Tabeller:   12910 (nasjonalt, NACE 2-5), 12936 (fylke, NACE 2-3),
+ *             foretaksdemografi, konkurser, folketall
+ * Fyller:     industry_stats, industry_demography, region_population
+ *
+ * FØRSTE KALL SKAL VÆRE metadata. GET /api/v2/tables/{id}/metadata avgjør
+ * hvilke variabler tabellen faktisk tilbyr. Tre ting er uverifisert og må
+ * sjekkes der før noe skrives:
+ *   1. Har 12936 driftsresultat og bruttoinvestering?
+ *   2. Er 2017-2023 publisert på datidens fylkesinndeling eller tilbakeskrevet
+ *      til dagens 15? SSB publiserer en egen liste over tilbakeskrevne serier.
+ *   3. Finnes arsverk i det hele tatt?
+ * Alle tre lander på nullable kolonner, så skjemaet holder uansett svar.
+ *
+ * CELLEGRENSE. MaxDataCells er 10000 i referansekonfigurasjonen, og for store
+ * uttrekk avvises — de trunkeres ikke. Les GET /api/v2/config ved oppstart og
+ * dimensjoner batchene etter den faktiske verdien. Del langs NACE-gruppe.
+ *
+ * UTTRYKKSSYNTAKS. valueCodes er ikke bare literaler: `*` og `?` er jokertegn,
+ * og TOP(n) / BOTTOM(n) / RANGE(a,b) / FROM(a) / TO(a) finnes. FROM(2017)
+ * henter hele tidsserien uten å liste årstall.
+ *
+ * STANDARDTEGN. SSB fyller ikke tomme celler med tomhet. '.' betyr ikke
+ * relevant, '..' oppgave mangler, ':' kommer senere, '-' er et EKTE NULL som
+ * skal lagres som 0. I tillegg undertrykkes celler av konfidensialitetshensyn.
+ * Oversett til NULL pluss en mangel_arsak i merknader. Leser man tegnene som
+ * manglende data, forsvinner ekte nulltall og undertrykte celler ser ut som
+ * datahull — den letteste feilen å gjøre her og den vanskeligste å oppdage.
+ *
+ * RATE LIMITING. SSB svarer 429 ved hyppige kall og kan blokkere IP-er ved
+ * publisering klokka 08.00. Respekter Retry-After, bruk eksponentiell backoff,
+ * og planlegg jobben utenfor morgenvinduet.
+ *
+ * IDEMPOTENS. Upsert på (industry_id, region_id, year, unit_type). En avbrutt
+ * import skal kunne kjøres om igjen uten å duplisere.
+ */
+export default async function handler(_req: Request): Promise<Response> {
+  throw new Error(
+    'import-ssb er ikke implementert. Verifiser tabellmetadata og cellegrense først — se kommentarblokken.',
+  );
+}
+```
+
+- [ ] **Step 2: Skriv `supabase/functions/import-brreg/index.ts`**
+
+```ts
+/**
+ * import-brreg — henter fra Brønnøysundregistrenes åpne API-er.
+ *
+ * Kilder:
+ *   Enhetsregisteret:     https://data.brreg.no/enhetsregisteret/api/enheter
+ *   Regnskapsregisteret:  https://data.brreg.no/regnskapsregisteret/regnskap/{orgnr}
+ * Fyller: companies
+ *
+ * DEKNING. Den åpne delen av Regnskapsregisteret gir nøkkeltall fra SIST
+ * INNSENDTE årsregnskap — ett år, ikke tre. Tre år finnes bare i den lukkede
+ * delen, som krever offentlig myndighet. Derfor har companies kun regnskapsar,
+ * ikke en tidsserie.
+ *
+ * ENK. Enkeltpersonforetak leverer ikke årsregnskap. De skal fortsatt inn i
+ * tabellen — de finnes i Enhetsregisteret og teller i foretakstetthet — men med
+ * omsetning, driftsresultat, egenkapital og regnskapsar som NULL. Kolonnen
+ * inngar_i_regnskapssnitt er generert og faller automatisk til false.
+ *
+ * ARBEIDSDELING. Enhetsregisteret støtter bulk og filtrering på naeringskode;
+ * Regnskapsregisteret er oppslag per orgnr. Enumerer først fra
+ * Enhetsregisteret, hent så regnskap kun for organisasjonsformer som leverer.
+ *
+ * IDEMPOTENS. Upsert på org_nr.
+ */
+export default async function handler(_req: Request): Promise<Response> {
+  throw new Error('import-brreg er ikke implementert — se kommentarblokken.');
+}
+```
+
+- [ ] **Step 3: Skriv `supabase/functions/compute-scores/index.ts`**
+
+```ts
+/**
+ * compute-scores — materialiserer industry_scores fra scoring-viewet.
+ *
+ * Kilde:  viewet industry_scores_computed (migrasjon 0006)
+ * Fyller: industry_scores
+ *
+ * Selve beregningen ligger i SQL, ikke her. Et view kan ikke komme ut av synk
+ * med dataene slik en cachet funksjon kan; denne funksjonen kopierer bare
+ * resultatet til en tabell frontend kan lese raskt.
+ *
+ * Anslag fra industry_estimates inngår ALDRI. Se spec seksjon 4: blandes de
+ * inn, blir scoren usammenlignbar på tvers av næringer — noen ville hvile på
+ * SSB-tall, andre på en språkmodell, uten at rangeringen viser forskjellen.
+ *
+ * Kjøres etter hver import-ssb. Hele tabellen bygges om; det er noen tusen
+ * rader, så inkrementell oppdatering er ikke verdt kompleksiteten.
+ */
+export default async function handler(_req: Request): Promise<Response> {
+  throw new Error('compute-scores er ikke implementert — se kommentarblokken.');
+}
+```
+
+- [ ] **Step 4: Skriv `supabase/functions/generate-insights/index.ts`**
+
+```ts
+/**
+ * generate-insights — produserer anslag og innsikt forankret i tallene.
+ *
+ * Fyller: industry_estimates, ai_insights
+ *
+ * REKKEFØLGEN ER POENGET. Hent tallene fra basen FØRST, send dem inn i
+ * prompten, og skriv resultatet tilbake. En modell som svarer uten å ha sett
+ * radene produserer tekst som høres riktig ut og ikke er det.
+ *
+ * OBLIGATORISK FORANKRING. Hver rad i ai_insights må ha ikke-tom referanser,
+ * hver rad i industry_estimates ikke-tom basert_pa. Databasen håndhever det
+ * med en check-constraint, så en uforankret påstand feiler ved skriving i
+ * stedet for å havne i UI-et.
+ *
+ * ANSLAG ER SPENN. Oppgi intervall_lav og intervall_hoy med konfidens, ikke
+ * ett presist tall. «Etableringskapital 300 000-800 000, middels konfidens» er
+ * et ærlig svar; «512 000» er det ikke.
+ *
+ * BATCH, IKKE BRUKERFLYT. Kjøres planlagt og caches på
+ * (industry_id, region_id, prompt_version). Ingen live modellkall når en
+ * bruker åpner en side.
+ */
+export default async function handler(_req: Request): Promise<Response> {
+  throw new Error('generate-insights er ikke implementert — se kommentarblokken.');
+}
+```
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add supabase/functions
+git commit -m "docs(functions): add documented edge function stubs"
+```
+
+---
+
+## Task 15: Overlevering til Lovable
+
+Siste task. Produserer artefaktene som driver frontend-byggingen. Ingen kode
+overføres — connectoren tar naturlig språk, og skjemaet i basen er kontrakten.
+
+**Files:**
+- Create: `lovable/knowledge.md`
+- Create: `lovable/messages/00-oppsett.md` … `05-favoritter.md`
+
+- [ ] **Step 1: Skriv `lovable/knowledge.md`**
+
+Dette settes med `set_project_knowledge` og gjelder hver melding etterpå.
+Maks 10 000 tegn.
+
+```markdown
+# Business Insight Norway — faste regler
+
+Beslutningsverktøy for den som vurderer å starte, kjøpe eller investere i en
+bedrift i Norge. Målgruppe i prioritert rekkefølge: rådgivere, banker og
+næringsmeglere; investorer og oppkjøpere; gründere.
+
+## Datakilde
+
+All data leses fra Supabase via TanStack Query. Aldri hardkodede tall, aldri
+live API-kall til SSB eller Brreg fra frontend.
+
+## Tre nivåer av sannhet
+
+Hver rad bærer `data_quality`:
+
+| Verdi | Betydning | Visuell behandling |
+|---|---|---|
+| `ssb`, `brreg` | målt og publisert | nøytral kildeangivelse |
+| `beregnet` | utledet fra målte tall | nøytral, med «beregnet» |
+| `mock` | demodata | grå «Demo-data»-badge |
+| `ai_anslag` | AI-vurdering | tydelig annen form, med konfidens |
+
+Et anslag skal aldri kunne forveksles med et målt tall. Forskjellen må synes i
+periferisynet, ikke bare i badge-teksten.
+
+## NULL er aldri 0
+
+Mangler et tall, vis «ikke publisert» — aldri 0, aldri en tom celle.
+
+Kolonnen `merknader` er en jsonb som kartlegger felt til årsak. Er verdien
+`konfidensielt`, skriv «skjult av hensyn til konfidensialitet» i stedet for
+«ikke publisert». For en rådgiver er det ikke et hull — det betyr at næringen
+har for få aktører i regionen til at tallet kan oppgis, og det er i seg selv
+informasjon om markedet.
+
+## To granulariteter samtidig
+
+SSB publiserer nasjonale næringstall på NACE 2–5, men regionale kun på 2–3.
+
+Velger brukeren en femsifret næring sammen med et fylke, finnes det ingen
+regional rad. Vis nasjonale og regionale tall side om side, hver med sin egen
+granularitet påført. Ikke skjul forskjellen, og ikke fyll den ut.
+
+## Foretak og virksomhet er ikke det samme
+
+`unit_type` skiller dem. En frisørkjede er ett foretak og ti virksomheter.
+Regionale rader finnes kun for `virksomhet`. Bland dem aldri i samme sum.
+
+## AS-avgrensningen
+
+`coverage = 'as_only'` betyr at raden kun dekker aksjeselskaper, fordi ENK ikke
+leverer årsregnskap. En slik rad skal aldri sammenlignes ufiltrert med en rad
+merket `alle`. Si det i UI-et der tallet står.
+
+## Fylkesårganger
+
+Norge hadde 19 fylker til 2019, 11 fra 2020, 15 fra 2024. `regions` har
+`valid_from_year` og `valid_to_year`. Kartet må laste GeoJSON som matcher
+årgangen for valgt år. Vis hvilken årgang som er i bruk.
+
+## Delte komponenter
+
+- `<DataBadge quality source year coverage konfidens />` — på hvert KPI-kort og
+  hver graf.
+- `<InsightCard />` — én rad fra `ai_insights`, ankret ved KPI-en i
+  `knyttet_til`, sortert på `alvorlighet`. Klikk utvider `referanser`.
+- `<Footnotes />` — nederst på hver side, generert fra radene siden faktisk
+  viste. Ikke en håndskrevet tekst.
+
+## Design
+
+Mørk bakgrunn nær sort, kortflater et hakk lysere. Én aksentfarge for positivt,
+én for negativt, ellers gråtoner — maks tre farger samtidig. Store, luftige
+KPI-kort der tallet er hovedelementet. `font-variant-numeric: tabular-nums`
+overalt hvor tall stables. Avrundede hjørner og tynne kantlinjer, ikke
+slagskygger. Gradienter kun i hero, glassmorphism kun på sticky header.
+Animasjoner under 200 ms. Skeleton-states på alle kort og grafer. Dark mode
+som standard. Fullt responsivt: KPI-kort stables på mobil, tabeller blir kort.
+
+## Ikke gjør
+
+- Ikke hardkod tall i komponenter.
+- Ikke fyll NULL med 0.
+- Ikke bygg innlogging foran næringssidene — de er offentlige.
+- Ikke lag flere sider enn de seks.
+- Ikke vis anslag i samme visuelle form som målte tall.
+```
+
+- [ ] **Step 2: Skriv meldingsfilene**
+
+Én fil per side, sendt i rekkefølge med `send_message`. Hver melding beskriver
+hva som skal bygges, ikke hvordan. Skjemaet er kontrakten.
+
+`lovable/messages/00-oppsett.md`:
+
+```markdown
+Koble prosjektet til det eksisterende Supabase-prosjektet (ikke Lovable Cloud).
+Sett opp TanStack Query, shadcn/ui og Recharts. Dark mode som standard, lys
+modus tilgjengelig.
+
+Lag de tre delte komponentene beskrevet i prosjektkunnskapen: DataBadge,
+InsightCard og Footnotes. Bygg dem først — alle sidene bruker dem.
+
+Generer TypeScript-typer fra databaseskjemaet, og bruk dem. Ikke skriv typene
+for hånd.
+
+Ikke bygg noen sider ennå.
+```
+
+`lovable/messages/01-forside.md`:
+
+```markdown
+Bygg forsiden. Offentlig, ingen innlogging.
+
+Hero med overskriften «Finn ut hva som faktisk lønner seg å drive i Norge» og
+en undertekst som oppgir hvor mange næringer og regioner som er dekket — hentet
+fra databasen, ikke hardkodet.
+
+Én stor søkeboks med autocomplete mot `industries`, som søker i `common_name`
+og `search_terms`. Under den fire eksempel-chips: Frisørsalong, Treningssenter,
+Restaurant, Regnskapsfører.
+
+Under det en kompakt tabell med de ti næringene som har høyest `score_total`
+nasjonalt, fra `industry_scores`. Hver rad lenker til næringssiden.
+```
+
+`lovable/messages/02-dashboard.md`:
+
+```markdown
+Bygg dashboardet.
+
+KPI-rad: antall næringer dekket, antall enheter i datagrunnlaget, median
+driftsmargin på tvers, median omsetning per enhet, median antall sysselsatte.
+Hvert kort med DataBadge.
+
+To grafer: marginfordeling på tvers av næringer som histogram, og topp/bunn ti
+på margin som horisontalt stolpediagram.
+
+Bruk kun nasjonale rader med `unit_type = 'foretak'` for marginene, siden
+regionale rader ikke har driftsmargin.
+```
+
+`lovable/messages/03-naeringsside.md`:
+
+```markdown
+Bygg næringssiden på `/bransje/[slug]`.
+
+Header med navn, NACE-kode, regionvelger (Norge pluss fylkene som gjaldt i
+valgt år) og Business Score som progresjonsring.
+
+KPI-rutenett: omsetning per enhet, driftsresultat, driftsmargin, lønnsandel,
+sysselsatte per enhet, verdiskaping per sysselsatt, antall enheter, 5-års
+overlevelse.
+
+Er valgt næring femsifret og valgt region ikke Norge, finnes det ingen regional
+rad. Vis da nasjonale og regionale tall side om side med granularitet påført
+hver verdi.
+
+Grafer: omsetning og margin over tid med to akser, antall enheter og
+nyetableringer over tid, konkurser per år.
+
+Fylkeskart farget etter valgt måltall. Bruk en enkel GeoJSON som matcher
+årgangen for valgt år — ikke en tredjeparts karttjeneste.
+
+Klikk på en delscore åpner et panel som viser `forklaring`-jsonb: råtallet,
+persentilen og vekten per delscore, med kilde. Ingen svarte bokser.
+
+Seksjon for anslag fra `industry_estimates`: vis som spenn med konfidens, i
+tydelig annen visuell form enn de målte KPI-ene.
+
+Seksjon for innsikt fra `ai_insights`, sortert på alvorlighet, ankret ved
+KPI-ene de gjelder.
+
+Nederst en tabell med utvalgte foretak fra `companies`: navn, kommune, ansatte,
+omsetning, driftsresultat, regnskapsår. Merk tydelig at ENK mangler
+regnskapstall.
+```
+
+`lovable/messages/04-region-og-topplister.md`:
+
+```markdown
+Bygg regionsiden på `/region/[code]` og topplistesiden.
+
+Regionsiden viser for valgt fylke: mest lønnsomme næringer, raskest voksende,
+høyest konkurstetthet, og næringer med lavest foretakstetthet sammenlignet med
+landsgjennomsnittet. Det siste er «hullene i markedet» og skal ha mest plass —
+det er den mest verdifulle visningen på siden.
+
+Husk at regionale tall kun finnes på NACE 2–3.
+
+Topplister: filtrerbare tabeller for beste margin, høyest vekst, best
+overlevelse, lavest konkurransetetthet og høyest samlet score. Filtre for
+region, minimum antall enheter og størrelsesintervall.
+```
+
+`lovable/messages/05-favoritter.md`:
+
+```markdown
+Bygg favoritter og innstillinger.
+
+Supabase auth med magic link. Favoritter leses fra `favorites`, som har RLS —
+en bruker ser kun egne rader. Legg til og fjern favoritt fra næringssiden.
+
+Innstillinger: bytte mellom mørk og lys modus, og valg av standardregion.
+
+Ingen andre sider. Næringssidene forblir offentlige.
+```
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add lovable
+git commit -m "docs(lovable): add project knowledge and per-page handoff messages"
+```
+
+---
+
+## Etter planen
+
+Rekkefølgen for å ta dette i bruk:
+
+1. Opprett et Supabase-prosjekt for Norbiz. Kontoen har i dag kun
+   `ScripturePath`.
+2. Kjør migrasjonene 0001–0007 mot den basen.
+3. `npm run seed:build && npm run seed:apply`
+4. Deploy de fire edge function-stubbene så rutene finnes.
+5. Opprett Lovable-prosjektet koblet til samme Supabase.
+6. `set_project_knowledge` med `lovable/knowledge.md`.
+7. Send meldingene i `lovable/messages/` i rekkefølge, én om gangen, og se på
+   resultatet mellom hver.
+
+Frontend får sin egen plan når det finnes en base å bygge mot.
