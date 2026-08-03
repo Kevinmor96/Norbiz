@@ -7,11 +7,42 @@ Et beslutningsverktøy for den som vurderer å starte, kjøpe eller investere i 
 bedrift i Norge. Brukeren skal kunne svare på ett spørsmål: hvor lønnsomt er det
 egentlig å drive denne typen virksomhet, her?
 
-Ikke en bedriftsdatabase. Ikke et oppslagsverk for enkeltselskaper. Ikke en
-konkurrent til Proff eller Purehelp.
-
 Målgrupper i prioritert rekkefølge: rådgivere, banker og næringsmeglere;
 investorer og oppkjøpere; gründere.
+
+## 0. Posisjonering
+
+Problemet er ikke mangel på data. Problemet er at dataene finnes overalt og
+svarer på feil spørsmål.
+
+Proff og Purehelp har regnskapstall per selskap. Brønnøysund har registeret.
+SSB har statistikken. Fire kilder, fire innganger, fire formater — og alle
+svarer på «hvordan går det med *dette selskapet*?» Ingen av dem svarer på «er
+denne *typen* virksomhet verdt å drive, her?» Den sammenstillingen må brukeren
+gjøre selv, hver gang, for hånd.
+
+**Norbiz er sammenstillingslaget, ikke en femte kilde.** Vi konkurrerer ikke på
+å ha mer data. Vi konkurrerer på at dataene allerede er koblet, kategorisert,
+scoret og forklart når brukeren kommer.
+
+Tre ting skiller produktet, og de må alle tre fram på forsiden:
+
+**Bransje, ikke bedrift.** De andre svarer per organisasjonsnummer. Vi svarer
+per næring og region. Det er det spørsmålet en rådgiver, en bank eller en
+oppkjøper faktisk stiller først.
+
+**Sammenstilt, ikke rådata.** SSBs strukturstatistikk, foretaksdemografi,
+konkursstatistikk, folketall og Brønnøysunds regnskapstall i samme tabell, med
+en beregnet score på toppen. Brukeren slipper å gjøre koblingen.
+
+**Vi sier hva vi ikke vet.** Hvert tall bærer sin opprinnelse — målt, beregnet
+eller anslått — og hvert hull har en årsak. Ingen av aggregatorene forteller
+deg at et tall er undertrykt av konfidensialitetshensyn framfor bare å mangle.
+For en rådgiver som setter tallet inn i et kundenotat, er det forskjellen på
+brukbart og ubrukelig.
+
+Det siste punktet er den egentlige vollgraven. Det er lett å kopiere en
+datakilde og vanskelig å kopiere disiplinen i å innrømme usikkerhet.
 
 ---
 
@@ -500,10 +531,25 @@ Alle seed-rader: `data_quality = 'mock'`, `source = 'seed'`.
 Seks sider. Ikke flere.
 
 **Forside (offentlig).** Hero: «Finn ut hva som faktisk lønner seg å drive i
-Norge», med undertekst om dekning. Én søkeboks med autocomplete mot
-`industries` på `common_name` og `search_terms`. Fire eksempel-chips
-(Frisørsalong, Treningssenter, Restaurant, Regnskapsfører). Under: kompakt
-tabell med de ti næringene med høyest score nasjonalt.
+Norge».
+
+Underteksten skal gjøre posisjoneringsarbeidet fra seksjon 0, ikke bare oppgi
+dekning: at tallene allerede finnes hos Proff, Purehelp, Brønnøysund og SSB —
+spredt over fire kilder, per selskap, uten sammenheng — og at dette er stedet
+de er satt sammen til ett svar på bransjenivå. Dekningstallene (antall næringer,
+regioner, år) hentes fra databasen og står som belegg, ikke som hovedbudskap.
+
+Én søkeboks med autocomplete mot `industries` på `common_name` og
+`search_terms`. Fire eksempel-chips (Frisørsalong, Treningssenter, Restaurant,
+Regnskapsfører).
+
+Deretter et bånd med de tre differensiatorene fra seksjon 0 — bransje ikke
+bedrift, sammenstilt ikke rådata, og at vi sier hva vi ikke vet. Kort, tre
+kolonner, ingen illustrasjoner.
+
+Under det: kompakt tabell med de ti næringene med høyest score nasjonalt. Den
+tabellen er beviset på påstanden over, så den skal stå nær nok å leses i samme
+blikk.
 
 **Dashboard.** KPI-rad: antall næringer dekket, antall enheter i
 datagrunnlaget, median driftsmargin på tvers, median omsetning per enhet,
