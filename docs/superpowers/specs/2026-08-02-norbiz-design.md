@@ -153,6 +153,23 @@ spenn med konfidens ved siden av scoren, ikke inni den.
 Brreg-egenkapital brukes ikke til scoring. Den forblir tilgjengelig per
 selskap i `companies`.
 
+### 2.5 AI-anslag som eget nivå, ikke som utvisking av grensen
+
+Lagt til etter første gjennomlesning. Det opprinnelige utkastet tillot kun
+målte felter og forbød eksplisitt «typisk etableringskapital» og «median lønn
+til eier». Det er reversert: verktøyet skal svare også der statistikken tier,
+med anslag basert på bransjeerfaring.
+
+Grensen mellom målt og anslått består likevel, som en tredje verdi i
+`data_quality` og en egen tabell. Begrunnelsen er målgruppen: rådgivere,
+banker og næringsmeglere setter disse tallene inn i beslutninger for andre.
+Et anslag de kan se er et anslag, er nyttig. Et anslag de tror er statistikk,
+er en hefte.
+
+Praktisk følge: anslag vises fritt, i egen visuell form, med konfidens og
+begrunnelse — men de går ikke inn i `score_total`, og de deler aldri kolonne
+med et målt tall.
+
 ### 2.6 Navn: Bransjeindeks
 
 Arbeidsnavnene var «Norbiz» og «Business Insight Norway». Begge jobbet mot
@@ -170,22 +187,51 @@ tørt er en styrke overfor rådgivere og banker — de kjøper troverdighet.
 Repoet heter fortsatt `Norbiz`. Det er repoets navn, ikke produktets, og å døpe
 om det ville brutt PR- og branch-referanser uten å gi noe tilbake.
 
-### 2.5 AI-anslag som eget nivå, ikke som utvisking av grensen
+### 2.7 proven-saas.com som retningsgivende referanse
 
-Lagt til etter første gjennomlesning. Det opprinnelige utkastet tillot kun
-målte felter og forbød eksplisitt «typisk etableringskapital» og «median lønn
-til eier». Det er reversert: verktøyet skal svare også der statistikken tier,
-med anslag basert på bransjeerfaring.
+Det opprinnelige utkastet sa «ikke kopier noe eksisterende design». Det er
+justert: proven-saas.com er nå retningsgivende for design, frontend og
+oppbygging.
 
-Grensen mellom målt og anslått består likevel, som en tredje verdi i
-`data_quality` og en egen tabell. Begrunnelsen er målgruppen: rådgivere,
-banker og næringsmeglere setter disse tallene inn i beslutninger for andre.
-Et anslag de kan se er et anslag, er nyttig. Et anslag de tror er statistikk,
-er en hefte.
+Grunnen er at referansen løser nettopp det vanskelige — den gjør statistikk
+*lystbetont å skumme*. Rangerte lister med plassnummer, ett stort tall og en
+delta-pille inviterer til å bore ned, der en tabell inviterer til å lukke fanen.
 
-Praktisk følge: anslag vises fritt, i egen visuell form, med konfidens og
-begrunnelse — men de går ikke inn i `score_total`, og de deler aldri kolonne
-med et målt tall.
+Grensen består likevel: **prinsipper og oppbygging, ikke kloning.** Egen palett,
+egen typografi, norsk språk, og et provenienslag referansen ikke har. Der
+referansen selger ferskhet, selger vi etterprøvbarhet.
+
+### 2.8 Vekst vises bare der dataene bærer det
+
+Delta-pillen er referansens mest engasjerende element, og den kan ikke brukes
+overalt.
+
+| Enhet | Tidsserie | Visning |
+|---|---|---|
+| Næring | 2017–2023 | delta-pille med reell endring |
+| Fylke | 2017–2023 | delta-pille med reell endring |
+| Selskap | kun siste år | **årstempel**, ingen delta |
+| Kommune | aggregert fra selskaper | **årstempel**, ingen delta |
+
+Årsaken er Brønnøysunds åpne API: det gir nøkkeltall fra sist innsendte
+årsregnskap, ett år. Tre år finnes bare i den lukkede delen, som krever
+offentlig myndighet.
+
+Konsekvensen er en fast UI-regel: **et selskapskort eller en kommunerad skal
+aldri ha en vekstpille.** Å beregne en av to målepunkter, eller å låne
+næringens vekst og la den se ut som selskapets, ville vært å pynte — og det er
+presis det seksjon 0 sier vi ikke gjør.
+
+### 2.9 Selskaper og kommuner er støttevisninger, ikke hovedsvaret
+
+Topplistene dekker tre enheter: næringer, selskaper og kommuner. Det myker opp
+«bransje, ikke bedrift» fra seksjon 0, og det er verdt å være presis om
+hierarkiet.
+
+Næring er fortsatt hovedsvaret. Selskaps- og kommunelistene finnes fordi de
+gir *belegg* — «hvem er de faktisk, og hvor ligger de» — ikke fordi vi
+konkurrerer med Proff på oppslag per organisasjonsnummer. Rekkefølgen i
+UI-et skal speile det: næringer først, alltid.
 
 ---
 
@@ -589,9 +635,28 @@ høyest konkurstetthet, og næringer med lavest foretakstetthet sammenlignet med
 landsgjennomsnittet. Det siste er «hullene i markedet» og den mest verdifulle
 visningen på siden.
 
-**Topplister.** Filtrerbare tabeller: beste margin, høyest vekst, best
-overlevelse, lavest konkurransetetthet, høyest samlet score. Filtre for region,
-minimum antall enheter og størrelsesintervall.
+**Topplister.** Sidens tyngdepunkt, og der referansens grep gjør mest nytte.
+Tre enheter i faner, i denne rekkefølgen — næring er hovedsvaret, se 2.9:
+
+*Næringer.* Topp 20 på samlet score, med fargestripe, margin og vekstpille.
+Egne lister for beste margin, høyest vekst, best overlevelse og lavest
+konkurransetetthet.
+
+*Selskaper.* Rangert på omsetning, driftsresultat og margin, med kommune,
+NACE-kode og antall ansatte. **Årstempel, ingen vekstpille** — se 2.8. ENK er
+utelatt fra regnskapstall og det skal stå i UI-et, ikke bare i en fotnote.
+
+*Kommuner.* Aggregert fra `companies`, siden strukturstatistikken stopper på
+fylke. Antall selskaper, samlet omsetning, ansatte og margin. Også årstempel.
+
+Over hver liste en filterrad: søk, region, kategori, minimum antall enheter, og
+størrelsesintervall. Minimumsterskelen leses fra `score_config.min_enheter` —
+uten den dominerer mikronæringer med tre foretak hele lista.
+
+**Kategorier** vises som chips med snittmargin per hovednæring, sortert. Spennet
+fra rådgivning til servering er nær åtte ganger i seed-dataene, og det er selve
+spørsmålet en kjøper stiller — så det skal være synlig i første blikk framfor å
+ligge bak et filtervalg.
 
 **Favoritter og innstillinger.** Supabase auth med magic link.
 
@@ -628,20 +693,52 @@ siden faktisk viste — ikke en håndskrevet tekst som råtner når kildene endr
 
 ## 7. Design
 
-Moderne, dempet SaaS-estetikk. Ikke kopier et eksisterende design — bruk
-prinsippene:
+Retningsgivende referanse: **proven-saas.com**. Se beslutning 2.7 for hvorfor,
+og for hva som *ikke* skal overtas.
 
-- Mørk bakgrunn, nær sort men ikke rent sort. Kortflater et hakk lysere.
-- Én aksentfarge for positive verdier, én for negative. Ellers gråtoner. Maks
-  tre farger på skjermen samtidig.
-- Store, luftige KPI-kort. Tallet er hovedelementet, etiketten sekundær.
-- `font-variant-numeric: tabular-nums` overalt hvor tall stables.
-- Avrundede hjørner, tynne kantlinjer heller enn slagskygger.
-- Gradienter kun i hero. Glassmorphism kun på sticky header.
-- Animasjoner under 200 ms.
-- Skeleton-states på alle kort og grafer.
-- Fullt responsivt. Mobil: KPI-kort stables, tabeller blir kort.
-- Dark mode som standard, lys modus tilgjengelig.
+### Skallet
+
+Mørk grunn nær sort med blåtone, og **store lyse kort som ligger på den mørke
+grunnen**. Alterneringen er signaturen: hver seksjon leses som sitt eget
+oppslag i stedet for som en rad i et uendelig dashbord. Kortradius rundt 22 px,
+romslig innvendig luft.
+
+- Aksent for positivt, en annen for negativt. Anslag har sin egen tredje
+  fargefamilie — se seksjon 1.
+- Geometrisk sans, tunge vekter og stram sporing i overskrifter. Tall med
+  `font-variant-numeric: tabular-nums` overalt.
+- Pille-knapper, fullt avrundet. Hvit pille på mørk grunn, mørk på lys.
+- Ingen slagskygger. Tynne kantlinjer og flatefarge gjør jobben.
+- Animasjoner under 200 ms. Skeleton-states på alle kort og grafer.
+- Fullt responsivt. Mobil: rangerte rader kollapser til to linjer, kort stables.
+
+### Datapresentasjonen — det som faktisk gjør referansen god
+
+Fire mønstre skal gjenbrukes, i denne prioriteten:
+
+**Rangert liste.** Plassnummer, navn med metalinje under, ett stort tall, og en
+delta-pille. Dette er hovedgrepet og skal brukes til alle topplister.
+
+**Score som femdelt fargestripe.** `score_total` (0–100) vises som fem
+segmenter i rødt til grønt. Diskret framfor kontinuerlig, fordi en stripe
+leses i periferisynet mens et tosifret tall må leses.
+
+**Delta-pille.** Pill med pil og prosent, grønn opp og rød ned. Se beslutning
+2.8 for når den *ikke* kan brukes.
+
+**Sparkline med merket endepunkt.** Fylt areal, siste punkt markert og verdien
+skrevet ut. Kategoriakse med første og siste år.
+
+Dessuten: kategorichips med snittall, minibarer for delscorer, og en
+filterrad med søk og nedtrekk over hver toppliste.
+
+### Det som ikke overtas
+
+Referansen skriver «LIVE» og «oppdatert hver time». Det kan vi ikke — SSB
+publiserer årlig med ett til to års etterslep. Elementet beholdes på samme
+plass i layouten, men innholdet snus: **et årstempel i stedet for et
+ferskhetsløfte.** Det er et sterkere argument overfor en bank enn falsk
+ferskhet ville vært.
 
 Stack: React + TypeScript, TailwindCSS + shadcn/ui, Supabase, TanStack Query,
 Recharts, Framer Motion sparsomt.
