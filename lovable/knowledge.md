@@ -185,6 +185,39 @@ lovlig — men det er ikke derfor det er greit.
 - `<Footnotes />` — nederst på hver side, generert fra radene siden faktisk
   viste. Ikke en håndskrevet tekst.
 
+## Informasjonsbudsjett
+
+Kravet er kort, oversiktlig og verdifullt — uten å bli overveldende. Det står i
+spenning med at basen er rik, så det trengs en regel: **hver seksjon har et
+tallbudsjett, og nye tall må fortrenge gamle.**
+
+- KPI-rutenett: maks åtte tall.
+- Rangert rad: ett hovedtall, ett støttetall, én pille. Ikke fire tallkolonner.
+- Næringskort: maks tre tall over folden.
+- Lønn: **ett** tall med spenn — median med 1.–9. desil. Ikke gjennomsnitt og
+  median og desiler som tre felter.
+
+Det som fortrenges flyttes ned på siden eller inn i et panel. Databasen skal
+være rik; skjermen skal være rolig.
+
+## Lønn
+
+Fra `industry_wages`. Vis median med spenn fra 1. til 9. desil — det er **målte
+tall fra SSB**, ikke et anslag, så det skal ikke merkes som anslag.
+
+Generell regel: finnes spennet i kilden, skal vi ikke gjette det. Anslagslaget
+er for der kilden tier.
+
+Lønnsstatistikken går lenger og er ferskere enn strukturstatistikken (2015–2025
+mot 2017–2023). Ikke la de to seriene se ut som samme periode — årstempel per
+måltall.
+
+## Ingen betalingsmur
+
+Produktet er gratis inntil trafikken er der. Ingen planer, ingen
+rettighetsstyring, ingen premium-teasere. `favorites` er den eneste brukereide
+tabellen, og auth finnes bare for den.
+
 ## Ikke gjør
 
 - Ikke hardkod tall i komponenter.
@@ -197,3 +230,6 @@ lovlig — men det er ikke derfor det er greit.
 - Ikke vis anslag i samme visuelle form som målte tall.
 - Ikke bygg innlogging foran næringssidene — de er offentlige.
 - Ikke lag flere sider enn de seks.
+- Ikke merk lønnsspennet som anslag — det er målte desiler.
+- Ikke bygg betalingsmur, planer eller premium-teasere.
+- Ikke sprenge tallbudsjettet fordi et felt finnes i basen.

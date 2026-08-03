@@ -416,6 +416,118 @@ Det koster noen kommunerader. Alternativet er å tjene penger på å avsløre
 enkeltbedrifters tall i småkommuner, og det er ikke et produkt jeg vil at dette
 skal være.
 
+### 2.18 Lønn hentes per næring, og spennet er ekte
+
+Lønn er både en kostnadsdriver for eieren og en forventning for den ansatte, og
+den mater `lonnsandel_pct` vi allerede har.
+
+**Kildevalget er ikke opplagt.** SSB publiserer lønn både per yrke (STYRK-08,
+tabell 11418) og per næring. Yrkestabellen er den mest presise for «hva tjener en
+frisør», men SSB gir **ingen kartlegging fra NACE til yrke**. Bygger vi den selv,
+er den vår vurdering, ikke statistikk.
+
+Så: primærkilden er lønn **per næring**, fordi den ikke krever noe vi må finne
+opp. Yrkesrader finnes i tillegg, med `yrke_kode` satt, for de næringene der ett
+eller to yrker dominerer og tallet blir mer opplysende enn næringssnittet. De
+radene merkes `beregnet`, ikke `ssb`, fordi koblingen er vår.
+
+**Og spennet er målt, ikke gjettet.** `statistikkmål`-dimensjonen i SSBs
+lønnstabeller inneholder gjennomsnitt, median *og desiler*. Fra–til oppgis derfor
+som 1. og 9. desil.
+
+Det er verdt å dvele ved: der `industry_estimates` må gi et anslag med konfidens,
+kan lønn gi et ekte spenn fra statistikken. Regelen som følger av det er
+generell — **finnes spennet i kilden, skal vi ikke anslå det.** Anslagslaget er
+for der kilden tier, ikke et sted å ta snarveier.
+
+Merk også at lønnsstatistikken går 2015–2025, altså både lenger og ferskere enn
+strukturstatistikkens 2017–2023. Appen vil ha lønnstall for år den ikke har
+marginer for. Årstempel per måltall håndterer det, men UI-et må ikke la de to
+seriene se ut som samme periode.
+
+### 2.19 Gratis til trafikken er der
+
+Ingen betalingsmur, ingen planer, ingen rettighetsstyring. Ikke fordi det ikke
+skal tjenes penger senere, men fordi rekkefølgen betyr noe.
+
+Praktisk følge for skjemaet: **ikke bygg abonnementsplumbing nå.** Ingen
+`plans`-tabell, ingen `entitlements`, ingen gating i RLS. `favorites` er den
+eneste brukereide tabellen, og auth finnes bare for den.
+
+Dette er også et argument for SEO-flaten. Et gratis produkt som rangerer på
+«lønnsomhet frisørsalong» samler trafikk som senere kan konverteres. Et betalt
+produkt uten trafikk har ingenting å konvertere.
+
+Premiumfunksjoner er eksplisitt utenfor scope. Når de kommer, er det en egen
+beslutning med egen begrunnelse.
+
+### 2.20 Informasjonsbudsjett per side
+
+Et krav som er lett å skrive og vanskelig å holde: **kort, oversiktlig og
+verdifullt — uten å bli overveldende.**
+
+Det står i direkte spenning med resten av spec-en, som stadig legger til felter.
+Uten en regel vinner «mer data er bedre» hver gang, og produktet ender som et
+regneark med farger.
+
+Regelen: **hver seksjon har et tallbudsjett, og nye tall må fortrenge gamle.**
+
+- KPI-rutenett: maks åtte tall. Skal noe inn, må noe ut.
+- Rangert liste: ett hovedtall, ett støttetall, én pille. Ikke fire kolonner
+  med tall.
+- Næringskort: maks tre tall over folden. Resten under.
+- Lønn vises som **ett** tall med spenn — median med 1.–9. desil — ikke
+  gjennomsnitt *og* median *og* desiler som tre separate felter.
+
+Det som fortrenges, forsvinner ikke fra basen. Det flyttes ned på siden, eller
+til et panel. Databasen skal være rik; skjermen skal være rolig.
+
+### 2.21 Firmadatabasen: hva de gjør bra, og hvor vi faktisk slår dem
+
+Nærmeste gratis substitutt. Vurdert fra deres egne sider, siden domenet er
+blokkert for direkte henting herfra.
+
+**Hva de har:**
+
+- Kun Brreg — Enhetsregisteret og Regnskapsregisteret, **oppdatert daglig**.
+- 1 150 000 selskaper, altså hele registeret. Vi har 300 i seed.
+- Omsetning og antall selskaper per bransje. Handel størst med 2 168,6 mrd.
+- **20 bransjer og 117 underkategorier** — en *kuratert* NACE-gruppering, ikke
+  rå koder.
+- SN2025 som standard.
+- Gratis, som lead-gen for Managrs betalte SaaS.
+
+**Den ene tingen vi bør ta etter:** den kuraterte grupperingen. «96.021
+Frisering og annen skjønnhetspleie» er ikke slik en bruker tenker. Vi har
+`common_name` allerede, men de tolv gruppene våre bærer fortsatt SSBs
+næringsnavn. Et brukervennlig toppnivå på 15–20 grupper med folkelige navn er
+billig å legge til og hever hele opplevelsen.
+
+**Hva de mangler, og som er hele grunnlaget vårt:**
+
+De har ikke SSB. Det betyr ingen driftsmargin per region, ingen bearbeidingsverdi,
+ingen sysselsetting utover det Brreg oppgir, ingen bruttoinvestering — og
+avgjørende: **ingen tidsserie**, fordi Brreg bare gir siste år. De kan ikke vise
+utvikling over tid uten å ha samlet snapshots selv, og det er nettopp derfor
+beslutning 2.15 finnes.
+
+De har heller ingen foretaksdemografi, altså ingen overlevelsesrater eller
+konkurstetthet. Ingen score. Ingen proveniensmerking.
+
+**Vi slår dem ikke på ferskhet eller dekning, og bør ikke prøve.** Daglige
+Brreg-oppdateringer over 1,15 millioner selskaper er deres styrke. Vår er
+analyselaget: margin over tid, per region, med overlevelse og en forklart score.
+
+**Å bli billigere er trivielt** — de er gratis, og vi er gratis, se 2.19. Det
+reelle spørsmålet er ikke pris men om analyselaget er verdt å bytte for. Det
+avgjøres av om scoren faktisk hjelper noen ta en beslutning, ikke av hvor mange
+tall vi rekker å vise.
+
+**Åpent punkt: SN2007 mot SN2025.** Vi bygger på SN2007, som er det
+strukturstatistikken bruker. Firmadatabasen oppgir SN2025. Er det en ny revisjon
+SSB har tatt i bruk for nyere publiseringer, trenger `industries` et
+standardversjonsfelt og en kartlegging. Må verifiseres.
+
 ---
 
 ## 3. Datamodell
@@ -1111,6 +1223,8 @@ statistikktabellene.
 
 | Punkt | Håndtering |
 |---|---|
+| **SN2007 eller SN2025?** | Vi bygger på SN2007. Firmadatabasen oppgir SN2025. Er det en revisjon SSB har tatt i bruk, trenger `industries` et versjonsfelt og en kartlegging mellom standardene. Verifiser mot SSBs klassifikasjonsside. |
+| **Finnes lønn per næring, med desiler, per fylke?** | Beslutning 2.18 forutsetter gjennomsnitt, median og desiler per næring. Yrkestabellen 11418 har `statistikkmål`; det må bekreftes at næringstabellene har det samme, og hvilken regional granularitet de har. |
 | **Har tabell 08143 driftsmargin per kommune og fylke?** | **Høyest prioritet.** Markedsresearch tyder på at SSB publiserer driftsmargin brutt ned på bransje, kommune og fylke for ikke-finansielle aksjeselskaper. Stemmer det, er 2.1 for pessimistisk og kommunetall trenger ikke bygges nedenfra. Kilden er søketreff, ikke tabellen selv — ssb.no var blokkert. Verifiser med `GET /api/v2/tables/08143/metadata` før noe annet. Merk at dekningen i så fall er `as_only`. |
 | Har den regionale SSB-tabellen `driftsresultat`? | Verifiseres først i `import-ssb`. Begge felter nullable, så designet tåler begge utfall. |
 | Publiseres 2017–2023 på datidens fylkesinndeling eller tilbakeskrevet til dagens 15? | Modellen antar det strengeste tilfellet. Verifiseres i `import-ssb`. |

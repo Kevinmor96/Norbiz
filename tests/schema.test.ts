@@ -297,3 +297,78 @@ describe('score_config', () => {
     expect(Number(r.rows[0]!.min_enheter_aggregat)).toBe(5);
   });
 });
+
+describe('industry_wages', () => {
+  beforeEach(async () => {
+    await seedRefs(db);
+  });
+
+  it('holder én rad per næring, region, år og yrke — også når region og yrke er NULL', async () => {
+    const ins = `
+      insert into industry_wages
+        (industry_id, region_id, year, nace_level, region_level,
+         manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9,
+         antall_ansatte, source, data_quality, coverage)
+      values
+        (${ID('industries', `nace_code='96.021'`)}, null, 2024, 5, null,
+         41200, 39800, 33100, 52400, 8400, 'SSB:11418', 'ssb', 'alle')`;
+    await db.exec(ins);
+    // nulls not distinct: samme rad to ganger skal avvises selv med NULL-felter.
+    const dup = await rejects(db, ins, 'industry_wages_natural_key');
+    expect(dup).toBe(true);
+  });
+
+  it('avviser et spenn som går baklengs', async () => {
+    const bad = await rejects(
+      db,
+      `insert into industry_wages
+         (industry_id, year, nace_level, manedslonn_desil1, manedslonn_desil9,
+          source, data_quality, coverage)
+       values (${ID('industries', `nace_code='96.021'`)}, 2024, 5, 52400, 33100,
+               'SSB:11418', 'ssb', 'alle')`,
+      'industry_wages_desil_order',
+    );
+    expect(bad).toBe(true);
+  });
+
+  it('avviser en median som ligger utenfor spennet', async () => {
+    const bad = await rejects(
+      db,
+      `insert into industry_wages
+         (industry_id, year, nace_level, manedslonn_median, manedslonn_desil1,
+          manedslonn_desil9, source, data_quality, coverage)
+       values (${ID('industries', `nace_code='96.021'`)}, 2024, 5, 61000, 33100, 52400,
+               'SSB:11418', 'ssb', 'alle')`,
+      'industry_wages_median_within',
+    );
+    expect(bad).toBe(true);
+  });
+
+  it('avviser regionale lønnsrader over 3-siffer NACE', async () => {
+    const bad = await rejects(
+      db,
+      `insert into industry_wages
+         (industry_id, region_id, year, nace_level, region_level,
+          manedslonn_median, source, data_quality, coverage)
+       values (${ID('industries', `nace_code='96.021'`)}, ${ID('regions', `code='03'`)},
+               2024, 5, 'fylke', 39800, 'SSB:11418', 'ssb', 'alle')`,
+      'industry_wages_regional_grain',
+    );
+    expect(bad).toBe(true);
+  });
+
+  it('tillater en yrkesrad ved siden av næringsraden', async () => {
+    await db.exec(`
+      insert into industry_wages
+        (industry_id, year, nace_level, yrke_kode, yrke_navn,
+         manedslonn_median, source, data_quality, coverage)
+      values
+        (${ID('industries', `nace_code='96.021'`)}, 2024, 5, null, null,
+         39800, 'SSB:11418', 'ssb', 'alle'),
+        (${ID('industries', `nace_code='96.021'`)}, 2024, 5, '5141', 'Frisør',
+         37200, 'SSB:11418', 'beregnet', 'alle');
+    `);
+    const r = await db.query<{ count: number }>(`select count(*) from industry_wages`);
+    expect(Number(r.rows[0]!.count)).toBe(2);
+  });
+});
