@@ -1,5 +1,8 @@
 Bygg næringssiden på `/bransje/[slug]`.
 
+Følg den visuelle retningen i prosjektkunnskapen. Siden er et oppslag: mørk
+grunn, og innholdet i store lyse kort som hver leses for seg.
+
 Header med navn, NACE-kode, regionvelger (Norge pluss fylkene som gjaldt i
 valgt år) og Business Score som progresjonsring.
 
@@ -16,6 +19,9 @@ nyetableringer over tid, konkurser per år.
 
 Fylkeskart farget etter valgt måltall. Bruk en enkel GeoJSON som matcher
 årgangen for valgt år — ikke en tredjeparts karttjeneste.
+
+Vis de seks delscorene som minibarer med tall, og `score_total` som femdelt
+fargestripe ved siden av progresjonsringen.
 
 Klikk på en delscore åpner et panel som viser `forklaring`-jsonb: råtallet,
 persentilen og vekten per delscore, med kilde. Ingen svarte bokser.

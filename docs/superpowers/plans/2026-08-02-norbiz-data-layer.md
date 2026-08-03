@@ -3087,263 +3087,37 @@ overføres — connectoren tar naturlig språk, og skjemaet i basen er kontrakte
 - Create: `lovable/knowledge.md`
 - Create: `lovable/messages/00-oppsett.md` … `05-favoritter.md`
 
-- [ ] **Step 1: Skriv `lovable/knowledge.md`**
-
-Dette settes med `set_project_knowledge` og gjelder hver melding etterpå.
-Maks 10 000 tegn.
-
-```markdown
-# Bransjeindeks — faste regler
-
-Beslutningsverktøy for den som vurderer å starte, kjøpe eller investere i en
-bedrift i Norge. Målgruppe i prioritert rekkefølge: rådgivere, banker og
-næringsmeglere; investorer og oppkjøpere; gründere.
-
-## Posisjonering
-
-Problemet er ikke mangel på data. Tallene finnes allerede hos Proff, Purehelp,
-Brønnøysund og SSB — fire kilder som alle svarer på «hvordan går det med dette
-selskapet?» Dette produktet svarer på noe annet: «er denne typen virksomhet
-verdt å drive, her?»
-
-Vi er sammenstillingslaget, ikke en femte kilde. Tre ting skiller produktet, og
-de skal merkes i hele UI-et, ikke bare på forsiden:
-
-1. **Bransje, ikke bedrift** — svaret er per næring og region.
-2. **Sammenstilt, ikke rådata** — flere kilder i samme tabell, med score.
-3. **Vi sier hva vi ikke vet** — hvert tall bærer sin opprinnelse.
-
-Det tredje er det viktigste. Det er lett å kopiere en datakilde og vanskelig å
-kopiere disiplinen i å innrømme usikkerhet, så aldri skjul et hull eller pynt
-på et anslag for at siden skal se mer komplett ut.
-
-## Datakilde
-
-All data leses fra Supabase via TanStack Query. Aldri hardkodede tall, aldri
-live API-kall til SSB eller Brreg fra frontend.
-
-## Tre nivåer av sannhet
-
-Hver rad bærer `data_quality`:
-
-| Verdi | Betydning | Visuell behandling |
-|---|---|---|
-| `ssb`, `brreg` | målt og publisert | nøytral kildeangivelse |
-| `beregnet` | utledet fra målte tall | nøytral, med «beregnet» |
-| `mock` | demodata | grå «Demo-data»-badge |
-| `ai_anslag` | AI-vurdering | tydelig annen form, med konfidens |
-
-Et anslag skal aldri kunne forveksles med et målt tall. Forskjellen må synes i
-periferisynet, ikke bare i badge-teksten.
-
-## NULL er aldri 0
-
-Mangler et tall, vis «ikke publisert» — aldri 0, aldri en tom celle.
-
-Kolonnen `merknader` er en jsonb som kartlegger felt til årsak. Er verdien
-`konfidensielt`, skriv «skjult av hensyn til konfidensialitet» i stedet for
-«ikke publisert». For en rådgiver er det ikke et hull — det betyr at næringen
-har for få aktører i regionen til at tallet kan oppgis, og det er i seg selv
-informasjon om markedet.
-
-## To granulariteter samtidig
-
-SSB publiserer nasjonale næringstall på NACE 2–5, men regionale kun på 2–3.
-
-Velger brukeren en femsifret næring sammen med et fylke, finnes det ingen
-regional rad. Vis nasjonale og regionale tall side om side, hver med sin egen
-granularitet påført. Ikke skjul forskjellen, og ikke fyll den ut.
-
-## Foretak og virksomhet er ikke det samme
-
-`unit_type` skiller dem. En frisørkjede er ett foretak og ti virksomheter.
-Regionale rader finnes kun for `virksomhet`. Bland dem aldri i samme sum.
-
-## AS-avgrensningen
-
-`coverage = 'as_only'` betyr at raden kun dekker aksjeselskaper, fordi ENK ikke
-leverer årsregnskap. En slik rad skal aldri sammenlignes ufiltrert med en rad
-merket `alle`. Si det i UI-et der tallet står.
-
-## Fylkesårganger
-
-Norge hadde 19 fylker til 2019, 11 fra 2020, 15 fra 2024. `regions` har
-`valid_from_year` og `valid_to_year`. Kartet må laste GeoJSON som matcher
-årgangen for valgt år. Vis hvilken årgang som er i bruk.
-
-## Delte komponenter
-
-- `<DataBadge quality source year coverage konfidens />` — på hvert KPI-kort og
-  hver graf.
-- `<InsightCard />` — én rad fra `ai_insights`, ankret ved KPI-en i
-  `knyttet_til`, sortert på `alvorlighet`. Klikk utvider `referanser`.
-- `<Footnotes />` — nederst på hver side, generert fra radene siden faktisk
-  viste. Ikke en håndskrevet tekst.
-
-## Design
-
-Mørk bakgrunn nær sort, kortflater et hakk lysere. Én aksentfarge for positivt,
-én for negativt, ellers gråtoner — maks tre farger samtidig. Store, luftige
-KPI-kort der tallet er hovedelementet. `font-variant-numeric: tabular-nums`
-overalt hvor tall stables. Avrundede hjørner og tynne kantlinjer, ikke
-slagskygger. Gradienter kun i hero, glassmorphism kun på sticky header.
-Animasjoner under 200 ms. Skeleton-states på alle kort og grafer. Dark mode
-som standard. Fullt responsivt: KPI-kort stables på mobil, tabeller blir kort.
-
-## Ikke gjør
-
-- Ikke hardkod tall i komponenter.
-- Ikke fyll NULL med 0.
-- Ikke bygg innlogging foran næringssidene — de er offentlige.
-- Ikke lag flere sider enn de seks.
-- Ikke vis anslag i samme visuelle form som målte tall.
-```
-
-- [ ] **Step 2: Skriv meldingsfilene**
-
-Én fil per side, sendt i rekkefølge med `send_message`. Hver melding beskriver
-hva som skal bygges, ikke hvordan. Skjemaet er kontrakten.
-
-`lovable/messages/00-oppsett.md`:
-
-```markdown
-Koble prosjektet til det eksisterende Supabase-prosjektet (ikke Lovable Cloud).
-Sett opp TanStack Query, shadcn/ui og Recharts. Dark mode som standard, lys
-modus tilgjengelig.
-
-Lag de tre delte komponentene beskrevet i prosjektkunnskapen: DataBadge,
-InsightCard og Footnotes. Bygg dem først — alle sidene bruker dem.
-
-Generer TypeScript-typer fra databaseskjemaet, og bruk dem. Ikke skriv typene
-for hånd.
-
-Ikke bygg noen sider ennå.
-```
-
-`lovable/messages/01-forside.md`:
-
-```markdown
-Bygg forsiden. Offentlig, ingen innlogging.
-
-Forsiden har én jobb utover å være pen: den må gjøre klart innen første skjerm
-hvorfor dette finnes når tallene allerede ligger hos Proff, Purehelp,
-Brønnøysund og SSB.
-
-Hero med overskriften «Finn ut hva som faktisk lønner seg å drive i Norge».
-
-Underteksten skal gjøre posisjoneringsarbeidet, ikke bare oppgi dekning. Poenget
-er at tallene finnes allerede — spredt over fire kilder, per selskap, uten
-sammenheng — og at dette er stedet de er satt sammen til ett svar på
-bransjenivå. Formuler det med egne ord, kort, maks to setninger.
-
-Dekningstallene står som belegg under, ikke som hovedbudskap: antall næringer,
-antall regioner og årsspennet, alle hentet fra databasen med `count` og
-`min`/`max` — aldri hardkodet.
-
-Én stor søkeboks med autocomplete mot `industries`, som søker i `common_name`
-og `search_terms`. Under den fire eksempel-chips: Frisørsalong, Treningssenter,
-Restaurant, Regnskapsfører.
-
-Deretter et bånd med tre korte kolonner, ingen illustrasjoner:
-
-1. **Bransje, ikke bedrift.** De andre svarer per organisasjonsnummer. Her er
-   svaret per næring og region — det spørsmålet en rådgiver, en bank eller en
-   oppkjøper stiller først.
-2. **Sammenstilt, ikke rådata.** Strukturstatistikk, foretaksdemografi,
-   konkurstall, folketall og regnskapstall i samme tabell, med en beregnet
-   score på toppen.
-3. **Vi sier hva vi ikke vet.** Hvert tall bærer sin opprinnelse — målt,
-   beregnet eller anslått — og hvert hull har en årsak. Et tall som er skjult
-   av konfidensialitetshensyn er noe annet enn et tall som mangler.
-
-Under det en kompakt tabell med de ti næringene som har høyest `score_total`
-nasjonalt, fra `industry_scores`. Hver rad lenker til næringssiden.
-
-Den tabellen er beviset på påstandene i båndet over, så den skal ligge nær nok
-å kunne leses i samme blikk — ikke nedenfor en stor luftig seksjon.
-```
-
-`lovable/messages/02-dashboard.md`:
-
-```markdown
-Bygg dashboardet.
-
-KPI-rad: antall næringer dekket, antall enheter i datagrunnlaget, median
-driftsmargin på tvers, median omsetning per enhet, median antall sysselsatte.
-Hvert kort med DataBadge.
-
-To grafer: marginfordeling på tvers av næringer som histogram, og topp/bunn ti
-på margin som horisontalt stolpediagram.
-
-Bruk kun nasjonale rader med `unit_type = 'foretak'` for marginene, siden
-regionale rader ikke har driftsmargin.
-```
-
-`lovable/messages/03-naeringsside.md`:
-
-```markdown
-Bygg næringssiden på `/bransje/[slug]`.
-
-Header med navn, NACE-kode, regionvelger (Norge pluss fylkene som gjaldt i
-valgt år) og Business Score som progresjonsring.
-
-KPI-rutenett: omsetning per enhet, driftsresultat, driftsmargin, lønnsandel,
-sysselsatte per enhet, verdiskaping per sysselsatt, antall enheter, 5-års
-overlevelse.
-
-Er valgt næring femsifret og valgt region ikke Norge, finnes det ingen regional
-rad. Vis da nasjonale og regionale tall side om side med granularitet påført
-hver verdi.
-
-Grafer: omsetning og margin over tid med to akser, antall enheter og
-nyetableringer over tid, konkurser per år.
-
-Fylkeskart farget etter valgt måltall. Bruk en enkel GeoJSON som matcher
-årgangen for valgt år — ikke en tredjeparts karttjeneste.
-
-Klikk på en delscore åpner et panel som viser `forklaring`-jsonb: råtallet,
-persentilen og vekten per delscore, med kilde. Ingen svarte bokser.
-
-Seksjon for anslag fra `industry_estimates`: vis som spenn med konfidens, i
-tydelig annen visuell form enn de målte KPI-ene.
-
-Seksjon for innsikt fra `ai_insights`, sortert på alvorlighet, ankret ved
-KPI-ene de gjelder.
-
-Nederst en tabell med utvalgte foretak fra `companies`: navn, kommune, ansatte,
-omsetning, driftsresultat, regnskapsår. Merk tydelig at ENK mangler
-regnskapstall.
-```
-
-`lovable/messages/04-region-og-topplister.md`:
-
-```markdown
-Bygg regionsiden på `/region/[code]` og topplistesiden.
-
-Regionsiden viser for valgt fylke: mest lønnsomme næringer, raskest voksende,
-høyest konkurstetthet, og næringer med lavest foretakstetthet sammenlignet med
-landsgjennomsnittet. Det siste er «hullene i markedet» og skal ha mest plass —
-det er den mest verdifulle visningen på siden.
-
-Husk at regionale tall kun finnes på NACE 2–3.
-
-Topplister: filtrerbare tabeller for beste margin, høyest vekst, best
-overlevelse, lavest konkurransetetthet og høyest samlet score. Filtre for
-region, minimum antall enheter og størrelsesintervall.
-```
-
-`lovable/messages/05-favoritter.md`:
-
-```markdown
-Bygg favoritter og innstillinger.
-
-Supabase auth med magic link. Favoritter leses fra `favorites`, som har RLS —
-en bruker ser kun egne rader. Legg til og fjern favoritt fra næringssiden.
-
-Innstillinger: bytte mellom mørk og lys modus, og valg av standardregion.
-
-Ingen andre sider. Næringssidene forblir offentlige.
-```
+Innholdet ligger i repoet, ikke gjengitt her. Det var opprinnelig innebygd i
+denne planen, men filene og planen drev fra hverandre to ganger — først da
+posisjoneringen ble skrevet om, så da den visuelle retningen ble lagt til. En
+plan som gjengir en fil den ikke eier, blir feil så snart filen endres. Les
+filene direkte.
+
+- [ ] **Step 1: `lovable/knowledge.md`**
+
+Settes med `set_project_knowledge` og gjelder hver melding etterpå. Maks 10 000
+tegn; ligger i dag rundt 6 000.
+
+Dekker: posisjoneringen og de tre differensiatorene, de tre provenience-nivåene
+og hvordan de merkes visuelt, at NULL aldri er 0, `merknader` og forskjellen på
+undertrykt og upublisert, de to granularitetene, foretak mot virksomhet,
+AS-avgrensningen, fylkesårgangene, den visuelle retningen med de fire
+datamønstrene, regelen om at vekstpillen bare finnes der det er tidsserie, og
+forbudet mot ferskhetspåstander.
+
+- [ ] **Step 2: `lovable/messages/*.md`**
+
+Én melding per side, sendt i rekkefølge med `send_message`. Hver beskriver hva
+som skal bygges, ikke hvordan — skjemaet er kontrakten.
+
+| Fil | Dekker |
+|---|---|
+| `00-oppsett.md` | Supabase-kobling, stack, de tre delte komponentene, genererte typer |
+| `01-forside.md` | hero, topp 20 med filterrad, kategorichips, differensiatorene |
+| `02-dashboard.md` | KPI-rad og to fordelingsgrafer |
+| `03-naeringsside.md` | KPI-rutenett, dobbel granularitet, grafer, kart, score-nedbryting, anslag, innsikt, foretakstabell |
+| `04-region-og-topplister.md` | hullene i markedet, og topplister for næringer, selskaper og kommuner |
+| `05-favoritter.md` | auth med magic link, favoritter under RLS, innstillinger |
 
 - [ ] **Step 3: Commit**
 

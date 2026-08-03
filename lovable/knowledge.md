@@ -76,6 +76,58 @@ Norge hadde 19 fylker til 2019, 11 fra 2020, 15 fra 2024. `regions` har
 `valid_from_year` og `valid_to_year`. Kartet må laste GeoJSON som matcher
 årgangen for valgt år. Vis hvilken årgang som er i bruk.
 
+## Visuell retning
+
+Referanse: proven-saas.com. Prinsipper og oppbygging, ikke kloning — egen
+palett, norsk språk, og et provenienslag referansen ikke har.
+
+**Skallet.** Mørk grunn nær sort med blåtone. Store lyse kort som ligger på den
+mørke grunnen, radius rundt 22 px, romslig innvendig luft. Alterneringen er
+signaturen: hver seksjon skal lese som sitt eget oppslag, ikke som en rad i et
+uendelig dashbord.
+
+**Typografi.** Geometrisk sans, tunge vekter og stram sporing i overskrifter.
+`font-variant-numeric: tabular-nums` overalt hvor tall stables. Pille-knapper,
+fullt avrundet. Avrundede hjørner og tynne kantlinjer — ingen slagskygger.
+
+**Håndverk.** Animasjoner under 200 ms. Skeleton-states på alle kort og grafer.
+Fullt responsivt: rangerte rader kollapser til to linjer på mobil, kort stables.
+
+**Fire datamønstre som skal gjenbrukes:**
+
+1. **Rangert rad** — plassnummer, navn med metalinje under, ett stort tall, og
+   en delta-pille til høyre. Hovedgrepet i alle topplister.
+2. **Score som femdelt fargestripe** — `score_total` vist som fem segmenter fra
+   rødt til grønt. Diskret framfor kontinuerlig, fordi en stripe leses i
+   periferisynet mens et tosifret tall må leses.
+3. **Delta-pille** — pil og prosent, grønn opp og rød ned. Se regelen under.
+4. **Sparkline med merket endepunkt** — fylt areal, siste punkt markert og
+   verdien skrevet ut.
+
+Dessuten: kategorichips med snittall, minibarer for delscorer, og en filterrad
+med søk og nedtrekk over hver toppliste.
+
+## Vekstpillen har en hard regel
+
+Delta-pillen vises **bare** der det finnes en tidsserie:
+
+| Enhet | Visning |
+|---|---|
+| Næring | delta-pille, reell endring 2017–2023 |
+| Fylke | delta-pille, reell endring |
+| Selskap | **årstempel, ingen delta** |
+| Kommune | **årstempel, ingen delta** |
+
+Brønnøysunds åpne API gir bare siste innsendte regnskapsår per selskap. Et
+selskapskort eller en kommunerad skal derfor aldri ha en vekstpille. Ikke lån
+næringens vekst og la den se ut som selskapets.
+
+## Ingen «LIVE»-merkelapp
+
+Referansen skriver «oppdatert hver time». SSB publiserer årlig med ett til to
+års etterslep. Behold elementet på samme plass i layouten, men snu innholdet:
+et årstempel i stedet for et ferskhetsløfte.
+
 ## Delte komponenter
 
 - `<DataBadge quality source year coverage konfidens />` — på hvert KPI-kort og
@@ -85,20 +137,12 @@ Norge hadde 19 fylker til 2019, 11 fra 2020, 15 fra 2024. `regions` har
 - `<Footnotes />` — nederst på hver side, generert fra radene siden faktisk
   viste. Ikke en håndskrevet tekst.
 
-## Design
-
-Mørk bakgrunn nær sort, kortflater et hakk lysere. Én aksentfarge for positivt,
-én for negativt, ellers gråtoner — maks tre farger samtidig. Store, luftige
-KPI-kort der tallet er hovedelementet. `font-variant-numeric: tabular-nums`
-overalt hvor tall stables. Avrundede hjørner og tynne kantlinjer, ikke
-slagskygger. Gradienter kun i hero, glassmorphism kun på sticky header.
-Animasjoner under 200 ms. Skeleton-states på alle kort og grafer. Dark mode
-som standard. Fullt responsivt: KPI-kort stables på mobil, tabeller blir kort.
-
 ## Ikke gjør
 
 - Ikke hardkod tall i komponenter.
 - Ikke fyll NULL med 0.
+- Ikke sett en vekstpille på et selskap eller en kommune.
+- Ikke skriv «LIVE», «sanntid» eller «oppdatert daglig» noe sted.
+- Ikke vis anslag i samme visuelle form som målte tall.
 - Ikke bygg innlogging foran næringssidene — de er offentlige.
 - Ikke lag flere sider enn de seks.
-- Ikke vis anslag i samme visuelle form som målte tall.
