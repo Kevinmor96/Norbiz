@@ -331,6 +331,91 @@ hedging uten tall. Ordlyden skal si hva vi *vet* før den sier hva vi ikke vet �
 «300 000–800 000 kr, basert på investeringsnivå i næringen» framfor «usikkert,
 anslagsvis 300 000–800 000 kr».
 
+### 2.14 Attribusjon er et lisenskrav, ikke høflighet
+
+Markedsresearch avdekket et etterlevelseshull. Lisensene er sjenerøse, men de
+har vilkår vi ikke har oppfylt noe sted.
+
+**SSB: CC BY 4.0.** Fri kommersiell bruk og avledede produkter tillatt.
+Attribusjon påkrevd.
+
+**Brreg Enhetsregisteret: NLOD.** Kommersiell bruk, endring og kombinasjon med
+andre datasett eksplisitt tillatt. To vilkår: oppgi kilden og merk at data er
+endret, og ikke framstill dataene villedende eller antyd at Brreg står bak
+bruken.
+
+Ingen av lisensene forbyr avledede indekser. Men attribusjonen må stå, og
+`<Footnotes />` er stedet: kildeangivelse med lisensnavn, generert fra radene
+siden faktisk viste. Formuleringen for Brreg skal si at data er bearbeidet, slik
+at ingen leser scoren som Brregs vurdering.
+
+Dette er billig å gjøre riktig nå og pinlig å bli tatt på senere.
+
+### 2.15 Brreg-historikk kan ikke etterfylles — snapshot fra dag én
+
+Det åpne Regnskapsregisteret gir kun siste innsendte år. De tre siste årene
+pluss konsernregnskap er forbeholdt offentlig myndighet.
+
+Konsekvensen er skarpere enn «vi mangler tidsserie»: **historikk vi ikke fanger
+nå, kan vi ikke hente senere.** Hvert år som går uten at snapshotet lagres, er
+et år som er tapt permanent.
+
+Derfor får `companies` en historikktabell fra starten — `companies_snapshot`
+med samme nøkkeltall pluss `hentet_dato` — og `import-brreg` skriver til den
+ved hver kjøring i stedet for å overskrive. Etter tre kjøringer har vi det de
+andre må kjøpe seg til, og etter fem har vi noe ingen gratis konkurrent har.
+
+Dette er den ene investeringen med rentes rente i hele prosjektet, og den
+koster nesten ingenting å starte.
+
+### 2.16 Dataene er ikke vollgraven
+
+Tre sider bruker allerede de samme kildene: **Firmadatabasen.no** publiserer
+bransjeoversikter gratis som lead-gen for Managrs betalte SaaS,
+**Faktaportalen.no** normaliserer SSB, NAV og Brreg, og **Firmabasen.no** selger
+abonnement på konkursrisiko oppå samme data.
+
+Ingen av dem gjør en scoret, regionalt sammenlignet lønnsomhetsindeks. Men
+premisset «ingen har gjort dette» må leses som «ingen har *pakket og scoret*
+dette» — ikke som at feltet er tomt.
+
+Det betyr at inntaket kan kopieres av hvem som helst. Differensieringen må
+komme fra tre andre steder:
+
+**Metodikken** — scoren, peer-gruppene, vektingen. Den er vår.
+**Rammen** — «er dette verdt å drive, her» framfor «hvordan går det med dette
+selskapet».
+**Proveniensdisiplinen** — se seksjon 0. Det er lett å kopiere en datakilde og
+vanskelig å kopiere viljen til å innrømme usikkerhet.
+
+Og en advarsel: en gratis nær-substitutt som finansieres av noe annet, kan
+investere mer i innhold enn et betalt dataprodukt kan. Distribusjonen må være
+en bevisst plan, ikke en antakelse.
+
+### 2.17 Reidentifisering er en beslutning, ikke en bieffekt
+
+SSB undertrykker celler bygget på under tre enheter, pluss sekundær
+undertrykking for å hindre baklengsregning. Det er derfor `mangel_arsak`
+finnes.
+
+Men det åpner en felle: bygger vi regionale tall **nedenfra** fra
+enkeltselskapenes regnskap i stedet for fra SSBs ferdig undertrykte tabeller,
+omgår vi SSBs regel — og overtar dermed vurderingen selv.
+
+Snitt av tre til fem selskaper i én NACE-kode i en liten kommune gjør
+enkeltselskapers resultat rimelig lett å regne baklengs. Hvert underliggende
+regnskap er offentlig, så det er ikke ulovlig. Men det er ikke derfor det er
+greit.
+
+**Regelen: aggregater bygget nedenfra fra `companies` skal ha samme
+minimumsterskel som SSB bruker.** Under terskelen vises `mangel_arsak =
+'konfidensielt'` — vår egen undertrykking, av samme grunn som SSBs. Terskelen
+lagres i `score_config` ved siden av `min_enheter`, så den kan justeres bevisst.
+
+Det koster noen kommunerader. Alternativet er å tjene penger på å avsløre
+enkeltbedrifters tall i småkommuner, og det er ikke et produkt jeg vil at dette
+skal være.
+
 ---
 
 ## 3. Datamodell
@@ -1026,6 +1111,7 @@ statistikktabellene.
 
 | Punkt | Håndtering |
 |---|---|
+| **Har tabell 08143 driftsmargin per kommune og fylke?** | **Høyest prioritet.** Markedsresearch tyder på at SSB publiserer driftsmargin brutt ned på bransje, kommune og fylke for ikke-finansielle aksjeselskaper. Stemmer det, er 2.1 for pessimistisk og kommunetall trenger ikke bygges nedenfra. Kilden er søketreff, ikke tabellen selv — ssb.no var blokkert. Verifiser med `GET /api/v2/tables/08143/metadata` før noe annet. Merk at dekningen i så fall er `as_only`. |
 | Har den regionale SSB-tabellen `driftsresultat`? | Verifiseres først i `import-ssb`. Begge felter nullable, så designet tåler begge utfall. |
 | Publiseres 2017–2023 på datidens fylkesinndeling eller tilbakeskrevet til dagens 15? | Modellen antar det strengeste tilfellet. Verifiseres i `import-ssb`. |
 | Finnes `arsverk_per_enhet` i strukturstatistikken? | Usikkert — `sysselsatte` er sikker, årsverk ikke. Nullable; droppes hvis den ikke finnes. |

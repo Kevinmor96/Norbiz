@@ -199,13 +199,25 @@ export function sharedDb(): Promise<PGlite> {
   return cached;
 }
 
-/** Tømmer alle tabeller, beholder skjemaet. Robust mot nye migrasjoner. */
+/**
+ * Tømmer data, beholder skjema og konfigurasjon.
+ *
+ * score_weights og score_config settes inn av migrasjonene og er
+ * skjemastandarder, ikke testdata. Å tømme dem ville etterlatt scoringen uten
+ * vekter for hver test etter den første.
+ */
+const CONFIG_TABLES = ['score_weights', 'score_config'];
+
 export async function resetData(db: PGlite): Promise<void> {
   await db.exec(`
     do $$
     declare t text;
     begin
-      for t in select tablename from pg_tables where schemaname = 'public' loop
+      for t in
+        select tablename from pg_tables
+        where schemaname = 'public'
+          and tablename not in (${CONFIG_TABLES.map((n) => `'${n}'`).join(', ')})
+      loop
         execute format('truncate table %I restart identity cascade', t);
       end loop;
     end $$;

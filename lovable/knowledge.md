@@ -157,6 +157,25 @@ Referansen skriver «oppdatert hver time». SSB publiserer årlig med ett til to
 års etterslep. Behold elementet på samme plass i layouten, men snu innholdet:
 et årstempel i stedet for et ferskhetsløfte.
 
+## Attribusjon er påkrevd
+
+Lisensvilkår, ikke høflighet. SSB-data er CC BY 4.0, Brreg-data er NLOD. Begge
+tillater kommersiell bruk og avledede produkter, men krever kildeangivelse — og
+NLOD krever i tillegg at det står at data er bearbeidet, og at ingenting antyder
+at Brreg står bak vår vurdering.
+
+`<Footnotes />` bærer dette, generert fra radene siden faktisk viste.
+
+## Vår egen undertrykking
+
+Aggregater vi bygger nedenfra fra `companies` — for eksempel kommunetall — skal
+ha samme minimumsterskel som SSB bruker. Under `score_config.min_enheter_aggregat`
+vises `mangel_arsak = 'konfidensielt'`, ikke tallet.
+
+Grunnen: snitt av tre selskaper i én næring i en liten kommune er lett å regne
+baklengs til enkeltbedrifters resultat. Hvert regnskap er offentlig, så det er
+lovlig — men det er ikke derfor det er greit.
+
 ## Delte komponenter
 
 - `<DataBadge quality source year coverage konfidens />` — på hvert KPI-kort og

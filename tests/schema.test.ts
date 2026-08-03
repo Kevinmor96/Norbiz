@@ -258,3 +258,42 @@ describe('ai_insights', () => {
     expect(noRefs).toBe(true);
   });
 });
+
+describe('companies_snapshot', () => {
+  it('tar imot flere årganger av samme selskap', async () => {
+    await db.exec(`
+      insert into companies_snapshot
+        (org_nr, regnskapsar, hentet_dato, navn, organisasjonsform,
+         omsetning, source, data_quality)
+      values
+        ('811234567', 2023, '2024-09-01', 'Salong AS', 'AS', 5200000, 'brreg', 'brreg'),
+        ('811234567', 2024, '2025-09-01', 'Salong AS', 'AS', 5900000, 'brreg', 'brreg');
+    `);
+    const r = await db.query<{ count: number }>(
+      `select count(*) from companies_snapshot where org_nr = '811234567'`,
+    );
+    // Poenget med tabellen: historikk akkumuleres i stedet for å overskrives.
+    expect(Number(r.rows[0]!.count)).toBe(2);
+  });
+
+  it('avviser duplikat av samme selskap, år og uttrekksdato', async () => {
+    const ins = `insert into companies_snapshot
+      (org_nr, regnskapsar, hentet_dato, navn, organisasjonsform, source, data_quality)
+      values ('922345678', 2023, '2024-09-01', 'B AS', 'AS', 'brreg', 'brreg')`;
+    await db.exec(ins);
+    const dup = await rejects(db, ins, 'companies_snapshot_pkey');
+    expect(dup).toBe(true);
+  });
+});
+
+describe('score_config', () => {
+  it('har en terskel for egenbygde aggregater', async () => {
+    const r = await db.query<{ min_enheter: number; min_enheter_aggregat: number }>(
+      `select min_enheter, min_enheter_aggregat from score_config`,
+    );
+    expect(Number(r.rows[0]!.min_enheter)).toBe(20);
+    // Speiler SSBs undertrykkingsregel så vi ikke avslører enkeltselskaper
+    // i småkommuner. Se spec 2.17.
+    expect(Number(r.rows[0]!.min_enheter_aggregat)).toBe(5);
+  });
+});
