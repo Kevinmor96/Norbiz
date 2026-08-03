@@ -16,6 +16,11 @@ når API-formene er verifisert.
 **Tech Stack:** PostgreSQL (Supabase), TypeScript, Vitest, `@electric-sql/pglite`,
 `psql` for å applisere seed.
 
+> **Om tellinger:** PGlite returnerer `count(*)` som `number` når verdien er
+> innenfor `Number.MAX_SAFE_INTEGER`, mens node-postgres returnerer `string`
+> for samme `int8`-type. Testene pakker derfor tellinger i `Number(...)` og
+> sammenligner med tall, slik at de er uavhengige av driverens int8-håndtering.
+
 **Scope:** Kun datalaget. Frontend bygges av Lovables agent mot denne basen og
 får sin egen plan.
 
@@ -337,8 +342,8 @@ describe('industries', () => {
       insert into industries (nace_code, nace_level, parent_code, name, common_name, slug)
       values ('96.021', 5, '96', 'Frisering', 'Frisørsalong', 'frisorsalong');
     `);
-    const n = await db.query<{ count: string }>(`select count(*) from industries`);
-    expect(n.rows[0]!.count).toBe('2');
+    const n = await db.query<{ count: number }>(`select count(*) from industries`);
+    expect(Number(n.rows[0]!.count)).toBe(2);
 
     const badLevel = await rejects(
       db,
@@ -366,8 +371,8 @@ describe('regions', () => {
         ('46', 'Vestland', 'fylke', 2020, 2023),
         ('46', 'Vestland', 'fylke', 2024, null);
     `);
-    const n = await db.query<{ count: string }>(`select count(*) from regions`);
-    expect(n.rows[0]!.count).toBe('3');
+    const n = await db.query<{ count: number }>(`select count(*) from regions`);
+    expect(Number(n.rows[0]!.count)).toBe(3);
 
     const dup = await rejects(
       db,
@@ -488,8 +493,8 @@ describe('industry_stats', () => {
         (${ID('industries', `nace_code='96.021'`)}, ${ID('regions', `code='0'`)},
          2023, 'foretak', 5, 'land', 3200, 6100000000, 'SSB:12910', 'ssb', 'alle');
     `);
-    const n = await db.query<{ count: string }>(`select count(*) from industry_stats`);
-    expect(n.rows[0]!.count).toBe('1');
+    const n = await db.query<{ count: number }>(`select count(*) from industry_stats`);
+    expect(Number(n.rows[0]!.count)).toBe(1);
   });
 
   it('avviser regionale rader på nivå 4 og 5', async () => {
@@ -1040,10 +1045,10 @@ describe('industry_scores_computed', () => {
 
   it('utelater næringer under min_enheter', async () => {
     await db.exec(`update score_config set min_enheter = 100000`);
-    const r = await db.query<{ count: string }>(
+    const r = await db.query<{ count: number }>(
       `select count(*) from industry_scores_computed`,
     );
-    expect(r.rows[0]!.count).toBe('0');
+    expect(Number(r.rows[0]!.count)).toBe(0);
     await db.exec(`update score_config set min_enheter = 20`);
   });
 });
@@ -1335,8 +1340,8 @@ describe('RLS', () => {
     `);
 
     await actAs(db, ALICE);
-    const mine = await db.query<{ count: string }>(`select count(*) from favorites`);
-    expect(mine.rows[0]!.count).toBe('1');
+    const mine = await db.query<{ count: number }>(`select count(*) from favorites`);
+    expect(Number(mine.rows[0]!.count)).toBe(1);
   });
 
   it('gir anon lesetilgang til næringsdata uten innlogging', async () => {
@@ -1345,15 +1350,15 @@ describe('RLS', () => {
         values ('96.021', 5, 'Frisering', 'Frisørsalong', 'frisorsalong');
     `);
     await actAsAnon(db);
-    const r = await db.query<{ count: string }>(`select count(*) from industries`);
-    expect(r.rows[0]!.count).toBe('1');
+    const r = await db.query<{ count: number }>(`select count(*) from industries`);
+    expect(Number(r.rows[0]!.count)).toBe(1);
   });
 
   it('nekter anon å lese favoritter', async () => {
     await actAsAnon(db);
     // Ingen policy for anon på favorites, så tabellen ser tom ut.
-    const r = await db.query<{ count: string }>(`select count(*) from favorites`);
-    expect(r.rows[0]!.count).toBe('0');
+    const r = await db.query<{ count: number }>(`select count(*) from favorites`);
+    expect(Number(r.rows[0]!.count)).toBe(0);
   });
 
   it('etterlater ingen brukerkontekst til neste test', async () => {
@@ -1366,12 +1371,12 @@ describe('RLS', () => {
   });
 
   it('slår på RLS for alle offentlige tabeller', async () => {
-    const r = await db.query<{ count: string }>(`
+    const r = await db.query<{ count: number }>(`
       select count(*) from pg_class
       where relrowsecurity and relnamespace = 'public'::regnamespace
     `);
     // Tolv offentlige tabeller pluss favorites.
-    expect(r.rows[0]!.count).toBe('13');
+    expect(Number(r.rows[0]!.count)).toBe(13);
   });
 });
 ```
@@ -2614,7 +2619,7 @@ describe('seed.sql', () => {
   });
 
   it('laster uten å bryte noen constraint', async () => {
-    const counts = await db.query<{ t: string; c: string }>(`
+    const counts = await db.query<{ t: string; c: number }>(`
       select 'industries' t, count(*)::text c from industries
       union all select 'regions', count(*)::text from regions
       union all select 'industry_stats', count(*)::text from industry_stats
@@ -2632,36 +2637,36 @@ describe('seed.sql', () => {
   });
 
   it('respekterer granularitetsregelen', async () => {
-    const r = await db.query<{ c: string }>(
+    const r = await db.query<{ c: number }>(
       `select count(*) c from industry_stats where region_level <> 'land' and nace_level > 3`,
     );
-    expect(r.rows[0]!.c).toBe('0');
+    expect(Number(r.rows[0]!.c)).toBe(0);
   });
 
   it('bevarer undertrykte celler som merknad', async () => {
-    const r = await db.query<{ c: string }>(
+    const r = await db.query<{ c: number }>(
       `select count(*) c from industry_stats where merknader <> '{}'::jsonb`,
     );
     expect(Number(r.rows[0]!.c)).toBeGreaterThan(0);
   });
 
   it('holder ENK utenfor regnskapssnittet', async () => {
-    const r = await db.query<{ c: string }>(
+    const r = await db.query<{ c: number }>(
       `select count(*) c from companies
        where organisasjonsform = 'ENK' and inngar_i_regnskapssnitt`,
     );
-    expect(r.rows[0]!.c).toBe('0');
+    expect(Number(r.rows[0]!.c)).toBe(0);
   });
 
   it('gir scoring-viewet noe å regne på', async () => {
-    const r = await db.query<{ c: string }>(`select count(*) c from industry_scores_computed`);
+    const r = await db.query<{ c: number }>(`select count(*) c from industry_scores_computed`);
     expect(Number(r.rows[0]!.c)).toBeGreaterThan(3000);
   });
 
   it('er idempotent — ny kjøring gir samme radtall', async () => {
     await db.exec(sql);
-    const r = await db.query<{ c: string }>(`select count(*) c from industry_stats`);
-    expect(r.rows[0]!.c).toBe('3803');
+    const r = await db.query<{ c: number }>(`select count(*) c from industry_stats`);
+    expect(Number(r.rows[0]!.c)).toBe(3803);
   });
 });
 ```
