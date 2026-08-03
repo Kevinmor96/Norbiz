@@ -4,7 +4,14 @@
  * Kilde:      https://data.ssb.no/api/pxwebapi/v2-beta
  * Tabeller:   12910 (nasjonalt, NACE 2-5), 12936 (fylke, NACE 2-3),
  *             foretaksdemografi, konkurser, folketall
- * Fyller:     industry_stats, industry_demography, region_population
+ * Fyller:     industry_stats, industry_demography, region_population, industry_wages
+ *
+ * LØNN. Hentes per NÆRING, ikke per yrke, fordi SSB ikke gir noen kartlegging
+ * fra NACE til STYRK-08 — bygger vi den selv, er den vår vurdering og skal
+ * merkes 'beregnet'. statistikkmål-dimensjonen inneholder gjennomsnitt, median
+ * og desiler; fra-til skal komme fra 1. og 9. desil framfor å anslås. Serien går
+ * 2015-2025, altså lenger og ferskere enn strukturstatistikken, så årstempel må
+ * settes per måltall.
  *
  * FØRSTE KALL SKAL VÆRE metadata. GET /api/v2/tables/{id}/metadata avgjør
  * hvilke variabler tabellen faktisk tilbyr. Tre ting er uverifisert og må

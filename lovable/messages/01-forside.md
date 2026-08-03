@@ -1,38 +1,56 @@
 Bygg forsiden. Offentlig, ingen innlogging.
 
-Forsiden har én jobb utover å være pen: den må gjøre klart innen første skjerm
-hvorfor dette finnes når tallene allerede ligger hos Proff, Purehelp,
-Brønnøysund og SSB.
+Følg den visuelle retningen i prosjektkunnskapen: mørk grunn, store lyse kort,
+rangerte rader, score som femdelt stripe.
 
-Hero med overskriften «Finn ut hva som faktisk lønner seg å drive i Norge».
+## Hero — mørk
 
-Underteksten skal gjøre posisjoneringsarbeidet, ikke bare oppgi dekning. Poenget
-er at tallene finnes allerede — spredt over fire kilder, per selskap, uten
-sammenheng — og at dette er stedet de er satt sammen til ett svar på
-bransjenivå. Formuler det med egne ord, kort, maks to setninger.
+Over overskriften to små pille-merker som navngir kildene: «SSB
+strukturstatistikk og foretaksdemografi» og «Brønnøysund regnskapstall». De gjør
+troverdighetsarbeidet før brukeren har lest en setning.
 
-Dekningstallene står som belegg under, ikke som hovedbudskap: antall næringer,
-antall regioner og årsspennet, alle hentet fra databasen med `count` og
-`min`/`max` — aldri hardkodet.
+Overskrift: «Finn ut hva som faktisk lønner seg å drive i Norge».
 
-Én stor søkeboks med autocomplete mot `industries`, som søker i `common_name`
-og `search_terms`. Under den fire eksempel-chips: Frisørsalong, Treningssenter,
-Restaurant, Regnskapsfører.
+Undertekst, maks to setninger med egne ord: tallene finnes allerede — spredt
+over fire kilder, per selskap, uten sammenheng — og her er de satt sammen til
+ett svar på bransjenivå.
 
-Deretter et bånd med tre korte kolonner, ingen illustrasjoner:
+Hvit pille-knapp: «Se indeksen».
 
-1. **Bransje, ikke bedrift.** De andre svarer per organisasjonsnummer. Her er
-   svaret per næring og region — det spørsmålet en rådgiver, en bank eller en
-   oppkjøper stiller først.
-2. **Sammenstilt, ikke rådata.** Strukturstatistikk, foretaksdemografi,
-   konkurstall, folketall og regnskapstall i samme tabell, med en beregnet
-   score på toppen.
-3. **Vi sier hva vi ikke vet.** Hvert tall bærer sin opprinnelse — målt,
-   beregnet eller anslått — og hvert hull har en årsak. Et tall som er skjult
-   av konfidensialitetshensyn er noe annet enn et tall som mangler.
+Under den en linje med dekning, hentet fra databasen med `count`, `min` og
+`max` — aldri hardkodet: antall næringer, antall kategorier, antall fylker og
+årsspennet. Deretter tre små tellekort: antall statistikkrader, antall
+selskaper, og «6 delscorer per næring».
 
-Under det en kompakt tabell med de ti næringene som har høyest `score_total`
-nasjonalt, fra `industry_scores`. Hver rad lenker til næringssiden.
+## Topp 20 — lyst kort
 
-Den tabellen er beviset på påstandene i båndet over, så den skal ligge nær nok
-å kunne leses i samme blikk — ikke nedenfor en stor luftig seksjon.
+Det viktigste på siden. Et stort lyst kort med overskriften «De mest lønnsomme
+bransjene i Norge», og en kort forklaring på at rangeringen er samlet score, ikke
+margin alene.
+
+Over lista en filterrad: søkefelt, og nedtrekk for region, kategori og minimum
+antall foretak. Filtrene skal fungere.
+
+Så tjue rangerte rader fra `industry_scores`, hver med:
+plassnummer · næringsnavn med NACE-kode og antall foretak under · femdelt
+fargestripe for `score_total` · driftsmargin som hovedtall · vekstpille med
+omsetningsendring over tre år.
+
+Hver rad lenker til næringssiden.
+
+## Kategorier — mørk seksjon
+
+Chips i rutenett, én per hovednæring, med snittmargin som stort tall og antall
+næringer og foretak som undertekst. Sortert på margin.
+
+Spennet fra rådgivning til servering er nær åtte ganger, og det er selve
+spørsmålet en kjøper stiller — så det skal være synlig, ikke gjemt bak et filter.
+Klikk filtrerer topplista over.
+
+## Differensiatorene — mørk seksjon nederst
+
+Tre korte kolonner, ingen illustrasjoner: bransje ikke bedrift, sammenstilt ikke
+rådata, og at vi sier hva vi ikke vet. Siste punkt skal nevne at et tall som er
+skjult av konfidensialitetshensyn er noe annet enn et tall som mangler.
+
+Til slutt `<Footnotes />`.

@@ -66,12 +66,33 @@ describe('RLS', () => {
     expect(r.rows[0]!.who).not.toBe('authenticated');
   });
 
-  it('slår på RLS for alle offentlige tabeller', async () => {
-    const r = await db.query<{ count: number }>(`
-      select count(*) from pg_class
-      where relrowsecurity and relnamespace = 'public'::regnamespace
+  it('slår på RLS for hver eneste tabell i public', async () => {
+    // Bevisst uten fast antall. En test som teller til 13 passerer fortsatt når
+    // en ny migrasjon legger til en tabell uten policy — den ga falsk trygghet
+    // presis da companies_snapshot og industry_wages kom inn.
+    const r = await db.query<{ tablename: string }>(`
+      select c.relname as tablename
+      from pg_class c
+      where c.relnamespace = 'public'::regnamespace
+        and c.relkind = 'r'
+        and not c.relrowsecurity
+      order by 1
     `);
-    // Tolv offentlige tabeller pluss favorites.
-    expect(Number(r.rows[0]!.count)).toBe(13);
+    expect(r.rows.map((x) => x.tablename)).toEqual([]);
+  });
+
+  it('gir anon lesetilgang til hver ikke-brukereid tabell', async () => {
+    const r = await db.query<{ tablename: string }>(`
+      select c.relname as tablename
+      from pg_class c
+      where c.relnamespace = 'public'::regnamespace
+        and c.relkind = 'r'
+        and c.relname <> 'favorites'
+        and not has_table_privilege('anon', c.oid, 'SELECT')
+      order by 1
+    `);
+    // Næringssidene er offentlige. Glemmer en migrasjon granten, blir tabellen
+    // usynlig for uinnloggede brukere uten at noe annet feiler.
+    expect(r.rows.map((x) => x.tablename)).toEqual([]);
   });
 });

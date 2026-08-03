@@ -258,3 +258,117 @@ describe('ai_insights', () => {
     expect(noRefs).toBe(true);
   });
 });
+
+describe('companies_snapshot', () => {
+  it('tar imot flere årganger av samme selskap', async () => {
+    await db.exec(`
+      insert into companies_snapshot
+        (org_nr, regnskapsar, hentet_dato, navn, organisasjonsform,
+         omsetning, source, data_quality)
+      values
+        ('811234567', 2023, '2024-09-01', 'Salong AS', 'AS', 5200000, 'brreg', 'brreg'),
+        ('811234567', 2024, '2025-09-01', 'Salong AS', 'AS', 5900000, 'brreg', 'brreg');
+    `);
+    const r = await db.query<{ count: number }>(
+      `select count(*) from companies_snapshot where org_nr = '811234567'`,
+    );
+    // Poenget med tabellen: historikk akkumuleres i stedet for å overskrives.
+    expect(Number(r.rows[0]!.count)).toBe(2);
+  });
+
+  it('avviser duplikat av samme selskap, år og uttrekksdato', async () => {
+    const ins = `insert into companies_snapshot
+      (org_nr, regnskapsar, hentet_dato, navn, organisasjonsform, source, data_quality)
+      values ('922345678', 2023, '2024-09-01', 'B AS', 'AS', 'brreg', 'brreg')`;
+    await db.exec(ins);
+    const dup = await rejects(db, ins, 'companies_snapshot_pkey');
+    expect(dup).toBe(true);
+  });
+});
+
+describe('score_config', () => {
+  it('har en terskel for egenbygde aggregater', async () => {
+    const r = await db.query<{ min_enheter: number; min_enheter_aggregat: number }>(
+      `select min_enheter, min_enheter_aggregat from score_config`,
+    );
+    expect(Number(r.rows[0]!.min_enheter)).toBe(20);
+    // Speiler SSBs undertrykkingsregel så vi ikke avslører enkeltselskaper
+    // i småkommuner. Se spec 2.17.
+    expect(Number(r.rows[0]!.min_enheter_aggregat)).toBe(5);
+  });
+});
+
+describe('industry_wages', () => {
+  beforeEach(async () => {
+    await seedRefs(db);
+  });
+
+  it('holder én rad per næring, region, år og yrke — også når region og yrke er NULL', async () => {
+    const ins = `
+      insert into industry_wages
+        (industry_id, region_id, year, nace_level, region_level,
+         manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9,
+         antall_ansatte, source, data_quality, coverage)
+      values
+        (${ID('industries', `nace_code='96.021'`)}, null, 2024, 5, null,
+         41200, 39800, 33100, 52400, 8400, 'SSB:11418', 'ssb', 'alle')`;
+    await db.exec(ins);
+    // nulls not distinct: samme rad to ganger skal avvises selv med NULL-felter.
+    const dup = await rejects(db, ins, 'industry_wages_natural_key');
+    expect(dup).toBe(true);
+  });
+
+  it('avviser et spenn som går baklengs', async () => {
+    const bad = await rejects(
+      db,
+      `insert into industry_wages
+         (industry_id, year, nace_level, manedslonn_desil1, manedslonn_desil9,
+          source, data_quality, coverage)
+       values (${ID('industries', `nace_code='96.021'`)}, 2024, 5, 52400, 33100,
+               'SSB:11418', 'ssb', 'alle')`,
+      'industry_wages_desil_order',
+    );
+    expect(bad).toBe(true);
+  });
+
+  it('avviser en median som ligger utenfor spennet', async () => {
+    const bad = await rejects(
+      db,
+      `insert into industry_wages
+         (industry_id, year, nace_level, manedslonn_median, manedslonn_desil1,
+          manedslonn_desil9, source, data_quality, coverage)
+       values (${ID('industries', `nace_code='96.021'`)}, 2024, 5, 61000, 33100, 52400,
+               'SSB:11418', 'ssb', 'alle')`,
+      'industry_wages_median_within',
+    );
+    expect(bad).toBe(true);
+  });
+
+  it('avviser regionale lønnsrader over 3-siffer NACE', async () => {
+    const bad = await rejects(
+      db,
+      `insert into industry_wages
+         (industry_id, region_id, year, nace_level, region_level,
+          manedslonn_median, source, data_quality, coverage)
+       values (${ID('industries', `nace_code='96.021'`)}, ${ID('regions', `code='03'`)},
+               2024, 5, 'fylke', 39800, 'SSB:11418', 'ssb', 'alle')`,
+      'industry_wages_regional_grain',
+    );
+    expect(bad).toBe(true);
+  });
+
+  it('tillater en yrkesrad ved siden av næringsraden', async () => {
+    await db.exec(`
+      insert into industry_wages
+        (industry_id, year, nace_level, yrke_kode, yrke_navn,
+         manedslonn_median, source, data_quality, coverage)
+      values
+        (${ID('industries', `nace_code='96.021'`)}, 2024, 5, null, null,
+         39800, 'SSB:11418', 'ssb', 'alle'),
+        (${ID('industries', `nace_code='96.021'`)}, 2024, 5, '5141', 'Frisør',
+         37200, 'SSB:11418', 'beregnet', 'alle');
+    `);
+    const r = await db.query<{ count: number }>(`select count(*) from industry_wages`);
+    expect(Number(r.rows[0]!.count)).toBe(2);
+  });
+});
