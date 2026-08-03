@@ -1,8 +1,8 @@
-# Norbiz datalag — implementasjonsplan
+# Bransjeindeks datalag — implementasjonsplan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Bygg det endelige Supabase-skjemaet for Business Insight Norway, med
+**Goal:** Bygg det endelige Supabase-skjemaet for Bransjeindeks, med
 syntetisk seed som har samme form som ekte data, et scoring-view, og
 overleveringsartefaktene Lovable trenger for å bygge frontend mot basen.
 
@@ -2681,7 +2681,7 @@ Expected: FAIL med `Cannot find module '../seed/index.js'`.
 ```ts
 import { createHash } from 'node:crypto';
 
-/** Fast namespace for Norbiz-seed. Vilkårlig, men må aldri endres. */
+/** Fast namespace for Bransjeindeks-seed. Vilkårlig, men må aldri endres. */
 const NS = '6f9b1f2c-3a4d-5e6f-8a9b-0c1d2e3f4a5b';
 
 /**
@@ -3090,7 +3090,7 @@ Dette settes med `set_project_knowledge` og gjelder hver melding etterpå.
 Maks 10 000 tegn.
 
 ```markdown
-# Business Insight Norway — faste regler
+# Bransjeindeks — faste regler
 
 Beslutningsverktøy for den som vurderer å starte, kjøpe eller investere i en
 bedrift i Norge. Målgruppe i prioritert rekkefølge: rådgivere, banker og
@@ -3311,7 +3311,7 @@ git commit -m "docs(lovable): add project knowledge and per-page handoff message
 
 Rekkefølgen for å ta dette i bruk:
 
-1. Opprett et Supabase-prosjekt for Norbiz. Kontoen har i dag kun
+1. Opprett et Supabase-prosjekt for Bransjeindeks. Kontoen har i dag kun
    `ScripturePath`.
 2. Kjør migrasjonene 0001–0007 mot den basen.
 3. `npm run seed:build && npm run seed:apply`

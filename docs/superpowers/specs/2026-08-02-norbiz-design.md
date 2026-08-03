@@ -1,4 +1,4 @@
-# Norbiz / Business Insight Norway — design
+# Bransjeindeks — design
 
 Dato: 2026-08-02
 Status: godkjent, klar for implementasjonsplan
@@ -21,7 +21,7 @@ svarer på «hvordan går det med *dette selskapet*?» Ingen av dem svarer på �
 denne *typen* virksomhet verdt å drive, her?» Den sammenstillingen må brukeren
 gjøre selv, hver gang, for hånd.
 
-**Norbiz er sammenstillingslaget, ikke en femte kilde.** Vi konkurrerer ikke på
+**Bransjeindeks er sammenstillingslaget, ikke en femte kilde.** Vi konkurrerer ikke på
 å ha mer data. Vi konkurrerer på at dataene allerede er koblet, kategorisert,
 scoret og forklart når brukeren kommer.
 
@@ -80,7 +80,7 @@ Konsekvenser som gjelder overalt:
 
 ## 2. Beslutninger
 
-Fire valg tatt under brainstorming, med begrunnelsen bevart så de kan
+Beslutningene tatt under brainstorming, med begrunnelsen bevart så de kan
 omgjøres bevisst senere.
 
 ### 2.1 Granularitet: lagre kun det SSB faktisk publiserer
@@ -152,6 +152,23 @@ spenn med konfidens ved siden av scoren, ikke inni den.
 
 Brreg-egenkapital brukes ikke til scoring. Den forblir tilgjengelig per
 selskap i `companies`.
+
+### 2.6 Navn: Bransjeindeks
+
+Arbeidsnavnene var «Norbiz» og «Business Insight Norway». Begge jobbet mot
+posisjoneringen i seksjon 0.
+
+«Biz» signaliserer katalog og oppslagsverk — presis det produktet ikke er — så
+navnet plasserte oss som en Proff-konkurrent i stedet for som laget over.
+«Business Insight Norway» var dessuten et engelsk navn på et norsk produkt til
+norske banker, med kategoriens mest utslitte ord i midten.
+
+**Bransjeindeks** sier hva produktet er. Scoringen *er* en indeks over næringer,
+så navnet er ærlig om kjernemekanismen framfor å love noe vagt. Det er tørt, men
+tørt er en styrke overfor rådgivere og banker — de kjøper troverdighet.
+
+Repoet heter fortsatt `Norbiz`. Det er repoets navn, ikke produktets, og å døpe
+om det ville brutt PR- og branch-referanser uten å gi noe tilbake.
 
 ### 2.5 AI-anslag som eget nivå, ikke som utvisking av grensen
 
@@ -775,7 +792,7 @@ takler begge utfall.
 
 ## 9. Overlevering til Lovable
 
-1. Opprett Supabase-prosjekt for Norbiz. Brukeren har i dag kun
+1. Opprett Supabase-prosjekt for Bransjeindeks. Brukeren har i dag kun
    `ScripturePath`.
 2. Kjør migrasjoner og seed mot den basen herfra.
 3. Opprett Lovable-prosjekt, koblet til samme Supabase — ikke Lovable Cloud.
