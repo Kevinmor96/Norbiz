@@ -468,7 +468,7 @@ publiserer regionale næringstall kun på 2- og 3-siffer NACE.
 Legg til i `tests/schema.test.ts`:
 
 ```ts
-async function seedRefs(db: Awaited<ReturnType<typeof freshDb>>) {
+async function seedRefs(db: PGlite) {
   await db.exec(`
     insert into industries (nace_code, nace_level, name, common_name, slug) values
       ('96',    2, 'Annen personlig tjenesteyting', 'Personlig tjenesteyting', 'pt'),
@@ -1354,11 +1354,14 @@ describe('RLS', () => {
     expect(Number(r.rows[0]!.count)).toBe(1);
   });
 
-  it('nekter anon å lese favoritter', async () => {
+  it('nekter anon tilgang til favoritter i det hele tatt', async () => {
     await actAsAnon(db);
-    // Ingen policy for anon på favorites, så tabellen ser tom ut.
-    const r = await db.query<{ count: number }>(`select count(*) from favorites`);
-    expect(Number(r.rows[0]!.count)).toBe(0);
+    // Sterkere enn «tom via RLS»: anon har ingen GRANT på tabellen, så
+    // spørringen avvises før RLS vurderes. Et lesbart-men-tomt resultat ville
+    // vært svakere, siden det avhenger av at policyen er riktig skrevet.
+    await expect(db.query(`select count(*) from favorites`)).rejects.toThrow(
+      /permission denied for table favorites/,
+    );
   });
 
   it('etterlater ingen brukerkontekst til neste test', async () => {
