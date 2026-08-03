@@ -213,12 +213,18 @@ export async function resetData(db: PGlite): Promise<void> {
 `tests/schema.test.ts`:
 
 ```ts
-import { describe, expect, it } from 'vitest';
-import { freshDb } from './helpers/db.js';
+import type { PGlite } from '@electric-sql/pglite';
+import { beforeAll, describe, expect, it } from 'vitest';
+import { sharedDb } from './helpers/db.js';
 
 describe('enums', () => {
+  let db: PGlite;
+
+  beforeAll(async () => {
+    db = await sharedDb();
+  });
+
   it('definerer de seks enumene med riktige verdier', async () => {
-    const db = await freshDb();
     const res = await db.query<{ typname: string; labels: string[] }>(`
       select t.typname, array_agg(e.enumlabel order by e.enumsortorder) as labels
       from pg_type t
@@ -236,7 +242,6 @@ describe('enums', () => {
     expect(byName['mangel_arsak']).toEqual([
       'ikke_publisert', 'konfidensielt', 'ikke_relevant', 'kommer_senere', 'brudd',
     ]);
-    await db.close();
   });
 });
 ```
@@ -296,12 +301,34 @@ git commit -m "feat(db): add enum types and PGlite test harness"
 
 - [ ] **Step 1: Skriv de feilende testene**
 
-Legg til i `tests/schema.test.ts`:
+Testene deler én databaseinstans per fil og nullstiller data mellom hver test.
+`PGlite.create()` koster 2-5 sekunder, så en fersk instans per test ville gjort
+suiten flere minutter treg; `resetData()` tømmer tabellene på millisekunder.
+
+Utvid toppen av `tests/schema.test.ts` slik at scaffoldet er felles:
+
+```ts
+import type { PGlite } from '@electric-sql/pglite';
+import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { rejects, resetData, sharedDb } from './helpers/db.js';
+
+let db: PGlite;
+
+beforeAll(async () => {
+  db = await sharedDb();
+});
+
+beforeEach(async () => {
+  await resetData(db);
+});
+```
+
+Flytt `describe('enums', ...)` ut av sitt eget `beforeAll` og la den bruke den
+felles `db`. Legg så til:
 
 ```ts
 describe('industries', () => {
   it('håndhever nace_level 1-5 og selvrefererende hierarki', async () => {
-    const db = await freshDb();
     await db.exec(`
       insert into industries (nace_code, nace_level, name, common_name, slug)
       values ('96', 2, 'Annen personlig tjenesteyting', 'Personlig tjenesteyting', 'personlig-tjenesteyting');
@@ -328,13 +355,11 @@ describe('industries', () => {
       'industries_parent_code_fkey',
     );
     expect(badParent).toBe(true);
-    await db.close();
   });
 });
 
 describe('regions', () => {
   it('tillater samme kode i flere årganger, men ikke duplikat årgang', async () => {
-    const db = await freshDb();
     await db.exec(`
       insert into regions (code, name, level, valid_from_year, valid_to_year) values
         ('0', 'Norge', 'land', 2017, null),
@@ -351,7 +376,6 @@ describe('regions', () => {
       'regions_code_valid_from_year_key',
     );
     expect(dup).toBe(true);
-    await db.close();
   });
 });
 ```
@@ -455,7 +479,6 @@ const ID = (t: string, w: string) => `(select id from ${t} where ${w})`;
 
 describe('industry_stats', () => {
   it('tillater nasjonale rader på nivå 5', async () => {
-    const db = await freshDb();
     await seedRefs(db);
     await db.exec(`
       insert into industry_stats
@@ -467,11 +490,9 @@ describe('industry_stats', () => {
     `);
     const n = await db.query<{ count: string }>(`select count(*) from industry_stats`);
     expect(n.rows[0]!.count).toBe('1');
-    await db.close();
   });
 
   it('avviser regionale rader på nivå 4 og 5', async () => {
-    const db = await freshDb();
     await seedRefs(db);
     const blocked = await rejects(
       db,
@@ -484,11 +505,9 @@ describe('industry_stats', () => {
       'industry_stats_regional_grain',
     );
     expect(blocked).toBe(true);
-    await db.close();
   });
 
   it('tillater regionale rader på nivå 3', async () => {
-    const db = await freshDb();
     await seedRefs(db);
     await db.exec(`
       insert into industry_stats
@@ -504,11 +523,9 @@ describe('industry_stats', () => {
       `select driftsmargin_pct from industry_stats`,
     );
     expect(r.rows[0]!.driftsmargin_pct).toBeNull();
-    await db.close();
   });
 
   it('avviser duplikat på (industry, region, year, unit_type)', async () => {
-    const db = await freshDb();
     await seedRefs(db);
     const ins = `
       insert into industry_stats
@@ -520,7 +537,6 @@ describe('industry_stats', () => {
     await db.exec(ins);
     const dup = await rejects(db, ins, 'industry_stats_natural_key');
     expect(dup).toBe(true);
-    await db.close();
   });
 });
 ```
@@ -637,7 +653,6 @@ git commit -m "feat(db): add industry_stats and industry_demography with granula
 ```ts
 describe('companies', () => {
   it('utleder inngar_i_regnskapssnitt fra organisasjonsform og regnskapsar', async () => {
-    const db = await freshDb();
     await db.exec(`
       insert into companies (org_nr, navn, nace_code, kommune_code, organisasjonsform,
                              ansatte, omsetning, driftsresultat, egenkapital, regnskapsar,
@@ -651,7 +666,6 @@ describe('companies', () => {
     );
     expect(r.rows[0]!.inngar).toBe(true);
     expect(r.rows[1]!.inngar).toBe(false);
-    await db.close();
   });
 });
 ```
@@ -723,7 +737,6 @@ git commit -m "feat(db): add companies with generated inngar_i_regnskapssnitt"
 ```ts
 describe('industry_estimates', () => {
   it('krever ai_anslag som data_quality og et ikke-tomt basert_pa', async () => {
-    const db = await freshDb();
     await seedRefs(db);
     await db.exec(`
       insert into industry_estimates
@@ -758,13 +771,11 @@ describe('industry_estimates', () => {
       'industry_estimates_basert_pa_nonempty',
     );
     expect(emptyBasis).toBe(true);
-    await db.close();
   });
 });
 
 describe('ai_insights', () => {
   it('krever ikke-tomme referanser og alvorlighet 1-5', async () => {
-    const db = await freshDb();
     await seedRefs(db);
     await db.exec(`
       insert into ai_insights
@@ -799,7 +810,6 @@ describe('ai_insights', () => {
       'ai_insights_referanser_nonempty',
     );
     expect(noRefs).toBe(true);
-    await db.close();
   });
 });
 ```
@@ -1225,6 +1235,13 @@ do $$ begin
   if not exists (select 1 from pg_roles where rolname='anon') then create role anon; end if;
   if not exists (select 1 from pg_roles where rolname='authenticated') then create role authenticated; end if;
 end $$;
+
+-- Ekte Supabase gir disse rollene tilgang til auth-schemaet. Uten dem virker
+-- RLS-policyene likevel — policy-uttrykk evalueres med tabelleierens
+-- rettigheter — men et direkte kall på auth.uid() fra en test som har byttet
+-- rolle feiler med "permission denied for schema auth". Verifisert i PGlite.
+grant usage on schema auth to anon, authenticated;
+grant execute on function auth.uid() to anon, authenticated;
 ```
 
 - [ ] **Step 2: Kjør stubben før migrasjonene i testhjelperen**
@@ -1251,17 +1268,30 @@ export async function freshDb(): Promise<PGlite> {
   return db;
 }
 
-/** Kjører resten av transaksjonen som en innlogget bruker. */
+/**
+ * Rollebytte er transaksjonsavgrenset. Grunnen er at Postgres ikke lar seg
+ * nullstille i ett grep: `reset role` rører ikke `request.jwt.claim.sub`, og
+ * `reset all` rører ikke `role`. En håndskrevet opprydding må derfor huske
+ * begge, og hoppes uansett over hvis en assertion feiler først.
+ *
+ * `set local` inne i en transaksjon reverserer begge deler automatisk ved
+ * rollback, og `endAct` i en `afterEach` kjører uansett om testen feilet.
+ */
 export async function actAs(db: PGlite, userId: string): Promise<void> {
-  await db.exec(`set role authenticated; set request.jwt.claim.sub = '${userId}';`);
+  await db.exec(`
+    begin;
+    set local role authenticated;
+    set local request.jwt.claim.sub = '${userId}';
+  `);
 }
 
 export async function actAsAnon(db: PGlite): Promise<void> {
-  await db.exec(`reset role; set role anon; set request.jwt.claim.sub = '';`);
+  await db.exec(`begin; set local role anon;`);
 }
 
-export async function actAsOwner(db: PGlite): Promise<void> {
-  await db.exec(`reset role;`);
+/** Avslutter rollebyttet. Skal kalles fra afterEach, ikke fra testen selv. */
+export async function endAct(db: PGlite): Promise<void> {
+  await db.exec(`rollback;`);
 }
 ```
 
@@ -1270,15 +1300,29 @@ export async function actAsOwner(db: PGlite): Promise<void> {
 `tests/rls.test.ts`:
 
 ```ts
-import { describe, expect, it } from 'vitest';
-import { actAs, actAsAnon, actAsOwner, freshDb } from './helpers/db.js';
+import type { PGlite } from '@electric-sql/pglite';
+import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { actAs, actAsAnon, endAct, resetData, sharedDb } from './helpers/db.js';
 
 const ALICE = '11111111-1111-1111-1111-111111111111';
 const BOB = '22222222-2222-2222-2222-222222222222';
 
 describe('RLS', () => {
+  let db: PGlite;
+
+  beforeAll(async () => {
+    db = await sharedDb();
+  });
+
+  // Rullér tilbake rollebyttet uansett hvordan testen endte. En opprydding
+  // på slutten av testen hoppes over når en assertion feiler først, og da
+  // lekker rollen og auth.uid() inn i neste test i samme fil.
+  afterEach(async () => {
+    await endAct(db);
+    await resetData(db);
+  });
+
   it('lar en bruker kun se egne favoritter', async () => {
-    const db = await freshDb();
     await db.exec(`
       insert into auth.users (id) values ('${ALICE}'), ('${BOB}');
       insert into industries (nace_code, nace_level, name, common_name, slug)
@@ -1293,13 +1337,9 @@ describe('RLS', () => {
     await actAs(db, ALICE);
     const mine = await db.query<{ count: string }>(`select count(*) from favorites`);
     expect(mine.rows[0]!.count).toBe('1');
-
-    await actAsOwner(db);
-    await db.close();
   });
 
   it('gir anon lesetilgang til næringsdata uten innlogging', async () => {
-    const db = await freshDb();
     await db.exec(`
       insert into industries (nace_code, nace_level, name, common_name, slug)
         values ('96.021', 5, 'Frisering', 'Frisørsalong', 'frisorsalong');
@@ -1307,29 +1347,31 @@ describe('RLS', () => {
     await actAsAnon(db);
     const r = await db.query<{ count: string }>(`select count(*) from industries`);
     expect(r.rows[0]!.count).toBe('1');
-    await actAsOwner(db);
-    await db.close();
   });
 
   it('nekter anon å lese favoritter', async () => {
-    const db = await freshDb();
     await actAsAnon(db);
     // Ingen policy for anon på favorites, så tabellen ser tom ut.
     const r = await db.query<{ count: string }>(`select count(*) from favorites`);
     expect(r.rows[0]!.count).toBe('0');
-    await actAsOwner(db);
-    await db.close();
+  });
+
+  it('etterlater ingen brukerkontekst til neste test', async () => {
+    // Vokter mot lekkasjen selve mønsteret finnes for å hindre.
+    const r = await db.query<{ uid: string | null; who: string }>(
+      `select auth.uid() as uid, current_user as who`,
+    );
+    expect(r.rows[0]!.uid).toBeNull();
+    expect(r.rows[0]!.who).not.toBe('authenticated');
   });
 
   it('slår på RLS for alle offentlige tabeller', async () => {
-    const db = await freshDb();
     const r = await db.query<{ count: string }>(`
       select count(*) from pg_class
       where relrowsecurity and relnamespace = 'public'::regnamespace
     `);
     // Tolv offentlige tabeller pluss favorites.
     expect(r.rows[0]!.count).toBe('13');
-    await db.close();
   });
 });
 ```
