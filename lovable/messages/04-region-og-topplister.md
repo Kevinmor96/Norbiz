@@ -2,12 +2,19 @@ Bygg regionsiden på `/region/[code]` og topplistesiden.
 
 ## Regionsiden
 
-For valgt fylke: mest lønnsomme næringer, raskest voksende, høyest
-konkurstetthet, og næringer med lavest foretakstetthet sammenlignet med
-landsgjennomsnittet.
+For valgt fylke, i denne rekkefølgen: mest lønnsomme næringer, raskest voksende,
+høyest konkurstetthet, og til sist næringer med lavest foretakstetthet
+sammenlignet med landsgjennomsnittet.
 
-Det siste er «hullene i markedet» og skal ha mest plass — det er den mest
-verdifulle visningen på siden.
+Rekkefølgen er bevisst. De tre første hviler på målte tall. Den siste er et
+*fravær*, og et fravær er tvetydig: lav tetthet betyr minst like ofte at det
+ikke er etterspørsel der som at noe er uutnyttet. Hull finnes vanligvis av en
+grunn.
+
+Så den visningen skal rammes som **«verdt å undersøke hvorfor»**, ikke som en
+mulighet, og alltid stå sammen med det vi har av etterspørselsindikatorer:
+befolkningsutvikling i regionen, og om næringen krymper nasjonalt. Ikke gi den
+mest plass, og ikke gjør den til overskriften.
 
 Husk at regionale tall kun finnes på NACE 2–3, og at de gjelder virksomheter,
 ikke foretak. Vis hvilken fylkesårgang som er i bruk for valgt år.

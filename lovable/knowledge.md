@@ -122,6 +122,35 @@ Brønnøysunds åpne API gir bare siste innsendte regnskapsår per selskap. Et
 selskapskort eller en kommunerad skal derfor aldri ha en vekstpille. Ikke lån
 næringens vekst og la den se ut som selskapets.
 
+## Scoren bærer sin egen proveniens
+
+Dette er den viktigste regelen på siden, og den er lett å glemme fordi alt
+annet handler om cellene.
+
+`score_total` er en **persentilrangering innenfor en peer-gruppe**, ikke et mål
+på lønnsomhet. Der scoren vises:
+
+- Skriv peer-gruppen ved tallet: «rangert mot N andre femsifrede næringer, 2023».
+- Vis hvor mange av seks delscorer som hadde data. Fire av seks er en svakere
+  påstand enn seks av seks, og det hører på tallet.
+- Vis de to **svakeste** delscorene uten klikk. Det er «hvorfor ikke høyere»,
+  og de fleste klikker ikke.
+- Kopier-funksjon og delekort må ta med metodelinjen. Tallet forlater appen og
+  havner i kundenotater — da må forbeholdet reise med.
+
+Et umerket «#1» ved siden av omhyggelig merkede celler er verre enn ingen
+merking, fordi cellene låner troverdighet til overskriften.
+
+## To framinger, to flater
+
+Forsiden og topplistene er **anskaffelsesflaten**: rangert, delbar, nysgjerrig.
+Poengtavleformen hører her.
+
+Næringssiden er **rådgiverflaten**. Den åpner med det som kan gå galt —
+undertrykte celler, lavkonfidens-anslag, uenighet mellom delscorene — før
+mulighetene. En rådgiver som skal si noe til en kunde trenger forbeholdene
+først. Ikke gjør næringssiden til en poengtavle.
+
 ## Ingen «LIVE»-merkelapp
 
 Referansen skriver «oppdatert hver time». SSB publiserer årlig med ett til to
@@ -142,6 +171,9 @@ et årstempel i stedet for et ferskhetsløfte.
 - Ikke hardkod tall i komponenter.
 - Ikke fyll NULL med 0.
 - Ikke sett en vekstpille på et selskap eller en kommune.
+- Ikke vis score eller plassnummer uten peer-gruppe og dekningsgrad.
+- Ikke kall lav foretakstetthet en «mulighet» — den skal ramme som «verdt å
+  undersøke hvorfor», og alltid stå sammen med etterspørselstall.
 - Ikke skriv «LIVE», «sanntid» eller «oppdatert daglig» noe sted.
 - Ikke vis anslag i samme visuelle form som målte tall.
 - Ikke bygg innlogging foran næringssidene — de er offentlige.

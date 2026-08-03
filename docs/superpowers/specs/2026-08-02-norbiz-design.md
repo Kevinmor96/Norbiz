@@ -233,6 +233,104 @@ gir *belegg* — «hvem er de faktisk, og hvor ligger de» — ikke fordi vi
 konkurrerer med Proff på oppslag per organisasjonsnummer. Rekkefølgen i
 UI-et skal speile det: næringer først, alltid.
 
+### 2.10 Scoren skal bære sin egen proveniens
+
+Funnet i en adversarisk gjennomgang, og det er den mest alvorlige feilen i
+designet så langt.
+
+Proveniensdisiplinen var lagt på **inputene**: hver celle bærer
+`data_quality`, hvert hull en `mangel_arsak`. Men `score_total` og
+plassnummeret sto umerket — og det er nettopp de tallene som blir tatt ut av
+appen og limt inn i et kundenotat.
+
+Det er ikke bare en glipp. Cellemerkingen *låner* troverdighet til
+hovedtallet: jo mer etterrettelig detaljene ser ut, jo mer autoritet får en
+umerket «#1». Og en persentilrangering vises med samme visuelle grammatikk som
+alle poengtavler bruker for å si «best».
+
+Fire krav følger:
+
+**Kall den det den er.** Scoren er en persentilrangering innenfor en
+peer-gruppe, ikke et mål på lønnsomhet. Peer-gruppen skal stå ved tallet —
+«rangert mot 64 andre femsifrede næringer, 2023» — ikke i en metodedel.
+
+**Scoren har sin egen dekningsgrad.** En `score_total` bygget på fire av seks
+delscorer er en svakere påstand enn en bygget på seks. Antallet skal stå på
+tallet. `industry_scores` bærer det allerede i `forklaring`; det må fram i UI-et.
+
+**De to svakeste delscorene vises uten klikk.** Det er «hvorfor ikke høyere»,
+og det virker uten interaksjon. Progressive disclosure forutsetter at noen
+klikker, og de fleste gjør ikke det.
+
+**Tallet må bære forbeholdet ut av appen.** Kopier-funksjon som tar med
+metodelinjen, og delekort med samme tekst innbakt. Ellers reiser tallet uten
+konteksten sin, og det er da skaden skjer.
+
+### 2.11 Poengtavle og rådgiverflate er to ulike framinger
+
+Spec-en hevdet både at tapsaversjon er kjøpsutløseren for rådgivere og banker,
+og at rangerte lister er hovedgrensesnittet. De to peker motsatt vei: en
+poengtavle med plassnummer og grønne piler er gevinstrammet
+mulighetsjakt, ikke et risikoregister.
+
+Konflikten løses ved å skille flatene bevisst i stedet for ved uhell:
+
+**Forsiden og topplistene er anskaffelsesflaten.** Rangert, delbar, søkbar.
+Optimalisert for at noen skal finne oss og bli nysgjerrige. Poengtavleformen er
+riktig her.
+
+**Næringssiden er rådgiverflaten.** Den skal åpne med det som kan gå galt:
+undertrykte celler, lavkonfidens-anslag, og uenighet mellom delscorene — før
+mulighetene. En rådgiver som skal si noe til en kunde, trenger forbeholdene
+først.
+
+Samme data, to rekkefølger, og begrunnelsen skrevet ned så ingen «rydder» det
+bort senere.
+
+### 2.12 «Hullene i markedet» er den mest risikable visningen, ikke den mest verdifulle
+
+Spec-en kalte lav foretakstetthet sammenlignet med landsgjennomsnittet for den
+mest verdifulle visningen på regionsiden. Det er snudd.
+
+Et hull i markedet betyr minst like ofte **at det ikke er etterspørsel der**
+som at noe er uutnyttet. Hull finnes vanligvis av en grunn. Å presentere et
+tvetydig fravær som knapp innsideinformasjon er oppskriften på at en rådgiver
+anbefaler inngang i et marked som er tomt fordi det er dårlig — altså presis
+den feilen målgruppen betaler for å unngå.
+
+Visningen beholdes, men:
+
+- Rammen endres fra «mulighet» til **«verdt å undersøke hvorfor»**.
+- Den skal alltid vises sammen med etterspørselsindikatorene vi har:
+  befolkningsutvikling i regionen, og om næringen krymper nasjonalt.
+- Den er ikke overskriften på regionsiden lenger. Mest lønnsomme og raskest
+  voksende kommer først, fordi de hviler på målte tall framfor på et fravær.
+
+Lav tetthet bærer heller ingen `data_quality`-merking, siden det er et faktum
+om antall og ikke et publisert tall. Det gjør den vanskeligere å kvalifisere
+enn resten — nok en grunn til å dempe den.
+
+### 2.13 Anslag for gründere, forbehold for rådgivere
+
+Usikkerhetsforskningen skiller mellom **kvantifisert** usikkerhet — et spenn,
+et konfidensintervall — som i liten grad skader tillit, og **verbal** hedging,
+som gjør det. Anslagene våre er allerede spenn med konfidens, og det er den
+riktige formen.
+
+Men merkingen `ai_anslag` leses ikke som et konfidensintervall. Den leses som
+et kildesignal: «dette er ikke observert». Det er en annen psykologisk gjenstand,
+og forskningen om formidlet prognoseusikkerhet dekker den ikke.
+
+Dessuten er avveiningen ulik per målgruppe. En rådgiver som skal videreformidle
+et tall, bruker *sin egen* tillit — så forbeholdet hjelper. En gründer som
+vurderer å starte, kan bli handlingslammet av det samme forbeholdet, og
+gründere er vekstkilen i enhver bunn-opp-modell selv om de er tredje prioritet.
+
+Praktisk følge: anslag skrives som spenn med begrunnelse, aldri som verbal
+hedging uten tall. Ordlyden skal si hva vi *vet* før den sier hva vi ikke vet —
+«300 000–800 000 kr, basert på investeringsnivå i næringen» framfor «usikkert,
+anslagsvis 300 000–800 000 kr».
+
 ---
 
 ## 3. Datamodell
