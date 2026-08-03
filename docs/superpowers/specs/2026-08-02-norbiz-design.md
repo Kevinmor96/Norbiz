@@ -461,6 +461,16 @@ produkt uten trafikk har ingenting å konvertere.
 Premiumfunksjoner er eksplisitt utenfor scope. Når de kommer, er det en egen
 beslutning med egen begrunnelse.
 
+Tenkingen rundt hva premium *kan* bli er samlet i
+`2026-08-03-premium-roadmap.md` — utforsking, ikke mandat. Kort oppsummert peker
+den mot at den sterkeste kandidaten er en tilpasset oppstartsanalyse som gjør
+scoren handlingsrettet, at dokumentpakker er verdt noe kun fordi de fylles med
+ekte bransjetall, og at branding-funksjoner bør droppes fordi de ikke har noen
+kobling til fortrinnet vårt og svekker troverdigheten overfor primærmålgruppen.
+
+Den peker også på en gaffel som må velges bevisst: premiumideene retter seg mot
+gründere, som er tredje prioritet. Rådgivere og banker ville betalt for noe annet.
+
 ### 2.20 Informasjonsbudsjett per side
 
 Et krav som er lett å skrive og vanskelig å holde: **kort, oversiktlig og
