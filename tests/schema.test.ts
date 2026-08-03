@@ -1,9 +1,15 @@
-import { describe, expect, it } from 'vitest';
-import { freshDb } from './helpers/db.js';
+import type { PGlite } from '@electric-sql/pglite';
+import { beforeAll, describe, expect, it } from 'vitest';
+import { sharedDb } from './helpers/db.js';
 
 describe('enums', () => {
+  let db: PGlite;
+
+  beforeAll(async () => {
+    db = await sharedDb();
+  });
+
   it('definerer de seks enumene med riktige verdier', async () => {
-    const db = await freshDb();
     const res = await db.query<{ typname: string; labels: string[] }>(`
       select t.typname, array_agg(e.enumlabel order by e.enumsortorder) as labels
       from pg_type t
@@ -21,6 +27,5 @@ describe('enums', () => {
     expect(byName['mangel_arsak']).toEqual([
       'ikke_publisert', 'konfidensielt', 'ikke_relevant', 'kommer_senere', 'brudd',
     ]);
-    await db.close();
   });
 });
