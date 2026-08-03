@@ -3099,6 +3099,24 @@ Beslutningsverktøy for den som vurderer å starte, kjøpe eller investere i en
 bedrift i Norge. Målgruppe i prioritert rekkefølge: rådgivere, banker og
 næringsmeglere; investorer og oppkjøpere; gründere.
 
+## Posisjonering
+
+Problemet er ikke mangel på data. Tallene finnes allerede hos Proff, Purehelp,
+Brønnøysund og SSB — fire kilder som alle svarer på «hvordan går det med dette
+selskapet?» Dette produktet svarer på noe annet: «er denne typen virksomhet
+verdt å drive, her?»
+
+Vi er sammenstillingslaget, ikke en femte kilde. Tre ting skiller produktet, og
+de skal merkes i hele UI-et, ikke bare på forsiden:
+
+1. **Bransje, ikke bedrift** — svaret er per næring og region.
+2. **Sammenstilt, ikke rådata** — flere kilder i samme tabell, med score.
+3. **Vi sier hva vi ikke vet** — hvert tall bærer sin opprinnelse.
+
+Det tredje er det viktigste. Det er lett å kopiere en datakilde og vanskelig å
+kopiere disiplinen i å innrømme usikkerhet, så aldri skjul et hull eller pynt
+på et anslag for at siden skal se mer komplett ut.
+
 ## Datakilde
 
 All data leses fra Supabase via TanStack Query. Aldri hardkodede tall, aldri
@@ -3207,16 +3225,42 @@ Ikke bygg noen sider ennå.
 ```markdown
 Bygg forsiden. Offentlig, ingen innlogging.
 
-Hero med overskriften «Finn ut hva som faktisk lønner seg å drive i Norge» og
-en undertekst som oppgir hvor mange næringer og regioner som er dekket — hentet
-fra databasen, ikke hardkodet.
+Forsiden har én jobb utover å være pen: den må gjøre klart innen første skjerm
+hvorfor dette finnes når tallene allerede ligger hos Proff, Purehelp,
+Brønnøysund og SSB.
+
+Hero med overskriften «Finn ut hva som faktisk lønner seg å drive i Norge».
+
+Underteksten skal gjøre posisjoneringsarbeidet, ikke bare oppgi dekning. Poenget
+er at tallene finnes allerede — spredt over fire kilder, per selskap, uten
+sammenheng — og at dette er stedet de er satt sammen til ett svar på
+bransjenivå. Formuler det med egne ord, kort, maks to setninger.
+
+Dekningstallene står som belegg under, ikke som hovedbudskap: antall næringer,
+antall regioner og årsspennet, alle hentet fra databasen med `count` og
+`min`/`max` — aldri hardkodet.
 
 Én stor søkeboks med autocomplete mot `industries`, som søker i `common_name`
 og `search_terms`. Under den fire eksempel-chips: Frisørsalong, Treningssenter,
 Restaurant, Regnskapsfører.
 
+Deretter et bånd med tre korte kolonner, ingen illustrasjoner:
+
+1. **Bransje, ikke bedrift.** De andre svarer per organisasjonsnummer. Her er
+   svaret per næring og region — det spørsmålet en rådgiver, en bank eller en
+   oppkjøper stiller først.
+2. **Sammenstilt, ikke rådata.** Strukturstatistikk, foretaksdemografi,
+   konkurstall, folketall og regnskapstall i samme tabell, med en beregnet
+   score på toppen.
+3. **Vi sier hva vi ikke vet.** Hvert tall bærer sin opprinnelse — målt,
+   beregnet eller anslått — og hvert hull har en årsak. Et tall som er skjult
+   av konfidensialitetshensyn er noe annet enn et tall som mangler.
+
 Under det en kompakt tabell med de ti næringene som har høyest `score_total`
 nasjonalt, fra `industry_scores`. Hver rad lenker til næringssiden.
+
+Den tabellen er beviset på påstandene i båndet over, så den skal ligge nær nok
+å kunne leses i samme blikk — ikke nedenfor en stor luftig seksjon.
 ```
 
 `lovable/messages/02-dashboard.md`:
