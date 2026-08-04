@@ -26,10 +26,36 @@
  * SSBs egen kodeliste først, så nace_code og name per definisjon ikke kan avvike
  * fra kilden. `common_name` er vårt eget lag og overskrives ikke der den finnes.
  *
+ * ⚠ DENNE FILEN ER IKKE DEN DEPLOYEDE VERSJONEN. Se nederst i denne kommentaren.
+ *
  * INGEN VILKÅRLIG SQL. Skrivingen går gjennom PostgREST med
  * `Prefer: resolution=merge-duplicates`, ikke gjennom en funksjon som tar SQL som
  * parameter. En slik funksjon måtte vært `security definer`, og det finnes en test
  * som håndhever at ingen funksjon i public er det.
+ *
+ * AVVIK MOT DEPLOYET VERSJON — MÅ SAMKJØRES.
+ *
+ * Denne filen forsøker hele kodeverket i én kjøring. Det feilet i praksis:
+ * maxDataCells er 800 000, så batchberegningen tillot 1 603 næringer × 2
+ * enhetstyper × 8 måltall × 8 år = 205 000 celler i ett kall. Lovlig hos SSB,
+ * men det sprengte minne- eller tidsgrensen i edge-runtimen, og alt man fikk var
+ * «Internal Server Error» — ingen stack, ingen logg.
+ *
+ * Den deployede versjonen (v2) tar derfor EN SKIVE PER KALL:
+ *
+ *   ?niva=2|3|4|5   hvilket NACE-nivå
+ *   ?fra=<indeks>   hvor i lista skiven starter
+ *   ?antall=<n>     hvor mange næringer (40 som standard)
+ *   ?regionalt=1    hent 12937 i stedet for 12910
+ *   ?dry=1          regn ut, ikke skriv
+ *
+ * Svaret returnerer `neste_fra` og `flere`, så importen kan drives framover uten
+ * å holde alt i minnet. Den pakker også hele handleren i try/catch og returnerer
+ * feilen som JSON — uten det var «Internal Server Error» alt man fikk å jobbe med.
+ *
+ * Verifisert: niva=2, 8 næringer ga 1 024 celler → 128 rader med
+ * data_quality = 'ssb', 2017–2024, 22 med ekte undertrykkingsmerknader.
+ * Næringsmiddelindustri 2023: 2 504 foretak, 313,7 mrd omsetning, 5,95 % margin.
  */
 
 const BASE = 'https://data.ssb.no/api/pxwebapi/v2';
