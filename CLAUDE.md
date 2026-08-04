@@ -11,6 +11,7 @@ Repoet heter `Norbiz` av historiske grunner. Produktet heter Bransjeindeks.
 | Hva | Hvor |
 |---|---|
 | Designbeslutninger med begrunnelse | `docs/superpowers/specs/2026-08-02-norbiz-design.md` |
+| Copy og posisjonering | `docs/superpowers/specs/2026-08-04-copy-og-posisjonering.md` |
 | Implementasjonsplan, 15 tasks | `docs/superpowers/plans/2026-08-02-norbiz-data-layer.md` |
 | Skjema | `supabase/migrations/0001`–`0010` |
 | Seed-generator | `seed/` — deterministisk, skriver `supabase/seed/seed.sql` |
