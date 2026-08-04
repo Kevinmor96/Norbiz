@@ -40,7 +40,13 @@ insert into categories (slug, navn, verden, beskrivelse, farge, ikon, sortering)
   ('bilforhandler','Bilforhandler','Bil & motor','130 milliarder i omsetning og 2,7 % margin — volumbransjen framfor noen.','#4C6EF5','car',70),
   ('bilverksted','Bilverksted','Bil & motor','4 500 verksteder: bedre margin enn å selge bilene.','#4C6EF5','wrench',71),
   ('dekk-bildeler','Dekk & bildeler','Bil & motor','Delehandel og dekkservice — verkstedbransjens tvilling.','#4C6EF5','disc',72),
-  ('motorsykkel-fritid','Motorsykkel & fritidskjøretøy','Bil & motor','MC, snøscooter og ATV: liten bransje, lojale kunder.','#4C6EF5','bike',73);
+  ('motorsykkel-fritid','Motorsykkel & fritidskjøretøy','Bil & motor','MC, snøscooter og ATV: liten bransje, lojale kunder.','#4C6EF5','bike',73),
+  ('advokat','Advokat','Tjenester','34 % driftsmargin på 27,5 milliarder — den mest lønnsomme tjenestenæringen vi måler.','#3B7A57','scale',62),
+  ('reklame-mediebyra','Reklame & mediebyrå','Media & kommunikasjon','5 600 byråer, 30 milliarder — og 6 % margin. Kreativt fag, tøff økonomi.','#0FA3B1','megaphone',80),
+  ('film-tv','Film & TV-produksjon','Media & kommunikasjon','4 100 produksjonsselskaper på 8 milliarder. Prosjektbransjen i tall.','#0FA3B1','clapperboard',81),
+  ('eiendomsmegler','Eiendomsmegler','Eiendom','1 291 foretak, 14,8 milliarder i provisjon. Følger boligmarkedet slag i slag.','#8C2F39','key',90),
+  ('eiendomsforvaltning','Eiendomsforvaltning','Eiendom','18,9 % margin på å drifte andres bygg — stabil inntekt, lite kapital.','#8C2F39','building',91),
+  ('eiendomsutvikler','Eiendomsutvikler','Eiendom','87 milliarder i prosjekter. Høyest oppside, høyest konjunkturrisiko.','#8C2F39','crane',92);
 
 -- Medlemskoder. kilde='ssb' er SN2007 (statistikk), kilde='brreg' er
 -- SN2025-prefikser (selskapsmatching).
@@ -118,7 +124,34 @@ select c.id, m.kode, m.kilde from (values
   ('bilverksted','45.200','ssb'), ('bilverksted','95.31','brreg'),
   ('dekk-bildeler','45.320','ssb'), ('dekk-bildeler','47.82','brreg'),
   ('motorsykkel-fritid','45.402','ssb'), ('motorsykkel-fritid','45.403','ssb'),
-  ('motorsykkel-fritid','47.83','brreg'), ('motorsykkel-fritid','95.32','brreg')
+  ('motorsykkel-fritid','47.83','brreg'), ('motorsykkel-fritid','95.32','brreg'),
+  -- Advokat, byråene og eiendom. Alle prefikser tellt med brreg-sonde før de
+  -- ble skrevet inn, aldri gjettet ut fra SSB-koden (2026-08-04):
+  --   69.1  advokat            2 878
+  --   73.1  reklame + medie   11 084  (73.11 10 910 + 73.12 178)
+  --   59.11 film og TV         7 708
+  --   68.31 eiendomsmegling      781
+  --   68.32 eiendomsforvaltning 12 742
+  --   41.0  bygg og utvikling  25 347
+  ('advokat','69.100','ssb'), ('advokat','69.1','brreg'),
+  -- PR (70.210) hører hjemme her på folkemunne — «byrå» er «byrå» — men SN2025
+  -- har ingen 70.21: prefikset gir 0 treff. Statistikken tar den derfor med,
+  -- selskapslisten kan ikke. Det er riktig vei rundt: tallene blir komplette,
+  -- og det som mangler er noen navn, ikke en verdi.
+  ('reklame-mediebyra','73.110','ssb'), ('reklame-mediebyra','73.120','ssb'),
+  ('reklame-mediebyra','70.210','ssb'), ('reklame-mediebyra','73.1','brreg'),
+  ('film-tv','59.110','ssb'), ('film-tv','59.11','brreg'),
+  ('eiendomsmegler','68.310','ssb'), ('eiendomsmegler','68.31','brreg'),
+  ('eiendomsforvaltning','68.320','ssb'), ('eiendomsforvaltning','68.32','brreg'),
+  -- Eiendomsutvikler deler brreg-prefiks med Byggefirma, og det er ikke en
+  -- forglemmelse: SN2025 har SLÅTT SAMMEN utvikling og oppføring til én kode,
+  -- 41.000 (25 347 enheter; 41.001 og 41.009 gir 0). SSB skiller dem fortsatt
+  -- — 41.101/41.109 mot 41.200 — så statistikken er ekte og forskjellig, mens
+  -- selskapslisten er den samme populasjonen fordi kilden ikke kan skille dem.
+  -- Alternativet var en tom toppliste, og et tomt panel er ikke mer sant enn
+  -- et delt et. UI-et skal si det: «Brreg skiller ikke utvikler fra utfører.»
+  ('eiendomsutvikler','41.101','ssb'), ('eiendomsutvikler','41.109','ssb'),
+  ('eiendomsutvikler','41.0','brreg')
 ) as m(slug, kode, kilde)
 join categories c on c.slug = m.slug;
 
@@ -133,49 +166,85 @@ join categories c on c.slug = m.slug;
 -- 82.990, ikke detaljhandel: de dukker derfor ikke opp i kategorienes
 -- topplister, bare her. Tallene er hovedselskapets, aldri hele kjedens, og
 -- merknaden sier hvilket selskap det er.
-insert into brands (navn, category_id, org_nr, sok_navn, merknad)
-select b.navn, c.id, nullif(b.org_nr, ''), b.sok_navn, b.merknad from (values
-  ('REMA 1000','dagligvare','982254604','REMA 1000 NORGE AS','Rema 1000 Norge AS — franchisegiver (NACE 77.400), ikke butikkdrift'),
-  ('KIWI','dagligvare','975959171','KIWI NORGE AS','Kiwi Norge AS — kjedekontor i NorgesGruppen (NACE 82.990)'),
-  ('Coop Extra','dagligvare','936560288','COOP NORGE SA','Coop Norge SA — samvirkets fellesregnskap, engros (NACE 46.390)'),
-  ('Bunnpris','dagligvare','814055922','I K LYKKE AS','I.K. Lykke AS — eier Bunnpris-kjeden'),
-  ('Narvesen','kiosk','983415660','REITAN CONVENIENCE NORWAY AS','Reitan Convenience Norway AS — driver både Narvesen og 7-Eleven'),
-  ('7-Eleven','kiosk','983415660','REITAN CONVENIENCE NORWAY AS','Samme selskap som Narvesen: Reitan Convenience Norway AS'),
-  ('Dressmann','klesbutikk','979490674','VARNER AS','Varner AS — driver Dressmann, Cubus, Bik Bok m.fl.'),
-  ('Cubus','klesbutikk','979490674','VARNER AS','Samme selskap som Dressmann: Varner AS'),
-  ('H&M Norge','klesbutikk','','H & M HENNES & MAURITZ AS','Norsk driftsselskap'),
-  ('Eurosko','skobutikk','','EUROSKO NORGE AS','Kjedekontoret; butikkene er egne aksjeselskaper'),
-  ('XXL','sportsbutikk','881932792','XXL SPORT & VILLMARK AS','XXL Sport & Villmark AS — 2 045 ansatte'),
-  ('Sport 1','sportsbutikk','984889070','SPORT 1 AS','Sport 1 AS — kjedekontor'),
-  ('IKEA','mobel-interior','914787521','IKEA AS','IKEA AS — norsk driftsselskap, 3 060 ansatte'),
-  ('Skeidar','mobel-interior','','SKEIDAR LIVING GROUP AS','Kjedekontoret; varehusene er egne aksjeselskaper'),
-  ('Elkjøp','elektronikkbutikk','','ELKJØP NORGE AS','Norsk driftsselskap'),
-  ('Power','elektronikkbutikk','','POWER NORGE AS','Norsk driftsselskap'),
-  ('Bjørklund','gullsmed','','BJØRKLUND NORGE AS','Kjedekontoret'),
-  ('Gullfunn','gullsmed','','GULLFUNN AS','Kjedekontoret'),
-  ('Specsavers','optiker','','SPECSAVERS NORWAY AS','Norsk driftsselskap'),
-  ('Brilleland','optiker','','BRILLELAND AS','Kjedekontoret'),
-  ('Plantasjen','blomster-hage','','PLANTASJEN NORGE AS','Norsk driftsselskap'),
-  ('Mester Grønn','blomster-hage','','MESTER GRØNN AS','Driftsselskapet'),
-  ('Scandic','hotell-overnatting','','SCANDIC HOTELS AS','Norsk driftsselskap'),
-  ('Thon Hotels','hotell-overnatting','','THON HOTELS AS','Driftsselskapet'),
-  ('Strawberry','hotell-overnatting','','STRAWBERRY','Tidligere Nordic Choice; driftsselskapet'),
-  ('McDonald''s','gatekjokken','','MCDONALD''S NORGE AS','Norsk driftsselskap'),
-  ('Burger King','gatekjokken','','KING FOOD AS','King Food AS — norsk franchisetaker'),
-  ('Peppes Pizza','restaurant-kafe','','PEPPES PIZZA AS','Driftsselskapet'),
-  ('Egon','restaurant-kafe','','NORREIN AS','Norrein AS — driver Egon-kjeden'),
-  ('Espresso House','restaurant-kafe','','ESPRESSO HOUSE NORWAY AS','Norsk driftsselskap'),
-  ('SATS','treningssenter','','SATS NORWAY AS','Norsk driftsselskap'),
-  ('Evo Fitness','treningssenter','','EVO FITNESS','Kjedekontoret'),
-  ('Fresh Fitness','treningssenter','','FRESH FITNESS AS','Del av SATS-konsernet'),
-  ('Cutters','frisor','','CUTTERS AS','Cutters AS — kjedekontoret'),
-  ('Nikita','frisor','','RAISE GRUPPEN AS','Raise Gruppen AS — driver Nikita'),
-  ('Colosseum Tannlege','tannlege','','COLOSSEUM DENTAL NORWAY AS','Norsk driftsselskap'),
-  ('Oris Dental','tannlege','','ORIS DENTAL','Driftsselskapet'),
-  ('Azets','regnskap-revisjon','','AZETS INSIGHT AS','Norsk driftsselskap'),
-  ('View Group','regnskap-revisjon','','VIEW LEDGER AS','View-gruppens regnskapsselskap'),
-  ('Insider','renhold','','INSIDER FACILITY SOLUTIONS AS','Driftsselskapet')
-) as b(navn, slug, org_nr, sok_navn, merknad)
+-- org_nr-kolonnen er nå fylt for de fleste: verdiene under er de oppslagene
+-- ?brands=1&slaopp=1 gjorde mot Enhetsregisteret 2026-08-04, skrevet tilbake
+-- hit slik at fila er kilden og oppslaget bare en oppfriskning. De som ennå er
+-- tomme fant ikke et selskap som besto den strenge navnematchingen.
+--
+-- SEGMENT. `segment='luksus'` er en merking av AKTØREN, ikke en bransje. Det er
+-- et bevisst valg: SSB har ingen luksuskode, så en «luksuskategori» med margin
+-- og vekst måtte enten lånt tallene fra klesbutikk og gullsmed eller diktet
+-- dem. Her er hvert tall selskapets eget, fra Regnskapsregisteret.
+--
+-- Lista er kort med vilje. Norge har noen få reelle luksusbutikker, og alle
+-- åtte under er slått opp i Enhetsregisteret med organisasjonsform, næringskode
+-- og ansatte kontrollert. Rolex, Burberry og Tiffany er IKKE med: de har ingen
+-- norsk registrert enhet. Chanel Norway AS er ikke med heller — selskapet er
+-- engros kosmetikk (46.450), ikke butikkdrift. Hugo Boss og Acne er premium,
+-- ikke luksus, og ville utvannet stripa.
+--
+-- Merk næringskoden: Louis Vuitton Norge AS står på 47.720, skotøy. Det er
+-- Brregs registrering, ikke vår, og forklarer hvorfor et luksushus dukker opp i
+-- skobutikk-topplisten. Merkingen gjør det forståelig i stedet for å skjule det.
+--
+-- PRADA NORWAY AS (930067733) sto her en runde og ble tatt ut igjen. Selskapet
+-- finnes, men tallene stemmer ikke med en boutique: 8,3 mill. omsetning på 13
+-- ansatte er 640 000 per hode, langt under luksusretail, og næringskoden er
+-- 47.120 — kiosk. Sannsynligvis ikke butikkdriften. Et feil selskaps tall under
+-- et kjent merkenavn er verre enn ingen tall, og det gjelder dobbelt i den
+-- delen av produktet der navnene er mest gjenkjennelige.
+insert into brands (navn, category_id, org_nr, sok_navn, segment, merknad)
+select b.navn, c.id, nullif(b.org_nr, ''), b.sok_navn, nullif(b.segment,''), b.merknad from (values
+  ('REMA 1000','dagligvare','982254604','REMA 1000 NORGE AS','','Rema 1000 Norge AS — franchisegiver (NACE 77.400), ikke butikkdrift'),
+  ('KIWI','dagligvare','975959171','KIWI NORGE AS','','Kiwi Norge AS — kjedekontor i NorgesGruppen (NACE 82.990)'),
+  ('Coop Extra','dagligvare','936560288','COOP NORGE SA','','Coop Norge SA — samvirkets fellesregnskap, engros (NACE 46.390)'),
+  ('Bunnpris','dagligvare','814055922','I K LYKKE AS','','I.K. Lykke AS — eier Bunnpris-kjeden'),
+  ('Narvesen','kiosk','983415660','REITAN CONVENIENCE NORWAY AS','','Reitan Convenience Norway AS — driver både Narvesen og 7-Eleven'),
+  ('7-Eleven','kiosk','983415660','REITAN CONVENIENCE NORWAY AS','','Samme selskap som Narvesen: Reitan Convenience Norway AS'),
+  ('Dressmann','klesbutikk','979490674','VARNER AS','','Varner AS — driver Dressmann, Cubus, Bik Bok m.fl.'),
+  ('Cubus','klesbutikk','979490674','VARNER AS','','Samme selskap som Dressmann: Varner AS'),
+  ('H&M Norge','klesbutikk','912618900','H & M HENNES & MAURITZ AS','','Norsk driftsselskap'),
+  ('Eurosko','skobutikk','','EUROSKO NORGE AS','','Kjedekontoret; butikkene er egne aksjeselskaper'),
+  ('XXL','sportsbutikk','881932792','XXL SPORT & VILLMARK AS','','XXL Sport & Villmark AS — 2 045 ansatte'),
+  ('Sport 1','sportsbutikk','984889070','SPORT 1 AS','','Sport 1 AS — kjedekontor'),
+  ('IKEA','mobel-interior','914787521','IKEA AS','','IKEA AS — norsk driftsselskap, 3 060 ansatte'),
+  ('Skeidar','mobel-interior','','SKEIDAR LIVING GROUP AS','','Kjedekontoret; varehusene er egne aksjeselskaper'),
+  ('Elkjøp','elektronikkbutikk','947054600','ELKJØP NORGE AS','','Norsk driftsselskap'),
+  ('Power','elektronikkbutikk','977047838','POWER NORGE AS','','Norsk driftsselskap'),
+  ('Bjørklund','gullsmed','964086192','BJØRKLUND NORGE AS','','Kjedekontoret'),
+  ('Gullfunn','gullsmed','916588739','GULLFUNN AS','','Kjedekontoret'),
+  ('Specsavers','optiker','987644087','SPECSAVERS NORWAY AS','','Norsk driftsselskap'),
+  ('Brilleland','optiker','','BRILLELAND AS','','Kjedekontoret'),
+  ('Plantasjen','blomster-hage','937087977','PLANTASJEN NORGE AS','','Norsk driftsselskap'),
+  ('Mester Grønn','blomster-hage','933944522','MESTER GRØNN AS','','Driftsselskapet'),
+  ('Scandic','hotell-overnatting','953149117','SCANDIC HOTELS AS','','Norsk driftsselskap'),
+  ('Thon Hotels','hotell-overnatting','987753579','THON HOTELS AS','','Driftsselskapet'),
+  ('Strawberry','hotell-overnatting','917784620','STRAWBERRY','','Tidligere Nordic Choice; driftsselskapet'),
+  ('McDonald''s','gatekjokken','','MCDONALD''S NORGE AS','','Norsk driftsselskap'),
+  ('Burger King','gatekjokken','984388608','KING FOOD AS','','King Food AS — norsk franchisetaker'),
+  ('Peppes Pizza','restaurant-kafe','984388659','PEPPES PIZZA AS','','Driftsselskapet'),
+  ('Egon','restaurant-kafe','917377529','NORREIN AS','','Norrein AS — driver Egon-kjeden'),
+  ('Espresso House','restaurant-kafe','','ESPRESSO HOUSE NORWAY AS','','Norsk driftsselskap'),
+  ('SATS','treningssenter','892625522','SATS NORWAY AS','','Norsk driftsselskap'),
+  ('Evo Fitness','treningssenter','','EVO FITNESS','','Kjedekontoret'),
+  ('Fresh Fitness','treningssenter','995415569','FRESH FITNESS AS','','Del av SATS-konsernet'),
+  ('Cutters','frisor','916024649','CUTTERS AS','','Cutters AS — kjedekontoret'),
+  ('Nikita','frisor','998945941','RAISE GRUPPEN AS','','Raise Gruppen AS — driver Nikita'),
+  ('Colosseum Tannlege','tannlege','','COLOSSEUM DENTAL NORWAY AS','','Norsk driftsselskap'),
+  ('Oris Dental','tannlege','921349890','ORIS DENTAL','','Driftsselskapet'),
+  ('Azets','regnskap-revisjon','983338917','AZETS INSIGHT AS','','Norsk driftsselskap'),
+  ('View Group','regnskap-revisjon','','VIEW LEDGER AS','','View-gruppens regnskapsselskap'),
+  ('Insider','renhold','834327082','INSIDER FACILITY SOLUTIONS AS','','Driftsselskapet'),
+  -- Luksus. Åtte aktører, alle verifisert i Enhetsregisteret 2026-08-04.
+  ('Urmaker Bjerke','gullsmed','929740114','URMAKER BJERKE AS','luksus','Urmaker Bjerke AS — 122 ansatte, NACE 47.770'),
+  ('Thune','gullsmed','957338879','THUNE GULLSMED & URMAKER AS','luksus','Thune Gullsmed & Urmaker AS — 119 ansatte'),
+  ('David-Andersen','gullsmed','985172277','DAVID-ANDERSEN AS','luksus','David-Andersen AS — norsk gullsmedhus, 90 ansatte'),
+  ('Juveler Conrad Langaard','gullsmed','934536770','JUVELER CONRAD LANGAARD AS','luksus','Står på NACE 32.120 (smykkeproduksjon), så selskapet er ikke med i gullsmed-topplisten'),
+  ('Louis Vuitton','skobutikk','989331388','LOUIS VUITTON NORGE AS','luksus','Louis Vuitton Norge AS. Brreg har selskapet på 47.720 (skotøy) — derfor står det i skobutikk-topplisten'),
+  ('Mulberry','skobutikk','961545684','MULBERRY OSLO AS','luksus','Mulberry Oslo AS, NACE 47.720'),
+  ('Ferner Jacobsen','klesbutikk','813025582','FERNER JACOBSEN AKTIESELSKAP','luksus','Ferner Jacobsen Aktieselskap — Oslos klassiske motehus, 55 ansatte'),
+  ('Illums Bolighus','mobel-interior','993075930','ILLUMS BOLIGHUS NORGE AS','luksus','Illums Bolighus Norge AS — 224 ansatte, NACE 47.551')
+) as b(navn, slug, org_nr, sok_navn, segment, merknad)
 join categories c on c.slug = b.slug;
 
 commit;

@@ -32,7 +32,7 @@ export function emitSeed(a: SeedBundle): string {
     '-- Idempotent: en ny kjøring erstatter hele seed-settet.',
     'truncate ai_insights, industry_estimates, ai_reports, industry_scores,',
     '         industry_demography, industry_stats, industry_wages, region_population,',
-    '         companies, companies_snapshot, industries, regions restart identity cascade;',
+    '         companies, companies_snapshot, industries, regions, kommuner restart identity cascade;',
     '',
   ];
 
@@ -107,6 +107,13 @@ export function emitSeed(a: SeedBundle): string {
       q(w.manedslonn_desil9), q(w.antall_ansatte), jb(w.merknader), q(w.source),
       q(w.data_quality), q('alle'),
     ])));
+
+  // Kommunenavn. Uten dem gir topp_selskaper kommune_navn = null i testbasen,
+  // og «Kommune 3103» er tilbake på skjermen. Livebasen fylles fra SSBs
+  // klassifikasjon 131; her holder de tiende kommunene selskapene bor i.
+  parts.push(...insertMany('kommuner',
+    ['code','navn','source','vintage'],
+    a.kommuner.map((k) => [q(k.code), q(k.navn), q('seed:ssb-klass131'), 2024])));
 
   parts.push(...insertMany('companies',
     ['org_nr','navn','nace_code','kommune_code','organisasjonsform','ansatte','omsetning',

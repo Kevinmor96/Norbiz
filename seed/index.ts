@@ -12,7 +12,25 @@ import { emitSeed } from './emit.js';
 import type { PopulationRow, SeedBundle, StatRow } from './types.js';
 
 const SEED = 20260802;
-const KOMMUNER = ['0301','1103','4601','5001','3201','1806','1108','3801','4204','1507'];
+/**
+ * Kommunene de genererte selskapene får adresse i, med navn.
+ *
+ * Navnene er med fordi `kommuner`-tabellen (migrasjon 0024) må ha rader i
+ * testbasen: uten dem returnerer `topp_selskaper` kommune_navn = null, og
+ * frontend er tilbake til «Kommune 3103» — nettopp den feilen tabellen finnes
+ * for å fjerne.
+ *
+ * Kodene er 2024-årgangen, den samme Brreg registrerer adresser mot. To av dem
+ * var utdaterte da lista ble skrevet: 3801 (Horten) og 1507 (Ålesund) hører til
+ * årgangen 2020–2023. Fra 2024 er de 3905 Tønsberg og 1508 Ålesund. Et
+ * kommunenummer er ikke en konstant.
+ */
+const KOMMUNER: [string, string][] = [
+  ['0301','Oslo'], ['1103','Stavanger'], ['4601','Bergen'],
+  ['5001','Trondheim - Tråante'], ['3201','Bærum'], ['1806','Narvik'],
+  ['1108','Sandnes'], ['3905','Tønsberg'], ['4204','Kristiansand'],
+  ['1508','Ålesund'],
+];
 
 export function buildSeed(seed = SEED): SeedBundle {
   const rng = makeRng(seed);
@@ -34,7 +52,7 @@ export function buildSeed(seed = SEED): SeedBundle {
     }
   }
 
-  const companies = buildCompanies(rng, industries, KOMMUNER);
+  const companies = buildCompanies(rng, industries, KOMMUNER.map(([c]) => c));
 
   const byNace = new Map<string, StatRow[]>();
   for (const r of rows) {
@@ -44,6 +62,7 @@ export function buildSeed(seed = SEED): SeedBundle {
 
   return {
     industries, regions, rows, demography, population: populationRows, companies,
+    kommuner: KOMMUNER.map(([code, navn]) => ({ code, navn })),
     estimates: buildEstimates(rng, industries),
     insights: buildInsights(rng, industries, byNace),
     wages: buildWages(rng, industries, wageRegionsByYear(REGION_VINTAGES)),

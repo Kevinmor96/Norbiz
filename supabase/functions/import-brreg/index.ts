@@ -1,6 +1,6 @@
 /**
  * import-brreg — henter foretak fra Enhetsregisteret og tall fra
- * Regnskapsregisteret. Dette er koden som er deployet (v4), kjørt 2026-08-04.
+ * Regnskapsregisteret. Dette er koden som er deployet (v8), kjørt 2026-08-04.
  *
  * Fyller: companies, companies_snapshot
  *
@@ -14,11 +14,20 @@
  *   ?stor=1                    de største per kategoriprefiks, via
  *                              fraAntallAnsatte — grunnutvalget er
  *                              alfabetisk, ikke etter størrelse
+ *   ?stor=1&minansatte=<n>     terskelen. Kjør flere passeringer med synkende
+ *                              terskel for å bygge utvalget nedover
+ *   ?stor=1&hopp=1             hopp over selskaper som alt har regnskapstall.
+ *                              Uten den går budsjettet til å lese om igjen
  *   ?brands=1                  kjedelisten: henter regnskap for kjedene som
  *                              har org_nr
  *   ?brands=1&slaopp=1         slår i tillegg opp manglende org_nr og skriver
  *                              dem — egen flagg fordi det overskriver kuratert
  *                              innhold, se kommentaren over modusen
+ *
+ * FØR DU LEGGER INN EN NY KATEGORI: tell treff på prefikset med den
+ * skrivefrie sonden `brreg-sonde` (?tell=/?finn=). Et prefiks uten treff gir
+ * en TOM toppliste, ikke en feilmelding — det er slik de fire bil-kategoriene
+ * kunne stå tomme uten at noe i loggen sa fra.
  *
  * AUTORISASJON: funksjonen kjører med service-role-nøkkelen, men Supabases
  * `verify_jwt` tilfredsstilles av den offentlige anon-nøkkelen. Alle som har
@@ -292,6 +301,33 @@ Deno.serve(async (req: Request): Promise<Response> => {
       const prefikser = alleP.slice(fra, fra + antall);
       logg.push(`${prefikser.length} prefikser fra indeks ${fra} av ${alleP.length}`);
       if (prefikser.length === 0) return svar({ ferdig: true, logg });
+
+      /**
+       * ?hopp=1 — hopp over selskaper som allerede har regnskapstall.
+       *
+       * Dette er forskjellen mellom å utvide utvalget og å lese det om igjen.
+       * Hvert regnskapsoppslag er ett HTTP-kall, og det er den knappe ressursen:
+       * en kjøring med 200 oppslag ga 61 nye selskaper fordi de 139 andre
+       * allerede sto i basen. `fraAntallAnsatte` gir treffene alfabetisk innenfor
+       * filteret, så flere kjøringer med synkende terskel overlapper kraftig —
+       * uten hopp brukes budsjettet på overlappen.
+       *
+       * Det MÅ hoppes helt over, ikke bare over oppslaget: upserten sender alle
+       * kolonner, så en rad uten regnskapsoppslag ville skrevet omsetning = null
+       * over et tall som fantes. Kolonnene i `companies` er ikke merge-trygge
+       * hver for seg — hele raden er nyttelasten.
+       *
+       * Uten flagget oppfriskes tallene som før. Det er den kjøringen man vil ha
+       * når Regnskapsregisteret har fått nye årsregnskap.
+       */
+      const hopp = u.searchParams.get('hopp') === '1';
+      const kjent = new Set<string>();
+      if (hopp) {
+        const har = await les('companies?select=org_nr&regnskapsar=not.is.null&limit=50000');
+        for (const c of har) kjent.add(String(c['org_nr']));
+        logg.push(`hopper over ${kjent.size} selskaper som alt har regnskapstall`);
+      }
+
       const enheter: Record<string, unknown>[] = [];
       const sett = new Set<string>();
       for (const p of prefikser) {
@@ -302,6 +338,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
         if (b.length === 0) tell('prefiks_uten_store');
         for (const e of b) {
           const o = String(e['organisasjonsnummer']);
+          if (kjent.has(o)) { tell('alt_importert'); continue; }
           if (!sett.has(o)) { sett.add(o); enheter.push(e); }
         }
       }

@@ -123,6 +123,19 @@ export const TREE: Top[] = [
   ['88', 'Omsorg uten botilbud', 'helse', [
     ['88.9', 'Barnehager og annet sosialt arbeid', [['88.911','Barnehager','Barnehage'],
                                                     ['88.993','Dagsentre for eldre','Dagsenter']]]]],
+  ['73', 'Annonse- og reklamevirksomhet', 'radgivning', [
+    ['73.1', 'Annonse- og reklamevirksomhet', [['73.110','Reklamebyråer','Reklamebyrå'],
+                                               ['73.120','Medieformidlingstjenester','Mediebyrå']]]]],
+  ['59', 'Film-, video- og TV-produksjon', 'radgivning', [
+    ['59.1', 'Produksjon og distribusjon av film og fjernsynsprogrammer', [
+        ['59.110','Produksjon av film, video og fjernsynsprogrammer','Filmprodusent']]]]],
+  // 68.3 er meglingen og forvaltningen — tjenestene. 68.1/68.2 (kjøp/salg og
+  // utleie av EGEN eiendom) er kapitalforvaltning, ikke en bransje man «starter
+  // i», og holdes utenfor: 78 000 enheter på 68.2 er stort sett ett selskap per
+  // bygg, og de ville druknet alt annet i topplistene.
+  ['68', 'Omsetning og drift av fast eiendom', 'tjenesteyting', [
+    ['68.3', 'Eiendomsmegling og -forvaltning', [['68.310','Eiendomsmegling','Eiendomsmegler'],
+                                                 ['68.320','Eiendomsforvaltning','Eiendomsforvalter']]]]],
   ['81', 'Tjenester tilknyttet eiendomsdrift', 'tjenesteyting', [
     ['81.2', 'Rengjøringsvirksomhet', [['81.210','Rengjøring av bygninger','Renholdsbyrå'],
                                        ['81.291','Skadedyrkontroll','Skadedyrfirma'],

@@ -36,11 +36,11 @@ describe('kategorilag', () => {
     }
   });
 
-  it('har 34 kategorier i 7 verdener', async () => {
+  it('har 40 kategorier i 9 verdener', async () => {
     const r = await db.query<{ verdener: string; n: string }>(
       `select count(distinct verden)::text verdener, count(*)::text n from categories`);
-    expect(Number(r.rows[0]!.n)).toBe(34);
-    expect(Number(r.rows[0]!.verdener)).toBe(7);
+    expect(Number(r.rows[0]!.n)).toBe(40);
+    expect(Number(r.rows[0]!.verdener)).toBe(9);
   });
 
   it('lar aldri medlemskoder overlappe hierarkisk innen kategori og kilde', async () => {
@@ -89,7 +89,7 @@ describe('kategorilag', () => {
 
   it('returnerer alle kategoriene fra oversikten, også uten tall', async () => {
     const r = await db.query(`select slug from kategori_oversikt()`);
-    expect(r.rows.length).toBe(34);
+    expect(r.rows.length).toBe(40);
   });
 
   it('skiller foretak fra virksomheter', async () => {
@@ -205,5 +205,51 @@ describe('kategorilag', () => {
     } finally {
       await endAct(db);
     }
+  });
+
+  it('filtrerer kjedelisten på segment', async () => {
+    // Luksus er en merking av aktøren, ikke en bransje: SSB har ingen kode for
+    // segmentet, så et «luksusaggregat» med margin og vekst måtte vært lånt fra
+    // klesbutikk og gullsmed eller diktet. Stripa viser selskapstall i stedet.
+    const alle = await db.query(`select navn from brand_liste(null)`);
+    const luks = await db.query<{ navn: string; segment: string }>(
+      `select navn, segment from brand_liste(null, 'luksus')`);
+    expect(luks.rows.length).toBeGreaterThan(0);
+    expect(luks.rows.length).toBeLessThan(alle.rows.length);
+    for (const rad of luks.rows) expect(rad.segment).toBe('luksus');
+  });
+
+  it('gir hvert luksusmerke et verifisert org_nr', async () => {
+    // Et feil selskaps tall under et kjent merkenavn er verre enn ingen tall,
+    // og luksusstripa er stedet der navnene er mest gjenkjennelige. Alle ni er
+    // slått opp i Enhetsregisteret; står ett uten org_nr, er det ikke verifisert.
+    const r = await db.query<{ navn: string }>(
+      `select navn from brands where segment = 'luksus' and org_nr is null`);
+    expect(r.rows.map((x) => x.navn)).toEqual([]);
+  });
+
+  it('viser merkenavn og segment i topplisten', async () => {
+    // «REITAN CONVENIENCE NORWAY AS» sier ingenting, «Narvesen» sier alt — og
+    // Louis Vuitton står i skobutikk-topplisten fordi Brreg har selskapet på
+    // 47.720. Merkingen forklarer raden i stedet for å filtrere den bort.
+    const kol = await db.query(
+      `select merke, segment from topp_selskaper('dagligvare', null, 'omsetning', 5)`);
+    expect(kol.rows.length).toBeGreaterThan(0);
+    // Ett selskap kan bære flere merker; da skal raden likevel komme én gang.
+    const dup = await db.query<{ n: string }>(`
+      select count(*)::text n from (
+        select org_nr from topp_selskaper('dagligvare', null, 'omsetning', 100)
+        group by org_nr having count(*) > 1) x`);
+    expect(Number(dup.rows[0]!.n)).toBe(0);
+  });
+
+  it('navngir kommunen, ikke bare nummeret', async () => {
+    // «Kommune 3103 · 840 ansatte» er et firesifret tall som ikke betyr noe for
+    // en leser, og som dessuten ser ut som et postnummer.
+    const r = await db.query<{ kommune_code: string; kommune_navn: string }>(
+      `select kommune_code, kommune_navn from topp_selskaper('restaurant-kafe', null, 'omsetning', 20)
+       where kommune_code is not null`);
+    expect(r.rows.length).toBeGreaterThan(0);
+    for (const rad of r.rows) expect(rad.kommune_navn).toBeTruthy();
   });
 });

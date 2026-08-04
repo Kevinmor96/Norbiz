@@ -129,6 +129,7 @@ export interface SeedBundle {
   demography: DemographyRow[];
   population: PopulationRow[];
   companies: CompanyRow[];
+  kommuner: { code: string; navn: string }[];
   estimates: EstimateRow[];
   insights: InsightRow[];
   wages: WageRow[];
