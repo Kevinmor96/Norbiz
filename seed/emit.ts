@@ -31,8 +31,8 @@ export function emitSeed(a: SeedBundle): string {
     '',
     '-- Idempotent: en ny kjøring erstatter hele seed-settet.',
     'truncate ai_insights, industry_estimates, ai_reports, industry_scores,',
-    '         industry_demography, industry_stats, region_population,',
-    '         companies, industries, regions restart identity cascade;',
+    '         industry_demography, industry_stats, industry_wages, region_population,',
+    '         companies, companies_snapshot, industries, regions restart identity cascade;',
     '',
   ];
 
@@ -90,6 +90,22 @@ export function emitSeed(a: SeedBundle): string {
       q(d.region_level), q(d.nyetableringer), q(d.nedleggelser), q(d.konkurser),
       q(d.overlevelse_1ar_pct), q(d.overlevelse_3ar_pct), q(d.overlevelse_5ar_pct),
       jb(d.merknader), q(d.source), q('mock'), q('alle'),
+    ])));
+
+  // Lønn bruker regionId direkte framfor regFor(), fordi serien går til 2025 og
+  // dermed treffer fylkesårgangen fra 2024. regFor() slår opp på år, og ville
+  // for 2024–2025 landet riktig — men raden bærer allerede sin egen vintage, så
+  // det er ærligere å bruke den enn å slå den opp på nytt.
+  parts.push(...insertMany('industry_wages',
+    ['industry_id','region_id','year','nace_level','region_level','yrke_kode','yrke_navn',
+     'manedslonn_gjennomsnitt','manedslonn_median','manedslonn_desil1','manedslonn_desil9',
+     'antall_ansatte','merknader','source','data_quality','coverage'],
+    a.wages.map((w) => [
+      q(industryId(w.nace_code)), q(regionId(w.region_code, w.vintage)), w.year,
+      w.nace_level, q(w.region_level), q(w.yrke_kode), q(w.yrke_navn),
+      q(w.manedslonn_gjennomsnitt), q(w.manedslonn_median), q(w.manedslonn_desil1),
+      q(w.manedslonn_desil9), q(w.antall_ansatte), jb(w.merknader), q(w.source),
+      q(w.data_quality), q('alle'),
     ])));
 
   parts.push(...insertMany('companies',

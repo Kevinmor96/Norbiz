@@ -97,6 +97,27 @@ export interface InsightRow {
   data_quality: 'ai_anslag';
 }
 
+export interface WageRow {
+  nace_code: string;
+  nace_level: number;
+  region_code: string;
+  vintage: number;
+  region_level: 'land' | 'fylke';
+  year: number;
+  yrke_kode: string | null;
+  yrke_navn: string | null;
+  manedslonn_gjennomsnitt: number | null;
+  manedslonn_median: number | null;
+  manedslonn_desil1: number | null;
+  manedslonn_desil9: number | null;
+  antall_ansatte: number | null;
+  merknader: Record<string, string>;
+  source: string;
+  // Yrkesradene er 'beregnet' fordi NACE-til-yrke er vår kobling, ikke kildens.
+  data_quality: 'mock' | 'beregnet';
+  coverage: 'alle';
+}
+
 export interface PopulationRow {
   region_code: string; vintage: number; year: number; innbyggere: number;
 }
@@ -110,4 +131,5 @@ export interface SeedBundle {
   companies: CompanyRow[];
   estimates: EstimateRow[];
   insights: InsightRow[];
+  wages: WageRow[];
 }

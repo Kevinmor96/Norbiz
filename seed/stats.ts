@@ -1,4 +1,4 @@
-import { PROFILES, YEARS } from './config.js';
+import { NORGE_POPULATION, PROFILES, YEARS, population } from './config.js';
 import type { Profile } from './config.js';
 import type { Rng } from './rng.js';
 import type { IndustryRow } from './industries.js';
@@ -21,7 +21,11 @@ export function buildStats(
 
   for (const top of level2) {
     const profile = PROFILES[top.profile];
-    const base = rng.range(4_000, 30_000);            // enheter i 2017
+    // Enheter i 2017. Skjevt, ikke jevnt: noen få store divisjoner og mange
+    // små, slik næringsstrukturen faktisk ser ut. Med et jevnt spenn fra 4 000
+    // var selv den minste divisjonen for stor til at noen celle nedover i
+    // hierarkiet kunne bli liten.
+    const base = Math.round(700 + Math.pow(rng.next(), 1.7) * 29_000);
     const baseTurnoverPerUnit = rng.range(1.4e6, 9e6);
     const drift = rng.range(-0.01, 0.055);            // årlig trend
 
@@ -39,9 +43,16 @@ export function buildStats(
           Math.round(units2 * mult), Math.round(turnover2), margin2, profile, rng));
       }
 
-      // 3-siffer: splitt 2-sifferet
+      // 3-siffer: splitt 2-sifferet.
+      //
+      // Andelene er SKJEVE, ikke jevne. Med rng.range(0.5, 1.5) lå alle søsken
+      // innenfor tre ganger hverandre, og da ble ingen næring liten nok til at
+      // en regional celle kunne falle under undertrykkingsterskelen — heller
+      // ikke i det minste fylket. Ekte næringer innenfor samme divisjon spenner
+      // over størrelsesordener, og det er kombinasjonen liten næring x lite
+      // fylke som gjør at en celle blir undertrykt.
       const kids3 = industries.filter((i) => i.parent_code === top.nace_code);
-      const shares3 = normalise(kids3.map(() => rng.range(0.5, 1.5)));
+      const shares3 = normalise(kids3.map(() => 0.08 + Math.pow(rng.next(), 2.0) * 1.6));
       kids3.forEach((kid, ix) => {
         const u3 = Math.max(25, Math.round(units2 * shares3[ix]!));
         const tv3 = Math.round(turnover2 * shares3[ix]!);
@@ -59,7 +70,8 @@ export function buildStats(
         // av Finnmark, og det er i de små cellene undertrykking faktisk skjer.
         // Årganger utenfor dataperioden har ingen fylker, og skal ikke ha rader.
         const regions = regionsByYear[year] ?? [];
-        const sharesR = normalise(regions.map((r) => regionWeight(r.code) * rng.jitter(0.25)));
+        const sharesR = normalise(
+          regions.map((r) => regionWeight(r.code, r.vintage) * rng.jitter(0.25)));
         regions.forEach((r, ri) => {
           const uR = Math.round(u3 * 1.18 * sharesR[ri]!);
           if (uR < 5) return;
@@ -158,15 +170,12 @@ function normalise(xs: number[]): number[] {
 }
 
 /**
- * Grov befolkningsvekt per fylkeskode, på tvers av alle tre årgangene.
- * Trenger ikke være presis — den skal bare gi realistisk skjevhet, så
- * små fylker får små celler og dermed undertrykking.
+ * Fylkesvekten ER folketallet, fra config.
+ *
+ * Den lå tidligere som en egen omtrentlig tabell her, mens `region_population`
+ * ble generert av en hash. De to var altså uenige om hvor stort et fylke er —
+ * og siden konkurransedelscoren er `n_enheter` per innbygger, gjorde det den
+ * delscoren til støy. Én kilde, brukt til begge.
  */
-const REGION_WEIGHTS: Record<string, number> = {
-  '03': 7.0, '30': 6.2, '46': 3.2, '11': 2.4, '50': 2.1, '34': 1.6, '38': 1.6,
-  '42': 1.4, '15': 1.4, '18': 0.9, '54': 0.7, '02': 3.0, '01': 1.4, '12': 2.2,
-  '31': 1.1, '32': 3.0, '33': 1.4, '39': 1.0, '40': 0.8, '55': 0.5, '56': 0.2,
-  '04': 0.7, '05': 0.7, '06': 1.2, '07': 0.9, '08': 0.7, '09': 0.4, '10': 0.7,
-  '14': 0.4,
-};
-const regionWeight = (code: string): number => REGION_WEIGHTS[code] ?? 1.0;
+const regionWeight = (code: string, vintage: number): number =>
+  population(code, vintage) / NORGE_POPULATION;

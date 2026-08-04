@@ -6,6 +6,7 @@ import { buildRegions, regionsByYear } from '../seed/regions.js';
 import { buildStats } from '../seed/stats.js';
 import { buildCompanies } from '../seed/companies.js';
 import { buildEstimates, buildInsights } from '../seed/ai.js';
+import { buildWages, wageRegionsByYear } from '../seed/wages.js';
 
 describe('rng', () => {
   it('gir samme sekvens for samme frø', () => {
@@ -238,5 +239,71 @@ describe('insights', () => {
       expect(r.alvorlighet).toBeGreaterThanOrEqual(1);
       expect(r.alvorlighet).toBeLessThanOrEqual(5);
     }
+  });
+});
+
+describe('wages', () => {
+  const industries = buildIndustries();
+  const rows = buildWages(makeRng(5), industries, wageRegionsByYear(REGION_VINTAGES));
+
+  it('går lenger og er ferskere enn strukturstatistikken', () => {
+    const years = rows.map((r) => r.year);
+    expect(Math.min(...years)).toBeLessThan(YEARS[0]);
+    expect(Math.max(...years)).toBeGreaterThan(YEARS[YEARS.length - 1]!);
+  });
+
+  it('treffer fylkesårgangen fra 2024, som ingen annen serie gjør', () => {
+    // Regionale lønnsrader i 2025 må ligge på den siste årgangen, ikke på den
+    // som gjaldt da strukturstatistikken sluttet.
+    const r2025 = rows.filter((r) => r.year === 2025 && r.region_level === 'fylke');
+    expect(new Set(r2025.map((r) => r.vintage))).toEqual(new Set([2024]));
+    expect(new Set(r2025.map((r) => r.region_code)).size).toBe(15);
+  });
+
+  it('holder regionale rader på 2- og 3-siffer', () => {
+    for (const r of rows.filter((x) => x.region_level === 'fylke')) {
+      expect(r.nace_level).toBeLessThanOrEqual(3);
+    }
+  });
+
+  it('oppgir spennet som målte desiler rundt medianen', () => {
+    // Spennet er 1. og 9. desil fra kilden, ikke et anslag vi har gjettet. Da
+    // må medianen faktisk ligge inni det, ellers er spennet meningsløst.
+    for (const r of rows) {
+      expect(r.manedslonn_desil1!).toBeLessThanOrEqual(r.manedslonn_median!);
+      expect(r.manedslonn_desil9!).toBeGreaterThanOrEqual(r.manedslonn_median!);
+    }
+  });
+
+  it('merker aldri lønn som anslag', () => {
+    expect(rows.some((r) => (r.data_quality as string) === 'ai_anslag')).toBe(false);
+  });
+
+  it('merker yrkesradene som beregnet, fordi koblingen er vår', () => {
+    // SSB publiserer ingen kartlegging fra NACE til yrke. Radene med yrke_kode
+    // hviler derfor på vår vurdering, og skal ikke utgi seg for målt statistikk.
+    const yrke = rows.filter((r) => r.yrke_kode !== null);
+    expect(yrke.length).toBeGreaterThan(0);
+    for (const r of yrke) expect(r.data_quality).toBe('beregnet');
+    for (const r of rows.filter((x) => x.yrke_kode === null)) {
+      expect(r.data_quality).toBe('mock');
+    }
+  });
+
+  it('gir rådgivning høyere lønn enn servering', () => {
+    const median = (nace: string): number => {
+      const r = rows.find((x) => x.nace_code === nace && x.year === 2023
+        && x.region_level === 'land' && x.yrke_kode === null);
+      return r!.manedslonn_median!;
+    };
+    expect(median('69.100')).toBeGreaterThan(median('56.101'));
+  });
+
+  it('er unik per næring, region, år og yrke', () => {
+    // industry_wages har unique nulls not distinct på nettopp denne nøkkelen.
+    // Kolliderer to rader her, feiler seed.sql ved lasting.
+    const keys = rows.map((r) =>
+      `${r.nace_code}|${r.region_code}|${r.vintage}|${r.year}|${r.yrke_kode ?? '-'}`);
+    expect(new Set(keys).size).toBe(keys.length);
   });
 });
