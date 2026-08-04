@@ -129,11 +129,28 @@ per butikk: der er stillingene små, eieren er ikke arbeidskraften. Påstanden
 skobutikk, restaurant, bakeri og sportsbutikk — og den sto på forsiden. Med
 begge vilkårene står fem kategorier igjen, og alle har 0,9–2,3 ansatte.
 
-**Brreg sorterer på ansatte, ikke omsetning.** `sort=antallAnsatte,desc` er
-det eneste som gir de faktisk største selskapene; uten den leverer
-Enhetsregisteret alfabetisk, og «topp 5 treningssenter» ble en A-liste.
-Rangeringen i topplistene skjer på omsetning i basen — sorteringen bestemmer
-bare hvem som blir hentet.
+**`sort` bryter næringsfilteret hos Brreg. Bruk `fraAntallAnsatte`.**
+`sort=antallAnsatte,desc` ser ut som det riktige verktøyet og ga tilsynelatende
+perfekte lister — 93.13 ga SATS Norway først — men `47.11` med sortering
+returnerer «HELSE MØRE OG ROMSDAL HF» som treff nummer én. Antallet i `page` er
+riktig filtrert; radene er ikke. Feilen er usynlig i de kategoriene der den
+største aktøren tilfeldigvis er riktig, og den ble bare oppdaget fordi fire
+nye kategorier plutselig sto uten selskaper. `fraAntallAnsatte` respekterer
+filteret; terskelen — ikke sorteringen — er det som gjør listene store nok.
+Rangeringen skjer på omsetning i basen uansett.
+
+**SN2025 har oppløst divisjon 45.** Hele «45» gir 0 treff hos Brreg. Bilsalg er
+47.81, verksted 95.31, deler 47.82, motorsykkel 47.83/95.32 — mens SSB fortsatt
+har 45.112/45.200/45.320/45.40x. Det er det største spranget mellom de to
+standardene i kodesettet vårt, og hadde vi gjettet prefikset ut fra SSB-koden,
+ville alle fire bil-topplistene vært tomme uten en eneste feilmelding.
+
+**Foretak er ikke bedrifter, og etiketten må si hvilket tall det er.**
+Skobutikk har 205 foretak og 565 virksomheter. I SSBs terminologi ER en bedrift
+virksomheten, så et foretakstall under etiketten «bedrifter» leses som feil av
+alle som kjenner bransjen. `kategori_oversikt` returnerer derfor `n_foretak` og
+`n_virksomheter` hver for seg (migrasjon 0023), og avviket er størst i nettopp
+de kategoriene der folk har best magefølelse: butikk og servering.
 
 ## Tidligere uverifisert — nå avklart mot kilden
 

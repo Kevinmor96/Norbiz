@@ -36,11 +36,11 @@ describe('kategorilag', () => {
     }
   });
 
-  it('har 30 kategorier i 6 verdener', async () => {
+  it('har 34 kategorier i 7 verdener', async () => {
     const r = await db.query<{ verdener: string; n: string }>(
       `select count(distinct verden)::text verdener, count(*)::text n from categories`);
-    expect(Number(r.rows[0]!.n)).toBe(30);
-    expect(Number(r.rows[0]!.verdener)).toBe(6);
+    expect(Number(r.rows[0]!.n)).toBe(34);
+    expect(Number(r.rows[0]!.verdener)).toBe(7);
   });
 
   it('lar aldri medlemskoder overlappe hierarkisk innen kategori og kilde', async () => {
@@ -78,18 +78,30 @@ describe('kategorilag', () => {
   });
 
   it('gir kategorioversikt med tall og serie for kategorier som har statistikk', async () => {
-    const r = await db.query<{ slug: string; ar: number; n_bedrifter: string;
+    const r = await db.query<{ slug: string; ar: number; n_foretak: string;
       driftsmargin_pct: string; serie: unknown }>(
-      `select slug, ar, n_bedrifter::text, driftsmargin_pct::text, serie
+      `select slug, ar, n_foretak::text, driftsmargin_pct::text, serie
        from kategori_oversikt() where slug = 'restaurant-kafe'`);
     expect(r.rows.length).toBe(1);
-    expect(Number(r.rows[0]!.n_bedrifter)).toBeGreaterThan(0);
+    expect(Number(r.rows[0]!.n_foretak)).toBeGreaterThan(0);
     expect(Array.isArray(r.rows[0]!.serie)).toBe(true);
   });
 
-  it('returnerer alle 30 kategorier fra oversikten, også uten tall', async () => {
+  it('returnerer alle kategoriene fra oversikten, også uten tall', async () => {
     const r = await db.query(`select slug from kategori_oversikt()`);
-    expect(r.rows.length).toBe(30);
+    expect(r.rows.length).toBe(34);
+  });
+
+  it('skiller foretak fra virksomheter', async () => {
+    // Skobutikk har 205 foretak og 565 virksomheter i livebasen. Kalles
+    // foretakstallet «bedrifter», leser en som kjenner bransjen det som feil —
+    // for i SSBs terminologi ER bedrift virksomheten.
+    const r = await db.query<{ f: string; v: string }>(
+      `select n_foretak::text f, n_virksomheter::text v from kategori_oversikt()
+       where n_virksomheter is not null and n_foretak is not null limit 5`);
+    expect(r.rows.length).toBeGreaterThan(0);
+    // Et foretak kan eie flere virksomheter, aldri motsatt.
+    for (const rad of r.rows) expect(Number(rad.v)).toBeGreaterThanOrEqual(Number(rad.f));
   });
 
   it('rangerer selskaper i kategori og respekterer regnskapssnittet', async () => {
@@ -151,10 +163,10 @@ describe('kategorilag', () => {
     // regnskap 14 % og 820 000. Flagget lar UI-et si det i stedet for å la
     // en marginliste rangere eierdrift øverst av en teknisk grunn.
     const r = await db.query<{ slug: string; lonn: string; ans: string; flagg: boolean }>(
-      `select slug, lonn_per_sysselsatt::text lonn, ansatte_per_bedrift::text ans,
+      `select slug, lonn_per_sysselsatt::text lonn, ansatte_per_foretak::text ans,
               eierlonn_i_resultat flagg
        from kategori_oversikt()
-       where lonn_per_sysselsatt is not null and ansatte_per_bedrift is not null`);
+       where lonn_per_sysselsatt is not null and ansatte_per_foretak is not null`);
     expect(r.rows.length).toBeGreaterThan(0);
     for (const rad of r.rows) {
       expect(rad.flagg).toBe(Number(rad.lonn) < 450000 && Number(rad.ans) < 3);
@@ -171,7 +183,7 @@ describe('kategorilag', () => {
     // krever derfor også at snittbedriften er under tre ansatte.
     const r = await db.query<{ slug: string }>(`
       select slug from kategori_oversikt()
-      where eierlonn_i_resultat and ansatte_per_bedrift >= 3`);
+      where eierlonn_i_resultat and ansatte_per_foretak >= 3`);
     expect(r.rows.map((x) => x.slug)).toEqual([]);
   });
 

@@ -133,6 +133,9 @@ Deno.serve(async (req: Request): Promise<Response> => {
     const fra = Number(u.searchParams.get('fra') ?? 0);
     const antall = Number(u.searchParams.get('antall') ?? 6);
     const per = Number(u.searchParams.get('per') ?? 25);
+    // Terskel for ?stor=1. Små kategorier har få store aktører, så den må
+    // kunne senkes per kjøring.
+    const minAnsatte = Number(u.searchParams.get('minansatte') ?? 20);
 
     const SB = Deno.env.get('SUPABASE_URL')!;
     const KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
@@ -263,17 +266,25 @@ Deno.serve(async (req: Request): Promise<Response> => {
     }
 
     /**
-     * ?stor=1 — de største selskapene per kategoriprefiks.
+     * ?stor=1 — de største selskapene per kategoriprefiks, via
+     * `fraAntallAnsatte`.
      *
-     * `sort=antallAnsatte,desc` er verifisert mot API-et og respekterer
-     * næringsfilteret: 93.13 gir SATS Norway (3 850 ansatte) først, 96.21 gir
-     * Nikita Gruppen (639), 47.11 gir Coop Øst (4 163). Uten sorteringen
-     * leverer Brreg alfabetisk, og en «topp 5»-liste ble en A-liste —
-     * «4SERVICE», «@HOME», «ALFHEIMPIZZA».
+     * IKKE `sort=antallAnsatte,desc`. Den ser ut som det riktige verktøyet og
+     * ga tilsynelatende perfekte resultater — 93.13 ga SATS Norway først,
+     * 96.21 ga Nikita Gruppen — men den BRYTER næringsfilteret: `47.11` med
+     * sortering returnerer «HELSE MØRE OG ROMSDAL HF» som treff nummer én, et
+     * helseforetak uten noe med dagligvare å gjøre. Antallet i `page` er
+     * riktig filtrert; radene er ikke. Feilen er usynlig i de kategoriene der
+     * den største aktøren tilfeldigvis er riktig.
      *
-     * Ansatte er ikke omsetning, men det er den eneste størrelsen Brreg kan
-     * sortere på. Rangeringen i topplistene skjer på omsetning i basen; dette
-     * filteret bestemmer bare hvem som blir hentet.
+     * `fraAntallAnsatte` respekterer filteret, verifisert: 47.11 med
+     * fraAntallAnsatte=200 gir 52 treff, alle dagligvare (Coop Finnmark,
+     * CC Vest Mat, Cheffelo). Treffene kommer alfabetisk innenfor filteret, så
+     * terskelen — ikke sorteringen — er det som gjør listene store nok til å
+     * være interessante.
+     *
+     * Ansatte er ikke omsetning. Rangeringen i topplistene skjer på omsetning
+     * i basen; dette filteret bestemmer bare hvem som blir hentet.
      */
     if (u.searchParams.get('stor') === '1') {
       const medl = await les('category_members?select=nace_code&kilde=eq.brreg');
@@ -285,7 +296,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
       const sett = new Set<string>();
       for (const p of prefikser) {
         const r = await hent(`${ENHETER}?naeringskode=${encodeURIComponent(p)}` +
-          `&sort=antallAnsatte,desc&size=${per}`);
+          `&fraAntallAnsatte=${minAnsatte}&size=${per}`);
         if (!r.ok) { tell(`enhetsregister_${r.status}`); continue; }
         const b = ((await r.json())?._embedded?.enheter ?? []) as Record<string, unknown>[];
         if (b.length === 0) tell('prefiks_uten_store');

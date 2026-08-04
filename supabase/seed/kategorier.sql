@@ -36,7 +36,11 @@ insert into categories (slug, navn, verden, beskrivelse, farge, ikon, sortering)
   ('rorlegger','Rørlegger','Bygg & håndverk','Rørleggerbransjen — håndverket alle trenger, i tall.','#D08C1D','wrench',52),
   ('maler-overflate','Maler & overflate','Bygg & håndverk','Maler- og overflatefagene: lav terskel, hard priskonkurranse.','#D08C1D','paint-roller',53),
   ('renhold','Renhold','Tjenester','Renholdsbransjen: milliardmarked med små og store aktører.','#3B7A57','spray-can',60),
-  ('regnskap-revisjon','Regnskap & revisjon','Tjenester','Regnskapsførerne og revisorene som alle andre bransjer trenger.','#3B7A57','calculator',61);
+  ('regnskap-revisjon','Regnskap & revisjon','Tjenester','Regnskapsførerne og revisorene som alle andre bransjer trenger.','#3B7A57','calculator',61),
+  ('bilforhandler','Bilforhandler','Bil & motor','130 milliarder i omsetning og 2,7 % margin — volumbransjen framfor noen.','#4C6EF5','car',70),
+  ('bilverksted','Bilverksted','Bil & motor','4 500 verksteder: bedre margin enn å selge bilene.','#4C6EF5','wrench',71),
+  ('dekk-bildeler','Dekk & bildeler','Bil & motor','Delehandel og dekkservice — verkstedbransjens tvilling.','#4C6EF5','disc',72),
+  ('motorsykkel-fritid','Motorsykkel & fritidskjøretøy','Bil & motor','MC, snøscooter og ATV: liten bransje, lojale kunder.','#4C6EF5','bike',73);
 
 -- Medlemskoder. kilde='ssb' er SN2007 (statistikk), kilde='brreg' er
 -- SN2025-prefikser (selskapsmatching).
@@ -95,7 +99,26 @@ select c.id, m.kode, m.kilde from (values
   ('renhold','81.210','ssb'), ('renhold','81.291','ssb'), ('renhold','81.299','ssb'),
   ('renhold','81.2','brreg'),
   ('regnskap-revisjon','69.201','ssb'), ('regnskap-revisjon','69.202','ssb'),
-  ('regnskap-revisjon','69.2','brreg')
+  ('regnskap-revisjon','69.2','brreg'),
+  -- Bil & motor. Her er avstanden mellom de to standardene størst i hele
+  -- kodesettet: SN2025 har OPPLØST divisjon 45. Hele «45» gir 0 treff hos
+  -- Brreg, og næringen ligger nå spredt på to helt andre divisjoner —
+  -- verifisert med navn og volum 2026-08-04:
+  --   45.112 bilsalg      -> 47.81 «Detaljhandel med motorvogner» (5 603)
+  --   45.200 verksted     -> 95.31 «Reparasjon av motorvogner» (7 491)
+  --   45.320 bildeler     -> 47.82 «Deler og utstyr til motorvogner» (1 361)
+  --   45.402/403 motorsykkel -> 47.83 (386) og 95.32 (232)
+  -- Bilia Norge AS ligger på 95.310, Toyota Bilia AS på 47.810. Hadde vi
+  -- gjettet prefikset ut fra SSB-koden, ville alle fire topplistene vært tomme.
+  --
+  -- 45.111/45.191 er agentur og engros — importørleddet, ikke forhandleren
+  -- folk kjører til — og holdes utenfor. Dekkhotell har ingen egen kode i noen
+  -- av standardene; det er en tjeneste under verksted og delehandel.
+  ('bilforhandler','45.112','ssb'), ('bilforhandler','47.81','brreg'),
+  ('bilverksted','45.200','ssb'), ('bilverksted','95.31','brreg'),
+  ('dekk-bildeler','45.320','ssb'), ('dekk-bildeler','47.82','brreg'),
+  ('motorsykkel-fritid','45.402','ssb'), ('motorsykkel-fritid','45.403','ssb'),
+  ('motorsykkel-fritid','47.83','brreg'), ('motorsykkel-fritid','95.32','brreg')
 ) as m(slug, kode, kilde)
 join categories c on c.slug = m.slug;
 

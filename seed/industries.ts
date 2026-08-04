@@ -58,6 +58,16 @@ export const TREE: Top[] = [
                                                        ['79.120','Reisearrangørvirksomhet','Turoperatør']]]]],
   ['49', 'Landtransport', 'tjenesteyting', [
     ['49.3', 'Annen landtransport med passasjerer', [['49.392','Turbiltransport','Turbilselskap']]]]],
+  ['45', 'Handel med og reparasjon av motorvogner', 'varehandel', [
+    ['45.1', 'Handel med motorvogner', [
+        ['45.112','Detaljhandel med biler og lette motorvogner','Bilforhandler']]],
+    ['45.2', 'Vedlikehold og reparasjon av motorvogner', [
+        ['45.200','Vedlikehold og reparasjon av motorvogner','Bilverksted']]],
+    ['45.3', 'Handel med deler og utstyr til motorvogner', [
+        ['45.320','Detaljhandel med deler og utstyr til motorvogner','Bildelbutikk']]],
+    ['45.4', 'Handel med og reparasjon av motorsykler', [
+        ['45.402','Detaljhandel med motorsykler, deler og utstyr','Motorsykkelbutikk'],
+        ['45.403','Vedlikehold og reparasjon av motorsykler','MC-verksted']]]]],
   ['41', 'Oppføring av bygninger', 'bygg', [
     ['41.1', 'Utvikling av byggeprosjekter', [['41.101','Boligbyggelag','Boligbyggelag'],
                                               ['41.109','Utvikling av byggeprosjekter ellers','Boligutvikler']]],
