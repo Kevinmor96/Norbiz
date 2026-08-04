@@ -94,34 +94,42 @@ de regionale cellestørrelsene og `region_population`. To kilder her betyr at
 konkurransedelscoren — enheter per innbygger — regnes mot et annet folketall enn
 det som bestemte hvor mange enheter det ble.
 
-## Uverifisert med vilje
+## Tidligere uverifisert — nå avklart mot kilden
 
-`data.ssb.no` er blokkert av nettverkspolicyen i utviklingsmiljøet, så tre
-fakta står åpne og må avklares når `import-ssb` skrives:
+De tre spørsmålene som sto åpne da skjemaet ble tegnet, er besvart (detaljer og
+etterprøvbare spørringer i `docs/superpowers/specs/2026-08-04-ssb-api-verifisert.md`):
 
-1. Har den regionale tabellen (12936) `driftsresultat` og `bruttoinvestering`?
-2. Er 2017–2023 publisert på datidens fylkesinndeling, eller tilbakeskrevet til
-   dagens 15?
-3. Finnes `arsverk` i det hele tatt?
-
-Alle tre lander på nullable kolonner, så skjemaet holder uansett svar.
-`GET /api/v2/tables/12936/metadata` er spesifisert som importens første kall.
+1. Regionaltabellen er **12937** (12936 har ingen regionsdimensjon), og den har
+   kun Omsetning, Lønn, Bedrifter og Sysselsatte — driftsresultat og
+   bruttoinvestering finnes ikke regionalt. Kolonnene er NULL der.
+2. Region-dimensjonen bærer **alle fylkesårganger samtidig**; radene mapper til
+   riktig vintage via `valid_from_year`/`valid_to_year`.
+3. `Arsverk` finnes i 12910 (nasjonalt), ikke i 12937.
 
 ## Status
 
-Datalaget: ferdig, 101 tester grønne.
+Datalaget: ferdig, 107 tester grønne, 13 migrasjoner.
 
-**Supabase-prosjektet `jcpuhhrqhgrnihiacosy` lever**, med alle ti migrasjoner
-applikert og demo-seed lastet: 102 næringer, 44 regioner, 4 943 statistikkrader,
-5 795 lønnsrader, 4 893 scorer, 300 selskaper. Skjemaet der er verifisert
-identisk med PGlite, og scoringsviewet gir samme tall på begge.
+**Supabase-prosjektet `jcpuhhrqhgrnihiacosy` har ekte data.** Importørene
+`import-ssb` og `import-brreg` er deployet og kjørt 2026-08-04:
+
+- `industry_stats`: 51 468 rader `data_quality='ssb'`, 2017–2024, nivå 2/3/5
+  nasjonalt og nivå 2/3 per fylke. All mock-statistikk ble erstattet av
+  upsertene.
+- `companies`: 1 180 ekte selskaper fra Brreg (537 med regnskapstall,
+  `companies_snapshot` speiler dem). Mock-selskapene er slettet fra livebasen.
+- `industry_scores`: 28 377 scorer regnet fra de ekte tallene.
+- `industries`: 1 058 koder fra SSBs kodeliste; de 101 kuraterte beholder
+  navn/slug fra seed (importen er insert-only, se headeren i import-ssb).
+
+Fortsatt syntetisk: `industry_wages`, `industry_demography` og
+`region_population` er seed-data (`mock`/`beregnet`), og `industry_estimates`/
+`ai_insights` er `ai_anslag`. Brreg-utvalget er de ~50 første enhetene per
+tresifret næring i Brregs rekkefølge — ikke Norges største; topplister trenger
+målrettet henting (`fraAntallAnsatte`-filteret).
 
 Frontend bygges i Lovable-prosjektet `5bab9b75-aa19-4f9b-b7db-1472ffd79523` mot
 den basen.
-
-Ikke gjort: **all data er syntetisk.** Ingen rad påstår `ssb` eller `brreg` —
-alt er `mock`, `beregnet` eller `ai_anslag`. Edge-funksjonene som skulle hentet
-det ekte er fortsatt stubber.
 
 ### Nettverket i utviklingsmiljøet
 

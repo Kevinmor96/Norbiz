@@ -146,6 +146,20 @@ describe('aggregatfunksjoner', () => {
       order by 1`);
     expect(r.rows.map((x) => x.proname)).toEqual([]);
   });
+
+  it('kjører alle views med invoker-retter', async () => {
+    // Views er security definer som standard i Postgres: de leser med eierens
+    // retter, ikke spørrerens. Migrasjon 0012 setter security_invoker på alle,
+    // og denne testen sørger for at et nytt view ikke sniker seg inn uten.
+    const r = await db.query<{ relname: string }>(`
+      select c.relname from pg_class c
+      where c.relnamespace = 'public'::regnamespace and c.relkind = 'v'
+        and not coalesce(
+          (select option_value::boolean from pg_options_to_table(c.reloptions)
+           where option_name = 'security_invoker'), false)
+      order by 1`);
+    expect(r.rows.map((x) => x.relname)).toEqual([]);
+  });
 });
 
 /**

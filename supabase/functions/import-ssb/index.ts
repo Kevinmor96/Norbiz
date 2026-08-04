@@ -1,5 +1,7 @@
 /**
  * import-ssb — henter strukturstatistikk fra SSBs statistikkbank.
+ * Dette er koden som er deployet (v3), kjørt 2026-08-04: 51 468 rader
+ * data_quality='ssb' over nivå 2/3/5 nasjonalt og nivå 2/3 regionalt.
  *
  * Kilde:    https://data.ssb.no/api/pxwebapi/v2
  * Tabeller: 12910 nasjonalt (NACE til 5-siffer, 19 måltall)
@@ -16,32 +18,11 @@
  *     tatt — den er delt på sysselsettingsgruppe.
  *   - Perioden går til 2024, ikke 2023.
  *
- * REGIONALT FINNES DET INGEN DRIFTSMARGIN. 12937 har kun Omsetning, Lønn,
- * Antall bedrifter og Sysselsatte — ikke driftsresultat, bruttoinvestering,
- * bearbeidingsverdi eller årsverk. Denne importen skriver derfor NULL i de
- * kolonnene for regionale rader. Ikke en forenkling: tallet finnes ikke.
- *
- * NÆRINGSLISTA KOMMER FRA SSB. Ni av de 65 femsifrede kodene i seed/industries.ts
- * var oppdiktet og ville trukket null rader. Derfor upsertes `industries` fra
- * SSBs egen kodeliste først, så nace_code og name per definisjon ikke kan avvike
- * fra kilden. `common_name` er vårt eget lag og overskrives ikke der den finnes.
- *
- * ⚠ DENNE FILEN ER IKKE DEN DEPLOYEDE VERSJONEN. Se nederst i denne kommentaren.
- *
- * INGEN VILKÅRLIG SQL. Skrivingen går gjennom PostgREST med
- * `Prefer: resolution=merge-duplicates`, ikke gjennom en funksjon som tar SQL som
- * parameter. En slik funksjon måtte vært `security definer`, og det finnes en test
- * som håndhever at ingen funksjon i public er det.
- *
- * AVVIK MOT DEPLOYET VERSJON — MÅ SAMKJØRES.
- *
- * Denne filen forsøker hele kodeverket i én kjøring. Det feilet i praksis:
- * maxDataCells er 800 000, så batchberegningen tillot 1 603 næringer × 2
- * enhetstyper × 8 måltall × 8 år = 205 000 celler i ett kall. Lovlig hos SSB,
- * men det sprengte minne- eller tidsgrensen i edge-runtimen, og alt man fikk var
- * «Internal Server Error» — ingen stack, ingen logg.
- *
- * Den deployede versjonen (v2) tar derfor EN SKIVE PER KALL:
+ * ARBEIDET ER AVGRENSET PER KALL. Første utkast forsøkte hele kodeverket i én
+ * kjøring: batchberegningen tillot 1 603 næringer × 2 enhetstyper × 8 måltall
+ * × 8 år = 205 000 celler i ett kall. Lovlig hos SSB, men det sprengte minne-
+ * eller tidsgrensen i edge-runtimen, og alt man fikk var «Internal Server
+ * Error» — ingen stack, ingen logg. Derfor tar hvert kall en skive:
  *
  *   ?niva=2|3|4|5   hvilket NACE-nivå
  *   ?fra=<indeks>   hvor i lista skiven starter
@@ -49,138 +30,44 @@
  *   ?regionalt=1    hent 12937 i stedet for 12910
  *   ?dry=1          regn ut, ikke skriv
  *
- * Svaret returnerer `neste_fra` og `flere`, så importen kan drives framover uten
- * å holde alt i minnet. Den pakker også hele handleren i try/catch og returnerer
- * feilen som JSON — uten det var «Internal Server Error» alt man fikk å jobbe med.
+ * Svaret returnerer `neste_fra` og `flere`, så importen kan drives framover
+ * uten å holde alt i minnet. Handleren er pakket i try/catch og returnerer
+ * feilen som JSON — uten det var «Internal Server Error» alt man fikk.
  *
- * Verifisert: niva=2, 8 næringer ga 1 024 celler → 128 rader med
- * data_quality = 'ssb', 2017–2024, 22 med ekte undertrykkingsmerknader.
- * Næringsmiddelindustri 2023: 2 504 foretak, 313,7 mrd omsetning, 5,95 % margin.
+ * REGIONALT FINNES DET INGEN DRIFTSMARGIN. 12937 har kun Omsetning, Lønn,
+ * Antall bedrifter og Sysselsatte — ikke driftsresultat, bruttoinvestering,
+ * bearbeidingsverdi eller årsverk. Denne importen skriver derfor NULL i de
+ * kolonnene for regionale rader. Ikke en forenkling: tallet finnes ikke.
+ *
+ * INDUSTRIES ER INSERT-ONLY. Seed-en eier navn, slug og kuratert for de
+ * kuraterte kodene; en import som overskriver dem stryker i praksis
+ * kurateringen. Det skjedde: SSB-labels og kodesuffiks-slugs klobret 101
+ * kuraterte rader og måtte gjenopprettes fra seed-kilden. Bare koder basen
+ * ikke kjenner settes inn. FK-vern: SSB-dimensjonen kan ha barn uten forelder
+ * i utvalget (35.1 finnes, 35 gjør ikke), så parent_code settes bare når
+ * forelderen faktisk finnes.
+ *
+ * INGEN VILKÅRLIG SQL. Skrivingen går gjennom PostgREST med
+ * `Prefer: resolution=merge-duplicates`, ikke gjennom en funksjon som tar SQL
+ * som parameter. En slik funksjon måtte vært `security definer`, og det finnes
+ * en test som håndhever at ingen funksjon i public er det.
+ *
+ * SSBs STANDARDTEGN oversettes til mangel_arsak i MANGEL under. Den letteste
+ * feilen i hele importen og den vanskeligste å oppdage: leses tegnene som
+ * «mangler data», forsvinner forskjellen mellom et tall som er skjult av
+ * konfidensialitetshensyn og et som ikke finnes. Symbolene står i `status`-
+ * feltet i json-stat2-svaret, verifisert mot ekte data i begge tabellene.
  */
-
 const BASE = 'https://data.ssb.no/api/pxwebapi/v2';
-const NASJONAL = '12910';
-const REGIONAL = '12937';
 
-/**
- * SSBs standardtegn, oversatt til mangel_arsak.
- *
- * Den letteste feilen i hele importen og den vanskeligste å oppdage: leses
- * tegnene som «mangler data», forsvinner forskjellen mellom et tall som er
- * skjult av konfidensialitetshensyn og et som ikke finnes. For en rådgiver er
- * det første informasjon om markedet — næringen har for få aktører i regionen
- * til at tallet kan oppgis — mens det andre er et hull.
- *
- * Symbolene står i `note`-feltet på svaret. Verifisert mot 12937, der både `:`
- * og `.` forekommer i ekte data.
- */
 const MANGEL: Record<string, string> = {
-  ':': 'konfidensielt',    // Vises ikke av konfidensialitetshensyn.
-  '.': 'ikke_relevant',    // Kategorien var ikke i bruk da tallene ble samlet inn.
-  '..': 'ikke_publisert',  // Oppgave mangler.
-  '...': 'ikke_publisert',
-  '~': 'kommer_senere',
+  ':': 'konfidensielt', '.': 'ikke_relevant', '..': 'ikke_publisert',
+  '...': 'ikke_publisert', '~': 'kommer_senere',
 };
 
-/** Måltall vi henter. Nasjonalt har alle; regionalt bare de fire første. */
-const MAAL_NASJONALT = [
-  'Oms', 'Enheter', 'Sysselsatte', 'BruttoDriftsres', 'Lonnskost',
-  'BearbVerdi', 'BruttoInvesteringer', 'Arsverk',
-];
-const MAAL_REGIONALT = ['Oms', 'Bedrifter', 'Sysselsatte', 'Lonn'];
+const MAAL_N = ['Oms', 'Enheter', 'Sysselsatte', 'BruttoDriftsres', 'Lonnskost', 'BearbVerdi', 'BruttoInvesteringer', 'Arsverk'];
+const MAAL_R = ['Oms', 'Bedrifter', 'Sysselsatte', 'Lonn'];
 
-interface JsonStat2 {
-  label: string;
-  id: string[];
-  size: number[];
-  value: (number | null)[];
-  status?: Record<string, string>;
-  note?: string[];
-  dimension: Record<string, {
-    label: string;
-    category: { index: Record<string, number>; label: Record<string, string> };
-  }>;
-}
-
-interface Rad {
-  nace_code: string;
-  nace_level: number;
-  region_code: string;
-  year: number;
-  unit_type: 'foretak' | 'virksomhet';
-  region_level: 'land' | 'fylke';
-  tall: Record<string, number | null>;
-  merknader: Record<string, string>;
-}
-
-/**
- * Pakker ut den flate value-tabellen til celler med koder.
- *
- * json-stat2 gir `value` som én flat liste i radrekkefølge over dimensjonene i
- * `id`, med `size` som lengder, og `status` som kartlegger flat indeks til
- * standardtegn. Verifisert: 12910 med size [1,2,4,1] gir åtte verdier i
- * rekkefølgen NACE × Enhet × ContentsCode × Tid.
- */
-function* celler(j: JsonStat2): Generator<{
-  koder: Record<string, string>; verdi: number | null; symbol: string | null;
-}> {
-  const dims = j.id;
-  const posTilKode = dims.map((d) => {
-    const ut: string[] = [];
-    for (const [kode, pos] of Object.entries(j.dimension[d]!.category.index)) ut[pos] = kode;
-    return ut;
-  });
-
-  for (let flat = 0; flat < j.value.length; flat++) {
-    let rest = flat;
-    const koder: Record<string, string> = {};
-    for (let d = dims.length - 1; d >= 0; d--) {
-      const lengde = j.size[d]!;
-      koder[dims[d]!] = posTilKode[d]![rest % lengde]!;
-      rest = Math.floor(rest / lengde);
-    }
-    yield { koder, verdi: j.value[flat] ?? null, symbol: j.status?.[String(flat)] ?? null };
-  }
-}
-
-async function hent(url: string, forsok = 0): Promise<Response> {
-  const r = await fetch(url, { headers: { 'Accept-Language': 'no' } });
-
-  // SSB svarer 429 ved hyppige kall og kan blokkere IP-er rundt publisering
-  // klokka 08.00. Respekter Retry-After framfor å gjette.
-  if (r.status === 429 && forsok < 5) {
-    const etter = Number(r.headers.get('Retry-After') ?? 0);
-    await new Promise((s) => setTimeout(s, etter > 0 ? etter * 1000 : Math.min(2 ** forsok * 1000, 30_000)));
-    return hent(url, forsok + 1);
-  }
-  if (!r.ok) throw new Error(`SSB ${r.status} på ${url}: ${(await r.text()).slice(0, 300)}`);
-  return r;
-}
-
-const metadata = (tabell: string): Promise<JsonStat2> =>
-  hent(`${BASE}/tables/${tabell}/metadata?lang=no`).then((r) => r.json());
-
-const data = (tabell: string, valg: Record<string, string>): Promise<JsonStat2> =>
-  hent(`${BASE}/tables/${tabell}/data?lang=no&outputFormat=json-stat2&` +
-    Object.entries(valg).map(([k, v]) => `valueCodes[${k}]=${encodeURIComponent(v)}`).join('&'),
-  ).then((r) => r.json());
-
-/** Kodelengde hos SSB til vårt nace_level. '56'=2, '56.1'=3, '56.101'=5. */
-function naceNiva(kode: string): number | null {
-  if (kode.length === 1) return null;              // bokstav = hovedområde
-  const siffer = kode.replace('.', '').length;
-  return siffer >= 2 && siffer <= 5 ? siffer : null;
-}
-
-const slugify = (s: string): string =>
-  s.toLowerCase().replace(/æ/g, 'ae').replace(/ø/g, 'o').replace(/å/g, 'a')
-    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 80);
-
-/** SSB oppgir mill. kr. Vi lagrer hele kroner. */
-const millTilKr = (v: number | null | undefined): number | null =>
-  v == null ? null : Math.round(v * 1e6);
-
-/** SSBs måltallkode til vår kolonne, for merknader. */
 const FELT: Record<string, string> = {
   Oms: 'omsetning_total', Enheter: 'n_enheter', Bedrifter: 'n_enheter',
   Sysselsatte: 'sysselsatte_total', BruttoDriftsres: 'driftsresultat_total',
@@ -189,210 +76,184 @@ const FELT: Record<string, string> = {
   Arsverk: 'arsverk_per_enhet',
 };
 
-Deno.serve(async (req: Request): Promise<Response> => {
-  const url = new URL(req.url);
-  const torrkjoring = url.searchParams.get('dry') === '1';
-  const fraAr = Number(url.searchParams.get('fra') ?? 2017);
+interface Js { id: string[]; size: number[]; value: (number|null)[]; status?: Record<string,string>;
+  dimension: Record<string, { category: { index: Record<string,number>; label: Record<string,string> } }> }
 
-  const SB = Deno.env.get('SUPABASE_URL')!;
-  const KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-  const hodet = { apikey: KEY, Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' };
-
-  const les = async (sti: string): Promise<Record<string, unknown>[]> => {
-    const r = await fetch(`${SB}/rest/v1/${sti}`, { headers: hodet });
-    if (!r.ok) throw new Error(`les ${sti}: ${r.status} ${(await r.text()).slice(0, 200)}`);
-    return r.json();
-  };
-
-  const upsert = async (tabell: string, onConflict: string, rader: unknown[]): Promise<void> => {
-    const r = await fetch(`${SB}/rest/v1/${tabell}?on_conflict=${onConflict}`, {
-      method: 'POST',
-      headers: { ...hodet, Prefer: 'resolution=merge-duplicates,return=minimal' },
-      body: JSON.stringify(rader),
-    });
-    if (!r.ok) throw new Error(`upsert ${tabell}: ${r.status} ${(await r.text()).slice(0, 400)}`);
-  };
-
-  const logg: string[] = [];
-
-  // ---------------------------------------------------------------- 1. Grenser
-  const cfg = await hent(`${BASE}/config`).then((r) => r.json());
-  const maksCeller = Number(cfg.maxDataCells ?? 800_000);
-  logg.push(`API ${cfg.apiVersion}, maxDataCells ${maksCeller}`);
-
-  // -------------------------------------------------- 2. Næringslista fra SSB
-  const metaN = await metadata(NASJONAL);
-  const aar = Object.keys(metaN.dimension['Tid']!.category.index)
-    .map(Number).filter((y) => y >= fraAr).sort((a, b) => a - b);
-  logg.push(`år ${aar[0]}–${aar[aar.length - 1]}`);
-
-  const naeringer = Object.entries(metaN.dimension['NACE2007']!.category.label)
-    .map(([kode, navn]) => ({ kode, navn, niva: naceNiva(kode) }))
-    .filter((n): n is { kode: string; navn: string; niva: number } => n.niva !== null)
-    .sort((a, b) => a.niva - b.niva);   // forelder før barn: parent_code er selvreferanse
-
-  if (!torrkjoring) {
-    const finnesFra = new Set(naeringer.map((n) => n.kode));
-    const forelder = (kode: string, niva: number): string | null => {
-      const kandidat = niva === 5 || niva === 4 ? kode.slice(0, 4) : niva === 3 ? kode.slice(0, 2) : null;
-      return kandidat && finnesFra.has(kandidat) ? kandidat : null;
-    };
-    // Nivå for nivå, ellers feiler selvreferansen på parent_code.
-    for (const niva of [2, 3, 4, 5]) {
-      const bolk = naeringer.filter((n) => n.niva === niva);
-      if (bolk.length === 0) continue;
-      await upsert('industries', 'nace_code', bolk.map((n) => ({
-        nace_code: n.kode, nace_level: n.niva, parent_code: forelder(n.kode, n.niva),
-        name: n.navn, common_name: n.navn, slug: slugify(n.navn),
-        search_terms: [n.navn.toLowerCase()],
-      })));
+function* celler(j: Js) {
+  const dims = j.id;
+  const pos = dims.map((d) => { const u: string[] = [];
+    for (const [k, p] of Object.entries(j.dimension[d]!.category.index)) u[p] = k; return u; });
+  for (let f = 0; f < j.value.length; f++) {
+    let rest = f; const koder: Record<string,string> = {};
+    for (let d = dims.length - 1; d >= 0; d--) {
+      const len = j.size[d]!; koder[dims[d]!] = pos[d]![rest % len]!; rest = Math.floor(rest / len);
     }
-    logg.push(`industries: ${naeringer.length} koder fra SSB`);
+    yield { koder, verdi: j.value[f] ?? null, symbol: j.status?.[String(f)] ?? null };
   }
+}
 
-  // ------------------------------------------- 3. Hent nasjonalt og regionalt
-  const rader = new Map<string, Rad>();
+async function hent(url: string, f = 0): Promise<Response> {
+  const r = await fetch(url, { headers: { 'Accept-Language': 'no' } });
+  if (r.status === 429 && f < 4) {
+    const e = Number(r.headers.get('Retry-After') ?? 0);
+    await new Promise((s) => setTimeout(s, e > 0 ? e * 1000 : Math.min(2 ** f * 1000, 20_000)));
+    return hent(url, f + 1);
+  }
+  if (!r.ok) throw new Error(`SSB ${r.status}: ${(await r.text()).slice(0, 200)}`);
+  return r;
+}
 
-  const samle = (j: JsonStat2, regionLevel: 'land' | 'fylke') => {
+const naceNiva = (k: string): number | null => {
+  if (k.length === 1) return null;
+  const s = k.replace('.', '').length;
+  return s >= 2 && s <= 5 ? s : null;
+};
+
+const slug = (s: string) => s.toLowerCase().replace(/æ/g,'ae').replace(/ø/g,'o').replace(/å/g,'a')
+  .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,80);
+const mkr = (v: number|null|undefined) => v == null ? null : Math.round(v * 1e6);
+const r2 = (v: number) => Math.round(v * 100) / 100;
+const svar = (o: unknown) => new Response(JSON.stringify(o, null, 2), { headers: { 'Content-Type': 'application/json' } });
+
+Deno.serve(async (req: Request): Promise<Response> => {
+  try {
+    const u = new URL(req.url);
+    const dry = u.searchParams.get('dry') === '1';
+    const niva = Number(u.searchParams.get('niva') ?? 2);
+    const fra = Number(u.searchParams.get('fra') ?? 0);
+    const antall = Number(u.searchParams.get('antall') ?? 40);
+    const regionalt = u.searchParams.get('regionalt') === '1';
+    const tabell = regionalt ? '12937' : '12910';
+
+    const SB = Deno.env.get('SUPABASE_URL')!;
+    const KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+    if (!SB || !KEY) return svar({ feil: 'mangler SUPABASE_URL eller SERVICE_ROLE_KEY' });
+    const H = { apikey: KEY, Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' };
+
+    const les = async (sti: string) => {
+      const r = await fetch(`${SB}/rest/v1/${sti}`, { headers: H });
+      if (!r.ok) throw new Error(`les ${sti}: ${r.status} ${(await r.text()).slice(0,200)}`);
+      return r.json() as Promise<Record<string, unknown>[]>;
+    };
+    const upsert = async (t: string, oc: string, rows: unknown[]) => {
+      if (rows.length === 0) return;
+      const r = await fetch(`${SB}/rest/v1/${t}?on_conflict=${oc}`, {
+        method: 'POST', headers: { ...H, Prefer: 'resolution=merge-duplicates,return=minimal' },
+        body: JSON.stringify(rows),
+      });
+      if (!r.ok) throw new Error(`upsert ${t}: ${r.status} ${(await r.text()).slice(0,300)}`);
+    };
+
+    const logg: string[] = [];
+    const meta = await hent(`${BASE}/tables/${tabell}/metadata?lang=no`).then((r) => r.json()) as Js;
+    const aar = Object.keys(meta.dimension['Tid']!.category.index).map(Number).sort((a,b)=>a-b);
+
+    const alle = Object.entries(meta.dimension['NACE2007']!.category.label)
+      .map(([kode, navn]) => ({ kode, navn, niva: naceNiva(kode) }))
+      .filter((n): n is { kode: string; navn: string; niva: number } => n.niva === niva);
+    const skive = alle.slice(fra, fra + antall);
+    logg.push(`niva ${niva}: ${alle.length} totalt, tar ${skive.length} fra indeks ${fra}`);
+    if (skive.length === 0) return svar({ ferdig: true, logg });
+
+    if (!dry && !regionalt) {
+      const forelder = (k: string, n: number) => n >= 4 ? k.slice(0,4) : n === 3 ? k.slice(0,2) : null;
+      const kjent = new Set<string>();
+      for (const r of await les(`industries?select=nace_code&nace_code=in.(${skive.map((n)=>n.kode).join(',')})`))
+        kjent.add(r['nace_code'] as string);
+      const nye = skive.filter((n) => !kjent.has(n.kode));
+      if (nye.length) {
+        const onsket = [...new Set(nye.map((n) => forelder(n.kode, n.niva)).filter((p): p is string => p !== null))];
+        const finnes = new Set<string>();
+        if (onsket.length)
+          for (const r of await les(`industries?select=nace_code&nace_code=in.(${onsket.join(',')})`))
+            finnes.add(r['nace_code'] as string);
+        await upsert('industries', 'nace_code', nye.map((n) => {
+          const p = forelder(n.kode, n.niva);
+          return {
+            nace_code: n.kode, nace_level: n.niva, parent_code: p && finnes.has(p) ? p : null,
+            name: n.navn, common_name: n.navn, slug: slug(n.navn) + '-' + n.kode.replace('.',''),
+            search_terms: [n.navn.toLowerCase()],
+          };
+        }));
+        logg.push(`industries: ${nye.length} nye, ${kjent.size} eksisterende urort`);
+      } else logg.push(`industries: alle ${skive.length} finnes fra for`);
+    }
+
+    const q = regionalt
+      ? { NACE2007: skive.map((n)=>n.kode).join(','), Tid: aar.join(','), Region: '*', ContentsCode: MAAL_R.join(',') }
+      : { NACE2007: skive.map((n)=>n.kode).join(','), Tid: aar.join(','), Enhet: '*', ContentsCode: MAAL_N.join(',') };
+    const j = await hent(`${BASE}/tables/${tabell}/data?lang=no&outputFormat=json-stat2&` +
+      Object.entries(q).map(([k,v]) => `valueCodes[${k}]=${encodeURIComponent(v)}`).join('&')).then((r)=>r.json()) as Js;
+    logg.push(`${j.value.length} celler fra ${tabell}`);
+
+    const rader = new Map<string, { nace: string; niva: number; region: string; aar: number;
+      unit: 'foretak'|'virksomhet'; lvl: 'land'|'fylke'; tall: Record<string, number|null>; merk: Record<string,string> }>();
     for (const c of celler(j)) {
       const nace = c.koder['NACE2007']!;
-      const niva = naceNiva(nace);
-      if (niva === null) continue;
+      const nl = naceNiva(nace); if (nl === null) continue;
+      const region = regionalt ? c.koder['Region']! : '0';
+      if (regionalt && !/^\d{2}$/.test(region)) continue;
+      const unit: 'foretak'|'virksomhet' = regionalt ? 'virksomhet' : (c.koder['Enhet'] === '1' ? 'foretak' : 'virksomhet');
+      const y = Number(c.koder['Tid']);
+      const key = `${nace}|${region}|${y}|${unit}`;
+      let rad = rader.get(key);
+      if (!rad) { rad = { nace, niva: nl, region, aar: y, unit, lvl: regionalt ? 'fylke' : 'land', tall: {}, merk: {} }; rader.set(key, rad); }
+      const cc = c.koder['ContentsCode']!;
+      rad.tall[cc] = c.verdi;
+      if (c.symbol && MANGEL[c.symbol]) rad.merk[FELT[cc] ?? cc] = MANGEL[c.symbol]!;
+    }
 
-      const region = regionLevel === 'land' ? '0' : c.koder['Region']!;
-      // Landsdeler (L1, L01…), uoppgitt (88, 99) og landet (0) hører ikke i
-      // fylkesrader. Bare tosifrede fylkeskoder.
-      if (regionLevel === 'fylke' && !/^\d{2}$/.test(region)) continue;
-
-      const unitType: 'foretak' | 'virksomhet' =
-        regionLevel === 'fylke' ? 'virksomhet'
-          : c.koder['Enhet'] === '1' ? 'foretak' : 'virksomhet';
-
-      const aarTall = Number(c.koder['Tid']);
-      const nokkel = `${nace}|${region}|${aarTall}|${unitType}`;
-      let rad = rader.get(nokkel);
-      if (!rad) {
-        rad = {
-          nace_code: nace, nace_level: niva, region_code: region, year: aarTall,
-          unit_type: unitType, region_level: regionLevel, tall: {}, merknader: {},
-        };
-        rader.set(nokkel, rad);
+    const iid = new Map<string,string>();
+    for (const r of await les(`industries?select=id,nace_code&nace_level=eq.${niva}&limit=2000`)) iid.set(r['nace_code'] as string, r['id'] as string);
+    const regs = await les('regions?select=id,code,valid_from_year,valid_to_year&limit=500');
+    const rid = (kode: string, y: number) => {
+      for (const r of regs) {
+        if (r['code'] !== kode) continue;
+        const f = r['valid_from_year'] as number, t = (r['valid_to_year'] as number|null) ?? 9999;
+        if (f <= y && y <= t) return r['id'] as string;
       }
-      rad.tall[c.koder['ContentsCode']!] = c.verdi;
+      return null;
+    };
 
-      // Et standardtegn er ikke et hull. '-' er dessuten et EKTE null og kommer
-      // som verdien 0, ikke som symbol — det skal lagres som 0.
-      if (c.symbol && MANGEL[c.symbol]) {
-        rad.merknader[FELT[c.koder['ContentsCode']!] ?? c.koder['ContentsCode']!] =
-          MANGEL[c.symbol]!;
-      }
-    }
-  };
+    let utenRegion = 0, utenNaering = 0;
+    const rows = [...rader.values()].flatMap((r) => {
+      const i = iid.get(r.nace); if (!i) { utenNaering++; return []; }
+      const g = rid(r.region, r.aar); if (!g) { utenRegion++; return []; }
+      const t = r.tall;
+      const oms = mkr(t['Oms']);
+      const enh = t['Enheter'] ?? t['Bedrifter'] ?? null;
+      const dr = mkr(t['BruttoDriftsres']);
+      const lo = mkr(t['Lonnskost'] ?? t['Lonn']);
+      const sy = t['Sysselsatte'] ?? null;
+      const be = mkr(t['BearbVerdi']);
+      return [{
+        industry_id: i, region_id: g, year: r.aar, unit_type: r.unit,
+        nace_level: r.niva, region_level: r.lvl, n_enheter: enh,
+        omsetning_total: oms,
+        omsetning_per_enhet: oms != null && enh ? Math.round(oms/enh) : null,
+        driftsresultat_total: dr,
+        driftsmargin_pct: oms && oms > 0 && dr != null ? r2((dr/oms)*100) : null,
+        lonnskostnad_total: lo,
+        lonnsandel_pct: oms && oms > 0 && lo != null ? r2((lo/oms)*100) : null,
+        sysselsatte_total: sy,
+        sysselsatte_per_enhet: sy != null && enh ? r2(sy/enh) : null,
+        arsverk_per_enhet: t['Arsverk'] != null && enh ? r2(t['Arsverk']!/enh) : null,
+        bearbeidingsverdi_total: be,
+        verdiskaping_per_sysselsatt: be != null && sy ? Math.round(be/sy) : null,
+        bruttoinvestering_total: mkr(t['BruttoInvesteringer']),
+        merknader: r.merk,
+        source: regionalt ? 'ssb:12937' : 'ssb:12910',
+        data_quality: 'ssb', coverage: 'alle',
+      }];
+    });
+    logg.push(`${rows.length} rader klare (hoppet: ${utenNaering} naering, ${utenRegion} region/aar)`);
 
-  // Bolkstørrelsen regnes ut av cellegrensen framfor å velges.
-  const perKall = (dimensjoner: number) =>
-    Math.max(1, Math.floor(maksCeller / (dimensjoner * aar.length)));
+    if (dry) return svar({ dry: true, logg, neste_fra: fra + antall, eksempel: rows.slice(0,2) });
 
-  const stegN = perKall(2 * MAAL_NASJONALT.length);
-  for (let i = 0; i < naeringer.length; i += stegN) {
-    samle(await data(NASJONAL, {
-      NACE2007: naeringer.slice(i, i + stegN).map((n) => n.kode).join(','),
-      Tid: aar.join(','), Enhet: '*', ContentsCode: MAAL_NASJONALT.join(','),
-    }), 'land');
+    for (let i = 0; i < rows.length; i += 500) await upsert('industry_stats','industry_id,region_id,year,unit_type', rows.slice(i, i+500));
+    logg.push(`skrevet med data_quality='ssb'`);
+    return svar({ ok: true, logg, neste_fra: fra + antall, flere: fra + antall < alle.length });
+  } catch (e) {
+    return svar({ feil: String(e), stack: (e as Error)?.stack?.slice(0, 600) });
   }
-  logg.push(`etter nasjonalt: ${rader.size} rader`);
-
-  const regionale = naeringer.filter((n) => n.niva <= 3);
-  const stegR = perKall(56 * MAAL_REGIONALT.length);
-  for (let i = 0; i < regionale.length; i += stegR) {
-    samle(await data(REGIONAL, {
-      NACE2007: regionale.slice(i, i + stegR).map((n) => n.kode).join(','),
-      Tid: aar.join(','), Region: '*', ContentsCode: MAAL_REGIONALT.join(','),
-    }), 'fylke');
-  }
-  logg.push(`etter regionalt: ${rader.size} rader`);
-
-  // -------------------------------------------------- 4. Slå opp id-ene lokalt
-  const naeringId = new Map<string, string>();
-  for (const r of await les('industries?select=id,nace_code&limit=5000')) {
-    naeringId.set(r['nace_code'] as string, r['id'] as string);
-  }
-  // Fylkeskoden må treffe årgangen som gjaldt i året — dimensjonen tilbyr alle
-  // årganger samtidig, så uten dette havner 2017-tall på 2024-fylker.
-  const regionRader = await les('regions?select=id,code,valid_from_year,valid_to_year&limit=500');
-  const regionId = (kode: string, y: number): string | null => {
-    for (const r of regionRader) {
-      if (r['code'] !== kode) continue;
-      const fra = r['valid_from_year'] as number;
-      const til = (r['valid_to_year'] as number | null) ?? 9999;
-      if (fra <= y && y <= til) return r['id'] as string;
-    }
-    return null;
-  };
-
-  // --------------------------------------------------------- 5. Bygg og skriv
-  const utenRegion = new Set<string>();
-  const rekker = [...rader.values()].flatMap((r) => {
-    const iid = naeringId.get(r.nace_code);
-    const rid = regionId(r.region_code, r.year);
-    if (!iid || !rid) {
-      if (!rid) utenRegion.add(`${r.region_code}/${r.year}`);
-      return [];
-    }
-
-    const t = r.tall;
-    const oms = millTilKr(t['Oms']);
-    const enheter = t['Enheter'] ?? t['Bedrifter'] ?? null;
-    const driftsres = millTilKr(t['BruttoDriftsres']);
-    const lonn = millTilKr(t['Lonnskost'] ?? t['Lonn']);
-    const syss = t['Sysselsatte'] ?? null;
-    const bearb = millTilKr(t['BearbVerdi']);
-
-    // Driftsmarginen regnes bare der begge leddene finnes. Regionalt gjør de
-    // aldri det, siden 12937 ikke har driftsresultat — og det er meningen.
-    const rund2 = (v: number) => Math.round(v * 100) / 100;
-
-    return [{
-      industry_id: iid, region_id: rid, year: r.year, unit_type: r.unit_type,
-      nace_level: r.nace_level, region_level: r.region_level,
-      n_enheter: enheter,
-      omsetning_total: oms,
-      omsetning_per_enhet: oms != null && enheter ? Math.round(oms / enheter) : null,
-      driftsresultat_total: driftsres,
-      driftsmargin_pct: oms && oms > 0 && driftsres != null ? rund2((driftsres / oms) * 100) : null,
-      lonnskostnad_total: lonn,
-      lonnsandel_pct: oms && oms > 0 && lonn != null ? rund2((lonn / oms) * 100) : null,
-      sysselsatte_total: syss,
-      sysselsatte_per_enhet: syss != null && enheter ? rund2(syss / enheter) : null,
-      arsverk_per_enhet: t['Arsverk'] != null && enheter ? rund2(t['Arsverk']! / enheter) : null,
-      bearbeidingsverdi_total: bearb,
-      verdiskaping_per_sysselsatt: bearb != null && syss ? Math.round(bearb / syss) : null,
-      bruttoinvestering_total: millTilKr(t['BruttoInvesteringer']),
-      merknader: r.merknader,
-      source: r.region_level === 'land' ? 'ssb:12910' : 'ssb:12937',
-      data_quality: 'ssb',
-      coverage: 'alle',
-    }];
-  });
-
-  if (utenRegion.size > 0) {
-    // Ikke en feil: fylkeskoder utenfor sin årgang er forventet, siden
-    // dimensjonen tilbyr alle samtidig. Loggføres for å kunne se at filteret
-    // faktisk gjør noe.
-    logg.push(`hoppet over ${utenRegion.size} region/år-kombinasjoner utenfor årgang`);
-  }
-
-  if (torrkjoring) {
-    return svar({ torrkjoring: true, logg, klare_rader: rekker.length, eksempel: rekker.slice(0, 2) });
-  }
-
-  for (let i = 0; i < rekker.length; i += 500) {
-    await upsert('industry_stats', 'industry_id,region_id,year,unit_type', rekker.slice(i, i + 500));
-  }
-  logg.push(`skrevet ${rekker.length} rader med data_quality = 'ssb'`);
-
-  return svar({ ok: true, logg });
 });
-
-const svar = (o: unknown): Response =>
-  new Response(JSON.stringify(o, null, 2), { headers: { 'Content-Type': 'application/json' } });
