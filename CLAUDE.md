@@ -228,13 +228,24 @@ deployet ad hoc under kategoriarbeidet, uten fil i repoet — og ble derfor
 duplisert som `brreg-sonde`, som gjør det samme men er sporbar her. To sonder
 med samme jobb betyr at neste person retter feil i den ene.
 
-**`generate-insights` er fortsatt en stub.** Kommentarblokken i
-`supabase/functions/generate-insights/index.ts` beskriver kontrakten — hent
-tallene først, forankre hver påstand, oppgi anslag som spenn, kjør som batch og
-cache på `(industry_id, region_id, prompt_version)` — men `handler` kaster. Den
-er ikke deployet. `industry_estimates` og `ai_insights` inneholder derfor
-seed-generert `ai_anslag`, ikke modellsvar. Å implementere den krever en
-AI-nøkkel som function secret i Supabase-prosjektet.
+**`generate-insights` er implementert og deployet (v1), men venter på nøkkel.**
+Uten `ANTHROPIC_API_KEY` som function secret svarer den 500 med
+`{"feil":"mangler ANTHROPIC_API_KEY"}` — verifisert. `industry_estimates` og
+`ai_insights` inneholder derfor fortsatt seed-generert `ai_anslag`, ikke
+modellsvar.
+
+**Forankring håndheves to steder, og bare det andre er verdt noe.** Databasens
+check-constraint krever at `referanser` og `basert_pa` er ikke-tomme — men en
+modell kan fylle dem med noe som *ser ut som* en referanse. Derfor validerer
+`generate-insights` hver referanse mot nyttelasten den faktisk sendte:
+næringskoden må være næringens egen, årstallene må være år vi sendte,
+feltnavnene må være felt vi sendte. Rader som viser til noe modellen ikke fikk,
+forkastes og telles i `forkastet` i svaret. En prompt som begynner å hallusinere
+blir da et tall i loggen, ikke feil tekst i UI-et.
+
+**Lønnstall går ikke inn i prompten.** `industry_wages` er fortsatt `mock`, og
+en innsikt forankret i mock-tall er en oppdiktet påstand med kildehenvisning —
+verre enn ingen innsikt. Bare `data_quality='ssb'` sendes inn.
 
 Fortsatt syntetisk: `industry_wages` og `region_population` er seed-data
 (`mock`/`beregnet`), og `industry_estimates`/`ai_insights` er `ai_anslag`.
