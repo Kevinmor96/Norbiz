@@ -151,3 +151,63 @@ select (extensions.http_get(
   'https://data.ssb.no/api/pxwebapi/v2/tables?query=omsetning%20n%C3%A6ring%20region'
 )).content::jsonb;
 ```
+
+---
+
+## Brønnøysundregistrene, også verifisert
+
+`http`-utvidelsen kommer ikke fram til Brreg — TLS-handshaket feiler med
+`SSL_ERROR_SYSCALL`. Verifiseringen ble derfor gjort ved å deploye en midlertidig
+edge function og kalle den *fra databasen*:
+
+```sql
+select (extensions.http((
+  'GET', 'https://<ref>.supabase.co/functions/v1/<sonde>',
+  array[extensions.http_header('Authorization', 'Bearer <anon-nokkel>')],
+  null, null)::extensions.http_request)).content;
+```
+
+Det er samtidig mekanismen importørene skal trigges med, siden containeren ikke
+når `functions/v1` direkte.
+
+### Endepunktene
+
+| | |
+|---|---|
+| Enhetsregisteret | `data.brreg.no/enhetsregisteret/api/enheter` |
+| Regnskapsregisteret | `data.brreg.no/regnskapsregisteret/regnskap/{orgnr}` |
+
+**Regnskapsstien har ikke `/api/` i seg.** Med `/api/` svarer Brreg `200` med en
+HTML-side — ingen feil å fange, bare søppel som ville blitt parset som data.
+
+### Tre funn som ville gitt gale tall
+
+**Valuta er ikke alltid NOK.** Equinor rapporterer i USD, og regnskapet har et
+`valuta`-felt. Et USD-beløp lagret i en kolonne alle leser som kroner er galt med
+en faktor ti, og ser ikke galt ut. Importen tar bare NOK og teller resten som
+utelatt.
+
+**Enhetsregisteret bruker en annen næringsstandard enn SSB.** Målt:
+
+| Kode | Treff hos Brreg |
+|---|---|
+| `56.101` | **0** |
+| `56.110` | 11 962 |
+| `96.020` | **0** |
+| `96.021` | **0** |
+| `69.201` | 778 |
+
+Equinor står med `06.100 Utvinning av råolje`. SSBs 12910 er på SN2007. De to
+kildene er altså ikke på samme revisjon, og en direkte kobling på femsifret kode
+ville tapt rader i stillhet. Importen lagrer Brregs egen kode som den er, og
+henter på **tresifret** nivå der standardene stemmer bedre — `56.1` traff 12 298
+der `56.101` traff null.
+
+Dette er et åpent punkt som fortjener en beslutning: skal `companies` kobles til
+`industries` gjennom en egen SN2007↔SN2025-mapping, eller skal koblingen forbli
+grov? En mapping ville vært vår, ikke kildens, og måtte merkes `beregnet`.
+
+**Konsernregnskap må skilles fra selskapsregnskap.** `regnskapstype` er
+`SELSKAP` eller `KONSERN`. Tar man det første elementet i lista, kan et
+morselskap få konserntall og se mange ganger større ut enn virksomheten det
+driver i Norge.
