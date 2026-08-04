@@ -76,4 +76,57 @@ describe('kategorilag', () => {
     const r = await db.query<{ n: string }>(`select count(*)::text n from brands`);
     expect(Number(r.rows[0]!.n)).toBeGreaterThanOrEqual(25);
   });
+
+  it('gir kategorioversikt med tall og serie for kategorier som har statistikk', async () => {
+    const r = await db.query<{ slug: string; ar: number; n_bedrifter: string;
+      driftsmargin_pct: string; serie: unknown }>(
+      `select slug, ar, n_bedrifter::text, driftsmargin_pct::text, serie
+       from kategori_oversikt() where slug = 'restaurant-kafe'`);
+    expect(r.rows.length).toBe(1);
+    expect(Number(r.rows[0]!.n_bedrifter)).toBeGreaterThan(0);
+    expect(Array.isArray(r.rows[0]!.serie)).toBe(true);
+  });
+
+  it('returnerer alle 30 kategorier fra oversikten, også uten tall', async () => {
+    const r = await db.query(`select slug from kategori_oversikt()`);
+    expect(r.rows.length).toBe(30);
+  });
+
+  it('rangerer selskaper i kategori og respekterer regnskapssnittet', async () => {
+    const r = await db.query<{ navn: string; omsetning: string }>(
+      `select navn, omsetning::text from topp_selskaper('restaurant-kafe', null, 'omsetning', 5)`);
+    expect(r.rows.length).toBeGreaterThan(0);
+    const oms = r.rows.map((x) => Number(x.omsetning));
+    expect(oms).toEqual([...oms].sort((a, b) => b - a));
+    const enk = await db.query(`
+      select 1 from topp_selskaper('restaurant-kafe', null, 'omsetning', 100) t
+      join companies c on c.org_nr = t.org_nr where c.organisasjonsform = 'ENK'`);
+    expect(enk.rows).toEqual([]);
+  });
+
+  it('filtrerer topp_selskaper på fylke via kommuneprefiks', async () => {
+    const r = await db.query<{ kommune_code: string }>(
+      `select kommune_code from topp_selskaper('restaurant-kafe', '03', 'omsetning', 50)`);
+    for (const rad of r.rows) expect(rad.kommune_code.startsWith('03')).toBe(true);
+  });
+
+  it('rangerer kategorier etter margin i begge retninger', async () => {
+    const hoy = await db.query<{ verdi: string }>(
+      `select verdi::text from kategori_rangering('driftsmargin', 'desc', 5)`);
+    const lav = await db.query<{ verdi: string }>(
+      `select verdi::text from kategori_rangering('driftsmargin', 'asc', 5)`);
+    expect(hoy.rows.length).toBeGreaterThan(0);
+    expect(Number(hoy.rows[0]!.verdi)).toBeGreaterThanOrEqual(Number(lav.rows[0]!.verdi));
+  });
+
+  it('lister brands med kategori, som anon', async () => {
+    await actAsAnon(db);
+    try {
+      const r = await db.query<{ navn: string; kategori: string }>(
+        `select navn, kategori from brand_liste(null)`);
+      expect(r.rows.length).toBeGreaterThanOrEqual(25);
+    } finally {
+      await endAct(db);
+    }
+  });
 });
