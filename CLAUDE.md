@@ -110,7 +110,7 @@ Alle tre lander på nullable kolonner, så skjemaet holder uansett svar.
 
 Datalaget: ferdig, 101 tester grønne.
 
-**Supabase-prosjektet `jcpuhhrqhgrnihiacosy` lever**, med alle ni migrasjoner
+**Supabase-prosjektet `jcpuhhrqhgrnihiacosy` lever**, med alle ti migrasjoner
 applikert og demo-seed lastet: 102 næringer, 44 regioner, 4 943 statistikkrader,
 5 795 lønnsrader, 4 893 scorer, 300 selskaper. Skjemaet der er verifisert
 identisk med PGlite, og scoringsviewet gir samme tall på begge.
