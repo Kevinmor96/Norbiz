@@ -46,6 +46,11 @@ borte i del 02. De har ingen `grant`, så `anon` ser dem ikke mens de finnes.
 for f in supabase/seed/indb/0*.sql; do psql "$DATABASE_URL" -f "$f"; done
 ```
 
+Til slutt kjøres `../kategorier.sql` — det kuraterte kategorilaget. Den er
+håndskrevet og liten nok for ett `execute_sql`-kall, så den trenger ingen
+oppskrift-variant. Den må kjøres etter delene over: seed-ens `truncate
+industries cascade` tømmer `category_members`.
+
 ## Determinisme
 
 `_noise(k)` er `hashtext(k) % 1000000 / 1000000`. Nøkkelen må bygges av

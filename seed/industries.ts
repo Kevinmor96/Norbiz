@@ -89,6 +89,7 @@ export const TREE: Top[] = [
                                                ['93.120','Idrettslag og -klubber for enkeltidretter','Fotballklubb']]],
     ['93.2', 'Fornøyelse og fritid', [['93.210','Drift av fornøyelsesetablissementer','Fornøyelsespark'],
                                       ['93.291','Drift av treningsstudio for dans','Dansestudio'],
+                                      ['93.292','Fritidsetablissement','Opplevelsessenter'],
                                       ['93.299','Fritidsvirksomhet ellers','Aktivitetssenter']]]]],
   ['69', 'Juridisk og regnskapsmessig tjenesteyting', 'radgivning', [
     ['69.1', 'Juridisk tjenesteyting', [['69.100','Juridisk tjenesteyting','Advokatfirma']]],
