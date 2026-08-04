@@ -106,7 +106,7 @@ export const TREE: Top[] = [
   ['86', 'Helsetjenester', 'helse', [
     ['86.2', 'Lege- og tannlegetjenester', [['86.211','Allmenn legetjeneste','Legekontor'],
                                             ['86.230','Tannhelsetjenester','Tannlege']]],
-    ['86.9', 'Andre helsetjenester', [['86.901','Fysioterapitjeneste','Fysioterapeut'],
+    ['86.9', 'Andre helsetjenester', [['86.902','Fysioterapitjeneste','Fysioterapeut'],
                                       ['86.907','Kiropraktortjeneste','Kiropraktor'],
                                       ['86.905','Psykologtjeneste','Psykolog'],
                                       ['86.909','Helsetjenester ellers','Naprapat']]]]],

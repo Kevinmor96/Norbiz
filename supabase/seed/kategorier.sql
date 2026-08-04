@@ -77,7 +77,7 @@ select c.id, m.kode, m.kilde from (values
   ('hudpleie-velvare','96.040','ssb'), ('hudpleie-velvare','96.22','brreg'),
   ('treningssenter','93.130','ssb'), ('treningssenter','93.13','brreg'),
   ('tannlege','86.230','ssb'), ('tannlege','86.23','brreg'),
-  ('fysioterapi','86.901','ssb'), ('fysioterapi','86.91','brreg'),
+  ('fysioterapi','86.902','ssb'), ('fysioterapi','86.91','brreg'),
   ('byggefirma','41.200','ssb'), ('byggefirma','41.0','brreg'),
   ('elektriker','43.210','ssb'), ('elektriker','43.21','brreg'),
   ('rorlegger','43.221','ssb'), ('rorlegger','43.222','ssb'), ('rorlegger','43.22','brreg'),

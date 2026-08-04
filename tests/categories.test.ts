@@ -110,6 +110,58 @@ describe('kategorilag', () => {
     for (const rad of r.rows) expect(rad.kommune_code.startsWith('03')).toBe(true);
   });
 
+  it('utelater år der en medlemskode mangler omsetning', async () => {
+    // En kategorisum over flere koder er bare sammenlignbar over år hvis alle
+    // kodene har tallet. Uten regelen leser en manglende celle som et fall:
+    // det traff Regnskap & revisjon live, der 69.201 mangler omsetning for
+    // 2024 og kategorien gikk fra 42 til 23 mrd — vist som negativ vekst.
+    const forAr = await db.query<{ ar: number; n: string }>(
+      `select ar, jsonb_array_length(serie)::text n
+       from kategori_oversikt() where slug = 'rorlegger'`);
+    const arFor = forAr.rows[0]!.ar;
+    const serieFor = Number(forAr.rows[0]!.n);
+
+    await db.exec(`
+      create temp table _lagret as
+      select s.industry_id, s.region_id, s.year, s.unit_type, s.omsetning_total
+      from industry_stats s join industries i on i.id = s.industry_id
+      where i.nace_code = '43.222' and s.year = ${arFor}
+        and s.region_level = 'land' and s.unit_type = 'foretak';
+      update industry_stats s set omsetning_total = null
+      from industries i where i.id = s.industry_id and i.nace_code = '43.222'
+        and s.year = ${arFor} and s.region_level = 'land' and s.unit_type = 'foretak';`);
+    try {
+      const etter = await db.query<{ ar: number; n: string }>(
+        `select ar, jsonb_array_length(serie)::text n
+         from kategori_oversikt() where slug = 'rorlegger'`);
+      expect(etter.rows[0]!.ar).toBeLessThan(arFor);
+      expect(Number(etter.rows[0]!.n)).toBe(serieFor - 1);
+    } finally {
+      await db.exec(`
+        update industry_stats s set omsetning_total = l.omsetning_total
+        from _lagret l where s.industry_id = l.industry_id and s.region_id = l.region_id
+          and s.year = l.year and s.unit_type = l.unit_type;
+        drop table _lagret;`);
+    }
+  });
+
+  it('flagger kategorier der eierens arbeid ligger i driftsresultatet', async () => {
+    // Driftsmargin er ikke sammenlignbar mellom eierdrift og lønnsdrift:
+    // fysioterapi har 56 % margin og 148 000 kr lønnskostnad per sysselsatt,
+    // regnskap 14 % og 820 000. Flagget lar UI-et si det i stedet for å la
+    // en marginliste rangere eierdrift øverst av en teknisk grunn.
+    const r = await db.query<{ slug: string; lonn: string; flagg: boolean }>(
+      `select slug, lonn_per_sysselsatt::text lonn, eierlonn_i_resultat flagg
+       from kategori_oversikt() where lonn_per_sysselsatt is not null`);
+    expect(r.rows.length).toBeGreaterThan(0);
+    for (const rad of r.rows) {
+      expect(rad.flagg).toBe(Number(rad.lonn) < 450000);
+    }
+    const rang = await db.query<{ flagg: boolean }>(
+      `select eierlonn_i_resultat flagg from kategori_rangering('driftsmargin','desc',5)`);
+    expect(rang.rows.length).toBeGreaterThan(0);
+  });
+
   it('rangerer kategorier etter margin i begge retninger', async () => {
     const hoy = await db.query<{ verdi: string }>(
       `select verdi::text from kategori_rangering('driftsmargin', 'desc', 5)`);
