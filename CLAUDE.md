@@ -12,8 +12,9 @@ Repoet heter `Norbiz` av historiske grunner. Produktet heter Bransjeindeks.
 |---|---|
 | Designbeslutninger med begrunnelse | `docs/superpowers/specs/2026-08-02-norbiz-design.md` |
 | Implementasjonsplan, 15 tasks | `docs/superpowers/plans/2026-08-02-norbiz-data-layer.md` |
-| Skjema | `supabase/migrations/0001`–`0007` |
+| Skjema | `supabase/migrations/0001`–`0009` |
 | Seed-generator | `seed/` — deterministisk, skriver `supabase/seed/seed.sql` |
+| Seed for miljø uten psql | `supabase/seed/indb/` — se README-en der |
 | Edge functions | `supabase/functions/` — **dokumenterte stubber, ikke implementert** |
 | Frontend-overlevering | `lovable/knowledge.md` + `lovable/messages/` |
 
@@ -24,7 +25,7 @@ etter at det motsatte ble prøvd og forkastet.
 ## Kommandoer
 
 ```bash
-npm test              # 57 tester mot PGlite, ingen databaseserver nødvendig
+npm test              # 90 tester mot PGlite, ingen databaseserver nødvendig
 npx tsc --noEmit      # skal gå rent
 npm run seed:build    # regenererer supabase/seed/seed.sql (deterministisk)
 npm run seed:apply    # krever DATABASE_URL
@@ -69,6 +70,22 @@ lån næringens vekst og la den se ut som selskapets.
 **Ingen ferskhetspåstander.** SSB publiserer årlig med ett til to års
 etterslep. «LIVE», «sanntid» og «oppdatert daglig» er løgn her.
 
+**Lønnsspennet er målt, ikke gjettet.** `industry_wages` bærer 1. og 9. desil
+fra SSBs statistikkmål-dimensjon. Anslagslaget er for der kilden tier — her tier
+den ikke, så spennet skal ikke merkes som anslag. Radene med `yrke_kode` er et
+unntak: koblingen NACE-til-yrke er vår, ikke SSBs, og de er `beregnet`.
+
+**Støy i seed må såes på naturlige nøkler.** `_noise('...' || st.id)` ser
+harmløst ut, men `id` er `gen_random_uuid()`, så seed-en slutter å være
+deterministisk. Det traff demografien, og siden demografien mater
+risikodelscoren flyttet hele `industry_scores` seg mellom kjøringer mens
+statistikken var byte-identisk.
+
+**Folketall har én kilde.** `REGION_POPULATION` i `seed/config.ts` former både
+de regionale cellestørrelsene og `region_population`. To kilder her betyr at
+konkurransedelscoren — enheter per innbygger — regnes mot et annet folketall enn
+det som bestemte hvor mange enheter det ble.
+
 ## Uverifisert med vilje
 
 `data.ssb.no` er blokkert av nettverkspolicyen i utviklingsmiljøet, så tre
@@ -84,10 +101,32 @@ Alle tre lander på nullable kolonner, så skjemaet holder uansett svar.
 
 ## Status
 
-Datalaget: ferdig, 57 tester grønne, merget til `main`.
+Datalaget: ferdig, 90 tester grønne.
 
-Ikke gjort: **ingen Supabase-base er opprettet**, så ingenting er kjørt mot en
-levende database. Edge-funksjonene er stubber. Frontend er ikke bygget.
+**Supabase-prosjektet `jcpuhhrqhgrnihiacosy` lever**, med alle ni migrasjoner
+applikert og demo-seed lastet: 102 næringer, 44 regioner, 4 943 statistikkrader,
+5 795 lønnsrader, 4 893 scorer, 300 selskaper. Skjemaet der er verifisert
+identisk med PGlite, og scoringsviewet gir samme tall på begge.
+
+Frontend bygges i Lovable-prosjektet `5bab9b75-aa19-4f9b-b7db-1472ffd79523` mot
+den basen.
+
+Ikke gjort: **all data er syntetisk.** Ingen rad påstår `ssb` eller `brreg` —
+alt er `mock`, `beregnet` eller `ai_anslag`. Edge-funksjonene som skulle hentet
+det ekte er fortsatt stubber.
+
+### Nettverket i utviklingsmiljøet
+
+Containeren har **ingen rute til Supabase-basen**: HTTPS til `supabase.co` gir
+403 på CONNECT fra proxyen, og utgående 5432 timer ut mot både direkte host og
+begge poolerne — direktetilkobling er IPv6-only. Eneste vei inn er
+Supabase-MCP-serveren, som kjører utenfor containeren.
+
+Derfor finnes `supabase/seed/indb/`: `seed.sql` er for stor for en
+verktøyparameter, så basen bygger datasettet selv fra fem små filer.
+
+Når du sammenligner data mellom to baser: `string_agg(x order by x)` sorterer
+etter kollasjon, så identiske data gir ulik sum. Bruk `order by x collate "C"`.
 
 ## Graphify
 
