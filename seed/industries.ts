@@ -26,15 +26,38 @@ export const TREE: Top[] = [
                                     ['56.290','Kantiner drevet som selvstendig virksomhet','Kantinedrift']]]]],
   ['47', 'Detaljhandel', 'varehandel', [
     ['47.1', 'Butikkhandel med bredt vareutvalg', [['47.111','Dagligvareforretning','Dagligvarebutikk'],
+                                                    ['47.112','Kioskhandel med bredt vareutvalg','Kiosk'],
                                                     ['47.190','Butikkhandel ellers','Varehus']]],
+    ['47.2', 'Butikkhandel med mat og drikke i spesialforretninger', [
+        ['47.241','Butikkhandel med bakervarer og konditorvarer','Bakeriutsalg']]],
+    ['47.4', 'Butikkhandel med IKT-utstyr', [
+        ['47.410','Butikkhandel med datamaskiner og utstyr til datamaskiner','Databutikk'],
+        ['47.420','Butikkhandel med telekommunikasjonsutstyr','Mobilbutikk'],
+        ['47.430','Butikkhandel med audio- og videoutstyr','Elektronikkbutikk']]],
+    ['47.5', 'Butikkhandel med husholdningsvarer', [
+        ['47.531','Butikkhandel med tapeter og gulvbelegg','Fargehandel'],
+        ['47.591','Butikkhandel med møbler','Møbelbutikk']]],
     ['47.7', 'Annen butikkhandel', [['47.710','Butikkhandel med klær','Klesbutikk'],
                                     ['47.721','Butikkhandel med skotøy','Skobutikk'],
                                     ['47.762','Butikkhandel med blomster','Blomsterbutikk'],
-                                    ['47.782','Butikkhandel med gull og sølv','Gullsmed'],
-                                    ['47.531','Butikkhandel med tapeter og gulvbelegg','Fargehandel'],
+                                    ['47.772','Butikkhandel med gull- og sølvvarer','Gullsmed'],
+                                    ['47.782','Butikkhandel med optiske artikler','Optiker'],
                                     ['47.641','Butikkhandel med sportsutstyr','Sportsbutikk'],
                                     ['47.761','Butikkhandel med blomster og planter','Hagesenter']]],
     ['47.3', 'Detaljhandel med drivstoff', [['47.300','Detaljhandel med drivstoff','Bensinstasjon']]]]],
+  ['10', 'Næringsmiddelindustri', 'servering', [
+    ['10.7', 'Produksjon av bakeri- og pastavarer', [
+        ['10.710','Produksjon av brød og ferske konditorvarer','Bakeri']]]]],
+  ['55', 'Overnattingsvirksomhet', 'servering', [
+    ['55.1', 'Hotellvirksomhet', [['55.101','Drift av hoteller, pensjonater og moteller med restaurant','Hotell'],
+                                  ['55.102','Drift av hoteller, pensjonater og moteller uten restaurant','Hotell garni']]],
+    ['55.2', 'Ferieboliger og vandrerhjem', [['55.202','Drift av ferieleiligheter','Utleiehytter']]],
+    ['55.3', 'Campingplasser', [['55.300','Drift av campingplasser','Campingplass']]]]],
+  ['79', 'Reisebyråer og reisearrangører', 'tjenesteyting', [
+    ['79.1', 'Reisebyrå- og reisearrangørvirksomhet', [['79.110','Reisebyråvirksomhet','Reisebyrå'],
+                                                       ['79.120','Reisearrangørvirksomhet','Turoperatør']]]]],
+  ['49', 'Landtransport', 'tjenesteyting', [
+    ['49.3', 'Annen landtransport med passasjerer', [['49.392','Turbiltransport','Turbilselskap']]]]],
   ['41', 'Oppføring av bygninger', 'bygg', [
     ['41.1', 'Utvikling av byggeprosjekter', [['41.101','Boligbyggelag','Boligbyggelag'],
                                               ['41.109','Utvikling av byggeprosjekter ellers','Boligutvikler']]],
