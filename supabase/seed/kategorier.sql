@@ -39,15 +39,24 @@ insert into categories (slug, navn, verden, beskrivelse, farge, ikon, sortering)
   ('regnskap-revisjon','Regnskap & revisjon','Tjenester','Regnskapsførerne og revisorene som alle andre bransjer trenger.','#3B7A57','calculator',61);
 
 -- Medlemskoder. kilde='ssb' er SN2007 (statistikk), kilde='brreg' er
--- SN2025-prefikser (selskapsmatching). Prefiksene verifiseres mot Brreg i
--- utrullingstasken — et prefiks uten treff byttes der, ikke her.
+-- SN2025-prefikser (selskapsmatching).
+--
+-- Alle brreg-prefiksene er verifisert mot Enhetsregisteret 2026-08-04, og
+-- fire av dem måtte byttes fordi SN2025 flyttet næringen:
+--   møbel      47.59 -> 47.55  (47.551 møbler, 47.559 innredningsartikler)
+--   kantine    56.29 -> 56.2   (56.29 finnes ikke; 56.210 er catering)
+--   turbil     49.39 -> 49.32  («Passasjertransport utenom rutetabell»)
+--   fysioterapi 86.91 -> 86.95 («Fysioterapi- og ergoterapitjenester»;
+--                               86.93 er psykolog, ikke fysioterapi)
+-- Et prefiks uten treff gir en tom toppliste, ikke en feilmelding — derfor
+-- må antall treff sjekkes, ikke bare at kallet gikk igjennom.
 insert into category_members (category_id, nace_code, kilde)
 select c.id, m.kode, m.kilde from (values
   ('restaurant-kafe','56.101','ssb'), ('restaurant-kafe','56.11','brreg'),
   ('gatekjokken','56.102','ssb'), ('gatekjokken','56.12','brreg'),
   ('bar-pub','56.301','ssb'), ('bar-pub','56.309','ssb'), ('bar-pub','56.30','brreg'),
   ('catering-kantine','56.210','ssb'), ('catering-kantine','56.290','ssb'),
-  ('catering-kantine','56.21','brreg'), ('catering-kantine','56.29','brreg'),
+  ('catering-kantine','56.2','brreg'),
   ('bakeri-konditori','10.710','ssb'), ('bakeri-konditori','47.241','ssb'),
   ('bakeri-konditori','10.71','brreg'), ('bakeri-konditori','47.24','brreg'),
   ('dagligvare','47.111','ssb'), ('dagligvare','47.11','brreg'),
@@ -56,7 +65,7 @@ select c.id, m.kode, m.kilde from (values
   ('skobutikk','47.721','ssb'), ('skobutikk','47.72','brreg'),
   ('sportsbutikk','47.641','ssb'), ('sportsbutikk','47.64','brreg'),
   ('mobel-interior','47.591','ssb'), ('mobel-interior','47.531','ssb'),
-  ('mobel-interior','47.59','brreg'), ('mobel-interior','47.53','brreg'),
+  ('mobel-interior','47.55','brreg'), ('mobel-interior','47.53','brreg'),
   ('elektronikkbutikk','47.410','ssb'), ('elektronikkbutikk','47.420','ssb'),
   ('elektronikkbutikk','47.430','ssb'), ('elektronikkbutikk','47.4','brreg'),
   ('gullsmed','47.772','ssb'), ('gullsmed','47.77','brreg'),
@@ -70,14 +79,14 @@ select c.id, m.kode, m.kilde from (values
   ('opplevelser-aktiviteter','93.210','ssb'), ('opplevelser-aktiviteter','93.291','ssb'),
   ('opplevelser-aktiviteter','93.292','ssb'), ('opplevelser-aktiviteter','93.299','ssb'),
   ('opplevelser-aktiviteter','49.392','ssb'),
-  ('opplevelser-aktiviteter','93.2','brreg'), ('opplevelser-aktiviteter','49.39','brreg'),
+  ('opplevelser-aktiviteter','93.2','brreg'), ('opplevelser-aktiviteter','49.32','brreg'),
   ('reisebyra-arrangor','79.110','ssb'), ('reisebyra-arrangor','79.120','ssb'),
   ('reisebyra-arrangor','79','brreg'),
   ('frisor','96.020','ssb'), ('frisor','96.21','brreg'),
   ('hudpleie-velvare','96.040','ssb'), ('hudpleie-velvare','96.22','brreg'),
   ('treningssenter','93.130','ssb'), ('treningssenter','93.13','brreg'),
   ('tannlege','86.230','ssb'), ('tannlege','86.23','brreg'),
-  ('fysioterapi','86.902','ssb'), ('fysioterapi','86.91','brreg'),
+  ('fysioterapi','86.902','ssb'), ('fysioterapi','86.95','brreg'),
   ('byggefirma','41.200','ssb'), ('byggefirma','41.0','brreg'),
   ('elektriker','43.210','ssb'), ('elektriker','43.21','brreg'),
   ('rorlegger','43.221','ssb'), ('rorlegger','43.222','ssb'), ('rorlegger','43.22','brreg'),
@@ -94,49 +103,56 @@ join categories c on c.slug = m.slug;
 -- null her betyr «ennå ikke slått opp», og brand_liste() viser da navnet
 -- uten tall. Tall som vises er hovedselskapets regnskap — merknaden sier
 -- hvilket selskap det er.
-insert into brands (navn, category_id, org_nr, merknad)
-select b.navn, c.id, null, b.merknad from (values
-  ('REMA 1000','dagligvare','Hovedkontoret Rema 1000 Norge AS'),
-  ('KIWI','dagligvare','Kiwi Norge AS, del av NorgesGruppen'),
-  ('Coop Extra','dagligvare','Coop Norge SA — samvirke, ett samlet regnskap'),
-  ('Bunnpris','dagligvare','I.K. Lykke AS'),
-  ('Narvesen','kiosk','Reitan Convenience Norway AS'),
-  ('7-Eleven','kiosk','Reitan Convenience Norway AS'),
-  ('Dressmann','klesbutikk','Varner-gruppen'),
-  ('Cubus','klesbutikk','Varner-gruppen'),
-  ('H&M Norge','klesbutikk','H & M Hennes & Mauritz AS'),
-  ('Eurosko','skobutikk','Euro Sko Norge AS'),
-  ('XXL','sportsbutikk','XXL Sport & Villmark AS'),
-  ('Sport 1','sportsbutikk','Sport 1 Gruppen AS'),
-  ('IKEA','mobel-interior','IKEA AS'),
-  ('Skeidar','mobel-interior','Skeidar Living Group AS'),
-  ('Elkjøp','elektronikkbutikk','Elkjøp Norge AS'),
-  ('Power','elektronikkbutikk','Power Norge AS'),
-  ('Bjørklund','gullsmed','Bjørklund Norge AS'),
-  ('Gullfunn','gullsmed','Gullfunn-kjeden'),
-  ('Specsavers','optiker','Specsavers Norway AS'),
-  ('Brilleland','optiker','Brilleland AS'),
-  ('Plantasjen','blomster-hage','Plantasjen Norge AS'),
-  ('Mester Grønn','blomster-hage','Mester Grønn AS'),
-  ('Scandic','hotell-overnatting','Scandic Hotels AS (norsk driftsselskap)'),
-  ('Thon Hotels','hotell-overnatting','Thon Hotels AS'),
-  ('Strawberry','hotell-overnatting','Strawberry Hotels-driftsselskapet'),
-  ('McDonald''s','gatekjokken','McDonald''s Norge AS'),
-  ('Burger King','gatekjokken','King Food AS'),
-  ('Peppes Pizza','restaurant-kafe','Peppes Pizza AS'),
-  ('Egon','restaurant-kafe','Norrein AS'),
-  ('Espresso House','restaurant-kafe','Espresso House Norway AS'),
-  ('SATS','treningssenter','SATS Norway AS'),
-  ('Evo Fitness','treningssenter','Evo Fitness AS'),
-  ('Fresh Fitness','treningssenter','Fresh Fitness AS'),
-  ('Cutters','frisor','Cutters AS'),
-  ('Nikita','frisor','Raise Gruppen AS'),
-  ('Colosseum Tannlege','tannlege','Colosseum Dental Norway AS'),
-  ('Oris Dental','tannlege','Oris Dental-driftsselskapet'),
-  ('Azets','regnskap-revisjon','Azets Insight AS'),
-  ('View Group','regnskap-revisjon','View Group-driftsselskapet'),
-  ('Insider','renhold','Insider Facility Solutions AS')
-) as b(navn, slug, merknad)
+-- Kjedelisten. Visningsnavnet er det brukeren kjenner; sok_navn er det
+-- Enhetsregisteret kjenner, og import-brreg ?brands=1 slår opp org_nr fra
+-- det med streng matching. De org_nr som står her er verifiserte oppslag —
+-- merk at flere kjedekontorer har næringskode 77.400 (franchisegiver) eller
+-- 82.990, ikke detaljhandel: de dukker derfor ikke opp i kategorienes
+-- topplister, bare her. Tallene er hovedselskapets, aldri hele kjedens, og
+-- merknaden sier hvilket selskap det er.
+insert into brands (navn, category_id, org_nr, sok_navn, merknad)
+select b.navn, c.id, nullif(b.org_nr, ''), b.sok_navn, b.merknad from (values
+  ('REMA 1000','dagligvare','982254604','REMA 1000 NORGE AS','Rema 1000 Norge AS — franchisegiver (NACE 77.400), ikke butikkdrift'),
+  ('KIWI','dagligvare','975959171','KIWI NORGE AS','Kiwi Norge AS — kjedekontor i NorgesGruppen (NACE 82.990)'),
+  ('Coop Extra','dagligvare','936560288','COOP NORGE SA','Coop Norge SA — samvirkets fellesregnskap, engros (NACE 46.390)'),
+  ('Bunnpris','dagligvare','814055922','I K LYKKE AS','I.K. Lykke AS — eier Bunnpris-kjeden'),
+  ('Narvesen','kiosk','983415660','REITAN CONVENIENCE NORWAY AS','Reitan Convenience Norway AS — driver både Narvesen og 7-Eleven'),
+  ('7-Eleven','kiosk','983415660','REITAN CONVENIENCE NORWAY AS','Samme selskap som Narvesen: Reitan Convenience Norway AS'),
+  ('Dressmann','klesbutikk','979490674','VARNER AS','Varner AS — driver Dressmann, Cubus, Bik Bok m.fl.'),
+  ('Cubus','klesbutikk','979490674','VARNER AS','Samme selskap som Dressmann: Varner AS'),
+  ('H&M Norge','klesbutikk','','H & M HENNES & MAURITZ AS','Norsk driftsselskap'),
+  ('Eurosko','skobutikk','','EUROSKO NORGE AS','Kjedekontoret; butikkene er egne aksjeselskaper'),
+  ('XXL','sportsbutikk','881932792','XXL SPORT & VILLMARK AS','XXL Sport & Villmark AS — 2 045 ansatte'),
+  ('Sport 1','sportsbutikk','984889070','SPORT 1 AS','Sport 1 AS — kjedekontor'),
+  ('IKEA','mobel-interior','914787521','IKEA AS','IKEA AS — norsk driftsselskap, 3 060 ansatte'),
+  ('Skeidar','mobel-interior','','SKEIDAR LIVING GROUP AS','Kjedekontoret; varehusene er egne aksjeselskaper'),
+  ('Elkjøp','elektronikkbutikk','','ELKJØP NORGE AS','Norsk driftsselskap'),
+  ('Power','elektronikkbutikk','','POWER NORGE AS','Norsk driftsselskap'),
+  ('Bjørklund','gullsmed','','BJØRKLUND NORGE AS','Kjedekontoret'),
+  ('Gullfunn','gullsmed','','GULLFUNN AS','Kjedekontoret'),
+  ('Specsavers','optiker','','SPECSAVERS NORWAY AS','Norsk driftsselskap'),
+  ('Brilleland','optiker','','BRILLELAND AS','Kjedekontoret'),
+  ('Plantasjen','blomster-hage','','PLANTASJEN NORGE AS','Norsk driftsselskap'),
+  ('Mester Grønn','blomster-hage','','MESTER GRØNN AS','Driftsselskapet'),
+  ('Scandic','hotell-overnatting','','SCANDIC HOTELS AS','Norsk driftsselskap'),
+  ('Thon Hotels','hotell-overnatting','','THON HOTELS AS','Driftsselskapet'),
+  ('Strawberry','hotell-overnatting','','STRAWBERRY','Tidligere Nordic Choice; driftsselskapet'),
+  ('McDonald''s','gatekjokken','','MCDONALD''S NORGE AS','Norsk driftsselskap'),
+  ('Burger King','gatekjokken','','KING FOOD AS','King Food AS — norsk franchisetaker'),
+  ('Peppes Pizza','restaurant-kafe','','PEPPES PIZZA AS','Driftsselskapet'),
+  ('Egon','restaurant-kafe','','NORREIN AS','Norrein AS — driver Egon-kjeden'),
+  ('Espresso House','restaurant-kafe','','ESPRESSO HOUSE NORWAY AS','Norsk driftsselskap'),
+  ('SATS','treningssenter','','SATS NORWAY AS','Norsk driftsselskap'),
+  ('Evo Fitness','treningssenter','','EVO FITNESS','Kjedekontoret'),
+  ('Fresh Fitness','treningssenter','','FRESH FITNESS AS','Del av SATS-konsernet'),
+  ('Cutters','frisor','','CUTTERS AS','Cutters AS — kjedekontoret'),
+  ('Nikita','frisor','','RAISE GRUPPEN AS','Raise Gruppen AS — driver Nikita'),
+  ('Colosseum Tannlege','tannlege','','COLOSSEUM DENTAL NORWAY AS','Norsk driftsselskap'),
+  ('Oris Dental','tannlege','','ORIS DENTAL','Driftsselskapet'),
+  ('Azets','regnskap-revisjon','','AZETS INSIGHT AS','Norsk driftsselskap'),
+  ('View Group','regnskap-revisjon','','VIEW LEDGER AS','View-gruppens regnskapsselskap'),
+  ('Insider','renhold','','INSIDER FACILITY SOLUTIONS AS','Driftsselskapet')
+) as b(navn, slug, org_nr, sok_navn, merknad)
 join categories c on c.slug = b.slug;
 
 commit;
