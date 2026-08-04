@@ -12,7 +12,7 @@ Repoet heter `Norbiz` av historiske grunner. Produktet heter Bransjeindeks.
 |---|---|
 | Designbeslutninger med begrunnelse | `docs/superpowers/specs/2026-08-02-norbiz-design.md` |
 | Implementasjonsplan, 15 tasks | `docs/superpowers/plans/2026-08-02-norbiz-data-layer.md` |
-| Skjema | `supabase/migrations/0001`–`0009` |
+| Skjema | `supabase/migrations/0001`–`0010` |
 | Seed-generator | `seed/` — deterministisk, skriver `supabase/seed/seed.sql` |
 | Seed for miljø uten psql | `supabase/seed/indb/` — se README-en der |
 | Edge functions | `supabase/functions/` — **dokumenterte stubber, ikke implementert** |
@@ -25,7 +25,7 @@ etter at det motsatte ble prøvd og forkastet.
 ## Kommandoer
 
 ```bash
-npm test              # 90 tester mot PGlite, ingen databaseserver nødvendig
+npm test              # 101 tester mot PGlite, ingen databaseserver nødvendig
 npx tsc --noEmit      # skal gå rent
 npm run seed:build    # regenererer supabase/seed/seed.sql (deterministisk)
 npm run seed:apply    # krever DATABASE_URL
@@ -81,6 +81,13 @@ deterministisk. Det traff demografien, og siden demografien mater
 risikodelscoren flyttet hele `industry_scores` seg mellom kjøringer mens
 statistikken var byte-identisk.
 
+**Aggregater hører i basen, ikke i frontend.** PostgREST avviser aggregater i
+spørrestrengen, så `percentile_cont` og gruppering må gå gjennom funksjonene i
+migrasjon 0010. Viktigst er `kommune_aggregat`: terskelen
+`min_enheter_aggregat` er håndhevet der, fordi et filter som bare finnes i UI-et
+ikke er en terskel — det er en anbefaling. Ingen av funksjonene er
+`security definer`, og en test håndhever at det forblir slik.
+
 **Folketall har én kilde.** `REGION_POPULATION` i `seed/config.ts` former både
 de regionale cellestørrelsene og `region_population`. To kilder her betyr at
 konkurransedelscoren — enheter per innbygger — regnes mot et annet folketall enn
@@ -101,7 +108,7 @@ Alle tre lander på nullable kolonner, så skjemaet holder uansett svar.
 
 ## Status
 
-Datalaget: ferdig, 90 tester grønne.
+Datalaget: ferdig, 101 tester grønne.
 
 **Supabase-prosjektet `jcpuhhrqhgrnihiacosy` lever**, med alle ni migrasjoner
 applikert og demo-seed lastet: 102 næringer, 44 regioner, 4 943 statistikkrader,
