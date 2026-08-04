@@ -157,7 +157,7 @@ describe('stats', () => {
 
   it('lager tidsserier med støy, ikke rette linjer', () => {
     const serie = built.rows
-      .filter((r) => r.nace_code === '96.021' && r.region_level === 'land' && r.unit_type === 'foretak')
+      .filter((r) => r.nace_code === '96.020' && r.region_level === 'land' && r.unit_type === 'foretak')
       .sort((a, b) => a.year - b.year)
       .map((r) => r.omsetning_total);
     const diffs = serie.slice(1).map((v, i) => v - serie[i]!);

@@ -163,7 +163,7 @@ const FELT: Record<string, string> = {
   Arsverk: 'arsverk_per_enhet',
 };
 
-export default async function handler(req: Request): Promise<Response> {
+Deno.serve(async (req: Request): Promise<Response> => {
   const url = new URL(req.url);
   const torrkjoring = url.searchParams.get('dry') === '1';
   const fraAr = Number(url.searchParams.get('fra') ?? 2017);
@@ -366,7 +366,7 @@ export default async function handler(req: Request): Promise<Response> {
   logg.push(`skrevet ${rekker.length} rader med data_quality = 'ssb'`);
 
   return svar({ ok: true, logg });
-}
+});
 
 const svar = (o: unknown): Response =>
   new Response(JSON.stringify(o, null, 2), { headers: { 'Content-Type': 'application/json' } });

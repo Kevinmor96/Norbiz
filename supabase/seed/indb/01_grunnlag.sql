@@ -30,7 +30,6 @@ insert into _src values
 ('56.1',3,'56','Restauranter','Restauranter','56-1-restauranter','servering'),
 ('56.101',5,'56.1','Drift av restauranter og kafeer','Restaurant','restaurant','servering'),
 ('56.102',5,'56.1','Drift av gatekjøkken','Gatekjøkken','gatekjokken','servering'),
-('56.104',5,'56.1','Drift av kaffebarer','Kaffebar','kaffebar','servering'),
 ('56.3',3,'56','Drikkestedvirksomhet','Drikkestedvirksomhet','56-3-drikkestedvirksomhet','servering'),
 ('56.301',5,'56.3','Drift av puber','Pub','pub','servering'),
 ('56.309',5,'56.3','Drikkesteder ellers','Bar','bar','servering'),
@@ -46,7 +45,7 @@ insert into _src values
 ('47.721',5,'47.7','Butikkhandel med skotøy','Skobutikk','skobutikk','varehandel'),
 ('47.762',5,'47.7','Butikkhandel med blomster','Blomsterbutikk','blomsterbutikk','varehandel'),
 ('47.782',5,'47.7','Butikkhandel med gull og sølv','Gullsmed','gullsmed','varehandel'),
-('47.752',5,'47.7','Butikkhandel med tapeter og gulvbelegg','Fargehandel','fargehandel','varehandel'),
+('47.531',5,'47.7','Butikkhandel med tapeter og gulvbelegg','Fargehandel','fargehandel','varehandel'),
 ('47.641',5,'47.7','Butikkhandel med sportsutstyr','Sportsbutikk','sportsbutikk','varehandel'),
 ('47.761',5,'47.7','Butikkhandel med blomster og planter','Hagesenter','hagesenter','varehandel'),
 ('47.3',3,'47','Detaljhandel med drivstoff','Detaljhandel med drivstoff','47-3-detaljhandel-med-drivstoff','varehandel'),
@@ -72,20 +71,20 @@ insert into _src values
 ('43.120',5,'43.1','Grunnarbeid','Grunnentreprenør','grunnentreprenor','bygg'),
 ('43.130',5,'43.1','Prøveboring','Borefirma','borefirma','bygg'),
 ('43.9',3,'43','Annen spesialisert bygge- og anleggsvirksomhet','Annen spesialisert bygge- og anleggsvirksomhet','43-9-annen-spesialisert-bygge-og-anleggsvirksomhet','bygg'),
-('43.910',5,'43.9','Takarbeid','Takentreprenør','takentreprenor','bygg'),
-('43.991',5,'43.9','Blikkenslagerarbeid','Blikkenslager','blikkenslager','bygg'),
-('43.999',5,'43.9','Bygge- og anleggsvirksomhet ellers','Stillasfirma','stillasfirma','bygg'),
+('43.919',5,'43.9','Takarbeid','Takentreprenør','takentreprenor','bygg'),
+('43.911',5,'43.9','Blikkenslagerarbeid','Blikkenslager','blikkenslager','bygg'),
+('43.990',5,'43.9','Bygge- og anleggsvirksomhet ellers','Stillasfirma','stillasfirma','bygg'),
 ('96',2,null,'Annen personlig tjenesteyting','Annen personlig tjenesteyting','annen-personlig-tjenesteyting','tjenesteyting'),
 ('96.0',3,'96','Annen personlig tjenesteyting','Annen personlig tjenesteyting','96-0-annen-personlig-tjenesteyting','tjenesteyting'),
-('96.021',5,'96.0','Frisering og annen skjønnhetspleie','Frisørsalong','frisorsalong','tjenesteyting'),
-('96.022',5,'96.0','Skjønnhetspleie','Hudpleiesalong','hudpleiesalong','tjenesteyting'),
-('96.011',5,'96.0','Vaskeri- og renserivirksomhet','Renseri','renseri','tjenesteyting'),
+('96.020',5,'96.0','Frisering og annen skjønnhetspleie','Frisørsalong','frisorsalong','tjenesteyting'),
+('96.040',5,'96.0','Skjønnhetspleie','Hudpleie og kroppspleie','hudpleiesalong','tjenesteyting'),
+('96.010',5,'96.0','Vaskeri- og renserivirksomhet','Renseri','renseri','tjenesteyting'),
 ('96.090',5,'96.0','Personlig tjenesteyting ellers','Tatoveringsstudio','tatoveringsstudio','tjenesteyting'),
 ('93',2,null,'Sport og fritid','Sport og fritid','sport-og-fritid','tjenesteyting'),
 ('93.1',3,'93','Sports- og idrettsaktiviteter','Sports- og idrettsaktiviteter','93-1-sports-og-idrettsaktiviteter','tjenesteyting'),
 ('93.130',5,'93.1','Treningssentre','Treningssenter','treningssenter','tjenesteyting'),
 ('93.110',5,'93.1','Drift av idrettsanlegg','Idrettsanlegg','idrettsanlegg','tjenesteyting'),
-('93.191',5,'93.1','Idrettslag og -klubber','Idrettsklubb','idrettsklubb','tjenesteyting'),
+('93.190',5,'93.1','Idrettslag og -klubber','Idrettsklubb','idrettsklubb','tjenesteyting'),
 ('93.120',5,'93.1','Idrettslag og -klubber for enkeltidretter','Fotballklubb','fotballklubb','tjenesteyting'),
 ('93.2',3,'93','Fornøyelse og fritid','Fornøyelse og fritid','93-2-fornoyelse-og-fritid','tjenesteyting'),
 ('93.210',5,'93.2','Drift av fornøyelsesetablissementer','Fornøyelsespark','fornoyelsespark','tjenesteyting'),
@@ -193,14 +192,14 @@ insert into _band values
   ('helse',         6.0, 14.0, 44, 60, 15000, 42000, 0.008, 0.020, 60, 78);
 
 -- Hierarkiet nivå for nivå: parent_code er en selvreferanse, så forfedre først.
-insert into industries (nace_code, nace_level, parent_code, name, common_name, slug, search_terms)
-select code, lvl, parent, nm, common, slug, array[lower(common)]
+insert into industries (nace_code, nace_level, parent_code, name, common_name, slug, search_terms, kuratert)
+select code, lvl, parent, nm, common, slug, array[lower(common)], true
 from _src where lvl = 2;
-insert into industries (nace_code, nace_level, parent_code, name, common_name, slug, search_terms)
-select code, lvl, parent, nm, common, slug, array[lower(common)]
+insert into industries (nace_code, nace_level, parent_code, name, common_name, slug, search_terms, kuratert)
+select code, lvl, parent, nm, common, slug, array[lower(common)], true
 from _src where lvl = 3;
-insert into industries (nace_code, nace_level, parent_code, name, common_name, slug, search_terms)
-select code, lvl, parent, nm, common, slug, array[lower(common)]
+insert into industries (nace_code, nace_level, parent_code, name, common_name, slug, search_terms, kuratert)
+select code, lvl, parent, nm, common, slug, array[lower(common)], true
 from _src where lvl = 5;
 
 insert into regions (code, name, level, parent_code, valid_from_year, valid_to_year)

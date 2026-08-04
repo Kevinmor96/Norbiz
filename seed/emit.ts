@@ -45,10 +45,10 @@ export function emitSeed(a: SeedBundle): string {
   // Hierarkiet må inn nivå for nivå, ellers feiler selvreferansen på parent_code.
   for (const lvl of [2, 3, 5]) {
     parts.push(...insertMany('industries',
-      ['id','nace_code','nace_level','parent_code','name','common_name','slug','search_terms'],
+      ['id','nace_code','nace_level','parent_code','name','common_name','slug','search_terms','kuratert'],
       a.industries.filter((i) => i.nace_level === lvl).map((i) => [
         q(industryId(i.nace_code)), q(i.nace_code), i.nace_level, q(i.parent_code),
-        q(i.name), q(i.common_name), q(i.slug), arr(i.search_terms),
+        q(i.name), q(i.common_name), q(i.slug), arr(i.search_terms), 'true',
       ])));
   }
 

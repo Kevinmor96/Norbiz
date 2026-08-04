@@ -29,18 +29,20 @@ describe('seed.sql', () => {
       union all select 'ai_insights', count(*)::text from ai_insights
     `);
     const by = Object.fromEntries(counts.rows.map((r) => [r.t, Number(r.c)]));
-    // Faste antall bare der tallet ER kontrakten: kildelistene i industries.ts
-    // og regions.ts, og de eksplisitte løkkegrensene for selskaper og anslag.
-    expect(by['industries']).toBe(102);
-    expect(by['regions']).toBe(44);
-    expect(by['companies']).toBe(300);
-    expect(by['industry_estimates']).toBe(195);
-    expect(by['ai_insights']).toBe(50);
-    // Statistikk- og lønnsradene faller ut av en top-down splitt med terskler.
-    // Et fast tall her måtte redigeres hver gang genereringen endres, og ville
-    // sagt ingenting om at seed-en er riktig — bare at den er uendret.
-    expect(by['industry_stats']).toBeGreaterThan(3000);
-    expect(by['industry_wages']).toBeGreaterThan(1000);
+
+    // Sammenlign mot det generatoren faktisk produserte, ikke mot literaler.
+    // Det er nettopp dette en load-test skal svare på — kom alt som ble
+    // generert inn i basen? — og et hardkodet tall svarer på noe annet: om
+    // genereringen er uendret. Da måtte tallet redigeres hver gang lista endres,
+    // slik det måtte da Kaffebar ble fjernet fordi koden ikke finnes hos SSB.
+    const b = buildSeed();
+    expect(by['industries']).toBe(b.industries.length);
+    expect(by['regions']).toBe(b.regions.length);
+    expect(by['industry_stats']).toBe(b.rows.length);
+    expect(by['industry_wages']).toBe(b.wages.length);
+    expect(by['companies']).toBe(b.companies.length);
+    expect(by['industry_estimates']).toBe(b.estimates.length);
+    expect(by['ai_insights']).toBe(b.insights.length);
   });
 
   it('respekterer granularitetsregelen', async () => {
