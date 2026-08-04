@@ -35,8 +35,8 @@ er anslag.
 
 ## Kategorilaget er inngangen, ikke NACE-kodene
 
-Brukeren møter aldri en næringskode. Forsiden er bygget på 30 kuraterte
-kategorier i seks verdener — «Restaurant & kafé», «Dagligvare», «Frisør» — og
+Brukeren møter aldri en næringskode. Forsiden er bygget på 40 kuraterte
+kategorier i ni verdener — «Restaurant & kafé», «Dagligvare», «Frisør» — og
 NACE-kodene ligger bak som implementasjonsdetalj. Filtermenyen over kodeverket
 er flyttet til `/avansert`, som er en fremtidig premium-flate.
 
@@ -45,9 +45,9 @@ Fire funksjoner gjør regningen i basen. Frontend aggregerer ikke:
 | Funksjon | Gir |
 |---|---|
 | `kategori_oversikt()` | ett kort per kategori: nøkkeltall, farge, ikon, `serie` for sparkline |
-| `topp_selskaper(slug, fylke, metrikk, antall)` | rangerte selskaper, valgfritt per fylke |
+| `topp_selskaper(slug, fylke, metrikk, antall)` | rangerte selskaper, valgfritt per fylke. Bærer `kommune_navn`, `merke` og `segment` |
 | `kategori_rangering(metrikk, retning, antall)` | «høyest/lavest margin i Norge», «størst vekst» |
-| `brand_liste(slug)` | de kuraterte kjedene med tall |
+| `brand_liste(kategori, segment)` | de kuraterte kjedene med tall; begge argumenter kan være null |
 
 To ting funksjonene sier om tallene, som UI-et må videreformidle:
 
@@ -61,6 +61,31 @@ To ting funksjonene sier om tallene, som UI-et må videreformidle:
   alle. Kategorier der en medlemskode mangler tallet får forrige komplette år,
   fordi en sum over ulike kodesett ikke er sammenlignbar. Årstallet skal
   derfor stå ved tallet, ikke i en global «tall for 2024»-overskrift.
+
+Tre ting mer, alle om at et tall skal forklares framfor å skjules:
+
+- **`kommune_navn`, ikke `kommune_code`.** Et firesifret kommunenummer på
+  skjermen leses som et postnummer. Navnet kommer fra `kommuner` (SSBs
+  klassifikasjon 131, 2024-årgangen, den Brreg registrerer adresser mot), så
+  frontend skal ikke bære en egen navneliste — en delvis liste er nettopp
+  grunnen til at feilen bare viste seg av og til.
+- **`merke` og `segment`.** `merke` er kjedenavnet der selskapet er en kjent
+  kjede: «REITAN CONVENIENCE NORWAY AS» sier ingenting, «Narvesen» sier alt.
+  Vis merket ved siden av det formelle navnet, ikke i stedet for — det formelle
+  navnet er det som står i regnskapet. `segment='luksus'` forklarer hvorfor
+  Louis Vuitton Norge AS står i skobutikk-listen: Brreg har selskapet på 47.720,
+  og det er kildens registrering. Filtreres raden bort, redigerer vi
+  Enhetsregisteret; merkes den, er den en opplysning.
+- **Selskapslistene når bare bedrifter med minst fem ansatte.** Brregs
+  `fraAntallAnsatte` svarer HTTP 400 under 5. I frisør, fysioterapi, hudpleie og
+  gatekjøkken — der snittbedriften har 1–2 ansatte — viser listen derfor de
+  *største* i bransjen, ikke et utvalg av den. Bransjetallene over listen dekker
+  hele bransjen; det er bare listen som er toppen, og forskjellen må stå der.
+
+Luksusstripa er merking av aktører, ikke en bransje. SSB har ingen luksuskode,
+så det finnes ingen omsetningsvekst, ingen etableringstall og ingen marginserie
+for «luksus» — bare de ni selskapenes egne tall. Et kort som ser ut som de andre
+kategorikortene ville lovet statistikk som ikke finnes.
 
 Kjedelistens tall er **hovedselskapets regnskap**, aldri hele kjedens. Flere
 kjedekontorer er registrert som franchisegivere (NACE 77.400), så REMA 1000s

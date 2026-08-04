@@ -223,6 +223,19 @@ deployet og kjørt 2026-08-04:
 - `kommuner`: 358 rader fra SSBs klassifikasjon 131 (2024-årgangen) pluss
   Svalbard og Jan Mayen manuelt. Ingen selskaper står med ukjent kommunekode.
 
+**`probe-brreg` er utdatert og bør slettes fra Supabase-dashbordet.** Den ble
+deployet ad hoc under kategoriarbeidet, uten fil i repoet — og ble derfor
+duplisert som `brreg-sonde`, som gjør det samme men er sporbar her. To sonder
+med samme jobb betyr at neste person retter feil i den ene.
+
+**`generate-insights` er fortsatt en stub.** Kommentarblokken i
+`supabase/functions/generate-insights/index.ts` beskriver kontrakten — hent
+tallene først, forankre hver påstand, oppgi anslag som spenn, kjør som batch og
+cache på `(industry_id, region_id, prompt_version)` — men `handler` kaster. Den
+er ikke deployet. `industry_estimates` og `ai_insights` inneholder derfor
+seed-generert `ai_anslag`, ikke modellsvar. Å implementere den krever en
+AI-nøkkel som function secret i Supabase-prosjektet.
+
 Fortsatt syntetisk: `industry_wages` og `region_population` er seed-data
 (`mock`/`beregnet`), og `industry_estimates`/`ai_insights` er `ai_anslag`.
 
