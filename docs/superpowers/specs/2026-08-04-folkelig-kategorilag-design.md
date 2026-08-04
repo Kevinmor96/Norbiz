@@ -121,22 +121,58 @@ ikke security definer, terskler i basen, PostgREST-kallbare):
 Views som eventuelt trengs får `security_invoker = true`; testen fra 0012
 håndhever det.
 
-## 5. Ekte demografi — etableringer, konkurser, overlevelse
+## 5. Ekte demografi — etableringer og konkurser
 
 Brukeren har eksplisitt bedt om etableringer i tallbildet, og dagens
-`industry_demography` er mock. Kildene er alt verifisert i
-`2026-08-04-ssb-api-verifisert.md`: **08076** (nye foretak, region ×
-næring, kvartal), **07165** (åpnede konkurser, region × næring, kvartal),
-**13701** (overlevelse, kommune). Ny edge function `import-demografi` etter
-samme skiveprotokoll som import-ssb (samme MANGEL-mapping, samme
-PostgREST-upsert), som fyller `industry_demography` med
-`data_quality='ssb'` og erstatter mock-radene. Kvartalstall summeres til år
-i importen. Detaljene i dimensjonene verifiseres mot metadata-endepunktet
-først, slik mønsteret er etablert.
+`industry_demography` er mock. Kildene er **08076** (nye foretak, region ×
+næring, kvartal) og **07165** (åpnede konkurser, samme oppdeling). Ny edge
+function `import-demografi` etter samme skiveprotokoll som import-ssb
+(samme MANGEL-mapping, samme PostgREST-upsert) fyller
+`industry_demography` med `data_quality='ssb'` og erstatter mock-radene.
+
+**13701 kan ikke brukes.** Tabellen har ingen næringsdimensjon, bare region
+og alder, så den kan ikke fylle `overlevelse_*_pct` per næring.
+Kolonnene forblir null i ssb-radene, og UI-et viser dem ikke. Et
+overlevelsestall lånt fra næringslivet som helhet ville sett ut som
+kategoriens eget.
+
+Metadata-verifiseringen (gjort før koden ble skrevet) avdekket tre ting som
+endret importen:
+
+- **Organisasjonsform er en egen dimensjon** med totalkoden `99` = «I alt» i
+  samme liste som delene. Uten å velge den eksplisitt dobbelteller en
+  summering.
+- **Næringsdimensjonen er bare tosifret.** Demografi finnes ikke per
+  tresifret næring; radene får `nace_level = 2`, og en kategori som samler
+  femsifrede koder får dermed etableringstall fra næringen over. UI-et må si
+  hvilket nivå tallet gjelder.
+- **Tabellene er kvartalsvise.** Importen summerer til år og hopper over år
+  uten alle fire kvartaler — et trekvart år utgitt som helt ser ut som en
+  kollaps i etableringstakten.
 
 Rekkefølgeregel: kortene viser etableringer/konkurser først når raden bak
 er `ssb`. Er importen ikke kjørt for en kategori, utelates feltet — mock
 skal aldri på forsiden.
+
+## 5b. To feller i kategorisummene, funnet mot ekte tall
+
+Begge ble oppdaget da de 30 kategoriene traff SSB-tallene, og begge er
+håndtert i basen (migrasjon 0016 og 0017) fordi de ellers ville produsert
+selvsikre, gale påstander på forsiden.
+
+**En kategorisum er bare sammenlignbar over år hvis alle medlemskodene har
+tallet.** 69.201 mangler omsetning for 2024, så Regnskap & revisjon falt
+fra 42,1 til 23,1 mrd og ville blitt vist som −6 % årlig vekst i en næring
+som vokser. `kategori_oversikt()` bruker nå bare år der alle kodene har
+både rad og omsetning, og sparkline-serien filtreres likt.
+
+**Driftsmargin måler ikke det samme i eierdrevne og lønnsdrevne næringer.**
+Fysioterapi har 56 % margin og 148 000 kr lønnskostnad per sysselsatt;
+regnskap har 14 % og 820 000. Forskjellen er at eierens eget arbeid ikke er
+lønnskostnad. En «høyest margin»-liste ville rangert eierdrift øverst av en
+teknisk grunn — seks av åtte på dagens topp er eierdrevne. Tallet skjules
+ikke, det merkes: `lonn_per_sysselsatt` og `eierlonn_i_resultat` følger både
+oversikten og rangeringen, så UI-et kan si det rett ut.
 
 ## 6. Målrettet Brreg-henting
 
@@ -198,7 +234,7 @@ PGlite-tester i samme stil som resten:
 
 1. Migrasjon 0014 + 0015, seed for kategorier/brands, tester (rent datalag,
    PGlite-verifiserbart her).
-2. Demografi-import: verifiser 08076/07165/13701-dimensjonene, skriv og kjør
+2. Demografi-import: verifiser 08076/07165-dimensjonene, skriv og kjør
    `import-demografi`.
 3. Utvid `import-brreg` (`stor`, `brands`), kjør målrettet henting.
 4. Lovable-omleggingen av forsiden og kategorisidene mot de nye funksjonene.
