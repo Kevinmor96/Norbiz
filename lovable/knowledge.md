@@ -27,6 +27,46 @@ på et anslag for at siden skal se mer komplett ut.
 All data leses fra Supabase via TanStack Query. Aldri hardkodede tall, aldri
 live API-kall til SSB eller Brreg fra frontend.
 
+Statistikken er ekte: `industry_stats` er SSBs strukturstatistikk 2017–2024,
+`industry_demography` er foretaksdemografi 2017–2025, `companies` og `brands`
+kommer fra Enhetsregisteret og Regnskapsregisteret. `industry_wages` og
+`region_population` er fortsatt seed-data, og `industry_estimates`/`ai_insights`
+er anslag.
+
+## Kategorilaget er inngangen, ikke NACE-kodene
+
+Brukeren møter aldri en næringskode. Forsiden er bygget på 30 kuraterte
+kategorier i seks verdener — «Restaurant & kafé», «Dagligvare», «Frisør» — og
+NACE-kodene ligger bak som implementasjonsdetalj. Filtermenyen over kodeverket
+er flyttet til `/avansert`, som er en fremtidig premium-flate.
+
+Fire funksjoner gjør regningen i basen. Frontend aggregerer ikke:
+
+| Funksjon | Gir |
+|---|---|
+| `kategori_oversikt()` | ett kort per kategori: nøkkeltall, farge, ikon, `serie` for sparkline |
+| `topp_selskaper(slug, fylke, metrikk, antall)` | rangerte selskaper, valgfritt per fylke |
+| `kategori_rangering(metrikk, retning, antall)` | «høyest/lavest margin i Norge», «størst vekst» |
+| `brand_liste(slug)` | de kuraterte kjedene med tall |
+
+To ting funksjonene sier om tallene, som UI-et må videreformidle:
+
+- **`eierlonn_i_resultat`** er sann der snittbedriften har under 450 000 kr
+  lønnskostnad per sysselsatt. Da tar eieren ikke ut lønn, og arbeidsvederlaget
+  ligger i driftsresultatet. Fysioterapi viser 56 % margin og Tannlege 29 % av
+  den grunnen — ikke fordi de er ti ganger mer lønnsomme enn Dagligvare på
+  3,5 %. Marginen skal merkes der flagget er sant, ellers villeder en
+  toppliste.
+- **`ar`** er året kategoriens tall gjelder, og det er ikke alltid samme år for
+  alle. Kategorier der en medlemskode mangler tallet får forrige komplette år,
+  fordi en sum over ulike kodesett ikke er sammenlignbar. Årstallet skal
+  derfor stå ved tallet, ikke i en global «tall for 2024»-overskrift.
+
+Kjedelistens tall er **hovedselskapets regnskap**, aldri hele kjedens. Flere
+kjedekontorer er registrert som franchisegivere (NACE 77.400), så REMA 1000s
+tall er franchisegiverens, ikke butikkenes. `merknad` sier hvilket selskap det
+gjelder, og den skal være tilgjengelig for leseren.
+
 ## Tre nivåer av sannhet
 
 Hver rad bærer `data_quality`:
