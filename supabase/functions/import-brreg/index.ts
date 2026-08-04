@@ -14,8 +14,24 @@
  *   ?stor=1                    de største per kategoriprefiks, via
  *                              fraAntallAnsatte — grunnutvalget er
  *                              alfabetisk, ikke etter størrelse
- *   ?brands=1                  kjedelisten: slår opp org_nr fra brands.sok_navn
- *                              og henter regnskap for hovedselskapene
+ *   ?brands=1                  kjedelisten: henter regnskap for kjedene som
+ *                              har org_nr
+ *   ?brands=1&slaopp=1         slår i tillegg opp manglende org_nr og skriver
+ *                              dem — egen flagg fordi det overskriver kuratert
+ *                              innhold, se kommentaren over modusen
+ *
+ * AUTORISASJON: funksjonen kjører med service-role-nøkkelen, men Supabases
+ * `verify_jwt` tilfredsstilles av den offentlige anon-nøkkelen. Alle som har
+ * frontend-bundelen kan altså trigge en import. Nyttelasten kommer fra Brreg
+ * og ikke fra forespørselen, så en fremmed kan bare oppfriske offentlige tall
+ * — bortsett fra ?slaopp=1, som derfor er skilt ut. Vil man stenge det helt,
+ * må funksjonen kreve en egen hemmelighet i tillegg:
+ *
+ *   if (req.headers.get('x-import-secret') !== Deno.env.get('IMPORT_SECRET'))
+ *     return new Response('{"feil":"ikke autorisert"}', { status: 401 });
+ *
+ * Det krever at IMPORT_SECRET settes som function secret i Supabase, og at
+ * trigger-kallene sender headeren.
  *
  * Endepunktene er verifisert mot API-et, ikke antatt:
  *   Enhetsregisteret     https://data.brreg.no/enhetsregisteret/api/enheter
@@ -183,13 +199,23 @@ Deno.serve(async (req: Request): Promise<Response> => {
     };
 
     /**
-     * ?brands=1 — kjedelisten. Mangler org_nr, slås det opp fra sok_navn med
-     * en streng regel: Brreg-navnet må BEGYNNE med søkenavnet, formen må være
-     * en som leverer regnskap, og selskapet må ha ansatte. Et løsere kriterium
-     * ville koblet «Power Norge AS» til «Powerhouse AS» — og et feil selskaps
-     * tall under et kjent merkenavn er verre enn ingen tall.
+     * ?brands=1 — kjedelisten: henter regnskap for kjedene som har org_nr.
+     *
+     * ?slaopp=1 i tillegg slår OPP manglende org_nr fra sok_navn og SKRIVER
+     * dem til brands. Oppslaget er bak eget flagg fordi det er den eneste
+     * stien i denne funksjonen som overskriver kuratert redaksjonelt innhold,
+     * og funksjonen kan kalles av alle som har anon-nøkkelen — den ligger i
+     * frontend-bundelen. Uten flagget kan et fremmed kall bare oppfriske tall
+     * fra Brreg, ikke bytte hvilket selskap et merkenavn peker på.
+     *
+     * Oppslaget bruker en streng regel: Brreg-navnet må BEGYNNE med
+     * søkenavnet, formen må være en som leverer regnskap, og selskapet må ha
+     * ansatte. Et løsere kriterium ville koblet «Power Norge AS» til
+     * «Powerhouse AS» — og et feil selskaps tall under et kjent merkenavn er
+     * verre enn ingen tall.
      */
     if (u.searchParams.get('brands') === '1') {
+      const slaOpp = u.searchParams.get('slaopp') === '1';
       const brands = await les('brands?select=id,navn,org_nr,sok_navn');
       const enheter: Record<string, unknown>[] = [];
       const funnet: Record<string, string> = {};
@@ -197,7 +223,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
       for (const b of brands) {
         let orgnr = b['org_nr'] as string | null;
         const sok = b['sok_navn'] as string | null;
-        if (!orgnr && sok) {
+        if (!orgnr && sok && slaOpp) {
           const r = await hent(`${ENHETER}?navn=${encodeURIComponent(sok)}&size=20`);
           if (r.ok) {
             const treff = ((await r.json())?._embedded?.enheter ?? []) as Record<string, unknown>[];
@@ -219,7 +245,8 @@ Deno.serve(async (req: Request): Promise<Response> => {
         if (!r.ok) { tell(`brand_${r.status}`); continue; }
         enheter.push(await r.json());
       }
-      logg.push(`${brands.length} kjeder, ${Object.keys(funnet).length} orgnr slaatt opp, ${enheter.length} selskaper hentet`);
+      logg.push(`${brands.length} kjeder, ${Object.keys(funnet).length} orgnr slaatt opp` +
+        `${slaOpp ? '' : ' (oppslag av nye orgnr krever ?slaopp=1)'}, ${enheter.length} selskaper hentet`);
       logg.push(`grunner: ${JSON.stringify(grunner)}`);
       const { rader, snap } = await byggRader(enheter);
       if (dry) return svar({ dry: true, logg, funnet, eksempel: rader.slice(0, 5) });
