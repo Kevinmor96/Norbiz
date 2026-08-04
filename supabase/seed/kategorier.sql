@@ -176,10 +176,17 @@ join categories c on c.slug = m.slug;
 -- og vekst måtte enten lånt tallene fra klesbutikk og gullsmed eller diktet
 -- dem. Her er hvert tall selskapets eget, fra Regnskapsregisteret.
 --
--- Lista er kort med vilje. Norge har noen få reelle luksusbutikker, og alle
--- åtte under er slått opp i Enhetsregisteret med organisasjonsform, næringskode
--- og ansatte kontrollert. Rolex, Burberry og Tiffany er IKKE med: de har ingen
--- norsk registrert enhet. Chanel Norway AS er ikke med heller — selskapet er
+-- Lista er kort med vilje. Norge har noen få reelle luksusbutikker, og alle ni
+-- under er slått opp i Enhetsregisteret med organisasjonsform, næringskode og
+-- ansatte kontrollert. Rolex, Burberry og Tiffany er IKKE med: de har ingen
+-- norsk registrert enhet.
+--
+-- Hermès ble funnet på annen måte enn de øvrige, og det er verdt å merke seg:
+-- navnesøket «HERMES» ga bare støy (et forsikringsselskap, et reisebyrå), fordi
+-- selskapet heter HERMÈS NORWAY AS med aksent. Det dukket opp av seg selv i
+-- skobutikk-topplisten etter at selskapsutvalget ble utvidet. Å søke i basen på
+-- navn vi allerede har hentet er en bedre kilde til kandidater enn å gjette
+-- navnene — gjettingen bommer på skrivemåten. Chanel Norway AS er ikke med heller — selskapet er
 -- engros kosmetikk (46.450), ikke butikkdrift. Hugo Boss og Acne er premium,
 -- ikke luksus, og ville utvannet stripa.
 --
@@ -235,12 +242,13 @@ select b.navn, c.id, nullif(b.org_nr, ''), b.sok_navn, nullif(b.segment,''), b.m
   ('Azets','regnskap-revisjon','983338917','AZETS INSIGHT AS','','Norsk driftsselskap'),
   ('View Group','regnskap-revisjon','','VIEW LEDGER AS','','View-gruppens regnskapsselskap'),
   ('Insider','renhold','834327082','INSIDER FACILITY SOLUTIONS AS','','Driftsselskapet'),
-  -- Luksus. Åtte aktører, alle verifisert i Enhetsregisteret 2026-08-04.
+  -- Luksus. Ni aktører, alle verifisert i Enhetsregisteret 2026-08-04.
   ('Urmaker Bjerke','gullsmed','929740114','URMAKER BJERKE AS','luksus','Urmaker Bjerke AS — 122 ansatte, NACE 47.770'),
   ('Thune','gullsmed','957338879','THUNE GULLSMED & URMAKER AS','luksus','Thune Gullsmed & Urmaker AS — 119 ansatte'),
   ('David-Andersen','gullsmed','985172277','DAVID-ANDERSEN AS','luksus','David-Andersen AS — norsk gullsmedhus, 90 ansatte'),
   ('Juveler Conrad Langaard','gullsmed','934536770','JUVELER CONRAD LANGAARD AS','luksus','Står på NACE 32.120 (smykkeproduksjon), så selskapet er ikke med i gullsmed-topplisten'),
   ('Louis Vuitton','skobutikk','989331388','LOUIS VUITTON NORGE AS','luksus','Louis Vuitton Norge AS. Brreg har selskapet på 47.720 (skotøy) — derfor står det i skobutikk-topplisten'),
+  ('Hermès','skobutikk','925176486','HERMÈS NORWAY AS','luksus','Hermès Norway AS, også på 47.720. 332 mill. på 18 ansatte — høyeste omsetning per hode i stripa'),
   ('Mulberry','skobutikk','961545684','MULBERRY OSLO AS','luksus','Mulberry Oslo AS, NACE 47.720'),
   ('Ferner Jacobsen','klesbutikk','813025582','FERNER JACOBSEN AKTIESELSKAP','luksus','Ferner Jacobsen Aktieselskap — Oslos klassiske motehus, 55 ansatte'),
   ('Illums Bolighus','mobel-interior','993075930','ILLUMS BOLIGHUS NORGE AS','luksus','Illums Bolighus Norge AS — 224 ansatte, NACE 47.551')

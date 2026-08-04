@@ -19,7 +19,7 @@ Repoet heter `Norbiz` av historiske grunner. Produktet heter Bransjeindeks.
 | Seed-generator | `seed/` — deterministisk, skriver `supabase/seed/seed.sql` |
 | Kategorilaget (redaksjon, håndskrevet) | `supabase/seed/kategorier.sql` — kjøres etter seed.sql |
 | Seed for miljø uten psql | `supabase/seed/indb/` — se README-en der |
-| Edge functions | `supabase/functions/` — `import-ssb`, `import-brreg` og `import-demografi` er implementert og kjørt |
+| Edge functions | `supabase/functions/` — `import-ssb`, `import-brreg`, `import-demografi` og `brreg-sonde` er implementert og kjørt |
 | Frontend-overlevering | `lovable/knowledge.md` + `lovable/messages/` |
 
 **Les spec-en før du endrer datamodellen.** Beslutningene i seksjon 2 har
@@ -29,7 +29,7 @@ etter at det motsatte ble prøvd og forkastet.
 ## Kommandoer
 
 ```bash
-npm test              # 121 tester mot PGlite, ingen databaseserver nødvendig
+npm test              # 133 tester mot PGlite, ingen databaseserver nødvendig
 npx tsc --noEmit      # skal gå rent
 npm run seed:build    # regenererer supabase/seed/seed.sql (deterministisk)
 npm run seed:apply    # krever DATABASE_URL
@@ -145,6 +145,34 @@ har 45.112/45.200/45.320/45.40x. Det er det største spranget mellom de to
 standardene i kodesettet vårt, og hadde vi gjettet prefikset ut fra SSB-koden,
 ville alle fire bil-topplistene vært tomme uten en eneste feilmelding.
 
+**`fraAntallAnsatte` har gulv på 5, og det gir en skjevhet som må stå i UI-et.**
+`fraAntallAnsatte=4` svarer HTTP 400 fra Brreg, `=5` svarer 200. Grensa er
+udokumentert og feilen kommer som en tom liste, ikke som en melding. I næringer
+der snittbedriften har 1–2 ansatte — frisør, fysioterapi, hudpleie — kan
+selskapslistene derfor bare nå den øvre halen. Det er ikke et utvalg av
+bransjen, det er de største i den.
+
+**Kandidater til kjedelista finnes bedre i basen enn i gjetting.** Hermès har en
+norsk enhet, men navnesøket «HERMES» ga bare et forsikringsselskap og et
+reisebyrå: selskapet heter `HERMÈS NORWAY AS`, med aksent. Det dukket opp av seg
+selv i skobutikk-topplisten da selskapsutvalget ble utvidet. Søk i `companies`
+etter navn vi allerede har hentet, framfor å gjette skrivemåten.
+
+**Et kommunenummer er ikke en konstant.** Seed-lista bar 3801 og 1507, som hører
+til årgangen 2020–2023; fra 2024 er de 3905 Tønsberg og 1508 Ålesund.
+`kommuner`-tabellen er 2024-årgangen fordi det er den Brreg registrerer
+adresser mot. Brreg bruker i tillegg 2100 for Svalbard, som ikke finnes i SSBs
+klassifikasjon 131 — raden er lagt inn manuelt med `source='manuell:brreg-avvik'`.
+
+**Luksus er en merking av aktøren, ikke en bransje.** SSB har ingen luksuskode,
+så en luksuskategori med margin og vekst måtte lånt tallene fra klesbutikk og
+gullsmed eller diktet dem. `brands.segment` bærer merkingen, og
+`topp_selskaper` returnerer `merke` og `segment` slik at Louis Vuitton kan stå
+i skobutikk-topplisten med en forklaring i stedet for å bli filtrert bort —
+selskapet ER registrert på 47.720 hos Brreg, og å fjerne det ville vært å
+redigere Enhetsregisteret. Samme kobling gjør at «REITAN CONVENIENCE NORWAY AS»
+kan vises som «Narvesen».
+
 **Foretak er ikke bedrifter, og etiketten må si hvilket tall det er.**
 Skobutikk har 205 foretak og 565 virksomheter. I SSBs terminologi ER en bedrift
 virksomheten, så et foretakstall under etiketten «bedrifter» leses som feil av
@@ -166,7 +194,7 @@ etterprøvbare spørringer i `docs/superpowers/specs/2026-08-04-ssb-api-verifise
 
 ## Status
 
-Datalaget: ferdig, 121 tester grønne, 18 migrasjoner.
+Datalaget: ferdig, 133 tester grønne, 26 migrasjoner.
 
 **Supabase-prosjektet `jcpuhhrqhgrnihiacosy` har ekte data.** Tre importører er
 deployet og kjørt 2026-08-04:
@@ -177,16 +205,23 @@ deployet og kjørt 2026-08-04:
 - `industry_demography`: 9 500 rader `ssb` fra 08076 (nye foretak) og 07165
   (konkurser), per fylke og tosifret næring, 2017–2025. Mock-radene er
   slettet. Overlevelseskolonnene er null — 13701 har ingen næringsdimensjon.
-- `companies`: 2 850 selskaper fra Brreg, 2 121 med regnskapstall. Hentet med
-  `sort=antallAnsatte,desc` per kategoriprefiks, så topplistene viser de
-  faktisk største. Mock-selskapene er slettet.
-- `brands`: 40 kuraterte kjeder, 32 med org_nr og tall (Coop Extra 66,8 mrd,
-  Elkjøp 13,9 mrd, IKEA 8,9 mrd, Scandic 6,7 mrd, SATS 1,6 mrd).
+- `companies`: 5 805 selskaper fra Brreg, 4 946 med regnskapstall, fordelt på
+  309 av 358 kommuner. Hentet med `fraAntallAnsatte` per kategoriprefiks i flere
+  passeringer med synkende terskel (150 → 40 → 8 → 5), og `?hopp=1` sørger for
+  at budsjettet går til nye selskaper framfor å lese de gamle om igjen. Hver
+  kategori har minst 32 selskaper med tall. Mock-selskapene er slettet.
+- `brands`: 49 kuraterte kjeder, 40 med org_nr og tall (Coop Extra 66,8 mrd,
+  Elkjøp 13,9 mrd, IKEA 8,9 mrd, Scandic 6,7 mrd, SATS 1,6 mrd), pluss ni
+  merket `segment='luksus'` (Urmaker Bjerke 743 mill., Hermès 332 mill. med
+  20,6 % margin, Louis Vuitton 330 mill. med 25,3 %).
 - `industry_scores`: 28 377 scorer, 26 770 med `score_total`.
 - `industries`: 1 058 koder fra SSBs kodeliste; de 117 kuraterte beholder
   navn/slug fra seed (importen er insert-only, se headeren i import-ssb).
-- `categories` / `category_members`: 30 folkelige kategorier i 6 verdener, 84
-  medlemskoder. Alle 30 har tall i `kategori_oversikt()`.
+- `categories` / `category_members`: 40 folkelige kategorier i 9 verdener, 108
+  medlemskoder. Alle 40 har tall i `kategori_oversikt()`, og alle har en
+  selskapsliste.
+- `kommuner`: 358 rader fra SSBs klassifikasjon 131 (2024-årgangen) pluss
+  Svalbard og Jan Mayen manuelt. Ingen selskaper står med ukjent kommunekode.
 
 Fortsatt syntetisk: `industry_wages` og `region_population` er seed-data
 (`mock`/`beregnet`), og `industry_estimates`/`ai_insights` er `ai_anslag`.

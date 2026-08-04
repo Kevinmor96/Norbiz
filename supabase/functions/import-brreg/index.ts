@@ -1,6 +1,7 @@
 /**
  * import-brreg — henter foretak fra Enhetsregisteret og tall fra
- * Regnskapsregisteret. Dette er koden som er deployet (v8), kjørt 2026-08-04.
+ * Regnskapsregisteret. Deployet som v8 og kjørt 2026-08-04; endringene etter det
+ * er kommentarer, ikke kode.
  *
  * Fyller: companies, companies_snapshot
  *
@@ -144,6 +145,16 @@ Deno.serve(async (req: Request): Promise<Response> => {
     const per = Number(u.searchParams.get('per') ?? 25);
     // Terskel for ?stor=1. Små kategorier har få store aktører, så den må
     // kunne senkes per kjøring.
+    //
+    // MEN IKKE UNDER 5. `fraAntallAnsatte=4` svarer HTTP 400 fra Brreg, `=5`
+    // svarer 200 — verifisert mot API-et 2026-08-04. Grensa er ikke dokumentert
+    // noe sted vi fant, og feilen kommer som en tom liste med
+    // `enhetsregister_400` i grunnene, ikke som en tydelig melding.
+    //
+    // Konsekvensen er en systematisk skjevhet det ikke finnes noen vei rundt
+    // her: i næringer der snittbedriften har 1–2 ansatte — frisør, fysioterapi,
+    // hudpleie — kan selskapslistene BARE nå den øvre halen. Det er ikke et
+    // utvalg av bransjen, det er de største i den, og UI-et må si det.
     const minAnsatte = Number(u.searchParams.get('minansatte') ?? 20);
 
     const SB = Deno.env.get('SUPABASE_URL')!;
