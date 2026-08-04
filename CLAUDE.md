@@ -116,10 +116,18 @@ ut som et tall.
 **Driftsmargin er ikke sammenlignbar mellom eierdrift og lønnsdrift.**
 Fysioterapi har 56 % margin og 148 000 kr lønnskostnad per sysselsatt;
 regnskap har 14 % og 820 000. Forskjellen er at eierens eget arbeid ikke er
-lønnskostnad. Flagget `eierlonn_i_resultat` (migrasjon 0017) merker radene
-der snittet er under 450 000 — omtrent én normal lønnskostnad — slik at en
-marginliste ikke rangerer eierdrift øverst av en teknisk grunn. Tallet skal
-merkes, ikke skjules.
+lønnskostnad. Flagget `eierlonn_i_resultat` merker det, slik at en marginliste
+ikke rangerer eierdrift øverst av en teknisk grunn. Tallet skal merkes, ikke
+skjules.
+
+Flagget krever **begge** forhold: under 450 000 kr per sysselsatt *og* under
+tre ansatte per bedrift (migrasjon 0020). Lønn per sysselsatt alene fanget 18
+av 30 kategorier, fordi lav lønn per hode har to helt ulike årsaker — ulønnet
+eierarbeid, og deltid. Dagligvare har 374 000 kr per sysselsatt, men 23 ansatte
+per butikk: der er stillingene små, eieren er ikke arbeidskraften. Påstanden
+«eieren tar ikke ut lønn» var dermed usann for dagligvare, klesbutikk,
+skobutikk, restaurant, bakeri og sportsbutikk — og den sto på forsiden. Med
+begge vilkårene står fem kategorier igjen, og alle har 0,9–2,3 ansatte.
 
 **Brreg sorterer på ansatte, ikke omsetning.** `sort=antallAnsatte,desc` er
 det eneste som gir de faktisk største selskapene; uten den leverer

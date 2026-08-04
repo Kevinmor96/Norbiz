@@ -150,16 +150,29 @@ describe('kategorilag', () => {
     // fysioterapi har 56 % margin og 148 000 kr lønnskostnad per sysselsatt,
     // regnskap 14 % og 820 000. Flagget lar UI-et si det i stedet for å la
     // en marginliste rangere eierdrift øverst av en teknisk grunn.
-    const r = await db.query<{ slug: string; lonn: string; flagg: boolean }>(
-      `select slug, lonn_per_sysselsatt::text lonn, eierlonn_i_resultat flagg
-       from kategori_oversikt() where lonn_per_sysselsatt is not null`);
+    const r = await db.query<{ slug: string; lonn: string; ans: string; flagg: boolean }>(
+      `select slug, lonn_per_sysselsatt::text lonn, ansatte_per_bedrift::text ans,
+              eierlonn_i_resultat flagg
+       from kategori_oversikt()
+       where lonn_per_sysselsatt is not null and ansatte_per_bedrift is not null`);
     expect(r.rows.length).toBeGreaterThan(0);
     for (const rad of r.rows) {
-      expect(rad.flagg).toBe(Number(rad.lonn) < 450000);
+      expect(rad.flagg).toBe(Number(rad.lonn) < 450000 && Number(rad.ans) < 3);
     }
     const rang = await db.query<{ flagg: boolean }>(
       `select eierlonn_i_resultat flagg from kategori_rangering('driftsmargin','desc',5)`);
     expect(rang.rows.length).toBeGreaterThan(0);
+  });
+
+  it('flagger ikke deltidsbransjer som eierdrift', async () => {
+    // Lav lønn per sysselsatt har to helt ulike årsaker: ulønnet eierarbeid, og
+    // deltid. Dagligvare har 374 000 kr per sysselsatt, men 23 ansatte per
+    // butikk — der er stillingene små, eieren er ikke arbeidskraften. Flagget
+    // krever derfor også at snittbedriften er under tre ansatte.
+    const r = await db.query<{ slug: string }>(`
+      select slug from kategori_oversikt()
+      where eierlonn_i_resultat and ansatte_per_bedrift >= 3`);
+    expect(r.rows.map((x) => x.slug)).toEqual([]);
   });
 
   it('rangerer kategorier etter margin i begge retninger', async () => {

@@ -170,9 +170,18 @@ både rad og omsetning, og sparkline-serien filtreres likt.
 Fysioterapi har 56 % margin og 148 000 kr lønnskostnad per sysselsatt;
 regnskap har 14 % og 820 000. Forskjellen er at eierens eget arbeid ikke er
 lønnskostnad. En «høyest margin»-liste ville rangert eierdrift øverst av en
-teknisk grunn — seks av åtte på dagens topp er eierdrevne. Tallet skjules
-ikke, det merkes: `lonn_per_sysselsatt` og `eierlonn_i_resultat` følger både
-oversikten og rangeringen, så UI-et kan si det rett ut.
+teknisk grunn. Tallet skjules ikke, det merkes: `lonn_per_sysselsatt` og
+`eierlonn_i_resultat` følger både oversikten og rangeringen, så UI-et kan si
+det rett ut.
+
+Første forsøk brukte lønn per sysselsatt alene, og det traff 18 av 30
+kategorier. Feilen var å behandle to fenomen som ett: ulønnet eierarbeid og
+deltid ser like ut i tallet. Dagligvare har 374 000 kr per sysselsatt, men
+23 ansatte per butikk — der er stillingene små, ikke eieren ulønnet. Flagget
+krever nå under tre ansatte per bedrift i tillegg, og står igjen med fem
+kategorier: Fysioterapi (0,9 ansatte), Hudpleie (1,1), Frisør (1,8), Camping
+(2,1) og Tannlege (2,3). Det er nettopp de fem som ellers topper
+marginlisten uten å være mer lønnsomme.
 
 ## 6. Målrettet Brreg-henting
 
