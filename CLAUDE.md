@@ -29,7 +29,7 @@ etter at det motsatte ble prøvd og forkastet.
 ## Kommandoer
 
 ```bash
-npm test              # 133 tester mot PGlite, ingen databaseserver nødvendig
+npm test              # 135 tester mot PGlite, ingen databaseserver nødvendig
 npx tsc --noEmit      # skal gå rent
 npm run seed:build    # regenererer supabase/seed/seed.sql (deterministisk)
 npm run seed:apply    # krever DATABASE_URL
@@ -129,6 +129,34 @@ per butikk: der er stillingene små, eieren er ikke arbeidskraften. Påstanden
 skobutikk, restaurant, bakeri og sportsbutikk — og den sto på forsiden. Med
 begge vilkårene står fem kategorier igjen, og alle har 0,9–2,3 ansatte.
 
+**Å telle treff er ikke å verifisere en næringskode. Les hva den HETER.**
+Sportsbutikk sto på brreg-prefiks 47.64 fordi 47.641 er sportsutstyr i SN2007.
+I SN2025 er 47.64 «Detaljhandel med spill og leker», og topplisten fyltes med
+Lekekassen og Extra Leker. 820 treff, ingen alarm. Fire flere kategorier hadde
+samme feil, og de ble først synlige da `nace_sn2025` lå i basen: optiker på en
+samlekode, maler på all ferdiggjøring (8 av 15 var snekkere), blomster med
+kjæledyrbutikker, opplevelser dominert av bussturer. `tests/categories.test.ts`
+holder nå hvert prefiks mot sin offisielle SN2025-tittel.
+
+**`topp_selskaper` matcher brreg-koder ALENE.** `companies.nace_code` kommer
+alltid fra Brreg, altså SN2025. Funksjonen matchet en stund mot begge
+kodespråk for å gi treff i testbasen, og det kan ikke bli riktig: 47.762 betyr
+«blomster» i SN2007 og «kjæledyr» i SN2025, så Musti Norge og PetXL havnet i
+blomstertopplisten. Testene setter inn selskaper med SN2025-koder framfor at
+funksjonen strekker seg etter seed-formatet.
+
+**Aggregater regnet i TypeScript blir feil av PostgREST-taket.**
+`generate-insights` hentet alle driftsmarginer med `limit=20000` og tok medianen
+selv. PostgREST kapper ved 1 000 rader uansett; av 4 325 kom bare 2017–2018 med,
+«siste år» ble 2018, og alle 62 mediansammenligningene fikk feil årstall.
+Medianen kommer nå fra `industry_medians()` per år. Invarianten over om
+aggregater gjelder edge functions, ikke bare frontend.
+
+**`inngar_i_regnskapssnitt` krever positiv omsetning.** Kolonnen sjekket bare
+selskapsform og at det finnes et regnskapsår, så 88 selskaper med omsetning = 0
+og to med negativ omsetning telte som «har regnskapstall». Marginen var aldri
+gal — `case when omsetning > 0` skjermet den — det var tellingen.
+
 **`sort` bryter næringsfilteret hos Brreg. Bruk `fraAntallAnsatte`.**
 `sort=antallAnsatte,desc` ser ut som det riktige verktøyet og ga tilsynelatende
 perfekte lister — 93.13 ga SATS Norway først — men `47.11` med sortering
@@ -194,7 +222,7 @@ etterprøvbare spørringer i `docs/superpowers/specs/2026-08-04-ssb-api-verifise
 
 ## Status
 
-Datalaget: ferdig, 133 tester grønne, 26 migrasjoner.
+Datalaget: ferdig, 135 tester grønne, 29 migrasjoner.
 
 **Supabase-prosjektet `jcpuhhrqhgrnihiacosy` har ekte data.** Tre importører er
 deployet og kjørt 2026-08-04:
@@ -228,11 +256,20 @@ deployet ad hoc under kategoriarbeidet, uten fil i repoet — og ble derfor
 duplisert som `brreg-sonde`, som gjør det samme men er sporbar her. To sonder
 med samme jobb betyr at neste person retter feil i den ene.
 
-**`generate-insights` er implementert og deployet (v1), men venter på nøkkel.**
-Uten `ANTHROPIC_API_KEY` som function secret svarer den 500 med
-`{"feil":"mangler ANTHROPIC_API_KEY"}` — verifisert. `industry_estimates` og
-`ai_insights` inneholder derfor fortsatt seed-generert `ai_anslag`, ikke
-modellsvar.
+**`generate-insights` er implementert, deployet og kjørt.** `ai_insights` har
+314 rader mot de 63 næringene kategorilaget dekker, `prompt_version='v4'`,
+`model='claude-sonnet-5'`. Alle seed-rader er slettet. Hver medianpåstand er
+kontrollert mot `industry_medians()`: 101 medianverdier nevnt, ingen oppdiktet.
+
+**`industry_estimates` er tom, med vilje.** Seed-en hadde tre anslagsmetrikker
+og ingen av dem kan begrunnes i kildene. `sesongvariasjon` krever kvartalstall
+vi ikke har. `tid_til_lonnsomhet` har ikke noe felt bak seg. `etableringskapital`
+ble prøvd i to runder: først ga modellen 5,7–9,5 mill. for restaurant, som er
+omsetning per foretak med en annen etikett; etter at omsetning ble forbudt som
+grunnlag ga den 750 000–1,5 mill. for restaurant (riktig) og 40 000–90 000 for
+frisør (fem ganger for lavt). Ankeret bærer ikke signalet, og «lav konfidens»
+redder ikke et tall leseren tror på. Veien til et ekte tall går gjennom Brreg:
+selskaper registrert ett til to år tilbake, og deres FØRSTE årsregnskap.
 
 **Forankring håndheves to steder, og bare det andre er verdt noe.** Databasens
 check-constraint krever at `referanser` og `basert_pa` er ikke-tomme — men en
