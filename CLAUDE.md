@@ -226,7 +226,19 @@ etterprøvbare spørringer i `docs/superpowers/specs/2026-08-04-ssb-api-verifise
 
 ## Status
 
-Datalaget: ferdig, 137 tester grønne, 31 migrasjoner.
+Datalaget: ferdig, 140 tester grønne, 32 migrasjoner.
+
+**Bloggen skriver seg selv, med samme forankring som innsiktene.** `articles`
+(migrasjon 0032) fylles av `generate-artikkel`: målte tall inn i prompten,
+hvert år og felt modellen viser til valideres mot nyttelasten, og under to
+gyldige referanser betyr at artikkelen ikke publiseres. `kilder` utledes av de
+validerte referansene — ikke av modellens tekst — så kildeboksen i UI-et kan
+ikke liste en kilde artikkelen ikke brukte. En pg_cron-jobb
+(`ukentlig-artikkel`, mandag 06:00 UTC, via `net.http_get`) genererer én
+artikkel i uka; funksjonen velger selv kategorien som har ventet lengst.
+Cron-oppsettet er kjørt manuelt i livebasen og dokumentert i funksjonens
+header — pg_cron/pg_net finnes ikke i PGlite, så det kan ikke ligge i en
+migrasjon.
 
 **Supabase-prosjektet `jcpuhhrqhgrnihiacosy` har ekte data.** Tre importører er
 deployet og kjørt 2026-08-04:

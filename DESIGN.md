@@ -338,6 +338,35 @@ som hører i motoren, ikke i inngangen.
    tomme kort — et tall over folden er hele forskjellen mellom et verktøy og en
    landingsside.
 
+### Heroen må vise produktet, ikke bare spørre
+
+Funnet fra bruk: «Er det verdt å drive?» alene gir ikke en førstegangsbesøkende
+nok — spørsmålet mangler subjekt, og undertittelen ramser opp lagerbeholdning
+(«40 bransjer, 1 058 næringskoder») i stedet for å forklare hva verktøyet gjør.
+Den som lander her, skjønner ikke hva hun leser før hun har klikket — og da har
+de fleste alt forlatt siden. To grep:
+
+**Undertittelen forklarer, ikke teller.** Én setning om hva du får og hvem det
+er for: driftsmargin, vekst og de største aktørene i bransjen du vurderer —
+målt av SSB og Brønnøysundregistrene. Antallskavalkaden («fire offentlige
+registre» — et tall som uansett ikke tåler ettersyn) flyttes ned eller ut.
+
+**«Ukens sjekk» — en ekte eksempelanalyse.** Beste måten å forklare produktet
+på er å vise ett ferdig svar før brukeren har gjort noe: et panel som gjengir
+én kategorisides Tier 1 i miniatyr — spørsmålet som overskrift, de to
+herotallene, dom-setningen, største aktør — og «Se hele sjekken →». Reglene:
+
+- **Ekte tall, hentet live.** Panelet er en render av `kategori_oversikt` +
+  `topp_selskaper`, aldri en hardkodet mock. En «eksempelanalyse» med
+  påfunnede tall ville underminert alt siden påstår.
+- **Deterministisk rotasjon, ikke tilfeldig.** Kategori velges av ISO-ukenummer
+  modulo antall kategorier med tall — SSR og klient må være enige, og
+  rotasjonen viser bredden over tid. Etiketten «Ukens sjekk» er ærlig: det er
+  utvalget som roterer, ikke tallene, og tallene bærer sine årstempler som
+  overalt ellers.
+- **Panelet er en lenke.** Hele flaten klikker til kategorisiden — det er en
+  smaksprøve, ikke en konkurrent til den.
+
 Søkefeltet slår mot **alle 40 kategoriene lokalt**, ikke mot basen per tastetrykk.
 Førti rader er ingenting; hent dem én gang og filtrer i minnet. To krav:
 
