@@ -129,6 +129,19 @@ describe('kategorilag', () => {
     expect(tom.rows).toHaveLength(0);
   });
 
+  it('rangerer på lønn med lønnens eget år, ikke statistikkåret', async () => {
+    // Lønnsstatistikken er ferskere enn strukturstatistikken. Migrasjon 0034
+    // lar `ar` bety «året verdien gjelder» — for metrikk='lonn' er det
+    // lønnsraden sitt år. Testdataene fra kategori_lonn-testen over har
+    // 56.1-lønn for 2023 og 2024.
+    const r = await db.query<{ slug: string; verdi: string; ar: number }>(
+      `select slug, verdi::text, ar from kategori_rangering('lonn', 'desc', 5)`);
+    const rest = r.rows.find((x) => x.slug === 'restaurant-kafe');
+    expect(rest).toBeDefined();
+    expect(Number(rest!.verdi)).toBe(36200);
+    expect(rest!.ar).toBe(2024);
+  });
+
   it('lar aldri medlemskoder overlappe hierarkisk innen kategori og kilde', async () => {
     // 56.1 og 56.101 i samme kategori ville dobbelttalt hele restaurantnæringen.
     const r = await db.query(`
