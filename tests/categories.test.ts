@@ -20,6 +20,32 @@ describe('kategorilag', () => {
     await db.exec(emitSeed(buildSeed()));
     await db.exec(readFileSync(
       new URL('../supabase/seed/kategorier.sql', import.meta.url), 'utf8'));
+
+    // Selskaper med SN2025-koder. Seed-generatoren gir selskapene SN2007-koder,
+    // og `topp_selskaper` matcher med rette bare brreg-kodene: companies.nace_code
+    // kommer alltid fra Brreg. Uten disse radene ville testene måttet be
+    // funksjonen om å gjøre en match som er feil på livedata.
+    //
+    // Org.nr for de to første er REMA 1000 Norge og Reitan Convenience, altså
+    // selskaper kjedelista peker på — det er slik merke-kolonnen blir testbar,
+    // og slik dobbeltmerket Narvesen/7-Eleven blir det.
+    await db.exec(`
+      insert into companies
+        (org_nr, navn, nace_code, kommune_code, organisasjonsform, ansatte,
+         omsetning, driftsresultat, egenkapital, regnskapsar, source, data_quality)
+      values
+        ('982254604','REMA 1000 NORGE AS','47.110','0301','AS',420,
+          9000000000, 450000000, 1000000000, 2024,'test','brreg'),
+        ('983415660','REITAN CONVENIENCE NORWAY AS','47.120','0301','AS',300,
+          3000000000, 90000000, 400000000, 2024,'test','brreg'),
+        ('900000001','TESTRESTAURANT OSLO AS','56.110','0301','AS',40,
+          90000000, 5400000, 12000000, 2024,'test','brreg'),
+        ('900000002','TESTRESTAURANT BERGEN AS','56.110','4601','AS',25,
+          50000000, 1500000, 6000000, 2024,'test','brreg'),
+        ('900000003','TESTKAFE TROMSO ENK','56.110','5501','ENK',2,
+          null, null, null, null,'test','brreg'),
+        ('900000004','TESTRESTAURANT UTEN TALL AS','56.110','0301','AS',10,
+          0, 0, 100000, 2024,'test','brreg')`);
   });
 
   it('har tabellene med offentlig lesetilgang', async () => {
@@ -114,6 +140,74 @@ describe('kategorilag', () => {
       select 1 from topp_selskaper('restaurant-kafe', null, 'omsetning', 100) t
       join companies c on c.org_nr = t.org_nr where c.organisasjonsform = 'ENK'`);
     expect(enk.rows).toEqual([]);
+    // Null omsetning er ikke et regnskapstall. Raden har både form og
+    // regnskapsår, så den passerte før `inngar_i_regnskapssnitt` krevde at det
+    // finnes et tall å regne på — og telte som «selskap med tall» uten å ha ett.
+    const tomt = await db.query(
+      `select 1 from topp_selskaper('restaurant-kafe', null, 'omsetning', 100)
+       where org_nr = '900000004'`);
+    expect(tomt.rows).toEqual([]);
+  });
+
+  it('matcher selskaper mot SN2025 alene, ikke mot SSB-kodene', async () => {
+    // 47.762 betyr «blomster» i SN2007 og «kjæledyr» i SN2025. Da funksjonen
+    // matchet begge kodespråk, kom Musti Norge og PetXL inn i
+    // blomstertopplisten — 14 selskaper. companies.nace_code er alltid Brregs
+    // kode, så bare brreg-medlemmene får matche.
+    await db.exec(`
+      insert into companies
+        (org_nr, navn, nace_code, kommune_code, organisasjonsform, ansatte,
+         omsetning, driftsresultat, egenkapital, regnskapsar, source, data_quality)
+      values ('900000009','TESTKJAELEDYR AS','47.762','0301','AS',50,
+        800000000, 40000000, 100000000, 2024,'test','brreg')`);
+    try {
+      const r = await db.query(
+        `select navn from topp_selskaper('blomster-hage', null, 'omsetning', 50)
+         where org_nr = '900000009'`);
+      expect(r.rows).toEqual([]);
+    } finally {
+      await db.exec(`delete from companies where org_nr = '900000009'`);
+    }
+  });
+
+  it('holder hvert brreg-prefiks mot sin offisielle SN2025-tittel', async () => {
+    // Sjekken som manglet. Å telle treff sier bare at koden finnes; den sier
+    // ingenting om hva den BETYR. 47.64 ga 820 treff og var «spill og leker».
+    const r = await db.query<{ slug: string; nace_code: string; navn: string }>(`
+      select k.slug, m.nace_code, n.navn
+      from categories k
+      join category_members m on m.category_id = k.id and m.kilde = 'brreg'
+      left join nace_sn2025 n on n.code = m.nace_code
+      order by k.slug, m.nace_code`);
+    expect(r.rows.length).toBeGreaterThan(40);
+    // Ingen prefiks uten kjent tittel: da er den ikke verifisert.
+    expect(r.rows.filter((x) => !x.navn).map((x) => x.nace_code)).toEqual([]);
+
+    // Et ord som må stå i tittelen for at koden skal handle om kategorien.
+    const forventet: Record<string, string> = {
+      sportsbutikk: 'sportsvarer',
+      optiker: 'medisinske og ortopediske',
+      'maler-overflate': 'aler-',
+      'blomster-hage': 'blomster',
+      dagligvare: 'nærings- og nytelsesmidler',
+      skobutikk: 'skotøy',
+      klesbutikk: 'klær',
+      gullsmed: 'klokker',
+      'restaurant-kafe': 'restauranter',
+      frisor: 'Frisering',
+      tannlege: 'Tannlege',
+      advokat: 'Juridisk',
+      treningssenter: 'Treningssenter',
+      bilforhandler: 'motorvogner',
+      eiendomsmegler: 'Eiendomsmegling',
+      'film-tv': 'film',
+    };
+    for (const [slug, ord] of Object.entries(forventet)) {
+      const titler = r.rows.filter((x) => x.slug === slug).map((x) => x.navn ?? '');
+      expect(titler.length, `${slug} mangler brreg-prefiks`).toBeGreaterThan(0);
+      expect(titler.some((t) => t.includes(ord)),
+        `${slug}: ingen av titlene [${titler.join(' | ')}] inneholder «${ord}»`).toBe(true);
+    }
   });
 
   it('filtrerer topp_selskaper på fylke via kommuneprefiks', async () => {

@@ -5,6 +5,63 @@
 begin;
 
 truncate category_members, brands, categories restart identity cascade;
+-- nace_sn2025 tømmes ikke: den er kodeverk, ikke redaksjon.
+
+-- Offisiell tittel for hvert brreg-prefiks vi bruker, fra SSBs SN2025-kodeverk.
+--
+-- Radene ligger her og ikke bare i livebasen fordi det er DENNE sjekken som
+-- manglet: uten titlene kan man bare telle treff, og det var nettopp det som
+-- lot 47.64 stå som «sportsbutikk» når koden heter «Detaljhandel med spill og
+-- leker». Med titlene i testbasen kan tests/categories.test.ts holde hvert
+-- prefiks mot sin egen tittel, uten nett.
+--
+-- Livebasen har alle 1 785 kodene fra Klass-API-et; her er bare de vi bruker.
+insert into nace_sn2025 (code, navn, nivaa) values
+  ('10.71','Produksjon av brød og ferske konditorvarer',4),
+  ('41.0','Oppføring av bygninger',3),
+  ('43.21','Elektrisk installasjonsarbeid',4),
+  ('43.22','VVS-arbeid',4),
+  ('43.33','Gulvlegging og tapetsering',4),
+  ('43.34','Maler- og glassarbeid',4),
+  ('47.11','Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler',4),
+  ('47.12','Detaljhandel med bredt vareutvalg ellers',4),
+  ('47.24','Detaljhandel med bakervarer, konditorvarer og sukkervarer',4),
+  ('47.4','Detaljhandel med informasjons- og kommunikasjonsteknologiutstyr',3),
+  ('47.53','Detaljhandel med tapet, gulvtepper og gulvbelegg',4),
+  ('47.55','Detaljhandel med møbler, belysningsutstyr, dekketøy og andre innredningsartikler',4),
+  ('47.631','Detaljhandel med sportsvarer',5),
+  ('47.71','Detaljhandel med klær',4),
+  ('47.72','Detaljhandel med skotøy og lærvarer',4),
+  ('47.74','Detaljhandel med medisinske og ortopediske artikler',4),
+  ('47.761','Detaljhandel med blomster, planter, gjødsel og plantevernmidler',5),
+  ('47.77','Detaljhandel med ur, klokker og smykker',4),
+  ('47.81','Detaljhandel med motorvogner',4),
+  ('47.82','Detaljhandel med deler og utstyr til motorvogner',4),
+  ('47.83','Detaljhandel med motorsykler og tilhørende deler og utstyr',4),
+  ('55.1','Drift av hoteller',3),
+  ('55.2','Drift av vandrerhjem og ferieleiligheter',3),
+  ('55.3','Drift av campingplasser',3),
+  ('56.11','Drift av restauranter',4),
+  ('56.12','Drift av mobile serveringssteder',4),
+  ('56.2','Catering for arrangementer, kantinedrift og annen cateringvirksomhet',3),
+  ('56.30','Drift av barer',4),
+  ('59.11','Produksjon av film, video og fjernsynsprogrammer',4),
+  ('68.31','Eiendomsmegling og andre formidlingstjenester for eiendom',4),
+  ('68.32','Eiendomsforvaltning på oppdrag',4),
+  ('69.1','Juridisk tjenesteyting',3),
+  ('69.2','Regnskapsføring, bokføring, revisjon og skatterådgivning',3),
+  ('73.1','Annonse- og reklamevirksomhet',3),
+  ('79','Reisebyrå- og reisearrangørvirksomhet og tilknyttede tjenester',2),
+  ('81.2','Rengjøringsvirksomhet',3),
+  ('86.23','Tannlegetjenester',4),
+  ('86.95','Fysioterapi- og ergoterapitjenester',4),
+  ('93.13','Treningssentervirksomhet',4),
+  ('93.2','Fornøyelses- og fritidsaktiviteter',3),
+  ('95.31','Reparasjon og vedlikehold av motorvogner',4),
+  ('95.32','Reparasjon og vedlikehold av motorsykler',4),
+  ('96.21','Frisering og barbering',4),
+  ('96.22','Skjønnhetspleie',4)
+on conflict (code) do update set navn = excluded.navn, nivaa = excluded.nivaa;
 
 insert into categories (slug, navn, verden, beskrivelse, farge, ikon, sortering) values
   ('restaurant-kafe','Restaurant & kafé','Mat & drikke','6 000 foretak kjemper om gjestene — se hvem som faktisk tjener penger.','#E4572E','utensils',10),
@@ -33,7 +90,7 @@ insert into categories (slug, navn, verden, beskrivelse, farge, ikon, sortering)
   ('fysioterapi','Fysioterapi','Helse & velvære','Fysioterapeutene: små foretak, stabil etterspørsel.','#C05299','heart-pulse',44),
   ('byggefirma','Byggefirma','Bygg & håndverk','Byggenæringen: konjunkturenes frontlinje, tall for hele landet.','#D08C1D','hammer',50),
   ('elektriker','Elektriker','Bygg & håndverk','Elektrikerfagets tall: jevn etterspørsel, gode marginer.','#D08C1D','zap',51),
-  ('rorlegger','Rørlegger','Bygg & håndverk','Rørleggerbransjen — håndverket alle trenger, i tall.','#D08C1D','wrench',52),
+  ('rorlegger','Rørlegger & ventilasjon','Bygg & håndverk','Rørlegger- og ventilasjonsfaget: håndverket alle trenger, i tall.','#D08C1D','wrench',52),
   ('maler-overflate','Maler & overflate','Bygg & håndverk','Maler- og overflatefagene: lav terskel, hard priskonkurranse.','#D08C1D','paint-roller',53),
   ('renhold','Renhold','Tjenester','Renholdsbransjen: milliardmarked med små og store aktører.','#3B7A57','spray-can',60),
   ('regnskap-revisjon','Regnskap & revisjon','Tjenester','Regnskapsførerne og revisorene som alle andre bransjer trenger.','#3B7A57','calculator',61),
@@ -51,15 +108,36 @@ insert into categories (slug, navn, verden, beskrivelse, farge, ikon, sortering)
 -- Medlemskoder. kilde='ssb' er SN2007 (statistikk), kilde='brreg' er
 -- SN2025-prefikser (selskapsmatching).
 --
--- Alle brreg-prefiksene er verifisert mot Enhetsregisteret 2026-08-04, og
--- fire av dem måtte byttes fordi SN2025 flyttet næringen:
+-- Å TELLE TREFF ER IKKE Å VERIFISERE. Første runde sjekket at hvert
+-- brreg-prefiks ga treff hos Enhetsregisteret, og det var ikke nok. Fem
+-- prefikser ga tusenvis av treff på HELT ANDRE bransjer, og feilen ble oppdaget
+-- av en bruker som åpnet Sportsbutikk og fant leketøysbutikker:
+--
+--   sportsbutikk    47.64 -> 47.631  47.64 er «spill og leker» i SN2025.
+--                                    Lekekassen og Extra Leker toppet lista.
+--   optiker         47.78 -> 47.74   47.78 er «annen detaljhandel med andre nye
+--                                    varer», en samlekode. Optikerne (Synsam,
+--                                    Interoptik, Krogh) ligger på 47.740.
+--   maler-overflate 43.3  -> 43.34   43.3 er all «ferdiggjøring av bygninger»;
+--                          + 43.33   8 av 15 i lista var snekkere.
+--   blomster-hage   47.76 -> 47.761  47.76 dro inn kjæledyrbutikkene i 47.762.
+--   opplevelser     49.32 fjernet    bussturtransport var 10 av 15 i lista.
+--
+-- Regelen som følger av det: SLÅ OPP HVA KODEN HETER, ikke bare hvor mange
+-- treff den gir. `nace_sn2025` under gjør oppslaget mulig uten nett, og
+-- tests/categories.test.ts holder hvert prefiks mot sin offisielle tittel.
+--
+-- Fire prefikser måtte i tillegg byttes fordi SN2025 flyttet næringen:
 --   møbel      47.59 -> 47.55  (47.551 møbler, 47.559 innredningsartikler)
 --   kantine    56.29 -> 56.2   (56.29 finnes ikke; 56.210 er catering)
---   turbil     49.39 -> 49.32  («Passasjertransport utenom rutetabell»)
 --   fysioterapi 86.91 -> 86.95 («Fysioterapi- og ergoterapitjenester»;
 --                               86.93 er psykolog, ikke fysioterapi)
--- Et prefiks uten treff gir en tom toppliste, ikke en feilmelding — derfor
--- må antall treff sjekkes, ikke bare at kallet gikk igjennom.
+--   bil: hele divisjon 45 er oppløst, se blokka lenger ned.
+--
+-- To prefikser er bredere enn kategorinavnet, og det er bevisst fordi noe
+-- smalere ikke finnes: 47.74 heter «medisinske og ortopediske artikler» og
+-- rommer bandagister ved siden av optikerne, og 47.12 «bredt vareutvalg ellers»
+-- er der kioskene bor. Begge er dominert av riktig bransje i praksis.
 insert into category_members (category_id, nace_code, kilde)
 select c.id, m.kode, m.kilde from (values
   ('restaurant-kafe','56.101','ssb'), ('restaurant-kafe','56.11','brreg'),
@@ -73,23 +151,22 @@ select c.id, m.kode, m.kilde from (values
   ('kiosk','47.112','ssb'), ('kiosk','47.12','brreg'),
   ('klesbutikk','47.710','ssb'), ('klesbutikk','47.71','brreg'),
   ('skobutikk','47.721','ssb'), ('skobutikk','47.72','brreg'),
-  ('sportsbutikk','47.641','ssb'), ('sportsbutikk','47.64','brreg'),
+  ('sportsbutikk','47.641','ssb'), ('sportsbutikk','47.631','brreg'),
   ('mobel-interior','47.591','ssb'), ('mobel-interior','47.531','ssb'),
   ('mobel-interior','47.55','brreg'), ('mobel-interior','47.53','brreg'),
   ('elektronikkbutikk','47.410','ssb'), ('elektronikkbutikk','47.420','ssb'),
   ('elektronikkbutikk','47.430','ssb'), ('elektronikkbutikk','47.4','brreg'),
   ('gullsmed','47.772','ssb'), ('gullsmed','47.77','brreg'),
-  ('optiker','47.782','ssb'), ('optiker','47.78','brreg'),
+  ('optiker','47.782','ssb'), ('optiker','47.74','brreg'),
   ('blomster-hage','47.761','ssb'), ('blomster-hage','47.762','ssb'),
-  ('blomster-hage','47.76','brreg'),
+  ('blomster-hage','47.761','brreg'),
   ('hotell-overnatting','55.101','ssb'), ('hotell-overnatting','55.102','ssb'),
   ('hotell-overnatting','55.1','brreg'),
   ('camping-hytter','55.202','ssb'), ('camping-hytter','55.300','ssb'),
   ('camping-hytter','55.2','brreg'), ('camping-hytter','55.3','brreg'),
   ('opplevelser-aktiviteter','93.210','ssb'), ('opplevelser-aktiviteter','93.291','ssb'),
   ('opplevelser-aktiviteter','93.292','ssb'), ('opplevelser-aktiviteter','93.299','ssb'),
-  ('opplevelser-aktiviteter','49.392','ssb'),
-  ('opplevelser-aktiviteter','93.2','brreg'), ('opplevelser-aktiviteter','49.32','brreg'),
+  ('opplevelser-aktiviteter','93.2','brreg'),
   ('reisebyra-arrangor','79.110','ssb'), ('reisebyra-arrangor','79.120','ssb'),
   ('reisebyra-arrangor','79','brreg'),
   ('frisor','96.020','ssb'), ('frisor','96.21','brreg'),
@@ -101,7 +178,7 @@ select c.id, m.kode, m.kilde from (values
   ('elektriker','43.210','ssb'), ('elektriker','43.21','brreg'),
   ('rorlegger','43.221','ssb'), ('rorlegger','43.222','ssb'), ('rorlegger','43.22','brreg'),
   ('maler-overflate','43.341','ssb'), ('maler-overflate','43.390','ssb'),
-  ('maler-overflate','43.3','brreg'),
+  ('maler-overflate','43.34','brreg'), ('maler-overflate','43.33','brreg'),
   ('renhold','81.210','ssb'), ('renhold','81.291','ssb'), ('renhold','81.299','ssb'),
   ('renhold','81.2','brreg'),
   ('regnskap-revisjon','69.201','ssb'), ('regnskap-revisjon','69.202','ssb'),

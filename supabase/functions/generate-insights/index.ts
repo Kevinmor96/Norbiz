@@ -1,12 +1,12 @@
 /**
- * generate-insights — produserer anslag og innsikt forankret i tallene.
+ * generate-insights — produserer innsikt forankret i tallene.
  *
- * Fyller: industry_estimates, ai_insights
+ * Fyller: ai_insights. IKKE industry_estimates — se kommentaren om anslag under.
  *
  *   ?fra=<indeks>&antall=<n>   hvilken skive av næringslista (3 som standard)
  *   ?bare=56.101               kjør én næring, for inspeksjon
  *   ?dry=1                     kall modellen, valider, IKKE skriv
- *   ?versjon=v1                prompt_version. Endres når prompten endres
+ *   ?versjon=v4                prompt_version. Endres når prompten endres
  *   ?modell=claude-sonnet-5    overstyrer modellvalget
  *
  * REKKEFØLGEN ER POENGET. Tallene hentes fra basen FØRST, sendes inn i
@@ -14,18 +14,18 @@
  * radene produserer tekst som høres riktig ut og ikke er det.
  *
  * FORANKRING HÅNDHEVES TO GANGER, og bare den andre er verdt noe. Databasen
- * krever at `referanser` og `basert_pa` er ikke-tomme — men en modell kan fylle
- * dem med noe som ser ut som en referanse. Derfor validerer denne funksjonen
+ * krever at `referanser` er ikke-tom — men en modell kan fylle den med noe som
+ * ser ut som en referanse. Derfor validerer denne funksjonen
  * hver referanse mot nyttelasten vi faktisk sendte: næringskoden må være
  * næringens egen, årstallene må være år vi sendte, feltnavnene må være felt vi
  * sendte. Rader som viser til noe modellen ikke fikk, forkastes og telles i
  * `forkastet`. En prompt som begynner å hallusinere blir dermed synlig som et
  * tall i svaret, i stedet for som feilaktig tekst i UI-et.
  *
- * ANSLAG ER SPENN. `intervall_lav`/`intervall_hoy` med konfidens, aldri ett
- * presist tall. «Etableringskapital 300 000–800 000, middels konfidens» er et
- * ærlig svar; «512 000» er det ikke. Metrikkene er de samme tre som seed-en
- * brukte, slik at frontend ikke må lære et nytt vokabular.
+ * INGEN ANSLAG. Funksjonen skriver bare innsikt. Alle tre anslagsmetrikkene fra
+ * seed-en er ute, med begrunnelse lenger ned — kort fortalt kan ikke SSBs
+ * strukturstatistikk avgrense kapitalbehov, og et anslag med en ekte referanse
+ * bak er verre enn ingen, fordi det ser etterprøvbart ut.
  *
  * LØNNSTALL SENDES IKKE INN. `industry_wages` er fortsatt seed-data
  * (`data_quality='mock'`), og en innsikt forankret i mock-tall ville vært en
@@ -38,9 +38,8 @@
  * åpner en side — det er forskjellen mellom en engangskostnad på noen kroner og
  * en regning som vokser med trafikken.
  *
- * IDEMPOTENS. `industry_estimates` har naturlig nøkkel
- * (industry_id, region_id, metrikk). `ai_insights` har ingen — en næring kan ha
- * tre innsikter én gang og fem den neste — så radene slettes for
+ * IDEMPOTENS. `ai_insights` har ingen naturlig nøkkel — en næring kan ha tre
+ * innsikter én gang og fem den neste — så radene slettes for
  * (industry_id, region_id, prompt_version) før den nye batchen skrives. Uten
  * det ville en ny kjøring dublert alt som står i UI-et.
  *
@@ -50,7 +49,7 @@
  */
 const API = 'https://api.anthropic.com/v1/messages';
 const STANDARD_MODELL = 'claude-sonnet-5';
-const STANDARD_VERSJON = 'v1';
+const STANDARD_VERSJON = 'v4';
 
 /** Feltene vi sender. Validering av referanser skjer mot disse to listene. */
 const SERIE_FELT = [
@@ -59,12 +58,52 @@ const SERIE_FELT = [
   'verdiskaping_per_sysselsatt', 'bruttoinvestering_total',
 ] as const;
 const DEMOGRAFI_FELT = ['year', 'nyetableringer', 'konkurser'] as const;
+const MEDIAN_FELT = ['year', 'median_driftsmargin', 'n_med_driftsmargin'] as const;
 
-const METRIKKER = ['etableringskapital', 'tid_til_lonnsomhet', 'sesongvariasjon'] as const;
-const ENHETER: Record<string, string> = {
-  etableringskapital: 'NOK', tid_til_lonnsomhet: 'mnd', sesongvariasjon: 'pct',
-};
-const KONFIDENS = ['lav', 'middels', 'hoy'];
+/**
+ * Utregnet i denne funksjonen, ikke en kolonne i basen: bruttoinvestering delt
+ * på antall foretak. Den er med fordi den er det eneste kapitaltallet i
+ * nyttelasten, og fordi modellen ellers regner den ut selv uten å kunne vise
+ * til den.
+ */
+const DERIVERTE_FELT = ['bruttoinvestering_per_enhet'] as const;
+
+/**
+ * INGEN ANSLAG. Funksjonen fyller `ai_insights`, ikke `industry_estimates`.
+ *
+ * Seed-en hadde tre anslagsmetrikker: etableringskapital, tid_til_lonnsomhet og
+ * sesongvariasjon. Alle tre er nå ute, og hver av dem falt av en egen grunn som
+ * er verdt å ha skrevet ned.
+ *
+ * `sesongvariasjon` kan i prinsippet ikke leses av årstall. Den krever kvartaler
+ * vi ikke har importert. `tid_til_lonnsomhet` har ikke noe felt i det hele tatt
+ * som avgrenser den.
+ *
+ * `etableringskapital` sto lengst, og er den mest lærerike. Første forsøk ga
+ * «5,7–9,5 mill.» for restaurant — det er omsetning per foretak med en annen
+ * etikett. Referansevalideringen slapp det gjennom fordi referansen VAR ekte:
+ * riktig felt, riktige år. Proveniens er ikke det samme som at tallet måler det
+ * etiketten sier.
+ *
+ * Andre forsøk forbød omsetning som grunnlag og krevde at anslaget bygget på
+ * `bruttoinvestering_per_enhet` og `sysselsatte_per_enhet`. Restaurant ble da
+ * 750 000–1 500 000, som er riktig størrelsesorden. Frisør ble 40 000–90 000,
+ * som er feil med en faktor på fem — en salong med stoler, vasker, rørlegging og
+ * varelager koster 300 000–800 000, mens 40 000 er én stol i en annens salong.
+ *
+ * Grunnen er at ankeret ikke bærer signalet: brutto realinvestering delt på
+ * bestanden er 12 000 kr i en næring med 10 500 enmannssalonger, og sier
+ * ingenting om hva en NY salong koster å innrede. Restauranten traff fordi
+ * ankeret tilfeldigvis lå i riktig sone. Et tall som treffer i én næring og
+ * bommer grovt i en annen, uten at noe i systemet kan skille de to tilfellene,
+ * skal ikke publiseres — og «lav konfidens» redder det ikke, for leseren ser
+ * 40 000 kr og tror det er svaret.
+ *
+ * VEIEN TIL ET EKTE TALL går gjennom Brreg, ikke gjennom en modell: selskaper
+ * med `registreringsdatoEnhetsregisteret` ett til to år tilbake, og deres FØRSTE
+ * årsregnskap, er målt kapital i faktiske nyetableringer. Det er en importjobb,
+ * ikke en promptjobb.
+ */
 const TYPER = ['risiko', 'mulighet', 'avvik', 'sammenligning', 'kontekst'];
 
 const svar = (o: unknown, status = 200) =>
@@ -85,8 +124,9 @@ andre kilder. Regler du ikke kan bryte:
 3. Referansene er ikke pynt. De skal peke på de faktiske radene påstanden hviler
    på: riktig næringskode, riktige år, riktige feltnavn. Svar som viser til år
    eller felt du ikke fikk, blir forkastet.
-4. Anslagene er spenn med konfidens, aldri ett tall. Konfidensen skal være lav
-   der tallgrunnlaget er tynt eller indirekte.
+4. Du skal ikke anslå noe. Ingen kapitalbehov, ingen tid til lønnsomhet, ingen
+   sesongsvingning — kilden måler ikke slikt, og et anslag med en ekte referanse
+   bak er verre enn ingenting, fordi det ser etterprøvbart ut.
 5. Norsk, konkret, uten markedsføringsspråk. «Driftsmarginen falt fra 6,1 % til
    4,3 % mellom 2019 og 2024» er bra. «Bransjen står ved et veiskille» er ikke.
 6. Ingen ferskhetspåstander. SSB publiserer årlig med etterslep; det seneste året
@@ -99,12 +139,17 @@ høy margin i en slik næring, skal du si hvorfor.
 
 Om demografien: nyetableringer og konkurser finnes bare på tosifret næring, altså
 for hele divisjonen. Du skal ikke skrive dem som om de gjaldt den femsifrede
-næringen alene.`;
+næringen alene.
+
+Om medianen: du får median driftsmargin for alle femsifrede næringer PER ÅR.
+Sammenligner du, skal begge tallene være fra samme år. Skriv aldri «samme år»
+uten å ha sjekket at det stemmer.
+`;
 
 const REF_SKJEMA = {
   type: 'object',
   properties: {
-    table: { type: 'string', enum: ['industry_stats', 'industry_demography'] },
+    table: { type: 'string', enum: ['industry_stats', 'industry_demography', 'industry_medians'] },
     nace_code: { type: 'string' },
     years: { type: 'array', items: { type: 'integer' } },
     felt: { type: 'array', items: { type: 'string' } },
@@ -114,7 +159,7 @@ const REF_SKJEMA = {
 
 const VERKTOY = {
   name: 'lever_innsikt',
-  description: 'Leverer innsikt og anslag for én næring.',
+  description: 'Leverer forankret innsikt for én næring.',
   input_schema: {
     type: 'object',
     properties: {
@@ -136,23 +181,8 @@ const VERKTOY = {
           required: ['type', 'tittel', 'body', 'alvorlighet', 'year', 'knyttet_til', 'referanser'],
         },
       },
-      anslag: {
-        type: 'array', minItems: 1, maxItems: 3,
-        items: {
-          type: 'object',
-          properties: {
-            metrikk: { type: 'string', enum: [...METRIKKER] },
-            intervall_lav: { type: 'number' },
-            intervall_hoy: { type: 'number' },
-            konfidens: { type: 'string', enum: KONFIDENS },
-            begrunnelse: { type: 'string', description: 'Hvorfor spennet ligger der. 1–2 setninger.' },
-            basert_pa: { type: 'array', minItems: 1, items: REF_SKJEMA },
-          },
-          required: ['metrikk', 'intervall_lav', 'intervall_hoy', 'konfidens', 'begrunnelse', 'basert_pa'],
-        },
-      },
     },
-    required: ['innsikter', 'anslag'],
+    required: ['innsikter'],
   },
 };
 
@@ -203,19 +233,35 @@ Deno.serve(async (req: Request): Promise<Response> => {
     const landId = land[0]?.['id'] as string | undefined;
     if (!landId) throw new Error('fant ingen landregion med code=0');
 
-    // Peiling for «sammenligning»: median driftsmargin på tvers av de
-    // femsifrede næringene siste år. Uten en målestokk er en marginpåstand bare
-    // et tall.
-    const alleMarginer = await les(
-      'industry_stats?select=driftsmargin_pct,year' +
-      '&region_level=eq.land&unit_type=eq.foretak&nace_level=eq.5' +
-      '&data_quality=eq.ssb&driftsmargin_pct=not.is.null&limit=20000');
-    const sisteAr = alleMarginer.length ? Math.max(...alleMarginer.map((r) => Number(r['year']))) : null;
-    const marginerSiste = alleMarginer
-      .filter((r) => Number(r['year']) === sisteAr)
-      .map((r) => Number(r['driftsmargin_pct'])).sort((a, b) => a - b);
-    const medianMargin = marginerSiste.length
-      ? marginerSiste[Math.floor(marginerSiste.length / 2)] : null;
+    /**
+     * Målestokken for «sammenligning», hentet fra `industry_medians()` i
+     * migrasjon 0010 — ikke regnet ut her.
+     *
+     * Første versjon gjorde nettopp det: hentet alle driftsmarginer med
+     * `limit=20000` og tok medianen i TypeScript. PostgREST kapper ved 1 000
+     * rader uansett hva limit sier, og av 4 325 rader kom bare 2017 og 2018 med.
+     * `Math.max` over den skiva ga «siste år» = 2018, så modellen sammenlignet
+     * 2024-marginer mot 2018-medianen og skrev «samme år». Feilen var ikke i
+     * modellen, den var i nyttelasten.
+     *
+     * Basens invariant gjelder også her: aggregater hører i databasen.
+     * Funksjonen returnerer i tillegg hvor mange næringer hver median er regnet
+     * over, og det tallet følger med ut — fire av seks er en svakere påstand enn
+     * seks av seks.
+     *
+     * Medianen sendes PER ÅR, ikke bare for siste år. Da kan modellen
+     * sammenligne innenfor samme år uansett hvilket år den omtaler, i stedet for
+     * å måtte blande.
+     */
+    const medianRader = await les('rpc/industry_medians?p_nace_level=5&select=year,median_driftsmargin,n_med_driftsmargin');
+    const medianPerAr = medianRader
+      .map((r) => ({
+        year: Number(r['year']),
+        median_driftsmargin: r['median_driftsmargin'] == null ? null : Number(r['median_driftsmargin']),
+        n_med_driftsmargin: Number(r['n_med_driftsmargin'] ?? 0),
+      }))
+      .sort((x, z) => x.year - z.year);
+    logg.push(`median driftsmargin for ${medianPerAr.length} år fra industry_medians()`);
 
     const resultat: Record<string, unknown>[] = [];
 
@@ -229,8 +275,14 @@ Deno.serve(async (req: Request): Promise<Response> => {
         `industry_stats?select=${SERIE_FELT.join(',')}` +
         `&industry_id=eq.${industryId}&region_level=eq.land&unit_type=eq.foretak` +
         `&data_quality=eq.ssb&order=year&limit=50`);
-      const serie = rader.map((r) => Object.fromEntries(
-        SERIE_FELT.map((f) => [f, r[f] == null ? null : Number(r[f])])));
+      const serie = rader.map((r) => {
+        const rad = Object.fromEntries(
+          SERIE_FELT.map((f) => [f, r[f] == null ? null : Number(r[f])])) as Record<string, number | null>;
+        const inv = rad['bruttoinvestering_total'];
+        const n = rad['n_enheter'];
+        rad['bruttoinvestering_per_enhet'] = inv != null && n ? Math.round(inv / n) : null;
+        return rad;
+      });
       if (serie.length < 2) {
         resultat.push({ kode, hoppet_over: 'under to år med målt statistikk' });
         continue;
@@ -263,6 +315,12 @@ Deno.serve(async (req: Request): Promise<Response> => {
         naering: { nace_code: kode, navn: i['name'], folkelig_navn: i['common_name'] },
         enhet: 'foretak, hele landet',
         kilde: 'SSB strukturstatistikk tabell 12910, data_quality=ssb',
+        felt_forklart: {
+          bruttoinvestering_per_enhet:
+            'utregnet her: bruttoinvestering_total / n_enheter. Årlig realinvestering ' +
+            'per foretak, snittet over HELE bestanden — ikke oppstartskostnad.',
+          omsetning_per_enhet: 'årlig omsetning per foretak. Sier ingenting om kapitalbehov.',
+        },
         serie,
         demografi: {
           nace_code: to,
@@ -270,9 +328,10 @@ Deno.serve(async (req: Request): Promise<Response> => {
           kilde: 'SSB 08076 (nye foretak) og 07165 (konkurser)',
           rader: demografi,
         },
-        peiling: {
-          median_driftsmargin_femsifrede_naeringer: medianMargin,
-          aar: sisteAr,
+        median_per_ar: {
+          hva: 'median driftsmargin blant alle femsifrede næringer, per år, fra industry_medians()',
+          bruk: 'sammenlign innenfor SAMME år som tallet du omtaler',
+          rader: medianPerAr,
         },
       };
 
@@ -291,8 +350,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
             role: 'user',
             content: `Næringen er ${i['common_name']} (${i['name']}, NACE ${kode}).\n\n` +
               `Tall:\n${JSON.stringify(nyttelast, null, 1)}\n\n` +
-              'Skriv 2–5 innsikter, og anslag for de metrikkene du kan begrunne ut fra ' +
-              'tallene over. Bruk ingen andre kilder.',
+              'Skriv 2–5 innsikter. Bruk bare tallene over, og ingen andre kilder.',
           }],
         }),
       });
@@ -303,19 +361,23 @@ Deno.serve(async (req: Request): Promise<Response> => {
       const m = await r.json();
       const bruk = (m?.content ?? []).find((c: Record<string, unknown>) => c['type'] === 'tool_use');
       if (!bruk) { resultat.push({ kode, feil: 'modellen kalte ikke verktøyet' }); continue; }
-      const ut = bruk['input'] as { innsikter?: unknown[]; anslag?: unknown[] };
+      const ut = bruk['input'] as { innsikter?: unknown[] };
 
       // Valideringen som gjør forankringen ekte. En referanse til et år vi ikke
       // sendte betyr at påstanden ikke hviler på noe vi kan vise leseren.
       const arSerie = new Set(serie.map((s) => s['year'] as number));
       const arDemo = new Set(demografi.map((d) => d['year']));
+      const arMedian = new Set(medianPerAr.map((r) => r.year));
       const gyldigRef = (ref: Ref, hvorfor: string[]): boolean => {
         if (ref?.table === 'industry_stats') {
           if (ref.nace_code !== kode) { hvorfor.push(`nace ${ref.nace_code} != ${kode}`); return false; }
           for (const y of ref.years ?? [])
             if (!arSerie.has(y)) { hvorfor.push(`år ${y} ikke sendt`); return false; }
           for (const f of ref.felt ?? [])
-            if (!(SERIE_FELT as readonly string[]).includes(f)) { hvorfor.push(`felt ${f} ikke sendt`); return false; }
+            if (!(SERIE_FELT as readonly string[]).includes(f)
+              && !(DERIVERTE_FELT as readonly string[]).includes(f)) {
+              hvorfor.push(`felt ${f} ikke sendt`); return false;
+            }
           return true;
         }
         if (ref?.table === 'industry_demography') {
@@ -324,6 +386,13 @@ Deno.serve(async (req: Request): Promise<Response> => {
             if (!arDemo.has(y)) { hvorfor.push(`demografiår ${y} ikke sendt`); return false; }
           for (const f of ref.felt ?? [])
             if (!(DEMOGRAFI_FELT as readonly string[]).includes(f)) { hvorfor.push(`demografifelt ${f} ikke sendt`); return false; }
+          return true;
+        }
+        if (ref?.table === 'industry_medians') {
+          for (const y of ref.years ?? [])
+            if (!arMedian.has(y)) { hvorfor.push(`medianår ${y} ikke sendt`); return false; }
+          for (const f of ref.felt ?? [])
+            if (!(MEDIAN_FELT as readonly string[]).includes(f)) { hvorfor.push(`medianfelt ${f} ikke sendt`); return false; }
           return true;
         }
         hvorfor.push(`ukjent tabell ${ref?.table}`);
@@ -344,47 +413,23 @@ Deno.serve(async (req: Request): Promise<Response> => {
         return o.referanser.length > 0;
       }) as Record<string, unknown>[];
 
-      const anslag = (ut.anslag ?? []).filter((x) => {
-        const o = x as { metrikk: string; intervall_lav: number; intervall_hoy: number;
-          konfidens: string; basert_pa: Ref[] };
-        if (!(METRIKKER as readonly string[]).includes(o.metrikk)) { forkastet.push(`anslag: ukjent metrikk ${o.metrikk}`); return false; }
-        if (!KONFIDENS.includes(o.konfidens)) { forkastet.push(`anslag ${o.metrikk}: ukjent konfidens`); return false; }
-        if (!(o.intervall_hoy >= o.intervall_lav)) { forkastet.push(`anslag ${o.metrikk}: spennet står omvendt`); return false; }
-        o.basert_pa = (o.basert_pa ?? []).filter((ref) => {
-          const hvorfor: string[] = [];
-          if (gyldigRef(ref, hvorfor)) return true;
-          forkastet.push(`anslag ${o.metrikk}: ${hvorfor[0]}`);
-          return false;
-        });
-        return o.basert_pa.length > 0;
-      }) as Record<string, unknown>[];
-
       const innsiktRader = innsikter.map((o) => ({
         industry_id: industryId, region_id: landId,
         year: o['year'], type: o['type'], tittel: o['tittel'], body: o['body'],
         alvorlighet: o['alvorlighet'], referanser: o['referanser'], knyttet_til: o['knyttet_til'],
         model: modell, prompt_version: versjon, data_quality: 'ai_anslag',
       }));
-      const anslagRader = anslag.map((o) => ({
-        industry_id: industryId, region_id: null, metrikk: o['metrikk'],
-        intervall_lav: o['intervall_lav'], intervall_hoy: o['intervall_hoy'],
-        enhet: ENHETER[o['metrikk'] as string] ?? null,
-        konfidens: o['konfidens'], begrunnelse: o['begrunnelse'], basert_pa: o['basert_pa'],
-        model: modell, prompt_version: versjon,
-        source: `ai:${modell}`, data_quality: 'ai_anslag',
-      }));
-
       const sammendrag: Record<string, unknown> = {
         kode, navn: i['common_name'],
-        innsikter: innsiktRader.length, anslag: anslagRader.length,
+        innsikter: innsiktRader.length,
         forkastet: forkastet.length, hvorfor_forkastet: forkastet.slice(0, 5),
         tokens: m?.usage,
       };
       if (dry) {
-        resultat.push({ ...sammendrag, dry: true, eksempel: innsiktRader[0], anslag_eksempel: anslagRader[0] });
+        resultat.push({ ...sammendrag, dry: true, eksempel: innsiktRader[0] });
         continue;
       }
-      if (innsiktRader.length === 0 && anslagRader.length === 0) {
+      if (innsiktRader.length === 0) {
         resultat.push({ ...sammendrag, skrev: 'ingenting — alt forkastet' });
         continue;
       }
@@ -403,24 +448,6 @@ Deno.serve(async (req: Request): Promise<Response> => {
           body: JSON.stringify(innsiktRader),
         });
         if (!w.ok) throw new Error(`skriv innsikt: ${w.status} ${(await w.text()).slice(0, 300)}`);
-      }
-
-      if (anslagRader.length > 0) {
-        // `region_id` er NULL for nasjonale anslag, og NULL deltar ikke i en
-        // unique-constraint: upserten ville derfor ikke truffet den gamle
-        // seed-raden, og næringen ville fått to anslag for samme metrikk. Vi
-        // sletter eksplisitt på metrikk i stedet.
-        const metrikker = [...new Set(anslagRader.map((a) => a.metrikk as string))];
-        const slettA = await fetch(
-          `${SB}/rest/v1/industry_estimates?industry_id=eq.${industryId}` +
-          `&region_id=is.null&metrikk=in.(${metrikker.join(',')})`,
-          { method: 'DELETE', headers: { ...H, Prefer: 'return=minimal' } });
-        if (!slettA.ok) throw new Error(`slett anslag: ${slettA.status} ${(await slettA.text()).slice(0, 200)}`);
-        const w = await fetch(`${SB}/rest/v1/industry_estimates`, {
-          method: 'POST', headers: { ...H, Prefer: 'return=minimal' },
-          body: JSON.stringify(anslagRader),
-        });
-        if (!w.ok) throw new Error(`skriv anslag: ${w.status} ${(await w.text()).slice(0, 300)}`);
       }
 
       resultat.push({ ...sammendrag, skrev: 'ok' });
