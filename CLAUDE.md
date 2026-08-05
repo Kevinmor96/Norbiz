@@ -226,7 +226,7 @@ etterprøvbare spørringer i `docs/superpowers/specs/2026-08-04-ssb-api-verifise
 
 ## Status
 
-Datalaget: ferdig, 136 tester grønne, 30 migrasjoner.
+Datalaget: ferdig, 137 tester grønne, 31 migrasjoner.
 
 **Supabase-prosjektet `jcpuhhrqhgrnihiacosy` har ekte data.** Tre importører er
 deployet og kjørt 2026-08-04:

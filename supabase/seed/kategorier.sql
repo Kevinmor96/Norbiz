@@ -381,4 +381,51 @@ update categories set sokeord = v.ord from (values
 ) as v(slug, ord)
 where categories.slug = v.slug;
 
+-- Spørsmålet i H1 — håndskrevet per kategori fordi en mal ikke kan norsk
+-- grammatikk (se migrasjon 0031). «Hva tjener …» der kategorien er en aktør
+-- med naturlig kjønn; «Lønner det seg …» der navnet er en samlebetegnelse.
+update categories set sporsmal = v.sp from (values
+  ('restaurant-kafe',        'Lønner det seg å drive restaurant eller kafé i Norge?'),
+  ('gatekjokken',            'Hva tjener et gatekjøkken i Norge?'),
+  ('bar-pub',                'Lønner det seg å drive bar eller pub i Norge?'),
+  ('catering-kantine',       'Lønner det seg å drive catering eller kantine i Norge?'),
+  ('bakeri-konditori',       'Hva tjener et bakeri i Norge?'),
+  ('dagligvare',             'Hva tjener en dagligvarebutikk i Norge?'),
+  ('kiosk',                  'Hva tjener en kiosk i Norge?'),
+  ('klesbutikk',             'Hva tjener en klesbutikk i Norge?'),
+  ('skobutikk',              'Hva tjener en skobutikk i Norge?'),
+  ('sportsbutikk',           'Hva tjener en sportsbutikk i Norge?'),
+  ('mobel-interior',         'Hva tjener en møbel- og interiørbutikk i Norge?'),
+  ('elektronikkbutikk',      'Hva tjener en elektronikkbutikk i Norge?'),
+  ('gullsmed',               'Hva tjener en gullsmed i Norge?'),
+  ('optiker',                'Hva tjener en optiker i Norge?'),
+  ('blomster-hage',          'Lønner det seg å drive blomsterbutikk eller hagesenter?'),
+  ('hotell-overnatting',     'Hva tjener et hotell i Norge?'),
+  ('camping-hytter',         'Lønner det seg å drive campingplass eller hytteutleie?'),
+  ('opplevelser-aktiviteter','Lønner det seg å drive opplevelsesbedrift i Norge?'),
+  ('reisebyra-arrangor',     'Hva tjener et reisebyrå i Norge?'),
+  ('frisor',                 'Hva tjener en frisørsalong i Norge?'),
+  ('hudpleie-velvare',       'Hva tjener en hudpleiesalong i Norge?'),
+  ('treningssenter',         'Hva tjener et treningssenter i Norge?'),
+  ('tannlege',               'Hva tjener en tannlegepraksis i Norge?'),
+  ('fysioterapi',            'Hva tjener en fysioterapipraksis i Norge?'),
+  ('byggefirma',             'Hva tjener et byggefirma i Norge?'),
+  ('elektriker',             'Hva tjener et elektrikerfirma i Norge?'),
+  ('rorlegger',              'Hva tjener et rørleggerfirma i Norge?'),
+  ('maler-overflate',        'Hva tjener et malerfirma i Norge?'),
+  ('renhold',                'Hva tjener et renholdsbyrå i Norge?'),
+  ('regnskap-revisjon',      'Hva tjener et regnskapsbyrå i Norge?'),
+  ('advokat',                'Hva tjener et advokatfirma i Norge?'),
+  ('bilforhandler',          'Hva tjener en bilforhandler i Norge?'),
+  ('bilverksted',            'Hva tjener et bilverksted i Norge?'),
+  ('dekk-bildeler',          'Lønner det seg å selge dekk og bildeler i Norge?'),
+  ('motorsykkel-fritid',     'Lønner det seg å selge motorsykler og fritidskjøretøy?'),
+  ('reklame-mediebyra',      'Hva tjener et reklamebyrå i Norge?'),
+  ('film-tv',                'Hva tjener et produksjonsselskap i Norge?'),
+  ('eiendomsmegler',         'Hva tjener en eiendomsmegler i Norge?'),
+  ('eiendomsforvaltning',    'Lønner det seg å forvalte eiendom i Norge?'),
+  ('eiendomsutvikler',       'Hva tjener en eiendomsutvikler i Norge?')
+) as v(slug, sp)
+where categories.slug = v.slug;
+
 commit;

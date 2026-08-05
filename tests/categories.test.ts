@@ -90,6 +90,14 @@ describe('kategorilag', () => {
     expect(dubletter.rows).toEqual([]);
   });
 
+  it('gir hver kategori et håndskrevet spørsmål som ender med spørsmålstegn', async () => {
+    // H1-spørsmålet er redaksjon (migrasjon 0031) — en mal kan ikke norsk
+    // grammatikk. Testen fanger tomme rader og setninger uten spørsmålstegn.
+    const gale = await db.query<{ slug: string }>(
+      `select slug from categories where sporsmal !~ '\\?$'`);
+    expect(gale.rows.map((r) => r.slug)).toEqual([]);
+  });
+
   it('lar aldri medlemskoder overlappe hierarkisk innen kategori og kilde', async () => {
     // 56.1 og 56.101 i samme kategori ville dobbelttalt hele restaurantnæringen.
     const r = await db.query(`
