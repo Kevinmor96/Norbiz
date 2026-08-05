@@ -46,8 +46,20 @@ export const TREE: Top[] = [
                                     ['47.761','Butikkhandel med blomster og planter','Hagesenter']]],
     ['47.3', 'Detaljhandel med drivstoff', [['47.300','Detaljhandel med drivstoff','Bensinstasjon']]]]],
   ['10', 'Næringsmiddelindustri', 'servering', [
+    ['10.2', 'Bearbeiding og konservering av fisk, skalldyr og bløtdyr', [
+        ['10.201','Produksjon av saltfisk, tørrfisk og klippfisk','Klippfiskprodusent'],
+        ['10.209','Slakting, bearbeiding og konservering av fisk og fiskevarer ellers','Fiskeforedling']]],
     ['10.7', 'Produksjon av bakeri- og pastavarer', [
         ['10.710','Produksjon av brød og ferske konditorvarer','Bakeri']]]]],
+  ['30', 'Transportmiddelindustri ellers', 'bygg', [
+    ['30.1', 'Bygging av skip og båter', [
+        ['30.111','Bygging av skip og skrog over 100 br.tonn','Skipsverft'],
+        ['30.115','Innrednings- og installasjonsarbeid utført på skip over 100 br.tonn','Skipsinnredning']]]]],
+  ['50', 'Sjøfart', 'tjenesteyting', [
+    ['50.1', 'Sjøfart og kysttrafikk med passasjerer', [
+        ['50.102','Innenlandske kystruter med passasjerer','Kystrederi']]],
+    ['50.2', 'Sjøfart og kysttrafikk med gods', [
+        ['50.201','Utenriks sjøfart med gods','Rederi']]]]],
   ['55', 'Overnattingsvirksomhet', 'servering', [
     ['55.1', 'Hotellvirksomhet', [['55.101','Drift av hoteller, pensjonater og moteller med restaurant','Hotell'],
                                   ['55.102','Drift av hoteller, pensjonater og moteller uten restaurant','Hotell garni']]],

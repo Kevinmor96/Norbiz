@@ -62,11 +62,11 @@ describe('kategorilag', () => {
     }
   });
 
-  it('har 40 kategorier i 9 verdener', async () => {
+  it('har 43 kategorier i 10 verdener', async () => {
     const r = await db.query<{ verdener: string; n: string }>(
       `select count(distinct verden)::text verdener, count(*)::text n from categories`);
-    expect(Number(r.rows[0]!.n)).toBe(40);
-    expect(Number(r.rows[0]!.verdener)).toBe(9);
+    expect(Number(r.rows[0]!.n)).toBe(43);
+    expect(Number(r.rows[0]!.verdener)).toBe(10);
   });
 
   it('gir hver kategori søkeord, ASCII-foldet og uten dobbeltpekere', async () => {
@@ -188,7 +188,7 @@ describe('kategorilag', () => {
 
   it('returnerer alle kategoriene fra oversikten, også uten tall', async () => {
     const r = await db.query(`select slug from kategori_oversikt()`);
-    expect(r.rows.length).toBe(40);
+    expect(r.rows.length).toBe(43);
   });
 
   it('skiller foretak fra virksomheter', async () => {
@@ -274,6 +274,9 @@ describe('kategorilag', () => {
       bilforhandler: 'motorvogner',
       eiendomsmegler: 'Eiendomsmegling',
       'film-tv': 'film',
+      sjomatindustri: 'fisk',
+      skipsverft: 'skip og båter',
+      rederi: 'kysttrafikk',
     };
     for (const [slug, ord] of Object.entries(forventet)) {
       const titler = r.rows.filter((x) => x.slug === slug).map((x) => x.navn ?? '');

@@ -428,4 +428,45 @@ update categories set sporsmal = v.sp from (values
 ) as v(slug, sp)
 where categories.slug = v.slug;
 
+-- Hav & sjømat (2026-08-06). Fiske og AKVAKULTUR (03) er med vilje IKKE her:
+-- SSBs strukturstatistikk (12910/12937) dekker ikke seksjon A, så en
+-- oppdrettskategori ville stått uten et eneste målt bransjetal — tomme
+-- Tier 1-kort i det som skal være innsalget. Veien til oppdrett går gjennom
+-- en egen import fra akvakulturstatistikken, ikke gjennom å late som.
+-- De tre under har full statistikk 2017–2024, og SN2025-titlene for
+-- brreg-prefiksene er identiske med SN2007 (verifisert mot nace_sn2025).
+insert into categories (slug, navn, verden, beskrivelse, farge, ikon, sortering) values
+  ('sjomatindustri','Sjømatindustri','Hav & sjømat','105,6 mrd fra 416 foretak — fisken som foredles før den forlater landet.','#1D7A8C','fish',110),
+  ('skipsverft','Skipsverft & båtbygging','Hav & sjømat','296 verft og båtbyggere på 76,7 mrd — industrien bak flåten.','#1D7A8C','anchor',111),
+  ('rederi','Rederi & sjøfart','Hav & sjømat','228 mrd og 27,5 % margin — den største næringen vi måler.','#1D7A8C','ship',112);
+
+insert into category_members (category_id, nace_code, kilde)
+select c.id, m.kode, m.kilde from (values
+  ('sjomatindustri','10.2','ssb'), ('sjomatindustri','10.2','brreg'),
+  ('skipsverft','30.1','ssb'),     ('skipsverft','30.1','brreg'),
+  ('rederi','50','ssb'),           ('rederi','50.1','brreg'), ('rederi','50.2','brreg')
+) as m(slug, kode, kilde)
+join categories c on c.slug = m.slug;
+
+insert into nace_sn2025 (code, navn, nivaa) values
+  ('10.2','Bearbeiding og konservering av fisk, skalldyr og bløtdyr',3),
+  ('30.1','Bygging av skip og båter',3),
+  ('50.1','Sjøfart og kysttrafikk med passasjerer',3),
+  ('50.2','Sjøfart og kysttrafikk med gods',3)
+on conflict (code) do nothing;
+
+update categories set sokeord = v.ord from (values
+  ('sjomatindustri', array['fiskeforedling','fiskemottak','sjomat','lakseslakteri','klippfisk','fiskeindustri']),
+  ('skipsverft',     array['verft','batbygger','skipsbygging','batproduksjon','skipsindustri']),
+  ('rederi',         array['sjofart','shipping','kysttrafikk','frakteskip','tankskip','offshorerederi'])
+) as v(slug, ord)
+where categories.slug = v.slug;
+
+update categories set sporsmal = v.sp from (values
+  ('sjomatindustri', 'Lønner det seg å drive sjømatindustri i Norge?'),
+  ('skipsverft',     'Hva tjener et skipsverft i Norge?'),
+  ('rederi',         'Hva tjener et rederi i Norge?')
+) as v(slug, sp)
+where categories.slug = v.slug;
+
 commit;

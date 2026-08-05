@@ -237,7 +237,7 @@ etterprøvbare spørringer i `docs/superpowers/specs/2026-08-04-ssb-api-verifise
 
 ## Status
 
-Datalaget: ferdig, 141 tester grønne, 33 migrasjoner.
+Datalaget: ferdig, 142 tester grønne, 35 migrasjoner.
 
 **Bloggen skriver seg selv, med samme forankring som innsiktene.** `articles`
 (migrasjon 0032) fylles av `generate-artikkel`: målte tall inn i prompten,
@@ -272,8 +272,10 @@ deployet og kjørt 2026-08-04:
 - `industry_scores`: 28 377 scorer, 26 770 med `score_total`.
 - `industries`: 1 058 koder fra SSBs kodeliste; de 117 kuraterte beholder
   navn/slug fra seed (importen er insert-only, se headeren i import-ssb).
-- `categories` / `category_members`: 40 folkelige kategorier i 9 verdener, 108
-  medlemskoder. Alle 40 har tall i `kategori_oversikt()`, og alle har en
+- `categories` / `category_members`: 43 folkelige kategorier i 10 verdener
+  (Hav & sjømat kom 2026-08-06 med sjømatindustri, skipsverft og rederi —
+  fiske/akvakultur (03) er bevisst utelatt til en egen import finnes, for
+  strukturstatistikken dekker ikke SSB-seksjon A), 115 medlemskoder. Alle 40 har tall i `kategori_oversikt()`, og alle har en
   selskapsliste.
 - `kommuner`: 358 rader fra SSBs klassifikasjon 131 (2024-årgangen) pluss
   Svalbard og Jan Mayen manuelt. Ingen selskaper står med ukjent kommunekode.
