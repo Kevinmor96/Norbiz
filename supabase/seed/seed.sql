@@ -11128,7 +11128,7 @@ insert into industry_demography (industry_id, region_id, year, nace_level, regio
   ('7416ba04-9b20-5c6e-97ed-2e3b4655f1a4', 'b2c9839c-24fb-5cc7-81c4-9896c72033a8', 2023, 3, 'fylke', 8, 10, 3, 95.64, 80.31, 59.85, '{}'::jsonb, 'seed:foretaksdemografi', 'mock', 'alle'),
   ('7416ba04-9b20-5c6e-97ed-2e3b4655f1a4', '548c3218-cbed-5b62-91f9-53bde1097fa2', 2023, 3, 'fylke', 6, 3, 2, 93.03, 66.96, 60.61, '{}'::jsonb, 'seed:foretaksdemografi', 'mock', 'alle'),
   ('14fa6a59-f2ab-5f30-8f75-5c7280545346', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2023, 5, 'land', 177, 167, 38, 96.12, 63.37, 55.97, '{}'::jsonb, 'seed:foretaksdemografi', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('f6c33df4-046c-595e-a5e9-3f9dc06e9d9a', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2015, 2, 'land', NULL, NULL, 36895, 34807, 22276, 52305, 52314, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('f6c33df4-046c-595e-a5e9-3f9dc06e9d9a', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2016, 2, 'land', NULL, NULL, 38298, 36130, 23123, 54293, 52314, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('f6c33df4-046c-595e-a5e9-3f9dc06e9d9a', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2017, 2, 'land', NULL, NULL, 39753, 37503, 24001, 56357, 52314, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -11629,7 +11629,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('5e6b412c-806c-59f0-988f-b08eda6c3160', '757b6d31-15ac-5593-acb4-010a27a416fd', 2019, 3, 'fylke', NULL, NULL, 38795, 36599, 26205, 64089, 300, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('5e6b412c-806c-59f0-988f-b08eda6c3160', '2cb4c36f-41fd-504f-9fda-ed6fe9ebb475', 2019, 3, 'fylke', NULL, NULL, 38678, 36489, 26126, 63896, 209, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('5e6b412c-806c-59f0-988f-b08eda6c3160', '6fcc152e-5e10-5197-ac8b-00abc161c943', 2019, 3, 'fylke', NULL, NULL, 38794, 36598, 26204, 64087, 141, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('5e6b412c-806c-59f0-988f-b08eda6c3160', '7d075501-65c2-52f7-a587-e7865beb47eb', 2019, 3, 'fylke', NULL, NULL, 39307, 37082, 26550, 64935, 224, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('5e6b412c-806c-59f0-988f-b08eda6c3160', '1ee4ca75-b879-5d30-b02e-5d17d7b8e845', 2019, 3, 'fylke', NULL, NULL, 43131, 40690, 29134, 71253, 570, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('5e6b412c-806c-59f0-988f-b08eda6c3160', 'e498353d-88fa-5343-a87c-d490bbff2e46', 2019, 3, 'fylke', NULL, NULL, 41097, 38771, 27760, 67892, 630, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -12130,7 +12130,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('db3bafcf-caa4-547b-bcdd-c4ab8af0497c', 'c6044322-a1e3-5ec7-a830-ab87b5f93d1f', 2022, 3, 'fylke', NULL, NULL, 60657, 57224, 39496, 98906, 1346, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('db3bafcf-caa4-547b-bcdd-c4ab8af0497c', '1ba0e9c3-7a6a-599c-bda0-cf9a03b41be2', 2022, 3, 'fylke', NULL, NULL, 55063, 51946, 35853, 89784, 735, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('db3bafcf-caa4-547b-bcdd-c4ab8af0497c', '52be4580-b1a2-54b4-9c64-62ad76511de2', 2022, 3, 'fylke', NULL, NULL, 54485, 51401, 35477, 88842, 666, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('db3bafcf-caa4-547b-bcdd-c4ab8af0497c', '2deba9bb-9ff3-54ca-9db8-68f6840488c2', 2022, 3, 'fylke', NULL, NULL, 60085, 56684, 39123, 97973, 3485, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('db3bafcf-caa4-547b-bcdd-c4ab8af0497c', '07d081c6-cf3b-5627-9543-1d79dda2f892', 2022, 3, 'fylke', NULL, NULL, 55365, 52231, 36049, 90276, 1029, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('db3bafcf-caa4-547b-bcdd-c4ab8af0497c', '57ed56de-7595-5985-b162-2f28b3efe8f2', 2022, 3, 'fylke', NULL, NULL, 53829, 50782, 35049, 87772, 1177, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -12631,7 +12631,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('d3678011-bebb-5a33-b4b2-9378b33fdc4f', 'e95a50f7-c5ae-52c7-b2e0-55cab1583ae3', 2024, 3, 'fylke', NULL, NULL, 53695, 50656, 34510, 81000, 320, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('d3678011-bebb-5a33-b4b2-9378b33fdc4f', '6a409155-f54f-5961-93b4-1bed378806e7', 2024, 3, 'fylke', NULL, NULL, 52524, 49551, 33758, 79233, 430, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('d3678011-bebb-5a33-b4b2-9378b33fdc4f', '9ac2d494-250d-5e47-8608-00c5a9b5e36a', 2024, 3, 'fylke', NULL, NULL, 57555, 54297, 36991, 86822, 982, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('d3678011-bebb-5a33-b4b2-9378b33fdc4f', 'ba5d9cf2-8619-56b4-868b-eb9d63fbd8e0', 2024, 3, 'fylke', NULL, NULL, 52111, 49161, 33492, 78609, 304, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('d3678011-bebb-5a33-b4b2-9378b33fdc4f', '276fa952-c54a-5003-ad5b-a316883b0d4c', 2024, 3, 'fylke', NULL, NULL, 51902, 48964, 33358, 78294, 502, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('d3678011-bebb-5a33-b4b2-9378b33fdc4f', 'c7a7e07e-3f45-52d1-b395-60dcae1a93fc', 2024, 3, 'fylke', NULL, NULL, 52105, 49156, 33488, 78601, 350, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -13132,7 +13132,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('e488da6d-3ec0-5dc5-84dd-2015d1bf3b68', '276fa952-c54a-5003-ad5b-a316883b0d4c', 2024, 3, 'fylke', NULL, NULL, 46357, 43733, 30972, 67921, 820, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('e488da6d-3ec0-5dc5-84dd-2015d1bf3b68', 'c7a7e07e-3f45-52d1-b395-60dcae1a93fc', 2024, 3, 'fylke', NULL, NULL, 47200, 44528, 31535, 69156, 571, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('e488da6d-3ec0-5dc5-84dd-2015d1bf3b68', '2203c44f-4091-52c3-ab26-519823bfcb33', 2024, 3, 'fylke', NULL, NULL, 46279, 43659, 30920, 67806, 387, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('e488da6d-3ec0-5dc5-84dd-2015d1bf3b68', '8d9a9f9e-4aab-57f5-a216-fe4927696a38', 2024, 3, 'fylke', NULL, NULL, 45420, 42849, 30346, 66548, 694, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('e488da6d-3ec0-5dc5-84dd-2015d1bf3b68', 'c823ac82-935f-5164-9dc8-fecfa9506da8', 2024, 3, 'fylke', NULL, NULL, 48950, 46179, 32704, 71720, 1435, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('e488da6d-3ec0-5dc5-84dd-2015d1bf3b68', '5cd22b82-cc47-53b9-aa27-2410d1c52355', 2024, 3, 'fylke', NULL, NULL, 47981, 45265, 32057, 70301, 1062, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -13633,7 +13633,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('fe5f5450-9473-5855-b945-62c98ba8c2c8', '39cd5248-1f1f-5bf2-89d2-226b8a7b059f', 2018, 3, 'fylke', NULL, NULL, 35198, 33206, 21964, 59362, 276, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('fe5f5450-9473-5855-b945-62c98ba8c2c8', 'c5551526-c7ea-5447-b8d9-5e6c0fa4368e', 2018, 3, 'fylke', NULL, NULL, 35441, 33435, 22115, 59772, 265, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('fe5f5450-9473-5855-b945-62c98ba8c2c8', '07c8a226-d41e-59c4-8cc9-711c3386df8c', 2018, 3, 'fylke', NULL, NULL, 35967, 33931, 22444, 60659, 391, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('fe5f5450-9473-5855-b945-62c98ba8c2c8', '757b6d31-15ac-5593-acb4-010a27a416fd', 2018, 3, 'fylke', NULL, NULL, 36153, 34107, 22560, 60973, 349, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('fe5f5450-9473-5855-b945-62c98ba8c2c8', '2cb4c36f-41fd-504f-9fda-ed6fe9ebb475', 2018, 3, 'fylke', NULL, NULL, 36163, 34116, 22566, 60989, 242, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('fe5f5450-9473-5855-b945-62c98ba8c2c8', '6fcc152e-5e10-5197-ac8b-00abc161c943', 2018, 3, 'fylke', NULL, NULL, 35124, 33136, 21918, 59237, 164, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -14134,7 +14134,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('f94618f5-a46f-5532-8dc5-48f60c6ccdaa', '1ba0e9c3-7a6a-599c-bda0-cf9a03b41be2', 2022, 2, 'fylke', NULL, NULL, 62474, 58938, 40092, 103292, 1536, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('f94618f5-a46f-5532-8dc5-48f60c6ccdaa', '52be4580-b1a2-54b4-9c64-62ad76511de2', 2022, 2, 'fylke', NULL, NULL, 62970, 59406, 40411, 104112, 1391, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('f94618f5-a46f-5532-8dc5-48f60c6ccdaa', '2deba9bb-9ff3-54ca-9db8-68f6840488c2', 2022, 2, 'fylke', NULL, NULL, 69145, 65231, 44373, 114320, 7281, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('f94618f5-a46f-5532-8dc5-48f60c6ccdaa', '07d081c6-cf3b-5627-9543-1d79dda2f892', 2022, 2, 'fylke', NULL, NULL, 63158, 59583, 40531, 104422, 2151, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('f94618f5-a46f-5532-8dc5-48f60c6ccdaa', '57ed56de-7595-5985-b162-2f28b3efe8f2', 2022, 2, 'fylke', NULL, NULL, 62885, 59325, 40356, 103970, 2458, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('f94618f5-a46f-5532-8dc5-48f60c6ccdaa', 'd2b7ed5d-b414-5f01-bdbb-1f7c8a86ee4a', 2022, 2, 'fylke', NULL, NULL, 64526, 60874, 41409, 106685, 1786, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -14635,7 +14635,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('cd81586d-7623-5d1b-9e9a-15d5d922a0cd', '00a3bac9-47ba-5595-a180-b0945d829039', 2017, 3, 'fylke', NULL, NULL, 44525, 42005, 28983, 64204, 498, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('cd81586d-7623-5d1b-9e9a-15d5d922a0cd', '78f93db3-087d-5937-83e8-75655d16e0c2', 2017, 3, 'fylke', NULL, NULL, 46239, 43622, 30099, 66676, 939, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('cd81586d-7623-5d1b-9e9a-15d5d922a0cd', 'f68099ae-5b85-544f-9724-0ce376a5a993', 2017, 3, 'fylke', NULL, NULL, 45132, 42577, 29378, 65079, 498, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('cd81586d-7623-5d1b-9e9a-15d5d922a0cd', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2018, 3, 'land', NULL, NULL, 48482, 45738, 31559, 69910, 10869, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('cd81586d-7623-5d1b-9e9a-15d5d922a0cd', '98e9b68f-bad4-50d9-83dd-e497ac575463', 2018, 3, 'fylke', NULL, NULL, 47125, 44458, 30676, 67954, 609, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('cd81586d-7623-5d1b-9e9a-15d5d922a0cd', 'a068c256-b2e2-56aa-84d8-70d69fd1e32f', 2018, 3, 'fylke', NULL, NULL, 51391, 48482, 33452, 74104, 1259, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -15136,7 +15136,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('e10699a2-61a1-52bd-9baa-6ae2697adb7a', '18503225-5e98-5d11-ab7e-6f83a9703f82', 2020, 2, 'fylke', NULL, NULL, 61331, 57859, 38362, 102169, 5602, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('e10699a2-61a1-52bd-9baa-6ae2697adb7a', 'b2c9839c-24fb-5cc7-81c4-9896c72033a8', 2020, 2, 'fylke', NULL, NULL, 60116, 56713, 37602, 100145, 4127, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('e10699a2-61a1-52bd-9baa-6ae2697adb7a', '548c3218-cbed-5b62-91f9-53bde1097fa2', 2020, 2, 'fylke', NULL, NULL, 57378, 54130, 35890, 95584, 2143, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('e10699a2-61a1-52bd-9baa-6ae2697adb7a', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2021, 2, 'land', NULL, NULL, 63031, 59463, 39425, 105001, 46541, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('e10699a2-61a1-52bd-9baa-6ae2697adb7a', 'c2f990a8-4d7c-5c9c-83e7-f589ceed1da6', 2021, 2, 'fylke', NULL, NULL, 69964, 66004, 43762, 116551, 6226, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('e10699a2-61a1-52bd-9baa-6ae2697adb7a', 'c6044322-a1e3-5ec7-a830-ab87b5f93d1f', 2021, 2, 'fylke', NULL, NULL, 66813, 63031, 41791, 111301, 4259, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -15637,7 +15637,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('93c08e4b-c6c7-5515-a29e-72a13bea903a', 'e95a50f7-c5ae-52c7-b2e0-55cab1583ae3', 2025, 2, 'fylke', NULL, NULL, 61498, 58017, 41698, 94175, 2336, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('93c08e4b-c6c7-5515-a29e-72a13bea903a', '6a409155-f54f-5961-93b4-1bed378806e7', 2025, 2, 'fylke', NULL, NULL, 62561, 59020, 42419, 95803, 3141, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('93c08e4b-c6c7-5515-a29e-72a13bea903a', '9ac2d494-250d-5e47-8608-00c5a9b5e36a', 2025, 2, 'fylke', NULL, NULL, 69215, 65297, 46931, 105993, 7165, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('93c08e4b-c6c7-5515-a29e-72a13bea903a', 'ba5d9cf2-8619-56b4-868b-eb9d63fbd8e0', 2025, 2, 'fylke', NULL, NULL, 63572, 59974, 43105, 97352, 2218, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('93c08e4b-c6c7-5515-a29e-72a13bea903a', '276fa952-c54a-5003-ad5b-a316883b0d4c', 2025, 2, 'fylke', NULL, NULL, 62064, 58551, 42082, 95042, 3661, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('93c08e4b-c6c7-5515-a29e-72a13bea903a', 'c7a7e07e-3f45-52d1-b395-60dcae1a93fc', 2025, 2, 'fylke', NULL, NULL, 62727, 59176, 42532, 96057, 2552, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -16138,7 +16138,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('6d20710f-4f29-5a8b-bee6-63345951c24a', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2018, 5, 'land', NULL, NULL, 55342, 52209, 37574, 82594, 1680, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('6d20710f-4f29-5a8b-bee6-63345951c24a', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2019, 5, 'land', NULL, NULL, 57445, 54193, 39002, 85732, 1680, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('6d20710f-4f29-5a8b-bee6-63345951c24a', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2020, 5, 'land', NULL, NULL, 59628, 56253, 40485, 88991, 1680, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('6d20710f-4f29-5a8b-bee6-63345951c24a', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2021, 5, 'land', NULL, NULL, 61893, 58390, 42023, 92372, 1680, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('6d20710f-4f29-5a8b-bee6-63345951c24a', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2022, 5, 'land', NULL, NULL, 64246, 60609, 43620, 95882, 1680, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('6d20710f-4f29-5a8b-bee6-63345951c24a', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2023, 5, 'land', NULL, NULL, 66687, 62912, 45277, 99526, 1680, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -16639,7 +16639,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('d98bf9d8-d4de-51ef-ac87-a5b981d51ceb', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2022, 5, 'land', NULL, NULL, 69870, 65915, 46989, 113468, 3095, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('d98bf9d8-d4de-51ef-ac87-a5b981d51ceb', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2023, 5, 'land', NULL, NULL, 72525, 68420, 48774, 117780, 3095, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('d98bf9d8-d4de-51ef-ac87-a5b981d51ceb', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2024, 5, 'land', NULL, NULL, 75281, 71020, 50628, 122256, 3095, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('d98bf9d8-d4de-51ef-ac87-a5b981d51ceb', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2025, 5, 'land', NULL, NULL, 78141, 73718, 52551, 126900, 3095, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('268cc03e-f005-56a9-bc5e-937f92c5779d', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2015, 5, 'land', NULL, NULL, 48484, 45740, 30112, 77091, 1859, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('268cc03e-f005-56a9-bc5e-937f92c5779d', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2016, 5, 'land', NULL, NULL, 50327, 47478, 31256, 80020, 1859, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -17140,7 +17140,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('706b7392-bb09-538c-8d91-b28c535e0a89', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2015, 5, 'land', NULL, NULL, 51431, 48520, 33861, 75187, 3234, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('706b7392-bb09-538c-8d91-b28c535e0a89', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2016, 5, 'land', NULL, NULL, 53386, 50364, 35148, 78044, 3234, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('706b7392-bb09-538c-8d91-b28c535e0a89', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2017, 5, 'land', NULL, NULL, 55415, 52278, 36484, 81010, 3234, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('706b7392-bb09-538c-8d91-b28c535e0a89', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2018, 5, 'land', NULL, NULL, 57520, 54264, 37870, 84088, 3234, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('706b7392-bb09-538c-8d91-b28c535e0a89', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2019, 5, 'land', NULL, NULL, 59706, 56326, 39309, 87283, 3234, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('706b7392-bb09-538c-8d91-b28c535e0a89', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2020, 5, 'land', NULL, NULL, 61975, 58467, 40803, 90601, 3234, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -17641,7 +17641,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('23e493ce-39b8-50bc-af6b-70774a327ef0', '7d075501-65c2-52f7-a587-e7865beb47eb', 2019, 2, 'fylke', NULL, NULL, 73463, 69305, 44173, 124041, 1493, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('23e493ce-39b8-50bc-af6b-70774a327ef0', '1ee4ca75-b879-5d30-b02e-5d17d7b8e845', 2019, 2, 'fylke', NULL, NULL, 82253, 77597, 49458, 138882, 3789, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('23e493ce-39b8-50bc-af6b-70774a327ef0', 'e498353d-88fa-5343-a87c-d490bbff2e46', 2019, 2, 'fylke', NULL, NULL, 78373, 73937, 47125, 132332, 4190, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('23e493ce-39b8-50bc-af6b-70774a327ef0', 'e554f000-37b7-5f59-9e2d-3ee1315eb7a2', 2019, 2, 'fylke', NULL, NULL, 75063, 70814, 45135, 126742, 883, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('23e493ce-39b8-50bc-af6b-70774a327ef0', 'addf68bb-74ee-54ca-bf7f-38443ca58648', 2019, 2, 'fylke', NULL, NULL, 74472, 70257, 44780, 125745, 2135, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('23e493ce-39b8-50bc-af6b-70774a327ef0', '00a3bac9-47ba-5595-a180-b0945d829039', 2019, 2, 'fylke', NULL, NULL, 74354, 70145, 44708, 125545, 1951, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -18142,7 +18142,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('0d680d1b-7ec8-5425-abf0-4def3f9825be', 'b1185c88-d21c-5072-8429-ddef5f210801', 2024, 2, 'fylke', NULL, NULL, 85582, 80738, 52123, 128002, 1980, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('0d680d1b-7ec8-5425-abf0-4def3f9825be', 'e95a50f7-c5ae-52c7-b2e0-55cab1583ae3', 2024, 2, 'fylke', NULL, NULL, 87216, 82279, 53118, 130445, 1758, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('0d680d1b-7ec8-5425-abf0-4def3f9825be', '6a409155-f54f-5961-93b4-1bed378806e7', 2024, 2, 'fylke', NULL, NULL, 85283, 80456, 51941, 127555, 2364, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('0d680d1b-7ec8-5425-abf0-4def3f9825be', '9ac2d494-250d-5e47-8608-00c5a9b5e36a', 2024, 2, 'fylke', NULL, NULL, 95359, 89961, 58077, 142624, 5392, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('0d680d1b-7ec8-5425-abf0-4def3f9825be', 'ba5d9cf2-8619-56b4-868b-eb9d63fbd8e0', 2024, 2, 'fylke', NULL, NULL, 87797, 82827, 53472, 131314, 1669, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('0d680d1b-7ec8-5425-abf0-4def3f9825be', '276fa952-c54a-5003-ad5b-a316883b0d4c', 2024, 2, 'fylke', NULL, NULL, 86349, 81461, 52590, 129149, 2755, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -18643,7 +18643,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('4d8e9c74-ce35-5904-87c2-ad6e20015e4d', '07c8a226-d41e-59c4-8cc9-711c3386df8c', 2017, 3, 'fylke', NULL, NULL, 54523, 51437, 37027, 85202, 504, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('4d8e9c74-ce35-5904-87c2-ad6e20015e4d', '757b6d31-15ac-5593-acb4-010a27a416fd', 2017, 3, 'fylke', NULL, NULL, 54486, 51402, 37002, 85144, 450, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('4d8e9c74-ce35-5904-87c2-ad6e20015e4d', '2cb4c36f-41fd-504f-9fda-ed6fe9ebb475', 2017, 3, 'fylke', NULL, NULL, 54125, 51061, 36756, 84579, 313, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('4d8e9c74-ce35-5904-87c2-ad6e20015e4d', '6fcc152e-5e10-5197-ac8b-00abc161c943', 2017, 3, 'fylke', NULL, NULL, 53738, 50696, 36494, 83975, 211, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('4d8e9c74-ce35-5904-87c2-ad6e20015e4d', '7d075501-65c2-52f7-a587-e7865beb47eb', 2017, 3, 'fylke', NULL, NULL, 53271, 50256, 36177, 83246, 336, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('4d8e9c74-ce35-5904-87c2-ad6e20015e4d', '1ee4ca75-b879-5d30-b02e-5d17d7b8e845', 2017, 3, 'fylke', NULL, NULL, 59786, 56402, 40601, 93426, 853, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -19144,7 +19144,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('7198358f-d0d1-518e-8dd1-409b1238e9bf', 'addf68bb-74ee-54ca-bf7f-38443ca58648', 2018, 2, 'fylke', NULL, NULL, 73232, 69087, 47943, 111962, 2802, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('7198358f-d0d1-518e-8dd1-409b1238e9bf', '00a3bac9-47ba-5595-a180-b0945d829039', 2018, 2, 'fylke', NULL, NULL, 71251, 67218, 46646, 108933, 2560, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('7198358f-d0d1-518e-8dd1-409b1238e9bf', '78f93db3-087d-5937-83e8-75655d16e0c2', 2018, 2, 'fylke', NULL, NULL, 74818, 70583, 48981, 114386, 4824, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('7198358f-d0d1-518e-8dd1-409b1238e9bf', 'f68099ae-5b85-544f-9724-0ce376a5a993', 2018, 2, 'fylke', NULL, NULL, 72587, 68478, 47520, 110975, 2560, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('7198358f-d0d1-518e-8dd1-409b1238e9bf', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2019, 2, 'land', NULL, NULL, 78445, 74005, 51356, 119932, 55828, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('7198358f-d0d1-518e-8dd1-409b1238e9bf', '98e9b68f-bad4-50d9-83dd-e497ac575463', 2019, 2, 'fylke', NULL, NULL, 75464, 71192, 49404, 115373, 3128, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -19645,7 +19645,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('92dce00d-b790-5cf5-bc58-9b4ca8bd2582', '8cda6e02-1ad4-5016-b6a9-b8b902b07d27', 2024, 3, 'land', NULL, NULL, 94166, 88836, 61777, 147464, 10984, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('92dce00d-b790-5cf5-bc58-9b4ca8bd2582', 'ae850c94-019d-59e0-a10f-4c857a2a2c95', 2024, 3, 'fylke', NULL, NULL, 104524, 98608, 68573, 163685, 1486, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('92dce00d-b790-5cf5-bc58-9b4ca8bd2582', '7097559d-5603-5536-8cd8-dd53fc24c9d4', 2024, 3, 'fylke', NULL, NULL, 99816, 94166, 65484, 156312, 1036, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('92dce00d-b790-5cf5-bc58-9b4ca8bd2582', 'b1185c88-d21c-5072-8429-ddef5f210801', 2024, 3, 'fylke', NULL, NULL, 88781, 83756, 58244, 139032, 555, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('92dce00d-b790-5cf5-bc58-9b4ca8bd2582', 'e95a50f7-c5ae-52c7-b2e0-55cab1583ae3', 2024, 3, 'fylke', NULL, NULL, 91789, 86593, 60217, 143741, 493, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('92dce00d-b790-5cf5-bc58-9b4ca8bd2582', '6a409155-f54f-5961-93b4-1bed378806e7', 2024, 3, 'fylke', NULL, NULL, 87862, 82889, 57642, 137592, 663, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
@@ -20146,7 +20146,7 @@ insert into industry_wages (industry_id, region_id, year, nace_level, region_lev
   ('f7c611fd-6d42-59bf-a3b2-39b501e660c0', '757b6d31-15ac-5593-acb4-010a27a416fd', 2018, 3, 'fylke', NULL, NULL, 56434, 53240, 35525, 94907, 460, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('f7c611fd-6d42-59bf-a3b2-39b501e660c0', '2cb4c36f-41fd-504f-9fda-ed6fe9ebb475', 2018, 3, 'fylke', NULL, NULL, 57893, 54616, 36443, 97360, 319, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('f7c611fd-6d42-59bf-a3b2-39b501e660c0', '6fcc152e-5e10-5197-ac8b-00abc161c943', 2018, 3, 'fylke', NULL, NULL, 57508, 54253, 36201, 96713, 216, '{}'::jsonb, 'seed:11418', 'mock', 'alle');
-insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9, antall_ansatte, merknader, source, data_quality, coverage) values
+insert into industry_wages (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn, manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte, merknader, source, data_quality, coverage) values
   ('f7c611fd-6d42-59bf-a3b2-39b501e660c0', '7d075501-65c2-52f7-a587-e7865beb47eb', 2018, 3, 'fylke', NULL, NULL, 59226, 55874, 37283, 99603, 343, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('f7c611fd-6d42-59bf-a3b2-39b501e660c0', '1ee4ca75-b879-5d30-b02e-5d17d7b8e845', 2018, 3, 'fylke', NULL, NULL, 64284, 60645, 40466, 108107, 871, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),
   ('f7c611fd-6d42-59bf-a3b2-39b501e660c0', 'e498353d-88fa-5343-a87c-d490bbff2e46', 2018, 3, 'fylke', NULL, NULL, 61251, 57784, 38557, 103007, 963, '{}'::jsonb, 'seed:11418', 'mock', 'alle'),

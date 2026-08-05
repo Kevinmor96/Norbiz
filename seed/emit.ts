@@ -98,13 +98,13 @@ export function emitSeed(a: SeedBundle): string {
   // det er ærligere å bruke den enn å slå den opp på nytt.
   parts.push(...insertMany('industry_wages',
     ['industry_id','region_id','year','nace_level','region_level','yrke_kode','yrke_navn',
-     'manedslonn_gjennomsnitt','manedslonn_median','manedslonn_desil1','manedslonn_desil9',
+     'manedslonn_gjennomsnitt','manedslonn_median','manedslonn_kvartil_nedre','manedslonn_kvartil_ovre',
      'antall_ansatte','merknader','source','data_quality','coverage'],
     a.wages.map((w) => [
       q(industryId(w.nace_code)), q(regionId(w.region_code, w.vintage)), w.year,
       w.nace_level, q(w.region_level), q(w.yrke_kode), q(w.yrke_navn),
-      q(w.manedslonn_gjennomsnitt), q(w.manedslonn_median), q(w.manedslonn_desil1),
-      q(w.manedslonn_desil9), q(w.antall_ansatte), jb(w.merknader), q(w.source),
+      q(w.manedslonn_gjennomsnitt), q(w.manedslonn_median), q(w.manedslonn_kvartil_nedre),
+      q(w.manedslonn_kvartil_ovre), q(w.antall_ansatte), jb(w.merknader), q(w.source),
       q(w.data_quality), q('alle'),
     ])));
 

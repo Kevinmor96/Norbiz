@@ -98,6 +98,37 @@ describe('kategorilag', () => {
     expect(gale.rows.map((r) => r.slug)).toEqual([]);
   });
 
+  it('gir kategorilønn fra ssb-rader alene, med lønnsgruppens navn', async () => {
+    // import-lonn ekspanderer 11419s lønnsgrupper («56.1_56.3») til enkeltkoder
+    // og stempler gruppens navn i merknader. kategori_lonn skal returnere den
+    // nyeste ssb-raden som dekker flest medlemskoder — og ALDRI mock-rader,
+    // selv om seed-en har fylt tabellen med dem.
+    await db.exec(`
+      insert into industry_wages
+        (industry_id, year, nace_level, yrke_kode,
+         manedslonn_gjennomsnitt, manedslonn_median,
+         manedslonn_kvartil_nedre, manedslonn_kvartil_ovre, antall_ansatte,
+         merknader, source, data_quality, coverage)
+      select i.id, y.year, 3, null, 39400, 36200, 31100, 44800, 71000,
+        '{"lonnsgruppe":"56.1_56.3","gruppe_navn":"Serveringsvirksomhet"}',
+        'test:11419', 'ssb', 'alle'
+      from industries i, (values (2023), (2024)) y(year)
+      where i.nace_code = '56.1'`);
+
+    const r = await db.query<{
+      gruppe_navn: string; year: number; manedslonn_median: number;
+    }>(`select gruppe_navn, year, manedslonn_median from kategori_lonn('restaurant-kafe')`);
+    expect(r.rows).toHaveLength(1);
+    expect(r.rows[0]!.year).toBe(2024);
+    expect(r.rows[0]!.manedslonn_median).toBe(36200);
+    expect(r.rows[0]!.gruppe_navn).toBe('Serveringsvirksomhet');
+
+    // En kategori uten ssb-lønn får ingen rad — panelet skal hoppe over lønn,
+    // ikke falle tilbake på demo-tall.
+    const tom = await db.query(`select * from kategori_lonn('gullsmed')`);
+    expect(tom.rows).toHaveLength(0);
+  });
+
   it('lar aldri medlemskoder overlappe hierarkisk innen kategori og kilde', async () => {
     // 56.1 og 56.101 i samme kategori ville dobbelttalt hele restaurantnæringen.
     const r = await db.query(`

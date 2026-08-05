@@ -13,8 +13,8 @@ import type { RegionRef, WageRow } from './types.js';
  * kostnadsdriver for eieren og forventning for den ansatte.
  *
  * SPENNET ER MÅLT, IKKE GJETTET. SSBs lønnstabeller har en
- * statistikkmål-dimensjon som inneholder gjennomsnitt, median og desiler. Fra-til
- * oppgis derfor som 1. og 9. desil. Det er hele poenget med regelen «finnes
+ * statistikkmål-dimensjon som inneholder gjennomsnitt, median og kvartiler. Fra-til
+ * oppgis derfor som nedre og øvre kvartil. Det er hele poenget med regelen «finnes
  * spennet i kilden, skal vi ikke gjette det» — anslagslaget er for der kilden
  * tier, og her tier den ikke.
  */
@@ -128,8 +128,8 @@ function mkWage(
     yrke_kode: yrkeKode, yrke_navn: yrkeNavn,
     manedslonn_gjennomsnitt: Math.round(median * 1.06),
     manedslonn_median: median,
-    manedslonn_desil1: Math.round(median * d1Factor),
-    manedslonn_desil9: Math.round(median * d9Factor),
+    manedslonn_kvartil_nedre: Math.round(median * d1Factor),
+    manedslonn_kvartil_ovre: Math.round(median * d9Factor),
     antall_ansatte: staff,
     merknader: {},
     source: 'seed:11418',

@@ -14,7 +14,7 @@
 -- Nasjonalt, hele næringen: én rad per næring og år, alle NACE-nivåer.
 insert into industry_wages
   (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn,
-   manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9,
+   manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre,
    antall_ansatte, merknader, source, data_quality, coverage)
 select
   i.id, r.id, y, i.nace_level, 'land', null, null,
@@ -48,7 +48,7 @@ cross join lateral (
 -- Rogaland over snittet, distriktsfylkene under — ikke tilfeldig støy.
 insert into industry_wages
   (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn,
-   manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9,
+   manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre,
    antall_ansatte, merknader, source, data_quality, coverage)
 select
   i.id, r.id, y, i.nace_level, 'fylke', null, null,
@@ -89,7 +89,7 @@ where i.nace_level <= 3;
 -- radene er merket 'beregnet', ikke som målt statistikk.
 insert into industry_wages
   (industry_id, region_id, year, nace_level, region_level, yrke_kode, yrke_navn,
-   manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9,
+   manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre,
    antall_ansatte, merknader, source, data_quality, coverage)
 select
   i.id, r.id, w.year, i.nace_level, 'land', k.yrke, k.navn,

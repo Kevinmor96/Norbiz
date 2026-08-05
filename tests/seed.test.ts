@@ -266,12 +266,12 @@ describe('wages', () => {
     }
   });
 
-  it('oppgir spennet som målte desiler rundt medianen', () => {
-    // Spennet er 1. og 9. desil fra kilden, ikke et anslag vi har gjettet. Da
+  it('oppgir spennet som målte kvartiler rundt medianen', () => {
+    // Spennet er nedre og øvre kvartil fra kilden, ikke et anslag vi har gjettet. Da
     // må medianen faktisk ligge inni det, ellers er spennet meningsløst.
     for (const r of rows) {
-      expect(r.manedslonn_desil1!).toBeLessThanOrEqual(r.manedslonn_median!);
-      expect(r.manedslonn_desil9!).toBeGreaterThanOrEqual(r.manedslonn_median!);
+      expect(r.manedslonn_kvartil_nedre!).toBeLessThanOrEqual(r.manedslonn_median!);
+      expect(r.manedslonn_kvartil_ovre!).toBeGreaterThanOrEqual(r.manedslonn_median!);
     }
   });
 

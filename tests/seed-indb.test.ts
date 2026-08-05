@@ -108,7 +108,7 @@ describe('indb-seed', () => {
     expect(await one(`select count(*) c from industry_wages
       where data_quality = 'ai_anslag'`)).toBe(0);
     expect(await one(`select count(*) c from industry_wages
-      where manedslonn_desil1 is null or manedslonn_desil9 is null`)).toBe(0);
+      where manedslonn_kvartil_nedre is null or manedslonn_kvartil_ovre is null`)).toBe(0);
   });
 
   it('påstår ikke at noe kommer fra SSB eller Brreg', async () => {

@@ -78,10 +78,16 @@ lån næringens vekst og la den se ut som selskapets.
 **Ingen ferskhetspåstander.** SSB publiserer årlig med ett til to års
 etterslep. «LIVE», «sanntid» og «oppdatert daglig» er løgn her.
 
-**Lønnsspennet er målt, ikke gjettet.** `industry_wages` bærer 1. og 9. desil
-fra SSBs statistikkmål-dimensjon. Anslagslaget er for der kilden tier — her tier
-den ikke, så spennet skal ikke merkes som anslag. Radene med `yrke_kode` er et
-unntak: koblingen NACE-til-yrke er vår, ikke SSBs, og de er `beregnet`.
+**Lønnsspennet er målt, ikke gjettet — og det er kvartiler, ikke desiler.**
+Skjemaet antok desiler; tabell 11419 måler Gjennomsnitt, Median, Nedre og Øvre
+kvartil (migrasjon 0033 byttet kolonnenavn — kvartiler i desilkolonner ville
+vært etikettløgn). 11419 publiserer per **lønnsgruppe** («56.1_56.3»,
+«41-43»), ikke frie NACE-koder: import-lonn ekspanderer gruppene til
+enkeltkoder, mest spesifikke gruppe vinner per kode, og gruppens navn følger
+raden i `merknader`. `kategori_lonn()` velger nyeste rad som dekker flest av
+kategoriens koder — UI-et skal vise gruppenavnet der lønnsflaten er bredere
+enn kategorien (frisør får «Annen personlig tjenesteyting»). Månedslønn er
+per heltidsekvivalent.
 
 **Støy i seed må såes på naturlige nøkler.** `_noise('...' || st.id)` ser
 harmløst ut, men `id` er `gen_random_uuid()`, så seed-en slutter å være
@@ -99,10 +105,15 @@ ikke er en terskel — det er en anbefaling. Ingen av funksjonene er
 `security definer`, alle views kjører med `security_invoker`, og tester
 håndhever at det forblir slik.
 
-**Folketall har én kilde.** `REGION_POPULATION` i `seed/config.ts` former både
-de regionale cellestørrelsene og `region_population`. To kilder her betyr at
-konkurransedelscoren — enheter per innbygger — regnes mot et annet folketall enn
-det som bestemte hvor mange enheter det ble.
+**Folketall har én kilde.** I seed-en er det `REGION_POPULATION` i
+`seed/config.ts`, som former både de regionale cellestørrelsene og
+`region_population` — to kilder der betyr at konkurransedelscoren regnes mot
+et annet folketall enn det som bestemte hvor mange enheter det ble. I
+livebasen er kilden `ssb:07459` via import-befolkning: fylkestall summeres
+fra kommunene per tosifret prefiks per år, slik at fylkesårgangene følger
+kommunenumrene av seg selv (16/17→50 og 19/20→54 aliasmappes for 2017–2019).
+Etter hver befolknings- eller statistikkimport reberegnes `industry_scores`
+fra viewet `industry_scores_computed`.
 
 **Kategorimedlemmer overlapper aldri hierarkisk innen kategori og kilde.**
 `kilde='ssb'` er SN2007-koder for statistikk, `kilde='brreg'` er
@@ -226,7 +237,7 @@ etterprøvbare spørringer i `docs/superpowers/specs/2026-08-04-ssb-api-verifise
 
 ## Status
 
-Datalaget: ferdig, 140 tester grønne, 32 migrasjoner.
+Datalaget: ferdig, 141 tester grønne, 33 migrasjoner.
 
 **Bloggen skriver seg selv, med samme forankring som innsiktene.** `articles`
 (migrasjon 0032) fylles av `generate-artikkel`: målte tall inn i prompten,
@@ -296,12 +307,18 @@ feltnavnene må være felt vi sendte. Rader som viser til noe modellen ikke fikk
 forkastes og telles i `forkastet` i svaret. En prompt som begynner å hallusinere
 blir da et tall i loggen, ikke feil tekst i UI-et.
 
-**Lønnstall går ikke inn i prompten.** `industry_wages` er fortsatt `mock`, og
-en innsikt forankret i mock-tall er en oppdiktet påstand med kildehenvisning —
-verre enn ingen innsikt. Bare `data_quality='ssb'` sendes inn.
+**Lønnstall går ikke inn i promptene ennå.** Regelen som holdt dem ute var at
+`industry_wages` var mock; siden 2026-08-05 er lønnen ekte (`ssb:11419`), så
+generate-insights og generate-artikkel KAN få lønn i nyttelasten — men det er
+en bevisst utvidelse med egen validering, ikke noe som skjer av seg selv.
+Fortsatt gjelder: bare `data_quality='ssb'` sendes inn.
 
-Fortsatt syntetisk: `industry_wages` og `region_population` er seed-data
-(`mock`/`beregnet`), og `industry_estimates`/`ai_insights` er `ai_anslag`.
+**Ingenting i basen er syntetisk lenger (2026-08-05).** `industry_wages` er
+`ssb:11419` (1 100 rader, 2015–2025), `region_population` er `ssb:07459`
+(150 rader, 2017–2026, verifisert mot offisielle folketall), og alle 28 377
+scorene er reberegnet mot ekte folketall — alle har nå `score_total`.
+`ai_insights`/`articles` er `ai_anslag`, merket som det. `industry_estimates`
+er tom med vilje.
 
 Frontend bygges i Lovable-prosjektet `5bab9b75-aa19-4f9b-b7db-1472ffd79523` mot
 den basen.

@@ -108,8 +108,8 @@ export interface WageRow {
   yrke_navn: string | null;
   manedslonn_gjennomsnitt: number | null;
   manedslonn_median: number | null;
-  manedslonn_desil1: number | null;
-  manedslonn_desil9: number | null;
+  manedslonn_kvartil_nedre: number | null;
+  manedslonn_kvartil_ovre: number | null;
   antall_ansatte: number | null;
   merknader: Record<string, string>;
   source: string;
