@@ -69,6 +69,27 @@ describe('kategorilag', () => {
     expect(Number(r.rows[0]!.verdener)).toBe(9);
   });
 
+  it('gir hver kategori søkeord, ASCII-foldet og uten dobbeltpekere', async () => {
+    // Kontrakten fra migrasjon 0030: frontend folder søkestrengen (ø->o,
+    // æ->ae, å->a, små bokstaver) og matcher mot lagrede ord som allerede ER
+    // foldet. Et ord med ø i basen kan derfor aldri bli truffet.
+    const tomme = await db.query<{ slug: string }>(
+      `select slug from categories where cardinality(sokeord) = 0`);
+    expect(tomme.rows.map((r) => r.slug)).toEqual([]);
+
+    const ufoldet = await db.query<{ slug: string; ord: string }>(
+      `select slug, ord from categories, unnest(sokeord) ord
+       where ord !~ '^[a-z0-9-]+$'`);
+    expect(ufoldet.rows).toEqual([]);
+
+    // Ett ord som peker på to kategorier gjør søket tvetydig — da vinner en
+    // vilkårlig kategori, og brukeren ser ikke at det fantes en annen.
+    const dubletter = await db.query<{ ord: string; n: string }>(
+      `select ord, count(*)::text n from categories, unnest(sokeord) ord
+       group by ord having count(*) > 1`);
+    expect(dubletter.rows).toEqual([]);
+  });
+
   it('lar aldri medlemskoder overlappe hierarkisk innen kategori og kilde', async () => {
     // 56.1 og 56.101 i samme kategori ville dobbelttalt hele restaurantnæringen.
     const r = await db.query(`

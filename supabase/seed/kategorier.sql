@@ -332,4 +332,53 @@ select b.navn, c.id, nullif(b.org_nr, ''), b.sok_navn, nullif(b.segment,''), b.m
 ) as b(navn, slug, org_nr, sok_navn, segment, merknad)
 join categories c on c.slug = b.slug;
 
+-- Søkeord: det folk skriver i søkefeltet, ikke det vi kaller kategorien.
+-- ASCII-foldet og i små bokstaver — se migrasjon 0030 for kontrakten med
+-- frontend. Kategorinavn og verden trenger ikke gjentas her; frontend matcher
+-- dem i tillegg. Ingen ord får peke på to kategorier (test håndhever det):
+-- «verksted» bor hos bilverksted, «byra» hos ingen — det ordet er for bredt.
+update categories set sokeord = v.ord from (values
+  ('restaurant-kafe',        array['kafe','cafe','spisested','pizzeria','sushi','kaffebar']),
+  ('gatekjokken',            array['kebab','hurtigmat','fastfood','burger','gatemat','foodtruck']),
+  ('bar-pub',                array['bar','pub','utested','nattklubb','skjenkested']),
+  ('catering-kantine',       array['catering','kantine','storkjokken','selskapsmat']),
+  ('bakeri-konditori',       array['bakeri','konditori','kake','brod','bakst']),
+  ('dagligvare',             array['matbutikk','dagligvarebutikk','supermarked','kolonial','naerbutikk']),
+  ('kiosk',                  array['kiosk','storkiosk','servicehandel']),
+  ('klesbutikk',             array['klaer','klesbutikk','mote','motebutikk','tekstil']),
+  ('skobutikk',              array['sko','skotoy']),
+  ('sportsbutikk',           array['sport','sportsutstyr','friluftsutstyr','sportshandel']),
+  ('mobel-interior',         array['mobler','mobelbutikk','interior','innredning','interiorbutikk']),
+  ('elektronikkbutikk',      array['elektronikk','hvitevarer','mobilbutikk','databutikk','elektrohandel']),
+  ('gullsmed',               array['gullsmed','smykker','urmaker','klokker']),
+  ('optiker',                array['optiker','briller','brillebutikk','synstest','linser']),
+  ('blomster-hage',          array['blomsterbutikk','blomster','hagesenter','planter']),
+  ('hotell-overnatting',     array['hotell','overnatting','pensjonat','vandrerhjem']),
+  ('camping-hytter',         array['camping','campingplass','hytteutleie','hytter']),
+  ('opplevelser-aktiviteter',array['opplevelse','aktivitet','guiding','turisme','event']),
+  ('reisebyra-arrangor',     array['reisebyra','turoperator','reisearrangor','charter']),
+  ('frisor',                 array['frisorsalong','klipp','barberer','harpleie','salong']),
+  ('hudpleie-velvare',       array['hudpleie','spa','massasje','negler','skjonnhetssalong','vipper']),
+  ('treningssenter',         array['gym','fitness','treningsstudio','trening']),
+  ('tannlege',               array['tannlege','tannklinikk','tannhelse']),
+  ('fysioterapi',            array['fysioterapeut','fysio']),
+  ('byggefirma',             array['bygg','entreprenor','snekker','tomrer','byggmester']),
+  ('elektriker',             array['elektro','elinstallator','installator']),
+  ('rorlegger',              array['vvs','ror','ventilasjon','varmepumpe']),
+  ('maler-overflate',        array['maler','malerfirma','gulvlegger','tapetserer','overflatebehandling']),
+  ('renhold',                array['rengjoring','vaskehjelp','vaskebyra','renholdsbyra','vaskefirma']),
+  ('regnskap-revisjon',      array['regnskap','regnskapsforer','revisor','revisjon','bokforing']),
+  ('advokat',                array['advokatfirma','jurist','rettshjelp','advokatkontor']),
+  ('bilforhandler',          array['bilbutikk','bilsalg','bruktbil','bilforretning']),
+  ('bilverksted',            array['verksted','bilmekaniker','mekaniker','bilservice','eu-kontroll']),
+  ('dekk-bildeler',          array['dekk','dekkhotell','bildeler','dekkskift']),
+  ('motorsykkel-fritid',     array['mc','motorsykkel','snoscooter','atv','moped']),
+  ('reklame-mediebyra',      array['reklamebyra','mediebyra','markedsforing','kommunikasjonsbyra','reklame']),
+  ('film-tv',                array['filmproduksjon','tv-produksjon','videoproduksjon','film']),
+  ('eiendomsmegler',         array['megler','eiendomsmegling','boligsalg']),
+  ('eiendomsforvaltning',    array['forvaltning','utleie','boligutleie','eiendomsdrift']),
+  ('eiendomsutvikler',       array['utbygger','eiendomsutvikling','boligutvikler','tomteutvikling'])
+) as v(slug, ord)
+where categories.slug = v.slug;
+
 commit;

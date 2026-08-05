@@ -1,4 +1,4 @@
-# Designsystem — Bransjeindeks
+# Designsystem — Bransjesjekk
 
 Modus: **Operate.** Leseren er i en oppgave — «er denne typen virksomhet verdt å
 drive, her?» — og skal komme ut med et svar. Skanbarhet, konsistens og presisjon
@@ -9,6 +9,71 @@ luksusstripa. Alt annet — kategorisider, næringssider, topplister, dashbord,
 fylkesprofiler — er Operate.
 
 Dette er en **forsterkning**, ikke en ny visuell verden. Signaturen beholdes.
+
+## Navnet: Bransjesjekk
+
+Domenet er kjøpt: `bransjesjekk.no`. Navnebyttet er ikke kosmetikk — det er den
+eneste delen av designsystemet som endrer *tonen*, og det peker samme vei som
+målgruppen vi faktisk skal ha de første årene.
+
+«Indeks» er et substantiv. Det beskriver en beholder, lover fullstendighet og
+adresserer en analytiker. «Sjekk» er et **verb**. Det beskriver en handling,
+lover ett svar, og adresserer et menneske med et konkret spørsmål. Fire
+konsekvenser, og de er alle designbeslutninger:
+
+**1. Produktet er et verb, så flaten må tilby verbet.** Dagens navigasjon heter
+«Indeksen · Topplister · Dashbord · Favoritter» — fire substantiver som navngir
+datamodellen vår. «Indeksen» er den svakeste lenkeetiketten i produktet: den
+sier hva vi har, ikke hva du får. Handlingen «sjekk en bransje» skal være det
+første som er mulig å gjøre. Se §10.
+
+**2. En sjekk er entall.** Man sjekker én ting. Kategorisiden er derfor
+produktet, og forsiden er døra — ikke katalogen. Ni verdener ganget med 40
+kategorier på forsiden er en katalog.
+
+**3. En sjekk ender i en dom, og det hever kravet til Tier 1.** «Indeks» lovte
+bare en plassering i en liste. «Sjekk» lover et svar. De to herotallene skal
+derfor følges av **én setning på vanlig norsk, satt sammen av målte felt** — ikke
+en AI-vurdering, ikke en anbefaling:
+
+```
+9,3 % driftsmargin · ned 1,2 pp fra 2023
+1,4 ansatte per bedrift — dette er en bransje du driver selv.
+```
+
+Andre linje er `eierlonn_i_resultat` og `ansatte per foretak` skrevet ut som
+språk. Den er sann fordi den bare gjentar tall som står på siden.
+
+**4. «Sjekk» må aldri bli vår handling.** Skriv aldri «Bransjesjekk har sjekket
+5 805 selskaper». Vi har *sammenstilt* dem, vi har ikke revidert dem. Ordet skal
+forbli brukerens handling — den samme disiplinen som forbudet mot «LIVE», og av
+samme grunn: en påstand om arbeid vi ikke har gjort.
+
+Tonen blir lettere i verbene og skal bli **strengere i substantivene**. «Sjekk
+bransjen før du satser» er riktig register. «Er frisør en pengemaskin?» er det
+ikke — troverdigheten vår ligger i kildelinja, og den tåler ikke at overskriften
+selger.
+
+«Indeks» beholdes som *vanlig substantiv* der det er teknisk presist:
+`score_total` er en indeks, og skal kunne kalles det. Det er produktnavnet som
+byttes, ikke ordet.
+
+### Ordmerket
+
+`Bransje` i vekt 500, `sjekk` i vekt 700 — samme størrelse, samme farge, ingen
+aksentfarge, sporing −0,02em. Trykket lander på verbet, som er det produktet
+gjør. Space Grotesk, og dette er det **eneste** stedet display-fonten bærer et
+ord istedenfor et tall (se §3).
+
+**Ingen avkrysningsmerke.** Det åpenbare merket for en «sjekk» er en grønn ✓, og
+grønt er opptatt: scorestripa har bestemt at grønt betyr bra. En grønn hake ved
+siden av en score på 31 av 100 er en selvmotsigelse leseren kjenner før hun
+leser. I tillegg sier en hake «verifisert» — påstanden vi nettopp forbød.
+
+Trengs et merke i favicon, nav og delekort, er det **scorestripa selv**: fem
+segmenter, som fungerer i én farge og leses som fem hakk ved 16 px. Den sier
+måling, ikke godkjenning, og er allerede produktets mest gjenkjennelige objekt.
+Dagens `favicon.ico` er Lovable-standarden og skal byttes.
 
 ## 1. Signaturen som beholdes
 
@@ -98,6 +163,9 @@ tilstander som mangler i dag: `hover`, `focus-visible`, `active`, `disabled`,
 brødtekst. En KPI på 44 px i Space Grotesk er et redaksjonelt grep; «ANSATTE PER
 FORETAK» i samme font er støy.
 
+**Ett unntak:** ordmerket. Det er et bilde, ikke tekst i grensesnittet, og har
+sin egen regel i §Navnet.
+
 Fast rem-skala, forhold 1.2, ingen `clamp()` i produktflatene:
 
 | Token | rem | px | Bruk |
@@ -167,7 +235,7 @@ Fire tilstander, med reell visuell forskjell — ikke fire nyanser av grått:
 | Tilstand | Behandling |
 |---|---|
 | `ssb` / `brreg` — målt | Nøytral kildelinje, ingen ramme. Standardtilfellet skal ikke rope. |
-| `beregnet` — utledet | Kildelinje med «beregnet av Bransjeindeks» og hvilke felt som ligger til grunn. |
+| `beregnet` — utledet | Kildelinje med «beregnet av Bransjesjekk» og hvilke felt som ligger til grunn. |
 | `ai_anslag` — vurdering | Tydelig annen form: egen ramme, «AI-vurdering», alvorlighet synlig, og `Grunnlag` utvidbart til de faktiske radene. Aldri samme form som et målt tall. |
 | `mock` — demodata | Skal ikke stå ved siden av ekte tall uten merking. I dag gjelder det bare lønnsserien. |
 
@@ -247,3 +315,98 @@ var hardkodet i en JSX-streng.
 Alle tall i copy hentes fra basen med `count: 'exact'`. Dette er ikke en
 kodestandard, det er en designregel: et produkt som selger presisjon kan ikke ha
 feil tall i sin egen ingress.
+
+Regelen gjelder også `<head>`. Sidetittelen og `og:description` i `__root.tsx`
+sier fortsatt «Tretti bransjer» — det er den samme hardkodingen som ble rettet i
+heroen, ett lag lenger ut, og det er den versjonen som havner i Google og på
+Facebook.
+
+## 10. Forsiden er en dør, ikke et filter
+
+Forsiden åpner i dag nær et filteroppsett med våre egne ord i, og det er den
+dyreste feilen i hele produktet: den krever at leseren kan vokabularet vårt før
+hun får se noe. «NACE-nivå», «foretak», «unit_type» og «coverage» er riktige ord
+som hører i motoren, ikke i inngangen.
+
+**Over folden, i denne rekkefølgen:**
+
+1. Én linje som sier hva du får. Ikke hva vi har.
+2. **Ett søkefelt: «Hva vil du sjekke?»** Fokus ved innlasting på desktop,
+   ikke på mobil (der tar tastaturet folden).
+3. Rett under: **ekte tall på ekte kategorier.** Fire til seks kort med
+   driftsmargin, vekst og et navngitt selskap i hver. Ikke en kategorimeny med
+   tomme kort — et tall over folden er hele forskjellen mellom et verktøy og en
+   landingsside.
+
+Søkefeltet slår mot **alle 40 kategoriene lokalt**, ikke mot basen per tastetrykk.
+Førti rader er ingenting; hent dem én gang og filtrer i minnet. To krav:
+
+- **Søkeordene ligger i basen.** `categories.sokeord` (migrasjon 0030) bærer det
+  folk faktisk skriver: «kafe» og «pizzeria» skal treffe Restaurant & kafé,
+  «gym» skal treffe Treningssenter, «vvs» skal treffe Rørlegger, «kebab» skal
+  treffe Gatekjøkken. Uten dette laget må leseren gjette kategorinavnet vårt, og
+  da er søkefeltet bare et filter med ett felt.
+- **Matchingen folder diakritiske tegn i BEGGE retninger.** Den som skriver
+  «frisor» skal treffe Frisør, og den som skriver «kafé» skal treffe et
+  søkeord lagret som «kafe». NFD, strip kombinerende tegn, og i tillegg
+  ø→o, æ→ae, å→a. Et søk som feiler på ø er ubrukelig i Norge.
+
+**Filterraden flyttes ut av forsiden** til `/avansert`, som allerede finnes.
+Navigasjonen slutter å navngi datamodellen: ordmerket er hjemlenken, så
+«Indeksen» er redundant og forsvinner. Igjen står destinasjoner en leser kjenner
+igjen — topplister, kart, avansert.
+
+## 11. Kategorisiden er produktet
+
+Førti kategorisider er førti innganger fra søk, og de bærer trafikken de første
+årene. Domenevalget vant ikke den trafikken; det gjør H1-en.
+
+**H1 er spørsmålet, ikke substantivet.** «Frisør» er en etikett. «Hva tjener en
+frisørsalong i Norge?» er det folk skriver inn, og svaret skal stå i første
+avsnitt og i Tier 1 — over folden, uten klikk. Kategorinavnet blir en overlinje
+over H1, slik at brødsmulen fortsatt fungerer.
+
+**Hver rute har sin egen `head()`.** I dag har bare `__root.tsx` metadata, så
+alle 40 kategorisider, 15 fylkessider og topplistene deler én tittel og én
+beskrivelse. For et produkt som lever av langhalen er det den enkeltfeilen som
+koster mest:
+
+```
+<title>Hva tjener en frisørsalong? Driftsmargin, omsetning og vekst | Bransjesjekk</title>
+<meta name="description" content="Frisør i Norge: 9,3 % driftsmargin, 1,4 ansatte per bedrift, 2 431 virksomheter. Tall fra SSB 2024 og Regnskapsregisteret.">
+<link rel="canonical" href="https://bransjesjekk.no/kategori/frisor">
+```
+
+Tittel og beskrivelse bygges fra radene siden faktisk viste — samme regel som §9.
+Er tallet ikke publisert, står det ikke i beskrivelsen.
+
+`lang` settes til `nb`, ikke `no`. Kanonisk vert er `bransjesjekk.no`.
+
+**404- og feilsidene er på engelsk.** «Page not found», «Something went wrong on
+our end», «Go home» — på et norsk produkt med norsk domene. De skal oversettes,
+og 404 skal gjøre en jobb: tilby søkefeltet fra §10 istedenfor bare en
+hjemlenke.
+
+Strukturerte data er aktuelt her, men bare det vi faktisk kan stå for:
+`Dataset` med `license` og `creditText` for SSB (CC BY 4.0) og Brreg (NLOD).
+Det er ærlig, og det dekker samtidig attribusjonsplikten. Ikke `Review`, ikke
+`AggregateRating` — vi vurderer ikke bedrifter.
+
+## 12. Navnebyttet, konkret
+
+Tre navn er i omløp: repoet heter `Norbiz`, produktet het `Bransjeindeks`, og
+Lovable-prosjektet viser fortsatt «Norsk Forretningskompass». Ett navn gjelder:
+**Bransjesjekk**.
+
+| Flate | Fra | Til |
+|---|---|---|
+| Ordmerke i toppnav | `Bransjeindeks` | `Bransje` 500 + `sjekk` 700 |
+| `<title>` og OG/Twitter | «Bransjeindeks — hva lønner seg…», «Tretti bransjer» | Bransjesjekk, tall fra basen |
+| `twitter:site` | `@Bransjeindeks` | fjernes til kontoen finnes |
+| Kildelinje `beregnet` | «beregnet av Bransjeindeks» | «beregnet av Bransjesjekk» |
+| Favicon | Lovable-standard | scorestripa, fem segmenter |
+| Kanonisk vert | `*.lovable.app` | `bransjesjekk.no` |
+| Lovable-prosjektnavn | Norsk Forretningskompass | Bransjesjekk |
+
+Repoet får hete `Norbiz` videre — en git-remote er ikke en merkevareflate, og
+å bytte den koster mer enn den gir. `CLAUDE.md` sier hvorfor.

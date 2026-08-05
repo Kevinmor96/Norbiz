@@ -1,8 +1,10 @@
-# Bransjeindeks — faste regler
+# Bransjesjekk — faste regler
 
 Beslutningsverktøy for den som vurderer å starte, kjøpe eller investere i en
-bedrift i Norge. Målgruppe i prioritert rekkefølge: rådgivere, banker og
-næringsmeglere; investorer og oppkjøpere; gründere.
+bedrift i Norge. Målgruppe i prioritert rekkefølge: gründere og nysgjerrige —
+det er de som starter trafikken de første årene; deretter investorer og
+oppkjøpere; rådgivere og banker sist. Produktet heter **Bransjesjekk** og bor
+på `bransjesjekk.no`; det het Bransjeindeks fram til 2026-08-05.
 
 ## Posisjonering
 

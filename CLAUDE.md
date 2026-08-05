@@ -1,10 +1,14 @@
-# Bransjeindeks
+# Bransjesjekk
 
 Beslutningsverktøy for den som vurderer å starte, kjøpe eller investere i en
 bedrift i Norge. Svarer på ett spørsmål: **er denne typen virksomhet verdt å
 drive, her?**
 
-Repoet heter `Norbiz` av historiske grunner. Produktet heter Bransjeindeks.
+Repoet heter `Norbiz` av historiske grunner. Produktet heter **Bransjesjekk**
+og bor på `bransjesjekk.no` (kjøpt 2026-08-05). Det het Bransjeindeks fram til
+da, så eldre spec-er og dokumenter bruker det navnet — de skal ikke skrives om,
+men ny tekst, copy og UI skal si Bransjesjekk. Hva navnebyttet gjør med tonen
+står i `DESIGN.md` under «Navnet».
 
 ## Hvor ting står
 
@@ -222,7 +226,7 @@ etterprøvbare spørringer i `docs/superpowers/specs/2026-08-04-ssb-api-verifise
 
 ## Status
 
-Datalaget: ferdig, 135 tester grønne, 29 migrasjoner.
+Datalaget: ferdig, 136 tester grønne, 30 migrasjoner.
 
 **Supabase-prosjektet `jcpuhhrqhgrnihiacosy` har ekte data.** Tre importører er
 deployet og kjørt 2026-08-04:
