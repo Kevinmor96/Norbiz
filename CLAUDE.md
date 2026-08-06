@@ -272,10 +272,16 @@ deployet og kjørt 2026-08-04:
 - `industry_scores`: 28 377 scorer, 26 770 med `score_total`.
 - `industries`: 1 058 koder fra SSBs kodeliste; de 117 kuraterte beholder
   navn/slug fra seed (importen er insert-only, se headeren i import-ssb).
-- `categories` / `category_members`: 43 folkelige kategorier i 10 verdener
+- `categories` / `category_members`: 46 folkelige kategorier i 11 verdener
   (Hav & sjømat kom 2026-08-06 med sjømatindustri, skipsverft og rederi —
   fiske/akvakultur (03) er bevisst utelatt til en egen import finnes, for
-  strukturstatistikken dekker ikke SSB-seksjon A), 115 medlemskoder. Alle 40 har tall i `kategori_oversikt()`, og alle har en
+  strukturstatistikken dekker ikke SSB-seksjon A; Olje & energi og telekom kom
+  samme dag — bank og finans (64–66) venter av samme grunn som akvakultur:
+  seksjon K har egen regnskapsstatistikk som krever egen import), 121
+  medlemskoder. Equinor, Aker BP og Vår Energi står i companies uten tall:
+  de fører regnskap i USD/EUR, og valutaregelen i import-brreg nekter å blande
+  valutaer i en NOK-rangering. Veien til tallene er omregning med Norges Banks
+  årskurs, merket i UI-et — en egen utvidelse, ikke et unntak i regelen. Alle 40 har tall i `kategori_oversikt()`, og alle har en
   selskapsliste.
 - `kommuner`: 358 rader fra SSBs klassifikasjon 131 (2024-årgangen) pluss
   Svalbard og Jan Mayen manuelt. Ingen selskaper står med ukjent kommunekode.

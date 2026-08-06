@@ -55,6 +55,16 @@ export const TREE: Top[] = [
     ['30.1', 'Bygging av skip og båter', [
         ['30.111','Bygging av skip og skrog over 100 br.tonn','Skipsverft'],
         ['30.115','Innrednings- og installasjonsarbeid utført på skip over 100 br.tonn','Skipsinnredning']]]]],
+  ['06', 'Utvinning av råolje og naturgass', 'tjenesteyting', [
+    ['06.1', 'Utvinning av råolje', [
+        ['06.100','Utvinning av råolje','Oljeselskap']]]]],
+  ['09', 'Tjenester til bergverk og utvinning', 'bygg', [
+    ['09.1', 'Tjenester tilknyttet utvinning av råolje og naturgass', [
+        ['09.101','Boretjenester tilknyttet utvinning av råolje og naturgass','Boreselskap'],
+        ['09.109','Andre tjenester tilknyttet utvinning av råolje og naturgass','Oljeservice']]]]],
+  ['61', 'Telekommunikasjon', 'tjenesteyting', [
+    ['61.3', 'Satellittbasert telekommunikasjon', [
+        ['61.300','Satellittbasert telekommunikasjon','Satellittoperatør']]]]],
   ['50', 'Sjøfart', 'tjenesteyting', [
     ['50.1', 'Sjøfart og kysttrafikk med passasjerer', [
         ['50.102','Innenlandske kystruter med passasjerer','Kystrederi']]],

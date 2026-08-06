@@ -469,4 +469,45 @@ update categories set sporsmal = v.sp from (values
 ) as v(slug, sp)
 where categories.slug = v.slug;
 
+-- Olje & energi + telekom (2026-08-06). Utvinning (06) og oljeservice (09.1)
+-- har full strukturstatistikk; telekom (61) manglet også og bærer KSAT
+-- (Kongsberg Satellite Services, SN2025 61.100 — SN2025 slo kabel, satellitt
+-- og trådløst sammen i 61.1). BANK OG FINANS (64–66) er bevisst utelatt av
+-- samme grunn som akvakultur: seksjon K er ikke i strukturstatistikken, og
+-- finansforetakene har egen SSB-regnskapsstatistikk som krever egen import.
+-- Romfart (51.220) har ETT foretak hos SSB — det er ikke en kategori, det er
+-- et selskap.
+insert into categories (slug, navn, verden, beskrivelse, farge, ikon, sortering) values
+  ('oljeselskap','Oljeselskap','Olje & energi','16 operatører, 1 295 mrd — næringen som finansierer alt annet.','#B4632C','flame',120),
+  ('oljeservice','Oljeservice & leverandører','Olje & energi','231 mrd fra 330 foretak — leverandørindustrien bak sokkelen.','#B4632C','drill',121),
+  ('telekom','Telekom & satellitt','Media & kommunikasjon','Nettet alt annet går gjennom — fra fiber til satellittene til KSAT.','#0FA3B1','satellite',82);
+
+insert into category_members (category_id, nace_code, kilde)
+select c.id, m.kode, m.kilde from (values
+  ('oljeselskap','06','ssb'),   ('oljeselskap','06','brreg'),
+  ('oljeservice','09.1','ssb'), ('oljeservice','09.1','brreg'),
+  ('telekom','61','ssb'),       ('telekom','61','brreg')
+) as m(slug, kode, kilde)
+join categories c on c.slug = m.slug;
+
+insert into nace_sn2025 (code, navn, nivaa) values
+  ('06','Utvinning av råolje og naturgass',2),
+  ('09.1','Tjenester tilknyttet utvinning av råolje og naturgass',3),
+  ('61','Telekommunikasjon',2)
+on conflict (code) do nothing;
+
+update categories set sokeord = v.ord from (values
+  ('oljeselskap', array['olje','gass','oljeutvinning','sokkelen','petroleum','operatorselskap']),
+  ('oljeservice', array['subsea','boring','bronnservice','offshoreleverandor','riggselskap','oljeleverandor']),
+  ('telekom',     array['telekom','mobiloperator','bredband','fiber','satellitt','teleselskap'])
+) as v(slug, ord)
+where categories.slug = v.slug;
+
+update categories set sporsmal = v.sp from (values
+  ('oljeselskap', 'Hva tjener et oljeselskap i Norge?'),
+  ('oljeservice', 'Lønner det seg å drive oljeservice i Norge?'),
+  ('telekom',     'Hva tjener et telekomselskap i Norge?')
+) as v(slug, sp)
+where categories.slug = v.slug;
+
 commit;
