@@ -8,8 +8,11 @@ dist/
 graphify-out/cache/
 graphify-out/cost.json
 
-# Agentverktøy installert lokalt i containeren (claude-mem, agent-reach).
-# De er utviklermiljø, ikke produktkode, og containeren er efemer uansett.
+# Agentverktøy: de INSTALLERTE filene ignoreres — de er store, genererte og
+# containeren er efemer. Men OPPSKRIFTEN committes: `skills-lock.json` låser
+# hvilke skills og hvilken revisjon, og SessionStart-hooken gjenoppretter dem
+# ved hver ny økt. Uten lockfila i repoet må de installeres på nytt manuelt.
 .agents/
-.claude/
-skills-lock.json
+.claude/*
+!.claude/hooks/
+!.claude/settings.json

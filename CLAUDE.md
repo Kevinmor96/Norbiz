@@ -344,6 +344,22 @@ verktøyparameter, så basen bygger datasettet selv fra fem små filer.
 Når du sammenligner data mellom to baser: `string_agg(x order by x)` sorterer
 etter kollasjon, så identiske data gir ulik sum. Bruk `order by x collate "C"`.
 
+## Oppsett i nye økter
+
+Containeren er efemer: alt utenfor git forsvinner mellom økter. `.claude/hooks/session-start.sh`
+gjenoppretter derfor arbeidsmiljøet automatisk ved hver ny sky-økt — npm-avhengighetene
+testene trenger, og agent-skillene låst i `skills-lock.json` (de tre designskillene,
+agent-reach og resten fra samme pakker), pluss claude-mem som best effort.
+
+Skillet mellom hva som committes og hva som ikke gjør det er poenget: **oppskriften
+hører i repoet, artefaktene ikke.** `skills-lock.json` og hooken er versjonert;
+`.claude/skills/` og `.agents/` er ignorert. Skal en ny skill inn permanent, installer
+den med `npx skills add <repo>` og commit den oppdaterte lockfila — da får alle
+framtidige økter den av seg selv.
+
+Hooken kjører bare når `CLAUDE_CODE_REMOTE=true`. Lokalt gjelder dine egne globale
+skills i `~/.claude/`, og hooken skal ikke overskrive dem.
+
 ## Graphify
 
 `graphify-out/graph.json` er en kunnskapsgraf over koden, spørrbar via
