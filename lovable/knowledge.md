@@ -1,17 +1,23 @@
 # Bransjesjekk — faste regler
 
-Beslutningsverktøy for den som vurderer å starte, kjøpe eller investere i en
-bedrift i Norge. Målgruppe i prioritert rekkefølge: gründere og nysgjerrige —
-det er de som starter trafikken de første årene; deretter investorer og
-oppkjøpere; rådgivere og banker sist. Produktet heter **Bransjesjekk** og bor
-på `bransjesjekk.no`; det het Bransjeindeks fram til 2026-08-05.
+Svarer på ett spørsmål, stilt slik folk faktisk stiller det: **hva tjener de
+som driver med dette — og kan jeg gjøre det alene?** Målgruppe i prioritert
+rekkefølge: den som vurderer å starte for seg selv, og den nysgjerrige — det er
+de som starter trafikken de første årene; deretter investorer og oppkjøpere;
+rådgivere og banker sist. Produktet heter **Bransjesjekk** og bor på
+`bransjesjekk.no`; det het Bransjeindeks fram til 2026-08-05.
 
 ## Posisjonering
 
 Problemet er ikke mangel på data. Tallene finnes allerede hos Proff, Purehelp,
 Brønnøysund og SSB — fire kilder som alle svarer på «hvordan går det med dette
-selskapet?» Dette produktet svarer på noe annet: «er denne typen virksomhet
-verdt å drive, her?»
+selskapet?» Dette produktet svarer på noe annet: **«hva tjener de som driver med
+dette, og kan jeg gjøre det alene?»**
+
+Rammen ble snudd 2026-09-08. Den gamle — «er denne typen virksomhet verdt å
+drive, her?» — er presis og møter folk feil sted: den forutsetter at leseren
+allerede har en forretningsidé og allerede vet hva bransjen heter. Samme data,
+snudd mot leseren. All ny copy stiller det nye spørsmålet.
 
 Vi er sammenstillingslaget, ikke en femte kilde. Tre ting skiller produktet, og
 de skal merkes i hele UI-et, ikke bare på forsiden:
@@ -285,6 +291,51 @@ Produktet er gratis inntil trafikken er der. Ingen planer, ingen
 rettighetsstyring, ingen premium-teasere. `favorites` er den eneste brukereide
 tabellen, og auth finnes bare for den.
 
+## Solo-laget: to funksjoner som bærer den nye inngangen
+
+**`solo_oversikt()`** — alle kategoriene rangert fra færrest ansatte per foretak
+og oppover, med margin, driftsresultat per foretak, median månedslønn og vekst.
+Dette er datagrunnlaget for `/alene`.
+
+`soloklasse` er en **merking av et målt tall**, ikke et nytt tall — samme
+konstruksjon som `eierlonn_i_resultat`. Fire verdier, og de skal skrives om til
+folkelig språk i UI-et, aldri vises rå:
+
+| Verdi | Ansatte per foretak | Skriv |
+|---|---|---|
+| `alene` | < 1,5 | «Typisk én person» |
+| `to` | 1,5–2,9 | «Deg og én til» |
+| `lag` | 3–9,9 | «Et lite lag» |
+| `bedrift` | ≥ 10 | «En bedrift» |
+
+Tallet skal alltid stå ved siden av merkingen. «0,9 ansatte per foretak» er
+statistikk; «det typiske fysioterapiforetaket er én person» er et svar — skriv
+det andre, vis det første.
+
+**`hva_ma_du_omsette(slug, mal_mnd)`** — regnestykket. Målinntekt invertert
+gjennom bransjens målte driftsmargin.
+
+Tre regler, alle påkrevd i UI-et:
+
+1. **Vis alltid `nodvendig_omsetning_mnd` sammen med `typisk_omsetning_mnd`.**
+   «Du må omsette for 58 997 kr i måneden» alene er skummelt. «— et typisk
+   frisørforetak omsetter for 110 195» er det som gjør det brukbart.
+   `andel_av_typisk_pct` er tallet som sier hvor krevende det er.
+2. **`eierlonn_i_resultat` MÅ vises som forbehold.** Er den `true`, gjør eieren
+   arbeidet ulønnet og målbeløpet ligger nær det hun lever av. Er den `false`
+   eller `null`, er driftsresultatet regnet *etter* at lønn er betalt — da er
+   målbeløpet det foretaket sitter igjen med *i tillegg til* lønna. To helt
+   ulike ting under samme tall.
+3. **Tom respons er et gyldig svar.** Funksjonen returnerer ingen rad der
+   marginen ikke er positiv (Blomster & hage, −0,61 % i 2024) eller målbeløpet
+   ikke er positivt. Skriv «vi kan ikke regne dette for [kategori] — bransjen
+   gikk med underskudd i [år]». Ikke fall tilbake på et estimat, og ikke skjul
+   modulen uten forklaring.
+
+Beløpet er aldri en inntektsprognose. Etterspørselen er leserens vurdering;
+marginen er vår måling. Det er hele forskjellen på dette og et tall vi ville
+måttet finne på.
+
 ## Ikke gjør
 
 - Ikke hardkod tall i komponenter.
@@ -296,7 +347,18 @@ tabellen, og auth finnes bare for den.
 - Ikke skriv «LIVE», «sanntid» eller «oppdatert daglig» noe sted.
 - Ikke vis anslag i samme visuelle form som målte tall.
 - Ikke bygg innlogging foran næringssidene — de er offentlige.
-- Ikke lag flere sider enn de seks.
-- Ikke merk lønnsspennet som anslag — det er målte desiler.
+- Ikke lag nye sider uten at de er bestilt.
+- Ikke merk lønnsspennet som anslag — det er målte kvartiler (ikke desiler).
 - Ikke bygg betalingsmur, planer eller premium-teasere.
 - Ikke sprenge tallbudsjettet fordi et felt finnes i basen.
+- Ikke bygg en mulighets- eller potensialindeks, uansett hvor godt den ser ut i
+  en skisse. Fem ledd uten fasit og ett svar med to gjeldende siffer er nøyaktig
+  den feilen `industry_estimates` ble tømt for.
+- Ikke lov et inntektsbeløp. `hva_ma_du_omsette` sier hva du må omsette, aldri
+  hva du kommer til å tjene.
+- Ikke regn skatt for leseren, og ikke plasser noen på riktig side av grensa
+  mellom hobby og næringsvirksomhet. Gjengi Skatteetatens terskler som fakta med
+  kilde, og lenk dit.
+- Ikke skriv «side hustle» eller «sidegesjeft» om dataene. Vi ser registrerte
+  foretak med regnskap, ikke småjobber eller gig-arbeid. Rammen er «starte for
+  deg selv».

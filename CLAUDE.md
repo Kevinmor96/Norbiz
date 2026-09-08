@@ -1,8 +1,14 @@
 # Bransjesjekk
 
-Beslutningsverktøy for den som vurderer å starte, kjøpe eller investere i en
-bedrift i Norge. Svarer på ett spørsmål: **er denne typen virksomhet verdt å
-drive, her?**
+Svarer på ett spørsmål, stilt slik folk faktisk stiller det: **hva tjener de
+som driver med dette — og kan jeg gjøre det alene?**
+
+Rammen ble snudd 2026-09-08 (`docs/superpowers/specs/2026-09-08-pivot-starte-for-deg-selv.md`).
+Den gamle inngangen — «er denne typen virksomhet verdt å drive, her?» — er et
+presist spørsmål og feil sted å møte folk: den forutsetter at leseren allerede
+har en forretningsidé og allerede vet hva bransjen heter. Dataene er de samme,
+snudd mot leseren. Eldre spec-er bruker den gamle rammen; de skal ikke skrives
+om, men ny copy og UI stiller det nye spørsmålet.
 
 Repoet heter `Norbiz` av historiske grunner. Produktet heter **Bransjesjekk**
 og bor på `bransjesjekk.no` (kjøpt 2026-08-05). Det het Bransjeindeks fram til
@@ -14,6 +20,7 @@ står i `DESIGN.md` under «Navnet».
 
 | Hva | Hvor |
 |---|---|
+| Pivoten: ny inngangsport, og hva som bevisst ikke bygges | `docs/superpowers/specs/2026-09-08-pivot-starte-for-deg-selv.md` |
 | Designbeslutninger med begrunnelse | `docs/superpowers/specs/2026-08-02-norbiz-design.md` |
 | Copy og posisjonering | `docs/superpowers/specs/2026-08-04-copy-og-posisjonering.md` |
 | Folkelig kategorilag og topplister | `docs/superpowers/specs/2026-08-04-folkelig-kategorilag-design.md` |
@@ -135,6 +142,26 @@ lønnskostnad. Flagget `eierlonn_i_resultat` merker det, slik at en marginliste
 ikke rangerer eierdrift øverst av en teknisk grunn. Tallet skal merkes, ikke
 skjules.
 
+**Et regnestykke er ikke et anslag — men bare hvis det aldri påstår at noen
+kjøper.** `hva_ma_du_omsette()` (migrasjon 0036) inverterer bransjens målte
+driftsmargin: for 10 000 kr i månedlig driftsresultat som frisør må du fakturere
+58 997 kr. Det bærer det samme løftet som en mulighetsindeks — *hva kan dette bli
+for meg* — men det kan ikke lyve, fordi etterspørselen er leserens vurdering og
+marginen er vår måling. Skillet mot `industry_estimates`, som er tom med vilje,
+er nettopp dette. To regler bærer det: **ikke-positiv margin gir ingen rad**
+(Blomster & hage har −0,61 % i 2024, og en invertert negativ margin er tull med
+to desimaler), og **`eierlonn_i_resultat` følger raden ut** fordi målbeløpet
+betyr to helt ulike ting i eierdrift og lønnsdrift. Begge reglene ligger i basen,
+ikke i UI-et: et filter som bare finnes der er en anbefaling.
+
+**`soloklasse` er en merking av et målt tall, ikke et nytt tall.** Samme
+konstruksjon som `eierlonn_i_resultat`, og med samme felle: merkingen regnes på
+den avrundede verdien UI-et viser, slik at «typisk én person» aldri kan stå ved
+siden av 1,5 ansatte. Grunnlaget — ansatte per foretak — har ligget i
+`kategori_oversikt()` siden 0015 og aldri stått på en side. Det er den mest
+leservendte kolonnen basen eier: et foretak med 0,9 ansatte er ikke en bedrift i
+dagligtale, det er én person, og det finnes 5 224 av dem i fysioterapi alene.
+
 Flagget krever **begge** forhold: under 450 000 kr per sysselsatt *og* under
 tre ansatte per bedrift (migrasjon 0020). Lønn per sysselsatt alene fanget 18
 av 30 kategorier, fordi lav lønn per hode har to helt ulike årsaker — ulønnet
@@ -237,7 +264,22 @@ etterprøvbare spørringer i `docs/superpowers/specs/2026-08-04-ssb-api-verifise
 
 ## Status
 
-Datalaget: ferdig, 142 tester grønne, 35 migrasjoner.
+Datalaget: ferdig, 150 tester grønne, 36 migrasjoner.
+
+**Tre ting fra sidegesjeft-forslaget er bevisst avvist, og begrunnelsen hører
+her så neste runde ikke tar dem opp på nytt.** *Ingen mulighetsindeks*:
+`Etterspørsel × Pris × Frekvens ÷ Konkurranse × Oppstartskostnad` har fem ledd
+uten fasit og ett svar med to gjeldende siffer — det er etableringskapital om
+igjen, som ga riktig tall for restaurant og fem ganger for lavt for frisør uten
+at systemet kunne se hvilket som var hvilket. `hva_ma_du_omsette()` gir samme
+følelse med etterprøvbar aritmetikk. *Ingen skraping av etterspørsel*:
+småjobb-plattformer og FINN har annonsene sine som selve produktet,
+Facebook-grupper er lukket, og Google Trends er relative indekser uten volum som
+ikke kan ganges med en pris — vi henter Brreg ved kilden framfor å skrape
+videreselgere, og den regelen gjelder også her. *Ingen skattekalkulator*: grensa
+mellom hobby og næringsvirksomhet er en skjønnsvurdering med etterberegning i
+den andre enden, og `/vilkar` sier at vi ikke gir økonomisk eller juridisk
+rådgivning. Vi gjengir Skatteetatens terskler som fakta med kilde og lenker dit.
 
 **Bloggen skriver seg selv, med samme forankring som innsiktene.** `articles`
 (migrasjon 0032) fylles av `generate-artikkel`: målte tall inn i prompten,

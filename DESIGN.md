@@ -321,6 +321,40 @@ sier fortsatt «Tretti bransjer» — det er den samme hardkodingen som ble rett
 heroen, ett lag lenger ut, og det er den versjonen som havner i Google og på
 Facebook.
 
+## 10a. Spørsmålet forsiden stiller (2026-09-08)
+
+Rammen er snudd. Forsiden spurte «er denne typen virksomhet verdt å drive,
+her?» — presist, og feil sted å møte folk: det forutsetter at leseren allerede
+har en forretningsidé og allerede vet hva bransjen heter. Det nye spørsmålet er
+det folk faktisk har stilt seg:
+
+> **Hva tjener de som driver med dette — og kan jeg gjøre det alene?**
+
+Fire konsekvenser for utformingen:
+
+1. **Ansatte per foretak er forsidetall.** Det har ligget i basen siden 0015 og
+   aldri stått på en side. «0,9 ansatte per foretak» er statistikk; «det typiske
+   fysioterapiforetaket er én person» er et svar. Skriv alltid den andre
+   varianten, og la tallet stå ved siden av.
+2. **Regnestykket erstatter løftet.** Der en mulighetsindeks ville sagt «du kan
+   tjene 39 950 kr/mnd», sier vi «for 10 000 kr i måneden må du fakturere
+   58 997 — et typisk frisørforetak fakturerer 110 195». Kravet alene er bare
+   skummelt; sammenligningen er det som gjør det brukbart. Vis dem alltid
+   sammen.
+3. **Nøkterne tall skal ikke pyntes.** 147 134 kr i driftsresultat for hudpleie
+   er lavt, og det er nettopp derfor det er troverdig. Ingen
+   markedsføringsavdeling ville funnet på det tallet. Ikke bygg
+   fargeframhevinger som får lave tall til å se ut som funn.
+4. **«Starte for deg selv», ikke «side hustle».** Vi ser registrerte foretak med
+   regnskap — ikke småjobber, gig-arbeid eller inntekt under registreringsgrensa.
+   Copy som lover sidegesjeft-data over-lover mot kilden. Rammen er den som
+   vurderer å starte for seg selv, og svaret er hva de som allerede gjorde det
+   sitter igjen med.
+
+Resten av seksjon 10 gjelder uendret: forsiden er fortsatt en dør, ikke et
+filter, og et tall over folden er fortsatt hele forskjellen på et verktøy og en
+landingsside. Bare spørsmålet døra stiller er nytt.
+
 ## 10. Forsiden er en dør, ikke et filter
 
 Forsiden åpner i dag nær et filteroppsett med våre egne ord i, og det er den
