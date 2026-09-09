@@ -87,12 +87,44 @@ describe('RLS', () => {
       from pg_class c
       where c.relnamespace = 'public'::regnamespace
         and c.relkind = 'r'
-        and c.relname <> 'favorites'
+        -- To unntak, begge bevisste: favorites er brukereid, og
+        -- newsletter_signups er den ene tabellen som ikke inneholder
+        -- offentlig informasjon. Resten er SSB- og Brreg-tall som allerede er
+        -- publisert; en liste over e-postadresser er ikke det.
+        and c.relname not in ('favorites', 'newsletter_signups')
         and not has_table_privilege('anon', c.oid, 'SELECT')
       order by 1
     `);
     // Næringssidene er offentlige. Glemmer en migrasjon granten, blir tabellen
     // usynlig for uinnloggede brukere uten at noe annet feiler.
     expect(r.rows.map((x) => x.tablename)).toEqual([]);
+  });
+
+  it('gir aldri anon skriverettigheter på data den bare skal lese', async () => {
+    // Supabase gir nye tabeller ARWDXT til anon via default privileges, og
+    // radnivåsikkerheten er da det eneste som stopper skriving. Migrasjon 0022
+    // fjerner rettighetene, slik at tabellene også ville tålt en feilaktig
+    // permissive policy. newsletter_signups er unntatt: den skal skrives til.
+    const r = await db.query<{ tablename: string; rett: string }>(`
+      select c.relname as tablename, p.rett
+      from pg_class c
+      cross join unnest(array['INSERT','UPDATE','DELETE','TRUNCATE']) as p(rett)
+      where c.relnamespace = 'public'::regnamespace and c.relkind = 'r'
+        and c.relname not in ('favorites', 'newsletter_signups')
+        and has_table_privilege('anon', c.oid, p.rett)
+      order by 1, 2`);
+    expect(r.rows.map((x) => `${x.tablename}:${x.rett}`)).toEqual([]);
+  });
+
+  it('holder nyhetsbrevlista skrivbar men ulesbar for anon', async () => {
+    // Unntaket over er bare trygt så lenge det faktisk er et unntak: anon skal
+    // kunne melde seg på, men aldri hente ut lista. Med select-rett kunne hvem
+    // som helst lastet ned abonnentene med nøkkelen fra frontend-bundelen.
+    const r = await db.query<{ ins: boolean; sel: boolean; upd: boolean; del: boolean }>(`
+      select has_table_privilege('anon', 'newsletter_signups', 'INSERT') ins,
+             has_table_privilege('anon', 'newsletter_signups', 'SELECT') sel,
+             has_table_privilege('anon', 'newsletter_signups', 'UPDATE') upd,
+             has_table_privilege('anon', 'newsletter_signups', 'DELETE') del`);
+    expect(r.rows[0]).toEqual({ ins: true, sel: false, upd: false, del: false });
   });
 });

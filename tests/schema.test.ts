@@ -307,7 +307,7 @@ describe('industry_wages', () => {
     const ins = `
       insert into industry_wages
         (industry_id, region_id, year, nace_level, region_level,
-         manedslonn_gjennomsnitt, manedslonn_median, manedslonn_desil1, manedslonn_desil9,
+         manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre,
          antall_ansatte, source, data_quality, coverage)
       values
         (${ID('industries', `nace_code='96.021'`)}, null, 2024, 5, null,
@@ -322,11 +322,11 @@ describe('industry_wages', () => {
     const bad = await rejects(
       db,
       `insert into industry_wages
-         (industry_id, year, nace_level, manedslonn_desil1, manedslonn_desil9,
+         (industry_id, year, nace_level, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre,
           source, data_quality, coverage)
        values (${ID('industries', `nace_code='96.021'`)}, 2024, 5, 52400, 33100,
                'SSB:11418', 'ssb', 'alle')`,
-      'industry_wages_desil_order',
+      'industry_wages_kvartil_order',
     );
     expect(bad).toBe(true);
   });
@@ -335,8 +335,8 @@ describe('industry_wages', () => {
     const bad = await rejects(
       db,
       `insert into industry_wages
-         (industry_id, year, nace_level, manedslonn_median, manedslonn_desil1,
-          manedslonn_desil9, source, data_quality, coverage)
+         (industry_id, year, nace_level, manedslonn_median, manedslonn_kvartil_nedre,
+          manedslonn_kvartil_ovre, source, data_quality, coverage)
        values (${ID('industries', `nace_code='96.021'`)}, 2024, 5, 61000, 33100, 52400,
                'SSB:11418', 'ssb', 'alle')`,
       'industry_wages_median_within',

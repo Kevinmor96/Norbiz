@@ -3,6 +3,9 @@ Bygg forsiden. Offentlig, ingen innlogging.
 Følg den visuelle retningen i prosjektkunnskapen: mørk grunn, store lyse kort,
 rangerte rader, score som femdelt stripe.
 
+Merk om typene: `industry_wages.region_id` og `region_level` er nullbare i basen,
+og `companies_snapshot` og `ai_reports` er tomme.
+
 ## Hero — mørk
 
 Over overskriften to små pille-merker som navngir kildene: «SSB
@@ -22,6 +25,9 @@ Under den en linje med dekning, hentet fra databasen med `count`, `min` og
 årsspennet. Deretter tre små tellekort: antall statistikkrader, antall
 selskaper, og «6 delscorer per næring».
 
+Fordi alt er demodata nå, skal årstempelet i heroen komme fra `max(year)` i
+`industry_stats` — ikke fra dagens dato, og ikke med noe ferskhetsløfte.
+
 ## Topp 20 — lyst kort
 
 Det viktigste på siden. Et stort lyst kort med overskriften «De mest lønnsomme
@@ -35,6 +41,14 @@ Så tjue rangerte rader fra `industry_scores`, hver med:
 plassnummer · næringsnavn med NACE-kode og antall foretak under · femdelt
 fargestripe for `score_total` · driftsmargin som hovedtall · vekstpille med
 omsetningsendring over tre år.
+
+Praktisk om spørringen: standardvisningen er `region_level = 'land'`,
+`unit_type = 'foretak'`, `nace_level = 5`, siste år. Vekstpillen regnes fra
+`omsetning_total` i `industry_stats` mellom år N-3 og N for samme næring, region
+og enhetstype — det er en ekte tidsserie, så pillen er lovlig her.
+
+Ved scoren skal peer-gruppen stå: «rangert mot N andre femsifrede næringer,
+2023». Ikke bare i en tooltip — den hører ved tallet.
 
 Hver rad lenker til næringssiden.
 
@@ -51,6 +65,8 @@ Klikk filtrerer topplista over.
 
 Tre korte kolonner, ingen illustrasjoner: bransje ikke bedrift, sammenstilt ikke
 rådata, og at vi sier hva vi ikke vet. Siste punkt skal nevne at et tall som er
-skjult av konfidensialitetshensyn er noe annet enn et tall som mangler.
+skjult av konfidensialitetshensyn er noe annet enn et tall som mangler — og det
+er sant i denne basen: 155 celler i `industry_stats` har `merknader` satt til
+`konfidensielt`. Hent tallet fra basen framfor å skrive det.
 
 Til slutt `<Footnotes />`.

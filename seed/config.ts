@@ -11,6 +11,14 @@ export interface Profile {
   overlevelse5: [number, number];
 }
 
+/** Lønnsserien er lengre og ferskere enn strukturstatistikken. Det er ikke en
+ *  detalj: den skal tvinge frontend til å vise årstempel per måltall i stedet
+ *  for å behandle de to seriene som samme periode. Den er også den eneste som
+ *  rekker fram til fylkesårgangen fra 2024. */
+export const WAGE_YEARS = [
+  2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025,
+] as const;
+
 export interface Vintage { from: number; to: number | null; codes: [string, string][] }
 
 /** Fylkesårganger. Statistikkrader legges på den som gjaldt i året. */
@@ -30,6 +38,42 @@ export const REGION_VINTAGES: Vintage[] = [
     ['39','Vestfold'],['40','Telemark'],['42','Agder'],['46','Vestland'],
     ['50','Trøndelag'],['55','Troms'],['56','Finnmark'] ] },
 ];
+
+/**
+ * Folketall per fylke og årgang, avrundede SSB-tall.
+ *
+ * Disse gjør to jobber, og det er derfor de må være ekte og bo på ett sted:
+ * de bestemmer hvor store de regionale cellene blir — og dermed hvor
+ * undertrykkingen slår inn — og de er nevneren i konkurransedelscoren
+ * (`n_enheter` per innbygger). Var populasjonen tilfeldig mens cellestørrelsen
+ * fulgte en ekte vekt, ville konkurransescoren blitt støy framfor signal.
+ *
+ * Nøkkelen er `code|vintage`, fordi samme fylkeskode har ulikt folketall i
+ * ulike årganger.
+ */
+export const REGION_POPULATION: Record<string, number> = {
+  '0|2017': 5_300_000,
+  // 17 fylker 2017–2019
+  '01|2017': 297_000, '02|2017': 614_000, '03|2017': 681_000, '04|2017': 197_000,
+  '05|2017': 189_000, '06|2017': 279_000, '07|2017': 249_000, '08|2017': 173_000,
+  '09|2017': 117_000, '10|2017': 186_000, '11|2017': 472_000, '12|2017': 522_000,
+  '14|2017': 110_000, '15|2017': 266_000, '18|2017': 243_000, '50|2017': 458_000,
+  '54|2017': 243_000,
+  // 11 fylker 2020–2023
+  '03|2020': 709_000, '11|2020': 485_000, '15|2020': 265_000, '18|2020': 240_000,
+  '30|2020': 1_256_000, '34|2020': 371_000, '38|2020': 424_000, '42|2020': 308_000,
+  '46|2020': 638_000, '50|2020': 470_000, '54|2020': 244_000,
+  // 15 fylker fra 2024 — nås bare av lønnsserien
+  '03|2024': 717_000, '11|2024': 500_000, '15|2024': 268_000, '18|2024': 238_000,
+  '31|2024': 320_000, '32|2024': 730_000, '33|2024': 226_000, '34|2024': 373_000,
+  '39|2024': 260_000, '40|2024': 176_000, '42|2024': 316_000, '46|2024': 653_000,
+  '50|2024': 483_000, '55|2024': 172_000, '56|2024': 74_000,
+};
+
+export const NORGE_POPULATION = 5_300_000;
+
+export const population = (code: string, vintage: number): number =>
+  REGION_POPULATION[`${code}|${vintage}`] ?? 200_000;
 
 /** Bransjeprofiler: marginbånd, lønnsandel, kapitalintensitet, konkursrate. */
 export const PROFILES: Record<ProfileName, Profile> = {

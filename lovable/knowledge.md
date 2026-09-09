@@ -1,15 +1,23 @@
-# Bransjeindeks — faste regler
+# Bransjesjekk — faste regler
 
-Beslutningsverktøy for den som vurderer å starte, kjøpe eller investere i en
-bedrift i Norge. Målgruppe i prioritert rekkefølge: rådgivere, banker og
-næringsmeglere; investorer og oppkjøpere; gründere.
+Svarer på ett spørsmål, stilt slik folk faktisk stiller det: **hva tjener de
+som driver med dette — og kan jeg gjøre det alene?** Målgruppe i prioritert
+rekkefølge: den som vurderer å starte for seg selv, og den nysgjerrige — det er
+de som starter trafikken de første årene; deretter investorer og oppkjøpere;
+rådgivere og banker sist. Produktet heter **Bransjesjekk** og bor på
+`bransjesjekk.no`; det het Bransjeindeks fram til 2026-08-05.
 
 ## Posisjonering
 
 Problemet er ikke mangel på data. Tallene finnes allerede hos Proff, Purehelp,
 Brønnøysund og SSB — fire kilder som alle svarer på «hvordan går det med dette
-selskapet?» Dette produktet svarer på noe annet: «er denne typen virksomhet
-verdt å drive, her?»
+selskapet?» Dette produktet svarer på noe annet: **«hva tjener de som driver med
+dette, og kan jeg gjøre det alene?»**
+
+Rammen ble snudd 2026-09-08. Den gamle — «er denne typen virksomhet verdt å
+drive, her?» — er presis og møter folk feil sted: den forutsetter at leseren
+allerede har en forretningsidé og allerede vet hva bransjen heter. Samme data,
+snudd mot leseren. All ny copy stiller det nye spørsmålet.
 
 Vi er sammenstillingslaget, ikke en femte kilde. Tre ting skiller produktet, og
 de skal merkes i hele UI-et, ikke bare på forsiden:
@@ -26,6 +34,71 @@ på et anslag for at siden skal se mer komplett ut.
 
 All data leses fra Supabase via TanStack Query. Aldri hardkodede tall, aldri
 live API-kall til SSB eller Brreg fra frontend.
+
+Statistikken er ekte: `industry_stats` er SSBs strukturstatistikk 2017–2024,
+`industry_demography` er foretaksdemografi 2017–2025, `companies` og `brands`
+kommer fra Enhetsregisteret og Regnskapsregisteret. `industry_wages` og
+`region_population` er fortsatt seed-data, og `industry_estimates`/`ai_insights`
+er anslag.
+
+## Kategorilaget er inngangen, ikke NACE-kodene
+
+Brukeren møter aldri en næringskode. Forsiden er bygget på 40 kuraterte
+kategorier i ni verdener — «Restaurant & kafé», «Dagligvare», «Frisør» — og
+NACE-kodene ligger bak som implementasjonsdetalj. Filtermenyen over kodeverket
+er flyttet til `/avansert`, som er en fremtidig premium-flate.
+
+Fire funksjoner gjør regningen i basen. Frontend aggregerer ikke:
+
+| Funksjon | Gir |
+|---|---|
+| `kategori_oversikt()` | ett kort per kategori: nøkkeltall, farge, ikon, `serie` for sparkline |
+| `topp_selskaper(slug, fylke, metrikk, antall)` | rangerte selskaper, valgfritt per fylke. Bærer `kommune_navn`, `merke` og `segment` |
+| `kategori_rangering(metrikk, retning, antall)` | «høyest/lavest margin i Norge», «størst vekst» |
+| `brand_liste(kategori, segment)` | de kuraterte kjedene med tall; begge argumenter kan være null |
+
+To ting funksjonene sier om tallene, som UI-et må videreformidle:
+
+- **`eierlonn_i_resultat`** er sann der snittbedriften har under 450 000 kr
+  lønnskostnad per sysselsatt. Da tar eieren ikke ut lønn, og arbeidsvederlaget
+  ligger i driftsresultatet. Fysioterapi viser 56 % margin og Tannlege 29 % av
+  den grunnen — ikke fordi de er ti ganger mer lønnsomme enn Dagligvare på
+  3,5 %. Marginen skal merkes der flagget er sant, ellers villeder en
+  toppliste.
+- **`ar`** er året kategoriens tall gjelder, og det er ikke alltid samme år for
+  alle. Kategorier der en medlemskode mangler tallet får forrige komplette år,
+  fordi en sum over ulike kodesett ikke er sammenlignbar. Årstallet skal
+  derfor stå ved tallet, ikke i en global «tall for 2024»-overskrift.
+
+Tre ting mer, alle om at et tall skal forklares framfor å skjules:
+
+- **`kommune_navn`, ikke `kommune_code`.** Et firesifret kommunenummer på
+  skjermen leses som et postnummer. Navnet kommer fra `kommuner` (SSBs
+  klassifikasjon 131, 2024-årgangen, den Brreg registrerer adresser mot), så
+  frontend skal ikke bære en egen navneliste — en delvis liste er nettopp
+  grunnen til at feilen bare viste seg av og til.
+- **`merke` og `segment`.** `merke` er kjedenavnet der selskapet er en kjent
+  kjede: «REITAN CONVENIENCE NORWAY AS» sier ingenting, «Narvesen» sier alt.
+  Vis merket ved siden av det formelle navnet, ikke i stedet for — det formelle
+  navnet er det som står i regnskapet. `segment='luksus'` forklarer hvorfor
+  Louis Vuitton Norge AS står i skobutikk-listen: Brreg har selskapet på 47.720,
+  og det er kildens registrering. Filtreres raden bort, redigerer vi
+  Enhetsregisteret; merkes den, er den en opplysning.
+- **Selskapslistene når bare bedrifter med minst fem ansatte.** Brregs
+  `fraAntallAnsatte` svarer HTTP 400 under 5. I frisør, fysioterapi, hudpleie og
+  gatekjøkken — der snittbedriften har 1–2 ansatte — viser listen derfor de
+  *største* i bransjen, ikke et utvalg av den. Bransjetallene over listen dekker
+  hele bransjen; det er bare listen som er toppen, og forskjellen må stå der.
+
+Luksusstripa er merking av aktører, ikke en bransje. SSB har ingen luksuskode,
+så det finnes ingen omsetningsvekst, ingen etableringstall og ingen marginserie
+for «luksus» — bare de ni selskapenes egne tall. Et kort som ser ut som de andre
+kategorikortene ville lovet statistikk som ikke finnes.
+
+Kjedelistens tall er **hovedselskapets regnskap**, aldri hele kjedens. Flere
+kjedekontorer er registrert som franchisegivere (NACE 77.400), så REMA 1000s
+tall er franchisegiverens, ikke butikkenes. `merknad` sier hvilket selskap det
+gjelder, og den skal være tilgjengelig for leseren.
 
 ## Tre nivåer av sannhet
 
@@ -218,6 +291,51 @@ Produktet er gratis inntil trafikken er der. Ingen planer, ingen
 rettighetsstyring, ingen premium-teasere. `favorites` er den eneste brukereide
 tabellen, og auth finnes bare for den.
 
+## Solo-laget: to funksjoner som bærer den nye inngangen
+
+**`solo_oversikt()`** — alle kategoriene rangert fra færrest ansatte per foretak
+og oppover, med margin, driftsresultat per foretak, median månedslønn og vekst.
+Dette er datagrunnlaget for `/alene`.
+
+`soloklasse` er en **merking av et målt tall**, ikke et nytt tall — samme
+konstruksjon som `eierlonn_i_resultat`. Fire verdier, og de skal skrives om til
+folkelig språk i UI-et, aldri vises rå:
+
+| Verdi | Ansatte per foretak | Skriv |
+|---|---|---|
+| `alene` | < 1,5 | «Typisk én person» |
+| `to` | 1,5–2,9 | «Deg og én til» |
+| `lag` | 3–9,9 | «Et lite lag» |
+| `bedrift` | ≥ 10 | «En bedrift» |
+
+Tallet skal alltid stå ved siden av merkingen. «0,9 ansatte per foretak» er
+statistikk; «det typiske fysioterapiforetaket er én person» er et svar — skriv
+det andre, vis det første.
+
+**`hva_ma_du_omsette(slug, mal_mnd)`** — regnestykket. Målinntekt invertert
+gjennom bransjens målte driftsmargin.
+
+Tre regler, alle påkrevd i UI-et:
+
+1. **Vis alltid `nodvendig_omsetning_mnd` sammen med `typisk_omsetning_mnd`.**
+   «Du må omsette for 58 997 kr i måneden» alene er skummelt. «— et typisk
+   frisørforetak omsetter for 110 195» er det som gjør det brukbart.
+   `andel_av_typisk_pct` er tallet som sier hvor krevende det er.
+2. **`eierlonn_i_resultat` MÅ vises som forbehold.** Er den `true`, gjør eieren
+   arbeidet ulønnet og målbeløpet ligger nær det hun lever av. Er den `false`
+   eller `null`, er driftsresultatet regnet *etter* at lønn er betalt — da er
+   målbeløpet det foretaket sitter igjen med *i tillegg til* lønna. To helt
+   ulike ting under samme tall.
+3. **Tom respons er et gyldig svar.** Funksjonen returnerer ingen rad der
+   marginen ikke er positiv (Blomster & hage, −0,61 % i 2024) eller målbeløpet
+   ikke er positivt. Skriv «vi kan ikke regne dette for [kategori] — bransjen
+   gikk med underskudd i [år]». Ikke fall tilbake på et estimat, og ikke skjul
+   modulen uten forklaring.
+
+Beløpet er aldri en inntektsprognose. Etterspørselen er leserens vurdering;
+marginen er vår måling. Det er hele forskjellen på dette og et tall vi ville
+måttet finne på.
+
 ## Ikke gjør
 
 - Ikke hardkod tall i komponenter.
@@ -229,7 +347,18 @@ tabellen, og auth finnes bare for den.
 - Ikke skriv «LIVE», «sanntid» eller «oppdatert daglig» noe sted.
 - Ikke vis anslag i samme visuelle form som målte tall.
 - Ikke bygg innlogging foran næringssidene — de er offentlige.
-- Ikke lag flere sider enn de seks.
-- Ikke merk lønnsspennet som anslag — det er målte desiler.
+- Ikke lag nye sider uten at de er bestilt.
+- Ikke merk lønnsspennet som anslag — det er målte kvartiler (ikke desiler).
 - Ikke bygg betalingsmur, planer eller premium-teasere.
 - Ikke sprenge tallbudsjettet fordi et felt finnes i basen.
+- Ikke bygg en mulighets- eller potensialindeks, uansett hvor godt den ser ut i
+  en skisse. Fem ledd uten fasit og ett svar med to gjeldende siffer er nøyaktig
+  den feilen `industry_estimates` ble tømt for.
+- Ikke lov et inntektsbeløp. `hva_ma_du_omsette` sier hva du må omsette, aldri
+  hva du kommer til å tjene.
+- Ikke regn skatt for leseren, og ikke plasser noen på riktig side av grensa
+  mellom hobby og næringsvirksomhet. Gjengi Skatteetatens terskler som fakta med
+  kilde, og lenk dit.
+- Ikke skriv «side hustle» eller «sidegesjeft» om dataene. Vi ser registrerte
+  foretak med regnskap, ikke småjobber eller gig-arbeid. Rammen er «starte for
+  deg selv».

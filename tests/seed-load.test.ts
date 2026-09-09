@@ -23,17 +23,26 @@ describe('seed.sql', () => {
       select 'industries' t, count(*)::text c from industries
       union all select 'regions', count(*)::text from regions
       union all select 'industry_stats', count(*)::text from industry_stats
+      union all select 'industry_wages', count(*)::text from industry_wages
       union all select 'companies', count(*)::text from companies
       union all select 'industry_estimates', count(*)::text from industry_estimates
       union all select 'ai_insights', count(*)::text from ai_insights
     `);
     const by = Object.fromEntries(counts.rows.map((r) => [r.t, Number(r.c)]));
-    expect(by['industries']).toBe(102);
-    expect(by['regions']).toBe(44);
-    expect(by['industry_stats']).toBe(3803);
-    expect(by['companies']).toBe(300);
-    expect(by['industry_estimates']).toBe(195);
-    expect(by['ai_insights']).toBe(50);
+
+    // Sammenlign mot det generatoren faktisk produserte, ikke mot literaler.
+    // Det er nettopp dette en load-test skal svare på — kom alt som ble
+    // generert inn i basen? — og et hardkodet tall svarer på noe annet: om
+    // genereringen er uendret. Da måtte tallet redigeres hver gang lista endres,
+    // slik det måtte da Kaffebar ble fjernet fordi koden ikke finnes hos SSB.
+    const b = buildSeed();
+    expect(by['industries']).toBe(b.industries.length);
+    expect(by['regions']).toBe(b.regions.length);
+    expect(by['industry_stats']).toBe(b.rows.length);
+    expect(by['industry_wages']).toBe(b.wages.length);
+    expect(by['companies']).toBe(b.companies.length);
+    expect(by['industry_estimates']).toBe(b.estimates.length);
+    expect(by['ai_insights']).toBe(b.insights.length);
   });
 
   it('respekterer granularitetsregelen', async () => {
@@ -63,9 +72,29 @@ describe('seed.sql', () => {
     expect(Number(r.rows[0]!.c)).toBeGreaterThan(3000);
   });
 
-  it('er idempotent — ny kjøring gir samme radtall', async () => {
+  it('er idempotent — ny kjøring gir samme rader', async () => {
+    // Sammenlign mot forrige kjøring, ikke mot et hardkodet tall. Det er det
+    // idempotens betyr, og en literal her ville dessuten passert selv om
+    // radene hadde endret innhold så lenge antallet holdt seg.
+    const fingerprint = async (): Promise<Record<string, string>> => {
+      const r = await db.query<{ t: string; h: string }>(`
+        select 'stats' t, md5(string_agg(x, '|' order by x collate "C")) h from (
+          select i.nace_code||':'||s.year||':'||s.unit_type||':'||s.region_level
+                 ||':'||s.n_enheter||':'||coalesce(s.driftsmargin_pct::text,'-') x
+          from industry_stats s join industries i on i.id = s.industry_id) a
+        union all
+        select 'wages', md5(string_agg(x, '|' order by x collate "C")) from (
+          select i.nace_code||':'||w.year||':'||coalesce(w.yrke_kode,'-')
+                 ||':'||w.manedslonn_median x
+          from industry_wages w join industries i on i.id = w.industry_id) b
+        union all
+        select 'demo', md5(string_agg(x, '|' order by x collate "C")) from (
+          select i.nace_code||':'||d.year||':'||d.konkurser||':'||d.overlevelse_5ar_pct x
+          from industry_demography d join industries i on i.id = d.industry_id) c`);
+      return Object.fromEntries(r.rows.map((x) => [x.t, x.h]));
+    };
+    const before = await fingerprint();
     await db.exec(sql);
-    const r = await db.query<{ c: number }>(`select count(*) c from industry_stats`);
-    expect(Number(r.rows[0]!.c)).toBe(3803);
+    expect(await fingerprint()).toEqual(before);
   });
 });

@@ -19,23 +19,77 @@ type Top = [string, string, ProfileName, Group[]];
 export const TREE: Top[] = [
   ['56', 'Serveringsvirksomhet', 'servering', [
     ['56.1', 'Restauranter', [['56.101','Drift av restauranter og kafeer','Restaurant'],
-                              ['56.102','Drift av gatekjøkken','Gatekjøkken'],
-                              ['56.104','Drift av kaffebarer','Kaffebar']]],
+                              ['56.102','Drift av gatekjøkken','Gatekjøkken']]],
     ['56.3', 'Drikkestedvirksomhet', [['56.301','Drift av puber','Pub'],
                                       ['56.309','Drikkesteder ellers','Bar']]],
     ['56.2', 'Cateringvirksomhet', [['56.210','Cateringvirksomhet','Cateringfirma'],
                                     ['56.290','Kantiner drevet som selvstendig virksomhet','Kantinedrift']]]]],
   ['47', 'Detaljhandel', 'varehandel', [
     ['47.1', 'Butikkhandel med bredt vareutvalg', [['47.111','Dagligvareforretning','Dagligvarebutikk'],
+                                                    ['47.112','Kioskhandel med bredt vareutvalg','Kiosk'],
                                                     ['47.190','Butikkhandel ellers','Varehus']]],
+    ['47.2', 'Butikkhandel med mat og drikke i spesialforretninger', [
+        ['47.241','Butikkhandel med bakervarer og konditorvarer','Bakeriutsalg']]],
+    ['47.4', 'Butikkhandel med IKT-utstyr', [
+        ['47.410','Butikkhandel med datamaskiner og utstyr til datamaskiner','Databutikk'],
+        ['47.420','Butikkhandel med telekommunikasjonsutstyr','Mobilbutikk'],
+        ['47.430','Butikkhandel med audio- og videoutstyr','Elektronikkbutikk']]],
+    ['47.5', 'Butikkhandel med husholdningsvarer', [
+        ['47.531','Butikkhandel med tapeter og gulvbelegg','Fargehandel'],
+        ['47.591','Butikkhandel med møbler','Møbelbutikk']]],
     ['47.7', 'Annen butikkhandel', [['47.710','Butikkhandel med klær','Klesbutikk'],
                                     ['47.721','Butikkhandel med skotøy','Skobutikk'],
                                     ['47.762','Butikkhandel med blomster','Blomsterbutikk'],
-                                    ['47.782','Butikkhandel med gull og sølv','Gullsmed'],
-                                    ['47.752','Butikkhandel med tapeter og gulvbelegg','Fargehandel'],
+                                    ['47.772','Butikkhandel med gull- og sølvvarer','Gullsmed'],
+                                    ['47.782','Butikkhandel med optiske artikler','Optiker'],
                                     ['47.641','Butikkhandel med sportsutstyr','Sportsbutikk'],
                                     ['47.761','Butikkhandel med blomster og planter','Hagesenter']]],
     ['47.3', 'Detaljhandel med drivstoff', [['47.300','Detaljhandel med drivstoff','Bensinstasjon']]]]],
+  ['10', 'Næringsmiddelindustri', 'servering', [
+    ['10.2', 'Bearbeiding og konservering av fisk, skalldyr og bløtdyr', [
+        ['10.201','Produksjon av saltfisk, tørrfisk og klippfisk','Klippfiskprodusent'],
+        ['10.209','Slakting, bearbeiding og konservering av fisk og fiskevarer ellers','Fiskeforedling']]],
+    ['10.7', 'Produksjon av bakeri- og pastavarer', [
+        ['10.710','Produksjon av brød og ferske konditorvarer','Bakeri']]]]],
+  ['30', 'Transportmiddelindustri ellers', 'bygg', [
+    ['30.1', 'Bygging av skip og båter', [
+        ['30.111','Bygging av skip og skrog over 100 br.tonn','Skipsverft'],
+        ['30.115','Innrednings- og installasjonsarbeid utført på skip over 100 br.tonn','Skipsinnredning']]]]],
+  ['06', 'Utvinning av råolje og naturgass', 'tjenesteyting', [
+    ['06.1', 'Utvinning av råolje', [
+        ['06.100','Utvinning av råolje','Oljeselskap']]]]],
+  ['09', 'Tjenester til bergverk og utvinning', 'bygg', [
+    ['09.1', 'Tjenester tilknyttet utvinning av råolje og naturgass', [
+        ['09.101','Boretjenester tilknyttet utvinning av råolje og naturgass','Boreselskap'],
+        ['09.109','Andre tjenester tilknyttet utvinning av råolje og naturgass','Oljeservice']]]]],
+  ['61', 'Telekommunikasjon', 'tjenesteyting', [
+    ['61.3', 'Satellittbasert telekommunikasjon', [
+        ['61.300','Satellittbasert telekommunikasjon','Satellittoperatør']]]]],
+  ['50', 'Sjøfart', 'tjenesteyting', [
+    ['50.1', 'Sjøfart og kysttrafikk med passasjerer', [
+        ['50.102','Innenlandske kystruter med passasjerer','Kystrederi']]],
+    ['50.2', 'Sjøfart og kysttrafikk med gods', [
+        ['50.201','Utenriks sjøfart med gods','Rederi']]]]],
+  ['55', 'Overnattingsvirksomhet', 'servering', [
+    ['55.1', 'Hotellvirksomhet', [['55.101','Drift av hoteller, pensjonater og moteller med restaurant','Hotell'],
+                                  ['55.102','Drift av hoteller, pensjonater og moteller uten restaurant','Hotell garni']]],
+    ['55.2', 'Ferieboliger og vandrerhjem', [['55.202','Drift av ferieleiligheter','Utleiehytter']]],
+    ['55.3', 'Campingplasser', [['55.300','Drift av campingplasser','Campingplass']]]]],
+  ['79', 'Reisebyråer og reisearrangører', 'tjenesteyting', [
+    ['79.1', 'Reisebyrå- og reisearrangørvirksomhet', [['79.110','Reisebyråvirksomhet','Reisebyrå'],
+                                                       ['79.120','Reisearrangørvirksomhet','Turoperatør']]]]],
+  ['49', 'Landtransport', 'tjenesteyting', [
+    ['49.3', 'Annen landtransport med passasjerer', [['49.392','Turbiltransport','Turbilselskap']]]]],
+  ['45', 'Handel med og reparasjon av motorvogner', 'varehandel', [
+    ['45.1', 'Handel med motorvogner', [
+        ['45.112','Detaljhandel med biler og lette motorvogner','Bilforhandler']]],
+    ['45.2', 'Vedlikehold og reparasjon av motorvogner', [
+        ['45.200','Vedlikehold og reparasjon av motorvogner','Bilverksted']]],
+    ['45.3', 'Handel med deler og utstyr til motorvogner', [
+        ['45.320','Detaljhandel med deler og utstyr til motorvogner','Bildelbutikk']]],
+    ['45.4', 'Handel med og reparasjon av motorsykler', [
+        ['45.402','Detaljhandel med motorsykler, deler og utstyr','Motorsykkelbutikk'],
+        ['45.403','Vedlikehold og reparasjon av motorsykler','MC-verksted']]]]],
   ['41', 'Oppføring av bygninger', 'bygg', [
     ['41.1', 'Utvikling av byggeprosjekter', [['41.101','Boligbyggelag','Boligbyggelag'],
                                               ['41.109','Utvikling av byggeprosjekter ellers','Boligutvikler']]],
@@ -52,21 +106,22 @@ export const TREE: Top[] = [
                                        ['43.120','Grunnarbeid','Grunnentreprenør'],
                                        ['43.130','Prøveboring','Borefirma']]],
     ['43.9', 'Annen spesialisert bygge- og anleggsvirksomhet', [
-        ['43.910','Takarbeid','Takentreprenør'],
-        ['43.991','Blikkenslagerarbeid','Blikkenslager'],
-        ['43.999','Bygge- og anleggsvirksomhet ellers','Stillasfirma']]]]],
+        ['43.919','Takarbeid','Takentreprenør'],
+        ['43.911','Blikkenslagerarbeid','Blikkenslager'],
+        ['43.990','Bygge- og anleggsvirksomhet ellers','Stillasfirma']]]]],
   ['96', 'Annen personlig tjenesteyting', 'tjenesteyting', [
-    ['96.0', 'Annen personlig tjenesteyting', [['96.021','Frisering og annen skjønnhetspleie','Frisørsalong'],
-                                               ['96.022','Skjønnhetspleie','Hudpleiesalong'],
-                                               ['96.011','Vaskeri- og renserivirksomhet','Renseri'],
+    ['96.0', 'Annen personlig tjenesteyting', [['96.020','Frisering og annen skjønnhetspleie','Frisørsalong'],
+                                               ['96.040','Skjønnhetspleie','Hudpleie og kroppspleie'],
+                                               ['96.010','Vaskeri- og renserivirksomhet','Renseri'],
                                                ['96.090','Personlig tjenesteyting ellers','Tatoveringsstudio']]]]],
   ['93', 'Sport og fritid', 'tjenesteyting', [
     ['93.1', 'Sports- og idrettsaktiviteter', [['93.130','Treningssentre','Treningssenter'],
                                                ['93.110','Drift av idrettsanlegg','Idrettsanlegg'],
-                                               ['93.191','Idrettslag og -klubber','Idrettsklubb'],
+                                               ['93.190','Idrettslag og -klubber','Idrettsklubb'],
                                                ['93.120','Idrettslag og -klubber for enkeltidretter','Fotballklubb']]],
     ['93.2', 'Fornøyelse og fritid', [['93.210','Drift av fornøyelsesetablissementer','Fornøyelsespark'],
                                       ['93.291','Drift av treningsstudio for dans','Dansestudio'],
+                                      ['93.292','Fritidsetablissement','Opplevelsessenter'],
                                       ['93.299','Fritidsvirksomhet ellers','Aktivitetssenter']]]]],
   ['69', 'Juridisk og regnskapsmessig tjenesteyting', 'radgivning', [
     ['69.1', 'Juridisk tjenesteyting', [['69.100','Juridisk tjenesteyting','Advokatfirma']]],
@@ -83,13 +138,26 @@ export const TREE: Top[] = [
   ['86', 'Helsetjenester', 'helse', [
     ['86.2', 'Lege- og tannlegetjenester', [['86.211','Allmenn legetjeneste','Legekontor'],
                                             ['86.230','Tannhelsetjenester','Tannlege']]],
-    ['86.9', 'Andre helsetjenester', [['86.901','Fysioterapitjeneste','Fysioterapeut'],
+    ['86.9', 'Andre helsetjenester', [['86.902','Fysioterapitjeneste','Fysioterapeut'],
                                       ['86.907','Kiropraktortjeneste','Kiropraktor'],
                                       ['86.905','Psykologtjeneste','Psykolog'],
                                       ['86.909','Helsetjenester ellers','Naprapat']]]]],
   ['88', 'Omsorg uten botilbud', 'helse', [
     ['88.9', 'Barnehager og annet sosialt arbeid', [['88.911','Barnehager','Barnehage'],
                                                     ['88.993','Dagsentre for eldre','Dagsenter']]]]],
+  ['73', 'Annonse- og reklamevirksomhet', 'radgivning', [
+    ['73.1', 'Annonse- og reklamevirksomhet', [['73.110','Reklamebyråer','Reklamebyrå'],
+                                               ['73.120','Medieformidlingstjenester','Mediebyrå']]]]],
+  ['59', 'Film-, video- og TV-produksjon', 'radgivning', [
+    ['59.1', 'Produksjon og distribusjon av film og fjernsynsprogrammer', [
+        ['59.110','Produksjon av film, video og fjernsynsprogrammer','Filmprodusent']]]]],
+  // 68.3 er meglingen og forvaltningen — tjenestene. 68.1/68.2 (kjøp/salg og
+  // utleie av EGEN eiendom) er kapitalforvaltning, ikke en bransje man «starter
+  // i», og holdes utenfor: 78 000 enheter på 68.2 er stort sett ett selskap per
+  // bygg, og de ville druknet alt annet i topplistene.
+  ['68', 'Omsetning og drift av fast eiendom', 'tjenesteyting', [
+    ['68.3', 'Eiendomsmegling og -forvaltning', [['68.310','Eiendomsmegling','Eiendomsmegler'],
+                                                 ['68.320','Eiendomsforvaltning','Eiendomsforvalter']]]]],
   ['81', 'Tjenester tilknyttet eiendomsdrift', 'tjenesteyting', [
     ['81.2', 'Rengjøringsvirksomhet', [['81.210','Rengjøring av bygninger','Renholdsbyrå'],
                                        ['81.291','Skadedyrkontroll','Skadedyrfirma'],

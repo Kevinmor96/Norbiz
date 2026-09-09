@@ -1,7 +1,8 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { makeRng } from './rng.js';
-import { YEARS } from './config.js';
+import { REGION_VINTAGES, YEARS, population } from './config.js';
+import { buildWages, wageRegionsByYear } from './wages.js';
 import { buildIndustries } from './industries.js';
 import { buildRegions, regionsByYear } from './regions.js';
 import { buildStats } from './stats.js';
@@ -11,13 +12,25 @@ import { emitSeed } from './emit.js';
 import type { PopulationRow, SeedBundle, StatRow } from './types.js';
 
 const SEED = 20260802;
-const KOMMUNER = ['0301','1103','4601','5001','3201','1806','1108','3801','4204','1507'];
-
-const hash = (s: string): number => {
-  let h = 0;
-  for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) | 0;
-  return h;
-};
+/**
+ * Kommunene de genererte selskapene får adresse i, med navn.
+ *
+ * Navnene er med fordi `kommuner`-tabellen (migrasjon 0024) må ha rader i
+ * testbasen: uten dem returnerer `topp_selskaper` kommune_navn = null, og
+ * frontend er tilbake til «Kommune 3103» — nettopp den feilen tabellen finnes
+ * for å fjerne.
+ *
+ * Kodene er 2024-årgangen, den samme Brreg registrerer adresser mot. To av dem
+ * var utdaterte da lista ble skrevet: 3801 (Horten) og 1507 (Ålesund) hører til
+ * årgangen 2020–2023. Fra 2024 er de 3905 Tønsberg og 1508 Ålesund. Et
+ * kommunenummer er ikke en konstant.
+ */
+const KOMMUNER: [string, string][] = [
+  ['0301','Oslo'], ['1103','Stavanger'], ['4601','Bergen'],
+  ['5001','Trondheim - Tråante'], ['3201','Bærum'], ['1806','Narvik'],
+  ['1108','Sandnes'], ['3905','Tønsberg'], ['4204','Kristiansand'],
+  ['1508','Ålesund'],
+];
 
 export function buildSeed(seed = SEED): SeedBundle {
   const rng = makeRng(seed);
@@ -25,20 +38,21 @@ export function buildSeed(seed = SEED): SeedBundle {
   const regions = buildRegions();
   const { rows, demography } = buildStats(rng, industries, regionsByYear());
 
-  const population: PopulationRow[] = [];
+  // Samme folketall som formet de regionale cellene i buildStats. Hentes fra
+  // config, ikke fra en hash — se kommentaren over REGION_POPULATION.
+  const populationRows: PopulationRow[] = [];
   for (const r of regions) {
     for (const y of YEARS) {
       if (r.valid_from_year > y) continue;
       if (r.valid_to_year !== null && r.valid_to_year < y) continue;
-      const base = r.level === 'land' ? 5_300_000 : 60_000 + (Math.abs(hash(r.code)) % 640_000);
-      population.push({
+      populationRows.push({
         region_code: r.code, vintage: r.valid_from_year, year: y,
-        innbyggere: Math.round(base * (1 + (y - 2017) * 0.006)),
+        innbyggere: Math.round(population(r.code, r.valid_from_year) * (1 + (y - 2017) * 0.006)),
       });
     }
   }
 
-  const companies = buildCompanies(rng, industries, KOMMUNER);
+  const companies = buildCompanies(rng, industries, KOMMUNER.map(([c]) => c));
 
   const byNace = new Map<string, StatRow[]>();
   for (const r of rows) {
@@ -47,9 +61,11 @@ export function buildSeed(seed = SEED): SeedBundle {
   }
 
   return {
-    industries, regions, rows, demography, population, companies,
+    industries, regions, rows, demography, population: populationRows, companies,
+    kommuner: KOMMUNER.map(([code, navn]) => ({ code, navn })),
     estimates: buildEstimates(rng, industries),
     insights: buildInsights(rng, industries, byNace),
+    wages: buildWages(rng, industries, wageRegionsByYear(REGION_VINTAGES)),
   };
 }
 
