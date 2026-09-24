@@ -1,0 +1,2119 @@
+<!doctype html>
+<!--
+DESIGNPLAN, retning A: «Redaksjonell kartbok»
+
+Lesning: En selgende dataside for Tromsø i avisgrafikkens håndverk. Lys først, rolig,
+autoritativ. Kartboken er modellen: et atlas har en tegnforklaring, symboler med fast form,
+dybdetoner og en seilingsled. Siden låner systemet, ikke kulissene. Ingen falske kart over
+Tromsøya, ingen kompassrose.
+
+Palett (lys / mørk). Kaldt papir og sjøkartets farger.
+  Papir        #F2F5F7 / #0B131C  (sidebakgrunn; mørk er polarnatt)
+  Polarnatt    #0F1C2B / #E4ECF2  (primær tekst)
+  Fjord        #1B4F84 / #86B8EA  (lenker, aktiv tilstand, verifisert)
+  Grunnsjø     #E3ECF1 / #12212F  (felt: tegnforklaring, kjeden, pengestrømmen; sjøkartets grunt vann)
+  Sjøkartmagenta #A3246A / #EC7DB8 (ett signal: forberedende makt, altså innstilling)
+  Skifer       #435365 / #A8B7C4  (sekundær tekst)
+Magenta er hentet fra norske sjøkart, der den brukes til lyssektorer og merknader. Den betyr
+én ting her: den forberedende makten som saksgangen ellers skjuler.
+
+Typografi.
+  Visning og lesetekst: Hedvig Letters Serif (Kanon, svensk; optisk størrelse 12-24). Nordisk,
+  semi-strenge serifer med karakter. Brukes til overskrifter, ingresser og brødtekst i fortellingen.
+  Data og grensesnitt: Schibsted Grotesk (laget for Schibsteds norske nyhetsmerker). Tall, etiketter,
+  knapper, tabeller. Tabulære sifre der tall står i kolonner, proporsjonale i store tall.
+  Fallback: Iowan Old Style/Charter/Georgia og ui-sans-serif/system-ui.
+
+Layout. 12 kolonner på skrivebord, én kolonne på 390 px. Hver seksjon er et eget kartblad med
+sin egen form: fortelling med sticky grafikk (kjeden), sjikt etter dybde (organkartet), strøm og
+søyler (pengene), nodegraf og buediagram (nettverket), tidslinje med ryggrad (endringene),
+matrise (bransjen), skjema (neste kommune), tegnforklaring og venteliste (metode og Pro).
+Luft og tonefelt skiller seksjonene. Ingen tette spalter med hårlinjer.
+
+Signatur. Kildemerket. Tre grader, tre former: fylt skive = verifisert, ring = oppgitt,
+trekant = må verifiseres. Formen bærer betydningen, fargen støtter. Hover eller trykk gir kilde,
+per-dato, grad og merknad. Tegnforklaringen står allerede i første skjermbilde og teller merkene
+på siden. Manglende data har en egen designet tilstand: stiplet ramme med trekant og hvor tallet
+skal hentes fra.
+
+Bevegelse. Hver bevegelse har en jobb. Kjeden rykker fram med rullingen og tegner leia til
+aktivt steg. Nøkkeltallene settes når de kommer inn. Eierandelene vokser fra null-linjen.
+Utbyttet renner fra Troms Kraft til eierne. Grafen legger seg på plass og kantene tegnes.
+Skuffen glir inn fra siden (nedenfra på mobil). Alt står ferdig i ro før noe beveger seg;
+prefers-reduced-motion slår av all forflytning og beholder tilstandsendringene.
+
+Klisjésjekk og revisjoner.
+  Kremhvit + serif + terrakotta: avvist. Kaldt papir, fjordblått og sjøkartmagenta.
+  Nesten svart + neongrønn/vermilion: avvist. Mørk modus er polarnatt med samme roller.
+  Avisspalter med hårlinjer: revidert bort. Første utkast hadde regler mellom alle nøkkeltall og
+  seksjoner; nå skiller luft og tonefelt, og linjer brukes bare der de er data (leia, akser).
+  Stikkord over overskrifter og 01/02/03: ikke brukt. Nummerering bare i beslutningskjeden, som
+  er en ekte rekkefølge, og i kildenes tillitsrekkefølge.
+  Emoji som markører: ingen. Ikoner fra Phosphor, kildemerkene er egne geometriske symboler.
+  Kort med skygge overalt: nei. Skygge kun på skuff og kildelapp, som faktisk ligger over siden.
+  Rammeverket: bygges senere som React + Tailwind 4 + shadcn (Sheet for skuffen, Popover for
+  kildemerket, ToggleGroup for prosessvalg og bransjer, Tabs for graf/liste).
+-->
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hvem bestemmer i Tromsø?</title>
+<meta name="description" content="Organene, rollene og pengene i Tromsø kommune, og hvordan de henger sammen. Hver påstand har kilde og dato. Forhåndsversjon sammenstilt 24.09.2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Schibsted+Grotesk:wght@400..800&display=swap">
+<script>
+  // Husk leserens temavalg. Feiler lagringen, følger siden systemet.
+  try { var t = localStorage.getItem('mk-tema'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<style>
+/* Tokens. Lys palett på :root, mørk under systemvalg og under eksplisitt valg. */
+:root{
+  color-scheme: light;
+  --paper:#F2F5F7; --sheet:#FBFCFD; --field:#E3ECF1; --field-2:#D3E1EA;
+  --ink:#0F1C2B; --ink-2:#435365; --ink-3:#56657A;
+  --rule:#D3DDE4; --line:#74879A;
+  --fjord:#1B4F84; --accent:#2A66A8; --accent-soft:#9DBBD8; --on-fjord:#FBFCFD;
+  --signal:#A3246A; --signal-mark:#C0337E; --signal-wash:#F3E3EC;
+  --scrim:rgba(15,28,43,.40);
+  --pop-shadow:0 18px 48px -16px rgba(15,28,43,.34), 0 2px 6px rgba(15,28,43,.06);
+  --pop-border:transparent;
+  --top-bg:rgba(242,245,247,.88);
+  --sans:"Schibsted Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", sans-serif;
+  --serif:"Hedvig Letters Serif", "Iowan Old Style", Charter, Georgia, serif;
+  --g:clamp(16px, 4vw, 48px);
+  --top-h:56px;
+  --r-ctl:8px; --r-panel:14px;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-io:cubic-bezier(.77,0,.175,1);
+  --ease-drawer:cubic-bezier(.32,.72,0,1);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --paper:#0B131C; --sheet:#111C28; --field:#12212F; --field-2:#19304A;
+    --ink:#E4ECF2; --ink-2:#A8B7C4; --ink-3:#8797A6;
+    --rule:#1F2E3C; --line:#5B7187;
+    --fjord:#86B8EA; --accent:#5A95D0; --accent-soft:#2F4E6B; --on-fjord:#0B131C;
+    --signal:#EC7DB8; --signal-mark:#DB6399; --signal-wash:#2A1826;
+    --scrim:rgba(0,0,0,.58);
+    --pop-shadow:0 0 0 1px #26394B, 0 18px 48px -16px rgba(0,0,0,.7);
+    --pop-border:#26394B;
+    --top-bg:rgba(11,19,28,.86);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --paper:#0B131C; --sheet:#111C28; --field:#12212F; --field-2:#19304A;
+  --ink:#E4ECF2; --ink-2:#A8B7C4; --ink-3:#8797A6;
+  --rule:#1F2E3C; --line:#5B7187;
+  --fjord:#86B8EA; --accent:#5A95D0; --accent-soft:#2F4E6B; --on-fjord:#0B131C;
+  --signal:#EC7DB8; --signal-mark:#DB6399; --signal-wash:#2A1826;
+  --scrim:rgba(0,0,0,.58);
+  --pop-shadow:0 0 0 1px #26394B, 0 18px 48px -16px rgba(0,0,0,.7);
+  --pop-border:#26394B;
+  --top-bg:rgba(11,19,28,.86);
+}
+
+/* Grunnlag */
+*,*::before,*::after{box-sizing:border-box}
+/* Hedvig Letters Serif har en ødelagt ff-ligatur i de små optiske størrelsene. font-kortformen nullstiller
+   font-feature-settings, derfor !important. Sjekkes igjen når fontene selvhostes via @fontsource. */
+*{font-feature-settings:"liga" 0,"clig" 0 !important}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--top-h) + 16px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.55 var(--sans);font-variant-ligatures:no-common-ligatures;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+::selection{background:var(--accent-soft);color:var(--ink)}
+html{scrollbar-color:var(--line) transparent}
+input,select,textarea{caret-color:var(--fjord);accent-color:var(--fjord)}
+img,svg{max-width:100%}
+h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+a{color:var(--fjord);text-underline-offset:.2em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--fjord);outline-offset:3px;border-radius:4px}
+[hidden]{display:none!important}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.num{font-variant-numeric:tabular-nums}
+.ico{width:1.1em;height:1.1em;flex:none;fill:currentColor}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--g)}
+.serif{font-family:var(--serif)}
+
+/* Toppstripe */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--top-bg);backdrop-filter:saturate(1.2) blur(12px);-webkit-backdrop-filter:saturate(1.2) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s ease}
+.top.is-scrolled{border-bottom-color:var(--rule)}
+.top__in{height:var(--top-h);display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:baseline;gap:10px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.brand__mark{font:400 1.375rem/1 var(--serif);letter-spacing:-.01em}
+.brand__place{font:600 .9375rem/1 var(--sans);color:var(--ink-2)}
+.brand:hover{text-decoration:none}
+.toc-links{display:flex;gap:2px;margin-left:auto}
+.toc-links a{font:500 .875rem/1 var(--sans);white-space:nowrap;color:var(--ink-2);text-decoration:none;padding:9px 8px;border-radius:var(--r-ctl);transition:color .15s ease, background-color .15s ease}
+.toc-links a:hover{color:var(--ink);background:var(--field)}
+.toc-links a[aria-current="true"]{color:var(--ink);background:var(--field)}
+.pre{display:inline-flex;align-items:center;gap:8px;font:600 .8125rem/1 var(--sans);color:var(--ink-2);text-decoration:none;padding:8px 12px;border-radius:999px;border:1px dashed var(--line);white-space:nowrap}
+.pre:hover{color:var(--ink);text-decoration:none;border-style:solid}
+.pre svg{width:12px;height:12px;color:var(--ink)}
+.pre__d{font-weight:500}
+.tbtn{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 12px;border:0;border-radius:var(--r-ctl);background:transparent;color:var(--ink-2);font:500 .875rem/1 var(--sans);cursor:pointer;transition:background-color .15s ease,color .15s ease,transform .16s var(--ease-out)}
+.tbtn:hover{background:var(--field);color:var(--ink)}
+.tbtn:active{transform:scale(.97)}
+.toc{position:relative;display:none}
+.toc summary{list-style:none}
+.toc summary::-webkit-details-marker{display:none}
+.toc__panel{position:absolute;right:0;top:calc(100% + 8px);width:min(260px,calc(100vw - 32px));background:var(--sheet);border-radius:var(--r-panel);box-shadow:var(--pop-shadow);padding:8px}
+.toc__panel a{display:block;padding:10px 12px;border-radius:var(--r-ctl);color:var(--ink);text-decoration:none;font:500 .9375rem/1.2 var(--sans)}
+.toc__panel a:hover{background:var(--field)}
+@media (max-width:1279px){.toc-links{display:none}.toc{display:block;margin-left:auto}}
+@media (max-width:640px){.pre__d,.tbtn__t{display:none}.top__in{gap:8px}.brand{flex-direction:column;align-items:flex-start;gap:3px}.brand__mark{font-size:1.1875rem}.brand__place{font-size:.75rem}.pre{padding:6px 10px;font-size:.75rem;gap:6px}.tbtn{padding:0 9px}}
+
+/* Seksjoner */
+.sec{padding-block:clamp(80px,10vw,140px) 0}
+.sec__head{max-width:48rem;margin-bottom:clamp(32px,4vw,56px)}
+.sec__title{display:flex;align-items:flex-start;gap:10px}
+.h2{font:400 clamp(2rem,1.25rem + 2.6vw,3.35rem)/1.06 var(--serif);letter-spacing:-.018em}
+.lede{margin-top:18px;font:400 clamp(1.0625rem,1rem + .35vw,1.25rem)/1.5 var(--serif);color:var(--ink-2);max-width:60ch}
+.anchor{flex:none;margin-top:.35em;display:inline-grid;place-items:center;width:32px;height:32px;border-radius:var(--r-ctl);border:0;background:transparent;color:var(--ink-3);cursor:pointer;position:relative;transition:color .15s ease, background-color .15s ease}
+.anchor:hover{background:var(--field);color:var(--ink)}
+.sec__title{position:relative}
+@media (min-width:1180px){.anchor{position:absolute;left:-46px;top:.3em;margin:0}.anchor__ok{left:0;top:calc(100% + 6px);transform:none}}
+.anchor .ico{width:18px;height:18px}
+.anchor__ok{position:absolute;left:calc(100% + 6px);top:50%;transform:translateY(-50%);white-space:nowrap;font:600 .75rem/1 var(--sans);color:var(--ink-2);background:var(--sheet);padding:6px 8px;border-radius:6px;box-shadow:var(--pop-shadow)}
+.kicker-free{margin:0}
+.small{font-size:.875rem;color:var(--ink-2)}
+
+/* Kildemerket */
+.km{display:inline-grid;place-items:center;width:1.55em;height:1.55em;margin:-.45em -.15em -.45em .05em;vertical-align:middle;padding:0;border:0;border-radius:50%;background:transparent;cursor:pointer;color:var(--ink-2);transition:background-color .15s ease, color .15s ease, transform .16s var(--ease-out);font-size:1rem}
+.km svg{width:.72em;height:.72em;overflow:visible}
+.km[data-g="v"]{color:var(--fjord)}
+.km[data-g="m"]{color:var(--ink)}
+.km:hover,.km[aria-expanded="true"]{background:var(--field-2);color:var(--ink)}
+.km:active{transform:scale(.92)}
+.sym{display:inline-block;width:.8em;height:.8em;vertical-align:-.05em;overflow:visible}
+.sym--v{color:var(--fjord)} .sym--o{color:var(--ink-2)} .sym--m{color:var(--ink)}
+.kmpop{position:fixed;z-index:60;width:min(320px,calc(100vw - 24px));background:var(--sheet);border-radius:12px;box-shadow:var(--pop-shadow);padding:14px 16px 12px;font-size:.875rem;line-height:1.45;transform-origin:var(--ox,50%) top;transition:opacity .14s ease, transform .16s var(--ease-out)}
+.kmpop[data-side="top"]{transform-origin:var(--ox,50%) bottom}
+.kmpop.is-starting{opacity:0;transform:scale(.97)}
+.kmpop__grad{display:flex;align-items:center;gap:8px;font:650 .875rem/1.2 var(--sans)}
+.kmpop__grad svg{width:12px;height:12px}
+.kmpop__dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:10px 0 0}
+.kmpop__dl dt{color:var(--ink-3)}
+.kmpop__dl dd{margin:0;color:var(--ink)}
+.kmpop__more{display:inline-block;margin-top:10px;font-weight:600}
+
+/* Manglende og uenige data: designede tilstander */
+.missing{display:inline-flex;align-items:flex-start;gap:8px;padding:7px 11px;border:1px dashed var(--line);border-radius:var(--r-ctl);color:var(--ink-2);font:500 .875rem/1.35 var(--sans);background:transparent}
+.missing svg{width:12px;height:12px;flex:none;margin-top:.2em;color:var(--ink)}
+.missing b{font-weight:650;color:var(--ink)}
+.missing--kort{padding:5px 10px;font-size:.8125rem}
+.missing--kort b{font-weight:600}
+.conflict{display:grid;gap:4px;padding:10px 12px;border-radius:var(--r-ctl);background:var(--field);font-size:.875rem;color:var(--ink-2)}
+.conflict b{color:var(--ink);font-weight:650}
+
+/* Myndighetsbrikker */
+.myns{display:flex;flex-wrap:wrap;gap:6px}
+.myn{display:inline-flex;align-items:center;gap:6px;font:600 .75rem/1 var(--sans);letter-spacing:.01em;padding:6px 9px;border-radius:999px;background:var(--field);color:var(--ink-2)}
+.myn::before{content:"";width:6px;height:6px;border-radius:1px;background:var(--line)}
+.myn--innstilling{background:var(--signal-wash);color:var(--signal)}
+.myn--innstilling::before{background:var(--signal-mark)}
+.myn--vedtak::before,.myn--planmyndighet::before{background:var(--accent)}
+
+/* Topp */
+.hero{padding-top:clamp(32px,5vw,64px)}
+.hero__grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);align-items:start}
+.h1{font:400 clamp(2.75rem,1.2rem + 5vw,5.25rem)/.98 var(--serif);letter-spacing:-.025em}
+.h1 em{font-style:normal;color:var(--fjord)}
+.hero__lede{margin-top:22px;font:400 clamp(1.125rem,1rem + .5vw,1.375rem)/1.45 var(--serif);color:var(--ink-2);max-width:34ch}
+.search{position:relative;margin-top:32px;max-width:540px}
+.search label{display:block;font:600 .875rem/1.2 var(--sans);color:var(--ink);margin-bottom:8px}
+.search__box{position:relative}
+.search__box .ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink-3);pointer-events:none}
+.search input{width:100%;height:52px;padding:0 16px 0 42px;border:1px solid var(--line);border-radius:10px;background:var(--sheet);color:var(--ink);font:500 1rem/1 var(--sans);transition:border-color .15s ease, box-shadow .15s ease}
+.search input::placeholder{color:var(--ink-3)}
+.search input:focus{outline:none;border-color:var(--fjord);box-shadow:0 0 0 3px color-mix(in oklab, var(--fjord) 22%, transparent)}
+.search__res{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:25;background:var(--sheet);border-radius:12px;box-shadow:var(--pop-shadow);padding:6px;max-height:360px;overflow:auto}
+.search__res li{display:grid;gap:2px;padding:10px 12px;border-radius:var(--r-ctl);cursor:pointer}
+.search__res li[aria-selected="true"],.search__res li:hover{background:var(--field)}
+.search__res b{font:600 .9375rem/1.25 var(--sans)}
+.search__res span{font-size:.8125rem;color:var(--ink-2)}
+.search__res .empty{cursor:default;color:var(--ink-2);font-size:.875rem}
+.search__res .empty:hover{background:transparent}
+.search__hint{margin-top:10px;font-size:.8125rem;color:var(--ink-3)}
+.search__hint button{border:0;background:none;padding:0;color:var(--fjord);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
+
+.legendcard{background:var(--field);border-radius:var(--r-panel);padding:clamp(20px,2.4vw,28px)}
+.legendcard__h{font:650 1rem/1.3 var(--sans)}
+.legendcard__pre{margin-top:10px;font:400 1rem/1.5 var(--serif);color:var(--ink-2)}
+.legendcard__pre b{font-weight:400;color:var(--ink)}
+.legend{margin-top:18px;display:grid;gap:12px}
+.legend li{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:start}
+.legend__sym{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--paper)}
+.legend__sym svg{width:12px;height:12px}
+.legend__t{font:600 .9375rem/1.3 var(--sans)}
+.legend__d{display:block;font-size:.8125rem;line-height:1.4;color:var(--ink-2);font-weight:400;margin-top:2px}
+.legend__n{font:650 1rem/28px var(--sans);font-variant-numeric:tabular-nums;color:var(--ink)}
+.legend__sig{margin-top:16px;padding-top:14px;border-top:1px solid var(--rule);display:flex;gap:10px;align-items:center;font-size:.8125rem;color:var(--ink-2)}
+
+.figs{margin-top:clamp(40px,5vw,72px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
+.fig{display:grid;align-content:start;gap:10px}
+.fig__link{display:grid;gap:8px;color:var(--ink);text-decoration:none;border-radius:6px}
+.fig__link:hover{text-decoration:none}
+.fig__link:hover .fig__lbl{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
+.fig__num{display:block;font:700 clamp(2.75rem,2rem + 2.4vw,4.25rem)/1 var(--sans);letter-spacing:-.03em}
+.fig__num small{font-size:.42em;font-weight:650;letter-spacing:-.01em;margin-left:.12em}
+.fig__lbl{font:400 1.0625rem/1.4 var(--serif);color:var(--ink-2);max-width:24ch}
+.fig__src{font:500 .8125rem/1.4 var(--sans);color:var(--ink-3);display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.fig--m .fig__num{color:var(--ink-2)}
+
+.changes{margin-top:clamp(40px,5vw,64px);background:var(--field)}
+.changes__in{padding-block:22px 26px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;align-items:start}
+.changes__h{font:650 .9375rem/1.3 var(--sans);padding-top:2px}
+.changes__h a{display:block;margin-top:6px;font-weight:500;font-size:.8125rem}
+.changes__list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+.chg{display:grid;gap:6px;align-content:start}
+.chg time{font:650 .8125rem/1.2 var(--sans);color:var(--ink-2)}
+.chg p{font:400 .9375rem/1.4 var(--serif);color:var(--ink)}
+@media (max-width:1100px){.changes__list{grid-template-columns:repeat(3,minmax(0,1fr))}.changes__list li:nth-child(n+4){display:none}}
+@media (max-width:860px){
+  .hero__grid{grid-template-columns:1fr}
+  .figs{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}
+  .changes__in{grid-template-columns:1fr;gap:14px}
+  .changes__list{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--g);gap:12px;margin-inline:calc(var(--g) * -1);padding-inline:var(--g);padding-bottom:6px;scrollbar-width:none}
+  .changes__list::-webkit-scrollbar{display:none}
+  .changes__list li,.changes__list li:nth-child(n+4){display:grid;flex:0 0 78%;scroll-snap-align:start;background:var(--paper);border-radius:12px;padding:14px 16px}
+}
+
+/* Beslutningskjeden */
+.seg{display:inline-flex;margin-top:24px;padding:4px;border-radius:12px;background:var(--field);gap:4px}
+.seg button{border:0;background:transparent;color:var(--ink-2);font:600 .9375rem/1 var(--sans);padding:11px 16px;border-radius:9px;cursor:pointer;transition:background-color .18s ease,color .18s ease,transform .16s var(--ease-out)}
+.seg button[aria-pressed="true"]{background:var(--sheet);color:var(--ink);box-shadow:0 1px 2px rgba(15,28,43,.08)}
+.seg button:active{transform:scale(.97)}
+.chain__grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,80px);align-items:start}
+.chain__steps{padding-bottom:12vh}
+.step{min-height:62vh;padding-block:6vh}
+.step:first-child{padding-top:0}
+.step:last-child{min-height:44vh}
+.step__n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--ink);font:650 .9375rem/1 var(--sans);font-variant-numeric:tabular-nums}
+.step.is-prep .step__n{border-color:var(--signal-mark);color:var(--signal)}
+.step h3{margin-top:16px;font:400 clamp(1.5rem,1.2rem + 1vw,2rem)/1.15 var(--serif);letter-spacing:-.01em}
+.step__txt{margin-top:14px;font:400 1.125rem/1.55 var(--serif);color:var(--ink-2);max-width:52ch}
+.step__note{margin-top:18px;padding:14px 16px;border-radius:12px;background:var(--field);font-size:.9375rem;line-height:1.5;color:var(--ink-2);max-width:52ch}
+.step__note b{color:var(--ink);font-weight:650}
+.step__facts{margin-top:20px;display:grid;gap:10px}
+.step__facts > div{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:start}
+.step__facts dt{font:600 .8125rem/1.5 var(--sans);color:var(--ink-3)}
+.step__facts dd{margin:0;font:500 .9375rem/1.45 var(--sans)}
+.step__open{margin-top:20px}
+.linkbtn{display:inline-flex;align-items:center;gap:8px;border:0;background:transparent;padding:6px 0;color:var(--fjord);font:600 .9375rem/1.2 var(--sans);cursor:pointer;text-decoration:none}
+.linkbtn .ico{transition:transform .2s var(--ease-out)}
+.linkbtn:hover .ico{transform:translateX(3px)}
+.linkbtn:hover{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
+
+.chain__graphic{position:sticky;top:calc(var(--top-h) + 28px)}
+.route{position:relative;background:var(--field);border-radius:var(--r-panel);padding:28px 28px 28px 24px;--p:0}
+.route__cap{display:flex;justify-content:space-between;gap:12px;font:600 .8125rem/1.3 var(--sans);color:var(--ink-2);margin-bottom:18px}
+.route__cap span:last-child{color:var(--ink-3);font-weight:500}
+.route__zone{position:absolute;left:12px;right:12px;border-radius:10px;background:var(--signal-wash);pointer-events:none}
+.route__zone span{position:absolute;right:12px;top:10px;font:650 .75rem/1 var(--sans);color:var(--signal);letter-spacing:.01em}
+.route__track{position:absolute;left:calc(24px + 17px);width:2px;margin-left:-1px;background:color-mix(in oklab, var(--line) 45%, transparent);border-radius:2px}
+.route__fill{position:absolute;inset:0;background:var(--fjord);transform-origin:top;transform:scaleY(var(--p));border-radius:2px;transition:transform .5s var(--ease-io)}
+.stops{position:relative;display:grid;gap:22px}
+.stop{display:grid;grid-template-columns:34px 1fr;gap:16px;align-items:start}
+.stop__pin{position:relative;z-index:1;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--paper);border:1.5px solid var(--line);font:650 .875rem/1 var(--sans);color:var(--ink-2);font-variant-numeric:tabular-nums;transition:background-color .25s ease,border-color .25s ease,color .25s ease,transform .3s var(--ease-out)}
+.stop.is-past .stop__pin{border-color:var(--fjord);color:var(--fjord)}
+.stop.is-active .stop__pin{background:var(--fjord);border-color:var(--fjord);color:var(--on-fjord);transform:scale(1.08)}
+.stop__verb{font:650 .8125rem/1.3 var(--sans);color:var(--ink-3);transition:color .25s ease}
+.stop.is-prep .stop__verb{color:var(--signal)}
+.stop__org{margin-top:3px;font:400 1.375rem/1.2 var(--serif);color:var(--ink-2);transition:color .25s ease}
+.stop.is-active .stop__org,.stop.is-past .stop__org{color:var(--ink)}
+.stop__myn{margin-top:8px}
+.stop__lead{margin-top:8px;font:500 .875rem/1.4 var(--sans);color:var(--ink-2)}
+.stop__lead b{font-weight:650;color:var(--ink)}
+.rail{display:none}
+@media (max-width:959px){
+  .chain__grid{grid-template-columns:1fr}
+  .chain__graphic{display:none}
+  .rail{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--top-h));z-index:15;margin-inline:calc(var(--g) * -1);padding:10px var(--g) 12px;background:var(--top-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+  .rail__in{position:relative}
+  .rail ol{position:relative;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr))}
+  .rail li{display:grid;justify-items:center;gap:6px;text-align:center}
+  .rail__pin{position:relative;z-index:1;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--paper);border:1.5px solid var(--line);font:650 .75rem/1 var(--sans);color:var(--ink-2);transition:background-color .25s ease,border-color .25s ease,color .25s ease}
+  .rail li.is-past .rail__pin{border-color:var(--fjord);color:var(--fjord)}
+  .rail li.is-active .rail__pin{background:var(--fjord);border-color:var(--fjord);color:var(--on-fjord)}
+  .rail li.is-prep .rail__pin{box-shadow:0 0 0 3px var(--signal-wash)}
+  .rail__lbl{font:600 .6875rem/1.2 var(--sans);color:var(--ink-3)}
+  .rail li.is-active .rail__lbl{color:var(--ink)}
+  .rail__track{position:absolute;top:12px;height:2px;background:color-mix(in oklab, var(--line) 45%, transparent)}
+  .rail__fill{position:absolute;inset:0;background:var(--fjord);transform-origin:left;transform:scaleX(var(--p,0));transition:transform .45s var(--ease-io)}
+  .step{min-height:0;padding-block:36px 44px}
+  .step:first-child{padding-top:28px}
+  .chain__steps{padding-bottom:0}
+}
+@media (min-width:960px){.step__facts{display:none}}
+
+/* Organkartet */
+.strata{display:grid;gap:clamp(40px,5vw,64px)}
+.stratum{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(20px,3vw,48px);align-items:start}
+.stratum__h{font:400 clamp(1.625rem,1.3rem + 1vw,2.25rem)/1.1 var(--serif)}
+.stratum__d{margin-top:10px;font-size:.9375rem;line-height:1.5;color:var(--ink-2);max-width:32ch}
+.groups{display:grid;gap:28px}
+.groups--split{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
+.group__h{font:650 .875rem/1.3 var(--sans);color:var(--ink-2);margin-bottom:12px}
+.organs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.groups--stack .organs{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:1100px){.groups--stack .organs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.groups--stack .organs{grid-template-columns:1fr}}
+.groups--split .group:last-child .organs{grid-template-columns:1fr}
+.groups--split .group:first-child .organs{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.organ{position:relative;display:grid;gap:8px;align-content:start;padding:18px 18px 16px;border-radius:12px;background:color-mix(in oklab, var(--field) 70%, var(--paper));transition:background-color .18s ease, transform .18s var(--ease-out)}
+.organ:hover{background:var(--field)}
+.organ:active{transform:scale(.99)}
+.organ__name{font:400 1.25rem/1.2 var(--serif);letter-spacing:-.005em}
+.organ__open{all:unset;cursor:pointer}
+.organ__open::after{content:"";position:absolute;inset:0;border-radius:12px}
+.organ__open:focus-visible::after{outline:2px solid var(--fjord);outline-offset:2px}
+.organ__meta{font:500 .8125rem/1.35 var(--sans);color:var(--ink-3)}
+.organ__lead{font:500 .9375rem/1.4 var(--sans);color:var(--ink)}
+.organ__lead span{color:var(--ink-2);font-weight:500}
+.organ .km,.organ .missing,.organ .conflict{position:relative;z-index:1}
+.organ__note{font-size:.8125rem;line-height:1.4;color:var(--ink-2)}
+@media (max-width:959px){.stratum{grid-template-columns:1fr}.groups--split{grid-template-columns:1fr}.stratum__d{max-width:60ch}}
+
+/* Pengene */
+.flowpanel{background:var(--field);border-radius:var(--r-panel);padding:clamp(20px,3vw,40px)}
+.flowpanel__h{font:400 clamp(1.375rem,1.1rem + .8vw,1.875rem)/1.2 var(--serif)}
+.flowpanel__d{margin-top:8px;font-size:.9375rem;color:var(--ink-2);max-width:62ch}
+.flow{position:relative;margin-top:28px;display:grid;grid-template-columns:200px minmax(0,1fr) 250px;height:300px}
+.flow__svg{width:100%;height:100%;overflow:visible}
+.ribbon--k{fill:var(--accent)}
+.ribbon--h{fill:var(--accent-soft)}
+.flow__node{fill:var(--ink)}
+.flow__lbl{position:absolute;display:grid;gap:3px;transform:translateY(-50%)}
+.flow__lbl b{font:700 clamp(1.5rem,1.2rem + 1vw,2.125rem)/1 var(--sans);letter-spacing:-.02em}
+.flow__lbl span{font:600 .9375rem/1.3 var(--sans)}
+.flow__lbl small{font-size:.8125rem;color:var(--ink-2);line-height:1.4}
+.flow__src{left:0;top:50%;width:200px;padding-right:16px}
+.flow__tgt{right:0;width:250px;padding-left:18px}
+.flow__owner{margin-top:4px;font-size:.8125rem;color:var(--ink-2);display:flex;gap:6px;align-items:center}
+.flow__owner i{display:inline-block;width:18px;border-top:1.5px dashed var(--line)}
+.flow__cap{margin-top:20px;font-size:.8125rem;color:var(--ink-2);display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.flowm{display:none}
+@media (max-width:760px){
+  .flow{display:none}
+  .flowm{display:block;margin-top:22px}
+  .flowm__src{display:grid;gap:3px;justify-items:center;text-align:center}
+  .flowm__src b{font:700 1.75rem/1 var(--sans);letter-spacing:-.02em}
+  .flowm__t b{font:700 1.375rem/1.05 var(--sans);letter-spacing:-.02em;white-space:nowrap}
+  .flowm__src span,.flowm__t span{font:600 .9375rem/1.3 var(--sans)}
+  .flowm__src small,.flowm__t small{font-size:.8125rem;color:var(--ink-2)}
+  .flowm svg{display:block;width:100%;height:170px;margin-top:10px}
+  .flowm__tgts{display:grid;grid-template-columns:3fr 2fr;gap:12px;margin-top:10px}
+  .flowm__t{display:grid;gap:3px;align-content:start}
+}
+.own{margin-top:clamp(48px,6vw,80px)}
+.own__head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;align-items:end}
+.own__h{font:400 clamp(1.375rem,1.1rem + .8vw,1.875rem)/1.2 var(--serif)}
+.own__d{margin-top:8px;font-size:.9375rem;color:var(--ink-2);max-width:60ch}
+.own__cols,.orow{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.3fr) minmax(0,1.15fr);gap:28px;align-items:center}
+.own__cols{margin-top:28px;padding-bottom:10px;font:600 .75rem/1.2 var(--sans);color:var(--ink-3)}
+.axis{position:relative;height:14px;margin-right:104px}
+.axis span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+.axis span:first-child{transform:none}
+.axis span:last-child{transform:translateX(-100%)}
+.own__rows{position:relative}
+.orow{padding-block:12px}
+.orow + .orow{border-top:1px solid var(--rule)}
+.orow__name{font:600 .9375rem/1.3 var(--sans)}
+.orow__name button{all:unset;cursor:pointer}
+.orow__name button:hover{text-decoration:underline;text-underline-offset:.2em}
+.orow__name button:focus-visible{outline:2px solid var(--fjord);outline-offset:3px;border-radius:3px}
+.orow__sec{display:block;font:500 .8125rem/1.35 var(--sans);color:var(--ink-3);margin-top:2px}
+.bar{position:relative;display:flex;align-items:center;height:28px;margin-right:104px;background-image:linear-gradient(var(--rule),var(--rule)),linear-gradient(var(--rule),var(--rule)),linear-gradient(var(--rule),var(--rule));background-size:1px 100%,1px 100%,1px 100%;background-position:0 0,50% 0,100% 0;background-repeat:no-repeat}
+.bar__fill{height:14px;width:calc(var(--v) * 1%);min-width:3px;background:var(--accent);border-radius:0 4px 4px 0;transform-origin:left}
+.bar__val{position:absolute;left:calc(var(--v) * 1% + 8px);top:50%;transform:translateY(-50%);font:650 .9375rem/1 var(--sans);white-space:nowrap;display:inline-flex;align-items:center}
+.bar__wrap{display:flex;align-items:center;gap:10px;min-width:0}
+.orow__figs{display:grid;gap:4px;font-size:.875rem;line-height:1.4}
+.orow__figs div{display:flex;flex-wrap:wrap;gap:0 6px;align-items:center}
+.orow__figs b{font-weight:650}
+.orow__figs span{color:var(--ink-2)}
+.orow__figs .missing{font-size:.8125rem;padding:5px 9px}
+.own__notes{margin-top:22px;display:grid;gap:8px;font-size:.875rem;color:var(--ink-2);max-width:78ch}
+@media (max-width:760px){
+  .own__cols{display:none}
+  .orow{grid-template-columns:1fr;gap:8px;padding-block:16px}
+}
+.ledger{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(20px,3vw,48px)}
+.ledger__h{font:400 clamp(1.375rem,1.1rem + .8vw,1.875rem)/1.2 var(--serif)}
+.ledger__d{margin-top:8px;font-size:.9375rem;color:var(--ink-2)}
+.ledger__rows{display:grid;gap:14px}
+.lrow{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:16px 18px;border-radius:12px;background:var(--field)}
+.lrow__y{font:700 1.25rem/1.2 var(--sans);font-variant-numeric:tabular-nums}
+.lrow__t{font:400 1.0625rem/1.5 var(--serif)}
+.lrow__t + .lrow__t{margin-top:6px}
+.lrow__warn{margin-top:10px;font-size:.8125rem;color:var(--ink-2);display:flex;gap:8px;align-items:flex-start}
+.lrow__warn svg{width:14px;height:14px;flex:none;margin-top:2px}
+@media (max-width:760px){.ledger{grid-template-columns:1fr}.lrow{grid-template-columns:1fr;gap:6px}}
+
+/* Nettverket */
+.tabs{display:inline-flex;padding:4px;border-radius:12px;background:var(--field);gap:4px;margin-bottom:22px}
+.tabs button{border:0;background:transparent;color:var(--ink-2);font:600 .9375rem/1 var(--sans);padding:10px 16px;border-radius:9px;cursor:pointer;transition:background-color .18s ease,color .18s ease}
+.tabs button[aria-selected="true"]{background:var(--sheet);color:var(--ink);box-shadow:0 1px 2px rgba(15,28,43,.08)}
+.net{position:relative}
+.net__svg{display:block;width:100%;height:auto;overflow:visible}
+.net__svg text{font-family:var(--sans);fill:var(--ink)}
+.nlabel{font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--paper);stroke-width:5px;stroke-linejoin:round}
+.nnode circle{fill:var(--paper);stroke:var(--ink);stroke-width:2}
+.nnode.is-hub circle{fill:var(--ink)}
+.nnode{cursor:pointer}
+.nnode:hover circle,.nnode:focus-visible circle{stroke:var(--fjord);stroke-width:3}
+.nnode:focus-visible{outline:none}
+.oedge{stroke:var(--line);stroke-width:1.4;fill:none}
+.oedge--u{stroke-dasharray:5 5}
+.olbl{font-size:12px;font-weight:600;fill:var(--ink-2)!important;paint-order:stroke;stroke:var(--paper);stroke-width:4px}
+.pedge{stroke:var(--accent);stroke-width:2.6;fill:none;stroke-linecap:round;transition:opacity .2s ease, stroke-width .2s ease}
+.plbl rect{fill:var(--sheet);stroke:var(--accent);stroke-width:1.2}
+.plbl text{font-size:12.5px;font-weight:650;fill:var(--ink)}
+.plbl{cursor:pointer;transition:opacity .2s ease}
+.net.is-focus .pedge,.net.is-focus .plbl{opacity:.18}
+.net.is-focus .pedge.is-on,.net.is-focus .plbl.is-on{opacity:1}
+.net.is-focus .pedge.is-on{stroke-width:3.4}
+.net__legend{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:.8125rem;color:var(--ink-2)}
+.net__legend span{display:inline-flex;align-items:center;gap:8px}
+.net__legend svg{width:34px;height:12px;overflow:visible}
+.net__note{margin-top:10px;font-size:.8125rem;color:var(--ink-3)}
+.arcs{display:none}
+@media (max-width:899px){.net__desk{display:none}.arcs{display:block}.net__own-key{display:none!important}}
+.arcs__grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 172px}
+.arcs__rows{display:grid}
+.arcs__rows li{height:56px;display:flex;align-items:center;justify-content:flex-end;gap:10px;padding-right:12px;text-align:right}
+.arcs__rows button{all:unset;cursor:pointer;font:600 .8125rem/1.2 var(--sans);color:var(--ink);white-space:nowrap}
+.arcs__rows button:focus-visible{outline:2px solid var(--fjord);outline-offset:3px;border-radius:3px}
+.arcs__svg{width:172px;overflow:visible}
+.arcs__svg .adot{fill:var(--paper);stroke:var(--ink);stroke-width:2}
+.arcs__svg .alab{font:650 11.5px var(--sans);fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:4px}
+.plist{display:grid;gap:0}
+.prow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:24px;padding-block:18px}
+.prow + .prow{border-top:1px solid var(--rule)}
+.prow__n{font:400 1.25rem/1.25 var(--serif)}
+.prow__roles{display:grid;gap:8px}
+.prow__roles li{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:.9375rem}
+.prow__roles b{font-weight:650}
+.prow__roles .t{color:var(--ink-2)}
+@media (max-width:760px){.prow{grid-template-columns:1fr;gap:10px}}
+
+/* Endringene */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{border:1px solid var(--line);background:transparent;color:var(--ink-2);font:600 .875rem/1 var(--sans);padding:10px 14px;border-radius:999px;cursor:pointer;transition:background-color .15s ease,color .15s ease,border-color .15s ease,transform .16s var(--ease-out)}
+.chip:hover{color:var(--ink);border-color:var(--ink-3)}
+.chip[aria-pressed="true"],.chip[aria-checked="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.chip:active{transform:scale(.97)}
+.tlwrap{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:clamp(28px,4vw,64px);align-items:start}
+.tlkey{position:sticky;top:calc(var(--top-h) + 24px);padding:22px;border-radius:var(--r-panel);background:var(--field)}
+.tlkey__h{font:650 .9375rem/1.3 var(--sans)}
+.tlkey__list{margin-top:14px;display:grid;gap:14px}
+.tlkey__list li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:12px;align-items:start}
+.tlkey__list b{display:block;font:600 .875rem/1.3 var(--sans)}
+.tlkey__list small{display:block;margin-top:2px;font-size:.8125rem;line-height:1.4;color:var(--ink-2)}
+.tlkey__m{width:12px;height:12px;margin:3px 0 0 3px;border-radius:50%;background:var(--ink)}
+.tlkey__m--und{background:transparent;border:1.5px dashed var(--ink)}
+.tlkey__m--plan{background:transparent;border:1.5px solid var(--signal-mark);border-radius:2px}
+.tlkey__note{margin-top:16px;padding-top:14px;border-top:1px solid var(--rule);font-size:.8125rem;line-height:1.45;color:var(--ink-2)}
+@media (max-width:960px){.tlwrap{grid-template-columns:1fr}.tlkey{position:static;order:-1}}
+.tl{display:grid;gap:0}
+.tl__year{display:grid;grid-template-columns:140px 28px minmax(0,1fr);column-gap:20px}
+.tl__y{grid-column:1;font:400 2.25rem/1 var(--serif);letter-spacing:-.02em;color:var(--ink);padding-top:14px;position:sticky;top:calc(var(--top-h) + 20px);align-self:start}
+.tl__y small{display:block;margin-top:6px;font:500 .8125rem/1.3 var(--sans);color:var(--ink-3);letter-spacing:0}
+.tl__spine{grid-column:2;position:relative}
+.tl__spine::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--rule)}
+.tl__events{grid-column:3;display:grid;padding-bottom:22px}
+.tl__year > .tl__spine{grid-row:1}
+.tl__year > .tl__events{grid-row:1}
+.ev{position:relative;padding:14px 0 14px}
+.ev__dot{position:absolute;left:-40px;top:21px;width:12px;height:12px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 4px var(--paper)}
+.ev__top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.ev time{font:650 .8125rem/1.2 var(--sans);color:var(--ink-2)}
+.ev__type{font:600 .6875rem/1 var(--sans);letter-spacing:.02em;padding:5px 8px;border-radius:999px;background:var(--field);color:var(--ink-2)}
+.ev h3{margin-top:6px;font:400 1.25rem/1.3 var(--serif);max-width:52ch}
+.ev p{margin-top:4px;font-size:.9375rem;line-height:1.5;color:var(--ink-2);max-width:62ch}
+.ev__org{margin-top:6px}
+.ev.is-undated .ev__dot{background:var(--paper);border:1.5px dashed var(--ink);box-shadow:0 0 0 4px var(--paper)}
+.ev.is-planned .ev__dot{border-radius:2px;background:var(--paper);border:1.5px solid var(--signal-mark);box-shadow:0 0 0 4px var(--paper)}
+.ev.is-planned time{color:var(--signal)}
+.ev.is-planned h3{color:var(--ink-2)}
+.tl__year.is-planned .tl__spine::before{background:none;border-left:2px dashed color-mix(in oklab, var(--signal-mark) 55%, transparent);width:0;margin-left:-1px}
+.tl__year.is-planned .tl__y{color:var(--signal)}
+.tl__year.is-undated .tl__spine::before{background:none;border-left:2px dashed var(--line);width:0}
+.tl__now{display:grid;grid-template-columns:140px 28px minmax(0,1fr);column-gap:20px;align-items:center;padding-block:10px 18px}
+.tl__now span{grid-column:3;display:flex;align-items:center;gap:12px;font:650 .8125rem/1.2 var(--sans);color:var(--ink)}
+.tl__now span::after{content:"";flex:1;height:2px;background:var(--ink)}
+.tl__now i{grid-column:2;justify-self:center;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--ink)}
+.ev[hidden],.tl__year[hidden]{display:none}
+@media (max-width:760px){
+  .tl__year,.tl__now{grid-template-columns:22px minmax(0,1fr);column-gap:14px}
+  .tl__y{grid-column:1 / -1;grid-row:1;position:static;font-size:1.75rem;padding:18px 0 6px}
+  .tl__y small{display:inline;margin-left:8px}
+  .tl__year > .tl__spine{grid-column:1;grid-row:2}
+  .tl__year > .tl__events{grid-column:2;grid-row:2}
+  .ev__dot{left:-31px}
+  .tl__now i{grid-column:1}
+  .tl__now span{grid-column:2}
+}
+
+/* Din bransje */
+.segs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.mx-wrap{overflow-x:auto}
+.mx{width:100%;border-collapse:collapse;font-size:.9375rem}
+.mx th,.mx td{padding:14px 12px;text-align:left;vertical-align:middle}
+.mx thead th{font:600 .75rem/1.2 var(--sans);color:var(--ink-3);border-bottom:1px solid var(--line);white-space:nowrap}
+.mx thead th.c{text-align:center}
+.mx tbody tr + tr > *{border-top:1px solid var(--rule)}
+.mx th.o{min-width:250px}
+.mx .grp th{padding:22px 12px 8px;font:650 .8125rem/1.2 var(--sans);color:var(--ink-2)}
+.mx td.c{text-align:center;width:84px}
+.mx .o{font:400 1.125rem/1.25 var(--serif)}
+.mx .o button{all:unset;cursor:pointer}
+.mx .o button:hover{text-decoration:underline;text-underline-offset:.2em}
+.mx .o button:focus-visible{outline:2px solid var(--fjord);outline-offset:3px;border-radius:3px}
+.mx .o small{display:block;margin-top:3px;font:500 .8125rem/1.3 var(--sans);color:var(--ink-3)}
+.mx .ld{font-size:.875rem;color:var(--ink-2);min-width:220px}
+.mx .ld b{color:var(--ink);font-weight:600}
+.cell{display:inline-block;width:14px;height:14px;border-radius:3px;background:var(--accent)}
+.cell--innstilling{background:var(--signal-mark)}
+.mx-list{display:none}
+.bx{display:grid;gap:10px;padding:16px 0}
+.bx + .bx{border-top:1px solid var(--rule)}
+.bx__n{font:400 1.1875rem/1.25 var(--serif)}
+.bx__n button{all:unset;cursor:pointer}
+.bx__meta{font-size:.8125rem;color:var(--ink-3)}
+.bx__g{margin-top:18px;font:650 .8125rem/1.2 var(--sans);color:var(--ink-2)}
+.bransje__note{margin-top:22px;font-size:.8125rem;color:var(--ink-3);max-width:70ch}
+.bransje__body{transition:opacity .18s ease, filter .18s ease}
+.bransje__body.is-swap{opacity:.25;filter:blur(3px)}
+@media (max-width:760px){.mx-wrap{display:none}.mx-list{display:block}}
+
+/* Neste kommune */
+.next{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(28px,5vw,80px);align-items:start}
+.form{display:grid;gap:18px;max-width:520px}
+.field label{display:block;font:600 .875rem/1.2 var(--sans);margin-bottom:8px}
+.field .help{display:block;margin-top:6px;font-size:.8125rem;color:var(--ink-3)}
+.field input,.field select{width:100%;height:50px;padding:0 14px;border:1px solid var(--line);border-radius:10px;background:var(--sheet);color:var(--ink);font:500 1rem/1 var(--sans)}
+.field input::placeholder{color:var(--ink-3)}
+.field input:focus,.field select:focus{outline:none;border-color:var(--fjord);box-shadow:0 0 0 3px color-mix(in oklab, var(--fjord) 22%, transparent)}
+.field .err{display:block;margin-top:6px;font-size:.8125rem;color:var(--signal);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 22px;border:0;border-radius:10px;background:var(--fjord);color:var(--on-fjord);font:650 1rem/1 var(--sans);cursor:pointer;white-space:nowrap;justify-self:start;transition:transform .16s var(--ease-out), filter .15s ease}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:scale(.97)}
+.done{display:grid;gap:6px;padding:16px 18px;border-radius:12px;background:var(--field);font-size:.9375rem;color:var(--ink-2);max-width:520px}
+.done b{color:var(--ink);font-weight:650;display:flex;align-items:center;gap:8px}
+.done b svg{width:16px;height:16px;color:var(--fjord)}
+.kcloud__h{font:650 .875rem/1.3 var(--sans);color:var(--ink-2);margin-bottom:12px}
+.kcloud{display:flex;flex-wrap:wrap;gap:8px}
+.kcloud .chip{padding:9px 12px}
+.next__note{margin-top:18px;font-size:.8125rem;color:var(--ink-3);max-width:52ch}
+@media (max-width:860px){.next{grid-template-columns:1fr}}
+
+/* Metode og Pro */
+.method{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,80px);align-items:start}
+.mblock + .mblock{margin-top:clamp(36px,4vw,56px)}
+.mblock__h{font:400 clamp(1.375rem,1.1rem + .8vw,1.75rem)/1.2 var(--serif)}
+.mblock__p{margin-top:10px;font:400 1.0625rem/1.55 var(--serif);color:var(--ink-2);max-width:60ch}
+.glegend{margin-top:18px;display:grid;gap:14px}
+.glegend li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:start}
+.glegend__sym{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--field)}
+.glegend__sym svg{width:18px;height:18px}
+.glegend b{display:block;font:650 1rem/1.3 var(--sans)}
+.glegend div > span{display:block;margin-top:2px;font-size:.9375rem;line-height:1.45;color:var(--ink-2)}
+.meter{margin-top:22px}
+.meter__bar{display:flex;gap:2px;height:14px}
+.meter__bar i{display:block;height:100%;border-radius:2px}
+.meter__bar .mv{background:var(--fjord)}
+.meter__bar .mo{background:var(--accent-soft)}
+.meter__bar .mm{background:var(--ink-2)}
+.meter__keys{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.8125rem;color:var(--ink-2)}
+.meter__keys span{display:inline-flex;align-items:center;gap:6px}
+.meter__keys i{display:inline-block;width:10px;height:10px;border-radius:2px}
+.meter__keys b{color:var(--ink);font-variant-numeric:tabular-nums}
+.trust{margin-top:18px;display:grid;gap:0;counter-reset:t}
+.trust li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;padding-block:12px;counter-increment:t}
+.trust li + li{border-top:1px solid var(--rule)}
+.trust li::before{content:counter(t);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--ink-3);font:650 .8125rem/1 var(--sans);color:var(--ink-2)}
+.trust b{display:block;font:650 .9375rem/1.3 var(--sans)}
+.trust span{display:block;font-size:.875rem;line-height:1.45;color:var(--ink-2);margin-top:2px}
+.nots{margin-top:14px;display:grid;gap:10px}
+.nots li{font-size:.9375rem;line-height:1.5;color:var(--ink-2);padding-left:20px;position:relative}
+.nots li::before{content:"";position:absolute;left:2px;top:.62em;width:9px;height:1.5px;background:var(--ink-3)}
+.nots b{color:var(--ink);font-weight:650}
+.pro{position:sticky;top:calc(var(--top-h) + 24px);background:var(--field);border-radius:var(--r-panel);padding:clamp(22px,3vw,36px)}
+.pro__h{font:400 clamp(1.625rem,1.3rem + 1vw,2.25rem)/1.1 var(--serif)}
+.pro__state{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font:600 .8125rem/1 var(--sans);color:var(--ink-2);padding:7px 11px;border:1px dashed var(--line);border-radius:999px}
+.pro__p{margin-top:14px;font:400 1.0625rem/1.5 var(--serif);color:var(--ink-2)}
+.pro__list{margin-top:18px;display:grid;gap:12px}
+.pro__list li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;font-size:.9375rem;line-height:1.45}
+.pro__list svg{width:18px;height:18px;color:var(--fjord);margin-top:1px}
+.pro__list b{font-weight:650}
+.pro .form{margin-top:24px}
+.pro .field input,.pro .field select{background:var(--paper)}
+.fix{margin-top:clamp(36px,4vw,56px);padding:18px 20px;border-radius:12px;border:1px dashed var(--line);display:grid;gap:8px;max-width:640px}
+.fix b{font:650 1rem/1.3 var(--sans)}
+.fix p{font-size:.9375rem;color:var(--ink-2)}
+@media (max-width:960px){.method{grid-template-columns:1fr}.pro{position:static}}
+
+/* Bunn */
+.foot{margin-top:clamp(80px,10vw,140px);padding-block:36px 48px;border-top:1px solid var(--rule)}
+.foot__in{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;font-size:.8125rem;color:var(--ink-3)}
+.foot__in b{font:400 1.125rem/1 var(--serif);color:var(--ink)}
+
+/* Skuffen */
+.drawer{position:fixed;inset:0;z-index:50}
+.drawer__scrim{position:absolute;inset:0;background:var(--scrim);opacity:0;transition:opacity .3s ease}
+.drawer.is-open .drawer__scrim{opacity:1}
+.drawer__panel{position:absolute;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--sheet);box-shadow:var(--pop-shadow);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .34s var(--ease-drawer);outline:none}
+.drawer.is-open .drawer__panel{transform:none}
+.drawer__head{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;padding:22px 24px 18px;border-bottom:1px solid var(--rule)}
+.drawer__type{font:600 .8125rem/1.35 var(--sans);color:var(--ink-3)}
+.drawer__h{margin-top:6px;font:400 clamp(1.625rem,1.3rem + 1vw,2.125rem)/1.12 var(--serif);letter-spacing:-.01em}
+.drawer__x{flex:none;display:grid;place-items:center;width:40px;height:40px;border:0;border-radius:var(--r-ctl);background:var(--field);color:var(--ink);cursor:pointer;transition:transform .16s var(--ease-out)}
+.drawer__x:active{transform:scale(.95)}
+.drawer__x .ico{width:18px;height:18px}
+.drawer__body{flex:1;overflow:auto;padding:6px 24px 32px;overscroll-behavior:contain}
+.dsec{padding-block:20px}
+.dsec + .dsec{border-top:1px solid var(--rule)}
+.dsec__h{font:650 .8125rem/1.3 var(--sans);color:var(--ink-2);margin-bottom:12px}
+.dsec__p{font:400 1.0625rem/1.55 var(--serif);color:var(--ink)}
+.dmyn{display:grid;gap:10px}
+.dmyn li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start;font-size:.875rem;color:var(--ink-2)}
+.droles{display:grid;gap:14px}
+.droles li{display:grid;gap:3px}
+.droles .t{font:600 .8125rem/1.3 var(--sans);color:var(--ink-3)}
+.droles .n{font:600 1rem/1.35 var(--sans);color:var(--ink)}
+.droles .d{font-size:.8125rem;color:var(--ink-2)}
+.droles.is-past .n{color:var(--ink-2)}
+.dempty{font-size:.875rem;color:var(--ink-3)}
+.dnums{display:grid;gap:10px}
+.dnums li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:baseline;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.dnums li:last-child{border-bottom:0;padding-bottom:0}
+.dnums .l{font-size:.875rem;color:var(--ink-2)}
+.dnums .v{font:700 1.125rem/1.2 var(--sans);text-align:right;white-space:nowrap}
+.dnums .y{grid-column:1 / -1;font-size:.75rem;color:var(--ink-3)}
+.dsrc{display:grid;gap:8px}
+.dsrc li{font-size:.875rem;color:var(--ink-2)}
+.dsrc b{color:var(--ink);font-weight:600}
+.dev{display:grid;gap:10px}
+.dev li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;font-size:.875rem}
+.dev time{font-weight:650;color:var(--ink-2)}
+.dsens{padding:12px 14px;border-radius:10px;background:var(--field);font-size:.875rem;color:var(--ink-2)}
+@media (max-width:640px){
+  .drawer__panel{top:auto;left:0;width:100%;max-height:88dvh;border-radius:18px 18px 0 0;transform:translateY(100%)}
+  .drawer__grip{display:block;width:40px;height:4px;border-radius:2px;background:var(--line);margin:10px auto 0}
+  .drawer__head{padding:14px 18px 14px}
+  .drawer__body{padding:4px 18px calc(28px + env(safe-area-inset-bottom,0px))}
+}
+.drawer__grip{display:none}
+
+/* Bevegelse: bare når leseren ikke har bedt om ro. Alt står ferdig i ro. */
+@media (prefers-reduced-motion: no-preference){
+  .fig.is-in .fig__num{animation:settle .85s var(--ease-out) both;animation-delay:calc(var(--i,0) * 90ms)}
+  @keyframes settle{from{transform:translateY(.24em);filter:blur(6px);opacity:.35}to{transform:none;filter:none;opacity:1}}
+  .own__rows.is-in .bar__fill{animation:grow .9s var(--ease-io) both;animation-delay:calc(var(--i,0) * 45ms)}
+  .own__rows.is-in .bar__val{animation:fadeIn .6s ease both;animation-delay:calc(var(--i,0) * 45ms + 450ms)}
+  @keyframes grow{from{transform:scaleX(.02)}}
+  .flowpanel.is-in .flow__svg{animation:pour 1.2s var(--ease-io) both}
+  .flowpanel.is-in .flow__tgt b,.flowpanel.is-in .flowm__t b{animation:settle .7s var(--ease-out) both;animation-delay:.8s}
+  @keyframes pour{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+  .flowm.is-in svg{animation:pourDown 1.1s var(--ease-io) both}
+  @keyframes pourDown{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+  .net.is-in .nnode{animation:nodeIn .95s var(--ease-out) both;animation-delay:calc(var(--i,0) * 45ms)}
+  @keyframes nodeIn{from{transform:translate(var(--dx,0),var(--dy,0));opacity:.35}}
+  .net.is-in .pedge{stroke-dasharray:1;animation:draw 1s var(--ease-out) both;animation-delay:calc(.5s + var(--i,0) * 70ms)}
+  .net.is-in .plbl{animation:fadeIn .5s ease both;animation-delay:calc(.9s + var(--i,0) * 70ms)}
+  .net.is-in .oedge,.net.is-in .olbl{animation:fadeIn .6s ease both;animation-delay:.35s}
+  @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+  @keyframes fadeIn{from{opacity:0}}
+  .arcs.is-in .apath{stroke-dasharray:1;animation:draw .9s var(--ease-out) both;animation-delay:calc(var(--i,0) * 80ms)}
+  .meter.is-in .meter__bar i{animation:grow .8s var(--ease-io) both;transform-origin:left}
+  .is-settled,.is-settled *{animation:none!important}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 256 256"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 256 256"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 256 256"><path d="M165.66,90.34a8,8,0,0,1,0,11.32l-64,64a8,8,0,0,1-11.32-11.32l64-64A8,8,0,0,1,165.66,90.34ZM215.6,40.4a56,56,0,0,0-79.2,0L106.34,70.45a8,8,0,0,0,11.32,11.32l30.06-30a40,40,0,0,1,56.57,56.56l-30.07,30.06a8,8,0,0,0,11.31,11.32L215.6,119.6a56,56,0,0,0,0-79.2ZM138.34,174.22l-30.06,30.06a40,40,0,1,1-56.56-56.57l30.05-30.05a8,8,0,0,0-11.32-11.32L40.4,136.4a56,56,0,0,0,79.2,79.2l30.06-30.07a8,8,0,0,0-11.32-11.31Z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
+    <!-- Kildemerkets tre former -->
+    <symbol id="sym-v" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="currentColor"/></symbol>
+    <symbol id="sym-o" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.3" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="sym-m" viewBox="0 0 12 12"><path d="M6 1.3 10.9 10.2 H1.1 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top" id="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#topp"><span class="brand__mark">Maktkart</span><span class="brand__place">Tromsø</span></a>
+    <nav class="toc-links" aria-label="Seksjoner">
+      <a href="#kjeden">Kjeden</a><a href="#organer">Organer</a><a href="#pengene">Penger</a><a href="#nettverket">Nettverk</a><a href="#endringene">Endringer</a><a href="#bransje">Bransje</a><a href="#neste">Neste</a><a href="#metode">Metode og Pro</a>
+    </nav>
+    <details class="toc">
+      <summary class="tbtn" aria-label="Innhold"><svg class="ico"><use href="#i-list"/></svg><span class="tbtn__t">Innhold</span></summary>
+      <nav class="toc__panel" aria-label="Seksjoner">
+        <a href="#kjeden">Beslutningskjeden</a><a href="#organer">Organkartet</a><a href="#pengene">Pengene</a><a href="#nettverket">Nettverket</a><a href="#endringene">Endringene</a><a href="#bransje">Din bransje</a><a href="#neste">Neste kommune</a><a href="#metode">Metode og Pro</a>
+      </nav>
+    </details>
+    <a class="pre" href="#metode" title="Tallene kommer fra researchgrunnlaget og er ikke etterprøvd mot Brreg"><svg aria-hidden="true"><use href="#sym-o"/></svg><span>Forhåndsversjon<span class="pre__d"> · 24.09.2026</span></span></a>
+    <button class="tbtn" type="button" id="tema" aria-label="Bytt til mørkt tema"><svg class="ico" aria-hidden="true"><use href="#i-moon"/></svg><span class="tbtn__t">Mørk</span></button>
+  </div>
+</header>
+
+<main id="topp">
+  <!-- 1. Topp -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap hero__grid">
+      <div>
+        <h1 class="h1" id="h1">Hvem bestemmer <em>i Tromsø?</em></h1>
+        <p class="hero__lede">Organene, rollene og pengene i Tromsø kommune, og hvordan de henger sammen. Hver påstand har kilde og dato.</p>
+        <div class="search" role="search">
+          <label for="sok">Søk i organer og roller</label>
+          <div class="search__box">
+            <svg class="ico" aria-hidden="true"><use href="#i-search"/></svg>
+            <input id="sok" type="search" autocomplete="off" placeholder="Organ, selskap eller navn" role="combobox" aria-expanded="false" aria-controls="sok-res" aria-autocomplete="list">
+          </div>
+          <ul class="search__res" id="sok-res" role="listbox" aria-label="Treff" hidden></ul>
+          <p class="search__hint">For eksempel <button type="button" data-q="Troms Kraft">Troms Kraft</button>, <button type="button" data-q="ordfører">ordfører</button> eller <button type="button" data-q="Vassmyr">Vassmyr</button>.</p>
+        </div>
+      </div>
+      <aside class="legendcard" aria-labelledby="leg-h">
+        <h2 class="legendcard__h" id="leg-h">Slik leser du merkene</h2>
+        <p class="legendcard__pre"><b>Forhåndsversjon.</b> Tallene kommer fra researchgrunnlaget sammenstilt 24.09.2026. Ingen av dem er etterprøvd mot Brreg ennå.</p>
+        <ul class="legend">
+          <li><span class="legend__sym sym--v"><svg><use href="#sym-v"/></svg></span><span class="legend__t">Verifisert<span class="legend__d">Hentet fra registeret av oss, med tidsstempel.</span></span><span class="legend__n" data-count="v">0</span></li>
+          <li><span class="legend__sym sym--o"><svg><use href="#sym-o"/></svg></span><span class="legend__t">Oppgitt<span class="legend__d">Står i grunnlaget med kilde. Ikke etterprøvd.</span></span><span class="legend__n" data-count="o">0</span></li>
+          <li><span class="legend__sym sym--m"><svg><use href="#sym-m"/></svg></span><span class="legend__t">Må verifiseres<span class="legend__d">Merket usikkert i grunnlaget, eller hentet fra Proff eller Purehelp.</span></span><span class="legend__n" data-count="m">0</span></li>
+        </ul>
+        <p class="legend__sig"><span class="myn myn--innstilling">Innstilling</span> Magenta betyr forberedende makt: de som skriver saken før den vedtas.</p>
+      </aside>
+    </div>
+
+    <div class="wrap">
+      <ul class="figs" aria-label="Tromsø i tall">
+        <li class="fig" data-reveal style="--i:0">
+          <a class="fig__link" href="#organer"><span class="fig__num">43</span><span class="fig__lbl">medlemmer i kommunestyret</span></a>
+          <span class="fig__src">Valgperioden 2023-2027 <button type="button" class="km" data-g="o" data-k="kommune" data-p="2023-10-11"></button></span>
+        </li>
+        <li class="fig" data-reveal style="--i:1">
+          <a class="fig__link" href="#kjeden"><span class="fig__num">4</span><span class="fig__lbl">hovedutvalg med 11 folkevalgte hver</span></a>
+          <span class="fig__src">Valgperioden 2023-2027 <button type="button" class="km" data-g="o" data-k="kommune" data-p="2023-10-11" data-m="Navnet på det fjerde utvalget er ikke verifisert."></button></span>
+        </li>
+        <li class="fig" data-reveal style="--i:2">
+          <a class="fig__link" href="#pengene"><span class="fig__num">70<small>mill. kr</small></span><span class="fig__lbl">i utbytte fra Troms Kraft til kommunen</span></a>
+          <span class="fig__src">Styrets forslag, mai 2026 <button type="button" class="km" data-g="o" data-k="nrk" data-p="2026-05-04" data-m="NRK 4.5.2026: styret foreslår 175 mill. kr, der 70 mill. går til Tromsø kommune."></button></span>
+        </li>
+        <li class="fig fig--m" data-reveal style="--i:3">
+          <a class="fig__link" href="#pengene"><span class="fig__num">18</span><span class="fig__lbl">selskaper i kommunekonsernet, ifølge Proff</span></a>
+          <span class="fig__src">Per september 2026, må verifiseres <button type="button" class="km" data-g="m" data-k="proff" data-p="2026-09" data-m="Proff oppgir 18 selskaper og 9 datterselskaper. Skal sjekkes mot Enhetsregisteret."></button></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="changes">
+      <div class="wrap changes__in">
+        <h2 class="changes__h">Siste endringer<a href="#endringene">Hele tidslinjen</a></h2>
+        <ol class="changes__list" id="siste"></ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Beslutningskjeden -->
+  <section class="sec" id="kjeden" aria-labelledby="kjeden-h">
+    <div class="wrap">
+      <header class="sec__head">
+        <div class="sec__title"><h2 class="h2" id="kjeden-h">Hvem bestemmer en reguleringsplan?</h2></div>
+        <p class="lede" id="kjeden-lede"></p>
+        <div class="seg" role="group" aria-label="Velg sak">
+          <button type="button" data-proc="reguleringsplan" aria-pressed="true">Reguleringsplan</button>
+          <button type="button" data-proc="budsjett" aria-pressed="false">Budsjett</button>
+        </div>
+      </header>
+      <div class="chain__grid">
+        <div class="chain__steps" id="steps"></div>
+        <div class="chain__graphic"><div class="route" id="route"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Organkartet -->
+  <section class="sec" id="organer" aria-labelledby="organer-h">
+    <div class="wrap">
+      <header class="sec__head">
+        <div class="sec__title"><h2 class="h2" id="organer-h">Hvem sitter hvor</h2></div>
+        <p class="lede">Fire nivåer har makt over saker i Tromsø. Folkevalgte organer og administrasjonen står hver for seg. Trykk på et organ for roller, eierskap, tall og kilder.</p>
+      </header>
+      <div class="strata" id="strata"></div>
+    </div>
+  </section>
+
+  <!-- 4. Pengene -->
+  <section class="sec" id="pengene" aria-labelledby="pengene-h">
+    <div class="wrap">
+      <header class="sec__head">
+        <div class="sec__title"><h2 class="h2" id="pengene-h">Hva kommunen eier</h2></div>
+        <p class="lede">Kommunen har eierandeler i energi, avfall, parkering, eiendom og havn. Utbyttet fra Troms Kraft er det eneste utbyttet grunnlaget tallfester.</p>
+      </header>
+
+      <div class="flowpanel" data-reveal id="flowpanel">
+        <h3 class="flowpanel__h">Utbyttet fra Troms Kraft</h3>
+        <p class="flowpanel__d">Styret foreslår å dele ut 175 mill. kr. Pengene følger eierandelene: 60 % til Troms Holding AS, som eies av fylkeskommunen, og 40 % til Tromsø kommune.</p>
+        <div class="flow" id="flow" aria-hidden="true"></div>
+        <div class="flowm" id="flowm" aria-hidden="true"></div>
+        <p class="flow__cap">Styrets forslag, omtalt av NRK 4.5.2026. Beløpene er avrundet slik NRK oppgir dem. <button type="button" class="km" data-g="o" data-k="nrk" data-p="2026-05-04" data-m="Forslag fra styret. Generalforsamlingens vedtak er ikke i grunnlaget."></button></p>
+        <p class="vh">Troms Kraft AS: 175 millioner kroner i foreslått utbytte. 105 millioner til Troms Holding AS, 70 millioner til Tromsø kommune.</p>
+      </div>
+
+      <div class="own">
+        <div class="own__head">
+          <div>
+            <h3 class="own__h">Eierandeler</h3>
+            <p class="own__d">Andelen kommunen eier i hvert selskap. Nøkkeltall vises bare med regnskapsår. Tall uten år i grunnlaget står som hull til året er hentet.</p>
+          </div>
+        </div>
+        <div class="own__cols" aria-hidden="true"><span>Selskap</span><div class="axis"><span>0 %</span><span style="left:50%">50 %</span><span style="left:100%">100 %</span></div><span>Nøkkeltall</span></div>
+        <div class="own__rows" id="own" data-reveal></div>
+        <div class="own__notes" id="own-notes"></div>
+      </div>
+
+      <div class="ledger">
+        <div>
+          <h3 class="ledger__h">Kommunens eget regnskap</h3>
+          <p class="ledger__d">To kilder, to mål. Tallene kan ikke legges sammen.</p>
+        </div>
+        <div class="ledger__rows" id="ledger"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Nettverket -->
+  <section class="sec" id="nettverket" aria-labelledby="nett-h">
+    <div class="wrap">
+      <header class="sec__head">
+        <div class="sec__title"><h2 class="h2" id="nett-h">De som sitter flere steder</h2></div>
+        <p class="lede" id="nett-lede"></p>
+      </header>
+      <div class="tabs" role="tablist" aria-label="Visning">
+        <button type="button" role="tab" id="tab-graf" aria-selected="true" aria-controls="panel-graf">Graf</button>
+        <button type="button" role="tab" id="tab-liste" aria-selected="false" aria-controls="panel-liste" tabindex="-1">Liste</button>
+      </div>
+      <div id="panel-graf" role="tabpanel" aria-labelledby="tab-graf">
+        <div class="net net__desk" id="net" data-reveal></div>
+        <div class="net arcs" id="arcs" data-reveal></div>
+        <div class="net__legend" id="net-legend">
+          <span><svg viewBox="0 0 34 12"><path d="M1 10 Q17 0 33 10" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>Person med rolle i begge organer</span>
+          <span class="net__own-key"><svg viewBox="0 0 34 12"><line x1="1" y1="6" x2="33" y2="6" stroke="var(--line)" stroke-width="1.4"/></svg>Eierskap med oppgitt andel</span>
+          <span class="net__own-key"><svg viewBox="0 0 34 12"><line x1="1" y1="6" x2="33" y2="6" stroke="var(--line)" stroke-width="1.4" stroke-dasharray="5 5"/></svg>Eierskap der andelen ikke er oppgitt</span>
+        </div>
+        <p class="net__note" id="net-note"></p>
+      </div>
+      <div id="panel-liste" role="tabpanel" aria-labelledby="tab-liste" hidden>
+        <ul class="plist" id="plist"></ul>
+        <p class="net__note">Sortert etter etternavn. Listen rangerer ingen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Endringene -->
+  <section class="sec" id="endringene" aria-labelledby="endr-h">
+    <div class="wrap">
+      <header class="sec__head">
+        <div class="sec__title"><h2 class="h2" id="endr-h">Hva som har endret seg</h2></div>
+        <p class="lede">Rollebytter og strukturendringer fra 2016 til i dag, og det som er varslet framover. Planlagte hendelser har ikke skjedd.</p>
+      </header>
+      <div class="tlwrap">
+      <div>
+      <div class="filters" role="group" aria-label="Filtrer tidslinjen">
+        <button type="button" class="chip" data-f="alle" aria-pressed="true">Alle</button>
+        <button type="button" class="chip" data-f="roller" aria-pressed="false">Roller og valg</button>
+        <button type="button" class="chip" data-f="struktur" aria-pressed="false">Struktur</button>
+        <button type="button" class="chip" data-f="penger" aria-pressed="false">Penger og vedtak</button>
+      </div>
+      <div class="tl" id="tl"></div>
+      </div>
+      <aside class="tlkey" aria-labelledby="tlkey-h">
+        <h3 class="tlkey__h" id="tlkey-h">Slik leser du tidslinjen</h3>
+        <ul class="tlkey__list">
+          <li><span class="tlkey__m tlkey__m--past" aria-hidden="true"></span><span><b>Har skjedd</b><small><span id="n-fortid">0</span> hendelser med dato</small></span></li>
+          <li><span class="tlkey__m tlkey__m--und" aria-hidden="true"></span><span><b>Dato ikke verifisert</b><small><span id="n-udatert">0</span> hendelser. Står for seg selv til datoen er hentet</small></span></li>
+          <li><span class="tlkey__m tlkey__m--plan" aria-hidden="true"></span><span><b>Planlagt eller varslet</b><small><span id="n-plan">0</span> hendelser. Har ikke skjedd</small></span></li>
+        </ul>
+        <p class="tlkey__note">Hver hendelse har sitt eget kildemerke. Datoen er så presis som kilden er: dag, måned eller år.</p>
+      </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Din bransje -->
+  <section class="sec" id="bransje" aria-labelledby="br-h">
+    <div class="wrap">
+      <header class="sec__head">
+        <div class="sec__title"><h2 class="h2" id="br-h">Hvem påvirker din bransje?</h2></div>
+        <p class="lede">Velg bransje og se hvilke organer som har makt over den, og hva slags makt det er.</p>
+      </header>
+      <div class="segs" role="radiogroup" aria-label="Bransje" id="segs"></div>
+      <div class="bransje__body" id="bransje-body" aria-live="polite"></div>
+      <p class="bransje__note">Koblingen mellom organ og bransje er vår redaksjonelle kobling, bygget på grunnlagets del 3.3. Den forteller hvilke organer som har myndighet over bransjen. Den rangerer dem ikke.</p>
+    </div>
+  </section>
+
+  <!-- 8. Neste kommune -->
+  <section class="sec" id="neste" aria-labelledby="neste-h">
+    <div class="wrap next">
+      <div>
+        <header class="sec__head" style="margin-bottom:28px">
+          <div class="sec__title"><h2 class="h2" id="neste-h">Hvilken kommune skal vi kartlegge neste?</h2></div>
+          <p class="lede">Tromsø er den første. Stem fram den neste. Stemmene viser oss hvor behovet er størst.</p>
+        </header>
+        <form class="form" id="neste-form" novalidate>
+          <div class="field">
+            <label for="neste-kommune">Kommune</label>
+            <input id="neste-kommune" name="kommune" list="kommuner" autocomplete="off" placeholder="Skriv et kommunenavn">
+            <span class="err" id="neste-err" hidden>Skriv inn en kommune, eller velg en fra listen.</span>
+          </div>
+          <div class="field">
+            <label for="neste-epost">E-post, hvis du vil ha beskjed</label>
+            <input id="neste-epost" name="epost" type="email" autocomplete="email" placeholder="navn@eksempel.no">
+            <span class="help">Valgfritt. Vi sender bare beskjed når kommunen er klar.</span>
+          </div>
+          <button class="btn" type="submit">Stem</button>
+        </form>
+        <div class="done" id="neste-done" hidden role="status"></div>
+      </div>
+      <div>
+        <p class="kcloud__h">De andre kommunene i Troms valgkrets</p>
+        <div class="kcloud" id="kcloud"></div>
+        <p class="next__note">Forhåndsversjonen viser ingen stemmetall. Vi publiserer tallene når tellingen er ekte.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Metode og Pro -->
+  <section class="sec" id="metode" aria-labelledby="met-h">
+    <div class="wrap">
+      <header class="sec__head">
+        <div class="sec__title"><h2 class="h2" id="met-h">Slik er kartet laget</h2></div>
+        <p class="lede">Hver påstand på siden har en kilde, en dato og en grad. Her står hva gradene betyr, hvilke kilder vi stoler mest på, og hva vi med vilje lar være å vise.</p>
+      </header>
+      <div class="method">
+        <div>
+          <div class="mblock">
+            <h3 class="mblock__h">Tegnforklaring</h3>
+            <ul class="glegend">
+              <li><span class="glegend__sym sym--v"><svg><use href="#sym-v"/></svg></span><div><b>Verifisert</b><span>Hentet av vår egen innhenting fra registeret, med tidsstempel. Ingenting på denne siden er verifisert ennå.</span></div></li>
+              <li><span class="glegend__sym sym--o"><svg><use href="#sym-o"/></svg></span><div><b>Oppgitt</b><span>Står i researchgrunnlaget med kilde, for eksempel kommunens egne sider eller NRK. Ikke etterprøvd av oss.</span></div></li>
+              <li><span class="glegend__sym sym--m"><svg><use href="#sym-m"/></svg></span><div><b>Må verifiseres</b><span>Merket «verifiser», «uverifisert», «trolig» eller «antakelse» i grunnlaget, eller hentet fra Proff eller Purehelp.</span></div></li>
+            </ul>
+            <div class="meter" id="meter" data-reveal>
+              <div class="meter__bar" id="meter-bar" role="img"></div>
+              <div class="meter__keys" id="meter-keys"></div>
+            </div>
+          </div>
+          <div class="mblock">
+            <h3 class="mblock__h">Kildene, etter hvor mye vi stoler på dem</h3>
+            <ol class="trust">
+              <li><div><b>Register</b><span>Brreg, Regnskapsregisteret, Aksjonærregisteret, Stortinget, SSB og Lovdata. Første steg i innhentingen henter Enhetsregisteret, roller og nøkkeltall for hvert organisasjonsnummer.</span></div></li>
+              <li><div><b>Organets egen kilde</b><span>Kommunens, statsforvalterens, fylkeskommunens og selskapenes egne sider.</span></div></li>
+              <li><div><b>Redaksjonell kilde</b><span>NRK og Nordlys. Brukes for hendelser som ennå ikke står i et register.</span></div></li>
+              <li><div><b>Sekundærkilde</b><span>Proff og Purehelp. De videreformidler registerdata og skal erstattes av registeret. Vi skraper dem ikke.</span></div></li>
+              <li><div><b>Oppslagsverk</b><span>SNL og Wikipedia. Bare til berikelse, aldri som eneste kilde.</span></div></li>
+            </ol>
+          </div>
+          <div class="mblock">
+            <h3 class="mblock__h">Det vi ikke viser</h3>
+            <ul class="nots">
+              <li><b>Ingen samlet maktscore.</b> En score har sju vektede ledd, og for Tromsø mangler minst tre av dem målte data. Vi viser myndighet, eierskap og kjeder, som er fakta.</li>
+              <li><b>Ingen personbilder og ingen rangering av mennesker.</b> Personer vises bare gjennom en rolle i et organ.</li>
+              <li><b>Ingen skattelister og ingen fødselsdatoer.</b></li>
+              <li><b>Bare toppleder for politi, domstol, påtale og Forsvaret.</b> Disse organene står ikke i nettverket.</li>
+            </ul>
+          </div>
+          <div class="fix">
+            <b>Er dette deg?</b>
+            <p>Står det noe feil om deg eller rollen din, kan du be om retting eller protestere mot at rollen vises. Skjemaet for retting kommer før lansering.</p>
+          </div>
+        </div>
+        <aside class="pro" aria-labelledby="pro-h">
+          <h3 class="pro__h" id="pro-h">Maktkart Pro</h3>
+          <span class="pro__state"><svg width="12" height="12" aria-hidden="true"><use href="#sym-o"/></svg>Ikke lansert. Venteliste åpen.</span>
+          <p class="pro__p">For dem som må følge med hver uke: samfunnskontakter, utviklere, selgere mot offentlig sektor og redaksjoner.</p>
+          <ul class="pro__list">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Varsler</b> når en rolle skifter, et styre får ny leder eller en reguleringsplan kommer.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Hele grafen</b> for kommunen og fylket, ikke bare utdraget her.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Historikk</b> for hvert organ og hver rolle.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Eksport</b> til regneark og API.</span></li>
+          </ul>
+          <form class="form" id="pro-form" novalidate>
+            <div class="field">
+              <label for="pro-epost">E-post</label>
+              <input id="pro-epost" type="email" autocomplete="email" placeholder="navn@firma.no" required>
+              <span class="err" id="pro-err" hidden>Skriv inn en e-postadresse, for eksempel navn@firma.no.</span>
+            </div>
+            <div class="field">
+              <label for="pro-rolle">Hva jobber du med?</label>
+              <select id="pro-rolle">
+                <option>PR og samfunnskontakt</option>
+                <option>Eiendom og bygg</option>
+                <option>Salg til offentlig sektor</option>
+                <option>Journalistikk</option>
+                <option>Næringsforening eller organisasjon</option>
+                <option>Annet</option>
+              </select>
+            </div>
+            <button class="btn" type="submit">Sett meg på ventelisten</button>
+          </form>
+          <div class="done" id="pro-done" hidden role="status" style="margin-top:22px"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <b>Maktkart</b>
+    <span>Forhåndsversjon. Sammenstilt 24.09.2026 fra researchgrunnlaget. Ikke etterprøvd mot Brreg.</span>
+    <span><a href="#metode">Metode</a> · <a href="#metode">Er dette deg?</a></span>
+  </div>
+</footer>
+
+<div class="kmpop" id="kmpop" role="dialog" aria-label="Kilde" hidden></div>
+
+<div class="drawer" id="drawer" hidden>
+  <div class="drawer__scrim" data-close></div>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="drawer-h" tabindex="-1">
+    <span class="drawer__grip" aria-hidden="true"></span>
+    <div class="drawer__head">
+      <div><p class="drawer__type" id="drawer-type"></p><h2 class="drawer__h" id="drawer-h"></h2></div>
+      <button class="drawer__x" type="button" data-close aria-label="Lukk"><svg class="ico"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="drawer__body" id="drawer-body"></div>
+  </div>
+</div>
+
+<datalist id="kommuner"></datalist>
+
+<script>
+(() => {
+'use strict';
+
+/* ===== Datasettet. Alt under er hentet fra researchgrunnlaget 24.09.2026. =====
+   Kildemerker skrives som [grad, kilde, per, merknad]. Grad: v verifisert, o oppgitt, m må verifiseres. */
+
+const META = { kommune: 'Tromsø', kommunenr: '5501', fylke: 'Troms', sammenstilt: '2026-09-24' };
+
+const KILDER = {
+  kommune:  { navn: 'Tromsø kommune', vis: 'tromso.kommune.no', url: 'https://www.tromso.kommune.no/politikk/politisk-organisering/kommunestyret', type: 'offisiell' },
+  nrk:      { navn: 'NRK Troms og Finnmark', vis: 'nrk.no', type: 'media' },
+  sf:       { navn: 'Statsforvalteren i Troms og Finnmark', vis: 'statsforvalteren.no', url: 'https://www.statsforvalteren.no', type: 'offisiell' },
+  tfk:      { navn: 'Troms fylkeskommune', vis: 'tromsfylke.no', url: 'https://www.tromsfylke.no', type: 'offisiell' },
+  tk:       { navn: 'Troms Kraft', vis: 'selskapets egen side', type: 'offisiell' },
+  regj:     { navn: 'Regjeringen', vis: 'regjeringen.no', url: 'https://www.regjeringen.no', type: 'offisiell' },
+  purehelp: { navn: 'Purehelp', vis: 'purehelp.no', type: 'sekundaer' },
+  proff:    { navn: 'Proff', vis: 'proff.no', type: 'sekundaer' },
+  nordlys:  { navn: 'Nordlys', vis: 'nordlys.no', type: 'media' },
+  media23:  { navn: 'Medieomtale fra 2023', vis: 'omtale fra 2023', type: 'media' },
+  grunnlag: { navn: 'Researchgrunnlaget', vis: 'primærkilde ikke oppgitt for raden', type: 'grunnlag' },
+};
+const KILDETYPE = { register: 'Register', offisiell: 'Organets egen kilde', media: 'Redaksjonell kilde', sekundaer: 'Sekundærkilde, skal erstattes av registeret', oppslagsverk: 'Oppslagsverk', grunnlag: 'Grunnlaget oppgir ikke primærkilde' };
+const GRAD = {
+  v: { navn: 'Verifisert', lang: 'Verifisert mot registeret' },
+  o: { navn: 'Oppgitt', lang: 'Oppgitt, ikke etterprøvd' },
+  m: { navn: 'Må verifiseres', lang: 'Må verifiseres' },
+};
+const MYN = {
+  vedtak:        ['Vedtak', 'Fatter det endelige vedtaket.'],
+  planmyndighet: ['Plan', 'Myndighet i plansaker.'],
+  innstilling:   ['Innstilling', 'Forbereder saken og foreslår vedtak. Den som skriver saken, former vedtaket.'],
+  klage:         ['Klage', 'Behandler klager på vedtak.'],
+  tilsyn:        ['Tilsyn', 'Fører tilsyn og kontroll.'],
+  konsesjon:     ['Konsesjon', 'Gir tillatelser og konsesjoner.'],
+  finansiering:  ['Finansiering', 'Gir lån, tilskudd eller kapital.'],
+  eierskap:      ['Eierskap', 'Eier selskaper og utøver eiermakt.'],
+  innkjop:       ['Innkjøp', 'Kjøper varer og tjenester.'],
+};
+const MYN_REKKE = ['vedtak','planmyndighet','innstilling','klage','tilsyn','konsesjon','finansiering','eierskap','innkjop'];
+
+const ORG = {
+  tromso_kommune: { navn: 'Tromsø kommune', orgnr: '940101808', type: 'Kommune', nivaa: 'Kommune',
+    besk: 'Styres etter formannskapsmodellen siden 1.7.2016. Byrådsmodellen gjaldt fra 2011 til 2016.', bkm: ['o','kommune','2016-07-01'],
+    myn: ['vedtak','planmyndighet','eierskap','innkjop','finansiering'],
+    eier: [{ n: 'Troms Kraft AS', a: '40 %', org: 'troms_kraft', km: ['o','nrk','2026-05-04'] }, { n: 'Remiks Miljøpark AS', a: '99,99 %', org: 'remiks', km: ['m','purehelp','2026-09'] }, { n: 'Tromsø Parkering AS', a: '100 %', org: 'parkering', km: ['m','purehelp','2026-09'] }, { n: 'Grøtsund Industripark AS', a: '50 %', org: 'grotsund', km: ['m','purehelp','2026-09'] }, { n: 'Tromsø Havn KF', a: 'Kommunalt foretak', org: 'havn', km: ['o','grunnlag','2026-09'] }],
+    tall: [
+      { l: 'Merforbruk', v: '205,1 mill. kr', y: '2024', km: ['o','kommune','2024'] },
+      { l: 'Underskudd, negativt driftsresultat', v: '271 mill. kr', y: '2024, ifølge NRK', km: ['o','nrk','2024', 'NRKs tall. Kommunens eget tall for samme år er merforbruk, et annet mål.'] },
+      { l: 'Brukt for mye', v: '66 mill. kr', y: '2025, ifølge NRK. Regnskapet godkjent 24.6.2026', km: ['o','nrk','2026-06-24'] },
+      { l: 'Selskaper i konsernet', v: '18', y: 'Per september 2026, ifølge Proff. 9 datterselskaper', km: ['m','proff','2026-09','Skal sjekkes mot Enhetsregisteret.'] },
+    ] },
+  kommunestyret: { navn: 'Tromsø kommunestyre', kort: 'Kommunestyret', type: 'Folkevalgt organ', nivaa: 'Kommune', meta: '43 medlemmer, 11 møter i året',
+    besk: 'Kommunens øverste organ. Vedtar selv kommuneplan, reguleringsplaner, budsjett, handlingsprogram, skatt, avgifter og forskrifter.', bkm: ['o','kommune','2023-10-11'],
+    myn: ['vedtak','planmyndighet','eierskap','finansiering'],
+    naa: [{ t: 'Ordfører', n: 'Gunnar Wilhelmsen', p: 'Ap', d: 'Gjenvalgt 11.10.2023', km: ['o','kommune','2023-10-11'] }, { t: 'Varaordfører', n: 'Sigrid Hammer', p: 'SV', d: 'Fra 11.10.2023', km: ['o','kommune','2023-10-11'] }],
+    mangler: [{ hva: 'De 41 andre medlemmene', hvor: 'innsyn.tromso.kommune.no' }],
+    tall: [{ l: 'Medlemmer', v: '43', y: 'Valgperioden 2023-2027', km: ['o','kommune','2023-10-11'] }, { l: 'Møter i året', v: '11', y: 'Valgperioden 2023-2027', km: ['o','kommune','2023-10-11'] }] },
+  formannskapet: { navn: 'Formannskapet', type: 'Folkevalgt organ', nivaa: 'Kommune', meta: 'Møtes annenhver uke',
+    besk: 'Kommunens nest øverste organ. Innstiller i økonomisaker og kan pålegge kommunedirektøren å fremme saker.', bkm: ['o','kommune','2023-10-11'],
+    myn: ['innstilling'],
+    naa: [{ t: 'Leder', n: 'Gunnar Wilhelmsen', p: 'Ap', d: 'Ordføreren leder formannskapet', km: ['o','kommune','2023-10-11'] }],
+    mangler: [{ hva: 'Medlemslisten', hvor: 'innsyn.tromso.kommune.no' }] },
+  kbu: { navn: 'Kommune- og byutviklingsutvalget', kort: 'Byutviklingsutvalget', type: 'Hovedutvalg', nivaa: 'Kommune', meta: '11 medlemmer',
+    besk: 'Behandler reguleringsplaner og legger planforslag ut til offentlig ettersyn.', bkm: ['o','kommune','2023-10-11'],
+    myn: ['innstilling','planmyndighet'],
+    naa: [], mangler: [{ hva: 'Utvalgsleder', hvor: 'innsyn.tromso.kommune.no', leder: true }, { hva: 'Medlemslisten', hvor: 'innsyn.tromso.kommune.no' }] },
+  hovedutvalg: { navn: 'Tre andre hovedutvalg', type: 'Hovedutvalg', nivaa: 'Kommune', meta: '11 medlemmer hver',
+    besk: 'Helse- og velferdsutvalget, oppvekst- og utdanningsutvalget, og et fjerde utvalg for klima, miljø, næring, kultur, idrett og friluft. Navnet på det fjerde er ikke verifisert.', bkm: ['m','kommune','2023-10-11','Navnet på det fjerde utvalget er merket «verifiser» i grunnlaget.'],
+    myn: [], naa: [], mangler: [{ hva: 'Utvalgslederne', hvor: 'innsyn.tromso.kommune.no', leder: true }] },
+  klageutvalget: { navn: 'Klageutvalget', type: 'Utvalg', nivaa: 'Kommune', meta: '5 faste medlemmer fra formannskapet',
+    besk: 'Behandler klager på kommunale enkeltvedtak.', bkm: ['o','kommune','2023-10-11'],
+    myn: ['klage'], naa: [], mangler: [{ hva: 'Medlemmene', hvor: 'innsyn.tromso.kommune.no', leder: true }] },
+  kontrollutvalget: { navn: 'Kontrollutvalget', type: 'Utvalg', nivaa: 'Kommune', meta: 'Medlemmene kan ikke sitte i hovedutvalg',
+    besk: 'Tilsyn og revisjon.', bkm: ['o','kommune','2023-10-11'],
+    myn: ['tilsyn'], naa: [], mangler: [{ hva: 'Medlemmene', hvor: 'innsyn.tromso.kommune.no', leder: true }] },
+  administrasjonen: { navn: 'Kommunedirektøren', kort: 'Administrasjonen', type: 'Administrasjon', nivaa: 'Kommune', meta: 'Leder administrasjonen',
+    besk: 'Leder administrasjonen som forbereder sakene politikerne behandler.', bkm: ['o','grunnlag','2026-09'],
+    myn: ['innstilling'],
+    naa: [{ t: 'Kommunedirektør', n: 'Ellen Beate Lundberg', d: 'Tidligere kommunedirektør i Fauske. Tiltredelsesdato ikke verifisert', km: ['o','grunnlag','2026-09','Navnet er oppgitt. Datoen hun tiltrådte er merket «verifiser».'] }],
+    for: [
+      { t: 'Kommunedirektør, fungerende eller konstituert', n: 'Mari Enoksen Hult', d: 'Fra 30.9.2025. Sluttdato ikke verifisert', km: ['m','grunnlag','2025-09-30','Grunnlaget skriver «fungerende/konstituert». Sluttdato merket «verifiser».'] },
+      { t: 'Kommunedirektør', n: 'Stig Tore Johnsen', d: 'Fratrådte 30.9.2025', km: ['o','grunnlag','2025-09-30'] },
+      { t: 'Kommunedirektør', n: 'Britt Elin Stenveg', d: 'Før Johnsen. Datoer ikke oppgitt', km: ['o','grunnlag','2026-09'] },
+    ] },
+  byplan: { navn: 'Byutvikling, plan og byggesak', kort: 'Byplan og byggesak', type: 'Administrasjon', nivaa: 'Kommune', meta: 'Seksjoner under kommunedirektøren',
+    besk: 'Fagfolkene som skriver sakene om plan, bygg, eiendom og næring. Har innstilling, og vedtak på delegert myndighet i enkelte saker.', bkm: ['o','grunnlag','2026-09'],
+    myn: ['innstilling','vedtak'], naa: [],
+    mangler: [{ hva: 'Seksjons- og avdelingslederne', hvor: 'kommunens ansattsøk', leder: true }] },
+  statsforvalteren: { navn: 'Statsforvalteren i Troms og Finnmark', kort: 'Statsforvalteren', type: 'Statsforvalter', nivaa: 'Stat', meta: 'Troms og Finnmark',
+    besk: 'Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker og kan fremme innsigelse mot arealplaner.', bkm: ['o','sf','2025-08'],
+    myn: ['klage','tilsyn','planmyndighet'],
+    naa: [{ t: 'Statsforvalter', n: 'Runar Sjåstad', d: 'Fra august 2025, utnevnt for seks år. Tidligere stortingsrepresentant for Ap', km: ['o','sf','2025-08'] }, { t: 'Assisterende statsforvalter', n: 'Katrine Storeheier', d: 'Tilsatt april 2025, kontorsted Tromsø', km: ['o','sf','2025-04'] }],
+    for: [], forTom: 'Forgjengeren er ikke med i grunnlaget.' },
+  politi: { navn: 'Troms politidistrikt', type: 'Politi', nivaa: 'Stat', meta: '20 kommuner', sensitiv: true,
+    besk: 'Politi, påtale og forvaltningsoppgaver som våpen og utlending.', bkm: ['o','regj','2026-09'],
+    myn: [],
+    naa: [{ t: 'Politimester', n: 'Astrid Elisabeth Nilsen', d: 'Konstituert siden november 2019, senere åremålsutnevnt for seks år. Utnevnelsesdato ikke verifisert', km: ['m','regj','2026-09','Utnevnelsesdatoen er merket «verifiser».'] }] },
+  troms_fk: { navn: 'Troms fylkeskommune', type: 'Fylkeskommune', nivaa: 'Fylke', meta: 'Gjenopprettet 1.1.2024',
+    besk: 'Fylkeskommunen eier Troms Holding AS, som eier 60 % av Troms Kraft.', bkm: ['o','tfk','2026-06-12'],
+    myn: ['eierskap'],
+    naa: [
+      { t: 'Fungerende fylkesordfører', n: 'Benjamin Furuly', p: 'H', d: 'Fram til midten av januar 2027', km: ['o','tfk','2026-06-12'] },
+      { t: 'Fylkesordfører, i permisjon', n: 'Kristina Torbergsen', p: 'Ap', d: 'Valgt 24. og 25.10.2023', km: ['o','tfk','2023-10-25'] },
+      { t: 'Fylkesvaraordfører', n: 'Eirik Losnegaard Mevik', p: 'Ap', km: ['o','tfk','2026-06-12'] },
+      { t: 'Fylkeskommunedirektør', n: 'Camilla Bjørn', km: ['o','tfk','2026-06-12'] },
+    ],
+    konflikt: { tema: 'Styringsmodell', a: ['tromsfylke.no, sist endret 12.6.2026', 'formannskapsmodell'], b: ['Medieomtale ved konstitueringen i 2023', 'fylkesråd, med Torbergsen omtalt som fylkesrådsleder'] },
+    eier: [{ n: 'Troms Holding AS', a: 'Andel ikke oppgitt', org: 'troms_holding', km: ['o','grunnlag','2026-09'] }] },
+  troms_holding: { navn: 'Troms Holding AS', type: 'Aksjeselskap', nivaa: 'Fylke', meta: 'Eier 60 % av Troms Kraft',
+    besk: 'Fylkeskommunens holdingselskap for eierandelen i Troms Kraft.', bkm: ['o','nrk','2026-05-04'],
+    myn: ['eierskap'],
+    naa: [{ t: 'Styreleder', n: 'Kristina Torbergsen', d: 'Ifølge Proff', km: ['m','proff','2026-09','Bare oppgitt av Proff. Skal sjekkes i Rolle-API.'] }],
+    eiesAv: [{ n: 'Troms fylkeskommune', a: 'Andel ikke oppgitt', org: 'troms_fk', km: ['o','grunnlag','2026-09'] }],
+    eier: [{ n: 'Troms Kraft AS', a: '60 %', org: 'troms_kraft', km: ['o','nrk','2026-05-04'] }] },
+  troms_kraft: { navn: 'Troms Kraft AS', orgnr: '979468792', type: 'Aksjeselskap', nivaa: 'Selskap', meta: 'Energi',
+    besk: 'Energiselskapet eies av Tromsø kommune og Troms Holding AS. Utbyttet fordeles etter eierandel.', bkm: ['o','nrk','2026-05-04'],
+    myn: ['eierskap','innkjop'],
+    naa: [
+      { t: 'Konsernsjef', n: 'Erling Andreas Dalberg', km: ['o','grunnlag','2026-09'] },
+      { t: 'Styreleder', n: 'Åslaug Haga', d: 'Valgt av bedriftsforsamlingen 14.5.2025', km: ['o','tk','2025-05-14'] },
+      { t: 'Nestleder i styret', n: 'Kathrine Tveiterås', d: 'Også nestleder i styret i SpareBank 1 Nord-Norge', km: ['o','grunnlag','2026-09'] },
+    ],
+    for: [{ t: 'Styreleder', n: 'Inge K. Hansen', d: 'Til 14.5.2025', km: ['o','tk','2025-05-14'] }],
+    eiesAv: [{ n: 'Troms Holding AS', a: '60 %', org: 'troms_holding', km: ['o','nrk','2026-05-04'] }, { n: 'Tromsø kommune', a: '40 %', org: 'tromso_kommune', km: ['o','nrk','2026-05-04'] }],
+    eier: [{ n: 'Fjuel Tromsø AS', a: '51 %', km: ['m','purehelp','2026-09'] }, { n: 'Grøtsund Industripark AS', a: 'Andel ikke verifisert', org: 'grotsund', km: ['m','grunnlag','2026-09'] }],
+    tall: [
+      { l: 'Foreslått utbytte', v: '175 mill. kr', y: 'Styrets forslag, mai 2026. 105 mill. til Troms Holding, 70 mill. til kommunen', km: ['o','nrk','2026-05-04'] },
+      { l: 'Egenkapital', v: '2 426 mill. kr', y: '2025, morselskap', km: ['m','purehelp','2025','Fra Purehelp. Skal sjekkes mot Regnskapsregisteret.'] },
+      { l: 'Årsresultat', v: '202 mill. kr', y: '2025, konsern', km: ['m','purehelp','2025','Fra Purehelp. Skal sjekkes mot Regnskapsregisteret.'] },
+    ] },
+  havn: { navn: 'Tromsø Havn KF', type: 'Kommunalt foretak', nivaa: 'Selskap', meta: 'Del av kommunen. Havn og eiendom',
+    besk: 'Havnen er et kommunalt foretak. Regnskapet behandles i havnestyret og står ikke i Brreg.', bkm: ['o','grunnlag','2026-09'],
+    myn: ['eierskap','konsesjon','innkjop'],
+    naa: [{ t: 'Havnedirektør', n: 'Jørn-Even Hanssen', km: ['o','grunnlag','2026-09'] }, { t: 'Styremedlem', n: 'Kjell-Are Vassmyr', d: 'Grunnlaget skriver «blant andre»', km: ['o','grunnlag','2026-09'] }],
+    mangler: [{ hva: 'Resten av havnestyret', hvor: 'havnestyrets møteprotokoller' }],
+    eier: [{ n: 'TG Næringseiendom AS', a: 'Havnens utleieselskap', org: 'tg', km: ['o','grunnlag','2026-09'] }, { n: 'Fjuel Tromsø AS', a: '49 %', km: ['m','purehelp','2026-09'] }, { n: 'Grøtsund Industripark AS', a: 'Andel ikke verifisert', org: 'grotsund', km: ['m','grunnlag','2026-09'] }] },
+  tg: { navn: 'TG Næringseiendom AS', type: 'Aksjeselskap', nivaa: 'Selskap', meta: 'Havnens utleieselskap',
+    besk: 'Utleieselskapet til Tromsø Havn. Organisasjonsnummeret er ikke verifisert.', bkm: ['m','grunnlag','2026-09','Orgnr merket «verifiser».'],
+    myn: [],
+    naa: [{ t: 'Styreleder', n: 'Kjell-Are Vassmyr', d: 'Per omtale i 2023', km: ['o','media23','2023','Omtale fra 2023. Kan være utdatert.'] }, { t: 'Daglig leder', n: 'Jørn-Even Hanssen', d: 'Per omtale i 2023', km: ['o','media23','2023','Omtale fra 2023. Kan være utdatert.'] }],
+    eiesAv: [{ n: 'Tromsø Havn KF', a: 'Andel ikke oppgitt', org: 'havn', km: ['o','grunnlag','2026-09'] }] },
+  grotsund: { navn: 'Grøtsund Industripark AS', orgnr: '934106709', type: 'Aksjeselskap', nivaa: 'Selskap', meta: 'Maritim næringspark, stiftet 28.6.2024',
+    besk: 'Maritim næringspark med flere offentlige eiere.', bkm: ['o','grunnlag','2024-06-28'],
+    myn: [],
+    naa: [{ t: 'Styreleder', n: 'Kjell-Are Vassmyr', km: ['o','grunnlag','2026-09'] }],
+    eiesAv: [{ n: 'Tromsø kommune', a: '50 %', org: 'tromso_kommune', km: ['m','purehelp','2026-09'] }, { n: 'Tromsø Havn, Troms fylkeskommune, Troms Kraft og ProTromsø', a: 'Andeler ikke verifisert', km: ['m','grunnlag','2026-09','Merket «uverifisert» i grunnlaget.'] }],
+    hull: ['Egenkapital er oppgitt uten år. Vises når regnskapsåret er hentet.'] },
+  remiks: { navn: 'Remiks Miljøpark AS', orgnr: '894462132', type: 'Aksjeselskap', nivaa: 'Selskap', meta: 'Avfall',
+    besk: 'Avfallsselskapet har to døtre: Remiks Husholdning AS (selvkost) og Remiks Næring AS (marked).', bkm: ['o','grunnlag','2026-09'],
+    myn: [],
+    naa: [{ t: 'Daglig leder', n: 'Britt Hege Mathisen Limo', km: ['o','grunnlag','2026-09'] }, { t: 'Styreleder', n: 'Tone Marie Myklevoll', d: 'Bare fra sekundærkilde', km: ['m','purehelp','2026-09','Merket «sekundær» i grunnlaget.'] }],
+    eiesAv: [{ n: 'Tromsø kommune', a: '99,99 %', org: 'tromso_kommune', km: ['m','purehelp','2026-09'] }, { n: 'Karlsøy kommune', a: 'Resten', km: ['m','purehelp','2026-09'] }],
+    tall: [{ l: 'Omsetning', v: '375,9 mill. kr', y: '2025, trolig konsern', km: ['m','purehelp','2025','Grunnlaget skriver «trolig konsern».'] }, { l: 'Egenkapital', v: '208,6 mill. kr', y: '2025, trolig konsern', km: ['m','purehelp','2025','Grunnlaget skriver «trolig konsern».'] }] },
+  parkering: { navn: 'Tromsø Parkering AS', orgnr: '912994481', type: 'Aksjeselskap', nivaa: 'Selskap', meta: 'Parkering',
+    besk: 'Kommunens parkeringsselskap.', bkm: ['o','grunnlag','2026-09'], myn: [],
+    naa: [{ t: 'Daglig leder', n: 'Jørn Ove Olsen', km: ['o','grunnlag','2026-09'] }],
+    eiesAv: [{ n: 'Tromsø kommune', a: '100 %', org: 'tromso_kommune', km: ['m','purehelp','2026-09'] }],
+    tall: [{ l: 'Omsetning', v: '77,8 mill. kr', y: '2024', km: ['m','purehelp','2024'] }, { l: 'Egenkapital', v: '71,7 mill. kr', y: '2024', km: ['m','purehelp','2024'] }] },
+  snn: { navn: 'SpareBank 1 Nord-Norge', orgnr: '952706365', type: 'Sparebank', nivaa: 'Selskap', meta: 'Privat. Finans',
+    besk: 'Banken finansierer næringslivet i regionen. Den eies av egenkapitalbeviseiere og Sparebankstiftelsen.', bkm: ['o','grunnlag','2026-09'],
+    myn: ['finansiering'],
+    naa: [
+      { t: 'Konsernsjef', n: 'Hanne Karoline Kræmer', d: 'Fra 1.1.2024. Også styreleder i SpareBank 1 Gruppen AS', km: ['o','grunnlag','2024-01-01'] },
+      { t: 'Styreleder', n: 'Eirik Frantzen', d: 'Fra 2022. Konsernsjef i Nordkraft AS', km: ['o','grunnlag','2022'] },
+      { t: 'Nestleder i styret', n: 'Kathrine Tveiterås', d: 'Norges sjømatråd. Også nestleder i Troms Kraft', km: ['o','grunnlag','2026-09'] },
+    ],
+    tall: [{ l: 'Resultat før skatt', v: '1 986 mill. kr', y: 'Første halvår 2026, etter Q2', km: ['o','grunnlag','2026-06'] }] },
+  sb1g: { navn: 'SpareBank 1 Gruppen AS', type: 'Aksjeselskap', nivaa: 'Selskap', meta: 'Bankalliansen', besk: 'Fellesselskapet i SpareBank 1-alliansen.', bkm: ['o','grunnlag','2026-09'], myn: [],
+    naa: [{ t: 'Styreleder', n: 'Hanne Karoline Kræmer', km: ['o','grunnlag','2026-09'] }] },
+  nordkraft: { navn: 'Nordkraft AS', type: 'Aksjeselskap', nivaa: 'Selskap', meta: 'Energi', besk: 'Energiselskap. Med her fordi konsernsjefen leder styret i SpareBank 1 Nord-Norge.', bkm: ['o','grunnlag','2026-09'], myn: [],
+    naa: [{ t: 'Konsernsjef', n: 'Eirik Frantzen', km: ['o','grunnlag','2026-09'] }] },
+  fiskeridir: { navn: 'Fiskeridirektoratet, region Nord', type: 'Direktorat', nivaa: 'Stat', meta: 'Kysten',
+    besk: 'Kvoter, tillatelser, akvakulturtillatelser og kontroll.', bkm: ['o','grunnlag','2026-09'], myn: ['konsesjon','tilsyn'], naa: [],
+    mangler: [{ hva: 'Regiondirektør', hvor: 'fiskeridir.no', leder: true }] },
+  mattilsynet: { navn: 'Mattilsynet, region Nord', type: 'Tilsyn', nivaa: 'Stat', meta: 'Regionalt',
+    besk: 'Tilsyn med sjømat, oppdrett og næringsmidler.', bkm: ['o','grunnlag','2026-09'], myn: ['tilsyn'], naa: [],
+    mangler: [{ hva: 'Regiondirektør', hvor: 'mattilsynet.no', leder: true }] },
+  nve: { navn: 'NVE, region Nord', type: 'Direktorat', nivaa: 'Stat', meta: 'Regionalt',
+    besk: 'Konsesjon for vassdrag og energi.', bkm: ['o','grunnlag','2026-09'], myn: ['konsesjon'], naa: [],
+    mangler: [{ hva: 'Regionleder', hvor: 'nve.no', leder: true }] },
+  finanstilsynet: { navn: 'Finanstilsynet', type: 'Tilsyn', nivaa: 'Stat', meta: 'Nasjonalt',
+    besk: 'Tilsyn med finansnæringen.', bkm: ['o','grunnlag','2026-09'], myn: ['tilsyn'], naa: [],
+    mangler: [{ hva: 'Leder', hvor: 'finanstilsynet.no', leder: true }] },
+  innovasjon: { navn: 'Innovasjon Norge Arktis', type: 'Særlovselskap', nivaa: 'Stat', meta: 'Eid av staten og fylkene',
+    besk: 'Lån, tilskudd og garantier til næringslivet i Troms og Finnmark.', bkm: ['o','grunnlag','2026-09'], myn: ['finansiering'], naa: [],
+    mangler: [{ hva: 'Regiondirektør', hvor: 'innovasjonnorge.no', leder: true }] },
+};
+
+const HENDELSER = [
+  { d: '2016-07-01', pr: 'dag', ty: 'struktur', t: 'Tromsø går over til formannskapsmodellen', x: 'Byrådsmodellen gjaldt fra 2011 til 2016.', org: 'tromso_kommune', km: ['o','kommune','2016-07-01'] },
+  { d: '2020-01-01', pr: 'dag', ty: 'struktur', t: 'Troms og Finnmark fylkeskommune opprettes', x: 'Troms fylkeskommune slås sammen med Finnmark.', org: 'troms_fk', km: ['o','grunnlag','2020-01-01'] },
+  { d: '2022', pr: 'aar', ty: 'rollebytte', t: 'Eirik Frantzen blir styreleder i SpareBank 1 Nord-Norge', org: 'snn', km: ['o','grunnlag','2022'] },
+  { d: '2022', pr: 'aar', ty: 'struktur', t: 'Tromsøbolig KF etableres', x: 'Kommunalt foretak for kommunale boliger.', km: ['o','grunnlag','2022'] },
+  { d: '2023-10-11', pr: 'dag', ty: 'valg', t: 'Gunnar Wilhelmsen (Ap) gjenvalgt som ordfører', x: 'Sigrid Hammer (SV) blir varaordfører.', org: 'kommunestyret', km: ['o','kommune','2023-10-11'] },
+  { d: '2023-10-25', pr: 'dag', vis: '24. og 25.10.2023', ty: 'valg', t: 'Kristina Torbergsen (Ap) valgt til fylkesordfører', org: 'troms_fk', km: ['o','tfk','2023-10-25'] },
+  { d: '2024-01-01', pr: 'dag', ty: 'struktur', t: 'Troms fylkeskommune gjenopprettes', x: 'Troms og Finnmark deles i to fylkeskommuner igjen.', org: 'troms_fk', km: ['o','tfk','2024-01-01'] },
+  { d: '2024-01-01', pr: 'dag', ty: 'rollebytte', t: 'Hanne Karoline Kræmer blir konsernsjef i SpareBank 1 Nord-Norge', org: 'snn', km: ['o','grunnlag','2024-01-01'] },
+  { d: '2024-06-28', pr: 'dag', ty: 'struktur', t: 'Grøtsund Industripark AS stiftes', org: 'grotsund', km: ['o','grunnlag','2024-06-28'] },
+  { d: '2025-04', pr: 'maaned', ty: 'rollebytte', t: 'Katrine Storeheier tilsatt som assisterende statsforvalter', org: 'statsforvalteren', km: ['o','sf','2025-04'] },
+  { d: '2025-05-14', pr: 'dag', ty: 'rollebytte', t: 'Åslaug Haga valgt til styreleder i Troms Kraft', x: 'Hun etterfulgte Inge K. Hansen.', org: 'troms_kraft', km: ['o','tk','2025-05-14'] },
+  { d: '2025-08', pr: 'maaned', ty: 'rollebytte', t: 'Runar Sjåstad blir statsforvalter i Troms og Finnmark', x: 'Utnevnt for seks år.', org: 'statsforvalteren', km: ['o','sf','2025-08'] },
+  { d: '2025-09-30', pr: 'dag', ty: 'rollebytte', t: 'Kommunedirektør Stig Tore Johnsen fratrer', x: 'Mari Enoksen Hult blir fungerende kommunedirektør.', org: 'administrasjonen', km: ['o','grunnlag','2025-09-30'] },
+  { d: null, udatert: 'Etter 30.9.2025', ty: 'rollebytte', t: 'Ellen Beate Lundberg blir kommunedirektør', x: 'Hun kom fra stillingen som kommunedirektør i Fauske. Tiltredelsesdatoen er ikke verifisert.', org: 'administrasjonen', km: ['m','grunnlag','2026-09','Tiltredelsesdato merket «verifiser».'] },
+  { d: null, udatert: 'Dato ikke oppgitt', ty: 'rollebytte', t: 'Benjamin Furuly (H) blir fungerende fylkesordfører', x: 'Kristina Torbergsen (Ap) har permisjon.', org: 'troms_fk', km: ['o','tfk','2026-06-12','Startdatoen for permisjonen står ikke i grunnlaget.'] },
+  { d: '2026-05-04', pr: 'dag', ty: 'penger', t: 'Styret i Troms Kraft foreslår 175 mill. kr i utbytte', x: '105 mill. kr til Troms Holding og 70 mill. kr til Tromsø kommune.', org: 'troms_kraft', km: ['o','nrk','2026-05-04'] },
+  { d: '2026-06-24', pr: 'dag', ty: 'vedtak', t: 'Kommunestyret godkjenner regnskapet for 2025', x: 'Ifølge NRK «brukte [kommunen] 66 millioner kroner for mye» i 2025.', org: 'kommunestyret', km: ['o','nrk','2026-06-24'] },
+  { d: '2027-01', pr: 'maaned', vis: 'Midten av januar 2027', plan: true, ty: 'rollebytte', t: 'Furulys periode som fungerende fylkesordfører slutter', org: 'troms_fk', km: ['o','tfk','2026-06-12'] },
+  { d: '2027', pr: 'aar', plan: true, ty: 'valg', t: 'Kommunevalget 2027', km: ['o','grunnlag','2026-09'] },
+  { d: '2027', pr: 'aar', vis: 'Etter valget 2027', plan: true, ty: 'strukturdebatt', t: 'Debatt om å gjeninnføre byrådsmodellen', x: 'Nordlys på lederplass og FrP vil ha byråd etter valget. Sp og Rødt er skeptiske. Ingen vedtak er fattet.', org: 'tromso_kommune', km: ['o','nordlys','2026-09'] },
+];
+const TYPENAVN = { rollebytte: 'Rollebytte', struktur: 'Struktur', valg: 'Valg', penger: 'Penger', vedtak: 'Vedtak', strukturdebatt: 'Debatt' };
+const FILTER = { alle: null, roller: ['rollebytte','valg'], struktur: ['struktur','strukturdebatt'], penger: ['penger','vedtak'] };
+
+const PROSESSER = {
+  reguleringsplan: {
+    sporsmal: 'Hvem bestemmer en reguleringsplan?',
+    lede: 'Kommunestyret fatter vedtaket, men saken er skrevet og innstilt før den kommer dit. Følg den fra første utkast til klage.',
+    steg: [
+      { org: 'byplan', vis: 'Administrasjonen', kort: 'Adm.', verb: 'Forbereder', tittel: 'Administrasjonen forbereder saken', myn: ['innstilling'],
+        tekst: 'Fagfolkene under kommunedirektøren skriver saken og forslaget til vedtak. Byplan- og byggesaksledelsen kan også fatte vedtak på delegert myndighet i enkelte saker.',
+        leder: { t: 'Kommunedirektør', n: 'Ellen Beate Lundberg', km: ['o','grunnlag','2026-09'] },
+        mangler: { hva: 'Lederne for byutvikling og plan', hvor: 'kommunens ansattsøk' }, km: ['o','grunnlag','2026-09'] },
+      { org: 'kbu', kort: 'Utvalget', verb: 'Innstiller', tittel: 'Byutviklingsutvalget innstiller', myn: ['innstilling','planmyndighet'],
+        tekst: 'Kommune- og byutviklingsutvalget har 11 folkevalgte medlemmer. Det behandler reguleringsplaner og legger planforslag ut til offentlig ettersyn.',
+        mangler: { hva: 'Utvalgsleder', hvor: 'innsyn.tromso.kommune.no', leder: true }, km: ['o','kommune','2023-10-11'] },
+      { org: 'kommunestyret', kort: 'Kommunestyret', verb: 'Vedtar', tittel: 'Kommunestyret vedtar planen', myn: ['vedtak','planmyndighet'],
+        tekst: 'Kommunestyret vedtar reguleringsplaner og kommuneplanen selv. Det har 43 medlemmer og møtes 11 ganger i året.',
+        leder: { t: 'Ordfører', n: 'Gunnar Wilhelmsen', p: 'Ap', km: ['o','kommune','2023-10-11'] }, km: ['o','kommune','2023-10-11'] },
+      { org: 'statsforvalteren', kort: 'Statsforv.', verb: 'Behandler klager', tittel: 'Statsforvalteren behandler klager', myn: ['klage'],
+        tekst: 'Statsforvalteren i Troms og Finnmark er klageinstans i plan- og byggesaker. Embetet kan også fremme innsigelse mot arealplaner.',
+        leder: { t: 'Statsforvalter', n: 'Runar Sjåstad', d: 'fra august 2025', km: ['o','sf','2025-08'] }, km: ['o','sf','2025-08'] },
+    ] },
+  budsjett: {
+    sporsmal: 'Hvem bestemmer budsjettet?',
+    lede: 'Kommunestyret vedtar budsjettet. Formannskapet innstiller, og administrasjonen forbereder.',
+    steg: [
+      { org: 'administrasjonen', kort: 'Adm.', verb: 'Forbereder', tittel: 'Administrasjonen forbereder budsjettet', myn: ['innstilling'],
+        tekst: 'Kommunedirektøren leder administrasjonen som saksbehandler. Formannskapet kan pålegge kommunedirektøren å fremme saker.',
+        leder: { t: 'Kommunedirektør', n: 'Ellen Beate Lundberg', km: ['o','grunnlag','2026-09'] },
+        km: ['m','grunnlag','2026-09','Administrasjonens rolle i akkurat budsjettsaken er utledet av den generelle beslutningskjeden i grunnlaget (del 4).'] },
+      { org: 'formannskapet', kort: 'Formannskapet', verb: 'Innstiller', tittel: 'Formannskapet innstiller', myn: ['innstilling'],
+        tekst: 'Formannskapet er kommunens nest øverste organ. Det møtes annenhver uke og innstiller i økonomisaker.',
+        leder: { t: 'Ordfører', n: 'Gunnar Wilhelmsen', p: 'Ap', km: ['o','kommune','2023-10-11'] }, km: ['o','kommune','2023-10-11'] },
+      { org: 'kommunestyret', kort: 'Kommunestyret', verb: 'Vedtar', tittel: 'Kommunestyret vedtar budsjettet', myn: ['vedtak'],
+        tekst: 'Kommunestyret vedtar budsjett, handlingsprogram, skatt og avgifter.',
+        note: '<b>Siste regnskap.</b> Regnskapet for 2025 ble godkjent 24.6.2026. Ifølge NRK «brukte [kommunen] 66 millioner kroner for mye» i 2025.',
+        noteKm: ['o','nrk','2026-06-24'],
+        leder: { t: 'Ordfører', n: 'Gunnar Wilhelmsen', p: 'Ap', km: ['o','kommune','2023-10-11'] }, km: ['o','kommune','2023-10-11'] },
+    ] },
+};
+
+const KART = [
+  { niv: 'Stat', dybde: 4, besk: 'Statlige organer med myndighet over kommunen og over saker i Tromsø.', grupper: [{ orgs: ['statsforvalteren','politi'] }] },
+  { niv: 'Fylke', dybde: 3, besk: 'Troms fylkeskommune ble gjenopprettet 1.1.2024. Den eier 60 % av Troms Kraft gjennom Troms Holding.', grupper: [{ orgs: ['troms_fk','troms_holding'] }] },
+  { niv: 'Kommune', dybde: 2, besk: 'Formannskapsmodell siden 1.7.2016. De folkevalgte vedtar, administrasjonen forbereder.', grupper: [
+      { navn: 'Folkevalgt', orgs: ['kommunestyret','formannskapet','kbu','hovedutvalg','klageutvalget','kontrollutvalget'] },
+      { navn: 'Administrasjon', orgs: ['administrasjonen','byplan'] } ] },
+  { niv: 'Selskaper', dybde: 1, besk: 'Selskaper og foretak kommunen eier helt eller delvis, og banken som deler en styreplass med Troms Kraft.', stablet: true, grupper: [
+      { navn: 'Eid helt eller delvis av kommunen', orgs: ['troms_kraft','havn','tg','grotsund','remiks','parkering'] },
+      { navn: 'Privat', orgs: ['snn'] } ] },
+];
+
+const EIERSKAP = [
+  { org: 'parkering', n: 'Tromsø Parkering AS', s: 'Parkering', a: 100, km: ['m','purehelp','2026-09','Eierandel fra Purehelp og eierskapsmeldingen 2024.'], tall: [['Omsetning','77,8 mill. kr','2024',['m','purehelp','2024']], ['Egenkapital','71,7 mill. kr','2024',['m','purehelp','2024']]] },
+  { n: 'Arnestedet Eiendom AS', s: 'Eiendom', a: 100, km: ['m','purehelp','2026-09'], hull: 'Egenkapital oppgitt uten år' },
+  { n: 'Arnestedet Næringseiendom AS', s: 'Eiendom', a: 100, km: ['m','purehelp','2026-09'], hull: 'Egenkapital oppgitt uten år' },
+  { org: 'remiks', n: 'Remiks Miljøpark AS', s: 'Avfall. Karlsøy kommune eier resten', a: 99.99, km: ['m','purehelp','2026-09'], tall: [['Omsetning','375,9 mill. kr','2025, trolig konsern',['m','purehelp','2025','Grunnlaget skriver «trolig konsern».']], ['Egenkapital','208,6 mill. kr','2025, trolig konsern',['m','purehelp','2025','Grunnlaget skriver «trolig konsern».']]] },
+  { n: 'Aurora Kino AS', s: 'Kino', a: 64.4, km: ['m','purehelp','2026-09'], hull: 'Omsetning oppgitt uten år' },
+  { n: 'Ressurs Tromsø AS', s: 'Arbeidsinkludering', a: 55.38, km: ['m','purehelp','2026-09'] },
+  { org: 'grotsund', n: 'Grøtsund Industripark AS', s: 'Maritim næringspark, stiftet 28.6.2024', a: 50, km: ['m','purehelp','2026-09'], hull: 'Egenkapital oppgitt uten år' },
+  { org: 'troms_kraft', n: 'Troms Kraft AS', s: 'Energi. Troms Holding eier 60 %', a: 40, km: ['o','nrk','2026-05-04'], tall: [['Egenkapital','2 426 mill. kr','2025, morselskap',['m','purehelp','2025']], ['Årsresultat','202 mill. kr','2025, konsern',['m','purehelp','2025']]] },
+  { n: 'Visit Tromsø-Region AS', s: 'Reiseliv', a: 16.67, km: ['m','purehelp','2026-09'], hull: 'Omsetning oppgitt uten år' },
+  { n: 'Fjuel AS', s: 'Drivstoff', a: 16.59, km: ['m','purehelp','2026-09'] },
+];
+
+const NETT = {
+  noder: {
+    kommune:  { org: 'tromso_kommune', navn: 'Tromsø kommune', x: 96,  y: 300, lp: 'b', hub: true },
+    havn:     { org: 'havn', navn: 'Tromsø Havn KF', x: 300, y: 128, lp: 'l' },
+    tg:       { org: 'tg', navn: 'TG Næringseiendom AS', x: 560, y: 58, lp: 'r' },
+    grotsund: { org: 'grotsund', navn: 'Grøtsund Industripark AS', x: 500, y: 250, lp: 'r' },
+    tk:       { org: 'troms_kraft', navn: 'Troms Kraft AS', x: 330, y: 440, lp: 'b' },
+    th:       { org: 'troms_holding', navn: 'Troms Holding AS', x: 610, y: 480, lp: 'b' },
+    tfk:      { org: 'troms_fk', navn: 'Troms fylkeskommune', x: 860, y: 470, lp: 'b' },
+    snn:      { org: 'snn', navn: 'SpareBank 1 Nord-Norge', x: 740, y: 300, lp: 'b' },
+    sb1g:     { org: 'sb1g', navn: 'SpareBank 1 Gruppen AS', x: 920, y: 330, lp: 'b' },
+    nordkraft:{ org: 'nordkraft', navn: 'Nordkraft AS', x: 880, y: 130, lp: 't' },
+  },
+  eier: [
+    { fra: 'kommune', til: 'havn', lbl: 'KF' }, { fra: 'kommune', til: 'grotsund', lbl: '50 %' }, { fra: 'kommune', til: 'tk', lbl: '40 %' },
+    { fra: 'th', til: 'tk', lbl: '60 %' }, { fra: 'tfk', til: 'th', u: true }, { fra: 'havn', til: 'tg', u: true },
+    { fra: 'havn', til: 'grotsund', u: true }, { fra: 'tfk', til: 'grotsund', u: true }, { fra: 'tk', til: 'grotsund', u: true },
+  ],
+  personer: [
+    { n: 'Eirik Frantzen', e: 'Frantzen', r: [['snn','Styreleder',['o','grunnlag','2022']], ['nordkraft','Konsernsjef',['o','grunnlag','2026-09']]], bulge: -40 },
+    { n: 'Jørn-Even Hanssen', e: 'Hanssen', r: [['havn','Havnedirektør',['o','grunnlag','2026-09']], ['tg','Daglig leder, per 2023',['o','media23','2023','Omtale fra 2023.']]], bulge: 34, arc: 30 },
+    { n: 'Hanne Karoline Kræmer', e: 'Kræmer', r: [['snn','Konsernsjef',['o','grunnlag','2024-01-01']], ['sb1g','Styreleder',['o','grunnlag','2026-09']]], bulge: -34 },
+    { n: 'Kristina Torbergsen', e: 'Torbergsen', r: [['troms_fk','Fylkesordfører, i permisjon',['o','tfk','2023-10-25']], ['troms_holding','Styreleder, ifølge Proff',['m','proff','2026-09']]], bulge: 40 },
+    { n: 'Kathrine Tveiterås', e: 'Tveiterås', r: [['troms_kraft','Nestleder i styret',['o','grunnlag','2026-09']], ['snn','Nestleder i styret',['o','grunnlag','2026-09']]], bulge: -50 },
+    { n: 'Kjell-Are Vassmyr', e: 'Vassmyr', r: [['havn','Styremedlem',['o','grunnlag','2026-09']], ['tg','Styreleder, per 2023',['o','media23','2023','Omtale fra 2023.']], ['grotsund','Styreleder',['o','grunnlag','2026-09']]], bulge: -46, arc: 62 },
+  ],
+  mobilRekke: ['havn','tg','grotsund','tk','snn','sb1g','nordkraft','tfk','th'],
+};
+
+const SEGMENTER = [
+  { k: 'eiendom', n: 'Eiendom og bygg', rader: [
+      ['kommunestyret', 3, ['vedtak','planmyndighet','eierskap','finansiering']], ['kbu', 3, ['innstilling','planmyndighet']],
+      ['byplan', 3, ['innstilling','vedtak']], ['statsforvalteren', 3, ['klage','tilsyn','planmyndighet']],
+      ['havn', 2, ['eierskap','konsesjon','innkjop']], ['snn', 1, ['finansiering']] ] },
+  { k: 'sjomat', n: 'Sjømat', rader: [
+      ['fiskeridir', 3, ['konsesjon','tilsyn']], ['mattilsynet', 3, ['tilsyn']], ['statsforvalteren', 2, ['klage','tilsyn']], ['snn', 1, ['finansiering']] ] },
+  { k: 'reiseliv', n: 'Reiseliv', rader: [
+      ['kommunestyret', 2, ['vedtak','planmyndighet','eierskap','finansiering']], ['kbu', 2, ['innstilling','planmyndighet']],
+      ['havn', 2, ['eierskap','konsesjon','innkjop']], ['snn', 1, ['finansiering']] ] },
+  { k: 'energi', n: 'Energi', rader: [
+      ['troms_kraft', 3, ['eierskap','innkjop']], ['nve', 3, ['konsesjon']], ['statsforvalteren', 2, ['klage','tilsyn']],
+      ['kommunestyret', 1, ['eierskap']], ['troms_holding', 1, ['eierskap']], ['snn', 1, ['finansiering']] ] },
+  { k: 'finans', n: 'Finans', rader: [
+      ['snn', 3, ['finansiering']], ['finanstilsynet', 3, ['tilsyn']], ['innovasjon', 2, ['finansiering']] ] },
+];
+
+const TROMS_KOMMUNER = ['Balsfjord','Bardu','Dyrøy','Gratangen','Harstad','Ibestad','Gáivuotna-Kåfjord','Karlsøy','Kvæfjord','Kvænangen','Lavangen','Lyngen','Målselv','Nordreisa','Salangen','Senja','Skjervøy','Sørreisa','Storfjord','Tjeldsund'];
+
+/* ===== Hjelpere ===== */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const RM = matchMedia('(prefers-reduced-motion: reduce)');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const MND = ['januar','februar','mars','april','mai','juni','juli','august','september','oktober','november','desember'];
+const datoLang = p => { if (!p) return 'ikke oppgitt'; const [y, m, d] = p.split('-'); if (d) return `${+d}. ${MND[+m - 1]} ${y}`; if (m) return `${MND[+m - 1]} ${y}`; return y; };
+const datoKort = p => { const [y, m, d] = p.split('-'); if (d) return `${+d}.${+m}.${y}`; if (m) return `${MND[+m - 1][0].toUpperCase() + MND[+m - 1].slice(1)} ${y}`; return y; };
+const orgnr = s => s ? s.replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3') : '';
+const pst = a => (a % 1 === 0 ? String(a) : String(a).replace('.', ',')) + ' %';
+const km = a => a ? `<button type="button" class="km" data-g="${a[0]}" data-k="${a[1]}"${a[2] ? ` data-p="${a[2]}"` : ''}${a[3] ? ` data-m="${esc(a[3])}"` : ''}></button>` : '';
+const sym = g => `<svg class="sym sym--${g}" aria-hidden="true"><use href="#sym-${g}"/></svg>`;
+const mynChip = m => `<span class="myn myn--${m}">${MYN[m][0]}</span>`;
+const missing = (m) => `<span class="missing">${'<svg aria-hidden="true"><use href="#sym-m"/></svg>'}<span><b>${esc(m.hva)} ikke verifisert.</b> Hentes fra ${esc(m.hvor)}.</span></span>`;
+const parti = p => p ? ` (${p})` : '';
+const missingKort = (m) => `<span class="missing missing--kort"><svg aria-hidden="true"><use href="#sym-m"/></svg><span><b>${esc(m.hva)}</b> ikke verifisert</span></span>`;
+
+/* ===== Kildemerket ===== */
+function klargjorMerker(root = document) {
+  $$('.km:not([data-ready])', root).forEach(b => {
+    const g = b.dataset.g, k = KILDER[b.dataset.k] || KILDER.grunnlag;
+    b.innerHTML = `<svg aria-hidden="true" viewBox="0 0 12 12"><use href="#sym-${g}"/></svg>`;
+    b.setAttribute('aria-label', `Kilde: ${k.navn}. ${GRAD[g].lang}.${b.dataset.p ? ' Per ' + datoLang(b.dataset.p) + '.' : ''}`);
+    b.setAttribute('aria-haspopup', 'dialog');
+    b.setAttribute('aria-expanded', 'false');
+    b.dataset.ready = '1';
+  });
+}
+const pop = $('#kmpop');
+let popFor = null, popPinned = false, hoverT = 0, leaveT = 0;
+function fyllPop(b) {
+  const g = b.dataset.g, k = KILDER[b.dataset.k] || KILDER.grunnlag;
+  pop.textContent = '';
+  const head = document.createElement('p'); head.className = 'kmpop__grad';
+  head.innerHTML = `<svg class="sym--${g}" viewBox="0 0 12 12" aria-hidden="true"><use href="#sym-${g}"/></svg>`;
+  head.append(GRAD[g].lang);
+  const dl = document.createElement('dl'); dl.className = 'kmpop__dl';
+  const rad = (dt, dd) => { const a = document.createElement('dt'); a.textContent = dt; const c = document.createElement('dd'); if (dd instanceof Node) c.append(dd); else c.textContent = dd; dl.append(a, c); };
+  let kildeEl;
+  if (k.url) { kildeEl = document.createElement('a'); kildeEl.href = k.url; kildeEl.target = '_blank'; kildeEl.rel = 'noopener'; kildeEl.textContent = k.navn; }
+  else { kildeEl = document.createElement('span'); kildeEl.textContent = k.navn; }
+  const wrap = document.createElement('span'); wrap.append(kildeEl, document.createTextNode(k.vis ? `, ${k.vis}` : ''));
+  rad('Kilde', wrap);
+  rad('Type', KILDETYPE[k.type] || k.type);
+  rad('Gjelder per', b.dataset.p ? datoLang(b.dataset.p) : 'Ikke oppgitt');
+  if (b.dataset.m) rad('Merknad', b.dataset.m);
+  const more = document.createElement('a'); more.className = 'kmpop__more'; more.href = '#metode'; more.textContent = 'Hva betyr gradene?';
+  more.addEventListener('click', () => lukkPop());
+  pop.append(head, dl, more);
+}
+function plasserPop(b) {
+  const r = b.getBoundingClientRect();
+  const pw = pop.offsetWidth, ph = pop.offsetHeight;
+  let left = r.left + r.width / 2 - pw / 2;
+  left = Math.max(12, Math.min(left, innerWidth - pw - 12));
+  let top = r.bottom + 8, side = 'bottom';
+  if (top + ph > innerHeight - 12 && r.top - ph - 8 > 12) { top = r.top - ph - 8; side = 'top'; }
+  pop.style.left = left + 'px'; pop.style.top = Math.max(8, top) + 'px';
+  pop.style.setProperty('--ox', (r.left + r.width / 2 - left) + 'px');
+  pop.dataset.side = side;
+}
+function apnePop(b, pinned) {
+  clearTimeout(leaveT);
+  if (popFor && popFor !== b) popFor.setAttribute('aria-expanded', 'false');
+  popFor = b; popPinned = !!pinned;
+  fyllPop(b);
+  const var_ = pop.hidden;
+  pop.hidden = false;
+  plasserPop(b);
+  if (var_ && !RM.matches) { pop.classList.add('is-starting'); requestAnimationFrame(() => requestAnimationFrame(() => pop.classList.remove('is-starting'))); }
+  b.setAttribute('aria-expanded', 'true');
+  addEventListener('scroll', lukkVedRull, { passive: true });
+}
+function lukkPop() {
+  if (!popFor) return;
+  popFor.setAttribute('aria-expanded', 'false');
+  pop.hidden = true; popFor = null; popPinned = false;
+  removeEventListener('scroll', lukkVedRull);
+}
+function lukkVedRull() { lukkPop(); }
+const finPeker = matchMedia('(hover: hover) and (pointer: fine)');
+document.addEventListener('pointerover', e => {
+  if (!finPeker.matches) return;
+  const b = e.target.closest('.km');
+  if (b) { clearTimeout(leaveT); if (popFor !== b && !popPinned) { clearTimeout(hoverT); hoverT = setTimeout(() => apnePop(b, false), popFor ? 0 : 140); } }
+  else if (e.target.closest('#kmpop')) clearTimeout(leaveT);
+});
+document.addEventListener('pointerout', e => {
+  if (!finPeker.matches || popPinned) return;
+  const b = e.target.closest('.km, #kmpop');
+  if (!b) return;
+  const til = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('.km, #kmpop');
+  if (til) return;
+  clearTimeout(hoverT);
+  leaveT = setTimeout(lukkPop, 160);
+});
+
+/* ===== Topp: siste endringer ===== */
+function renderSiste() {
+  const liste = HENDELSER.filter(h => h.d && !h.plan).sort((a, b) => b.d.localeCompare(a.d)).slice(0, 5);
+  $('#siste').innerHTML = liste.map(h => `<li class="chg"><time datetime="${h.d}">${h.vis || datoKort(h.d)}</time><p>${esc(h.t)} ${km(h.km)}</p></li>`).join('');
+}
+
+/* ===== Søk ===== */
+const INDEKS = [];
+Object.entries(ORG).forEach(([key, o]) => {
+  INDEKS.push({ key, label: o.navn, sub: `${o.type}, ${o.nivaa.toLowerCase()}`, s: `${o.navn} ${o.kort || ''} ${o.type}` });
+  (o.naa || []).forEach(r => INDEKS.push({ key, label: r.n, sub: `${r.t}, ${o.navn}`, s: `${r.n} ${r.t} ${o.navn}` }));
+  (o.for || []).forEach(r => INDEKS.push({ key, label: r.n, sub: `Tidligere ${r.t.toLowerCase()}, ${o.navn}`, s: `${r.n} ${r.t}` }));
+});
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+const sok = $('#sok'), sokRes = $('#sok-res');
+let sokValgt = -1, sokTreff = [];
+function visSok() {
+  const q = norm(sok.value.trim());
+  if (!q) { sokRes.hidden = true; sok.setAttribute('aria-expanded', 'false'); return; }
+  const sett = new Set();
+  sokTreff = INDEKS.filter(i => norm(i.s).includes(q)).filter(i => { const id = i.key + i.label; if (sett.has(id)) return false; sett.add(id); return true; }).slice(0, 8);
+  sokValgt = -1;
+  sokRes.textContent = '';
+  if (!sokTreff.length) {
+    const li = document.createElement('li'); li.className = 'empty'; li.setAttribute('role', 'option'); li.setAttribute('aria-disabled', 'true');
+    li.textContent = `Ingen treff i datasettet for ${META.kommune}. Prøv et organ, et selskap eller et navn.`;
+    sokRes.append(li);
+  } else sokTreff.forEach((t, i) => {
+    const li = document.createElement('li'); li.setAttribute('role', 'option'); li.id = 'sok-o' + i; li.dataset.org = t.key;
+    const b = document.createElement('b'); b.textContent = t.label; const sp = document.createElement('span'); sp.textContent = t.sub;
+    li.append(b, sp); sokRes.append(li);
+  });
+  sokRes.hidden = false; sok.setAttribute('aria-expanded', 'true');
+}
+function markerSok() {
+  $$('li', sokRes).forEach((li, i) => li.setAttribute('aria-selected', i === sokValgt ? 'true' : 'false'));
+  if (sokValgt >= 0) sok.setAttribute('aria-activedescendant', 'sok-o' + sokValgt); else sok.removeAttribute('aria-activedescendant');
+}
+sok.addEventListener('input', visSok);
+sok.addEventListener('focus', () => { if (sok.value.trim()) visSok(); });
+sok.addEventListener('keydown', e => {
+  if (sokRes.hidden || !sokTreff.length) return;
+  if (e.key === 'ArrowDown') { e.preventDefault(); sokValgt = (sokValgt + 1) % sokTreff.length; markerSok(); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); sokValgt = (sokValgt - 1 + sokTreff.length) % sokTreff.length; markerSok(); }
+  else if (e.key === 'Enter') { e.preventDefault(); const t = sokTreff[Math.max(0, sokValgt)]; if (t) { sokRes.hidden = true; apneOrgan(t.key, sok); } }
+  else if (e.key === 'Escape') { sokRes.hidden = true; sok.setAttribute('aria-expanded', 'false'); }
+});
+document.addEventListener('click', e => { if (!e.target.closest('.search')) { sokRes.hidden = true; sok.setAttribute('aria-expanded', 'false'); } });
+$$('.search__hint [data-q]').forEach(b => b.addEventListener('click', () => { sok.value = b.dataset.q; sok.focus(); visSok(); }));
+
+/* ===== Beslutningskjeden ===== */
+let aktivProsess = 'reguleringsplan', stegObs = null;
+function lederHtml(s) {
+  if (s.leder) return `<b>${esc(s.leder.t)}</b> ${esc(s.leder.n)}${parti(s.leder.p)}${s.leder.d ? ', ' + esc(s.leder.d) : ''} ${km(s.leder.km)}`;
+  return '';
+}
+function renderKjede() {
+  const P = PROSESSER[aktivProsess];
+  const n = P.steg.length;
+  $('#kjeden-h').textContent = P.sporsmal;
+  $('#kjeden-lede').textContent = P.lede;
+  $('#steps').innerHTML = `<div class="rail" id="rail" style="--n:${n}" aria-hidden="true"><div class="rail__in"><div class="rail__track" id="rail-track"><div class="rail__fill"></div></div><ol>${P.steg.map((s, i) => `<li class="${s.myn.includes('innstilling') ? 'is-prep' : ''}"><span class="rail__pin">${i + 1}</span><span class="rail__lbl">${esc(s.kort)}</span></li>`).join('')}</ol></div></div>` +
+    P.steg.map((s, i) => {
+      const o = ORG[s.org];
+      const prep = s.myn.includes('innstilling');
+      const leder = s.leder ? lederHtml(s) : '';
+      const mang = s.mangler ? missing(s.mangler) : '';
+      return `<article class="step${prep ? ' is-prep' : ''}" data-i="${i}">
+        <span class="step__n">${i + 1}</span>
+        <h3>${esc(s.tittel)}</h3>
+        <p class="step__txt">${esc(s.tekst)} ${km(s.km)}</p>
+        ${s.note ? `<p class="step__note">${s.note} ${km(s.noteKm)}</p>` : ''}
+        <dl class="step__facts">
+          <div><dt>Organ</dt><dd>${esc(s.vis ? s.vis + ', ' + o.navn.toLowerCase() : o.navn)}</dd></div>
+          <div><dt>Myndighet</dt><dd><span class="myns">${s.myn.map(mynChip).join('')}</span></dd></div>
+          <div><dt>Leder</dt><dd>${leder || ''}${leder && mang ? '<br>' : ''}${mang}</dd></div>
+        </dl>
+        <p class="step__open"><button type="button" class="linkbtn" data-org="${s.org}">Åpne ${esc(o.kort || o.navn)}<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button></p>
+      </article>`;
+    }).join('');
+  const prepIdx = P.steg.map((s, i) => s.myn.includes('innstilling') ? i : -1).filter(i => i >= 0);
+  $('#route').innerHTML = `<p class="route__cap"><span>Saksgang i ${META.kommune}</span><span>${n} ledd</span></p>
+    ${prepIdx.length ? '<div class="route__zone" id="zone"><span>Forberedende makt</span></div>' : ''}
+    <div class="route__track" id="track"><div class="route__fill"></div></div>
+    <ol class="stops">${P.steg.map((s, i) => {
+      const o = ORG[s.org];
+      const prep = s.myn.includes('innstilling');
+      const lead = s.leder ? `<p class="stop__lead">${lederHtml(s)}</p>` : '';
+      const mang = s.mangler ? `<p class="stop__lead">${missing(s.mangler)}</p>` : '';
+      return `<li class="stop${prep ? ' is-prep' : ''}" data-i="${i}"${prep ? ' data-prep' : ''}>
+        <span class="stop__pin">${i + 1}</span>
+        <div><p class="stop__verb">${esc(s.verb)}</p><p class="stop__org">${esc(s.vis || o.kort || o.navn)}</p><p class="stop__myn myns">${s.myn.map(mynChip).join('')}</p>${lead}${mang}</div>
+      </li>`;
+    }).join('')}</ol>`;
+  klargjorMerker($('#kjeden'));
+  maalRute();
+  settSteg(0);
+  if (stegObs) stegObs.disconnect();
+  stegObs = new IntersectionObserver(ents => {
+    ents.forEach(en => { if (en.isIntersecting) settSteg(+en.target.dataset.i); });
+  }, { rootMargin: '-48% 0px -48% 0px' });
+  $$('.step', $('#steps')).forEach(s => stegObs.observe(s));
+}
+new IntersectionObserver(([en]) => {
+  if (en.isIntersecting) return;
+  const n = PROSESSER[aktivProsess].steg.length;
+  settSteg(en.boundingClientRect.top > 0 ? 0 : n - 1);
+}, { rootMargin: '-48% 0px -48% 0px' }).observe($('#steps'));
+function maalRute() {
+  const route = $('#route'); if (!route || !route.offsetParent) { maalRail(); return; }
+  const pins = $$('.stop__pin', route);
+  if (!pins.length) return;
+  const rr = route.getBoundingClientRect();
+  const c = el => { const r = el.getBoundingClientRect(); return r.top - rr.top + r.height / 2; };
+  const top = c(pins[0]), bunn = c(pins[pins.length - 1]);
+  const track = $('#track'); track.style.top = top + 'px'; track.style.height = (bunn - top) + 'px';
+  const zone = $('#zone');
+  if (zone) {
+    const prep = $$('.stop[data-prep]', route);
+    const a = prep[0].getBoundingClientRect(), b = prep[prep.length - 1].getBoundingClientRect();
+    zone.style.top = (a.top - rr.top - 12) + 'px'; zone.style.height = (b.bottom - a.top + 24) + 'px';
+  }
+  maalRail();
+}
+function maalRail() {
+  const rail = $('#rail'); if (!rail || !rail.offsetParent) return;
+  const pins = $$('.rail__pin', rail); const ri = $('.rail__in', rail).getBoundingClientRect();
+  const x = el => { const r = el.getBoundingClientRect(); return r.left - ri.left + r.width / 2; };
+  const t = $('#rail-track'); t.style.left = x(pins[0]) + 'px'; t.style.width = (x(pins[pins.length - 1]) - x(pins[0])) + 'px';
+}
+function settSteg(i) {
+  const P = PROSESSER[aktivProsess], n = P.steg.length;
+  const p = n > 1 ? i / (n - 1) : 0;
+  $('#route').style.setProperty('--p', p);
+  const rail = $('#rail'); if (rail) rail.style.setProperty('--p', p);
+  $$('.stop', $('#route')).forEach((s, k) => { s.classList.toggle('is-active', k === i); s.classList.toggle('is-past', k < i); });
+  $$('.rail li').forEach((s, k) => { s.classList.toggle('is-active', k === i); s.classList.toggle('is-past', k < i); });
+}
+$$('.seg [data-proc]').forEach(b => b.addEventListener('click', () => {
+  if (aktivProsess === b.dataset.proc) return;
+  aktivProsess = b.dataset.proc;
+  $$('.seg [data-proc]').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+  renderKjede();
+  tellMerker();
+}));
+
+/* ===== Organkartet ===== */
+function lederKort(o) {
+  if (o.naa && o.naa.length) { const r = o.naa[0]; return `<p class="organ__lead"><span>${esc(r.t)}</span> ${esc(r.n)}${parti(r.p)} ${km(r.km)}</p>`; }
+  const m = (o.mangler || []).find(x => x.leder);
+  return m ? `<p>${missingKort(m)}</p>` : '';
+}
+function renderKart() {
+  $('#strata').innerHTML = KART.map(niv => `
+    <section class="stratum" aria-labelledby="niv-${niv.niv}">
+      <div>
+        <h3 class="stratum__h" id="niv-${niv.niv}">${niv.niv}</h3>
+        <p class="stratum__d">${esc(niv.besk)}</p>
+      </div>
+      <div class="groups${niv.stablet ? ' groups--stack' : niv.grupper.length > 1 ? ' groups--split' : ''}">
+        ${niv.grupper.map(g => `<div class="group">${g.navn ? `<h4 class="group__h">${g.navn}</h4>` : ''}<div class="organs">${g.orgs.map(k => {
+          const o = ORG[k];
+          return `<article class="organ">
+            <h4 class="organ__name"><button type="button" class="organ__open" data-org="${k}">${esc(o.navn)}</button></h4>
+            <p class="organ__meta">${esc(o.type)}${o.meta ? '. ' + esc(o.meta) : ''}</p>
+            ${lederKort(o)}
+            ${o.myn && o.myn.length ? `<div class="myns">${o.myn.map(mynChip).join('')}</div>` : ''}
+            ${o.sensitiv ? '<p class="organ__note">Sensitivt organ. Bare toppleder vises, og organet står ikke i nettverket.</p>' : ''}
+            ${o.konflikt ? `<p class="organ__note"><span class="missing missing--kort"><svg aria-hidden="true"><use href="#sym-m"/></svg><span><b>Kildene er uenige</b> om styringsmodell</span></span></p>` : ''}
+          </article>`; }).join('')}</div></div>`).join('')}
+      </div>
+    </section>`).join('');
+}
+
+/* ===== Pengene ===== */
+function renderFlyt() {
+  const tot = 175, h = 105, k = 70;
+  const H = 300, gap = 18;
+  const src0 = 18, srcH = H - 36;                 // kilden: hele høyden minus luft
+  const sh = srcH * h / tot, sk = srcH * k / tot;
+  const tH = srcH - gap;                           // målene får samme skala, med luft mellom
+  const th = tH * h / tot, tk = tH * k / tot;
+  const t0 = src0 - gap / 2 + 0, t1 = t0 + th + gap * 2;
+  const W = 1000, x0 = 8, x1 = 992;
+  const band = (ya, yb, yc, yd, cls) => `<path class="ribbon ${cls}" d="M${x0},${ya} C${W / 2},${ya} ${W / 2},${yc} ${x1},${yc} L${x1},${yd} C${W / 2},${yd} ${W / 2},${yb} ${x0},${yb} Z"/>`;
+  $('#flow').innerHTML = `
+    <div class="flow__lbl flow__src"><span>Troms Kraft AS</span><b>175 mill. kr</b><small>foreslått utbytte, 2026</small></div>
+    <svg class="flow__svg" viewBox="0 0 1000 ${H}" preserveAspectRatio="none" style="grid-column:2">
+      <rect class="flow__node" x="0" y="${src0}" width="8" height="${srcH}" rx="2"/>
+      ${band(src0, src0 + sh, t0, t0 + th, 'ribbon--h')}
+      ${band(src0 + sh, src0 + srcH, t1, t1 + tk, 'ribbon--k')}
+      <rect class="flow__node" x="992" y="${t0}" width="8" height="${th}" rx="2"/>
+      <rect class="flow__node" x="992" y="${t1}" width="8" height="${tk}" rx="2"/>
+    </svg>
+    <div class="flow__lbl flow__tgt" style="top:${(t0 + th / 2) / H * 100}%;grid-column:3"><span>Troms Holding AS</span><b>105 mill. kr</b><small>60 % av aksjene</small><span class="flow__owner"><i></i>eies av Troms fylkeskommune</span></div>
+    <div class="flow__lbl flow__tgt" style="top:${(t1 + tk / 2) / H * 100}%;grid-column:3"><span>Tromsø kommune</span><b>70 mill. kr</b><small>40 % av aksjene</small></div>`;
+  // Mobil: samme strøm, loddrett
+  const MW = 360, MH = 170, mx0 = 0, mx1 = MW;
+  const sw = MW * 0.56, sx = (MW - sw) / 2, swh = sw * h / tot;
+  const tgap = 12, tw = MW - tgap, twh = tw * h / tot, twk = tw * k / tot;
+  const vb = (xa, xb, xc, xd, cls) => `<path class="ribbon ${cls}" d="M${xa},6 C${xa},${MH / 2} ${xc},${MH / 2} ${xc},${MH - 6} L${xd},${MH - 6} C${xd},${MH / 2} ${xb},${MH / 2} ${xb},6 Z"/>`;
+  $('#flowm').innerHTML = `
+    <div class="flowm__src"><span>Troms Kraft AS</span><b>175 mill. kr</b><small>foreslått utbytte, 2026</small></div>
+    <svg viewBox="0 0 ${MW} ${MH}" preserveAspectRatio="none">
+      <rect class="flow__node" x="${sx}" y="0" width="${sw}" height="6" rx="2"/>
+      ${vb(sx, sx + swh, mx0, mx0 + twh, 'ribbon--h')}
+      ${vb(sx + swh, sx + sw, twh + tgap, mx1, 'ribbon--k')}
+      <rect class="flow__node" x="0" y="${MH - 6}" width="${twh}" height="6" rx="2"/>
+      <rect class="flow__node" x="${twh + tgap}" y="${MH - 6}" width="${twk}" height="6" rx="2"/>
+    </svg>
+    <div class="flowm__tgts">
+      <div class="flowm__t"><span>Troms Holding AS</span><b>105 mill. kr</b><small>60 %. Eies av Troms fylkeskommune</small></div>
+      <div class="flowm__t"><span>Tromsø kommune</span><b>70 mill. kr</b><small>40 %</small></div>
+    </div>`;
+}
+function renderEierskap() {
+  const rader = [...EIERSKAP].sort((a, b) => b.a - a.a || a.n.localeCompare(b.n, 'nb'));
+  $('#own').innerHTML = rader.map((r, i) => {
+    const navn = r.org ? `<button type="button" data-org="${r.org}">${esc(r.n)}</button>` : esc(r.n);
+    const figs = r.tall ? r.tall.map(t => `<div><span>${t[0]}</span> <b>${t[1]}</b> <span>${t[2]}</span> ${km(t[3])}</div>`).join('')
+      : r.hull ? `<div><span class="missing"><svg aria-hidden="true"><use href="#sym-m"/></svg><span>${esc(r.hull)}. Vises når året er hentet.</span></span></div>`
+      : `<div><span>Ingen nøkkeltall i grunnlaget.</span></div>`;
+    return `<div class="orow" style="--i:${i}">
+      <div class="orow__name">${navn}<span class="orow__sec">${esc(r.s)}</span></div>
+      <div class="bar__wrap"><div class="bar" style="flex:1;--v:${r.a}"><span class="bar__fill" style="--i:${i}"></span><span class="bar__val" style="--i:${i}">${pst(r.a)} ${km(r.km)}</span></div></div>
+      <div class="orow__figs">${figs}</div>
+    </div>`;
+  }).join('');
+  $('#own-notes').innerHTML = `
+    <p>Kommunale foretak som Tromsø Havn KF og Tromsøbolig KF er en del av kommunen selv og står derfor ikke som eierandeler. ${km(['o','grunnlag','2026-09'])}</p>
+    <p>Kommunen eier også andeler i ProTromsø AS og Alfheim Stadion II AS. Grunnlaget oppgir ikke hvor store andelene er. ${km(['m','grunnlag','2026-09','Andelene er oppgitt som «varierende».'])}</p>`;
+  $('#ledger').innerHTML = `
+    <div class="lrow"><span class="lrow__y">2025</span><div><p class="lrow__t">Kommunen «brukte 66 millioner kroner for mye», ifølge NRK. ${km(['o','nrk','2026-06-24'])}</p><p class="lrow__t">Regnskapet ble godkjent i kommunestyret 24.6.2026. ${km(['o','nrk','2026-06-24'])}</p></div></div>
+    <div class="lrow"><span class="lrow__y">2024</span><div><p class="lrow__t">Merforbruk på 205,1 mill. kr, ifølge Tromsø kommune. ${km(['o','kommune','2024'])}</p><p class="lrow__t">Underskudd på 271 mill. kr, ifølge NRK. ${km(['o','nrk','2024','NRKs tall for negativt driftsresultat.'])}</p><p class="lrow__warn"><svg aria-hidden="true"><use href="#sym-m"/></svg>Merforbruk og underskudd er to ulike mål for samme år. Derfor står begge.</p></div></div>`;
+}
+
+/* ===== Nettverket ===== */
+function renderNett() {
+  const N = NETT.noder;
+  const nodeKey = org => Object.keys(N).find(k => N[k].org === org);
+  const cx = 500, cy = 280;
+  const par = (a, b, bulge) => { const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2; const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1; return { qx: mx - dy / len * bulge, qy: my + dx / len * bulge, mx: mx - dy / len * bulge / 2, my: my + dx / len * bulge / 2 }; };
+  const eier = NETT.eier.map(e => {
+    const a = N[e.fra], b = N[e.til];
+    const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy); const ux = dx / len, uy = dy / len;
+    const x1 = a.x + ux * 12, y1 = a.y + uy * 12, x2 = b.x - ux * 14, y2 = b.y - uy * 14;
+    const lbl = e.lbl ? `<text class="olbl" x="${(a.x + b.x) / 2}" y="${(a.y + b.y) / 2 - 6}" text-anchor="middle">${e.lbl}</text>` : '';
+    return `<line class="oedge${e.u ? ' oedge--u' : ''}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" marker-end="url(#pil)"/>${lbl}`;
+  }).join('');
+  let pi = 0;
+  const pers = NETT.personer.map((p, idx) => {
+    const noder = p.r.map(r => N[nodeKey(r[0])]);
+    let d = '', lx = 0, ly = 0;
+    for (let i = 0; i < noder.length - 1; i++) {
+      const a = noder[i], b = noder[i + 1]; const q = par(a, b, p.bulge);
+      d += `${i ? '' : `M${a.x},${a.y}`} Q${q.qx},${q.qy} ${b.x},${b.y} `;
+      if (i === Math.floor((noder.length - 1) / 2)) { lx = q.mx; ly = q.my; }
+    }
+    const w = p.n.length * 6.9 + 18;
+    return `<path class="pedge" data-p="${idx}" d="${d}" pathLength="1" style="--i:${idx}"/>
+      <g class="plbl" data-p="${idx}" style="--i:${idx}" tabindex="0" role="button" aria-label="${esc(p.n)}: ${esc(p.r.map(r => r[1] + ' i ' + ORG[r[0]].navn).join(', '))}"><rect x="${lx - w / 2}" y="${ly - 12}" width="${w}" height="24" rx="12"/><text x="${lx}" y="${ly + 4.5}" text-anchor="middle">${esc(p.n)}</text></g>`;
+  }).join('');
+  const noder = Object.entries(N).map(([k, n], i) => {
+    const dx = (cx - n.x) * .32, dy = (cy - n.y) * .32;
+    const pos = { b: [0, 30, 'middle'], t: [0, -20, 'middle'], l: [-16, 5, 'end'], r: [16, 5, 'start'] }[n.lp];
+    return `<g class="nnode${n.hub ? ' is-hub' : ''}" data-org="${n.org}" tabindex="0" role="button" aria-label="Åpne ${esc(n.navn)}" style="--i:${i};--dx:${dx}px;--dy:${dy}px">
+      <circle cx="${n.x}" cy="${n.y}" r="${n.hub ? 10 : 8}"/><text class="nlabel" x="${n.x + pos[0]}" y="${n.y + pos[1]}" text-anchor="${pos[2]}">${esc(n.navn)}</text></g>`;
+  }).join('');
+  $('#net').innerHTML = `<svg class="net__svg" viewBox="0 10 1000 520" role="group" aria-label="Nettverksgraf over organer og personer med flere roller">
+    <defs><marker id="pil" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" fill="var(--line)"/></marker></defs>
+    <g>${eier}</g><g>${pers}</g><g>${noder}</g></svg>`;
+
+  // Mobil: buediagram. Organene står som rader, personene er buer mellom radene.
+  const rekke = NETT.mobilRekke, RH = 56, top = RH / 2;
+  const yr = k => top + rekke.indexOf(k) * RH;
+  const bue = [];
+  const lbls = [];
+  NETT.personer.forEach((p, idx) => {
+    const ks = p.r.map(r => nodeKey(r[0]));
+    let d = '';
+    for (let i = 0; i < ks.length - 1; i++) {
+      const y1 = yr(ks[i]), y2 = yr(ks[i + 1]); const span = Math.abs(y2 - y1) / RH;
+      const bx = (p.arc || 40) + (span - 1) * 26;
+      d += `${i ? '' : `M8,${y1}`} C${bx},${y1} ${bx},${y2} 8,${y2} `;
+    }
+    const ys = ks.map(yr); const ymid = (Math.min(...ys) + Math.max(...ys)) / 2;
+    const span = (Math.max(...ys) - Math.min(...ys)) / RH;
+    const bmax = (p.arc || 40) + (span > 1 && ks.length === 2 ? (span - 1) * 26 : 0); const lx = 8 + .75 * (bmax - 8) + 7;
+    bue.push(`<path class="pedge apath" d="${d}" pathLength="1" style="--i:${idx}"/>`);
+    lbls.push({ y: ymid, x: lx, t: p.n });
+  });
+  lbls.sort((a, b) => a.y - b.y);
+  for (let i = 1; i < lbls.length; i++) if (lbls[i].y - lbls[i - 1].y < 16) lbls[i].y = lbls[i - 1].y + 16;
+  const H = rekke.length * RH;
+  $('#arcs').innerHTML = `<div class="arcs__grid"><ol class="arcs__rows">${rekke.map(k => `<li><button type="button" data-org="${N[k].org}">${esc(N[k].navn)}</button></li>`).join('')}</ol>
+    <svg class="arcs__svg" viewBox="0 0 172 ${H}" height="${H}" aria-hidden="true">${bue.join('')}${rekke.map(k => `<circle class="adot" cx="8" cy="${yr(k)}" r="6"/>`).join('')}${lbls.map(l => `<text class="alab" x="${l.x}" y="${l.y + 4}">${esc(l.t)}</text>`).join('')}</svg></div>`;
+
+  // Liste
+  const sortert = [...NETT.personer].sort((a, b) => a.e.localeCompare(b.e, 'nb'));
+  $('#plist').innerHTML = sortert.map(p => `<li class="prow"><p class="prow__n">${esc(p.n)}</p><ul class="prow__roles">${p.r.map(r => `<li><b>${esc(ORG[r[0]].navn)}</b><span class="t">${esc(r[1])}</span>${km(r[2])}<button type="button" class="linkbtn" data-org="${r[0]}" style="padding:0">Åpne<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button></li>`).join('')}</ul></li>`).join('');
+  $('#nett-lede').textContent = `${NETT.personer.length} personer har minst to roller i datasettet for ${META.kommune}. Her er organene punktene, og personen er linjen mellom dem. Ingen er rangert.`;
+  $('#net-note').textContent = 'Politi, domstol, påtale og Forsvaret står aldri i nettverket. På smale skjermer vises personene som buer mellom organene; eierskapet står under Pengene.';
+
+  const net = $('#net');
+  const fokus = idx => { net.classList.toggle('is-focus', idx !== null); $$('.pedge, .plbl', net).forEach(el => el.classList.toggle('is-on', el.dataset.p === String(idx))); };
+  $$('.plbl', net).forEach(g => {
+    g.addEventListener('pointerenter', () => fokus(g.dataset.p));
+    g.addEventListener('pointerleave', () => fokus(null));
+    g.addEventListener('focus', () => fokus(g.dataset.p));
+    g.addEventListener('blur', () => fokus(null));
+  });
+  net.addEventListener('keydown', e => { const n = e.target.closest('.nnode'); if (n && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); apneOrgan(n.dataset.org, n); } });
+}
+$$('.tabs [role="tab"]').forEach(t => t.addEventListener('click', () => {
+  $$('.tabs [role="tab"]').forEach(x => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; $('#' + x.getAttribute('aria-controls')).hidden = !on; });
+}));
+$('.tabs').addEventListener('keydown', e => {
+  if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+  const tabs = $$('.tabs [role="tab"]'); const i = tabs.indexOf(document.activeElement);
+  const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length]; n.focus(); n.click();
+});
+
+/* ===== Endringene ===== */
+function renderTidslinje() {
+  const fortid = HENDELSER.filter(h => h.d && !h.plan);
+  const udatert = HENDELSER.filter(h => !h.d);
+  const plan = HENDELSER.filter(h => h.plan);
+  const aar = [...new Set(fortid.map(h => h.d.slice(0, 4)))].sort();
+  const ev = (h, cls = '') => `<article class="ev${cls}" data-ty="${h.ty}">
+    <span class="ev__dot" aria-hidden="true"></span>
+    <div class="ev__top"><time${h.d ? ` datetime="${h.d}"` : ''}>${h.vis || h.udatert || datoKort(h.d)}</time><span class="ev__type">${h.plan ? 'Planlagt. ' : ''}${TYPENAVN[h.ty]}</span></div>
+    <h3>${esc(h.t)} ${km(h.km)}</h3>
+    ${h.x ? `<p>${esc(h.x)}</p>` : ''}
+    ${h.org ? `<p class="ev__org"><button type="button" class="linkbtn" data-org="${h.org}" style="padding:0;font-size:.875rem">${esc(ORG[h.org].kort || ORG[h.org].navn)}<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button></p>` : ''}
+  </article>`;
+  const gruppe = (tittel, sub, liste, cls = '', evcls = '') => `<div class="tl__year${cls}"><p class="tl__y">${tittel}${sub ? `<small>${sub}</small>` : ''}</p><div class="tl__spine" aria-hidden="true"></div><div class="tl__events">${liste.map(h => ev(h, evcls)).join('')}</div></div>`;
+  $('#tl').innerHTML =
+    aar.map(y => gruppe(y, '', fortid.filter(h => h.d.startsWith(y)))).join('') +
+    gruppe('Udatert', 'Dato ikke verifisert', udatert, ' is-undated', ' is-undated') +
+    `<div class="tl__now"><i aria-hidden="true"></i><span>Sammenstilt ${datoKort(META.sammenstilt)}</span></div>` +
+    gruppe('Framover', 'Har ikke skjedd', plan, ' is-planned', ' is-planned');
+  $('#n-fortid').textContent = fortid.length; $('#n-udatert').textContent = udatert.length; $('#n-plan').textContent = plan.length;
+}
+$$('.filters .chip').forEach(c => c.addEventListener('click', () => {
+  $$('.filters .chip').forEach(x => x.setAttribute('aria-pressed', x === c ? 'true' : 'false'));
+  const f = FILTER[c.dataset.f];
+  $$('#tl .ev').forEach(e => e.hidden = f ? !f.includes(e.dataset.ty) : false);
+  $$('#tl .tl__year').forEach(y => y.hidden = !$$('.ev', y).some(e => !e.hidden));
+}));
+
+/* ===== Din bransje ===== */
+let aktivtSeg = 'eiendom';
+function renderSegChips() {
+  $('#segs').innerHTML = SEGMENTER.map(s => `<button type="button" class="chip" role="radio" aria-checked="${s.k === aktivtSeg}" tabindex="${s.k === aktivtSeg ? 0 : -1}" data-seg="${s.k}">${s.n}</button>`).join('');
+  $$('#segs .chip').forEach(c => c.addEventListener('click', () => velgSeg(c.dataset.seg)));
+  $('#segs').addEventListener('keydown', e => {
+    if (!['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'].includes(e.key)) return; e.preventDefault();
+    const i = SEGMENTER.findIndex(s => s.k === aktivtSeg); const d = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : -1;
+    const n = SEGMENTER[(i + d + SEGMENTER.length) % SEGMENTER.length].k; velgSeg(n); $(`#segs [data-seg="${n}"]`).focus();
+  });
+}
+function velgSeg(k) {
+  if (k === aktivtSeg) return;
+  aktivtSeg = k;
+  $$('#segs .chip').forEach(c => { const on = c.dataset.seg === k; c.setAttribute('aria-checked', on); c.tabIndex = on ? 0 : -1; });
+  const body = $('#bransje-body');
+  if (RM.matches) { renderBransje(); return; }
+  body.classList.add('is-swap');
+  setTimeout(() => { renderBransje(); body.classList.remove('is-swap'); }, 170);
+}
+function renderBransje() {
+  const S = SEGMENTER.find(s => s.k === aktivtSeg);
+  const brukt = MYN_REKKE.filter(m => S.rader.some(r => r[2].includes(m)));
+  const grupper = [['Direkte', S.rader.filter(r => r[1] >= 2)], ['Indirekte', S.rader.filter(r => r[1] < 2)]].filter(g => g[1].length);
+  const leder = o => {
+    if (o.naa && o.naa.length) { const r = o.naa[0]; return `<b>${esc(r.t)}</b> ${esc(r.n)}${parti(r.p)} ${km(r.km)}`; }
+    const m = (o.mangler || []).find(x => x.leder); return m ? missingKort(m) : '<span class="small">Ikke kartlagt</span>';
+  };
+  const tabell = `<div class="mx-wrap"><table class="mx"><caption class="vh">Organer med myndighet over ${S.n.toLowerCase()} i ${META.kommune}</caption>
+    <thead><tr><th scope="col">Organ</th>${brukt.map(m => `<th scope="col" class="c">${MYN[m][0]}</th>`).join('')}<th scope="col">Leder</th></tr></thead>
+    ${grupper.map(([gn, rader]) => `<tbody><tr class="grp"><th scope="rowgroup" colspan="${brukt.length + 2}">${gn}</th></tr>${rader.map(([k, , ms]) => { const o = ORG[k]; return `<tr>
+      <th scope="row" class="o"><button type="button" data-org="${k}">${esc(o.navn)}</button><small>${esc(o.nivaa)}. ${esc(o.type)}</small></th>
+      ${brukt.map(m => `<td class="c">${ms.includes(m) ? `<span class="cell cell--${m}" title="${MYN[m][0]}"></span><span class="vh">${MYN[m][0]}</span>` : '<span class="vh">Nei</span>'}</td>`).join('')}
+      <td class="ld">${leder(o)}</td></tr>`; }).join('')}</tbody>`).join('')}</table></div>`;
+  const liste = `<div class="mx-list">${grupper.map(([gn, rader]) => `<p class="bx__g">${gn}</p>${rader.map(([k, , ms]) => { const o = ORG[k]; return `<div class="bx">
+    <p class="bx__n"><button type="button" data-org="${k}">${esc(o.navn)}</button></p><p class="bx__meta">${esc(o.nivaa)}. ${esc(o.type)}</p>
+    <div class="myns">${ms.map(mynChip).join('')}</div><div class="small">${leder(o)}</div></div>`; }).join('')}`).join('')}</div>`;
+  $('#bransje-body').innerHTML = tabell + liste;
+  klargjorMerker($('#bransje-body'));
+}
+
+/* ===== Neste kommune ===== */
+function renderNeste() {
+  $('#kommuner').innerHTML = TROMS_KOMMUNER.map(k => `<option value="${esc(k)}">`).join('');
+  $('#kcloud').innerHTML = TROMS_KOMMUNER.map(k => `<button type="button" class="chip" data-k="${esc(k)}" aria-pressed="false">${esc(k)}</button>`).join('');
+  $$('#kcloud .chip').forEach(c => c.addEventListener('click', () => {
+    $('#neste-kommune').value = c.dataset.k; $('#neste-err').hidden = true;
+    $$('#kcloud .chip').forEach(x => x.setAttribute('aria-pressed', x === c ? 'true' : 'false'));
+  }));
+  let tidligere = null; try { tidligere = localStorage.getItem('mk-stemme'); } catch (e) {}
+  if (tidligere) visStemt(tidligere);
+}
+function visStemt(k) {
+  const d = $('#neste-done');
+  d.innerHTML = `<b><svg aria-hidden="true"><use href="#i-check"/></svg></b>`;
+  d.firstChild.append(`Takk. Du stemte på ${k}.`);
+  const p = document.createElement('span'); p.textContent = 'Stemmen er lagret i denne nettleseren. Forhåndsversjonen sender den ikke videre ennå.';
+  d.append(p); d.hidden = false;
+}
+$('#neste-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const k = $('#neste-kommune').value.trim();
+  if (!k) { $('#neste-err').hidden = false; $('#neste-kommune').focus(); return; }
+  $('#neste-err').hidden = true;
+  try { localStorage.setItem('mk-stemme', k); } catch (er) {}
+  visStemt(k);
+});
+$('#neste-kommune').addEventListener('input', () => { $('#neste-err').hidden = true; });
+$('#pro-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = $('#pro-epost').value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { $('#pro-err').hidden = false; $('#pro-epost').focus(); return; }
+  $('#pro-err').hidden = true;
+  const d = $('#pro-done'); d.textContent = '';
+  const b = document.createElement('b'); b.innerHTML = '<svg aria-hidden="true"><use href="#i-check"/></svg>'; b.append('Du står på ventelisten.');
+  const s = document.createElement('span'); s.textContent = `Vi skriver til ${v} når Pro åpner. Forhåndsversjonen lagrer ikke adressen ennå.`;
+  d.append(b, s); d.hidden = false; $('#pro-form').hidden = true;
+});
+
+/* ===== Skuffen ===== */
+const drawer = $('#drawer'), panel = $('.drawer__panel', drawer);
+let sisteFokus = null;
+function dsec(h, inner) { return `<section class="dsec"><h3 class="dsec__h">${h}</h3>${inner}</section>`; }
+function rolleListe(liste, forbi) {
+  return `<ul class="droles${forbi ? ' is-past' : ''}">${liste.map(r => `<li><span class="t">${esc(r.t)}</span><span class="n">${esc(r.n)}${parti(r.p)} ${km(r.km)}</span>${r.d ? `<span class="d">${esc(r.d)}</span>` : ''}</li>`).join('')}</ul>`;
+}
+function eierListe(liste) {
+  return `<ul class="droles">${liste.map(e => `<li><span class="n">${e.org ? `<button type="button" class="linkbtn" data-org="${e.org}" style="padding:0;font-size:1rem">${esc(e.n)}</button>` : esc(e.n)} ${km(e.km)}</span><span class="d">${esc(e.a)}</span></li>`).join('')}</ul>`;
+}
+function renderOrgan(key) {
+  const o = ORG[key];
+  $('#drawer-type').textContent = [o.nivaa, o.type, o.orgnr ? 'Org.nr. ' + orgnr(o.orgnr) : null].filter(Boolean).join('. ');
+  $('#drawer-h').textContent = o.navn;
+  const alleKm = [];
+  const samle = a => { if (a) alleKm.push(a); };
+  samle(o.bkm); (o.naa || []).forEach(r => samle(r.km)); (o.for || []).forEach(r => samle(r.km));
+  (o.eiesAv || []).forEach(r => samle(r.km)); (o.eier || []).forEach(r => samle(r.km)); (o.tall || []).forEach(r => samle(r.km));
+  const hend = HENDELSER.filter(h => h.org === key); hend.forEach(h => samle(h.km));
+  let html = dsec('Hva organet bestemmer', `<p class="dsec__p">${esc(o.besk)} ${km(o.bkm)}</p>${o.myn && o.myn.length ? `<ul class="dmyn" style="margin-top:14px">${o.myn.map(m => `<li>${mynChip(m)}<span>${MYN[m][1]}</span></li>`).join('')}</ul>` : '<p class="dempty" style="margin-top:10px">Myndighetstypen er ikke kartlagt i grunnlaget.</p>'}`);
+  if (o.sensitiv) html += dsec('Begrenset visning', '<p class="dsens">Politi, domstol, påtale og Forsvaret vises bare med toppleder. Organet står ikke i nettverksgrafen.</p>');
+  const naa = (o.naa && o.naa.length ? rolleListe(o.naa) : '') + ((o.mangler || []).length ? `<div style="display:grid;gap:8px;margin-top:${o.naa && o.naa.length ? 14 : 0}px">${o.mangler.map(missing).join('')}</div>` : '');
+  html += dsec('Roller nå', naa || '<p class="dempty">Ingen roller i datasettet.</p>');
+  html += dsec('Roller før', o.for && o.for.length ? rolleListe(o.for, true) : `<p class="dempty">${esc(o.forTom || 'Ingen tidligere innehavere i datasettet ennå.')}</p>`);
+  if (o.konflikt) html += dsec('Kildene er uenige', `<div class="conflict"><span><b>${esc(o.konflikt.a[1])}</b>, ifølge ${esc(o.konflikt.a[0])}.</span><span><b>${esc(o.konflikt.b[1])}</b>, ifølge ${esc(o.konflikt.b[0])}.</span><span>Datamodellen viser begge til reglementet er sjekket.</span></div>`);
+  const eies = o.eiesAv && o.eiesAv.length, eier = o.eier && o.eier.length;
+  html += dsec('Eierskap', (eies ? `<p class="dempty" style="margin-bottom:8px">Eies av</p>${eierListe(o.eiesAv)}` : '') + (eier ? `<p class="dempty" style="margin:${eies ? 16 : 0}px 0 8px">Eier</p>${eierListe(o.eier)}` : '') || '<p class="dempty">Ingen eierforhold i datasettet.</p>');
+  html += dsec('Nøkkeltall', (o.tall && o.tall.length ? `<ul class="dnums">${o.tall.map(t => `<li><span class="l">${esc(t.l)}</span><span class="v">${esc(t.v)} ${km(t.km)}</span><span class="y">${esc(t.y)}</span></li>`).join('')}</ul>` : '') + (o.hull ? o.hull.map(h => `<p style="margin-top:10px"><span class="missing"><svg aria-hidden="true"><use href="#sym-m"/></svg><span>${esc(h)}</span></span></p>`).join('') : '') || '<p class="dempty">Ingen nøkkeltall med år i grunnlaget.</p>');
+  html += dsec('Hendelser', hend.length ? `<ul class="dev">${hend.map(h => `<li><time>${h.vis || h.udatert || datoKort(h.d)}</time><span>${esc(h.t)} ${km(h.km)}</span></li>`).join('')}</ul>` : '<p class="dempty">Ingen hendelser i datasettet.</p>');
+  const kilder = [...new Set(alleKm.map(a => a[1]))];
+  html += dsec('Kilder', `<ul class="dsrc">${kilder.map(k => { const K = KILDER[k] || KILDER.grunnlag; return `<li><b>${K.url ? `<a href="${K.url}" target="_blank" rel="noopener">${esc(K.navn)}</a>` : esc(K.navn)}</b>, ${esc(KILDETYPE[K.type])}</li>`; }).join('')}</ul>`);
+  $('#drawer-body').innerHTML = html;
+  $('#drawer-body').scrollTop = 0;
+  klargjorMerker($('#drawer-body'));
+}
+function apneOrgan(key, opener) {
+  if (!ORG[key]) return;
+  lukkPop();
+  sokRes.hidden = true; sok.setAttribute('aria-expanded', 'false');
+  renderOrgan(key);
+  sisteFokus = opener || document.activeElement;
+  const varSkjult = drawer.hidden;
+  drawer.hidden = false;
+  if (varSkjult) { void panel.offsetWidth; requestAnimationFrame(() => drawer.classList.add('is-open')); }
+  document.documentElement.style.overflow = 'hidden';
+  panel.focus({ preventScroll: true });
+}
+function lukkSkuff() {
+  if (drawer.hidden) return;
+  lukkPop();
+  drawer.classList.remove('is-open');
+  const ferdig = () => { if (!drawer.classList.contains('is-open')) drawer.hidden = true; };
+  if (RM.matches) ferdig(); else setTimeout(ferdig, 360);
+  document.documentElement.style.overflow = '';
+  if (sisteFokus && sisteFokus.focus) sisteFokus.focus({ preventScroll: true });
+}
+drawer.addEventListener('click', e => { if (e.target.closest('[data-close]')) lukkSkuff(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { if (popFor) { const b = popFor; lukkPop(); b.focus(); return; } lukkSkuff(); }
+  if (e.key === 'Tab' && !drawer.hidden) {
+    const f = $$('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])', panel).filter(x => x.offsetParent !== null);
+    if (!f.length) return;
+    if (e.shiftKey && (document.activeElement === f[0] || document.activeElement === panel)) { e.preventDefault(); f[f.length - 1].focus(); }
+    else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+  }
+});
+
+/* ===== Felles klikk ===== */
+document.addEventListener('click', e => {
+  const b = e.target.closest('.km');
+  if (b) { e.preventDefault(); e.stopPropagation(); if (popFor === b && popPinned) lukkPop(); else apnePop(b, true); return; }
+  if (popFor && !e.target.closest('#kmpop')) lukkPop();
+  const o = e.target.closest('[data-org]');
+  if (o) { apneOrgan(o.dataset.org, o); }
+}, true);
+
+/* ===== Tema ===== */
+const temaBtn = $('#tema');
+const effektivt = () => document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+function temaEtikett() {
+  const mork = effektivt() === 'dark';
+  temaBtn.querySelector('use').setAttribute('href', mork ? '#i-sun' : '#i-moon');
+  temaBtn.querySelector('.tbtn__t').textContent = mork ? 'Lys' : 'Mørk';
+  temaBtn.setAttribute('aria-label', mork ? 'Bytt til lyst tema' : 'Bytt til mørkt tema');
+}
+temaBtn.addEventListener('click', () => {
+  const neste = effektivt() === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = neste;
+  try { localStorage.setItem('mk-tema', neste); } catch (e) {}
+  temaEtikett();
+});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', temaEtikett);
+
+/* ===== Seksjonslenker ===== */
+$$('.sec').forEach(sec => {
+  const t = $('.sec__title', sec); if (!t) return;
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'anchor';
+  b.setAttribute('aria-label', 'Kopier lenke til denne seksjonen');
+  b.innerHTML = '<svg class="ico" aria-hidden="true"><use href="#i-link"/></svg>';
+  b.addEventListener('click', async () => {
+    const url = location.href.split('#')[0] + '#' + sec.id;
+    let ok = false;
+    try { await navigator.clipboard.writeText(url); ok = true; } catch (e) { history.replaceState(null, '', '#' + sec.id); }
+    const s = document.createElement('span'); s.className = 'anchor__ok'; s.setAttribute('role', 'status'); s.textContent = ok ? 'Lenke kopiert' : 'Lenken står i adressefeltet';
+    b.append(s); setTimeout(() => s.remove(), 1600);
+  });
+  t.append(b);
+});
+
+/* ===== Innhold: aktiv seksjon og mobilmeny ===== */
+const lenker = $$('.toc-links a');
+const seksObs = new IntersectionObserver(ents => {
+  ents.forEach(en => { if (en.isIntersecting) lenker.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + en.target.id ? 'true' : 'false')); });
+}, { rootMargin: '-45% 0px -50% 0px' });
+$$('main .sec').forEach(s => seksObs.observe(s));
+$$('.toc__panel a').forEach(a => a.addEventListener('click', () => $('.toc').removeAttribute('open')));
+document.addEventListener('click', e => { const t = $('.toc'); if (t.open && !e.target.closest('.toc')) t.removeAttribute('open'); });
+const topp = $('#top');
+new IntersectionObserver(([en]) => topp.classList.toggle('is-scrolled', !en.isIntersecting)).observe($('.hero'));
+
+/* ===== Telling av merker og måleren ===== */
+function tellMerker() {
+  const alle = $$('main .km').filter(b => !b.closest('.step__facts'));
+  const n = { v: 0, o: 0, m: 0 };
+  alle.forEach(b => n[b.dataset.g]++);
+  $$('[data-count]').forEach(el => el.textContent = n[el.dataset.count]);
+  const tot = n.v + n.o + n.m || 1;
+  $('#meter-bar').innerHTML = ['v','o','m'].filter(g => n[g]).map(g => `<i class="m${g}" style="flex:${n[g]}"></i>`).join('');
+  $('#meter-bar').setAttribute('aria-label', `Merker på siden: ${n.v} verifisert, ${n.o} oppgitt, ${n.m} må verifiseres.`);
+  $('#meter-keys').innerHTML = [['v','Verifisert','var(--fjord)'],['o','Oppgitt','var(--accent-soft)'],['m','Må verifiseres','var(--ink-2)']].map(([g, t, c]) => `<span><i style="background:${c}"></i>${t} <b>${n[g]}</b></span>`).join('') + `<span>av ${tot} merker på siden</span>`;
+}
+
+/* ===== Bevegelse som settes når noe kommer inn ===== */
+const inn = new IntersectionObserver(ents => ents.forEach(en => { if (en.isIntersecting) { const el = en.target; el.classList.add('is-in'); inn.unobserve(el); setTimeout(() => el.classList.add('is-settled'), 2400); } }), { rootMargin: '0px 0px -12% 0px' });
+
+/* ===== Start ===== */
+renderSiste();
+renderKjede();
+renderKart();
+renderFlyt();
+renderEierskap();
+renderNett();
+renderTidslinje();
+renderSegChips();
+renderBransje();
+renderNeste();
+klargjorMerker();
+tellMerker();
+temaEtikett();
+$$('[data-reveal]').forEach(el => inn.observe(el));
+$('#flowm').setAttribute('data-reveal', ''); inn.observe($('#flowm'));
+let rt = 0;
+addEventListener('resize', () => { cancelAnimationFrame(rt); rt = requestAnimationFrame(() => { maalRute(); if (popFor) plasserPop(popFor); }); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(maalRute);
+})();
+</script>
+</body>
+</html>

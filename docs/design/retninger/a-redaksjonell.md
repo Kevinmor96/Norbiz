@@ -1,0 +1,7 @@
+Retning A, Redaksjonell kartbok (lys først, atlas-system uten oppdiktet kart). Fil: design/a-redaksjonell/index.html. Tegnes fra ett datasettobjekt, ingen komponent hardkoder Tromsø.
+Palett lys/mørk: papir #F2F5F7/#0B131C, polarnatt #0F1C2B/#E4ECF2, fjord #1B4F84/#86B8EA, grunnsjø #E3ECF1/#12212F, sjøkartmagenta #A3246A/#EC7DB8 (kun «innstilling» = forberedende makt), skifer #435365/#A8B7C4.
+Typografi: Hedvig Letters Serif (overskrifter, ingress, brødtekst) + Schibsted Grotesk (tall, UI, tabeller). Ødelagt ff-ligatur i Hedvig ved små størrelser: liga slått av globalt.
+Layout: 12 kolonner; kjeden som tekststeg med klebrig rutegrafikk (mobil: klebrig 1-2-3-4-skinne); organkart i nivåbånd; penger: utbytteflyt + eierstolper + kommunens regnskap; nettverk: graf (desktop), buediagram (mobil), liste; tidslinje med legendekolonne; bransjematrise (liste på mobil); stemmeskjema; metode + Pro.
+Signatur: fylt skive = verifisert, ring = oppgitt, trekant = må verifiseres. Legenden står i første skjermbilde og teller merkene (0/73/21). Egen tilstand for manglende data og for kilder som er uenige. Magenta = forberedende makt, én betydning.
+Selvkritikk: lang side (15 760 px desktop, 21 940 px mobil); organflisene er det svakeste (nær standard kortgrid); mange mangelbokser; desktopgrafen håndplassert; hero-tallene nær stort-tall-malen; graderingsregel fulgt bokstavelig (roller uten primærkilde = oppgitt); noe innhold er utledet og merket.
+Skjermbilder: shots/final/ (alle fire moduser + slices), shots/final-redusert/, shots/final-interaksjon/.
