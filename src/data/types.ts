@@ -266,6 +266,10 @@ export interface Hendelse {
   tittel: string;
   tekst?: string;
   org?: string;
+  /**
+   * `Person.key` for hver person i datasettet som nevnes ved navn i tittel,
+   * tekst eller merknad. Sperres en av dem, skjules hele hendelsen.
+   */
   personer?: string[];
   belegg: Belegg;
 }
@@ -304,6 +308,12 @@ export interface Hull {
   gjelder: string;
   hva: string;
   hvorfor: string;
+  /**
+   * `Person.key` for hver person i datasettet som nevnes ved navn i `hva` eller
+   * `hvorfor`. Samme regel som for `Hendelse.personer`: sperres en av dem etter
+   * en innsigelse, forsvinner hele punktet fra de offentlige spørringene.
+   */
+  personer?: string[];
 }
 
 export interface Kommunedatasett {
