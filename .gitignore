@@ -3,6 +3,33 @@ dist/
 .env
 .env.local
 
+# Byggeutdata fra Vite, TanStack Start og nitro (samme liste som Lovable-malen).
+dist-ssr/
+.output/
+.nitro/
+.tanstack/
+.vinxi/
+*.local
+
+# Wrangler / Cloudflare (nitro bygger mot cloudflare-module som standard)
+.wrangler/
+.dev.vars
+
+# Logger
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.sw?
+
 # graphify: grafen committes så teamet starter med et kart,
 # men cache og kostnadslogg er lokale.
 graphify-out/cache/
