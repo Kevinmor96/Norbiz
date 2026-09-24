@@ -9,7 +9,7 @@
 // oversetter `rpc(...)` til `select funksjon(...)`, og krever samme svar som
 // `lokal.ts`.
 
-import type { Datalag } from './kontrakt';
+import type { Datalag } from "./kontrakt";
 
 /**
  * Det vi bruker av supabase-js. Holdt smalt, så en testklient kan oppfylle
@@ -29,17 +29,17 @@ export function lagSupabaseDatalag(klient: RpcKlient): Datalag {
     return data as T;
   }
   return {
-    kommuner: () => kall('kommuner'),
-    kommune_oversikt: (kommunenr) => kall('kommune_oversikt', { p_kommunenr: kommunenr }),
+    kommuner: () => kall("kommuner"),
+    kommune_oversikt: (kommunenr) => kall("kommune_oversikt", { p_kommunenr: kommunenr }),
     beslutningskjede: (kommunenr, prosess_key) =>
-      kall('beslutningskjede', { p_kommunenr: kommunenr, p_prosess_key: prosess_key }),
-    organkart: (kommunenr) => kall('organkart', { p_kommunenr: kommunenr }),
-    organ_profil: (org_key) => kall('organ_profil', { p_org_key: org_key }),
-    eierskap: (kommunenr) => kall('eierskap', { p_kommunenr: kommunenr }),
-    nettverk: (kommunenr) => kall('nettverk', { p_kommunenr: kommunenr }),
-    endringer: (kommunenr) => kall('endringer', { p_kommunenr: kommunenr }),
+      kall("beslutningskjede", { p_kommunenr: kommunenr, p_prosess_key: prosess_key }),
+    organkart: (kommunenr) => kall("organkart", { p_kommunenr: kommunenr }),
+    organ_profil: (org_key) => kall("organ_profil", { p_org_key: org_key }),
+    eierskap: (kommunenr) => kall("eierskap", { p_kommunenr: kommunenr }),
+    nettverk: (kommunenr) => kall("nettverk", { p_kommunenr: kommunenr }),
+    endringer: (kommunenr) => kall("endringer", { p_kommunenr: kommunenr }),
     organer_for_segment: (segment_kode, kommunenr) =>
-      kall('organer_for_segment', { p_segment_kode: segment_kode, p_kommunenr: kommunenr }),
-    hull: (kommunenr) => kall('hull', { p_kommunenr: kommunenr }),
+      kall("organer_for_segment", { p_segment_kode: segment_kode, p_kommunenr: kommunenr }),
+    hull: (kommunenr) => kall("hull", { p_kommunenr: kommunenr }),
   };
 }

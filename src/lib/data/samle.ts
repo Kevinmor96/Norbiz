@@ -27,11 +27,11 @@ import type {
   Relasjon,
   Rolleinnehav,
   Segment,
-} from '../../data/types';
+} from "../../data/types";
 
 export interface KommuneIDatasett {
   slug: string;
-  meta: Kommunedatasett['meta'];
+  meta: Kommunedatasett["meta"];
   /** `Organisasjon.key` for organene i kommunens datasett. */
   organer: string[];
   prosesser: Prosess[];
@@ -64,28 +64,34 @@ export interface Samling {
  * fra dem, så de må være stabile: endres en av delene, er det en ny rad.
  */
 export const nokkel = {
-  rolle: (r: Rolleinnehav) => [r.org, r.person, r.rolletype, r.fra ?? ''].join('|'),
-  relasjon: (r: Relasjon) => [r.fra, r.type, r.til, r.fra_dato ?? ''].join('|'),
+  rolle: (r: Rolleinnehav) => [r.org, r.person, r.rolletype, r.fra ?? ""].join("|"),
+  relasjon: (r: Relasjon) => [r.fra, r.type, r.til, r.fra_dato ?? ""].join("|"),
   nokkeltall: (n: Nokkeltall) =>
-    [n.org, String(n.aar), n.periode ?? '', n.type, n.konsern === undefined ? '' : String(n.konsern)].join('|'),
+    [
+      n.org,
+      String(n.aar),
+      n.periode ?? "",
+      n.type,
+      n.konsern === undefined ? "" : String(n.konsern),
+    ].join("|"),
   hendelse: (h: SamletHendelse) =>
-    [h.dato, h.type, h.org ?? `kommune:${h.kommunenr ?? ''}`, h.tittel].join('|'),
-  hull: (h: Hull) => [h.gjelder, h.hva].join('|'),
-  orgSegment: (s: OrgSegment) => [s.org, s.segment].join('|'),
+    [h.dato, h.type, h.org ?? `kommune:${h.kommunenr ?? ""}`, h.tittel].join("|"),
+  hull: (h: Hull) => [h.gjelder, h.hva].join("|"),
+  orgSegment: (s: OrgSegment) => [s.org, s.segment].join("|"),
   prosessSteg: (kommuneSlug: string, prosessKey: string, nr: number) =>
-    [kommuneSlug, prosessKey, String(nr)].join('|'),
+    [kommuneSlug, prosessKey, String(nr)].join("|"),
 };
 
 /** JSON med sorterte nøkler, så to like objekter gir lik tekst. */
 function kanonisk(v: unknown): string {
-  if (Array.isArray(v)) return `[${v.map(kanonisk).join(',')}]`;
-  if (v !== null && typeof v === 'object') {
+  if (Array.isArray(v)) return `[${v.map(kanonisk).join(",")}]`;
+  if (v !== null && typeof v === "object") {
     const o = v as Record<string, unknown>;
     return `{${Object.keys(o)
       .filter((k) => o[k] !== undefined)
       .sort()
       .map((k) => `${JSON.stringify(k)}:${kanonisk(o[k])}`)
-      .join(',')}}`;
+      .join(",")}}`;
   }
   return JSON.stringify(v);
 }
@@ -107,7 +113,7 @@ function leggTil<T>(
   if (kanonisk(fra) !== kanonisk(verdi)) {
     throw new Error(
       `${hva} «${key}» står ulikt i ${hvor.get(`${hva}:${key}`)}.json og ${slug}.json. ` +
-        'En felles enhet må være lik i alle datasett.',
+        "En felles enhet må være lik i alle datasett.",
     );
   }
 }
@@ -140,19 +146,23 @@ export function samle(datasett: { slug: string; data: Kommunedatasett }[]): Saml
       organer: data.organisasjoner.map((o) => o.key),
       prosesser: data.prosesser,
     });
-    for (const x of data.kilder) leggTil(s.kilder, x.key, x, hvor, slug, 'Kilde');
-    for (const x of data.organisasjoner) leggTil(s.organisasjoner, x.key, x, hvor, slug, 'Organisasjon');
-    for (const x of data.personer) leggTil(s.personer, x.key, x, hvor, slug, 'Person');
-    for (const x of data.segmenter) leggTil(s.segmenter, x.kode, x, hvor, slug, 'Segment');
-    for (const x of data.roller) leggTil(s.roller, nokkel.rolle(x), x, hvor, slug, 'Rolle');
-    for (const x of data.relasjoner) leggTil(s.relasjoner, nokkel.relasjon(x), x, hvor, slug, 'Relasjon');
-    for (const x of data.nokkeltall) leggTil(s.nokkeltall, nokkel.nokkeltall(x), x, hvor, slug, 'Nøkkeltall');
+    for (const x of data.kilder) leggTil(s.kilder, x.key, x, hvor, slug, "Kilde");
+    for (const x of data.organisasjoner)
+      leggTil(s.organisasjoner, x.key, x, hvor, slug, "Organisasjon");
+    for (const x of data.personer) leggTil(s.personer, x.key, x, hvor, slug, "Person");
+    for (const x of data.segmenter) leggTil(s.segmenter, x.kode, x, hvor, slug, "Segment");
+    for (const x of data.roller) leggTil(s.roller, nokkel.rolle(x), x, hvor, slug, "Rolle");
+    for (const x of data.relasjoner)
+      leggTil(s.relasjoner, nokkel.relasjon(x), x, hvor, slug, "Relasjon");
+    for (const x of data.nokkeltall)
+      leggTil(s.nokkeltall, nokkel.nokkeltall(x), x, hvor, slug, "Nøkkeltall");
     for (const x of data.hendelser) {
       const h: SamletHendelse = x.org === undefined ? { ...x, kommunenr: data.meta.kommunenr } : x;
-      leggTil(s.hendelser, nokkel.hendelse(h), h, hvor, slug, 'Hendelse');
+      leggTil(s.hendelser, nokkel.hendelse(h), h, hvor, slug, "Hendelse");
     }
-    for (const x of data.org_segment) leggTil(s.org_segment, nokkel.orgSegment(x), x, hvor, slug, 'Org-segment');
-    for (const x of data.hull) leggTil(s.hull, nokkel.hull(x), x, hvor, slug, 'Hull');
+    for (const x of data.org_segment)
+      leggTil(s.org_segment, nokkel.orgSegment(x), x, hvor, slug, "Org-segment");
+    for (const x of data.hull) leggTil(s.hull, nokkel.hull(x), x, hvor, slug, "Hull");
   }
   return s;
 }
@@ -165,7 +175,8 @@ export function samle(datasett: { slug: string; data: Kommunedatasett }[]): Saml
 export function valider(s: Samling): string[] {
   const feil: string[] = [];
   const org = (key: string | undefined, hvor: string) => {
-    if (key !== undefined && !s.organisasjoner.has(key)) feil.push(`${hvor}: ukjent organisasjon «${key}»`);
+    if (key !== undefined && !s.organisasjoner.has(key))
+      feil.push(`${hvor}: ukjent organisasjon «${key}»`);
   };
   const person = (key: string, hvor: string) => {
     if (!s.personer.has(key)) feil.push(`${hvor}: ukjent person «${key}»`);
@@ -213,7 +224,8 @@ export function valider(s: Samling): string[] {
     for (const p of kommune.prosesser) {
       p.steg.forEach((steg, i) => {
         const hvor = `prosess ${kommune.slug}/${p.key} steg ${i + 1}`;
-        if (!egne.has(steg.org)) feil.push(`${hvor}: organet «${steg.org}» er ikke i kommunens datasett`);
+        if (!egne.has(steg.org))
+          feil.push(`${hvor}: organet «${steg.org}» er ikke i kommunens datasett`);
         belegg(steg.belegg, hvor);
       });
     }

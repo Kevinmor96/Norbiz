@@ -16,7 +16,7 @@ import type {
   Organisasjon,
   Relasjon,
   Rolleinnehav,
-} from '../../data/types';
+} from "../../data/types";
 import {
   HENDELSESTYPER,
   IKKE_SKJEDD_TYPER,
@@ -53,8 +53,8 @@ import {
   type Rolle,
   type RolleIOrgan,
   type SegmentOrganer,
-} from './kontrakt';
-import { samle, type KommuneIDatasett, type SamletHendelse, type Samling } from './samle';
+} from "./kontrakt";
+import { samle, type KommuneIDatasett, type SamletHendelse, type Samling } from "./samle";
 
 // ---------------------------------------------------------------------------
 // Sortering. Tekst sammenlignes på kodeenhet, som tilsvarer `collate "C"`.
@@ -154,7 +154,9 @@ export function lagLokal(s: Samling): Datalag {
   // Samme regel som RLS-policyen på rolleinnehav: i sensitive organer er bare
   // toppledere synlige.
   const synligeRoller = [...s.roller.values()].filter(
-    (r) => !org(r.org).sensitiv || (SENSITIV_SYNLIGE_ROLLETYPER as readonly string[]).includes(r.rolletype),
+    (r) =>
+      !org(r.org).sensitiv ||
+      (SENSITIV_SYNLIGE_ROLLETYPER as readonly string[]).includes(r.rolletype),
   );
   const relasjoner = [...s.relasjoner.values()];
   const nokkeltall = [...s.nokkeltall.values()];
@@ -246,7 +248,11 @@ export function lagLokal(s: Samling): Datalag {
     personer: (h.personer ?? []).map(personRef),
     belegg: beleggUt(h.belegg),
   });
-  const hullPunkt = (h: Hull): HullPunkt => ({ gjelder: organRef(h.gjelder), hva: h.hva, hvorfor: h.hvorfor });
+  const hullPunkt = (h: Hull): HullPunkt => ({
+    gjelder: organRef(h.gjelder),
+    hva: h.hva,
+    hvorfor: h.hvorfor,
+  });
   /** `annen` er enden av relasjonen som ikke er organet vi ser fra. */
   const eierandel = (r: Relasjon, annen: string): Eierandel => ({
     org: organRef(annen),
@@ -298,7 +304,9 @@ export function lagLokal(s: Samling): Datalag {
     ];
     const kommuneorgan =
       sortert(
-        k.organer.filter((key) => org(key).organtype === 'kommune' && org(key).kommunenr === kommunenr),
+        k.organer.filter(
+          (key) => org(key).organtype === "kommune" && org(key).kommunenr === kommunenr,
+        ),
         tekst,
       )[0] ?? null;
     return { k, o, roller, rel, nt, hend, hul, belegg, kommuneorgan };
@@ -330,14 +338,18 @@ export function lagLokal(s: Samling): Datalag {
       ? (sortert(
           k.organer.filter((key) => {
             const x = org(key);
-            return x.organtype === 'folkevalgt_organ' && x.overordnet === kommuneorgan && x.status === 'aktiv';
+            return (
+              x.organtype === "folkevalgt_organ" &&
+              x.overordnet === kommuneorgan &&
+              x.status === "aktiv"
+            );
           }),
           tekst,
         )[0] ?? null)
       : null;
 
     const eierrel = km.rel.filter(
-      (r) => r.type === 'eier' && r.fra === kommuneorgan && r.til_dato === undefined,
+      (r) => r.type === "eier" && r.fra === kommuneorgan && r.til_dato === undefined,
     );
 
     const perKilde = new Map<string, number>();
@@ -361,7 +373,7 @@ export function lagLokal(s: Samling): Datalag {
         km.roller.filter(
           (r) =>
             r.til === undefined &&
-            (r.rolletype === 'politisk_leder' || r.rolletype === 'toppleder') &&
+            (r.rolletype === "politisk_leder" || r.rolletype === "toppleder") &&
             org(r.org).kommunenr === kommunenr,
         ),
         etter(
@@ -381,20 +393,30 @@ export function lagLokal(s: Samling): Datalag {
           på((r) => r.belop_nok ?? 0, synkende(tall)),
           på((r) => r.til, tekst),
         ),
-      ).map((r) => ({ selskap: organRef(r.til), belop_nok: r.belop_nok ?? 0, belegg: beleggUt(r.belegg) })),
+      ).map((r) => ({
+        selskap: organRef(r.til),
+        belop_nok: r.belop_nok ?? 0,
+        belegg: beleggUt(r.belegg),
+      })),
       siste_endringer: (endringer(kommunenr)?.skjedd ?? []).slice(0, SISTE_ENDRINGER),
-      prosesser: sortert(k.prosesser, på((p) => p.key, tekst)).map((p) => ({
+      prosesser: sortert(
+        k.prosesser,
+        på((p) => p.key, tekst),
+      ).map((p) => ({
         key: p.key,
         tittel: p.tittel,
         sporsmal: p.sporsmal,
         antall_steg: p.steg.length,
       })),
-      segmenter: sortert(s.segmenter.values(), på((x) => x.kode, tekst)).map((seg) => ({
+      segmenter: sortert(
+        s.segmenter.values(),
+        på((x) => x.kode, tekst),
+      ).map((seg) => ({
         kode: seg.kode,
         navn: seg.navn,
         antall_organer: new Set(
           orgSegment
-            .filter((x) => x.segment === seg.kode && o.has(x.org) && org(x.org).status === 'aktiv')
+            .filter((x) => x.segment === seg.kode && o.has(x.org) && org(x.org).status === "aktiv")
             .map((x) => x.org),
         ).size,
       })),
@@ -441,14 +463,14 @@ export function lagLokal(s: Samling): Datalag {
     const k = kommuneAvNr.get(kommunenr);
     if (!k) return null;
     const aktive = sortert(
-      k.organer.filter((key) => org(key).status === 'aktiv'),
+      k.organer.filter((key) => org(key).status === "aktiv"),
       etter(
         på((key) => org(key).nivaa, nivaa),
         på((key) => org(key).organtype, organtype),
         på((key) => key, tekst),
       ),
     );
-    const grupper: Organkart['grupper'] = [];
+    const grupper: Organkart["grupper"] = [];
     for (const key of aktive) {
       const kort: OrganKort = { ...organ(key), ledere: ledere(key) };
       const siste = grupper[grupper.length - 1];
@@ -468,8 +490,8 @@ export function lagLokal(s: Samling): Datalag {
     const nt = nokkeltall.filter((n) => n.org === orgKey);
     const hend = hendelser.filter((h) => h.org === orgKey);
 
-    const relasjonUt = (r: Relasjon, retning: 'ut' | 'inn'): RelasjonUt => ({
-      ...eierandel(r, retning === 'ut' ? r.til : r.fra),
+    const relasjonUt = (r: Relasjon, retning: "ut" | "inn"): RelasjonUt => ({
+      ...eierandel(r, retning === "ut" ? r.til : r.fra),
       retning,
       type: r.type,
     });
@@ -514,21 +536,21 @@ export function lagLokal(s: Samling): Datalag {
         ).map(rolle),
       },
       eiere: sortert(
-        inn.filter((r) => r.type === 'eier').map((r) => eierandel(r, r.fra)),
+        inn.filter((r) => r.type === "eier").map((r) => eierandel(r, r.fra)),
         eierandelSortering,
       ),
       eierandeler: sortert(
-        ut.filter((r) => r.type === 'eier').map((r) => eierandel(r, r.til)),
+        ut.filter((r) => r.type === "eier").map((r) => eierandel(r, r.til)),
         eierandelSortering,
       ),
       relasjoner: sortert(
         [
-          ...ut.filter((r) => r.type !== 'eier').map((r) => relasjonUt(r, 'ut')),
-          ...inn.filter((r) => r.type !== 'eier').map((r) => relasjonUt(r, 'inn')),
+          ...ut.filter((r) => r.type !== "eier").map((r) => relasjonUt(r, "ut")),
+          ...inn.filter((r) => r.type !== "eier").map((r) => relasjonUt(r, "inn")),
         ],
         etter(
           på((r) => r.type, relasjonstype),
-          på((r) => r.retning, rang(['ut', 'inn'] as const)),
+          på((r) => r.retning, rang(["ut", "inn"] as const)),
           på((r) => r.org.key, tekst),
           på((r) => r.fra_dato, nullForst(tekst)),
         ),
@@ -550,7 +572,7 @@ export function lagLokal(s: Samling): Datalag {
     const { kommuneorgan } = km;
     if (!kommuneorgan) return { eier: null, selskaper: [], utbytte: [] };
 
-    const eierrel = km.rel.filter((r) => r.type === 'eier' && r.til_dato === undefined);
+    const eierrel = km.rel.filter((r) => r.type === "eier" && r.til_dato === undefined);
 
     // Bredde først gir korteste vei. Samme grense som den rekursive CTE-en.
     const ledd = new Map<string, number>([[kommuneorgan, 0]]);
@@ -572,7 +594,11 @@ export function lagLokal(s: Samling): Datalag {
         eierrel.filter((r) => r.til === key).map((r) => eierandel(r, r.fra)),
         eierandelSortering,
       );
-    const tallFor = (key: string) => sortert(km.nt.filter((n) => n.org === key), nokkeltallSortering);
+    const tallFor = (key: string) =>
+      sortert(
+        km.nt.filter((n) => n.org === key),
+        nokkeltallSortering,
+      );
 
     const selskaper = sortert(
       ledd,
@@ -589,12 +615,13 @@ export function lagLokal(s: Samling): Datalag {
 
     const utbytte = sortert(ledd.keys(), tekst)
       .map((key) => {
-        const total = tallFor(key).find((n) => n.type === 'utbytte');
+        const total = tallFor(key).find((n) => n.type === "utbytte");
         const mottakere = sortert(
           eierrel.filter((r) => r.til === key && r.belop_nok !== undefined),
           etter(
             på((r) => r.belop_nok ?? 0, synkende(tall)),
             på((r) => r.fra, tekst),
+            på((r) => r.fra_dato, nullForst(tekst)),
           ),
         );
         return { key, total, mottakere };
@@ -629,7 +656,7 @@ export function lagLokal(s: Samling): Datalag {
     );
 
     const noder = new Set<string>();
-    const kanter: Nettverk['kanter'] = [];
+    const kanter: Nettverk["kanter"] = [];
     for (const [p, rs] of med) {
       const organer = sortert(new Set(rs.map((r) => r.org)), tekst);
       organer.forEach((a, i) => {
@@ -668,7 +695,9 @@ export function lagLokal(s: Samling): Datalag {
     return {
       segment: { kode: seg.kode, navn: seg.navn },
       organer: sortert(
-        orgSegment.filter((x) => x.segment === segmentKode && o.has(x.org) && org(x.org).status === 'aktiv'),
+        orgSegment.filter(
+          (x) => x.segment === segmentKode && o.has(x.org) && org(x.org).status === "aktiv",
+        ),
         etter(
           på((x) => x.styrke, synkende(tall)),
           på((x) => org(x.org).nivaa, nivaa),
@@ -707,7 +736,8 @@ export function lagLokal(s: Samling): Datalag {
     eierskap: async (kommunenr) => eierskap(kommunenr),
     nettverk: async (kommunenr) => nettverk(kommunenr),
     endringer: async (kommunenr) => endringer(kommunenr),
-    organer_for_segment: async (segmentKode, kommunenr) => organer_for_segment(segmentKode, kommunenr),
+    organer_for_segment: async (segmentKode, kommunenr) =>
+      organer_for_segment(segmentKode, kommunenr),
     hull: async (kommunenr) => hullFor(kommunenr),
   };
 }
@@ -717,11 +747,14 @@ export function lagLokal(s: Samling): Datalag {
 // kommune er en ny fil, ingen kodeendring.
 // ---------------------------------------------------------------------------
 
-const filer = import.meta.glob<Kommunedatasett>('../../data/*.json', { eager: true, import: 'default' });
+const filer = import.meta.glob<Kommunedatasett>("../../data/*.json", {
+  eager: true,
+  import: "default",
+});
 
 /** Kommunedatasettene med slug fra filnavnet. */
 export const datasett = Object.entries(filer).map(([sti, data]) => ({
-  slug: sti.replace(/^.*\//, '').replace(/\.json$/, ''),
+  slug: sti.replace(/^.*\//, "").replace(/\.json$/, ""),
   data,
 }));
 

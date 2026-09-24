@@ -21,10 +21,10 @@
 // (anon/publishable). Personvernet ligger i basens RLS og
 // kolonnerettigheter, og de gjelder bare når siden ikke bruker service-nøkkelen.
 
-import type { Datalag } from './kontrakt';
-import { lokal } from './lokal';
+import type { Datalag } from "./kontrakt";
+import { lokal } from "./lokal";
 
 export const data: Datalag = lokal;
 
-export * from './kontrakt';
-export { lagSupabaseDatalag, type RpcKlient } from './supabase';
+export * from "./kontrakt";
+export { lagSupabaseDatalag, type RpcKlient } from "./supabase";

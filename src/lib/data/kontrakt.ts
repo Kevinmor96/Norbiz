@@ -35,7 +35,23 @@ import type {
   Rollestatus,
   Rolletype,
   Verifisering,
-} from '../../data/types';
+} from "../../data/types";
+
+// Verditypene fra datakontrakten, så siden kan hente alle typene den trenger
+// fra `@/lib/data` og aldri må importere datasettets typer direkte.
+export type {
+  Hendelsestype,
+  Kildetype,
+  Myndighet,
+  Nivaa,
+  Nokkeltalltype,
+  Organtype,
+  Rekkevidde,
+  Relasjonstype,
+  Rollestatus,
+  Rolletype,
+  Verifisering,
+};
 
 // ---------------------------------------------------------------------------
 // Verdilister. Rekkefølgen er den samme som i enumene i basen, og det er den
@@ -45,149 +61,149 @@ import type {
 /** Typesjekk: lista må inneholde alle verdiene i unionen, og bare dem. */
 const alle =
   <T extends string>() =>
-  <const A extends readonly T[]>(a: A & ([T] extends [A[number]] ? unknown : 'mangler verdi')) =>
+  <const A extends readonly T[]>(a: A & ([T] extends [A[number]] ? unknown : "mangler verdi")) =>
     a;
 
 export const KILDETYPER = alle<Kildetype>()([
-  'register',
-  'offisiell',
-  'media',
-  'sekundaer',
-  'oppslagsverk',
+  "register",
+  "offisiell",
+  "media",
+  "sekundaer",
+  "oppslagsverk",
 ]);
-export const VERIFISERINGER = alle<Verifisering>()(['verifisert', 'oppgitt', 'maa_verifiseres']);
+export const VERIFISERINGER = alle<Verifisering>()(["verifisert", "oppgitt", "maa_verifiseres"]);
 export const NIVAAER = alle<Nivaa>()([
-  'stat',
-  'fylke',
-  'kommune',
-  'interkommunal',
-  'samisk',
-  'privat',
-  'interesse',
-  'mellomstatlig',
+  "stat",
+  "fylke",
+  "kommune",
+  "interkommunal",
+  "samisk",
+  "privat",
+  "interesse",
+  "mellomstatlig",
 ]);
 export const ORGANTYPER = alle<Organtype>()([
-  'kommune',
-  'fylkeskommune',
-  'folkevalgt_organ',
-  'utvalg',
-  'raad',
-  'administrasjon',
-  'departement',
-  'direktorat',
-  'etat',
-  'statsforvalter',
-  'domstol',
-  'paatale',
-  'politi',
-  'tilsyn',
-  'nemnd',
-  'lovgivende',
-  'KF',
-  'FKF',
-  'AS',
-  'ASA',
-  'IKS',
-  'SA',
-  'sparebank',
-  'stiftelse',
-  'HF',
-  'RHF',
-  'universitet',
-  'forskning',
-  'forening',
-  'samarbeid',
-  'saerlovselskap',
+  "kommune",
+  "fylkeskommune",
+  "folkevalgt_organ",
+  "utvalg",
+  "raad",
+  "administrasjon",
+  "departement",
+  "direktorat",
+  "etat",
+  "statsforvalter",
+  "domstol",
+  "paatale",
+  "politi",
+  "tilsyn",
+  "nemnd",
+  "lovgivende",
+  "KF",
+  "FKF",
+  "AS",
+  "ASA",
+  "IKS",
+  "SA",
+  "sparebank",
+  "stiftelse",
+  "HF",
+  "RHF",
+  "universitet",
+  "forskning",
+  "forening",
+  "samarbeid",
+  "saerlovselskap",
 ]);
 export const MYNDIGHETER = alle<Myndighet>()([
-  'vedtak',
-  'regelverk',
-  'tilsyn',
-  'konsesjon',
-  'klage',
-  'finansiering',
-  'innkjop',
-  'eierskap',
-  'planmyndighet',
-  'innstilling',
-  'raadgivning',
-  'lobby',
+  "vedtak",
+  "regelverk",
+  "tilsyn",
+  "konsesjon",
+  "klage",
+  "finansiering",
+  "innkjop",
+  "eierskap",
+  "planmyndighet",
+  "innstilling",
+  "raadgivning",
+  "lobby",
 ]);
 export const REKKEVIDDER = alle<Rekkevidde>()([
-  'kommune',
-  'region',
-  'fylke',
-  'nasjonal',
-  'internasjonal',
+  "kommune",
+  "region",
+  "fylke",
+  "nasjonal",
+  "internasjonal",
 ]);
-export type Orgstatus = 'aktiv' | 'nedlagt';
-export const ORGSTATUSER = alle<Orgstatus>()(['aktiv', 'nedlagt']);
+export type Orgstatus = "aktiv" | "nedlagt";
+export const ORGSTATUSER = alle<Orgstatus>()(["aktiv", "nedlagt"]);
 export const ROLLETYPER = alle<Rolletype>()([
-  'politisk_leder',
-  'folkevalgt',
-  'utvalgsleder',
-  'utvalgsmedlem',
-  'toppleder',
-  'nestleder_adm',
-  'seksjonsleder',
-  'styreleder',
-  'nestleder',
-  'styremedlem',
-  'varamedlem',
-  'daglig_leder',
-  'dommer_leder',
-  'paatale_leder',
-  'tillitsvalgt',
+  "politisk_leder",
+  "folkevalgt",
+  "utvalgsleder",
+  "utvalgsmedlem",
+  "toppleder",
+  "nestleder_adm",
+  "seksjonsleder",
+  "styreleder",
+  "nestleder",
+  "styremedlem",
+  "varamedlem",
+  "daglig_leder",
+  "dommer_leder",
+  "paatale_leder",
+  "tillitsvalgt",
 ]);
 export const ROLLESTATUSER = alle<Rollestatus>()([
-  'fast',
-  'fungerende',
-  'konstituert',
-  'permisjon',
-  'vara',
+  "fast",
+  "fungerende",
+  "konstituert",
+  "permisjon",
+  "vara",
 ]);
 export const RELASJONSTYPER = alle<Relasjonstype>()([
-  'eier',
-  'overordnet',
-  'medlem_av',
-  'sammenslatt_til',
-  'splittet_fra',
-  'erstattet_av',
-  'samarbeid',
-  'finansierer',
-  'klageinstans_for',
-  'tilsyn_med',
-  'leverandor_til',
+  "eier",
+  "overordnet",
+  "medlem_av",
+  "sammenslatt_til",
+  "splittet_fra",
+  "erstattet_av",
+  "samarbeid",
+  "finansierer",
+  "klageinstans_for",
+  "tilsyn_med",
+  "leverandor_til",
 ]);
 export const NOKKELTALLTYPER = alle<Nokkeltalltype>()([
-  'omsetning',
-  'driftsresultat',
-  'aarsresultat',
-  'resultat_for_skatt',
-  'egenkapital',
-  'utbytte',
-  'omsatt_verdi',
-  'merforbruk',
-  'underskudd',
-  'aarsverk',
+  "omsetning",
+  "driftsresultat",
+  "aarsresultat",
+  "resultat_for_skatt",
+  "egenkapital",
+  "utbytte",
+  "omsatt_verdi",
+  "merforbruk",
+  "underskudd",
+  "aarsverk",
 ]);
-export type Enhet = 'NOK' | 'aarsverk';
-export const ENHETER = alle<Enhet>()(['NOK', 'aarsverk']);
+export type Enhet = "NOK" | "aarsverk";
+export const ENHETER = alle<Enhet>()(["NOK", "aarsverk"]);
 export const HENDELSESTYPER = alle<Hendelsestype>()([
-  'rollebytte',
-  'opprettet',
-  'nedlagt',
-  'splittet',
-  'sammenslatt',
-  'vedtak',
-  'valg',
-  'utbytte',
-  'regnskap',
-  'strukturdebatt',
-  'planlagt',
+  "rollebytte",
+  "opprettet",
+  "nedlagt",
+  "splittet",
+  "sammenslatt",
+  "vedtak",
+  "valg",
+  "utbytte",
+  "regnskap",
+  "strukturdebatt",
+  "planlagt",
 ]);
-export type Presisjon = 'dag' | 'maaned' | 'aar';
-export const PRESISJONER = alle<Presisjon>()(['dag', 'maaned', 'aar']);
+export type Presisjon = "dag" | "maaned" | "aar";
+export const PRESISJONER = alle<Presisjon>()(["dag", "maaned", "aar"]);
 
 // ---------------------------------------------------------------------------
 // Regler som begge implementasjonene bruker. Endres de, må SQL-en endres
@@ -196,13 +212,13 @@ export const PRESISJONER = alle<Presisjon>()(['dag', 'maaned', 'aar']);
 
 /** Rolletypene som svarer på «hvem leder organet?». */
 export const LEDERTYPER = [
-  'politisk_leder',
-  'utvalgsleder',
-  'toppleder',
-  'styreleder',
-  'daglig_leder',
-  'dommer_leder',
-  'paatale_leder',
+  "politisk_leder",
+  "utvalgsleder",
+  "toppleder",
+  "styreleder",
+  "daglig_leder",
+  "dommer_leder",
+  "paatale_leder",
 ] as const satisfies readonly Rolletype[];
 
 /**
@@ -210,16 +226,19 @@ export const LEDERTYPER = [
  * rolletypene synlige. Regelen håndheves med RLS i basen.
  */
 export const SENSITIV_SYNLIGE_ROLLETYPER = [
-  'toppleder',
-  'dommer_leder',
-  'paatale_leder',
+  "toppleder",
+  "dommer_leder",
+  "paatale_leder",
 ] as const satisfies readonly Rolletype[];
 
 /**
  * Hendelser av disse typene har ikke skjedd. Valget i 2027 er planlagt, og en
  * strukturdebatt er et forslag, ikke en endring.
  */
-export const IKKE_SKJEDD_TYPER = ['planlagt', 'strukturdebatt'] as const satisfies readonly Hendelsestype[];
+export const IKKE_SKJEDD_TYPER = [
+  "planlagt",
+  "strukturdebatt",
+] as const satisfies readonly Hendelsestype[];
 
 /**
  * Parti føres bare for roller i disse organtypene. Partitilhørighet er en
@@ -227,9 +246,9 @@ export const IKKE_SKJEDD_TYPER = ['planlagt', 'strukturdebatt'] as const satisfi
  * folkevalgte. Basen avviser parti på andre roller.
  */
 export const POLITISKE_ORGANTYPER = [
-  'folkevalgt_organ',
-  'utvalg',
-  'lovgivende',
+  "folkevalgt_organ",
+  "utvalg",
+  "lovgivende",
 ] as const satisfies readonly Organtype[];
 
 /** Hvor mange eierledd eierskapsspørringen følger fra kommunen. */
@@ -346,7 +365,7 @@ export interface Eierandel {
 
 export interface RelasjonUt extends Eierandel {
   /** `ut`: organet er `fra` i relasjonen. `inn`: organet er `til`. */
-  retning: 'ut' | 'inn';
+  retning: "ut" | "inn";
   type: Relasjonstype;
 }
 
@@ -520,15 +539,20 @@ export interface Eierskap {
     org: OrganRef;
     /** 1 = kommunen eier direkte. 2 = gjennom ett selskap. Korteste vei. */
     ledd: number;
-    /** Alle kjente eiere av selskapet, også de utenfor kommunen. */
+    /**
+     * Alle aktive eierrelasjoner inn i selskapet der eieren også er i
+     * kommunens omfang, ikke bare kommunens egen. Sortert som `eiere` i
+     * `OrganProfil`.
+     */
     eiere: Eierandel[];
     nokkeltall: NokkeltallUt[];
   }[];
   /**
    * Utbytte som flyt, for selskaper i `selskaper` med et utbyttetall eller
-   * eiere med beløp. `total` er det nyeste utbyttetallet. `mottakere` er
-   * eierrelasjonene med beløp, sortert på beløp synkende, org.key.
-   * Sortert på selskap.key.
+   * eiere med beløp. `total` er det nyeste utbyttetallet (første i
+   * nøkkeltallsorteringen). `mottakere` er eierrelasjonene med beløp, sortert
+   * på beløp synkende, org.key. `sum_mottakere` er summen av beløpene, regnet
+   * i basen. Sortert på selskap.key.
    */
   utbytte: {
     selskap: OrganRef;
