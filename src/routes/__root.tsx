@@ -10,7 +10,10 @@ import {
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
+import archivoUrl from "@fontsource-variable/archivo/files/archivo-latin-standard-normal.woff2?url";
+
 import appCss from "../styles.css?url";
+import { KildefilterProvider } from "@/components/maktkart/kildefilter";
 import { ThemeProvider, themeInitScript } from "@/components/theme-provider";
 
 const BESKRIVELSE =
@@ -77,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { title: "Maktkart" },
       { name: "description", content: BESKRIVELSE },
       { property: "og:site_name", content: "Maktkart" },
@@ -87,6 +90,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      // Brødteksten er latin. Fila forhåndslastes, så teksten ikke skifter font etter første maling.
+      {
+        rel: "preload",
+        href: archivoUrl,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
@@ -119,8 +130,11 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        {/* Påkrevd: underrutene tegnes her. Uten <Outlet /> brekker alle undersider. */}
-        <Outlet />
+        {/* Kildemerkene virker på alle sider: filteret og den ene kildelappen bor her. */}
+        <KildefilterProvider>
+          {/* Påkrevd: underrutene tegnes her. Uten <Outlet /> brekker alle undersider. */}
+          <Outlet />
+        </KildefilterProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );

@@ -10,14 +10,14 @@
 
 import type { Presisjon } from "@/lib/data";
 
-const NBSP = " ";
+const NBSP = "\u00a0";
 
 const heltall = new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 0 });
 const endesimal = new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 1 });
 const todesimaler = new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 2 });
 
 /** Intl bruker U+2212 som minus i nb-NO. Vi vil ha vanlig bindestrek-minus i tall. */
-const rett = (s: string) => s.replace(/−/g, "-").replace(/[   ]/g, NBSP);
+const rett = (s: string) => s.replace(/\u2212/g, "-").replace(/[\u202f\u00a0 ]/g, NBSP);
 
 /** «43», «2 426». */
 export function tall(verdi: number): string {

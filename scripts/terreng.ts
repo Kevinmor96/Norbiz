@@ -225,7 +225,8 @@ const lengde = (p: Punkt[]) =>
 function utenKant(ring: Punkt[], b: number, h: number): { linje: Punkt[]; lukket: boolean }[] {
   const paaKant = ([x, y]: Punkt) => x <= 0 || y <= 0 || x >= b || y >= h;
   const n = ring.length - 1; // siste punkt er lik det første
-  const kantstykke = (k: number) => paaKant(ring[k] as Punkt) && paaKant(ring[(k + 1) % n] as Punkt);
+  const kantstykke = (k: number) =>
+    paaKant(ring[k] as Punkt) && paaKant(ring[(k + 1) % n] as Punkt);
   let start = -1;
   for (let k = 0; k < n; k++) {
     if (kantstykke(k)) {
@@ -281,7 +282,6 @@ function sti(linjer: { linje: Punkt[]; lukket: boolean }[], skala: number): stri
   return d;
 }
 
-
 function linjesett(ringer: Punkt[][], b: number, h: number, skala: number): Linjesett | null {
   const linjer = ringer
     .flatMap((r) => utenKant(r, b, h))
@@ -298,7 +298,6 @@ function linjesett(ringer: Punkt[][], b: number, h: number, skala: number): Linj
 // ---------------------------------------------------------------------------
 // Kartbladet
 // ---------------------------------------------------------------------------
-
 
 function tegn(kommunenr: string, u: Utsnitt): Terreng {
   const { bredde: b, hoyde: h, gitter } = hoydegitter(u);

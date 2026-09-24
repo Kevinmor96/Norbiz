@@ -32,6 +32,8 @@
 
 /* Lav skjerm: margen folder tegnforklaringen til gradene og filteret (DESIGN.md §6). */
 @custom-variant lav (@media (max-height: 900px));
+/* Linjene og løypa får plass i margen først når skjermen er høy nok til hele forklaringen. */
+@custom-variant hoy (@media (min-height: 1040px));
 
 /*
  * Designsystemet: kartpapir og nattkart. Se DESIGN.md §1.
@@ -65,8 +67,8 @@
   /* Sløret bak skuffer. Én høyde per flate: rammen bærer den, ikke skygger. */
   --slor: rgb(21 32 42 / 0.32);
 
-  --font-archivo: "Archivo Variable", "Archivo", "Helvetica Neue", "Liberation Sans", system-ui,
-    sans-serif;
+  --font-archivo:
+    "Archivo Variable", "Archivo", "Helvetica Neue", "Liberation Sans", system-ui, sans-serif;
   --radius: 0;
   --ease-ut: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-skuff: cubic-bezier(0.32, 0.72, 0, 1);
@@ -257,6 +259,13 @@
   font-style: italic;
   font-weight: 500;
 }
+/* Sidens ramme: 12 kolonner, maks 1 360 px, sidemarg clamp(16px, 3vw, 40px). */
+@utility ramme {
+  width: 100%;
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 40px);
+}
 /* Lengre tekst holdes til målt linjelengde. */
 @utility maal {
   max-width: 65ch;
@@ -396,6 +405,38 @@
     }
   }
 
+  /*
+   * Strekene i kartbladet står i viewBox-enheter. Kartet er smalere på mobil,
+   * så strekskalaen øker der og streken blir like synlig på skjermen.
+   */
+  .kartblad-terreng {
+    --strekskala: 1;
+  }
+  @media (max-width: 47.99rem) {
+    .kartblad-terreng {
+      --strekskala: 1.7;
+    }
+  }
+  .kartblad-kote {
+    fill: none;
+    stroke: var(--kote);
+    stroke-width: calc(1.4px * var(--strekskala));
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    opacity: 0.55;
+  }
+  .kartblad-kote[data-tellekurve] {
+    stroke-width: calc(2.5px * var(--strekskala));
+    opacity: 0.85;
+  }
+  .kartblad-kyst {
+    fill: none;
+    stroke: var(--vann);
+    stroke-width: calc(2.1px * var(--strekskala));
+    stroke-linejoin: round;
+    opacity: 0.9;
+  }
+
   /* Gradert kant på kartrammen, som på topografiske kart. */
   .gradert {
     position: absolute;
@@ -465,5 +506,17 @@
 @media (forced-colors: active) {
   .kildemerke svg {
     forced-color-adjust: auto;
+  }
+}
+
+/* Bunnlinjen dekker ikke det nederste på siden: siden får like mye luft. */
+@media (max-width: 74.99rem) {
+  :root:has(.bunnlinje) {
+    --bunnlinje: 58px;
+  }
+}
+@media (max-width: 39.99rem) {
+  :root:has(.bunnlinje) {
+    --bunnlinje: 104px;
   }
 }

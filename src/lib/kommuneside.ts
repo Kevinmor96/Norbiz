@@ -6,8 +6,11 @@
 // Alt hentes gjennom lese-API-et i src/lib/data (samme former som
 // Supabase-RPC-ene). Denne fila regner ingenting selv utover å finne kommunen
 // fra sluggen og å sette sammen svarene.
+//
+// Datalaget lastes med dynamisk import. Loadere deles ikke opp av
+// TanStack Router, så en vanlig import ville lagt hele datasettet i
+// hovedbunten og sendt det til forsiden og metodesiden også.
 
-import { data } from "@/lib/data";
 import type {
   Beslutningskjede,
   Eierskap,
@@ -47,14 +50,18 @@ export interface Kommuneside {
   terreng: Terreng | null;
 }
 
+const datalag = async () => (await import("@/lib/data")).data;
+
 /** Kommunen med denne sluggen, eller `null`. Sluggen er filnavnet til datasettet. */
 export async function finnKommune(slug: string) {
+  const data = await datalag();
   const liste = await data.kommuner();
   return liste.find((k) => k.slug === slug) ?? null;
 }
 
 /** Hele kommunesiden, eller `null` når sluggen ikke er en kommune med datasett. */
 export async function lastKommuneside(slug: string): Promise<Kommuneside | null> {
+  const data = await datalag();
   const kommuner = await data.kommuner();
   const kommune = kommuner.find((k) => k.slug === slug);
   if (!kommune) return null;
@@ -63,18 +70,27 @@ export async function lastKommuneside(slug: string): Promise<Kommuneside | null>
   const oversikt = await data.kommune_oversikt(nr);
   if (!oversikt) return null;
 
-  const [kommuneprofil, kjeder, organkart, eierskap, nettverk, endringer, segmenter, hull, terreng] =
-    await Promise.all([
-      oversikt.kommuneorgan ? data.organ_profil(oversikt.kommuneorgan.key) : null,
-      Promise.all(oversikt.prosesser.map((p) => data.beslutningskjede(nr, p.key))),
-      data.organkart(nr),
-      data.eierskap(nr),
-      data.nettverk(nr),
-      data.endringer(nr),
-      Promise.all(oversikt.segmenter.map((s) => data.organer_for_segment(s.kode, nr))),
-      data.hull(nr),
-      hentTerreng(nr),
-    ]);
+  const [
+    kommuneprofil,
+    kjeder,
+    organkart,
+    eierskap,
+    nettverk,
+    endringer,
+    segmenter,
+    hull,
+    terreng,
+  ] = await Promise.all([
+    oversikt.kommuneorgan ? data.organ_profil(oversikt.kommuneorgan.key) : null,
+    Promise.all(oversikt.prosesser.map((p) => data.beslutningskjede(nr, p.key))),
+    data.organkart(nr),
+    data.eierskap(nr),
+    data.nettverk(nr),
+    data.endringer(nr),
+    Promise.all(oversikt.segmenter.map((s) => data.organer_for_segment(s.kode, nr))),
+    data.hull(nr),
+    hentTerreng(nr),
+  ]);
 
   return {
     kommune: oversikt.kommune,
