@@ -1,9 +1,14 @@
 // Statisk eksport: samme oppsett som vite.config.ts, men sidene forhåndsrendres
-// til HTML-filer i .output/public, og nitro bygger ingen server.
+// til HTML-filer i .output/public som kan legges ut som rene filer.
 //
-//   npm run build:statisk   ->  .output/public (kan legges ut som rene filer)
+//   npm run build:statisk   ->  .output/public
 //
 // vite.config.ts er Lovable-malen og holdes lik den. Denne filen er bare for oss.
+//
+// Nitro-målet må stå på standarden (cloudflare-module). Forhåndsrenderingen i
+// @lovable.dev/vite-tanstack-config kaller fetch() på nitros serverinngang, og
+// node-server-målet eksporterer ingen fetch, det starter en lytter. Da feiler
+// hver side med 500 og bygget henger.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
@@ -24,5 +29,4 @@ export default defineConfig({
       { path: "/kommune/tromso" },
     ],
   },
-  nitro: { preset: "node-server" },
 });

@@ -1,0 +1,5700 @@
+{
+  "meta": {
+    "kommunenr": "5501",
+    "kommune": "Tromsø",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-24",
+    "grunnlag": "docs/research/2026-09-24-maktkart-researchgrunnlag.md",
+    "merknad": "Datasettet er sammenstilt fra researchgrunnlaget og er ikke etterprøvd mot Brønnøysundregistrene. Ingen påstand er verifisert ennå."
+  },
+  "kilder": [
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "aksjonaerregisteret",
+      "navn": "Aksjonærregisteret (Skatteetaten)",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "tromso-kommune-no",
+      "navn": "Tromsø kommune (tromso.kommune.no)",
+      "url": "https://www.tromso.kommune.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsyn-tromso-kommune-no",
+      "navn": "Tromsø kommunes innsynsportal (innsyn.tromso.kommune.no)",
+      "url": "https://innsyn.tromso.kommune.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "eierskapsmelding-2024",
+      "navn": "Tromsø kommunes eierskapsmelding 2024",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no",
+      "navn": "Troms fylkeskommune (tromsfylke.no)",
+      "url": "https://www.tromsfylke.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "regjeringen-no",
+      "navn": "Regjeringen (regjeringen.no)",
+      "url": "https://www.regjeringen.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no",
+      "navn": "Politiet (politiet.no)",
+      "url": "https://www.politiet.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "riksadvokaten-no",
+      "navn": "Riksadvokaten (riksadvokaten.no)",
+      "url": "https://www.riksadvokaten.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no",
+      "navn": "Domstolene (domstol.no)",
+      "url": "https://www.domstol.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "nav-no",
+      "navn": "NAV (nav.no)",
+      "url": "https://www.nav.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "skatteetaten-no",
+      "navn": "Skatteetaten (skatteetaten.no)",
+      "url": "https://www.skatteetaten.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "fiskeridir-no",
+      "navn": "Fiskeridirektoratet (fiskeridir.no)",
+      "url": "https://www.fiskeridir.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "mattilsynet-no",
+      "navn": "Mattilsynet (mattilsynet.no)",
+      "url": "https://www.mattilsynet.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "kystverket-no",
+      "navn": "Kystverket (kystverket.no)",
+      "url": "https://www.kystverket.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "vegvesen-no",
+      "navn": "Statens vegvesen (vegvesen.no)",
+      "url": "https://www.vegvesen.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "avinor-no",
+      "navn": "Avinor (avinor.no)",
+      "url": "https://www.avinor.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsbygg-no",
+      "navn": "Statsbygg (statsbygg.no)",
+      "url": "https://www.statsbygg.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "forsvaret-no",
+      "navn": "Forsvaret (forsvaret.no)",
+      "url": "https://www.forsvaret.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "innovasjonnorge-no",
+      "navn": "Innovasjon Norge (innovasjonnorge.no)",
+      "url": "https://www.innovasjonnorge.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "hi-no",
+      "navn": "Havforskningsinstituttet (hi.no)",
+      "url": "https://www.hi.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "npolar-no",
+      "navn": "Norsk Polarinstitutt (npolar.no)",
+      "url": "https://www.npolar.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "kartverket-no",
+      "navn": "Kartverket (kartverket.no)",
+      "url": "https://www.kartverket.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "sametinget-no",
+      "navn": "Sametinget (sametinget.no)",
+      "url": "https://www.sametinget.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "etatenes-nettsider",
+      "navn": "Etatenes egne nettsider",
+      "type": "offisiell"
+    },
+    {
+      "key": "troms-kraft-egen-side",
+      "navn": "Troms Kraft (selskapets egne opplysninger)",
+      "type": "offisiell"
+    },
+    {
+      "key": "nou-2003-19",
+      "navn": "NOU 2003: 19, Makt- og demokratiutredningen",
+      "type": "offisiell"
+    },
+    {
+      "key": "nrk",
+      "navn": "NRK",
+      "type": "media"
+    },
+    {
+      "key": "godt-drikke",
+      "navn": "Godt Drikke",
+      "type": "media"
+    },
+    {
+      "key": "purehelp",
+      "navn": "Purehelp",
+      "url": "https://www.purehelp.no",
+      "type": "sekundaer"
+    },
+    {
+      "key": "proff",
+      "navn": "Proff",
+      "url": "https://www.proff.no",
+      "type": "sekundaer"
+    },
+    {
+      "key": "snl",
+      "navn": "Store norske leksikon (SNL)",
+      "type": "oppslagsverk"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "kommunal-og-distriktsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-politidistrikt",
+      "navn": "Troms politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Politi og påtale i 20 kommuner, pluss forvaltningsoppgaver som våpen- og utlendingssaker.",
+      "belegg": {
+        "kilde": "politiet-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "statsadvokatene-troms-og-finnmark",
+      "navn": "Statsadvokatene i Troms og Finnmark",
+      "nivaa": "stat",
+      "organtype": "paatale",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Påtalemyndighet i alvorlige straffesaker i Troms og Finnmark.",
+      "belegg": {
+        "kilde": "riksadvokaten-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "nord-troms-og-senja-tingrett",
+      "navn": "Nord-Troms og Senja tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Domstol som blant annet behandler tvister og konkurs.",
+      "belegg": {
+        "kilde": "domstol-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "halogaland-lagmannsrett",
+      "navn": "Hålogaland lagmannsrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Domstol i regionen, oppført i grunnlaget sammen med tingretten og jordskifteretten uten eget ansvarsområde.",
+      "belegg": {
+        "kilde": "domstol-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "halogaland-jordskifterett",
+      "navn": "Hålogaland jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Avgjør jordskiftesaker og eiendomsgrenser, med kontor i Tromsø.",
+      "belegg": {
+        "kilde": "domstol-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "nav-troms-og-finnmark",
+      "navn": "NAV Troms og Finnmark",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "rekkevidde": "region",
+      "myndighet": [
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidsmarkedstiltak, lønnstilskudd og inkluderende arbeidsliv i Troms og Finnmark.",
+      "belegg": {
+        "kilde": "nav-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "nav-tromso",
+      "navn": "NAV Tromsø",
+      "nivaa": "stat",
+      "organtype": "samarbeid",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "NAV-kontoret i Tromsø, drevet i partnerskap mellom staten og kommunen.",
+      "belegg": {
+        "kilde": "nav-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "skatteetaten",
+      "navn": "Skatteetaten",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Skatt og merverdiavgift; grunnlaget viser til region Nord.",
+      "belegg": {
+        "kilde": "skatteetaten-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tolletaten",
+      "navn": "Tolletaten",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Forvalter toll.",
+      "belegg": {
+        "kilde": "skatteetaten-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir skatteetaten.no som kilde for både Skatteetaten og Tolletaten."
+      }
+    },
+    {
+      "key": "fiskeridirektoratet",
+      "navn": "Fiskeridirektoratet",
+      "nivaa": "stat",
+      "organtype": "direktorat",
+      "myndighet": [
+        "konsesjon",
+        "tilsyn"
+      ],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Gir kvoter, tillatelser og akvakulturtillatelser og driver kontroll langs kysten; grunnlaget viser til region Nord.",
+      "belegg": {
+        "kilde": "fiskeridir-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "mattilsynet",
+      "navn": "Mattilsynet",
+      "nivaa": "stat",
+      "organtype": "tilsyn",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med sjømat, oppdrett og næringsmidler; grunnlaget viser til region Nord.",
+      "belegg": {
+        "kilde": "mattilsynet-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "kystverket-troms-og-finnmark",
+      "navn": "Kystverket Troms og Finnmark",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "myndighet": [
+        "konsesjon"
+      ],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Har ansvar for farleder, havnetillatelser og los.",
+      "belegg": {
+        "kilde": "kystverket-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "statens-vegvesen",
+      "navn": "Statens vegvesen",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "rekkevidde": "region",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Har ansvar for riksveg, planlegging og trafikksikkerhet; grunnlaget viser til divisjon eller avdeling nord.",
+      "belegg": {
+        "kilde": "vegvesen-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "nye-veier",
+      "navn": "Nye Veier",
+      "nivaa": "stat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Statlig aksjeselskap som grunnlaget antar ikke er aktivt i Troms per 2026.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget antar at selskapet ikke er aktivt i Troms per 2026, og oppgir ikke kilde."
+      }
+    },
+    {
+      "key": "avinor",
+      "navn": "Avinor",
+      "nivaa": "stat",
+      "organtype": "AS",
+      "rekkevidde": "region",
+      "myndighet": [
+        "konsesjon"
+      ],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Driver Tromsø lufthavn Langnes, med arealer og kommersielle konsesjoner.",
+      "belegg": {
+        "kilde": "avinor-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "statsbygg",
+      "navn": "Statsbygg",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "rekkevidde": "region",
+      "myndighet": [
+        "innkjop"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stor byggherre for statlige bygg, blant annet for UiT og domstolene.",
+      "belegg": {
+        "kilde": "statsbygg-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "forsvaret",
+      "navn": "Forsvaret",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "rekkevidde": "region",
+      "myndighet": [
+        "innkjop"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Påvirker arealbruk, innkjøp og arbeidsplasser i Indre Troms, med Hæren og Brigade Nord i Bardu og Målselv.",
+      "belegg": {
+        "kilde": "forsvaret-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "arbeidstilsynet",
+      "navn": "Arbeidstilsynet",
+      "nivaa": "stat",
+      "organtype": "tilsyn",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Statlig tilsynsetat.",
+      "belegg": {
+        "kilde": "etatenes-nettsider",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir «etatenes nettsider» som kilde, uten adresse."
+      }
+    },
+    {
+      "key": "husbanken",
+      "navn": "Husbanken",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "myndighet": [
+        "finansiering"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Statlig boligfinansiering.",
+      "belegg": {
+        "kilde": "etatenes-nettsider",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir «etatenes nettsider» som kilde, uten adresse."
+      }
+    },
+    {
+      "key": "sivilforsvaret",
+      "navn": "Sivilforsvaret",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Statlig beredskap.",
+      "belegg": {
+        "kilde": "etatenes-nettsider",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir «etatenes nettsider» som kilde, uten adresse."
+      }
+    },
+    {
+      "key": "nve",
+      "navn": "NVE",
+      "nivaa": "stat",
+      "organtype": "direktorat",
+      "myndighet": [
+        "konsesjon"
+      ],
+      "segmenter": [
+        "energi"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Gir konsesjoner for vassdrag og energi; grunnlaget viser til region Nord.",
+      "belegg": {
+        "kilde": "etatenes-nettsider",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir «etatenes nettsider» som kilde, uten adresse."
+      }
+    },
+    {
+      "key": "direktoratet-for-mineralforvaltning",
+      "navn": "Direktoratet for mineralforvaltning",
+      "nivaa": "stat",
+      "organtype": "direktorat",
+      "myndighet": [
+        "konsesjon"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Forvalter mineralrett.",
+      "belegg": {
+        "kilde": "etatenes-nettsider",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir «etatenes nettsider» som kilde, uten adresse."
+      }
+    },
+    {
+      "key": "innovasjon-norge-arktis",
+      "navn": "Innovasjon Norge Arktis",
+      "nivaa": "stat",
+      "organtype": "saerlovselskap",
+      "rekkevidde": "region",
+      "myndighet": [
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Gir lån, tilskudd og garantier i Troms og Finnmark, og er eid av NFD og fylkene.",
+      "belegg": {
+        "kilde": "innovasjonnorge-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "havforskningsinstituttet",
+      "navn": "Havforskningsinstituttet",
+      "nivaa": "stat",
+      "organtype": "forskning",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Gir kvoteråd; grunnlaget viser til kontoret i Tromsø.",
+      "belegg": {
+        "kilde": "hi-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "norsk-polarinstitutt",
+      "navn": "Norsk Polarinstitutt",
+      "nivaa": "stat",
+      "organtype": "forskning",
+      "rekkevidde": "nasjonal",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeider med miljøforvaltning og har hovedkontor i Tromsø.",
+      "belegg": {
+        "kilde": "npolar-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "kartverket",
+      "navn": "Kartverket",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "rekkevidde": "nasjonal",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører eiendomsregisteret og matrikkelen; grunnlaget viser til kontoret i Tromsø.",
+      "belegg": {
+        "kilde": "kartverket-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "sametinget",
+      "navn": "Sametinget",
+      "nivaa": "samisk",
+      "organtype": "folkevalgt_organ",
+      "myndighet": [
+        "raadgivning",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samisk folkevalgt organ med konsultasjonsrett i arealsaker og adgang til innsigelse i samiske områder.",
+      "belegg": {
+        "kilde": "sametinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "stortinget-troms-valgkrets",
+      "navn": "Stortinget, Troms valgkrets",
+      "kortnavn": "Troms valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "55",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene fra Troms i perioden 2025–2029, som vedtar lover og budsjett.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "unn",
+      "navn": "Universitetssykehuset Nord-Norge HF",
+      "kortnavn": "UNN",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [
+        "helse",
+        "utdanning-forskning",
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Driver sykehus i Tromsø, Harstad og Narvik og er en stor arbeidsgiver og byggherre.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "uit",
+      "navn": "UiT Norges arktiske universitet",
+      "kortnavn": "UiT",
+      "nivaa": "stat",
+      "organtype": "universitet",
+      "myndighet": [
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [
+        "utdanning-forskning",
+        "helse",
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Statlig universitet for utdanning og forskning, eid av staten ved KD.",
+      "belegg": {
+        "kilde": "snl",
+        "verifisering": "oppgitt",
+        "per": "2026"
+      }
+    },
+    {
+      "key": "nofima",
+      "navn": "Nofima",
+      "nivaa": "privat",
+      "organtype": "forskning",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Anvendt forskning innen sjømat og miljø.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir eierskap samlet for forskningsmiljøene som «statlig/stiftelse/AS». Nivå og organisasjonsform per institutt er ikke oppgitt."
+      }
+    },
+    {
+      "key": "nilu",
+      "navn": "NILU",
+      "nivaa": "privat",
+      "organtype": "forskning",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Anvendt forskning innen sjømat og miljø.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir eierskap samlet for forskningsmiljøene som «statlig/stiftelse/AS». Nivå og organisasjonsform per institutt er ikke oppgitt."
+      }
+    },
+    {
+      "key": "nina",
+      "navn": "NINA",
+      "nivaa": "privat",
+      "organtype": "forskning",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Anvendt forskning innen sjømat og miljø.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir eierskap samlet for forskningsmiljøene som «statlig/stiftelse/AS». Nivå og organisasjonsform per institutt er ikke oppgitt."
+      }
+    },
+    {
+      "key": "akvaplan-niva",
+      "navn": "Akvaplan-niva",
+      "nivaa": "privat",
+      "organtype": "forskning",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Anvendt forskning innen sjømat og miljø.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir eierskap samlet for forskningsmiljøene som «statlig/stiftelse/AS». Nivå og organisasjonsform per institutt er ikke oppgitt."
+      }
+    },
+    {
+      "key": "sintef",
+      "navn": "SINTEF",
+      "nivaa": "privat",
+      "organtype": "forskning",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Grunnlaget nevner SINTEF-miljøer blant forskningsmiljøene for anvendt forskning innen sjømat og miljø.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir eierskap samlet for forskningsmiljøene som «statlig/stiftelse/AS». Nivå og organisasjonsform per institutt er ikke oppgitt."
+      }
+    },
+    {
+      "key": "norut-norce",
+      "navn": "Norut/NORCE",
+      "nivaa": "privat",
+      "organtype": "forskning",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Anvendt forskning innen sjømat og miljø.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir eierskap samlet for forskningsmiljøene som «statlig/stiftelse/AS». Nivå og organisasjonsform per institutt er ikke oppgitt."
+      }
+    },
+    {
+      "key": "arktisk-rads-sekretariat",
+      "navn": "Arktisk råds sekretariat",
+      "nivaa": "mellomstatlig",
+      "organtype": "samarbeid",
+      "rekkevidde": "internasjonal",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Sekretariat for arktisk samarbeid, med sete i Tromsø.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "troms-fylkeskommune",
+      "navn": "Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»)."
+      }
+    },
+    {
+      "key": "troms-fylkesting",
+      "navn": "Fylkestinget i Troms",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "troms-fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte organ, ledet av fylkesordføreren.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkesutvalg",
+      "navn": "Fylkesutvalget i Troms",
+      "kortnavn": "Fylkesutvalget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "troms-fylkesting",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ i fylkeskommunen.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune-kontrollutvalg",
+      "navn": "Kontrollutvalget i Troms fylkeskommune",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "fylke",
+      "organtype": "utvalg",
+      "overordnet": "troms-fylkesting",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kontrollutvalg for fylkeskommunen.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-ungdommens-fylkesrad",
+      "navn": "Ungdommens fylkesråd i Troms",
+      "nivaa": "fylke",
+      "organtype": "raad",
+      "overordnet": "troms-fylkesting",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Råd for ungdom i fylkeskommunen.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune-eldrerad",
+      "navn": "Eldrerådet i Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "raad",
+      "overordnet": "troms-fylkesting",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Råd for eldre i fylkeskommunen.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune-rad-funksjonsnedsettelse",
+      "navn": "Råd for personer med funksjonsnedsettelse i Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "raad",
+      "overordnet": "troms-fylkesting",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Råd for personer med funksjonsnedsettelse i fylkeskommunen.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune-administrasjonen",
+      "navn": "Administrasjonen i Troms fylkeskommune",
+      "kortnavn": "Fylkesadministrasjonen",
+      "nivaa": "fylke",
+      "organtype": "administrasjon",
+      "overordnet": "troms-fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av fylkeskommunedirektøren og består av fire etater, direktørens kontor og stab og støtte.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tannhelsetjenesten-troms",
+      "navn": "Tannhelsetjenesten i Troms fylkeskommune",
+      "kortnavn": "Tannhelsetjenesten",
+      "nivaa": "fylke",
+      "organtype": "etat",
+      "overordnet": "troms-fylkeskommune-administrasjonen",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Etat i fylkeskommunen som gir tannhelsetjenester.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-holding",
+      "navn": "Troms Holding AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens holdingselskap, som eier 60 prosent av Troms Kraft.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-og-finnmark-fylkeskommune",
+      "navn": "Troms og Finnmark fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2020-01-01",
+      "gyldig_til": "2023-12-31",
+      "status": "nedlagt",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Troms og Finnmark fra 2020 til 2023, delt i to fylkeskommuner fra 1.1.2024.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2024-01-01",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "troms-fylkeskommune-1838-2019",
+      "navn": "Troms fylkeskommune (1838–2019)",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1838",
+      "gyldig_til": "2019",
+      "status": "nedlagt",
+      "sensitiv": false,
+      "beskrivelse": "Den tidligere fylkeskommunen for Troms, slått sammen til Troms og Finnmark fylkeskommune fra 2020.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2020-01-01",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune",
+      "navn": "Finnmark fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Finnmark, skilt ut fra Troms og Finnmark fylkeskommune 1.1.2024.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2024-01-01",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "tromso-kommune",
+      "orgnr": "940101808",
+      "navn": "Tromsø kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "reiseliv",
+        "transport",
+        "helse",
+        "utdanning-forskning"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen er planmyndighet, eier foretak og selskaper og har vært styrt etter formannskapsmodellen siden 1.7.2016.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tromso-kommunestyre",
+      "navn": "Tromsø kommunestyre",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "tromso-kommune",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "finansiering"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "reiseliv"
+      ],
+      "antall_medlemmer": 43,
+      "gyldig_fra": "2023-10-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som selv vedtar kommuneplan, reguleringsplaner, budsjett, handlingsprogram, skatter og avgifter og forskrifter.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Gyldig fra-datoen gjelder kommunestyret for valgperioden 2023–2027."
+      }
+    },
+    {
+      "key": "tromso-formannskap",
+      "navn": "Formannskapet i Tromsø",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste organ, som innstiller i økonomisaker og kan pålegge kommunedirektøren å fremme saker.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "kommune-og-byutviklingsutvalget",
+      "navn": "Kommune- og byutviklingsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "reiseliv",
+        "handel"
+      ],
+      "antall_medlemmer": 11,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Hovedutvalg som behandler planer før offentlig ettersyn og reguleringsplaner før kommunestyret vedtar dem.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "helse-og-velferdsutvalget",
+      "navn": "Helse- og velferdsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "antall_medlemmer": 11,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Hovedutvalg for helse og velferd.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "oppvekst-og-utdanningsutvalget",
+      "navn": "Oppvekst- og utdanningsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "antall_medlemmer": 11,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Hovedutvalg for oppvekst og utdanning.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tromso-klageutvalget",
+      "navn": "Klageutvalget i Tromsø",
+      "kortnavn": "Klageutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "klage"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 5,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Behandler klager på kommunale enkeltvedtak og har fem faste medlemmer fra formannskapet.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tromso-kontrollutvalget",
+      "navn": "Kontrollutvalget i Tromsø",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Utvalg for tilsyn og revisjon, der medlemmene ikke kan sitte i et hovedutvalg.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tromso-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Tromsø",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tromso-arbeidsmiljoutvalget",
+      "navn": "Arbeidsmiljøutvalget i Tromsø",
+      "kortnavn": "Arbeidsmiljøutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "mangfolds-og-integreringsutvalget",
+      "navn": "Mangfolds- og integreringsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Utvalg med ni medlemmer: tre politikere og seks med flerkulturell bakgrunn.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tromso-eldreradet",
+      "navn": "Eldrerådet i Tromsø",
+      "kortnavn": "Eldrerådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Råd for eldre i kommunen.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tromso-ungdomsradet",
+      "navn": "Ungdomsrådet i Tromsø",
+      "kortnavn": "Ungdomsrådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Råd for ungdom i kommunen.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tromso-rad-funksjonsnedsettelse",
+      "navn": "Råd for personer med funksjonsnedsettelse i Tromsø",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Råd for personer med funksjonsnedsettelse i kommunen.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tromso-studentutvalg",
+      "navn": "Tromsø studentutvalg",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Råd for studentene i kommunen.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tromso-kommune-administrasjonen",
+      "navn": "Administrasjonen i Tromsø kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "tromso-kommune",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter delegerte vedtak, blant annet i plan- og byggesaker.",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "tromso-havn-kf",
+      "navn": "Tromsø Havn KF",
+      "kortnavn": "Tromsø Havn",
+      "nivaa": "kommune",
+      "organtype": "KF",
+      "overordnet": "tromso-kommune",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "myndighet": [
+        "eierskap",
+        "konsesjon",
+        "innkjop"
+      ],
+      "segmenter": [
+        "transport",
+        "reiseliv",
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunalt foretak for havn og eiendom, med regnskap i havnestyret.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "tromsobolig-kf",
+      "navn": "Tromsøbolig KF",
+      "nivaa": "kommune",
+      "organtype": "KF",
+      "overordnet": "tromso-kommune",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "2022",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunalt foretak for kommunale boliger, etablert 2022.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "tromsobadet-kf",
+      "navn": "Tromsøbadet KF",
+      "nivaa": "kommune",
+      "organtype": "KF",
+      "overordnet": "tromso-kommune",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunalt foretak for bad.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir «Tromsøbadet KF / Tromsøbadet AS» uten å skille dem, og organisasjonsformen er merket [verifiser]. Kilde i grunnlaget: Purehelp og eierskapsmeldingen 2024."
+      }
+    },
+    {
+      "key": "tromsobadet-as",
+      "navn": "Tromsøbadet AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap for bad.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir «Tromsøbadet KF / Tromsøbadet AS» uten å skille dem, og organisasjonsformen er merket [verifiser]. Kilde i grunnlaget: Purehelp og eierskapsmeldingen 2024."
+      }
+    },
+    {
+      "key": "tromso-brann-og-redning-kf",
+      "navn": "Tromsø Brann og redning KF",
+      "nivaa": "kommune",
+      "organtype": "KF",
+      "overordnet": "tromso-kommune",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunalt foretak for brann og redning.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "tg-naeringseiendom-as",
+      "navn": "TG Næringseiendom AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Tromsø Havns utleieselskap for eiendom.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "troms-kraft",
+      "orgnr": "979468792",
+      "navn": "Troms Kraft AS",
+      "kortnavn": "Troms Kraft",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [
+        "eierskap",
+        "innkjop"
+      ],
+      "segmenter": [
+        "energi"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Energiselskap eid 40 prosent av Tromsø kommune og 60 prosent av Troms Holding.",
+      "belegg": {
+        "kilde": "nrk",
+        "verifisering": "oppgitt",
+        "per": "2026-05-04",
+        "merknad": "Grunnlaget oppgir NRK og Purehelp som kilde for eierskapet."
+      }
+    },
+    {
+      "key": "remiks-miljopark",
+      "orgnr": "894462132",
+      "navn": "Remiks Miljøpark AS",
+      "kortnavn": "Remiks",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "avfall-miljo"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Avfallsselskap eid 99,99 prosent av Tromsø kommune, med Karlsøy kommune som eier av resten.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "remiks-husholdning",
+      "orgnr": "994900579",
+      "navn": "Remiks Husholdning AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "avfall-miljo"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Datterselskap av Remiks Miljøpark for avfall etter selvkost.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "remiks-naering",
+      "orgnr": "994900811",
+      "navn": "Remiks Næring AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "avfall-miljo"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Datterselskap av Remiks Miljøpark for avfall i markedet.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "tromso-parkering",
+      "orgnr": "912994481",
+      "navn": "Tromsø Parkering AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Parkeringsselskap heleid av Tromsø kommune.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "grotsund-industripark",
+      "orgnr": "934106709",
+      "navn": "Grøtsund Industripark AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg",
+        "transport"
+      ],
+      "gyldig_fra": "2024-06-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Maritim næringspark der Tromsø kommune eier 50 prosent.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "arnestedet-eiendom",
+      "navn": "Arnestedet Eiendom AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eiendomsselskap heleid av Tromsø kommune.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "arnestedet-naeringseiendom",
+      "navn": "Arnestedet Næringseiendom AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eiendomsselskap heleid av Tromsø kommune.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "ressurs-tromso",
+      "navn": "Ressurs Tromsø AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Selskap for arbeidsinkludering der Tromsø kommune eier 55,38 prosent.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "aurora-kino",
+      "navn": "Aurora Kino AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kinoselskap der Tromsø kommune eier 64,4 prosent.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "visit-tromso-region",
+      "navn": "Visit Tromsø-Region AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Destinasjonsselskap for reiseliv der Tromsø kommune eier 16,67 prosent.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "protromso",
+      "navn": "ProTromsø AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Selskap for næringsutvikling der Tromsø kommune har en eierandel.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "alfheim-stadion-ii",
+      "navn": "Alfheim Stadion II AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Idrettsselskap der Tromsø kommune har en eierandel.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "fjuel-as",
+      "navn": "Fjuel AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Drivstoffselskap der Tromsø kommune eier 16,59 prosent.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "fjuel-tromso-as",
+      "navn": "Fjuel Tromsø AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Drivstoffselskap eid 51 prosent av Troms Kraft og 49 prosent av Tromsø Havn.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "karlsoy-kommune",
+      "navn": "Karlsøy kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune som eier den resterende andelen av Remiks Miljøpark.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "kofa",
+      "navn": "KOFA",
+      "nivaa": "stat",
+      "organtype": "nemnd",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "klage"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Nasjonalt organ for klagebehandling.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "konkurransetilsynet",
+      "navn": "Konkurransetilsynet",
+      "nivaa": "stat",
+      "organtype": "tilsyn",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Nasjonalt tilsyn.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "sivilombudet",
+      "navn": "Sivilombudet",
+      "nivaa": "stat",
+      "organtype": "tilsyn",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "klage"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Nasjonalt organ for klagebehandling.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "forbrukertilsynet",
+      "navn": "Forbrukertilsynet",
+      "nivaa": "stat",
+      "organtype": "tilsyn",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Nasjonalt tilsyn.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "finanstilsynet",
+      "navn": "Finanstilsynet",
+      "nivaa": "stat",
+      "organtype": "tilsyn",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Nasjonalt tilsyn.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "datatilsynet",
+      "navn": "Datatilsynet",
+      "nivaa": "stat",
+      "organtype": "tilsyn",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Nasjonalt tilsyn.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "kommunal-og-distriktsdepartementet",
+      "navn": "Kommunal- og distriktsdepartementet",
+      "kortnavn": "KDD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Tolker plan- og bygningsloven, og er overordnet Statsforvalteren.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "ks-troms",
+      "navn": "KS i Troms",
+      "nivaa": "interesse",
+      "organtype": "forening",
+      "fylkesnr": "55",
+      "myndighet": [
+        "raadgivning",
+        "lobby"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidslivsorganisasjon med rådgivning og lobby som virkemidler.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "nho-arktis",
+      "navn": "NHO Arktis",
+      "nivaa": "interesse",
+      "organtype": "forening",
+      "myndighet": [
+        "raadgivning",
+        "lobby"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidslivsorganisasjon med rådgivning og lobby som virkemidler.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "lo-troms",
+      "navn": "LO Troms",
+      "nivaa": "interesse",
+      "organtype": "forening",
+      "fylkesnr": "55",
+      "myndighet": [
+        "raadgivning",
+        "lobby"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidslivsorganisasjon med rådgivning og lobby som virkemidler.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "naeringsforeningen-tromsoregionen",
+      "navn": "Næringsforeningen i Tromsøregionen",
+      "nivaa": "interesse",
+      "organtype": "forening",
+      "rekkevidde": "region",
+      "myndighet": [
+        "lobby"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Næringsforening for Tromsøregionen.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "sparebank-1-nord-norge",
+      "orgnr": "952706365",
+      "navn": "SpareBank 1 Nord-Norge",
+      "nivaa": "privat",
+      "organtype": "sparebank",
+      "myndighet": [
+        "finansiering"
+      ],
+      "segmenter": [
+        "finans"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Sparebank eid av egenkapitalbeviseiere og en sparebankstiftelse.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "sparebank-1-gruppen",
+      "navn": "SpareBank 1 Gruppen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Selskap i SpareBank 1-alliansen.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "nordkraft",
+      "navn": "Nordkraft AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap der styrelederen i SpareBank 1 Nord-Norge er konsernsjef; grunnlaget oppgir ikke bransje.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "norges-rafisklag",
+      "orgnr": "938469148",
+      "navn": "Norges Råfisklag SA",
+      "kortnavn": "Råfisklaget",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fiskernes samvirke for førstehåndsomsetning av sjømat.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "consto-as",
+      "orgnr": "995754606",
+      "navn": "Consto AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Selskap innen bygg og anlegg.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "consto-holding-as",
+      "orgnr": "917807299",
+      "navn": "Consto Holding AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Holdingselskap innen bygg og anlegg, oppført sammen med Consto AS i grunnlaget.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "leroy-aurora",
+      "orgnr": "985940460",
+      "navn": "Lerøy Aurora AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Havbruksselskap eid av Lerøy Seafood Group ASA.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "leroy-seafood-group",
+      "navn": "Lerøy Seafood Group ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier av Lerøy Aurora.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "torghatten-nord",
+      "orgnr": "993205117",
+      "navn": "Torghatten Nord AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Selskap for ferje og hurtigbåt.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "nergard-as",
+      "orgnr": "965618910",
+      "navn": "Nergård AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Selskapet grunnlaget oppgir for Nergård-konsernet, innen hvitfisk og fiskeri.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "nergard-seafood",
+      "navn": "Nergård Seafood AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Selskap i Nergård-konsernet, innen hvitfisk og fiskeri.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "nergard-havfiske",
+      "navn": "Nergård Havfiske AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Selskap i Nergård-konsernet, innen hvitfisk og fiskeri.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "macks-olbryggeri",
+      "orgnr": "975967093",
+      "navn": "Macks Ølbryggeri AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Bryggeri eid av det familieeide morselskapet Ludwig Mack AS.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "ludwig-mack-as",
+      "navn": "Ludwig Mack AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Familieeid morselskap til Macks Ølbryggeri.",
+      "belegg": {
+        "kilde": "godt-drikke",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "gunnar-wilhelmsen",
+      "navn": "Gunnar Wilhelmsen"
+    },
+    {
+      "key": "sigrid-hammer",
+      "navn": "Sigrid Hammer"
+    },
+    {
+      "key": "ellen-beate-lundberg",
+      "navn": "Ellen Beate Lundberg"
+    },
+    {
+      "key": "stig-tore-johnsen",
+      "navn": "Stig Tore Johnsen"
+    },
+    {
+      "key": "mari-enoksen-hult",
+      "navn": "Mari Enoksen Hult"
+    },
+    {
+      "key": "kristina-torbergsen",
+      "navn": "Kristina Torbergsen"
+    },
+    {
+      "key": "benjamin-nordberg-furuly",
+      "navn": "Benjamin Nordberg Furuly"
+    },
+    {
+      "key": "eirik-losnegaard-mevik",
+      "navn": "Eirik Losnegaard Mevik"
+    },
+    {
+      "key": "camilla-bjorn",
+      "navn": "Camilla Bjørn"
+    },
+    {
+      "key": "runar-sjastad",
+      "navn": "Runar Sjåstad"
+    },
+    {
+      "key": "katrine-storeheier",
+      "navn": "Katrine Storeheier"
+    },
+    {
+      "key": "astrid-elisabeth-nilsen",
+      "navn": "Astrid Elisabeth Nilsen"
+    },
+    {
+      "key": "cecilie-myrseth",
+      "navn": "Cecilie Myrseth"
+    },
+    {
+      "key": "per-willy-amundsen",
+      "navn": "Per-Willy Amundsen"
+    },
+    {
+      "key": "nils-ole-foshaug",
+      "navn": "Nils-Ole Foshaug"
+    },
+    {
+      "key": "kristian-august-eilertsen",
+      "navn": "Kristian August Eilertsen"
+    },
+    {
+      "key": "erlend-svardal-boe",
+      "navn": "Erlend Svardal Bøe"
+    },
+    {
+      "key": "hanne-beate-stenvaag",
+      "navn": "Hanne Beate Stenvaag"
+    },
+    {
+      "key": "david-johansen",
+      "navn": "David Johansen"
+    },
+    {
+      "key": "einar-bugge",
+      "navn": "Einar Bugge"
+    },
+    {
+      "key": "anders-mohn-frafjord",
+      "navn": "Anders Mohn Frafjord"
+    },
+    {
+      "key": "dag-rune-olsen",
+      "navn": "Dag Rune Olsen"
+    },
+    {
+      "key": "rikke-gurgens-gjaerum",
+      "navn": "Rikke Gürgens Gjærum"
+    },
+    {
+      "key": "jorgen-berge",
+      "navn": "Jørgen Berge"
+    },
+    {
+      "key": "jorgen-fossland",
+      "navn": "Jørgen Fossland"
+    },
+    {
+      "key": "erling-andreas-dalberg",
+      "navn": "Erling Andreas Dalberg"
+    },
+    {
+      "key": "aslaug-haga",
+      "navn": "Åslaug Haga"
+    },
+    {
+      "key": "inge-k-hansen",
+      "navn": "Inge K. Hansen"
+    },
+    {
+      "key": "kathrine-tveiteras",
+      "navn": "Kathrine Tveiterås"
+    },
+    {
+      "key": "jorn-even-hanssen",
+      "navn": "Jørn-Even Hanssen"
+    },
+    {
+      "key": "kjell-are-vassmyr",
+      "navn": "Kjell-Are Vassmyr"
+    },
+    {
+      "key": "britt-hege-mathisen-limo",
+      "navn": "Britt Hege Mathisen Limo"
+    },
+    {
+      "key": "tone-marie-myklevoll",
+      "navn": "Tone Marie Myklevoll"
+    },
+    {
+      "key": "jorn-ove-olsen",
+      "navn": "Jørn Ove Olsen"
+    },
+    {
+      "key": "hanne-karoline-kraemer",
+      "navn": "Hanne Karoline Kræmer"
+    },
+    {
+      "key": "eirik-frantzen",
+      "navn": "Eirik Frantzen"
+    },
+    {
+      "key": "charles-andre-aas",
+      "navn": "Charles André Aas"
+    },
+    {
+      "key": "rolf-guttorm-kristoffersen",
+      "navn": "Rolf Guttorm Kristoffersen"
+    },
+    {
+      "key": "kurt-einar-karlsen",
+      "navn": "Kurt-Einar Karlsen"
+    },
+    {
+      "key": "kenneth-holmoy",
+      "navn": "Kenneth Holmøy"
+    },
+    {
+      "key": "roger-karlsen",
+      "navn": "Roger Karlsen"
+    },
+    {
+      "key": "harald-bredrup",
+      "navn": "Harald Bredrup"
+    }
+  ],
+  "roller": [
+    {
+      "org": "tromso-kommunestyre",
+      "person": "gunnar-wilhelmsen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023-10-11",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Gjenvalgt 11.10.2023. Fra-datoen gjelder inneværende valgperiode."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "gunnar-wilhelmsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Formannskapet ledes av ordføreren."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "sigrid-hammer",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023-10-11",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "org": "tromso-kommune-administrasjonen",
+      "person": "ellen-beate-lundberg",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Startdatoen er merket [verifiser] i grunnlaget."
+      }
+    },
+    {
+      "org": "tromso-kommune-administrasjonen",
+      "person": "stig-tore-johnsen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "til": "2025-09-30",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2025-09-30",
+        "merknad": "Fratrådte 30.9.2025. Startdatoen er ikke oppgitt."
+      }
+    },
+    {
+      "org": "troms-fylkesting",
+      "person": "kristina-torbergsen",
+      "tittel": "Fylkesordfører",
+      "rolletype": "politisk_leder",
+      "status": "permisjon",
+      "parti": "Ap",
+      "fra": "2023-10",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir at hun ble valgt 24./25. oktober 2023."
+      }
+    },
+    {
+      "org": "troms-fylkesting",
+      "person": "benjamin-nordberg-furuly",
+      "tittel": "Fylkesordfører",
+      "rolletype": "politisk_leder",
+      "status": "fungerende",
+      "parti": "H",
+      "til_forventet": "2027-01",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Fram til midten av januar 2027."
+      }
+    },
+    {
+      "org": "troms-fylkesting",
+      "person": "eirik-losnegaard-mevik",
+      "tittel": "Fylkesvaraordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "org": "troms-fylkeskommune-administrasjonen",
+      "person": "camilla-bjorn",
+      "tittel": "Fylkeskommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "org": "troms-holding",
+      "person": "kristina-torbergsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "proff",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Ifølge Proff."
+      }
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "person": "runar-sjastad",
+      "tittel": "Statsforvalter",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "fra": "2025-08",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Utnevnt for seks år."
+      }
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "person": "katrine-storeheier",
+      "tittel": "Assisterende statsforvalter",
+      "rolletype": "nestleder_adm",
+      "status": "fast",
+      "fra": "2025-04",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Tilsatt april 2025."
+      }
+    },
+    {
+      "org": "troms-politidistrikt",
+      "person": "astrid-elisabeth-nilsen",
+      "tittel": "Politimester",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "regjeringen-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Konstituert siden november 2019 og senere åremålsutnevnt for seks år. Utnevnelsesdatoen er merket [verifiser]."
+      }
+    },
+    {
+      "org": "stortinget-troms-valgkrets",
+      "person": "cecilie-myrseth",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2025",
+      "til_forventet": "2029",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Valgperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-troms-valgkrets",
+      "person": "per-willy-amundsen",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2025",
+      "til_forventet": "2029",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Valgperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-troms-valgkrets",
+      "person": "nils-ole-foshaug",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2025",
+      "til_forventet": "2029",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Valgperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-troms-valgkrets",
+      "person": "kristian-august-eilertsen",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2025",
+      "til_forventet": "2029",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Valgperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-troms-valgkrets",
+      "person": "erlend-svardal-boe",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2025",
+      "til_forventet": "2029",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Valgperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-troms-valgkrets",
+      "person": "hanne-beate-stenvaag",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2025",
+      "til_forventet": "2029",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Valgperioden 2025–2029."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "david-johansen",
+      "tittel": "Adm. dir.",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "fra": "2024-05-06",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "einar-bugge",
+      "tittel": "Viseadm. dir.",
+      "rolletype": "nestleder_adm",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "anders-mohn-frafjord",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2024",
+        "merknad": "Per 2024, merket [verifiser] i grunnlaget."
+      }
+    },
+    {
+      "org": "uit",
+      "person": "dag-rune-olsen",
+      "tittel": "Rektor",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "fra": "2021",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Ansatt 2021. Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "uit",
+      "person": "rikke-gurgens-gjaerum",
+      "tittel": "Prorektor utdanning",
+      "rolletype": "nestleder_adm",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "uit",
+      "person": "jorgen-berge",
+      "tittel": "Prorektor forskning",
+      "rolletype": "nestleder_adm",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "uit",
+      "person": "jorgen-fossland",
+      "tittel": "Administrasjonsdirektør",
+      "rolletype": "nestleder_adm",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "troms-kraft",
+      "person": "erling-andreas-dalberg",
+      "tittel": "Konsernsjef",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "troms-kraft",
+      "person": "aslaug-haga",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "fra": "2025-05-14",
+      "belegg": {
+        "kilde": "troms-kraft-egen-side",
+        "verifisering": "oppgitt",
+        "per": "2025-05-14",
+        "merknad": "Valgt av bedriftsforsamlingen 14.5.2025 ifølge Troms Kraft."
+      }
+    },
+    {
+      "org": "troms-kraft",
+      "person": "inge-k-hansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "til": "2025-05-14",
+      "belegg": {
+        "kilde": "troms-kraft-egen-side",
+        "verifisering": "oppgitt",
+        "per": "2025-05-14",
+        "merknad": "Etterfulgt av Åslaug Haga 14.5.2025. Startdatoen er ikke oppgitt."
+      }
+    },
+    {
+      "org": "troms-kraft",
+      "person": "kathrine-tveiteras",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "tromso-havn-kf",
+      "person": "jorn-even-hanssen",
+      "tittel": "Havnedirektør",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "tromso-havn-kf",
+      "person": "kjell-are-vassmyr",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "tg-naeringseiendom-as",
+      "person": "kjell-are-vassmyr",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "tg-naeringseiendom-as",
+      "person": "jorn-even-hanssen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2023",
+        "merknad": "Grunnlaget viser til en omtale fra 2023, uten kilde."
+      }
+    },
+    {
+      "org": "remiks-miljopark",
+      "person": "britt-hege-mathisen-limo",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "remiks-miljopark",
+      "person": "tone-marie-myklevoll",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Merket «sekundær» i grunnlaget."
+      }
+    },
+    {
+      "org": "tromso-parkering",
+      "person": "jorn-ove-olsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "grotsund-industripark",
+      "person": "kjell-are-vassmyr",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "person": "hanne-karoline-kraemer",
+      "tittel": "Konsernsjef",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "fra": "2024-01-01",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "person": "eirik-frantzen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "fra": "2022",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "person": "kathrine-tveiteras",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "sparebank-1-gruppen",
+      "person": "hanne-karoline-kraemer",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget skriver «styreleder SpareBank 1-alliansen/SpareBank 1 Gruppen AS», uten kilde."
+      }
+    },
+    {
+      "org": "nordkraft",
+      "person": "eirik-frantzen",
+      "tittel": "Konsernsjef",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "norges-rafisklag",
+      "person": "charles-andre-aas",
+      "tittel": "Adm. dir.",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "norges-rafisklag",
+      "person": "rolf-guttorm-kristoffersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2025-05",
+        "merknad": "Per mai 2025. Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "leroy-aurora",
+      "person": "kurt-einar-karlsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "nergard-havfiske",
+      "person": "kenneth-holmoy",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "org": "macks-olbryggeri",
+      "person": "roger-karlsen",
+      "tittel": "Adm. dir.",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "godt-drikke",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Ifølge Godt Drikke. Nåværende adm. dir. er merket [verifiser i Brreg]."
+      }
+    },
+    {
+      "org": "ludwig-mack-as",
+      "person": "harald-bredrup",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "godt-drikke",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Ifølge Godt Drikke fortsetter han som daglig leder i morselskapet."
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "kommunal-og-distriktsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "troms-fylkesting",
+      "til": "troms-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "troms-fylkesutvalg",
+      "til": "troms-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "troms-fylkeskommune-kontrollutvalg",
+      "til": "troms-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "troms-ungdommens-fylkesrad",
+      "til": "troms-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "troms-fylkeskommune-eldrerad",
+      "til": "troms-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "troms-fylkeskommune-rad-funksjonsnedsettelse",
+      "til": "troms-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "troms-fylkeskommune-administrasjonen",
+      "til": "troms-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tannhelsetjenesten-troms",
+      "til": "troms-fylkeskommune-administrasjonen",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-kommunestyre",
+      "til": "tromso-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-formannskap",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "kommune-og-byutviklingsutvalget",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "helse-og-velferdsutvalget",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "oppvekst-og-utdanningsutvalget",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-klageutvalget",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-kontrollutvalget",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-administrasjonsutvalget",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-arbeidsmiljoutvalget",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "mangfolds-og-integreringsutvalget",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-eldreradet",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-ungdomsradet",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-rad-funksjonsnedsettelse",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-studentutvalg",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-kommune-administrasjonen",
+      "til": "tromso-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-havn-kf",
+      "til": "tromso-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromsobolig-kf",
+      "til": "tromso-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromsobadet-kf",
+      "til": "tromso-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir «Tromsøbadet KF / Tromsøbadet AS» uten å skille dem, og organisasjonsformen er merket [verifiser]. Kilde i grunnlaget: Purehelp og eierskapsmeldingen 2024."
+      }
+    },
+    {
+      "fra": "tromso-brann-og-redning-kf",
+      "til": "tromso-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "troms-kraft",
+      "type": "eier",
+      "andel": 40,
+      "belop_nok": 70000000,
+      "belegg": {
+        "kilde": "nrk",
+        "verifisering": "oppgitt",
+        "per": "2026-05-04",
+        "merknad": "Andelen ifølge NRK og Purehelp. Beløpet er Tromsø kommunes del av utbyttet styret foreslår ifølge NRK 4.5.2026."
+      }
+    },
+    {
+      "fra": "troms-holding",
+      "til": "troms-kraft",
+      "type": "eier",
+      "andel": 60,
+      "belop_nok": 105000000,
+      "belegg": {
+        "kilde": "nrk",
+        "verifisering": "oppgitt",
+        "per": "2026-05-04",
+        "merknad": "Andelen ifølge NRK og Purehelp. Beløpet er Troms Holdings del av utbyttet styret foreslår ifølge NRK 4.5.2026."
+      }
+    },
+    {
+      "fra": "troms-fylkeskommune",
+      "til": "troms-holding",
+      "type": "eier",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Eierandelen er ikke oppgitt."
+      }
+    },
+    {
+      "fra": "troms-fylkeskommune",
+      "til": "innovasjon-norge-arktis",
+      "type": "eier",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir «andel i Innovasjon Norge», uten størrelse."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "tromso-havn-kf",
+      "type": "eier",
+      "andel": 100,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "tromsobolig-kf",
+      "type": "eier",
+      "andel": 100,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "tromsobadet-kf",
+      "type": "eier",
+      "andel": 100,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir 100 % for «Tromsøbadet KF / Tromsøbadet AS» samlet. Kilde: Purehelp og eierskapsmeldingen 2024."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "tromsobadet-as",
+      "type": "eier",
+      "andel": 100,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir 100 % for «Tromsøbadet KF / Tromsøbadet AS» samlet. Kilde: Purehelp og eierskapsmeldingen 2024."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "tromso-brann-og-redning-kf",
+      "type": "eier",
+      "andel": 100,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-havn-kf",
+      "til": "tg-naeringseiendom-as",
+      "type": "eier",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget kaller selskapet «havnens utleieselskap», uten andel. Kilde: Purehelp og eierskapsmeldingen 2024."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "remiks-miljopark",
+      "type": "eier",
+      "andel": 99.99,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "karlsoy-kommune",
+      "til": "remiks-miljopark",
+      "type": "eier",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget: «Karlsøy resten». Kilde: Purehelp og eierskapsmeldingen 2024."
+      }
+    },
+    {
+      "fra": "remiks-miljopark",
+      "til": "remiks-husholdning",
+      "type": "eier",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Datterselskap. Andelen er ikke oppgitt."
+      }
+    },
+    {
+      "fra": "remiks-miljopark",
+      "til": "remiks-naering",
+      "type": "eier",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Datterselskap. Andelen er ikke oppgitt."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "tromso-parkering",
+      "type": "eier",
+      "andel": 100,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "grotsund-industripark",
+      "type": "eier",
+      "andel": 50,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-havn-kf",
+      "til": "grotsund-industripark",
+      "type": "eier",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Andelen er merket uverifisert i grunnlaget."
+      }
+    },
+    {
+      "fra": "troms-fylkeskommune",
+      "til": "grotsund-industripark",
+      "type": "eier",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Andelen er merket uverifisert i grunnlaget."
+      }
+    },
+    {
+      "fra": "troms-kraft",
+      "til": "grotsund-industripark",
+      "type": "eier",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Andelen er merket uverifisert i grunnlaget."
+      }
+    },
+    {
+      "fra": "protromso",
+      "til": "grotsund-industripark",
+      "type": "eier",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Andelen er merket uverifisert i grunnlaget."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "arnestedet-eiendom",
+      "type": "eier",
+      "andel": 100,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "arnestedet-naeringseiendom",
+      "type": "eier",
+      "andel": 100,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "ressurs-tromso",
+      "type": "eier",
+      "andel": 55.38,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "aurora-kino",
+      "type": "eier",
+      "andel": 64.4,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "visit-tromso-region",
+      "type": "eier",
+      "andel": 16.67,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "protromso",
+      "type": "eier",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir «varierende» eierandel."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "alfheim-stadion-ii",
+      "type": "eier",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir «varierende» eierandel."
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "fjuel-as",
+      "type": "eier",
+      "andel": 16.59,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "troms-kraft",
+      "til": "fjuel-tromso-as",
+      "type": "eier",
+      "andel": 51,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "tromso-havn-kf",
+      "til": "fjuel-tromso-as",
+      "type": "eier",
+      "andel": 49,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "fra": "helse-nord-rhf",
+      "til": "unn",
+      "type": "eier",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "fra": "leroy-seafood-group",
+      "til": "leroy-aurora",
+      "type": "eier",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Andelen er ikke oppgitt. Grunnlaget oppgir ikke kilde."
+      }
+    },
+    {
+      "fra": "ludwig-mack-as",
+      "til": "macks-olbryggeri",
+      "type": "eier",
+      "belegg": {
+        "kilde": "godt-drikke",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Morselskap ifølge Godt Drikke. Andelen er ikke oppgitt."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "tromso-kommune",
+      "type": "klageinstans_for",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Klageinstans i plan- og byggesaker."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "tromso-kommune",
+      "type": "tilsyn_med",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "tromso-kommune",
+      "til": "nav-tromso",
+      "type": "samarbeid",
+      "belegg": {
+        "kilde": "nav-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Partnerskap mellom stat og kommune."
+      }
+    },
+    {
+      "fra": "troms-fylkeskommune-1838-2019",
+      "til": "troms-og-finnmark-fylkeskommune",
+      "type": "sammenslatt_til",
+      "fra_dato": "2020-01-01",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2020-01-01",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "fra": "troms-og-finnmark-fylkeskommune",
+      "til": "troms-fylkeskommune",
+      "type": "splittet_fra",
+      "fra_dato": "2024-01-01",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2024-01-01",
+        "merknad": "Troms fylkeskommune gjenopprettet 1.1.2024."
+      }
+    },
+    {
+      "fra": "troms-og-finnmark-fylkeskommune",
+      "til": "finnmark-fylkeskommune",
+      "type": "splittet_fra",
+      "fra_dato": "2024-01-01",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2024-01-01",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "troms-kraft",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2426000000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2025",
+        "merknad": "Morselskap. Kilde i grunnlaget: Purehelp. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "troms-kraft",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 202000000,
+      "enhet": "NOK",
+      "konsern": true,
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2025",
+        "merknad": "Konserntall. Kilde i grunnlaget: Purehelp. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "troms-kraft",
+      "aar": 2025,
+      "type": "utbytte",
+      "verdi": 175000000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "nrk",
+        "verifisering": "oppgitt",
+        "per": "2026-05-04",
+        "merknad": "Styrets forslag ifølge NRK 4.5.2026: 105 mill. kr til Troms Holding og 70 mill. kr til Tromsø kommune. Grunnlaget oppgir beløpet sammen med tallene for 2025."
+      }
+    },
+    {
+      "org": "remiks-miljopark",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 375900000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2025",
+        "merknad": "Trolig konserntall ifølge grunnlaget. Kilde i grunnlaget: Purehelp. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "remiks-miljopark",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 208600000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2025",
+        "merknad": "Trolig konserntall ifølge grunnlaget. Kilde i grunnlaget: Purehelp. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "tromso-parkering",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 77800000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2024",
+        "merknad": "Kilde i grunnlaget: Purehelp. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "tromso-parkering",
+      "aar": 2024,
+      "type": "egenkapital",
+      "verdi": 71700000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2024",
+        "merknad": "Kilde i grunnlaget: Purehelp. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "tromso-kommune",
+      "aar": 2024,
+      "type": "merforbruk",
+      "verdi": 205100000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2024",
+        "merknad": "Kommunens tall for merforbruket."
+      }
+    },
+    {
+      "org": "tromso-kommune",
+      "aar": 2024,
+      "type": "underskudd",
+      "verdi": 271000000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "nrk",
+        "verifisering": "oppgitt",
+        "per": "2024",
+        "merknad": "NRKs tall for underskuddet (negativt driftsresultat). Merforbruket samme år var 205,1 mill. kr ifølge kommunen."
+      }
+    },
+    {
+      "org": "tromso-kommune",
+      "aar": 2025,
+      "type": "merforbruk",
+      "verdi": 66000000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "nrk",
+        "verifisering": "oppgitt",
+        "per": "2026-06-24",
+        "merknad": "NRK: kommunen «brukte 66 millioner kroner for mye» i 2025. Regnskapet ble godkjent i kommunestyret 24.6.2026. Grunnlaget sier ikke om tallet er merforbruk slik kommunen regner det (205,1 mill. kr i 2024) eller negativt driftsresultat slik NRK regnet 2024 (271 mill. kr). Tallene kan derfor ikke sammenlignes direkte."
+      }
+    },
+    {
+      "org": "uit",
+      "aar": 2026,
+      "type": "aarsverk",
+      "verdi": 3600,
+      "enhet": "aarsverk",
+      "belegg": {
+        "kilde": "snl",
+        "verifisering": "oppgitt",
+        "per": "2026",
+        "merknad": "Omtrentlig tall: «ca. 3 600 årsverk». Året er årstallet grunnlaget oppgir for kilden («SNL 2026»), ikke et regnskapsår."
+      }
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "aar": 2026,
+      "periode": "H1",
+      "type": "resultat_for_skatt",
+      "verdi": 1986000000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-06",
+        "merknad": "Resultat før skatt etter andre kvartal 2026. Grunnlaget sier at selskapstallene i hovedsak er hentet fra Purehelp eller Proff, uten å skille per tall. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "norges-rafisklag",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 16082000000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2024",
+        "merknad": "Grunnlaget sier at selskapstallene i hovedsak er hentet fra Purehelp eller Proff, uten å skille per tall. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "norges-rafisklag",
+      "aar": 2025,
+      "type": "omsatt_verdi",
+      "verdi": 19070000000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2025",
+        "merknad": "Grunnlaget omtaler verdien som rekord. Grunnlaget sier at selskapstallene i hovedsak er hentet fra Purehelp eller Proff, uten å skille per tall. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "leroy-aurora",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 3683000000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2025",
+        "merknad": "Grunnlaget sier at selskapstallene i hovedsak er hentet fra Purehelp eller Proff, uten å skille per tall. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "leroy-aurora",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 435900000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2025",
+        "merknad": "Grunnlaget sier at selskapstallene i hovedsak er hentet fra Purehelp eller Proff, uten å skille per tall. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "torghatten-nord",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 2288000000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2024",
+        "merknad": "Grunnlaget sier at selskapstallene i hovedsak er hentet fra Purehelp eller Proff, uten å skille per tall. Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "macks-olbryggeri",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 524000000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2024",
+        "merknad": "Grunnlaget sier at selskapstallene i hovedsak er hentet fra Purehelp eller Proff, uten å skille per tall. Må verifiseres mot Regnskapsregisteret."
+      }
+    }
+  ],
+  "hendelser": [
+    {
+      "dato": "2011",
+      "presisjon": "aar",
+      "type": "opprettet",
+      "tittel": "Tromsø innfører byrådsmodell",
+      "org": "tromso-kommune",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2011",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "dato": "2016-07-01",
+      "presisjon": "dag",
+      "type": "nedlagt",
+      "tittel": "Tromsø avvikler byrådsmodellen",
+      "tekst": "Kommunen styres etter formannskapsmodellen fra 1.7.2016.",
+      "org": "tromso-kommune",
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2016-07-01"
+      }
+    },
+    {
+      "dato": "2019-11",
+      "presisjon": "maaned",
+      "type": "rollebytte",
+      "tittel": "Astrid Elisabeth Nilsen konstituert som politimester",
+      "tekst": "Hun ble senere åremålsutnevnt for seks år. Utnevnelsesdatoen er ikke oppgitt.",
+      "org": "troms-politidistrikt",
+      "personer": [
+        "astrid-elisabeth-nilsen"
+      ],
+      "belegg": {
+        "kilde": "regjeringen-no",
+        "verifisering": "oppgitt",
+        "per": "2019-11"
+      }
+    },
+    {
+      "dato": "2020-01-01",
+      "presisjon": "dag",
+      "type": "sammenslatt",
+      "tittel": "Troms og Finnmark fylkeskommune opprettes",
+      "tekst": "Troms fylkeskommune slås sammen til Troms og Finnmark fylkeskommune.",
+      "org": "troms-og-finnmark-fylkeskommune",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2020-01-01",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "dato": "2021",
+      "presisjon": "aar",
+      "type": "rollebytte",
+      "tittel": "Dag Rune Olsen ansatt som rektor ved UiT",
+      "org": "uit",
+      "personer": [
+        "dag-rune-olsen"
+      ],
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2021",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "dato": "2022",
+      "presisjon": "aar",
+      "type": "rollebytte",
+      "tittel": "Eirik Frantzen blir styreleder i SpareBank 1 Nord-Norge",
+      "org": "sparebank-1-nord-norge",
+      "personer": [
+        "eirik-frantzen"
+      ],
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2022",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "dato": "2022",
+      "presisjon": "aar",
+      "type": "opprettet",
+      "tittel": "Tromsøbolig KF etablert",
+      "org": "tromsobolig-kf",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2022",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "dato": "2023-10",
+      "presisjon": "maaned",
+      "type": "valg",
+      "tittel": "Kristina Torbergsen valgt til fylkesordfører",
+      "tekst": "Grunnlaget oppgir 24./25. oktober 2023.",
+      "org": "troms-fylkesting",
+      "personer": [
+        "kristina-torbergsen"
+      ],
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2023-10"
+      }
+    },
+    {
+      "dato": "2023-10-11",
+      "presisjon": "dag",
+      "type": "valg",
+      "tittel": "Gunnar Wilhelmsen gjenvalgt som ordfører",
+      "tekst": "Kommunestyret for valgperioden 2023–2027 konstituert, med Sigrid Hammer (SV) som varaordfører.",
+      "org": "tromso-kommunestyre",
+      "personer": [
+        "gunnar-wilhelmsen",
+        "sigrid-hammer"
+      ],
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2023-10-11"
+      }
+    },
+    {
+      "dato": "2024-01-01",
+      "presisjon": "dag",
+      "type": "splittet",
+      "tittel": "Troms fylkeskommune gjenopprettet",
+      "tekst": "Troms og Finnmark fylkeskommune deles i Troms fylkeskommune og Finnmark fylkeskommune.",
+      "org": "troms-fylkeskommune",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2024-01-01"
+      }
+    },
+    {
+      "dato": "2024-01-01",
+      "presisjon": "dag",
+      "type": "rollebytte",
+      "tittel": "Hanne Karoline Kræmer blir konsernsjef i SpareBank 1 Nord-Norge",
+      "org": "sparebank-1-nord-norge",
+      "personer": [
+        "hanne-karoline-kraemer"
+      ],
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2024-01-01",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "dato": "2024-05-06",
+      "presisjon": "dag",
+      "type": "rollebytte",
+      "tittel": "David Johansen blir adm. dir. i UNN",
+      "org": "unn",
+      "personer": [
+        "david-johansen"
+      ],
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2024-05-06",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "dato": "2024-06-28",
+      "presisjon": "dag",
+      "type": "opprettet",
+      "tittel": "Grøtsund Industripark stiftet",
+      "tekst": "Tromsø kommune eier 50 prosent. Tromsø Havn, fylkeskommunen, Troms Kraft og ProTromsø er medeiere med uverifiserte andeler.",
+      "org": "grotsund-industripark",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2024-06-28",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "dato": "2025",
+      "presisjon": "aar",
+      "type": "valg",
+      "tittel": "Stortingsvalget 2025",
+      "tekst": "Representantene fra Troms valgkrets sitter i perioden 2025–2029.",
+      "org": "stortinget-troms-valgkrets",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2025"
+      }
+    },
+    {
+      "dato": "2025-04",
+      "presisjon": "maaned",
+      "type": "rollebytte",
+      "tittel": "Katrine Storeheier tilsatt som assisterende statsforvalter",
+      "org": "statsforvalteren-troms-og-finnmark",
+      "personer": [
+        "katrine-storeheier"
+      ],
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2025-04"
+      }
+    },
+    {
+      "dato": "2025-05-14",
+      "presisjon": "dag",
+      "type": "rollebytte",
+      "tittel": "Åslaug Haga valgt til styreleder i Troms Kraft",
+      "tekst": "Valgt av bedriftsforsamlingen. Hun etterfulgte Inge K. Hansen.",
+      "org": "troms-kraft",
+      "personer": [
+        "aslaug-haga",
+        "inge-k-hansen"
+      ],
+      "belegg": {
+        "kilde": "troms-kraft-egen-side",
+        "verifisering": "oppgitt",
+        "per": "2025-05-14"
+      }
+    },
+    {
+      "dato": "2025-08",
+      "presisjon": "maaned",
+      "type": "rollebytte",
+      "tittel": "Runar Sjåstad blir statsforvalter",
+      "tekst": "Utnevnt for seks år.",
+      "org": "statsforvalteren-troms-og-finnmark",
+      "personer": [
+        "runar-sjastad"
+      ],
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2025-08"
+      }
+    },
+    {
+      "dato": "2025-09-30",
+      "presisjon": "dag",
+      "type": "rollebytte",
+      "tittel": "Stig Tore Johnsen fratrer som kommunedirektør",
+      "tekst": "Mari Enoksen Hult ble fungerende eller konstituert kommunedirektør, før Ellen Beate Lundberg tok over. Datoen for overgangen til Lundberg er ikke oppgitt.",
+      "org": "tromso-kommune-administrasjonen",
+      "personer": [
+        "stig-tore-johnsen",
+        "mari-enoksen-hult",
+        "ellen-beate-lundberg"
+      ],
+      "belegg": {
+        "kilde": "tromso-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2025-09-30"
+      }
+    },
+    {
+      "dato": "2026-05-04",
+      "presisjon": "dag",
+      "type": "utbytte",
+      "tittel": "Troms Kraft-styret foreslår 175 mill. kr i utbytte",
+      "tekst": "105 mill. kr går til Troms Holding og 70 mill. kr til Tromsø kommune.",
+      "org": "troms-kraft",
+      "belegg": {
+        "kilde": "nrk",
+        "verifisering": "oppgitt",
+        "per": "2026-05-04",
+        "merknad": "Datoen er datoen for NRK-saken. Når styret fremmet forslaget, er ikke oppgitt."
+      }
+    },
+    {
+      "dato": "2026-06-24",
+      "presisjon": "dag",
+      "type": "regnskap",
+      "tittel": "Kommunestyret godkjenner regnskapet for 2025",
+      "tekst": "Ifølge NRK brukte kommunen 66 millioner kroner for mye i 2025.",
+      "org": "tromso-kommunestyre",
+      "belegg": {
+        "kilde": "nrk",
+        "verifisering": "oppgitt",
+        "per": "2026-06-24"
+      }
+    },
+    {
+      "dato": "2027-01",
+      "presisjon": "maaned",
+      "type": "planlagt",
+      "tittel": "Perioden som fungerende fylkesordfører ventes å ende",
+      "tekst": "Benjamin Nordberg Furuly er fungerende fylkesordfører fram til midten av januar 2027.",
+      "org": "troms-fylkesting",
+      "personer": [
+        "benjamin-nordberg-furuly"
+      ],
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "dato": "2027",
+      "presisjon": "aar",
+      "type": "planlagt",
+      "tittel": "Kommunestyrevalget 2027",
+      "org": "tromso-kommunestyre",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "dato": "2027",
+      "presisjon": "aar",
+      "type": "strukturdebatt",
+      "tittel": "Byrådsmodell etter valget 2027 er foreslått",
+      "tekst": "Nordlys (redaksjonelt) og FrP har tatt til orde for å gjeninnføre byråd etter valget 2027. Sp og Rødt er skeptiske. Ingen vedtak er fattet.",
+      "org": "tromso-kommune",
+      "belegg": {
+        "kilde": "nrk",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "NRK er kilde for at byrådsmodellen diskuteres på nytt etter underskuddet. Grunnlaget oppgir ikke kilde for partienes standpunkter."
+      }
+    }
+  ],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Tromsø?",
+      "steg": [
+        {
+          "org": "tromso-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken til politisk behandling.",
+          "belegg": {
+            "kilde": "researchgrunnlag",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09",
+            "merknad": "Grunnlaget sier at reguleringsplaner forberedes i administrasjonen, men oppgir ikke kilde for administrasjonens rolle."
+          }
+        },
+        {
+          "org": "kommune-og-byutviklingsutvalget",
+          "myndighet": "innstilling",
+          "hva": "Behandler planen før den legges ut til offentlig ettersyn, og behandler reguleringsplanen før kommunestyret.",
+          "belegg": {
+            "kilde": "tromso-kommune-no",
+            "verifisering": "oppgitt",
+            "per": "2026-09"
+          }
+        },
+        {
+          "org": "tromso-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "tromso-kommune-no",
+            "verifisering": "oppgitt",
+            "per": "2026-09"
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket og kan fremme innsigelse mot arealplaner.",
+          "belegg": {
+            "kilde": "statsforvalteren-no",
+            "verifisering": "oppgitt",
+            "per": "2026-09"
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Tromsø kommune?",
+      "steg": [
+        {
+          "org": "tromso-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller i økonomisaker til kommunestyret.",
+          "belegg": {
+            "kilde": "tromso-kommune-no",
+            "verifisering": "oppgitt",
+            "per": "2026-09"
+          }
+        },
+        {
+          "org": "tromso-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet og handlingsprogrammet.",
+          "belegg": {
+            "kilde": "tromso-kommune-no",
+            "verifisering": "oppgitt",
+            "per": "2026-09"
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    },
+    {
+      "kode": "finans",
+      "navn": "Finans"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
+    },
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "halogaland-jordskifterett",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "fiskeridirektoratet",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "mattilsynet",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "kystverket-troms-og-finnmark",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "statens-vegvesen",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "avinor",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "statsbygg",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "husbanken",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "nve",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "havforskningsinstituttet",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "kartverket",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "unn",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "unn",
+      "segment": "utdanning-forskning",
+      "styrke": 2
+    },
+    {
+      "org": "unn",
+      "segment": "eiendom-bygg",
+      "styrke": 2
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "uit",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "uit",
+      "segment": "helse",
+      "styrke": 2
+    },
+    {
+      "org": "uit",
+      "segment": "eiendom-bygg",
+      "styrke": 2
+    },
+    {
+      "org": "nofima",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "nilu",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "nina",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "akvaplan-niva",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "sintef",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "norut-norce",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "tannhelsetjenesten-troms",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "tromso-kommune",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "tromso-kommune",
+      "segment": "reiseliv",
+      "styrke": 2
+    },
+    {
+      "org": "tromso-kommune",
+      "segment": "transport",
+      "styrke": 2
+    },
+    {
+      "org": "tromso-kommune",
+      "segment": "helse",
+      "styrke": 2
+    },
+    {
+      "org": "tromso-kommune",
+      "segment": "utdanning-forskning",
+      "styrke": 2
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "segment": "reiseliv",
+      "styrke": 2
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "segment": "handel",
+      "styrke": 1
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "segment": "sjomat",
+      "styrke": 1
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "segment": "energi",
+      "styrke": 1
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "segment": "landbruk",
+      "styrke": 1
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "segment": "transport",
+      "styrke": 1
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "segment": "finans",
+      "styrke": 1
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "segment": "helse",
+      "styrke": 1
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "segment": "utdanning-forskning",
+      "styrke": 1
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "segment": "avfall-miljo",
+      "styrke": 1
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "segment": "reiseliv",
+      "styrke": 2
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "segment": "handel",
+      "styrke": 2
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "tromso-kommune-administrasjonen",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "tromso-havn-kf",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "tromso-havn-kf",
+      "segment": "reiseliv",
+      "styrke": 2
+    },
+    {
+      "org": "tromso-havn-kf",
+      "segment": "eiendom-bygg",
+      "styrke": 2
+    },
+    {
+      "org": "tromsobolig-kf",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "tg-naeringseiendom-as",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "troms-kraft",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "remiks-miljopark",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "remiks-husholdning",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "remiks-naering",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "grotsund-industripark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "grotsund-industripark",
+      "segment": "transport",
+      "styrke": 2
+    },
+    {
+      "org": "arnestedet-eiendom",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "arnestedet-naeringseiendom",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "visit-tromso-region",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "segment": "finans",
+      "styrke": 3
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "segment": "eiendom-bygg",
+      "styrke": 1
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "segment": "reiseliv",
+      "styrke": 1
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "segment": "handel",
+      "styrke": 1
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "segment": "sjomat",
+      "styrke": 1
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "segment": "energi",
+      "styrke": 1
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "segment": "landbruk",
+      "styrke": 1
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "segment": "transport",
+      "styrke": 1
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "segment": "helse",
+      "styrke": 1
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "segment": "utdanning-forskning",
+      "styrke": 1
+    },
+    {
+      "org": "sparebank-1-nord-norge",
+      "segment": "avfall-miljo",
+      "styrke": 1
+    },
+    {
+      "org": "norges-rafisklag",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "consto-as",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "consto-holding-as",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "leroy-aurora",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "torghatten-nord",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "nergard-as",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "nergard-seafood",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "nergard-havfiske",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "tromso-kommune-administrasjonen",
+      "hva": "Startdatoen for Ellen Beate Lundberg som kommunedirektør er ikke oppgitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "tromso-kommune-administrasjonen",
+      "hva": "Mari Enoksen Hult ledet administrasjonen fra 30.9.2025 og omtales i grunnlaget som «fungerende/konstituert» kommunedirektør. Når perioden sluttet, er ikke oppgitt, så hun står bare i hendelsene.",
+      "hvorfor": "Sluttdatoen er merket [verifiser] i grunnlaget. Uten den ville rollen se ut som den fortsatt gjelder."
+    },
+    {
+      "gjelder": "tromso-kommune-administrasjonen",
+      "hva": "Britt Elin Stenveg var kommunedirektør før Stig Tore Johnsen. Perioden hennes og Johnsens startdato er ikke oppgitt.",
+      "hvorfor": "Grunnlaget har ingen datoer, så rollen kan ikke plasseres i tid."
+    },
+    {
+      "gjelder": "tromso-kommune-administrasjonen",
+      "hva": "Seksjons- og avdelingslederne for byutvikling og plan, byggesak, eiendom og næring er ikke navngitt.",
+      "hvorfor": "Merket [verifiser via kommunens ansattsøk] i grunnlaget. Dette er laget som forbereder plan- og byggesakene."
+    },
+    {
+      "gjelder": "tromso-kommunestyre",
+      "hva": "Det fjerde hovedutvalget, for klima, miljø, næring, kultur, idrett og friluft, mangler sikkert navn og er ikke tatt med som organ.",
+      "hvorfor": "Navnet er merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "kommune-og-byutviklingsutvalget",
+      "hva": "Leder og medlemmer er ikke navngitt.",
+      "hvorfor": "Merket [verifiser via innsyn.tromso.kommune.no] i grunnlaget."
+    },
+    {
+      "gjelder": "helse-og-velferdsutvalget",
+      "hva": "Leder og medlemmer er ikke navngitt.",
+      "hvorfor": "Merket [verifiser via innsyn.tromso.kommune.no] i grunnlaget."
+    },
+    {
+      "gjelder": "oppvekst-og-utdanningsutvalget",
+      "hva": "Leder og medlemmer er ikke navngitt.",
+      "hvorfor": "Merket [verifiser via innsyn.tromso.kommune.no] i grunnlaget."
+    },
+    {
+      "gjelder": "tromso-klageutvalget",
+      "hva": "Leder og medlemmer er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "tromso-kontrollutvalget",
+      "hva": "Leder og medlemmer er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "tromso-kommune",
+      "hva": "Proff oppgir at Tromsø kommune inngår i et konsern med 18 selskaper og 9 datterselskaper.",
+      "hvorfor": "Sekundærkilde. Må verifiseres mot Enhetsregisteret."
+    },
+    {
+      "gjelder": "tromso-kommune",
+      "hva": "Interkommunale selskaper og samarbeid er ikke kartlagt: kontrollutvalgssekretariat og revisjon, vann og avløp, legevakt, krisesenter og arkiv.",
+      "hvorfor": "Merket [verifiser via Enhetsregisteret, organisasjonsform IKS, kommunenummer 5501] i grunnlaget."
+    },
+    {
+      "gjelder": "tromso-kommune",
+      "hva": "Regionråd, for eksempel Tromsø-regionen, Nord-Troms, Midt-Troms og Sør-Troms, er ikke modellert.",
+      "hvorfor": "Dagens sammensetning er merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "tromso-kommune",
+      "hva": "Private selskaper innen hotell og reiseliv, eiendomsselskaper, holdingselskaper med høy egenkapital, Lufttransport AS og SpareBank 1 Gruppen/ODIN er ikke ferdig kartlagt. For SpareBank 1 Gruppen/ODIN må det sjekkes om hovedkontoret er i Tromsø.",
+      "hvorfor": "Grunnlaget sier at de må hentes fra Regnskapsregisteret filtrert på kommunenummer 5501 og næringskode."
+    },
+    {
+      "gjelder": "tromso-kommune",
+      "hva": "Grunnlaget nevner Tromsø Boligbyggelag som et mulig interesseorgan for eiendom og bolig.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "tromso-havn-kf",
+      "hva": "Regnskapstall mangler.",
+      "hvorfor": "Regnskapet føres i havnestyret og finnes ikke i Brreg."
+    },
+    {
+      "gjelder": "tromsobolig-kf",
+      "hva": "Ledelsen er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "tromsobadet-kf",
+      "hva": "Org.nr., ledelse og om badet drives som KF, AS eller begge er ikke avklart.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "tromso-brann-og-redning-kf",
+      "hva": "Ledelsen er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "tg-naeringseiendom-as",
+      "hva": "Org.nr. og eierandel er ikke oppgitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "troms-kraft",
+      "hva": "Utbyttet på 175 mill. kr er oppgitt som styrets forslag (NRK 4.5.2026). Om generalforsamlingen vedtok det, er ikke oppgitt.",
+      "hvorfor": "Grunnlaget har bare forslaget."
+    },
+    {
+      "gjelder": "grotsund-industripark",
+      "hva": "Eierandelene til Tromsø Havn, fylkeskommunen, Troms Kraft og ProTromsø er ikke oppgitt.",
+      "hvorfor": "Merket uverifisert i grunnlaget."
+    },
+    {
+      "gjelder": "grotsund-industripark",
+      "hva": "Grunnlaget oppgir egenkapital på ca. −0,5 mill. kr uten år.",
+      "hvorfor": "Et tall uten år tas ikke inn som nøkkeltall."
+    },
+    {
+      "gjelder": "arnestedet-eiendom",
+      "hva": "Org.nr. er ikke oppgitt. Grunnlaget oppgir egenkapital på 320,8 mill. kr uten år, trolig 2025.",
+      "hvorfor": "Org.nr. er merket [verifiser]. Et tall uten år tas ikke inn som nøkkeltall."
+    },
+    {
+      "gjelder": "arnestedet-naeringseiendom",
+      "hva": "Org.nr. er ikke oppgitt. Grunnlaget oppgir egenkapital på 112,0 mill. kr uten år, trolig 2025.",
+      "hvorfor": "Org.nr. er merket [verifiser]. Et tall uten år tas ikke inn som nøkkeltall."
+    },
+    {
+      "gjelder": "ressurs-tromso",
+      "hva": "Org.nr. er ikke oppgitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "aurora-kino",
+      "hva": "Org.nr. er ikke oppgitt. Grunnlaget oppgir omsetning på 54,0 mill. kr uten år, trolig 2025.",
+      "hvorfor": "Org.nr. er merket [verifiser]. Et tall uten år tas ikke inn som nøkkeltall."
+    },
+    {
+      "gjelder": "visit-tromso-region",
+      "hva": "Org.nr. er ikke oppgitt. Grunnlaget oppgir omsetning på 22,7 mill. kr uten år, trolig 2025.",
+      "hvorfor": "Org.nr. er merket [verifiser]. Et tall uten år tas ikke inn som nøkkeltall."
+    },
+    {
+      "gjelder": "protromso",
+      "hva": "Org.nr. og kommunens eierandel er ikke oppgitt.",
+      "hvorfor": "Org.nr. er merket [verifiser], og grunnlaget oppgir bare «varierende» eierandel."
+    },
+    {
+      "gjelder": "alfheim-stadion-ii",
+      "hva": "Org.nr. og kommunens eierandel er ikke oppgitt.",
+      "hvorfor": "Org.nr. er merket [verifiser], og grunnlaget oppgir bare «varierende» eierandel."
+    },
+    {
+      "gjelder": "fjuel-as",
+      "hva": "Org.nr. er ikke oppgitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "fjuel-tromso-as",
+      "hva": "Org.nr. er ikke oppgitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "troms-fylkeskommune",
+      "hva": "Styringsmodellen er uavklart. tromsfylke.no (sist endret 12.6.2026) sier formannskapsmodell, mens medieomtale ved konstitueringen i 2023 sa at Ap skulle «lede fylkesrådet» og omtalte Kristina Torbergsen som «fylkesrådsleder».",
+      "hvorfor": "Kildene er i konflikt. Gjeldende reglement må sjekkes, og datamodellen må kunne vise begge modellene."
+    },
+    {
+      "gjelder": "troms-fylkeskommune",
+      "hva": "Navnene på fylkeskommunens hovedutvalg og komiteer er ikke oppgitt.",
+      "hvorfor": "Merket [verifiser navn] i grunnlaget."
+    },
+    {
+      "gjelder": "troms-fylkeskommune",
+      "hva": "Svipper og kollektivtrafikken er oppført under fylkeskommunens eierskap, men er ikke tatt med som organ.",
+      "hvorfor": "Organisasjonsformen er merket [verifiser org.form] i grunnlaget."
+    },
+    {
+      "gjelder": "troms-fylkeskommune",
+      "hva": "Nordnorsk reiseliv og andre landsdelsselskaper, blant annet et selskap eid av Nordland, Troms og Finnmark fylkeskommuner, er ikke tatt med som organ.",
+      "hvorfor": "Grunnlaget oppgir verken andel eller organisasjonsform, og det er uklart om «landsdelsselskaper» betyr Nordnorsk Reiseliv eller flere selskaper. Nordnorsk Reiseliv står også blant næringsorganisasjonene i grunnlaget."
+    },
+    {
+      "gjelder": "troms-fylkesting",
+      "hva": "Startdatoen for Benjamin Nordberg Furuly som fungerende fylkesordfører er ikke oppgitt.",
+      "hvorfor": "Ikke oppgitt i grunnlaget."
+    },
+    {
+      "gjelder": "troms-holding",
+      "hva": "Org.nr. og fylkeskommunens eierandel er ikke oppgitt.",
+      "hvorfor": "Ikke oppgitt i grunnlaget."
+    },
+    {
+      "gjelder": "troms-politidistrikt",
+      "hva": "Datoen for åremålsutnevnelsen av politimesteren er ikke oppgitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "troms-politidistrikt",
+      "hva": "Grunnlaget navngir tre ledere under politimesteren: for felles påtaleenhet, for FEFE og for Tromsø politistasjon.",
+      "hvorfor": "Utelatt med vilje. For politi og påtale viser MVP bare toppleder."
+    },
+    {
+      "gjelder": "statsadvokatene-troms-og-finnmark",
+      "hva": "Førstestatsadvokaten er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "nord-troms-og-senja-tingrett",
+      "hva": "Sorenskriveren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "halogaland-lagmannsrett",
+      "hva": "Lagmannen er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "halogaland-jordskifterett",
+      "hva": "Jordskifterettslederen er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "nav-troms-og-finnmark",
+      "hva": "Fylkesdirektøren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "nav-tromso",
+      "hva": "NAV-lederen i Tromsø er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "skatteetaten",
+      "hva": "Regionlederen er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "tolletaten",
+      "hva": "Regionlederen er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "fiskeridirektoratet",
+      "hva": "Regiondirektøren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "mattilsynet",
+      "hva": "Regiondirektøren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "kystverket-troms-og-finnmark",
+      "hva": "Regiondirektøren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "statens-vegvesen",
+      "hva": "Avdelingsdirektøren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "avinor",
+      "hva": "Lufthavnsdirektøren i Tromsø er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "statsbygg",
+      "hva": "Regiondirektøren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "forsvaret",
+      "hva": "Sjefene er ikke navngitt. Bare offisielle toppledere skal vises.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "arbeidstilsynet",
+      "hva": "Regionlederen er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "husbanken",
+      "hva": "Regionlederen er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "sivilforsvaret",
+      "hva": "Regionlederen er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "nve",
+      "hva": "Regionlederen er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "direktoratet-for-mineralforvaltning",
+      "hva": "Regionlederen er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "innovasjon-norge-arktis",
+      "hva": "Regiondirektøren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "havforskningsinstituttet",
+      "hva": "Direktøren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "norsk-polarinstitutt",
+      "hva": "Direktøren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "kartverket",
+      "hva": "Direktøren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "sametinget",
+      "hva": "Sametingspresidenten er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "nye-veier",
+      "hva": "Grunnlaget antar at Nye Veier ikke er aktivt i Troms per 2026.",
+      "hvorfor": "Antakelse i grunnlaget, ikke fakta."
+    },
+    {
+      "gjelder": "helse-nord-rhf",
+      "hva": "Adm. dir. og styreleder er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "nofima",
+      "hva": "Adm. dir. er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] via Rolle-API i grunnlaget."
+    },
+    {
+      "gjelder": "nilu",
+      "hva": "Adm. dir. er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] via Rolle-API i grunnlaget."
+    },
+    {
+      "gjelder": "nina",
+      "hva": "Adm. dir. er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] via Rolle-API i grunnlaget."
+    },
+    {
+      "gjelder": "akvaplan-niva",
+      "hva": "Adm. dir. er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] via Rolle-API i grunnlaget."
+    },
+    {
+      "gjelder": "sintef",
+      "hva": "Adm. dir. er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] via Rolle-API i grunnlaget."
+    },
+    {
+      "gjelder": "norut-norce",
+      "hva": "Adm. dir. er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] via Rolle-API i grunnlaget."
+    },
+    {
+      "gjelder": "arktisk-rads-sekretariat",
+      "hva": "Direktøren er ikke navngitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "naeringsforeningen-tromsoregionen",
+      "hva": "Stig Tore Johnsen, tidligere kommunedirektør, er valgt til et verv i foreningen. Hvilket verv er ikke oppgitt.",
+      "hvorfor": "Merket [verifiser] i grunnlaget."
+    },
+    {
+      "gjelder": "sparebank-1-nord-norge",
+      "hva": "Eierne er egenkapitalbeviseiere og en sparebankstiftelse. Andelene og stiftelsens fulle navn er ikke oppgitt.",
+      "hvorfor": "Ikke oppgitt i grunnlaget."
+    },
+    {
+      "gjelder": "sparebank-1-nord-norge",
+      "hva": "Kathrine Tveiterås er oppført med «Norges sjømatråd» i parentes. Rollen hennes der er ikke oppgitt.",
+      "hvorfor": "Ikke oppgitt i grunnlaget."
+    },
+    {
+      "gjelder": "consto-as",
+      "hva": "Ledelse og eier er ikke oppgitt. Grunnlaget oppgir omsetning på 8 720 mill. kr (2024) for «Consto AS / Consto Holding AS» uten å si hvilket av selskapene tallet gjelder, eller om det er konserntall.",
+      "hvorfor": "Ledelse og eier er merket [verifiser] i grunnlaget. Et tall som ikke kan knyttes til ett selskap, tas ikke inn som nøkkeltall."
+    },
+    {
+      "gjelder": "torghatten-nord",
+      "hva": "Ledelsen er ikke navngitt, og eierskapet (Torghatten-konsernet) er uverifisert.",
+      "hvorfor": "Merket [verifiser] og uverifisert i grunnlaget."
+    },
+    {
+      "gjelder": "nergard-as",
+      "hva": "Et mulig eierskap fra Samherji er uverifisert, og eierstrukturen mellom Nergård AS og de andre Nergård-selskapene er ikke oppgitt.",
+      "hvorfor": "Merket uverifisert i grunnlaget."
+    },
+    {
+      "gjelder": "nergard-seafood",
+      "hva": "Grunnlaget oppgir 2 192 mill. kr for 2025 uten å si hvilket regnskapstall beløpet er.",
+      "hvorfor": "Uten type kan tallet ikke vises som omsetning eller resultat uten å gjette."
+    },
+    {
+      "gjelder": "nergard-havfiske",
+      "hva": "Grunnlaget oppgir 883 mill. kr for 2024 uten å si hvilket regnskapstall beløpet er.",
+      "hvorfor": "Uten type kan tallet ikke vises som omsetning eller resultat uten å gjette."
+    },
+    {
+      "gjelder": "macks-olbryggeri",
+      "hva": "Harald Bredrup har trådt ut som adm. dir. og Roger Karlsen har tatt over, men datoen for skiftet er ikke oppgitt.",
+      "hvorfor": "Kilden er Godt Drikke, og nåværende adm. dir. er merket [verifiser i Brreg]."
+    }
+  ]
+}
