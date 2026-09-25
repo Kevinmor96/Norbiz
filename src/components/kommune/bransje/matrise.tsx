@@ -8,16 +8,21 @@
 // (container query), fordi innholdsspalten er smalere når sidemargen er der.
 //
 // Hver rad åpner organskuffen.
+//
+// En bransje kan få mange organer når alle selskapene med minst 20 ansatte er
+// med. Innenfor hver styrke står organene etter en åpen regel fra data (se
+// `rekkefolge`), og bare de ti første vises til leseren ber om alle.
 
-import type { MouseEvent } from "react";
+import { ChevronDown } from "lucide-react";
+import { useState, type MouseEvent } from "react";
 
 import { Pastand } from "@/components/maktkart/kildemerke";
 import { IkkeKartlagt, MyndighetListe, STYRKE, Styrkestrek } from "@/components/organ/merker";
 import { OrganLenke } from "@/components/organ/organ-skuff";
 import { nivaalinje } from "@/components/organ/organ-profil";
-import { MYNDIGHETSLAG } from "@/components/organ/tekst";
+import { MYNDIGHETSLAG, myndighetslag } from "@/components/organ/tekst";
 import type { Myndighet, OrganKort, SegmentOrganer } from "@/lib/data";
-import { antall } from "@/lib/format";
+import { antall, tall } from "@/lib/format";
 import { MYNDIGHETNAVN } from "@/lib/navn";
 import { cn } from "@/lib/utils";
 
@@ -25,15 +30,66 @@ type Rad = SegmentOrganer["organer"][number];
 
 /** Kolonneoverskrifter med myk bindestrek, så kolonnene kan være smale. */
 const KORT: Partial<Record<Myndighet, string>> = {
-  planmyndighet: "Plan­myndighet",
-  innstilling: "Innstil­ling",
-  finansiering: "Finan­siering",
-  konsesjon: "Konse­sjon",
-  raadgivning: "Råd­givning",
-  regelverk: "Regel­verk",
+  planmyndighet: "Plan\u00admyndighet",
+  innstilling: "Innstil\u00adling",
+  finansiering: "Finan\u00adsiering",
+  konsesjon: "Konse\u00adsjon",
+  raadgivning: "Råd\u00adgivning",
+  regelverk: "Regel\u00adverk",
 };
 
 const STYRKER = [3, 2, 1] as const;
+
+/** Så mange organer vises per styrke før «Vis alle». */
+const FORHAND = 10;
+
+/**
+ * Rekkefølgen innenfor en styrke, regnet bare fra organets myndighet:
+ * 1. Myndighetslaget: vedtar eller forbereder, så kontrollerer, så penger, så
+ *    påvirker, så organer uten kartlagt myndighet.
+ * 2. Flere myndighetstyper før færre.
+ * 3. Datalagets rekkefølge: nivå (stat, fylke, kommune …), så nøkkel.
+ */
+function rekkefolge(rader: readonly Rad[]): Rad[] {
+  return rader
+    .map((r, i) => ({ r, i }))
+    .sort(
+      (a, b) =>
+        myndighetslag(a.r.myndighet) - myndighetslag(b.r.myndighet) ||
+        b.r.myndighet.length - a.r.myndighet.length ||
+        a.i - b.i,
+    )
+    .map((x) => x.r);
+}
+
+/** «Vis alle 45 primære» under en styrke som har flere enn FORHAND organer. */
+function VisAlle({
+  styrke,
+  totalt,
+  aapen,
+  veksle,
+}: {
+  styrke: 1 | 2 | 3;
+  totalt: number;
+  aapen: boolean;
+  veksle: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-expanded={aapen}
+      onClick={veksle}
+      className={cn(
+        "inline-flex h-10 cursor-pointer items-center gap-2 border border-trykk bg-papir px-4 text-[0.875rem] font-semibold",
+        "transition-[background-color,transform] duration-150 ease-(--ease-ut) hover:bg-flate active:scale-[0.98]",
+      )}
+    >
+      {aapen ? "Vis færre" : `Vis alle ${tall(totalt)}`}
+      <span className="sr-only"> med styrke {STYRKE[styrke].navn.toLowerCase()}</span>
+      <ChevronDown aria-hidden="true" className={cn("size-4", aapen && "rotate-180")} />
+    </button>
+  );
+}
 
 /** Myndighetene som finnes blant organene, i lagene fra MYNDIGHETSLAG. Tomme lag utelates. */
 function kolonner(rader: readonly Rad[]) {
@@ -107,9 +163,19 @@ export function Bransjematrise({
   const lag = kolonner(rader);
   const myndigheter = lag.flatMap((l) => l.myndigheter);
   const forste = new Set(lag.map((l) => l.myndigheter[0]));
-  const grupper = STYRKER.map((s) => ({ styrke: s, rader: rader.filter((r) => r.styrke === s) })).filter(
-    (g) => g.rader.length > 0,
-  );
+  const [aapne, settAapne] = useState<ReadonlySet<number>>(new Set());
+  const veksle = (s: number) =>
+    settAapne((a) => {
+      const n = new Set(a);
+      if (n.has(s)) n.delete(s);
+      else n.add(s);
+      return n;
+    });
+  const grupper = STYRKER.map((s) => {
+    const alle = rekkefolge(rader.filter((r) => r.styrke === s));
+    const aapen = aapne.has(s);
+    return { styrke: s, alle, aapen, rader: aapen ? alle : alle.slice(0, FORHAND) };
+  }).filter((g) => g.alle.length > 0);
   const inn = animer ? "animate-in fade-in-0 duration-200" : "";
 
   return (
@@ -169,7 +235,7 @@ export function Bransjematrise({
                     <Styrkestrek styrke={g.styrke} />
                     <span className="text-[0.9375rem] font-bold">{STYRKE[g.styrke].navn}</span>
                     <span className="text-[0.8125rem] text-dempet">
-                      {antall(g.rader.length, "organ", "organer")}. {STYRKE[g.styrke].forklaring}
+                      {antall(g.alle.length, "organ", "organer")}. {STYRKE[g.styrke].forklaring}
                     </span>
                   </span>
                 </th>
@@ -180,11 +246,17 @@ export function Bransjematrise({
                   onClick={trykkRad}
                   className="group/rad cursor-pointer border-t border-linje transition-colors duration-150 hover:bg-flate"
                 >
-                  <th scope="row" className="py-2 pr-4 text-left align-top text-[0.9375rem] leading-[1.3] font-normal">
+                  <th
+                    scope="row"
+                    className="py-2 pr-4 text-left align-top text-[0.9375rem] leading-[1.3] font-normal"
+                  >
                     <Organnavn rad={r} kort={organkort.get(r.org.key)} />
                   </th>
                   {r.myndighet.length === 0 ? (
-                    <td colSpan={myndigheter.length} className="border-l border-linje px-2 py-2 align-middle">
+                    <td
+                      colSpan={myndigheter.length}
+                      className="border-l border-linje px-2 py-2 align-middle"
+                    >
                       <IkkeKartlagt>Myndighet ikke kartlagt</IkkeKartlagt>
                     </td>
                   ) : (
@@ -218,6 +290,18 @@ export function Bransjematrise({
                   )}
                 </tr>
               ))}
+              {g.alle.length > FORHAND && (
+                <tr>
+                  <td colSpan={1 + myndigheter.length} className="border-t border-linje pt-3 pb-1">
+                    <VisAlle
+                      styrke={g.styrke}
+                      totalt={g.alle.length}
+                      aapen={g.aapen}
+                      veksle={() => veksle(g.styrke)}
+                    />
+                  </td>
+                </tr>
+              )}
             </tbody>
           ))}
         </table>
@@ -234,7 +318,7 @@ export function Bransjematrise({
               <Styrkestrek styrke={g.styrke} />
               <span className="text-[0.9375rem] font-bold">{STYRKE[g.styrke].navn}</span>
               <span className="text-[0.8125rem] font-normal text-dempet">
-                {antall(g.rader.length, "organ", "organer")}
+                {antall(g.alle.length, "organ", "organer")}
               </span>
             </h3>
             <ul>
@@ -250,6 +334,16 @@ export function Bransjematrise({
                 </li>
               ))}
             </ul>
+            {g.alle.length > FORHAND && (
+              <div className="mt-3">
+                <VisAlle
+                  styrke={g.styrke}
+                  totalt={g.alle.length}
+                  aapen={g.aapen}
+                  veksle={() => veksle(g.styrke)}
+                />
+              </div>
+            )}
           </section>
         ))}
       </div>

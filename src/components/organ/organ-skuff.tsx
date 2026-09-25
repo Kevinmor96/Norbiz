@@ -162,7 +162,8 @@ function SkuffInnhold({
     forrige.current = key;
   }, [key]);
 
-  const navn = profil?.organ.navn ?? hint ?? (tilstand?.status === "laster" ? "Henter organet" : "Organet");
+  const navn =
+    profil?.organ.navn ?? hint ?? (tilstand?.status === "laster" ? "Henter organet" : "Organet");
 
   return (
     <>

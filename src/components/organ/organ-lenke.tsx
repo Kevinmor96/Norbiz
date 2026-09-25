@@ -145,7 +145,8 @@ export function useProfil(key: string | null): [Tilstand | null, () => void] {
     settTilstand((t) => (t?.key === key && t.status === "klar" ? t : { key, status: "laster" }));
     hentProfil(key).then(
       (profil) => {
-        if (aktiv) settTilstand(profil ? { key, status: "klar", profil } : { key, status: "mangler" });
+        if (aktiv)
+          settTilstand(profil ? { key, status: "klar", profil } : { key, status: "mangler" });
       },
       () => {
         if (aktiv) settTilstand({ key, status: "feil" });
@@ -204,4 +205,3 @@ export function OrganLenke({
     </Link>
   );
 }
-

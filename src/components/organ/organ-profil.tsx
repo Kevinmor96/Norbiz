@@ -11,13 +11,22 @@
 // organet i skuffen. På organsiden, der skuffen ikke finnes, går de til
 // organets egen side.
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { useId, type ReactNode } from "react";
 
 import { Kildemerke, MedMerke, Pastand } from "@/components/maktkart/kildemerke";
 import { KILDETYPER } from "@/lib/belegg";
 import type { Eierandel, Endring, KildeUt, OrganProfil, OrganRef, Rolle } from "@/lib/data";
-import { dato, datoKort, datoStor, kroner, orgnr, prosent, splittSisteOrd, tall } from "@/lib/format";
+import {
+  dato,
+  datoKort,
+  datoStor,
+  kroner,
+  orgnr,
+  prosent,
+  splittSisteOrd,
+  tall,
+} from "@/lib/format";
 import { HENDELSESTYPENAVN, NIVAANAVN, NOKKELTALLNAVN, ORGANTYPENAVN } from "@/lib/navn";
 import { cn } from "@/lib/utils";
 
@@ -44,6 +53,8 @@ import {
   RELASJONSNAVN,
   REGNSKAPSTYPER,
   ren,
+  rollegruppe,
+  ROLLEGRUPPER,
   rollePastand,
   rolleTid,
 } from "./tekst";
@@ -167,7 +178,9 @@ function Beskrivelse({ profil, overskrift }: { profil: OrganProfil; overskrift: 
       {organ.sensitiv && (
         <p className="mt-4 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[0.8125rem] leading-[1.45] text-dempet">
           <Sensitivmerke />
-          <span>Domstoler, politi, påtale og Forsvaret vises bare med toppleder, og aldri i nettverket.</span>
+          <span>
+            Domstoler, politi, påtale og Forsvaret vises bare med toppleder, og aldri i nettverket.
+          </span>
         </p>
       )}
     </Del>
@@ -211,6 +224,61 @@ function Rollerad({ rolle, organnavn }: { rolle: Rolle; organnavn: string }) {
   );
 }
 
+/** Så mange rader vises i en liste før resten foldes inn bak «Vis alle». */
+const MAKS_RADER = 6;
+
+const SAMMENDRAG =
+  "flex cursor-pointer list-none items-center gap-1.5 py-2 text-[0.8125rem] font-semibold underline decoration-linje-sterk underline-offset-[0.2em] hover:decoration-signal [&::-webkit-details-marker]:hidden";
+
+/**
+ * En liste som foldes inn etter `maks` elementer, bak «Vis alle N». Et organ
+ * kan ha et helt styre, titalls eierandeler eller hundre organer under seg.
+ * Uten JavaScript virker den også: det er et vanlig <details>.
+ */
+function Kappet<T>({
+  elementer,
+  maks = MAKS_RADER,
+  children: rad,
+  className,
+}: {
+  elementer: readonly T[];
+  maks?: number;
+  children: (e: T) => ReactNode;
+  className?: string;
+}) {
+  const forst = elementer.slice(0, maks);
+  const resten = elementer.slice(maks);
+  return (
+    <>
+      <ul className={className}>{forst.map(rad)}</ul>
+      {resten.length > 0 && (
+        <details className="group border-t border-linje">
+          <summary className={SAMMENDRAG}>
+            <span className="group-open:hidden">Vis alle {tall(elementer.length)}</span>
+            <span className="hidden group-open:inline">Vis færre</span>
+            <ChevronDown aria-hidden="true" className="size-3.5 group-open:rotate-180" />
+          </summary>
+          <ul className={className}>{resten.map(rad)}</ul>
+        </details>
+      )}
+    </>
+  );
+}
+
+function Rolleliste({ roller, organnavn }: { roller: readonly Rolle[]; organnavn: string }) {
+  return (
+    <Kappet elementer={roller}>
+      {(r) => (
+        <Rollerad
+          key={`${r.person.key}|${r.tittel}|${r.til ?? ""}`}
+          rolle={r}
+          organnavn={organnavn}
+        />
+      )}
+    </Kappet>
+  );
+}
+
 function Roller({ profil, overskrift }: { profil: OrganProfil; overskrift: Overskrift }) {
   const { organ, roller } = profil;
   const harLeder = roller.naa.some(erLederrolle);
@@ -218,6 +286,14 @@ function Roller({ profil, overskrift }: { profil: OrganProfil; overskrift: Overs
   // ville fått det til å se ut som noe mangler.
   const utenLeder = organ.organtype === "lovgivende";
   const hvor = lederHentesFra(profil.hull);
+  const selskap = REGNSKAPSTYPER.includes(organ.organtype) || erForetak(organ.organtype);
+  const grupper = ROLLEGRUPPER.map((g) => ({
+    ...g,
+    roller: roller.naa.filter((r) => rollegruppe(r, selskap) === g.id),
+  })).filter((g) => g.roller.length > 0);
+  // Én gruppe trenger ingen overskrift, med mindre den er varamedlemmene.
+  const medOverskrift = grupper.length > 1 || grupper[0]?.id === "vara";
+
   return (
     <Del tittel="Roller" overskrift={overskrift}>
       <Underoverskrift>Nå</Underoverskrift>
@@ -227,26 +303,30 @@ function Roller({ profil, overskrift }: { profil: OrganProfil; overskrift: Overs
           {hvor && <span className="text-[0.8125rem] text-dempet">Hentes fra {hvor}.</span>}
         </p>
       )}
-      {roller.naa.length ? (
-        <ul>
-          {roller.naa.map((r) => (
-            <Rollerad key={`${r.person.key}|${r.tittel}`} rolle={r} organnavn={organ.navn} />
-          ))}
-        </ul>
-      ) : (
-        <Tom>Datasettet navngir ingen i organet ennå.</Tom>
+      {grupper.length === 0 && <Tom>Datasettet navngir ingen i organet ennå.</Tom>}
+      {grupper.map((g) =>
+        g.id === "vara" ? (
+          <details key={g.id} className="group mt-1 border-t border-linje">
+            <summary className={SAMMENDRAG}>
+              {g.navn} ({tall(g.roller.length)})
+              <ChevronDown aria-hidden="true" className="size-3.5 group-open:rotate-180" />
+            </summary>
+            <Rolleliste roller={g.roller} organnavn={organ.navn} />
+          </details>
+        ) : (
+          <div key={g.id} className={cn(medOverskrift && "mt-2 first:mt-0")}>
+            {medOverskrift && (
+              <p className="pt-1 text-[0.75rem] font-medium text-dempet">
+                {g.navn} · {tall(g.roller.length)}
+              </p>
+            )}
+            <Rolleliste roller={g.roller} organnavn={organ.navn} />
+          </div>
+        ),
       )}
       <Underoverskrift>Før</Underoverskrift>
       {roller.tidligere.length ? (
-        <ul>
-          {roller.tidligere.map((r) => (
-            <Rollerad
-              key={`${r.person.key}|${r.tittel}|${r.til}`}
-              rolle={r}
-              organnavn={organ.navn}
-            />
-          ))}
-        </ul>
+        <Rolleliste roller={roller.tidligere} organnavn={organ.navn} />
       ) : (
         <Tom>Tidligere rolleinnehavere er ikke kartlagt.</Tom>
       )}
@@ -271,7 +351,11 @@ function Eierrad({
     </MedMerke>
   ) : (
     <MedMerke belegg={e.belegg} pastand={pastand}>
-      {e.andel !== null ? prosent(e.andel) : <span className="font-medium text-dempet">andel ikke oppgitt</span>}
+      {e.andel !== null ? (
+        prosent(e.andel)
+      ) : (
+        <span className="font-medium text-dempet">andel ikke oppgitt</span>
+      )}
     </MedMerke>
   );
   return (
@@ -306,8 +390,8 @@ function Eierskap({ profil, overskrift }: { profil: OrganProfil; overskrift: Ove
       {eiere.length > 0 && (
         <>
           <Underoverskrift>{foretak ? "Del av" : "Eies av"}</Underoverskrift>
-          <ul>
-            {eiere.map((e) => (
+          <Kappet elementer={eiere}>
+            {(e) => (
               <Eierrad
                 key={`${e.org.key}|${e.fra_dato}`}
                 e={e}
@@ -318,37 +402,37 @@ function Eierskap({ profil, overskrift }: { profil: OrganProfil; overskrift: Ove
                     : `${e.org.navn} eier ${e.andel !== null ? prosent(e.andel) : "en andel"} av ${organ.navn}`
                 }
               />
-            ))}
-          </ul>
+            )}
+          </Kappet>
         </>
       )}
       {andeler.length > 0 && (
         <>
           <Underoverskrift>Eier</Underoverskrift>
-          <ul>
-            {andeler.map((e) => (
+          <Kappet elementer={andeler}>
+            {(e) => (
               <Eierrad
                 key={`${e.org.key}|${e.fra_dato}`}
                 e={e}
                 pastand={`${organ.navn} eier ${e.andel !== null ? prosent(e.andel) : "en andel"} av ${e.org.navn}`}
               />
-            ))}
-          </ul>
+            )}
+          </Kappet>
         </>
       )}
       {egneForetak.length > 0 && (
         <>
           <Underoverskrift>Kommunale foretak, del av kommunen</Underoverskrift>
-          <ul>
-            {egneForetak.map((e) => (
+          <Kappet elementer={egneForetak}>
+            {(e) => (
               <Eierrad
                 key={`${e.org.key}|${e.fra_dato}`}
                 e={e}
                 foretak
                 pastand={`${e.org.navn} er et foretak i ${organ.navn}`}
               />
-            ))}
-          </ul>
+            )}
+          </Kappet>
         </>
       )}
     </Del>
@@ -362,18 +446,20 @@ function Nokkeltall({ profil, overskrift }: { profil: OrganProfil; overskrift: O
   return (
     <Del tittel="Nøkkeltall" overskrift={overskrift}>
       {nokkeltall.length ? (
-        <ul>
-          {nokkeltall.map((n) => {
+        <Kappet elementer={nokkeltall} maks={8}>
+          {(n) => {
             const periode = regnskapsperiode(n);
             const konsern = konsernmerke(n);
             const verdi = nokkelverdi(n);
+            // Et foreslått utbytte er ikke vedtatt. Det skal stå, ikke bare i kildelappen.
+            const foreslatt = n.type === "utbytte" && erForeslatt(n.belegg.merknad);
             return (
               <Rad
                 key={`${n.aar}|${n.periode}|${n.type}|${n.konsern}`}
                 verdi={
                   <MedMerke
                     belegg={n.belegg}
-                    pastand={`${NOKKELTALLNAVN[n.type]} for ${organ.navn} ${periode}${konsern ? `, ${konsern}` : ""}: ${verdi}`}
+                    pastand={`${NOKKELTALLNAVN[n.type]}${foreslatt ? " (foreslått)" : ""} for ${organ.navn} ${periode}${konsern ? `, ${konsern}` : ""}: ${verdi}`}
                   >
                     {verdi}
                   </MedMerke>
@@ -383,11 +469,12 @@ function Nokkeltall({ profil, overskrift }: { profil: OrganProfil; overskrift: O
                 <p className="mt-0.5 text-[0.8125rem] text-dempet">
                   {periode}
                   {konsern && `, ${konsern}`}
+                  {foreslatt && ", foreslått"}
                 </p>
               </Rad>
             );
-          })}
-        </ul>
+          }}
+        </Kappet>
       ) : (
         <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
           <IkkeKartlagt>Ingen nøkkeltall med år</IkkeKartlagt>
@@ -424,21 +511,23 @@ function Plass({ profil, overskrift }: { profil: OrganProfil; overskrift: Oversk
       {underordnede.length > 0 && (
         <>
           <Underoverskrift>Har under seg</Underoverskrift>
-          <ul>
-            {underordnede.map((u) => (
+          <Kappet elementer={underordnede}>
+            {(u) => (
               <Rad key={u.key}>
                 <Organnavn org={u} />
-                {u.status === "nedlagt" && <span className="text-[0.8125rem] text-dempet"> (nedlagt)</span>}
+                {u.status === "nedlagt" && (
+                  <span className="text-[0.8125rem] text-dempet"> (nedlagt)</span>
+                )}
               </Rad>
-            ))}
-          </ul>
+            )}
+          </Kappet>
         </>
       )}
       {[...grupper].map(([navn, liste]) => (
         <div key={navn}>
           <Underoverskrift>{navn}</Underoverskrift>
-          <ul>
-            {liste.map((r) => (
+          <Kappet elementer={liste}>
+            {(r) => (
               <Rad
                 key={`${r.type}|${r.retning}|${r.org.key}`}
                 verdi={
@@ -457,8 +546,8 @@ function Plass({ profil, overskrift }: { profil: OrganProfil; overskrift: Oversk
                   </p>
                 )}
               </Rad>
-            ))}
-          </ul>
+            )}
+          </Kappet>
         </div>
       ))}
     </Del>
@@ -475,7 +564,9 @@ function Hendelse({ h }: { h: Endring }) {
       <p className="mt-0.5 leading-[1.4]">
         <Pastand tekst={ren(h.tittel)} belegg={h.belegg} />
       </p>
-      {h.tekst && <p className="mt-0.5 text-[0.8125rem] leading-[1.45] text-dempet">{ren(h.tekst)}</p>}
+      {h.tekst && (
+        <p className="mt-0.5 text-[0.8125rem] leading-[1.45] text-dempet">{ren(h.tekst)}</p>
+      )}
     </Rad>
   );
 }
@@ -506,11 +597,9 @@ function Hendelser({ profil, overskrift }: { profil: OrganProfil; overskrift: Ov
       {skjedd.length > 0 && (
         <>
           {kommende.length > 0 && <Underoverskrift>Har skjedd</Underoverskrift>}
-          <ul>
-            {skjedd.map((h) => (
-              <Hendelse key={`${h.dato}|${h.type}|${h.tittel}`} h={h} />
-            ))}
-          </ul>
+          <Kappet elementer={skjedd}>
+            {(h) => <Hendelse key={`${h.dato}|${h.type}|${h.tittel}`} h={h} />}
+          </Kappet>
         </>
       )}
     </Del>
@@ -587,8 +676,8 @@ function Kilder({ profil, overskrift }: { profil: OrganProfil; overskrift: Overs
   if (!profil.kilder.length) return null;
   return (
     <Del tittel={`Kilder (${tall(profil.kilder.length)})`} overskrift={overskrift}>
-      <ul>
-        {profil.kilder.map((k) => (
+      <Kappet elementer={profil.kilder} maks={8}>
+        {(k) => (
           <li
             key={k.key}
             className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5 border-t border-linje py-2 text-[0.875rem] first:border-t-0"
@@ -598,8 +687,8 @@ function Kilder({ profil, overskrift }: { profil: OrganProfil; overskrift: Overs
             </span>
             <span className="text-[0.8125rem] text-dempet">{KILDETYPER[k.type]}</span>
           </li>
-        ))}
-      </ul>
+        )}
+      </Kappet>
     </Del>
   );
 }
@@ -608,19 +697,16 @@ function Kilder({ profil, overskrift }: { profil: OrganProfil; overskrift: Overs
 // Fakta: registeropplysningene øverst i skuffen og i margen på organsiden
 // ---------------------------------------------------------------------------
 
-export function ProfilFakta({
-  profil,
-  className,
-}: {
-  profil: OrganProfil;
-  className?: string;
-}) {
+export function ProfilFakta({ profil, className }: { profil: OrganProfil; className?: string }) {
   const { organ } = profil;
   const rader: [string, ReactNode][] = [
     [
       "Org.nr.",
       organ.orgnr ? (
-        <MedMerke belegg={organ.belegg} pastand={`${organ.navn} har org.nr. ${orgnr(organ.orgnr)}`}>
+        <MedMerke
+          belegg={organ.belegg}
+          pastand={`Opplysningene om ${organ.navn}: org.nr. ${orgnr(organ.orgnr)}, ${ORGANTYPENAVN[organ.organtype].toLowerCase()}`}
+        >
           {orgnr(organ.orgnr)}
         </MedMerke>
       ) : (

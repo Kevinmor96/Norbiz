@@ -57,7 +57,10 @@ function Kortforklaring({ side }: SeksjonProps) {
           tekst="forberedende makt"
         />
       )}
-      <Punkt tegn={<IkkeKartlagt>Leder ikke kartlagt</IkkeKartlagt>} tekst="datasettet navngir ingen" />
+      <Punkt
+        tegn={<IkkeKartlagt>Leder ikke kartlagt</IkkeKartlagt>}
+        tekst="datasettet navngir ingen"
+      />
       {harKonflikt && <Punkt tegn={<KildeneUenige />} tekst="to kilder sier forskjellige ting" />}
       {harSensitiv && <Punkt tegn={<Sensitivmerke />} tekst="domstol, politi og påtale" />}
       <Punkt tegn={<Grenselinje type="fylke" className="w-10" />} tekst="grense mellom nivåene" />

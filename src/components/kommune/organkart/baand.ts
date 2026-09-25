@@ -11,7 +11,8 @@
 import { avledBelegg, type AvledetBelegg } from "@/lib/belegg";
 import type { HullPunkt, OrganKort, Organtype } from "@/lib/data";
 import type { Kommuneside } from "@/lib/kommuneside";
-import { erForetak, myndighetslag } from "@/components/organ/tekst";
+import { erForetak, myndighetslag, normaliser } from "@/components/organ/tekst";
+import { MYNDIGHETNAVN, ORGANTYPENAVN } from "@/lib/navn";
 
 export type BaandId = "stat" | "fylke" | "kommune" | "selskaper" | "utenfor";
 
@@ -60,6 +61,10 @@ export interface Baand {
  */
 export const FORHAND_MOBIL = 3;
 export const FORHAND_SKRIVEBORD = 8;
+/** «Vis flere» legger til så mange om gangen. Et bånd med hundrevis av organer tegnes aldri helt på én gang. */
+export const STEG = 24;
+/** Bånd med minst så mange organer får et eget søk. */
+export const SOK_FRA = 16;
 
 // ---------------------------------------------------------------------------
 // Viktighet
@@ -104,13 +109,30 @@ const FOLKEVALGTE: readonly Organtype[] = ["folkevalgt_organ", "utvalg", "raad",
 /** Undergruppene i statsbåndet, etter organtype. Tomme grupper utelates. */
 const STATSGRUPPER: readonly { id: string; tittel: string; typer: readonly Organtype[] }[] = [
   { id: "folkevalgte", tittel: "Folkevalgte organer", typer: ["lovgivende", "folkevalgt_organ"] },
-  { id: "forvaltning", tittel: "Statsforvalter og departement", typer: ["statsforvalter", "departement"] },
+  {
+    id: "forvaltning",
+    tittel: "Statsforvalter og departement",
+    typer: ["statsforvalter", "departement"],
+  },
   {
     id: "etater",
     tittel: "Direktorater, etater og tilsyn",
-    typer: ["direktorat", "etat", "tilsyn", "nemnd", "samarbeid", "administrasjon", "utvalg", "raad"],
+    typer: [
+      "direktorat",
+      "etat",
+      "tilsyn",
+      "nemnd",
+      "samarbeid",
+      "administrasjon",
+      "utvalg",
+      "raad",
+    ],
   },
-  { id: "rettsvesen", tittel: "Domstoler, politi og påtale", typer: ["domstol", "politi", "paatale"] },
+  {
+    id: "rettsvesen",
+    tittel: "Domstoler, politi og påtale",
+    typer: ["domstol", "politi", "paatale"],
+  },
   {
     id: "kunnskap",
     tittel: "Helse, utdanning og forskning",
@@ -161,7 +183,10 @@ export function lagBaand(side: Kommuneside): Baand[] {
   const bygg = (
     id: BaandId,
     region: string,
-    lag: (organer: Plassert[], paraply: Plassert | null) => {
+    lag: (
+      organer: Plassert[],
+      paraply: Plassert | null,
+    ) => {
       forklaring: string;
       kolonner?: Kolonne[];
       grupper: Gruppe[];
@@ -172,7 +197,11 @@ export function lagBaand(side: Kommuneside): Baand[] {
     if (!organer.length) return null;
     const paraplyRad = finnParaply ? organer.find((o) => finnParaply(o.kort)) : undefined;
     const rest = organer.filter((o) => o !== paraplyRad).sort(viktighet(eierledd));
-    const plassert = rest.map((o, rang) => ({ kort: o.kort, rang, hull: hullPer.get(o.kort.key) ?? [] }));
+    const plassert = rest.map((o, rang) => ({
+      kort: o.kort,
+      rang,
+      hull: hullPer.get(o.kort.key) ?? [],
+    }));
     // Innenfor en gruppe står organene i viktighetsrekkefølge, så de som vises
     // sammenfoldet, står øverst der de hører hjemme.
     const paraply = paraplyRad
@@ -226,12 +255,18 @@ export function lagBaand(side: Kommuneside): Baand[] {
     const foretak = organer.filter((o) => erForetak(o.kort.organtype));
     // Paraplyen er alt tatt ut. Andre kommuner og fylkeskommuner står for seg.
     const andre = organer.filter((o) => erAnnenEnhet(o.kort));
-    const interkommunale = organer.filter((o) => o.kort.nivaa === "interkommunal" && !andre.includes(o));
+    const interkommunale = organer.filter(
+      (o) => o.kort.nivaa === "interkommunal" && !andre.includes(o),
+    );
     const brukt = new Set([...folkevalgte, ...foretak, ...andre, ...interkommunale]);
     const adm = organer.filter((o) => !brukt.has(o));
     return {
       kolonner: [
-        { id: "folkevalgte" as const, tittel: "Folkevalgte organer", grupper: [{ id: "folkevalgte", tittel: null, organer: folkevalgte }] },
+        {
+          id: "folkevalgte" as const,
+          tittel: "Folkevalgte organer",
+          grupper: [{ id: "folkevalgte", tittel: null, organer: folkevalgte }],
+        },
         {
           id: "administrasjon" as const,
           tittel: "Administrasjon",
@@ -242,7 +277,11 @@ export function lagBaand(side: Kommuneside): Baand[] {
         },
       ],
       grupper: [
-        { id: "interkommunale", tittel: "Interkommunale selskaper og samarbeid", organer: interkommunale },
+        {
+          id: "interkommunale",
+          tittel: "Interkommunale selskaper og samarbeid",
+          organer: interkommunale,
+        },
         { id: "andre", tittel: andreTittel, organer: andre },
       ],
     };
@@ -282,7 +321,9 @@ export function lagBaand(side: Kommuneside): Baand[] {
 
   const selskaper = bygg("selskaper", "Selskaper", (organer) => {
     const eid = organer.filter((o) => eierledd.has(o.kort.key));
-    const forskning = organer.filter((o) => !eierledd.has(o.kort.key) && o.kort.organtype === "forskning");
+    const forskning = organer.filter(
+      (o) => !eierledd.has(o.kort.key) && o.kort.organtype === "forskning",
+    );
     const andre = organer.filter((o) => !eid.includes(o) && !forskning.includes(o));
     const eier = eierskap.eier?.navn ?? `${hvor} kommune`;
     const eierBelegg = eid.length
@@ -299,7 +340,12 @@ export function lagBaand(side: Kommuneside): Baand[] {
     return {
       forklaring: `Selskaper ${eier} eier, direkte eller gjennom andre selskaper, og andre selskaper og institutter grunnlaget kobler til kommunen.`,
       grupper: [
-        { id: "eid", tittel: `Eid av ${eier}`, ...(eierBelegg ? { belegg: eierBelegg } : {}), organer: eid },
+        {
+          id: "eid",
+          tittel: `Eid av ${eier}`,
+          ...(eierBelegg ? { belegg: eierBelegg } : {}),
+          organer: eid,
+        },
         { id: "andre", tittel: "Andre selskaper", organer: andre },
         { id: "forskning", tittel: "Forskningsinstitutter", organer: forskning },
       ],
@@ -310,12 +356,22 @@ export function lagBaand(side: Kommuneside): Baand[] {
     forklaring:
       "Interesseorganisasjoner og mellomstatlige organer. De har ingen plass i forvaltningen, men grunnlaget kobler dem til kommunen.",
     grupper: [
-      { id: "interesse", tittel: "Interesseorganisasjoner", organer: organer.filter((o) => o.kort.nivaa === "interesse") },
-      { id: "mellomstatlig", tittel: "Mellomstatlige organer", organer: organer.filter((o) => o.kort.nivaa === "mellomstatlig") },
+      {
+        id: "interesse",
+        tittel: "Interesseorganisasjoner",
+        organer: organer.filter((o) => o.kort.nivaa === "interesse"),
+      },
+      {
+        id: "mellomstatlig",
+        tittel: "Mellomstatlige organer",
+        organer: organer.filter((o) => o.kort.nivaa === "mellomstatlig"),
+      },
       {
         id: "andre",
         tittel: "Andre",
-        organer: organer.filter((o) => o.kort.nivaa !== "interesse" && o.kort.nivaa !== "mellomstatlig"),
+        organer: organer.filter(
+          (o) => o.kort.nivaa !== "interesse" && o.kort.nivaa !== "mellomstatlig",
+        ),
       },
     ],
   }));
@@ -323,7 +379,20 @@ export function lagBaand(side: Kommuneside): Baand[] {
   return [stat, fylke, kommunebaand, selskaper, utenfor].filter((b): b is Baand => b !== null);
 }
 
-/** Minste rang i en samling organer. Styrer om overskriften vises i et sammenfoldet bånd. */
-export function minsteRang(organer: readonly Plassert[]): number {
-  return organer.reduce((m, o) => Math.min(m, o.rang), Infinity);
+/**
+ * Det søket i båndet leter i: organets navn, kortnavn og type, myndigheten og
+ * lederne (tittel og navn). Normalisert, så «tromso» finner «Tromsø» og
+ * «hermes» finner «Hermès».
+ */
+export function sokestreng(p: Plassert): string {
+  const k = p.kort;
+  return normaliser(
+    [
+      k.navn,
+      k.kortnavn ?? "",
+      ORGANTYPENAVN[k.organtype],
+      ...k.myndighet.map((m) => MYNDIGHETNAVN[m]),
+      ...k.ledere.map((r) => `${r.tittel} ${r.person.navn}`),
+    ].join(" "),
+  );
 }

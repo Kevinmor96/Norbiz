@@ -7,6 +7,7 @@
 //
 // Bransjen som vises først, er den med flest organer i kommunen. Da viser
 // seksjonen mest mulig før leseren har valgt, og valget er regnet fra data.
+// Innenfor hver styrke vises de ti første etter regelen i bransje/matrise.tsx.
 //
 // Anker: #bransje.
 
@@ -127,8 +128,7 @@ export function BransjeSeksjon({ side }: SeksjonProps) {
                   : "Ingen av dem har bransjen som hovedområde."}
                 {innstilling > 0 &&
                   ` ${tall(innstilling)} forbereder sakene med innstilling, før de vedtas.`}
-                {utenMyndighet > 0 &&
-                  ` For ${tall(utenMyndighet)} er myndigheten ikke kartlagt.`}
+                {utenMyndighet > 0 && ` For ${tall(utenMyndighet)} er myndigheten ikke kartlagt.`}
               </>
             )}
           </p>
@@ -136,6 +136,7 @@ export function BransjeSeksjon({ side }: SeksjonProps) {
             <>
               <Bransjeforklaring harInnstilling={innstilling > 0} />
               <Bransjematrise
+                key={segment.segment.kode}
                 segment={segment}
                 organkort={organkort}
                 nokkel={segment.segment.kode}

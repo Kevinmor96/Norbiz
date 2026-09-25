@@ -36,10 +36,7 @@ export const Route = createFileRoute("/organ/$key")({
   head: ({ loaderData, params }) => {
     if (!loaderData) {
       return {
-        meta: [
-          { title: "Organet finnes ikke | Maktkart" },
-          { name: "robots", content: "noindex" },
-        ],
+        meta: [{ title: "Organet finnes ikke | Maktkart" }, { name: "robots", content: "noindex" }],
       };
     }
     const tittel = `${loaderData.organ.navn} | Maktkart`;
@@ -165,10 +162,13 @@ function Organprofil() {
             profil={profil}
             overskrift="h2"
             utelat={["bransjer", "kilder"]}
-            className="maal min-w-0 lg:max-w-none"
+            className="min-w-0 max-w-[46rem]"
           />
           <aside aria-label="Fakta og kilder" className="flex min-w-0 flex-col gap-8">
-            <section aria-labelledby="fakta-tittel" className="border border-trykk bg-flate px-4 py-4">
+            <section
+              aria-labelledby="fakta-tittel"
+              className="border border-trykk bg-flate px-4 py-4"
+            >
               <h2 id="fakta-tittel" className="region mb-3 text-[0.6875rem] text-dempet">
                 Registeropplysninger
               </h2>
@@ -178,7 +178,15 @@ function Organprofil() {
             <ProfilDeler
               profil={profil}
               overskrift="h2"
-              utelat={["beskrivelse", "roller", "eierskap", "nokkeltall", "plass", "hendelser", "hull"]}
+              utelat={[
+                "beskrivelse",
+                "roller",
+                "eierskap",
+                "nokkeltall",
+                "plass",
+                "hendelser",
+                "hull",
+              ]}
             />
           </aside>
         </div>

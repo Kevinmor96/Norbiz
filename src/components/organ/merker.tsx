@@ -67,7 +67,11 @@ export function MyndighetListe({
 export function IkkeKartlagt({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <span
-      className={cn(BRIKKE, "border border-dashed border-kote font-medium text-kote-tekst", className)}
+      className={cn(
+        BRIKKE,
+        "border border-dashed border-kote font-medium text-kote-tekst",
+        className,
+      )}
     >
       {children}
     </span>
@@ -176,14 +180,7 @@ export function Styrkestrek({ styrke, className }: { styrke: 1 | 2 | 3; classNam
       aria-hidden="true"
       className={cn("shrink-0 text-trykk", className)}
     >
-      <line
-        x1="0"
-        y1="4"
-        x2="32"
-        y2="4"
-        stroke="currentColor"
-        strokeWidth={STYRKE[styrke].strek}
-      />
+      <line x1="0" y1="4" x2="32" y2="4" stroke="currentColor" strokeWidth={STYRKE[styrke].strek} />
     </svg>
   );
 }

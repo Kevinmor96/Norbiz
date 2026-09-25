@@ -64,6 +64,21 @@ export function ren(tekst: string): string {
   return lesbar(t);
 }
 
+/**
+ * Tekst til søk: små bokstaver, uten aksenter, med ø og æ skrevet om. Samme
+ * regel på søket og på det det søkes i. Brreg-lærdommen: «HERMÈS NORWAY AS»
+ * skal finnes med «hermes».
+ */
+export function normaliser(tekst: string): string {
+  return tekst
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .replace(/ø/g, "o")
+    .replace(/æ/g, "ae")
+    .replace(/\s+/g, " ");
+}
+
 /** Første setning i en tekst. Til kort der hele hull-teksten ikke får plass. */
 export function forsteSetning(tekst: string): string {
   const m = /^(.+?[.!?])(\s|$)/.exec(tekst.trim());
@@ -118,6 +133,43 @@ export function lederHentesFra(hull: readonly HullPunkt[]): string | null {
 export const erLederrolle = (r: Pick<Rolle, "rolletype">) =>
   (LEDERTYPER as readonly string[]).includes(r.rolletype);
 
+/**
+ * Rollene i skuffen og på organsiden grupperes, så et organ med et helt styre
+ * og mange varamedlemmer fortsatt er lett å lese: ledelsen først, så styret
+ * eller medlemmene, varamedlemmene sammenfoldet til slutt.
+ */
+export type Rollegruppe = "ledelse" | "styre" | "medlemmer" | "vara" | "andre";
+
+export const ROLLEGRUPPER: readonly { id: Rollegruppe; navn: string }[] = [
+  { id: "ledelse", navn: "Ledelse" },
+  { id: "styre", navn: "Styret" },
+  { id: "medlemmer", navn: "Medlemmer" },
+  { id: "andre", navn: "Andre roller" },
+  { id: "vara", navn: "Varamedlemmer" },
+];
+
+/**
+ * Gruppen til en rolle. `selskap` avgjør nestlederen: i et selskap sitter
+ * nestlederen i styret, i et folkevalgt organ hører hen til ledelsen.
+ */
+export function rollegruppe(r: Pick<Rolle, "rolletype" | "status">, selskap: boolean): Rollegruppe {
+  if (r.rolletype === "varamedlem" || r.status === "vara") return "vara";
+  switch (r.rolletype) {
+    case "styreleder":
+    case "styremedlem":
+      return "styre";
+    case "nestleder":
+      return selskap ? "styre" : "ledelse";
+    case "folkevalgt":
+    case "utvalgsmedlem":
+      return "medlemmer";
+    case "tillitsvalgt":
+      return "andre";
+    default:
+      return "ledelse";
+  }
+}
+
 /** Statusen slik leseren ser den. `fast` vises ikke: det er normaltilstanden. */
 export const STATUSNAVN: Record<Rollestatus, string | null> = {
   fast: null,
@@ -139,7 +191,8 @@ export function rollePastand(r: Rolle, organnavn: string): string {
  */
 export function rolleTid(r: Rolle): { tekst: string | null; planlagt: string | null } {
   const fra = r.fra ? dato(r.fra) : null;
-  if (r.til) return { tekst: fra ? `${fra} til ${dato(r.til)}` : `til ${dato(r.til)}`, planlagt: null };
+  if (r.til)
+    return { tekst: fra ? `${fra} til ${dato(r.til)}` : `til ${dato(r.til)}`, planlagt: null };
   return {
     tekst: fra ? `fra ${fra}` : null,
     planlagt: r.til_forventet ? `til ${dato(r.til_forventet)}` : null,
@@ -220,12 +273,12 @@ export function konsernmerke(n: Pick<NokkeltallUt, "konsern">): string | null {
  * «foreslått» leses fra merknaden, som toppen gjør. Et forslag har ikke skjedd.
  */
 export function erForeslatt(merknad: string | null): boolean {
-  return merknad !== null && /foresl/i.test(merknad);
+  return merknad !== null && /foresl|forslag/i.test(merknad);
 }
 
 /** Verdien med enhet: «2 426 mill. kr», «3 600 årsverk». */
 export function nokkelverdi(n: Pick<NokkeltallUt, "verdi" | "enhet">): string {
-  return n.enhet === "aarsverk" ? `${tall(n.verdi)} årsverk` : kroner(n.verdi);
+  return n.enhet === "aarsverk" ? `${tall(n.verdi)}\u00a0årsverk` : kroner(n.verdi);
 }
 
 // ---------------------------------------------------------------------------

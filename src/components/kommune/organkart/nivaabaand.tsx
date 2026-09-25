@@ -89,7 +89,7 @@ function Gruppefelt({
       )}
       <ul className={RUTENETT}>
         {organer.map((p) => (
-          <Organkort key={p.kort.key} plassert={p} synlighet={vises.get(p.kort.key)} />
+          <Organkort key={p.kort.key} plassert={p} synlighet={vises.get(p.kort.key) ?? ""} />
         ))}
       </ul>
     </div>
@@ -121,13 +121,15 @@ export function Nivaabaand({ baand }: { baand: Baand }) {
   const rekke = sokAktiv ? alle.filter((p) => indeks.get(p.kort.key)?.includes(q)) : alle;
   const utvidet = sokAktiv || vist > FORHAND_SKRIVEBORD;
   const vises: Vises = new Map(
-    rekke.slice(0, vist).map((p, i) => [
-      p.kort.key,
-      cn(
-        !utvidet && i >= FORHAND_MOBIL && "max-md:hidden",
-        vokst && i >= FORHAND_SKRIVEBORD && "animate-in fade-in-0 duration-200",
-      ),
-    ]),
+    rekke
+      .slice(0, vist)
+      .map((p, i) => [
+        p.kort.key,
+        cn(
+          !utvidet && i >= FORHAND_MOBIL && "max-md:hidden",
+          vokst && i >= FORHAND_SKRIVEBORD && "animate-in fade-in-0 duration-200",
+        ),
+      ]),
   );
 
   // Åpnes et organ i skuffen (fra en lenke eller adressen) som ikke vises her,
@@ -145,7 +147,7 @@ export function Nivaabaand({ baand }: { baand: Baand }) {
   const restSkrivebord = Math.max(0, totalt - vist);
   const restMobil = utvidet ? restSkrivebord : Math.max(0, totalt - FORHAND_MOBIL);
   const flereSynlig = cn(restMobil === 0 && "max-md:hidden", restSkrivebord === 0 && "md:hidden");
-  const faerreSynlig = utvidet && !sokAktiv && vist >= totalt;
+  const faerreSynlig = utvidet && !sokAktiv;
 
   const flere = () => {
     settVist(nesteVist);
@@ -207,7 +209,7 @@ export function Nivaabaand({ baand }: { baand: Baand }) {
                     settVist(STEG);
                     settVokst(false);
                   }}
-                  placeholder="Organ, leder eller myndighet"
+                  placeholder="Navn eller leder"
                   autoComplete="off"
                   aria-controls={`${id}-organer`}
                   className="h-10 w-full min-w-0 border border-trykk bg-papir pr-9 pl-8 text-[0.875rem] placeholder:text-dempet [&::-webkit-search-cancel-button]:hidden"
@@ -246,7 +248,9 @@ export function Nivaabaand({ baand }: { baand: Baand }) {
                 Ingen organer i {regionLiten} passer til «{sok.trim()}».
               </p>
             )}
-            {baand.kolonner.some((k) => k.grupper.some((g) => g.organer.some((o) => vises.has(o.kort.key)))) && (
+            {baand.kolonner.some((k) =>
+              k.grupper.some((g) => g.organer.some((o) => vises.has(o.kort.key))),
+            ) && (
               <div className="grid gap-x-5 gap-y-6 @min-[38rem]:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
                 {baand.kolonner.map((k) => {
                   const organer = k.grupper.flatMap((g) => g.organer);
@@ -254,7 +258,10 @@ export function Nivaabaand({ baand }: { baand: Baand }) {
                   return (
                     <div
                       key={k.id}
-                      className={cn("flex min-w-0 flex-col gap-3", overskriftKlasse(organer, vises))}
+                      className={cn(
+                        "flex min-w-0 flex-col gap-3",
+                        overskriftKlasse(organer, vises),
+                      )}
                     >
                       <h4 className="border-b border-trykk pb-1.5 text-[0.9375rem] font-bold">
                         {k.tittel}
