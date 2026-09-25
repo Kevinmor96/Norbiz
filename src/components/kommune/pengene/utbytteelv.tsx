@@ -138,7 +138,8 @@ export function Utbytteelv({
           </span>
           <span className="etikett mt-2 text-[0.9375rem] text-pretty">
             <strong className="font-bold">{elv.forslag ? "foreslått" : "utbytte"}</strong>
-            {elv.forslag ? " utbytte" : ""} fra <OrganLenke org={elv.selskap} className={LENKESTIL} />
+            {elv.forslag ? " utbytte" : ""} fra{" "}
+            <OrganLenke org={elv.selskap} className={LENKESTIL} />
             {naar ? ` ${naar}` : ""}
           </span>
         </figcaption>

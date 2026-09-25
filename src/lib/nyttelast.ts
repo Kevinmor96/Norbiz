@@ -47,7 +47,10 @@ export function tilSiden<T>(svar: T): T {
     // Nøkkelen er innholdet, med barneobjektene som nummer. Barna er alt
     // delt, så to like objekter har like barn og får samme nøkkel.
     const nokkel = JSON.stringify(
-      Object.entries(ut).map(([k, x]) => [k, x !== null && typeof x === "object" ? `#${id(x)}` : x]),
+      Object.entries(ut).map(([k, x]) => [
+        k,
+        x !== null && typeof x === "object" ? `#${id(x)}` : x,
+      ]),
     );
     const delt = felles.get(nokkel);
     if (delt) {

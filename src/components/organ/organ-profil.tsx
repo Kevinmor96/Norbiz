@@ -172,7 +172,9 @@ function Beskrivelse({ profil, overskrift }: { profil: OrganProfil; overskrift: 
         <div key={h.hva} className="mt-4 border border-kote bg-flate px-3.5 py-3">
           <KildeneUenige />
           <p className="mt-2 text-[0.9375rem] leading-[1.5]">{lesbar(h.hva)}</p>
-          <p className="mt-1 text-[0.8125rem] leading-[1.45] text-kote-tekst">{lesbar(h.hvorfor)}</p>
+          <p className="mt-1 text-[0.8125rem] leading-[1.45] text-kote-tekst">
+            {lesbar(h.hvorfor)}
+          </p>
         </div>
       ))}
       {organ.sensitiv && (

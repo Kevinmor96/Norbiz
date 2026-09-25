@@ -17,7 +17,6 @@ import { antall, lesbar, tall } from "@/lib/format";
 import { NIVAANAVN } from "@/lib/navn";
 import { cn } from "@/lib/utils";
 
-
 const samlet = new Intl.Collator("nb");
 
 interface Gruppe {

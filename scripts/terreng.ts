@@ -59,6 +59,12 @@ interface Utsnitt {
   /** [vest, sør, øst, nord] i grader. */
   bbox: [number, number, number, number];
   zoom: number;
+  /**
+   * Toleranse for forenkling i gitterceller, når standarden gir for tung fil.
+   * Brukes for alpint terreng i store utsnitt (Lyngen, Målselv), der 17 kotenivåer
+   * ellers gir over 60 kB.
+   */
+  forenkling?: number;
   merknad?: string;
 }
 
@@ -282,11 +288,17 @@ function sti(linjer: { linje: Punkt[]; lukket: boolean }[], skala: number): stri
   return d;
 }
 
-function linjesett(ringer: Punkt[][], b: number, h: number, skala: number): Linjesett | null {
+function linjesett(
+  ringer: Punkt[][],
+  b: number,
+  h: number,
+  skala: number,
+  eps: number,
+): Linjesett | null {
   const linjer = ringer
     .flatMap((r) => utenKant(r, b, h))
     .map(({ linje, lukket }) => ({
-      linje: lukket ? forenkleRing(linje, FORENKLING) : forenkle(linje, FORENKLING),
+      linje: lukket ? forenkleRing(linje, eps) : forenkle(linje, eps),
       lukket,
     }))
     .filter(({ linje }) => linje.length >= 2 && lengde(linje) >= MIN_LINJE);
@@ -303,6 +315,7 @@ function tegn(kommunenr: string, u: Utsnitt): Terreng {
   const { bredde: b, hoyde: h, gitter } = hoydegitter(u);
   const skala = BREDDE / b;
   const maks = gitter.reduce((m, v) => Math.max(m, v), -Infinity);
+  const eps = u.forenkling ?? FORENKLING;
 
   // Havet: regn kotene på den negerte høyden, så polygonene blir sjøen selv og
   // lukkes langs kartrammen.
@@ -311,7 +324,7 @@ function tegn(kommunenr: string, u: Utsnitt): Terreng {
   const havringer = (hav?.coordinates ?? []).flatMap((poly) => poly) as Punkt[][];
   const havsti = sti(
     havringer
-      .map((r) => forenkleRing(r, FORENKLING))
+      .map((r) => forenkleRing(r, eps))
       .filter((r) => r.length >= 4 && lengde(r) >= MIN_LINJE)
       .map((linje) => ({ linje, lukket: true })),
     skala,
@@ -320,7 +333,7 @@ function tegn(kommunenr: string, u: Utsnitt): Terreng {
   // havet og kystlinjen tomme stier, og kartbladet tegner bare kotene. Et
   // utsnitt uten land er derimot et feil utsnitt.
   if (maks <= KYST) throw new Error(`${u.navn}: utsnittet er bare hav`);
-  const kyst = linjesett(havringer, b, h, skala) ?? { d: "", lengde: 0 };
+  const kyst = linjesett(havringer, b, h, skala, eps) ?? { d: "", lengde: 0 };
 
   const nivaaer: number[] = [];
   for (let n = EKVIDISTANSE; n < maks; n += EKVIDISTANSE) nivaaer.push(n);
@@ -330,7 +343,7 @@ function tegn(kommunenr: string, u: Utsnitt): Terreng {
     .thresholds(nivaaer)(verdier)
     .map((mp) => {
       const ringer = mp.coordinates.flatMap((poly) => poly) as Punkt[][];
-      const sett = linjesett(ringer, b, h, skala);
+      const sett = linjesett(ringer, b, h, skala, eps);
       return sett ? { hoyde: mp.value, tellekurve: mp.value % TELLEKURVE === 0, ...sett } : null;
     })
     .filter((k): k is NonNullable<typeof k> => k !== null);

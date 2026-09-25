@@ -195,7 +195,7 @@ export function OrganLenke({
   const ref = typeof org === "string" ? null : org;
   const key = ref ? ref.key : (org as string);
   const hint = navn ?? ref?.navn ?? null;
-  const tekst = children ?? (ref ? (kort ? (ref.kortnavn ?? ref.navn) : ref.navn) : hint ?? key);
+  const tekst = children ?? (ref ? (kort ? (ref.kortnavn ?? ref.navn) : ref.navn) : (hint ?? key));
   const klikk = (e: MouseEvent<HTMLAnchorElement>) => {
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     if (aapneOrgan(key, { fra: e.currentTarget, navn: hint })) e.preventDefault();
