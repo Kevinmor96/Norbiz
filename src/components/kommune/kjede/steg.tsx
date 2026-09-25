@@ -10,13 +10,13 @@
 import type { CSSProperties } from "react";
 
 import { MedMerke, Pastand } from "@/components/maktkart/kildemerke";
+import { OrganLenke } from "@/components/organ/organ-skuff";
 import type { OrganRef, Rolle } from "@/lib/data";
 import { dato, lesbar, tall } from "@/lib/format";
 import { MYNDIGHETNAVN, NIVAANAVN } from "@/lib/navn";
 import { cn } from "@/lib/utils";
 
 import type { Hullhint } from "./hull";
-import { OrganLenke } from "./organlenke";
 import type { Loype, Post } from "./modell";
 import { PostIkon } from "./symboler";
 import { ETAPPE_MS } from "./use-loype";

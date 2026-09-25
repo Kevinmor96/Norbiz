@@ -1,6 +1,6 @@
 // Søket i kommunens organer og roller. Filteret går i nettleseren over
 // organkartet fra loaderen: organene og lederne de har. Et treff åpner
-// organprofilen.
+// organet i skuffen, og går til organsiden der skuffen ikke finnes.
 //
 // Personer finnes bare gjennom en rolle (institusjon først), så et navn gir
 // treff på rollen personen har, og treffet peker til organet.
@@ -13,6 +13,7 @@ import { Command as CommandPrimitive } from "cmdk";
 import { Search } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
 
+import { aapneOrgan } from "@/components/organ/organ-skuff";
 import type { Organkart } from "@/lib/data";
 import { antall } from "@/lib/format";
 import { NIVAANAVN } from "@/lib/navn";
@@ -119,6 +120,9 @@ export function Sok({ organkart, kommunenavn }: { organkart: Organkart; kommunen
 
   const velg = (t: Treff) => {
     settAapen(false);
+    // Fokus tilbake til søkefeltet når skuffen lukkes, ikke til et treff som er borte.
+    if (aapneOrgan(t.org, { fra: felt.current, navn: t.type === "organ" ? t.tittel : null }))
+      return;
     void navigate({ to: "/organ/$key", params: { key: t.org } });
   };
 

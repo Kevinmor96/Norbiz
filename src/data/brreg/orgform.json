@@ -1,0 +1,36 @@
+{
+  "kilde": "Brregs organisasjonsformer, https://data.brreg.no/enhetsregisteret/api/organisasjonsformer. Nivå og organtype er Maktkarts klassifisering.",
+  "regel": "Underenheter (BEDR, AAFY) har ingen egen form og arver fra den overordnede enheten. Helseforetak er registrert som SÆR og skilles på navnet. En form som verken står i «former» eller «hoppes_over», tas ikke inn og meldes i avviksrapporten.",
+  "former": {
+    "AS": { "nivaa": "privat", "organtype": "AS" },
+    "ASA": { "nivaa": "privat", "organtype": "ASA" },
+    "SA": { "nivaa": "privat", "organtype": "SA" },
+    "SPA": { "nivaa": "privat", "organtype": "sparebank" },
+    "STI": { "nivaa": "privat", "organtype": "stiftelse" },
+    "FLI": { "nivaa": "interesse", "organtype": "forening" },
+    "IKS": { "nivaa": "interkommunal", "organtype": "IKS" },
+    "KF": { "nivaa": "kommune", "organtype": "KF" },
+    "FKF": { "nivaa": "fylke", "organtype": "FKF" },
+    "KOMM": { "nivaa": "kommune", "organtype": "kommune" },
+    "FYLK": { "nivaa": "fylke", "organtype": "fylkeskommune" },
+    "STAT": { "nivaa": "stat", "organtype": "etat" },
+    "ORGL": { "nivaa": "stat", "organtype": "etat", "nivaa_fra_sektor": { "6500": "kommune" } },
+    "ADOS": { "nivaa": "stat", "organtype": "etat", "nivaa_fra_sektor": { "6500": "kommune" } },
+    "SF": { "nivaa": "stat", "organtype": "saerlovselskap" },
+    "SÆR": {
+      "nivaa": "stat",
+      "organtype": "saerlovselskap",
+      "organtype_fra_navn": [
+        { "suffiks": "RHF", "organtype": "RHF" },
+        { "suffiks": "HF", "organtype": "HF" }
+      ]
+    }
+  },
+  "hoppes_over": {
+    "ENK": "Enkeltpersonforetak bærer innehaverens navn. Institusjon først: de tas ikke inn.",
+    "ESEK": "Eierseksjonssameier er boligsameier, ikke maktorganer.",
+    "BRL": "Borettslag er boligselskaper, ikke maktorganer.",
+    "KTRF": "Kontorfellesskap er ikke egne virksomheter.",
+    "OPMV": "Særskilt oppdelt enhet etter merverdiavgiftsloven, ikke et eget organ."
+  }
+}

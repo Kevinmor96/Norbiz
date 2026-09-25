@@ -8,11 +8,12 @@
 // høyre for buene, med en tynn ledelinje til toppen av buen sin.
 
 import { Kildemerke } from "@/components/maktkart/kildemerke";
+import { OrganLenke } from "@/components/organ/organ-skuff";
 import { splittSisteOrd } from "@/lib/format";
 import type { Grafmodell } from "@/lib/graf/modell";
 import { cn } from "@/lib/utils";
 
-import { OrganLenke } from "../pengene/felles";
+import { LENKESTIL } from "../pengene/felles";
 
 const RAD = 56;
 const X0 = 8;
@@ -160,7 +161,7 @@ export function Buediagram({
               className="etikett flex items-center justify-end text-right text-[0.8125rem] leading-[1.2] font-semibold"
               style={{ height: RAD }}
             >
-              {o ? <OrganLenke org={o} kort className="line-clamp-2" /> : k}
+              {o ? <OrganLenke org={o} kort className={cn(LENKESTIL, "line-clamp-2")} /> : k}
             </li>
           );
         })}

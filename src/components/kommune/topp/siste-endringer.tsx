@@ -1,11 +1,10 @@
 // Stripen med de siste hendelsene under kartbladet (DESIGN.md §5.1). Bare det
 // som har skjedd: planlagte hendelser står i tidslinjen, over nå-linjen.
 
-import { Link } from "@tanstack/react-router";
-
 import { Pastand } from "@/components/maktkart/kildemerke";
+import { OrganLenke } from "@/components/organ/organ-skuff";
 import type { Endring } from "@/lib/data";
-import { datoStor } from "@/lib/format";
+import { datoStor, lesbar } from "@/lib/format";
 
 export function SisteEndringer({ endringer }: { endringer: Endring[] }) {
   if (!endringer.length) return null;
@@ -35,16 +34,14 @@ export function SisteEndringer({ endringer }: { endringer: Endring[] }) {
               {datoStor(e.dato, e.presisjon)}
             </time>
             <p className="text-[0.9375rem] leading-[1.4] text-pretty">
-              <Pastand tekst={e.tittel} belegg={e.belegg} />
+              <Pastand tekst={lesbar(e.tittel)} belegg={e.belegg} />
             </p>
             {e.org && (
-              <Link
-                to="/organ/$key"
-                params={{ key: e.org.key }}
+              <OrganLenke
+                org={e.org}
+                kort
                 className="self-start text-[0.8125rem] text-dempet underline decoration-linje-sterk hover:text-trykk hover:decoration-signal"
-              >
-                {e.org.kortnavn ?? e.org.navn}
-              </Link>
+              />
             )}
           </li>
         ))}

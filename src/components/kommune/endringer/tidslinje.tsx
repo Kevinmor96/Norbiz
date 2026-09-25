@@ -9,12 +9,12 @@
 // vinduet, fordi margen tar bredde fra 1 200 px.
 
 import { Pastand } from "@/components/maktkart/kildemerke";
+import { OrganLenke } from "@/components/organ/organ-skuff";
 import type { Endring } from "@/lib/data";
 import { datoKort, datoStor, lesbar } from "@/lib/format";
 import { HENDELSESTYPENAVN } from "@/lib/navn";
 import { cn } from "@/lib/utils";
 
-import { OrganLenke } from "../kjede/organlenke";
 import type { Aargruppe, Tidslinje, Udatert } from "./modell";
 
 /** Datoen med presisjonen kilden har. Et årstall alene sier ifra om at dagen mangler. */
@@ -30,10 +30,9 @@ function Organlenke({ org }: { org: NonNullable<Endring["org"]> }) {
   return (
     <OrganLenke
       org={org}
+      kort
       className="self-start text-[0.8125rem] text-dempet underline decoration-linje-sterk underline-offset-[0.2em] transition-colors duration-150 hover:text-trykk hover:decoration-signal"
-    >
-      {org.kortnavn ?? org.navn}
-    </OrganLenke>
+    />
   );
 }
 

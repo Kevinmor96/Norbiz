@@ -14,55 +14,15 @@ import type {
   Rollestatus,
 } from "@/lib/data";
 import { LEDERTYPER } from "@/lib/data/kontrakt";
-import { dato, kroner, lesbar, tall } from "@/lib/format";
+import { dato, hentesFra as hentesFraTekst, kroner, tall } from "@/lib/format";
 
 // ---------------------------------------------------------------------------
 // Fritekst fra datasettet
 // ---------------------------------------------------------------------------
 
-/**
- * Fritekst fra datasettet, skrevet om så «[verifiser]» aldri når leseren
- * (DESIGN.md §3). Grunnlaget skriver «Merket [verifiser via X] i
- * grunnlaget.». Leseren trenger å vite hva som mangler og hvor det skal
- * hentes, så det blir «Hentes fra X.».
- *
- * `lesbar()` i src/lib/format.ts dekker bare «[verifiser]», «[verifiser via
- * X]» og «[verifiser i X]». Datasettet har også «[verifiser navn]» og
- * «[verifiser org.form]», så denne tar alle former og faller til slutt tilbake
- * på «må verifiseres».
- */
-export function ren(tekst: string): string {
-  const hvorFra = (inni: string | undefined) => {
-    const m = /^\s*(via|i)\s+(.+)$/i.exec(inni ?? "");
-    return m ? { prep: m[1]!.toLowerCase(), hvor: m[2]!.trim() } : null;
-  };
-  let t = tekst;
-  // «Merket [verifiser …] (via X) (og uverifisert) i grunnlaget.» som egen setning.
-  // Stor M og setningsstart, så «Sluttdatoen er merket …» ikke tas her.
-  t = t.replace(
-    /(^|[.!?]\s+)Merket \[verifiser([^\]]*)\](?:\s+via\s+([^.]+?))?(?:\s+og uverifisert)?\s+i grunnlaget\./g,
-    (_, foran: string, inni: string, via: string | undefined) => {
-      const hvor = hvorFra(inni)?.hvor ?? via?.trim();
-      return `${foran}${hvor ? `Hentes fra ${hvor}.` : "Grunnlaget merker opplysningen som usikker."}`;
-    },
-  );
-  // «Per 2024, merket [verifiser] i grunnlaget.»
-  t = t.replace(/,\s*merket \[verifiser([^\]]*)\](?:\s+i grunnlaget)?/gi, (_, inni: string) => {
-    const h = hvorFra(inni);
-    return h ? `. Må verifiseres ${h.prep === "via" ? "mot" : "i"} ${h.hvor}` : ". Må verifiseres";
-  });
-  // «Org.nr. er merket [verifiser i Brreg] i grunnlaget.» → «Org.nr. må verifiseres i Brreg.»
-  t = t.replace(/\ber merket \[verifiser([^\]]*)\](?:\s+i grunnlaget)?/gi, (_, inni: string) => {
-    const h = hvorFra(inni);
-    return h ? `må verifiseres ${h.prep === "via" ? "mot" : "i"} ${h.hvor}` : "må verifiseres";
-  });
-  // Resten, i hvilken som helst form.
-  t = t.replace(/\[verifiser([^\]]*)\]/gi, (_, inni: string) => {
-    const h = hvorFra(inni);
-    return h ? `«må verifiseres» ${h.prep === "via" ? "mot" : "i"} ${h.hvor}` : "«må verifiseres»";
-  });
-  return lesbar(t);
-}
+// Fritekst skrives om med `lesbar()` fra src/lib/format.ts. Den er den eneste
+// funksjonen som fjerner «[verifiser]», så organflatene og resten av siden
+// skriver et hull likt.
 
 /**
  * Tekst til søk: små bokstaver, uten aksenter, med ø og æ skrevet om. Samme
@@ -107,13 +67,11 @@ export function erLederhull(h: Pick<HullPunkt, "hva">): boolean {
 
 /**
  * Hvor en manglende opplysning skal hentes, når grunnlaget sier det:
- * «[verifiser via innsyn.tromso.kommune.no]» gir «innsyn.tromso.kommune.no».
+ * «Merket [verifiser via innsyn.tromso.kommune.no] i grunnlaget.» gir
+ * «innsyn.tromso.kommune.no». Regelen står i `hentesFra` i src/lib/format.ts.
  */
 export function hentesFra(h: Pick<HullPunkt, "hvorfor">): string | null {
-  const m =
-    /\[verifiser\s+(?:via|i)\s+([^\]]+)\]/i.exec(h.hvorfor) ??
-    /\[verifiser[^\]]*\]\s+via\s+([^.]+?)\s+i grunnlaget/i.exec(h.hvorfor);
-  return m ? m[1]!.trim() : null;
+  return hentesFraTekst(h.hvorfor);
 }
 
 /** Hvor ledelsen skal hentes fra, fra organets hull, eller `null`. */

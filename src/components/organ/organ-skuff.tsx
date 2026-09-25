@@ -17,10 +17,10 @@
 //   // Hvilket organ som er åpent, til markering.
 //   const { aapen } = useOrganSkuff();
 //
-// Skuffen er en butikk på modulnivå, ikke en React-kontekst. Seksjonene er
-// søsken under ruten, og ruten skal ikke endres av seksjonsbyggerne, så en
-// provider rundt dem finnes ikke. <OrganSkuffVert /> står én gang på siden
-// (i organkartet) og tegner skuffen. `aapneOrgan` virker fra hvor som helst.
+// Skuffen er en butikk på modulnivå, ikke en React-kontekst, så `aapneOrgan`
+// virker fra hvor som helst, også fra kode utenfor React-treet.
+// <OrganSkuffVert /> står én gang på siden, i ruten /kommune/$slug, og tegner
+// skuffen. Organprofilen i skuffen lenker videre med samme `OrganLenke`.
 //
 // Adressen følger skuffen: /kommune/tromso#organ-troms-kraft åpner Troms Kraft
 // når siden lastes, og uten JavaScript ruller den til kortet i organkartet,

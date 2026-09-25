@@ -19,12 +19,11 @@ import {
   erKonflikt,
   forsteSetning,
   lederHentesFra,
-  ren,
   rollePastand,
   rolleTid,
 } from "@/components/organ/tekst";
 import type { OrganKort, Rolle } from "@/lib/data";
-import { orgnr, tall } from "@/lib/format";
+import { lesbar, orgnr, tall } from "@/lib/format";
 import { MYNDIGHETNAVN, ORGANTYPENAVN } from "@/lib/navn";
 import { cn } from "@/lib/utils";
 
@@ -164,7 +163,7 @@ export function Organkort({
         <p className="flex flex-col items-start gap-1">
           <KildeneUenige />
           <span className="text-[0.8125rem] leading-[1.4] text-kote-tekst">
-            {forsteSetning(ren(konflikt.hva))}
+            {forsteSetning(lesbar(konflikt.hva))}
           </span>
         </p>
       )}

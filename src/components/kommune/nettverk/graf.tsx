@@ -16,12 +16,13 @@
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 
 import { Kildemerke } from "@/components/maktkart/kildemerke";
+import { OrganLenke } from "@/components/organ/organ-skuff";
 import { NODE_RADIUS, type KantUt, type Oppsett } from "@/lib/graf/layout";
 import { andelTekst, GRAFSKRIFT, type Grafmodell } from "@/lib/graf/modell";
 import { prosent } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
-import { OrganLenke } from "../pengene/felles";
+import { LENKESTIL } from "../pengene/felles";
 import { useSpillEnGang, type Fase } from "../pengene/spill-en-gang";
 
 /** Hvor mye nærmere midten grafen starter når den legger seg. */
@@ -246,7 +247,7 @@ export function Nettverksgraf({
             >
               <OrganLenke
                 org={node.organ}
-                className="decoration-transparent hover:decoration-signal"
+                className={cn(LENKESTIL, "decoration-transparent hover:decoration-signal")}
               >
                 {node.linjer.map((l, i) => (
                   <span key={i} className="block">

@@ -5,7 +5,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState, useSyncExternalStore, type MouseEvent, type ReactNode } from "react";
 
-import type { OrganProfil } from "@/lib/data";
+import type { OrganProfil, OrganRef } from "@/lib/data";
 
 // ---------------------------------------------------------------------------
 // Butikken
@@ -166,33 +166,44 @@ export function useProfil(key: string | null): [Tilstand | null, () => void] {
 /**
  * Lenke til et organ. Er skuffen på siden, åpner et vanlig klikk den. Et klikk
  * med modifikator, midtklikk og sider uten skuff går til /organ/$key.
+ *
+ * `org` er nøkkelen eller hele organreferansen. Med referansen blir navnet
+ * både hint til skuffens hode og lenketeksten, så seksjonene slipper å
+ * gjenta det. `kort` bruker kortnavnet der det finnes, til trange flater.
  */
 export function OrganLenke({
   org,
   navn,
+  kort = false,
   children,
   className,
   id,
   "aria-label": ariaLabel,
   "aria-describedby": ariaDescribedby,
 }: {
-  org: string;
-  /** Vises i skuffens hode mens profilen hentes. */
+  org: string | OrganRef;
+  /** Vises i skuffens hode mens profilen hentes. Leses fra `org` når den er en referanse. */
   navn?: string;
-  children: ReactNode;
-  className?: string;
+  kort?: boolean;
+  /** Egen lenketekst. Ellers organets navn, eller kortnavnet med `kort`. */
+  children?: ReactNode;
+  className?: string | undefined;
   id?: string;
   "aria-label"?: string;
   "aria-describedby"?: string;
 }) {
+  const ref = typeof org === "string" ? null : org;
+  const key = ref ? ref.key : (org as string);
+  const hint = navn ?? ref?.navn ?? null;
+  const tekst = children ?? (ref ? (kort ? (ref.kortnavn ?? ref.navn) : ref.navn) : hint ?? key);
   const klikk = (e: MouseEvent<HTMLAnchorElement>) => {
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    if (aapneOrgan(org, { fra: e.currentTarget, navn: navn ?? null })) e.preventDefault();
+    if (aapneOrgan(key, { fra: e.currentTarget, navn: hint })) e.preventDefault();
   };
   return (
     <Link
       to="/organ/$key"
-      params={{ key: org }}
+      params={{ key }}
       id={id}
       className={className}
       aria-label={ariaLabel}
@@ -201,7 +212,7 @@ export function OrganLenke({
       onPointerEnter={forhandslastOrganer}
       onFocus={forhandslastOrganer}
     >
-      {children}
+      {tekst}
     </Link>
   );
 }

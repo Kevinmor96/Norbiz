@@ -1,0 +1,57 @@
+{
+  "felles": {
+    "sidestorrelse": 200,
+    "min_intervall_ms": 220,
+    "regnskap_orgformer": ["AS", "ASA", "SA", "SPA", "STI", "IKS", "SF", "SÆR"],
+    "sensitiv_navn": [
+      { "monster": "(^|[^a-zæøå])politi(?!sk)", "organtype": "politi" },
+      { "monster": "tingrett|lagmannsrett|jordskifterett|høyesterett|domstol|arbeidsretten|trygderetten", "organtype": "domstol" },
+      { "monster": "statsadvokat|riksadvokat|påtalemyndighet|økokrim", "organtype": "paatale" },
+      { "monster": "(^|[^a-zæøå])forsvaret|forsvarets", "organtype": "etat" },
+      { "monster": "barnevern", "organtype": "etat" }
+    ],
+    "sensitiv_naering": [
+      { "prefiks": "84.22", "krav": "forsvar", "organtype": "etat" },
+      { "prefiks": "84.24", "krav": "politi|påtale", "organtype": "politi" }
+    ],
+    "navneformer": {
+      "UIT": "UiT",
+      "SINTEF": "SINTEF",
+      "NILU": "NILU",
+      "NINA": "NINA",
+      "NORCE": "NORCE",
+      "KSAT": "KSAT",
+      "NRK": "NRK",
+      "NAV": "Nav",
+      "UNN": "UNN",
+      "I": "i",
+      "OG": "og",
+      "AV": "av",
+      "FOR": "for"
+    }
+  },
+  "kommuner": {
+    "5501": {
+      "terskel_ansatte": 20,
+      "terskel_underenheter": 20,
+      "roller_for_overordnede": false,
+      "navnesok_for_grunnlaget": true,
+      "alltid": {
+        "fra_datasett": true,
+        "orgnr": [],
+        "navn": [
+          { "navn": "Troms fylkeskommune", "organisasjonsform": "FYLK" },
+          { "navn": "Statsforvalteren i Troms og Finnmark" },
+          { "navn": "Universitetssykehuset Nord-Norge HF" },
+          { "navn": "Helse Nord RHF" },
+          { "navn": "UiT Norges arktiske universitet" },
+          { "navn": "Troms politidistrikt" },
+          { "navn": "Nord-Troms og Senja tingrett" },
+          { "navn": "Hålogaland lagmannsrett" }
+        ]
+      },
+      "koblinger": {},
+      "samme_person": {}
+    }
+  }
+}

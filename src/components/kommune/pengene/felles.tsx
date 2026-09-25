@@ -1,7 +1,6 @@
-// Små byggeklosser Pengene og Nettverket deler: organlenken, et nøkkeltall
-// med år og eget kildemerke, og brikken for det som ikke er kartlagt.
+// Små byggeklosser Pengene og Nettverket deler: stilen på organnavnene, et
+// nøkkeltall med år og eget kildemerke, og brikken for det som ikke er kartlagt.
 
-import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
 import { MedMerke } from "@/components/maktkart/kildemerke";
@@ -11,33 +10,13 @@ import { cn } from "@/lib/utils";
 
 import { aarOgOmfang, verdiTekst } from "./tekst";
 
-/** Organets navn som lenke til organprofilen. */
-export function OrganLenke({
-  org,
-  kort = false,
-  className,
-  children,
-}: {
-  org: OrganRef;
-  /** Kortnavnet der det finnes, for trange flater. */
-  kort?: boolean;
-  className?: string | undefined;
-  /** Egen tekst, for eksempel navnet brutt i linjer. Ellers organets navn. */
-  children?: ReactNode;
-}) {
-  return (
-    <Link
-      to="/organ/$key"
-      params={{ key: org.key }}
-      className={cn(
-        "underline decoration-linje-sterk decoration-1 underline-offset-[0.2em] transition-colors duration-150 hover:decoration-signal",
-        className,
-      )}
-    >
-      {children ?? (kort ? (org.kortnavn ?? org.navn) : org.navn)}
-    </Link>
-  );
-}
+/**
+ * Utseendet til et organnavn i Pengene og Nettverket. Selve lenken er den
+ * felles `OrganLenke` fra organskuffen, så navnet åpner skuffen på
+ * kommunesiden og organsiden ellers.
+ */
+export const LENKESTIL =
+  "underline decoration-linje-sterk decoration-1 underline-offset-[0.2em] transition-colors duration-150 hover:decoration-signal";
 
 /**
  * Et nøkkeltall: navn, verdi med eget kildemerke, og år med morselskap eller

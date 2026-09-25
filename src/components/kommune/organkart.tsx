@@ -3,7 +3,7 @@
 // Fire bånd, STAT, FYLKE, KOMMUNE og SELSKAPER, skilt av administrative
 // grenselinjer med strek-prikk. Kommune- og fylkesbåndet har to kolonner:
 // folkevalgte organer og administrasjon. Hvert organ er et kort som åpner
-// organskuffen. Skuffen tegnes her, én gang for hele siden, og de andre
+// organskuffen. Skuffen tegnes av ruten, én gang for hele siden, og alle
 // seksjonene åpner den med `aapneOrgan` eller `<OrganLenke>`.
 //
 // Inndelingen og regelen for hva et sammenfoldet bånd viser, står i
@@ -15,7 +15,6 @@ import { Fragment, useMemo, type ReactNode } from "react";
 
 import { Seksjon } from "@/components/maktkart/seksjon";
 import { IkkeKartlagt, KildeneUenige, Sensitivmerke } from "@/components/organ/merker";
-import { OrganSkuffVert } from "@/components/organ/organ-skuff";
 import { erKonflikt } from "@/components/organ/tekst";
 import { tall } from "@/lib/format";
 
@@ -102,7 +101,6 @@ export function OrgankartSeksjon({ side }: SeksjonProps) {
           </p>
         </div>
       )}
-      <OrganSkuffVert />
     </Seksjon>
   );
 }

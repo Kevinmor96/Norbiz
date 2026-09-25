@@ -8,11 +8,12 @@
 // oppgitt». Stolpen gjetter aldri.
 
 import { Kildemerke, MedMerke } from "@/components/maktkart/kildemerke";
+import { OrganLenke } from "@/components/organ/organ-skuff";
 import type { Eierandel, OrganRef } from "@/lib/data";
 import { prosent } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
-import { Blokktittel, IkkeKartlagt, Nokkeltall, OrganLenke } from "./felles";
+import { Blokktittel, IkkeKartlagt, LENKESTIL, Nokkeltall } from "./felles";
 import { VisAlle } from "./vis-alle";
 import type { Eierrad } from "./utregning";
 
@@ -44,7 +45,7 @@ function AndreEiere({ andre, selskap }: { andre: Eierandel[]; selskap: OrganRef 
       {med.map((a, i) => (
         <span key={a.org.key}>
           {i > 0 && ", "}
-          <span className="text-trykk">{a.org.navn}</span>{" "}
+          <OrganLenke org={a.org} className={cn(LENKESTIL, "text-trykk")} />{" "}
           <MedMerke
             belegg={a.belegg}
             pastand={`${a.org.navn} eier ${prosent(a.andel ?? 0)} av ${selskap.navn}`}
@@ -61,7 +62,7 @@ function AndreEiere({ andre, selskap }: { andre: Eierandel[]; selskap: OrganRef 
             <span key={a.org.key}>
               {i > 0 && (i === uten.length - 1 ? " og " : ", ")}
               <span className="whitespace-nowrap text-trykk">
-                {a.org.navn}
+                <OrganLenke org={a.org} className={LENKESTIL} />
                 <Kildemerke
                   belegg={a.belegg}
                   pastand={`${a.org.navn} er eier i ${selskap.navn}. Andelen er ikke oppgitt`}
@@ -82,7 +83,7 @@ function Rad({ r, eier }: { r: Eierrad; eier: OrganRef }) {
   return (
     <li className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 gap-y-2 border-t border-linje py-3.5">
       <p className="min-w-0 font-semibold text-pretty">
-        <OrganLenke org={r.org} />
+        <OrganLenke org={r.org} className={LENKESTIL} />
       </p>
       <p className="justify-self-end text-right">
         {r.andel !== null ? (

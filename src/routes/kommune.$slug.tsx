@@ -1,6 +1,9 @@
-// Kommunesiden: produktet (spec §3). Ruten er ferdig og skal ikke endres av
-// seksjonsbyggerne. Hver seksjon får hele kommunesiden som `side` og henter
-// det den trenger derfra (se src/components/kommune/seksjoner.ts).
+// Kommunesiden: produktet (spec §3). Hver seksjon får hele kommunesiden som
+// `side` og henter det den trenger derfra (se src/components/kommune/seksjoner.ts).
+//
+// Organskuffen står her, én gang for hele siden, og ikke i en seksjon. Da
+// åpner et organnavn skuffen fra hvilken som helst seksjon, og skuffen
+// finnes selv om en seksjon tas bort.
 //
 // Loaderen slår opp sluggen blant kommunene med datasett. Ukjent slug gir 404.
 // Alt siden viser, kommer fra lese-API-et i src/lib/data, så byttet til
@@ -23,6 +26,7 @@ import { KommuneKontekst } from "@/components/maktkart/kommune-kontekst";
 import { MargIndeks } from "@/components/maktkart/marg-indeks";
 import { Sidefot } from "@/components/maktkart/sidefot";
 import { Topplinje } from "@/components/maktkart/topplinje";
+import { OrganSkuffVert } from "@/components/organ/organ-skuff";
 import { datoKort, tall } from "@/lib/format";
 import { lastKommuneside } from "@/lib/kommuneside";
 import { nettstedUrl } from "@/lib/nettsted";
@@ -100,6 +104,7 @@ function Kommuneside() {
         metodeHref="#metode"
       />
       <ForhandsversjonBunn sammenstilt={kommune.sammenstilt} proHref="#pro" />
+      <OrganSkuffVert />
     </KommuneKontekst>
   );
 }

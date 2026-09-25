@@ -22,6 +22,7 @@ import {
   datoKort,
   datoStor,
   kroner,
+  lesbar,
   orgnr,
   prosent,
   splittSisteOrd,
@@ -52,7 +53,6 @@ import {
   regnskapsperiode,
   RELASJONSNAVN,
   REGNSKAPSTYPER,
-  ren,
   rollegruppe,
   ROLLEGRUPPER,
   rollePastand,
@@ -73,7 +73,7 @@ export function nivaalinje(o: Pick<OrganRef, "nivaa" | "organtype">): string {
 export function profilbeskrivelse(p: OrganProfil, sammenstilt: string | null): string {
   const leder = p.roller.naa.find(erLederrolle);
   const deler = [
-    ren(p.organ.beskrivelse).trim(),
+    lesbar(p.organ.beskrivelse).trim(),
     leder ? `${leder.tittel}: ${leder.person.navn}.` : "",
     sammenstilt ? `Sammenstilt ${datoKort(sammenstilt)}, ikke etterprøvd mot Brreg.` : "",
   ];
@@ -151,7 +151,7 @@ function Organnavn({ org, className }: { org: OrganRef; className?: string }) {
 
 function Beskrivelse({ profil, overskrift }: { profil: OrganProfil; overskrift: Overskrift }) {
   const { organ } = profil;
-  const tekst = ren(organ.beskrivelse).trim();
+  const tekst = lesbar(organ.beskrivelse).trim();
   const konflikter = profil.hull.filter(erKonflikt);
   return (
     <Del tittel="Hva organet bestemmer over" overskrift={overskrift}>
@@ -171,8 +171,8 @@ function Beskrivelse({ profil, overskrift }: { profil: OrganProfil; overskrift: 
       {konflikter.map((h) => (
         <div key={h.hva} className="mt-4 border border-kote bg-flate px-3.5 py-3">
           <KildeneUenige />
-          <p className="mt-2 text-[0.9375rem] leading-[1.5]">{ren(h.hva)}</p>
-          <p className="mt-1 text-[0.8125rem] leading-[1.45] text-kote-tekst">{ren(h.hvorfor)}</p>
+          <p className="mt-2 text-[0.9375rem] leading-[1.5]">{lesbar(h.hva)}</p>
+          <p className="mt-1 text-[0.8125rem] leading-[1.45] text-kote-tekst">{lesbar(h.hvorfor)}</p>
         </div>
       ))}
       {organ.sensitiv && (
@@ -562,10 +562,10 @@ function Hendelse({ h }: { h: Endring }) {
         <span className="font-normal text-dempet"> · {HENDELSESTYPENAVN[h.type]}</span>
       </p>
       <p className="mt-0.5 leading-[1.4]">
-        <Pastand tekst={ren(h.tittel)} belegg={h.belegg} />
+        <Pastand tekst={lesbar(h.tittel)} belegg={h.belegg} />
       </p>
       {h.tekst && (
-        <p className="mt-0.5 text-[0.8125rem] leading-[1.45] text-dempet">{ren(h.tekst)}</p>
+        <p className="mt-0.5 text-[0.8125rem] leading-[1.45] text-dempet">{lesbar(h.tekst)}</p>
       )}
     </Rad>
   );
@@ -642,8 +642,8 @@ function Hull({ profil, overskrift }: { profil: OrganProfil; overskrift: Overskr
               className="mt-[0.4em] size-2.5 shrink-0 border border-dashed border-kote"
             />
             <span>
-              <span className="font-medium">{ren(h.hva)}</span>{" "}
-              <span className="text-kote-tekst">{ren(h.hvorfor)}</span>
+              <span className="font-medium">{lesbar(h.hva)}</span>{" "}
+              <span className="text-kote-tekst">{lesbar(h.hvorfor)}</span>
             </span>
           </li>
         ))}

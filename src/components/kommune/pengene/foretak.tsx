@@ -6,10 +6,12 @@
 // så leseren ser hvem kommunen eier gjennom.
 
 import { Kildemerke, MedMerke } from "@/components/maktkart/kildemerke";
+import { OrganLenke } from "@/components/organ/organ-skuff";
 import type { HullPunkt, OrganRef } from "@/lib/data";
 import { lesbar, prosent } from "@/lib/format";
+import { cn } from "@/lib/utils";
 
-import { Blokktittel, Nokkeltall, OrganLenke } from "./felles";
+import { Blokktittel, LENKESTIL, Nokkeltall } from "./felles";
 import type { Foretaksrad, Indirekterad } from "./utregning";
 import { VisAlle } from "./vis-alle";
 
@@ -80,7 +82,7 @@ function ForetakListe({
         <li key={r.org.key} className="flex flex-col gap-1 border-t border-linje py-2.5">
           <p className="font-semibold text-pretty">
             <span className="whitespace-nowrap">
-              <OrganLenke org={r.org} />
+              <OrganLenke org={r.org} className={LENKESTIL} />
               <Kildemerke
                 belegg={r.belegg}
                 pastand={`${r.org.navn} er et ${fylke ? "fylkeskommunalt" : "kommunalt"} foretak i ${eier.navn}`}
@@ -131,14 +133,14 @@ function KjedeListe({ rader, tittelId }: { rader: Indirekterad[]; tittelId?: str
       {rader.map((r) => (
         <li key={r.org.key} className="flex flex-col gap-1 border-t border-linje py-2.5">
           <p className="font-semibold text-pretty">
-            <OrganLenke org={r.org} />
+            <OrganLenke org={r.org} className={LENKESTIL} />
           </p>
           <p className="text-[0.8125rem] leading-[1.5] text-dempet">
             Eid av{" "}
             {r.eiere.map((e, i) => (
               <span key={e.org.key}>
                 {i > 0 && (i === r.eiere.length - 1 ? " og " : ", ")}
-                <span className="text-trykk">{e.org.navn}</span>{" "}
+                <OrganLenke org={e.org} className={cn(LENKESTIL, "text-trykk")} />{" "}
                 {e.andel !== null ? (
                   <MedMerke
                     belegg={e.belegg}

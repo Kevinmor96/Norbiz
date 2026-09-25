@@ -11,11 +11,12 @@
 // Uendelig bevegelse ved lesestoff er uro. Beløpene er i kursiv: flyt.
 
 import { MedMerke } from "@/components/maktkart/kildemerke";
+import { OrganLenke } from "@/components/organ/organ-skuff";
 import { avledBelegg } from "@/lib/belegg";
 import { dato, kroner, lesbar, prosent } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
-import { Blokktittel, IkkeKartlagt, OrganLenke } from "./felles";
+import { Blokktittel, IkkeKartlagt, LENKESTIL } from "./felles";
 import { useSpillEnGang } from "./spill-en-gang";
 import type { Mottaker, utbytteElv } from "./utregning";
 
@@ -137,7 +138,7 @@ export function Utbytteelv({
           </span>
           <span className="etikett mt-2 text-[0.9375rem] text-pretty">
             <strong className="font-bold">{elv.forslag ? "foreslått" : "utbytte"}</strong>
-            {elv.forslag ? " utbytte" : ""} fra <OrganLenke org={elv.selskap} />
+            {elv.forslag ? " utbytte" : ""} fra <OrganLenke org={elv.selskap} className={LENKESTIL} />
             {naar ? ` ${naar}` : ""}
           </span>
         </figcaption>
@@ -243,7 +244,7 @@ export function Utbytteelv({
                       g.mottaker.erEieren ? "font-bold" : "text-dempet",
                     )}
                   >
-                    {g.mottaker.org.navn}
+                    <OrganLenke org={g.mottaker.org} className={LENKESTIL} />
                   </span>
                   {g.mottaker.andel !== null && (
                     <span className="text-[0.75rem] text-dempet">

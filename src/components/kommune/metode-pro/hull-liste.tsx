@@ -4,19 +4,19 @@
 // <details>, så den virker uten JavaScript og med tastatur.
 //
 // Hullene grupperes på nivå og organ, så leseren ser hvor de ligger tettest.
-// All tekst går gjennom `rens`: «[verifiser]» fra grunnlaget skal aldri nå
+// All tekst går gjennom `lesbar`: «[verifiser]» fra grunnlaget skal aldri nå
 // leseren (DESIGN.md §3).
 
-import { Link } from "@tanstack/react-router";
 import { ChevronDown } from "lucide-react";
 
+// Fra butikken, ikke skuffen: lista står også på /metode, der skuffen ikke finnes.
+import { OrganLenke } from "@/components/organ/organ-lenke";
 import type { HullPunkt, Nivaa, OrganRef } from "@/lib/data";
 import { NIVAAER } from "@/lib/data/kontrakt";
-import { antall, tall } from "@/lib/format";
+import { antall, lesbar, tall } from "@/lib/format";
 import { NIVAANAVN } from "@/lib/navn";
 import { cn } from "@/lib/utils";
 
-import { rens } from "./rens";
 
 const samlet = new Intl.Collator("nb");
 
@@ -93,13 +93,10 @@ export function HullListe({ hull, className }: { hull: HullPunkt[]; className?: 
             >
               {gruppe.organer.map(({ org, hull: liste }) => (
                 <li key={org.key} className="border-t border-linje py-2.5">
-                  <Link
-                    to="/organ/$key"
-                    params={{ key: org.key }}
+                  <OrganLenke
+                    org={org}
                     className="text-[0.9375rem] font-semibold underline decoration-linje-sterk underline-offset-[0.2em] hover:decoration-signal"
-                  >
-                    {org.navn}
-                  </Link>
+                  />
                   <ul className="mt-1.5 flex flex-col gap-2">
                     {liste.map((h) => (
                       <li
@@ -112,7 +109,7 @@ export function HullListe({ hull, className }: { hull: HullPunkt[]; className?: 
                           aria-hidden="true"
                         />
                         <span className="text-pretty">
-                          {rens(h.hva)} <span className="text-dempet">{rens(h.hvorfor)}</span>
+                          {lesbar(h.hva)} <span className="text-dempet">{lesbar(h.hvorfor)}</span>
                         </span>
                       </li>
                     ))}
