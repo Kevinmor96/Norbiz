@@ -5,17 +5,10 @@
     "fylkesnr": "56",
     "fylke": "Finnmark",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -36,29 +29,496 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "batsfjord-kommune-no-2017-02-28-kontakt-batsfjord-kommune",
+      "navn": "Båtsfjord kommune: Kontakt Båtsfjord kommune",
+      "url": "https://www.batsfjord.kommune.no/artikler/2017/q1/2017-02-28-kontakt-batsfjord-kommune",
+      "type": "offisiell"
+    },
+    {
+      "key": "batsfjord-kommune-no-hvem-er-ordforer-i-batsfjord",
+      "navn": "Båtsfjord kommune: Hvem er Ordfører i Båtsfjord?",
+      "url": "https://www.batsfjord.kommune.no/alle-tjenester/administrasjon/politisk1/ordforerens-side/hvem-er-ordforer-i-batsfjord",
+      "type": "offisiell"
+    },
+    {
+      "key": "batsfjord-kommune-no-kontrollutvalg",
+      "navn": "Båtsfjord kommune: Kontrollutvalg",
+      "url": "https://www.batsfjord.kommune.no/alle-tjenester/administrasjon/politisk1/kontrollutvalg",
+      "type": "offisiell"
+    },
+    {
+      "key": "brreg-eierroller",
+      "navn": "Enhetsregisteret: eierkommune (EIKM) og helseforetak (HLSE) i rollelisten, hentet med skript",
+      "url": "https://data.brreg.no/enhetsregisteret/api/enheter",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-finnmark-jordskifterett-rettskrets",
+      "navn": "Finnmark jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/finnmark-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-indre-og-ostre-finnmark-tingrett-om",
+      "navn": "Indre og Østre Finnmark tingrett: Om tingretten",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/sis--ja-nuorta-finnmarkku-diggegoddi--indre-og-ostre-finnmark-tingrett/om-indre-og-ostre-finnmark-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-utmarksdomstolen-saksbehandling",
+      "navn": "Utmarksdomstolen for Finnmark: Saksbehandling",
+      "url": "https://www.domstol.no/no/domstoler/annen/utmarksdomstolen-for-finnmark/saksbehandling/",
+      "type": "offisiell"
+    },
+    {
+      "key": "ffk-no-administrativ-ledelse",
+      "navn": "Finnmark fylkeskommune: Administrativ ledelse",
+      "url": "https://www.ffk.no/om-oss/administrativ-ledelse/",
+      "type": "offisiell"
+    },
+    {
+      "key": "finnmarkssykehuset-no-foretaksledelsen",
+      "navn": "Finnmarkssykehuset: Foretaksledelsen",
+      "url": "https://www.finnmarkssykehuset.no/kontakt-oss/foretaksledelsen",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-finnmark",
+      "navn": "Politiet: Finnmark politidistrikt",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/finnmark/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
     }
   ],
   "organisasjoner": [
     {
-      "key": "batsfjord-kommunestyre",
-      "navn": "Kommunestyret i Båtsfjord",
+      "key": "batsfjord-kommune",
+      "orgnr": "938795592",
+      "navn": "Båtsfjord kommune",
+      "kortnavn": "Båtsfjord kommune",
       "nivaa": "kommune",
-      "organtype": "folkevalgt_organ",
+      "organtype": "kommune",
+      "kommunenr": "5632",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «BÅTSFJORD KOMMUNE». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "batsfjord-kommune-administrasjonen",
+      "navn": "Administrasjonen i Båtsfjord kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
       "overordnet": "batsfjord-kommune",
       "kommunenr": "5632",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
       "myndighet": [
+        "innstilling",
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "batsfjord-kommune-no-2017-02-28-kontakt-batsfjord-kommune",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "merknad": "Hentet fra batsfjord.kommune.no 25.09.2026."
       }
+    },
+    {
+      "key": "batsfjord-kontrollutvalget",
+      "navn": "Kontrollutvalget i Båtsfjord",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "batsfjord-kommunestyre",
+      "kommunenr": "5632",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "batsfjord-kommune-no-kontrollutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra batsfjord.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "batsfjord-kommunestyre",
+      "navn": "Kommunestyret i Båtsfjord",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "batsfjord-kommune",
+      "kommunenr": "5632",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 15,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "batsfjord-havn-kf",
+      "orgnr": "812829572",
+      "navn": "Båtsfjord Havn KF",
+      "kortnavn": "Båtsfjord Havn",
+      "nivaa": "kommune",
+      "organtype": "KF",
+      "overordnet": "batsfjord-kommune",
+      "kommunenr": "5632",
+      "fylkesnr": "56",
+      "segmenter": [
+        "transport"
+      ],
+      "beskrivelse": "Kommunalt foretak for havnevirksomhet, eid av Båtsfjord kommune.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Næringskode 52.220 «Andre tjenester tilknyttet sjøtransport». Eierkommunen står som eierkommune (EIKM) i Rolle-API-et."
+      },
+      "myndighet": [],
+      "status": "aktiv",
+      "sensitiv": false
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune",
+      "orgnr": "830090282",
+      "navn": "Finnmark fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "finansiering"
+      ],
+      "beskrivelse": "Fylkeskommunen for Finnmark, med ansvar for samferdsel, videregående opplæring, tannhelse, kultur og miljø og næringsutvikling.",
+      "belegg": {
+        "kilde": "ffk-no-administrativ-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ffk.no (administrativ ledelse) 25.09.2026. Organisasjonsnummer og organisasjonsform (FYLK, forretningsadresse i Vadsø) fra Enhetsregisteret. Erstatter grunnlagets rad, som ikke oppga kilde."
+      },
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "gyldig_fra": "2024-01-01"
+    },
+    {
+      "key": "finnmark-fylkesting",
+      "navn": "Fylkestinget i Finnmark - Finnmárku - Finmarkku",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "finnmark-fylkeskommune",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 35,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "finnmark-jordskifterett",
+      "orgnr": "926726463",
+      "navn": "Finnmark jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Særdomstol for saker om fast eiendom i alle 18 kommunene i Finnmark, med sete i Vadsø.",
+      "belegg": {
+        "kilde": "domstol-no-finnmark-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Orgnr fra Enhetsregisteret."
+      },
+      "status": "aktiv"
+    },
+    {
+      "key": "finnmark-politidistrikt",
+      "orgnr": "984000049",
+      "navn": "Finnmark politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Politidistriktet for hele Finnmark, med administrasjon i Kirkenes.",
+      "belegg": {
+        "kilde": "politiet-no-finnmark",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026: politidistriktet for hele Finnmark, med administrasjon i Kirkenes. Orgnr og forretningsadresse (Sør-Varanger) fra Enhetsregisteret."
+      },
+      "segmenter": [],
+      "status": "aktiv"
+    },
+    {
+      "key": "finnmarkssykehuset",
+      "orgnr": "983974880",
+      "navn": "Finnmarkssykehuset HF",
+      "kortnavn": "Finnmarkssykehuset",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "helse-nord-rhf",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "innkjop"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "beskrivelse": "Helseforetaket for spesialisthelsetjenesten i Finnmark, med sykehus i Hammerfest og Kirkenes og hovedkontor i Hammerfest.",
+      "belegg": {
+        "kilde": "finnmarkssykehuset-no-foretaksledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra finnmarkssykehuset.no (foretaksledelsen) 25.09.2026: sykehusene og hovedkontoret. Orgnr fra Enhetsregisteret."
+      },
+      "status": "aktiv",
+      "sensitiv": false
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "indre-og-ostre-finnmark-tingrett",
+      "orgnr": "926722840",
+      "navn": "Sis- ja Nuorta-Finnmárkku diggegoddi - Indre og Østre Finnmark tingrett",
+      "kortnavn": "Indre og Østre Finnmark tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "sensitiv": true,
+      "gyldig_fra": "2021-04-26",
+      "beskrivelse": "Tingrett for Berlevåg, Båtsfjord, Gamvik, Karasjok, Kautokeino, Lebesby, Nesseby, Sør-Varanger, Tana, Vadsø og Vardø, med rettssteder i Vadsø og Tana og et særlig ansvar for den samiske dimensjonen i rettsvesenet.",
+      "belegg": {
+        "kilde": "domstol-no-indre-og-ostre-finnmark-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Opprettet 26.04.2021 ved sammenslåing av Øst-Finnmark og Indre Finnmark tingrett. Orgnr fra Enhetsregisteret."
+      },
+      "segmenter": [],
+      "status": "aktiv"
+    },
+    {
+      "key": "stortinget-finnmark-valgkrets",
+      "navn": "Stortinget, Finnmark valgkrets",
+      "kortnavn": "Finnmark valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "56",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 4,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Finnmark for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
+      }
+    },
+    {
+      "key": "utmarksdomstolen-for-finnmark",
+      "orgnr": "926721682",
+      "navn": "Utmarksdomstolen for Finnmark",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Særdomstol som avgjør tvister om rettigheter til grunn i Finnmark etter at Finnmarkskommisjonen har utredet et felt. Slike saker kan ikke bringes inn for tingretten eller jordskifteretten.",
+      "belegg": {
+        "kilde": "domstol-no-utmarksdomstolen-saksbehandling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Forretningsadressen i Tromsø og orgnr er fra Enhetsregisteret."
+      },
+      "status": "aktiv"
     },
     {
       "key": "as-batsfjordbruket",
@@ -102,25 +562,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: topp10-ansatte."
-      }
-    },
-    {
-      "key": "batsfjord-kommune",
-      "orgnr": "938795592",
-      "navn": "Båtsfjord Kommune",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "5632",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
       }
     },
     {
@@ -316,16 +757,92 @@
   ],
   "personer": [
     {
+      "key": "helen-johanne-andersen",
+      "navn": "Helen Johanne Andersen"
+    },
+    {
+      "key": "anders-hollingsaeter-smasund",
+      "navn": "Anders Hollingsæter Småsund"
+    },
+    {
+      "key": "benedicte-hansen",
+      "navn": "Benedicte Hansen"
+    },
+    {
+      "key": "chris-johnny-jorgensen",
+      "navn": "Chris-Johnny Jørgensen"
+    },
+    {
+      "key": "eirill-malen-okland",
+      "navn": "Eirill-Malen Økland"
+    },
+    {
+      "key": "elise-lund-holm",
+      "navn": "Elise Lund Holm"
+    },
+    {
+      "key": "frank-kristiansen",
+      "navn": "Frank Kristiansen"
+    },
+    {
+      "key": "freddy-kristiansen",
+      "navn": "Freddy Kristiansen"
+    },
+    {
+      "key": "geir-knutsen",
+      "navn": "Geir Knutsen"
+    },
+    {
+      "key": "gudrun-solberg",
+      "navn": "Gudrun Solberg"
+    },
+    {
+      "key": "jan-roger-eriksen-batsfjord",
+      "navn": "Jan Roger Eriksen"
+    },
+    {
+      "key": "lone-helene-johnsen",
+      "navn": "Lone Helene Johnsen"
+    },
+    {
+      "key": "oyvind-hauken",
+      "navn": "Øyvind Hauken"
+    },
+    {
+      "key": "ronald-waernes",
+      "navn": "Ronald Wærnes"
+    },
+    {
+      "key": "stale-andreas-olsen",
+      "navn": "Ståle Andreas Olsen"
+    },
+    {
+      "key": "tobias-eriksen",
+      "navn": "Tobias Eriksen"
+    },
+    {
+      "key": "andreas-bye-paulsen",
+      "navn": "Andreas Bye Paulsen"
+    },
+    {
       "key": "christina-pedersen-svendsen",
       "navn": "Christina Pedersen Svendsen"
+    },
+    {
+      "key": "evgenia-myreng",
+      "navn": "Evgenia Myreng"
+    },
+    {
+      "key": "frank-kristiansen-489a76",
+      "navn": "Frank Kristiansen"
     },
     {
       "key": "frode-sivert-gronberg",
       "navn": "Frode Sivert Grønberg"
     },
     {
-      "key": "helen-johanne-andersen",
-      "navn": "Helen Johanne Andersen"
+      "key": "halldor-adalsteinn-solberg",
+      "navn": "Halldor Adalsteinn Solberg"
     },
     {
       "key": "jan-arnulf-berg-grefstad",
@@ -344,12 +861,28 @@
       "navn": "Monica Brandtzæg"
     },
     {
+      "key": "morten-einar-albertsen",
+      "navn": "Morten Einar Albertsen"
+    },
+    {
+      "key": "orjan-nergaard",
+      "navn": "Ørjan Nergaard"
+    },
+    {
       "key": "per-magnus-sorensen",
       "navn": "Per Magnus Sørensen"
     },
     {
       "key": "peteris-pildegovics",
       "navn": "Peteris Pildegovics"
+    },
+    {
+      "key": "piritta-margit-tuulia-anttila",
+      "navn": "Piritta Margit Tuulia Anttila"
+    },
+    {
+      "key": "rune-myreng",
+      "navn": "Rune Myreng"
     },
     {
       "key": "sebastian-larsen-nilsen",
@@ -360,11 +893,290 @@
       "navn": "Sigvald Arctander Rist"
     },
     {
+      "key": "sissel-beate-eriksen",
+      "navn": "Sissel Beate Eriksen"
+    },
+    {
+      "key": "sonja-mari-nilsen-lyngoy",
+      "navn": "Sonja Mari Nilsen Lyngøy"
+    },
+    {
+      "key": "tom-arne-kristiansen",
+      "navn": "Tom Arne Kristiansen"
+    },
+    {
       "key": "torgeir-berg-grefstad",
       "navn": "Torgeir Berg Grefstad"
     }
   ],
   "roller": [
+    {
+      "org": "batsfjord-kommune-administrasjonen",
+      "person": "helen-johanne-andersen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Båtsfjord kommune: Kontakt Båtsfjord kommune, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i BÅTSFJORD KOMMUNE (orgnr 938795592). Registeret har flere navneledd enn siden, som skriver «Helèn Johanne Andersen». Sidens merknad: Kontaktsiden ligger under en adresse fra 2017, men er oppdatert med dagens kommunedirektør."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "oyvind-hauken",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "BÅTSFJORDLISTA",
+      "belegg": {
+        "kilde": "batsfjord-kommune-no-hvem-er-ordforer-i-batsfjord",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra batsfjord.kommune.no 25.09.2026. Siden oppgir partitilhørigheten «Båtsfjord Lista»."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "stale-andreas-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "gudrun-solberg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "geir-knutsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "tobias-eriksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "benedicte-hansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "anders-hollingsaeter-smasund",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "oyvind-hauken",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "BÅTSFJORDLISTA",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "jan-roger-eriksen-batsfjord",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "BÅTSFJORDLISTA",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "chris-johnny-jorgensen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "BÅTSFJORDLISTA",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "freddy-kristiansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "BÅTSFJORDLISTA",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "eirill-malen-okland",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "BÅTSFJORDLISTA",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "ronald-waernes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "lone-helene-johnsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "frank-kristiansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "batsfjord-kommunestyre",
+      "person": "elise-lund-holm",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
     {
       "org": "as-batsfjordbruket",
       "person": "ketil-pettersen",
@@ -438,6 +1250,138 @@
       }
     },
     {
+      "org": "batsfjord-havn-kf",
+      "person": "andreas-bye-paulsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-havn-kf",
+      "person": "evgenia-myreng",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-havn-kf",
+      "person": "frank-kristiansen-489a76",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-havn-kf",
+      "person": "halldor-adalsteinn-solberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-havn-kf",
+      "person": "morten-einar-albertsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-havn-kf",
+      "person": "orjan-nergaard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-havn-kf",
+      "person": "piritta-margit-tuulia-anttila",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-havn-kf",
+      "person": "rune-myreng",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-havn-kf",
+      "person": "sissel-beate-eriksen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-havn-kf",
+      "person": "sonja-mari-nilsen-lyngoy",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-havn-kf",
+      "person": "tom-arne-kristiansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
       "org": "batsfjord-kommune-helse-og-omsorg",
       "person": "sebastian-larsen-nilsen",
       "tittel": "Daglig leder",
@@ -464,18 +1408,6 @@
     {
       "org": "batsfjord-kommune-teknisk-etat",
       "person": "per-magnus-sorensen",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "batsfjord-kommune",
-      "person": "helen-johanne-andersen",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
@@ -536,14 +1468,91 @@
   ],
   "relasjoner": [
     {
+      "fra": "batsfjord-kommune-administrasjonen",
+      "til": "batsfjord-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "batsfjord-kommune-no-2017-02-28-kontakt-batsfjord-kommune",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra batsfjord.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "batsfjord-kontrollutvalget",
+      "til": "batsfjord-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "batsfjord-kommune-no-kontrollutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra batsfjord.kommune.no 25.09.2026."
+      }
+    },
+    {
       "fra": "batsfjord-kommunestyre",
       "til": "batsfjord-kommune",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "batsfjord-havn-kf",
+      "til": "batsfjord-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Overordnet enhet i Enhetsregisteret: Båtsfjord kommune (938795592)."
+      }
+    },
+    {
+      "fra": "batsfjord-kommune",
+      "til": "batsfjord-havn-kf",
+      "type": "eier",
+      "belegg": {
+        "kilde": "brreg-eierroller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Båtsfjord kommune (938795592) står som eierkommune (EIKM) for Båtsfjord Havn KF i Rolle-API-et."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "finnmark-fylkesting",
+      "til": "finnmark-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
+      }
+    },
+    {
+      "fra": "finnmarkssykehuset",
+      "til": "helse-nord-rhf",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "brreg-eierroller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Helse Nord RHF (883658752) står som helseforetak (HLSE) for Finnmarkssykehuset HF i rollelisten i Enhetsregisteret."
       }
     },
     {
@@ -794,7 +1803,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Båtsfjord?",
+      "steg": [
+        {
+          "org": "batsfjord-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "batsfjord-kommune",
+          "myndighet": "innstilling",
+          "hva": "Ikke kartlagt: hvilket folkevalgt organ som behandler planforslaget før kommunestyret, er ikke hentet fra kommunens sider.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er ikke kartlagt."
+          }
+        },
+        {
+          "org": "batsfjord-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Båtsfjord kommune?",
+      "steg": [
+        {
+          "org": "batsfjord-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "batsfjord-kommune",
+          "myndighet": "innstilling",
+          "hva": "Ikke kartlagt: hvilket folkevalgt organ som behandler budsjettforslaget før kommunestyret, er ikke hentet fra kommunens sider.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er ikke kartlagt."
+          }
+        },
+        {
+          "org": "batsfjord-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "helse",
@@ -807,9 +1908,70 @@
     {
       "kode": "sjomat",
       "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
     }
   ],
   "org_segment": [
+    {
+      "org": "batsfjord-havn-kf",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "finnmark-jordskifterett",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "utmarksdomstolen-for-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
     {
       "org": "as-batsfjordbruket",
       "segment": "sjomat",
@@ -841,5 +2003,26 @@
       "styrke": 3
     }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "batsfjord-kommunestyre",
+      "hva": "Varaordføreren i Båtsfjord er ikke navngitt på kommunens nettsider.",
+      "hvorfor": "Ordførersiden og kontaktsiden på batsfjord.kommune.no oppgir ikke varaordfører (sjekket 25.09.2026)."
+    },
+    {
+      "gjelder": "batsfjord-kontrollutvalget",
+      "hva": "Lederen av kontrollutvalget i Båtsfjord er ikke navngitt på kommunens nettsider.",
+      "hvorfor": "Siden om kontrollutvalget på batsfjord.kommune.no lenker bare til møteinnkallinger og protokoller (sjekket 25.09.2026)."
+    },
+    {
+      "gjelder": "batsfjord-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "batsfjord-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
 }

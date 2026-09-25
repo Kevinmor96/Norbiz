@@ -5,17 +5,10 @@
     "fylkesnr": "18",
     "fylke": "Nordland",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -36,28 +29,562 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "meloy-kommune-no",
+      "navn": "Meløy kommune (www.meloy.kommune.no)",
+      "url": "https://www.meloy.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nordlandssykehuset-no-ledelsen",
+      "navn": "Nordlandssykehuset: Ledelsen (sist oppdatert 11.08.2026)",
+      "url": "https://www.nordlandssykehuset.no/om-oss/ledelsen-i-nordlandssykehuset/",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-salten-jordskifterett-rettskrets",
+      "navn": "Salten jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/salten-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-salten-og-lofoten-tingrett-om",
+      "navn": "Salten og Lofoten tingrett: Om Salten og Lofoten tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/salten-og-lofoten-tingrett/om-salten-og-lofoten-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
     }
   ],
   "organisasjoner": [
     {
-      "key": "meloy-kommunestyre",
-      "navn": "Kommunestyret i Meløy",
+      "key": "meloy-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Meløy",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "meloy-kommunestyre",
+      "kommunenr": "1837",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg for saker mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "key": "meloy-driftsutvalg",
+      "navn": "Driftsutvalg i Meløy",
+      "kortnavn": "Driftsutvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "meloy-kommunestyre",
+      "kommunenr": "1837",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "key": "meloy-eldreradet",
+      "navn": "Eldrerådet i Meløy",
+      "kortnavn": "Eldrerådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "meloy-kommunestyre",
+      "kommunenr": "1837",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "key": "meloy-formannskap",
+      "navn": "Formannskapet i Meløy",
+      "kortnavn": "Formannskapet",
       "nivaa": "kommune",
       "organtype": "folkevalgt_organ",
+      "overordnet": "meloy-kommunestyre",
+      "kommunenr": "1837",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "key": "meloy-kommune",
+      "orgnr": "970189866",
+      "navn": "Meløy kommune",
+      "kortnavn": "Meløy kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1837",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «MELØY KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1837."
+      }
+    },
+    {
+      "key": "meloy-kommune-administrasjonen",
+      "navn": "Administrasjonen i Meløy kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
       "overordnet": "meloy-kommune",
       "kommunenr": "1837",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
       "myndighet": [
+        "innstilling",
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "meloy-kommune-no",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/kommunens-organisasjon 2026-09-25."
+      }
+    },
+    {
+      "key": "meloy-kontrollutvalget",
+      "navn": "Kontrollutvalget i Meløy",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "meloy-kommunestyre",
+      "kommunenr": "1837",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "key": "meloy-radet-for-personer-med-nedsatt-funksjonsevne",
+      "navn": "Rådet for personer med nedsatt funksjonsevne i Meløy",
+      "kortnavn": "Rådet for personer med nedsatt funksjonsevne",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "meloy-kommunestyre",
+      "kommunenr": "1837",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "key": "meloy-utvalg-for-plan-og-kommunalteknikk",
+      "navn": "Utvalg for plan og kommunalteknikk i Meløy",
+      "kortnavn": "Utvalg for plan og kommunalteknikk",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "meloy-kommunestyre",
+      "kommunenr": "1837",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "key": "meloy-kommunestyre",
+      "navn": "Kommunestyret i Meløy",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "meloy-kommune",
+      "kommunenr": "1837",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 23,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "segmenter": [
+        "helse"
+      ],
+      "myndighet": [
+        "innkjop"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Helseforetak med hovedsete i Bodø, eid av Helse Nord RHF.",
+      "belegg": {
+        "kilde": "nordlandssykehuset-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 983974910, organisasjonsform SÆR, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Antall ansatte i registeret: 6861."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-jordskifterett",
+      "orgnr": "926726684",
+      "navn": "Salten jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i 12 kommuner fra Rødøy til Hamarøy, inkludert Røst og Værøy.",
+      "belegg": {
+        "kilde": "domstol-no-salten-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-og-lofoten-tingrett",
+      "orgnr": "826723122",
+      "navn": "Salten og Lofoten tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for 16 kommuner i Salten og Lofoten, med bemannede rettssteder i Bodø og Svolvær.",
+      "belegg": {
+        "kilde": "domstol-no-salten-og-lofoten-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Domstolen har ifølge siden full fagkrets og dermed også enkelte forvaltningsoppgaver."
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
       }
     },
     {
@@ -185,25 +712,6 @@
       }
     },
     {
-      "key": "meloy-kommune",
-      "orgnr": "970189866",
-      "navn": "Meløy Kommune",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "1837",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
-      }
-    },
-    {
       "key": "meloy-kommune-helse-og-mestring",
       "orgnr": "974791528",
       "navn": "Meløy Kommune Helse og Mestring",
@@ -321,28 +829,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
-      }
-    },
-    {
-      "key": "nordlandssykehuset",
-      "orgnr": "983974910",
-      "navn": "Nordlandssykehuset HF",
-      "nivaa": "stat",
-      "organtype": "HF",
-      "kommunenr": "1804",
-      "myndighet": [],
-      "segmenter": [
-        "helse"
-      ],
-      "gyldig_fra": "2001-12-18",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
       }
     },
     {
@@ -495,6 +981,106 @@
   ],
   "personer": [
     {
+      "key": "marianne-stranden",
+      "navn": "Marianne Stranden"
+    },
+    {
+      "key": "andreas-fredrik-finne",
+      "navn": "Andreas Fredrik Finne"
+    },
+    {
+      "key": "arild-robert-kjerpeseth",
+      "navn": "Arild Robert Kjerpeseth"
+    },
+    {
+      "key": "aud-angell",
+      "navn": "Aud Angell"
+    },
+    {
+      "key": "einar-arthur-kilvik",
+      "navn": "Einar Arthur Kilvik"
+    },
+    {
+      "key": "ellinor-june-sjoteig",
+      "navn": "Ellinor June Sjøteig"
+    },
+    {
+      "key": "grethe-anita-andersen",
+      "navn": "Grethe Anita Andersen"
+    },
+    {
+      "key": "hans-ove-horsberg-hagen",
+      "navn": "Hans Ove Horsberg Hagen"
+    },
+    {
+      "key": "heidi-flottum",
+      "navn": "Heidi Fløttum"
+    },
+    {
+      "key": "ida-johnsen",
+      "navn": "Ida Johnsen"
+    },
+    {
+      "key": "kai-nymo",
+      "navn": "Kai Nymo"
+    },
+    {
+      "key": "ken-henry-solhaug",
+      "navn": "Ken-Henry Solhaug"
+    },
+    {
+      "key": "kristian-johnsen-haukalid",
+      "navn": "Kristian Johnsen Haukalid"
+    },
+    {
+      "key": "kristian-olsen",
+      "navn": "Kristian Olsen"
+    },
+    {
+      "key": "leif-arne-krogh",
+      "navn": "Leif Arne Krogh"
+    },
+    {
+      "key": "maria-eibensteiner-olsen",
+      "navn": "Maria Eibensteiner Olsen"
+    },
+    {
+      "key": "marianne-hegge-skogsholm",
+      "navn": "Marianne Hegge Skogsholm"
+    },
+    {
+      "key": "marthe-barvik",
+      "navn": "Marthe Barvik"
+    },
+    {
+      "key": "pal-einar-olsen",
+      "navn": "Pål Einar Olsen"
+    },
+    {
+      "key": "ragnhild-heen-andersen",
+      "navn": "Ragnhild Heen Andersen"
+    },
+    {
+      "key": "sigurd-stormo",
+      "navn": "Sigurd Stormo"
+    },
+    {
+      "key": "siril-amalie-karoline-vedal",
+      "navn": "Siril Amalie Karoline Vedal"
+    },
+    {
+      "key": "thomas-waernes-moen",
+      "navn": "Thomas Wærnes Moen"
+    },
+    {
+      "key": "tommy-tangstad",
+      "navn": "Tommy Tangstad"
+    },
+    {
+      "key": "tore-dybvik",
+      "navn": "Tore Dybvik"
+    },
+    {
       "key": "anne-grete-laila-kvikstad",
       "navn": "Anne Grete Laila Kvikstad"
     },
@@ -507,7 +1093,7 @@
       "navn": "Cherilyn Anastasia Stephanie Laban"
     },
     {
-      "key": "hilde-furuseth-johansen",
+      "key": "hilde-furuseth-johansen-32bbb0",
       "navn": "Hilde Furuseth Johansen"
     },
     {
@@ -521,10 +1107,6 @@
     {
       "key": "line-jaeger-hansen",
       "navn": "Line Jæger Hansen"
-    },
-    {
-      "key": "marianne-stranden",
-      "navn": "Marianne Stranden"
     },
     {
       "key": "mariella-vink-de-roos",
@@ -563,7 +1145,7 @@
       "navn": "Solveig Kolderup Utvik"
     },
     {
-      "key": "sten-ole-eliassen",
+      "key": "sten-ole-eliassen-784d95",
       "navn": "Sten Ole Eliassen"
     },
     {
@@ -584,6 +1166,458 @@
     }
   ],
   "roller": [
+    {
+      "org": "meloy-administrasjonsutvalget",
+      "person": "grethe-anita-andersen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25. Siden: «Ordfører leder utvalget»."
+      }
+    },
+    {
+      "org": "meloy-formannskap",
+      "person": "grethe-anita-andersen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25. Siden: «Ordfører leder formannskapets møter»."
+      }
+    },
+    {
+      "org": "meloy-kommune-administrasjonen",
+      "person": "marianne-stranden",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Meløy kommune (www.meloy.kommune.no), per 2026-09-25). Grunnlagets merknad: Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/kommunens-organisasjon 2026-09-25."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "ken-henry-solhaug",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "V",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/ordforer 2026-09-25."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "grethe-anita-andersen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2026-05-07",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/ordforer 2026-09-25. Siden: valgt av kommunestyret 7. mai 2026."
+      }
+    },
+    {
+      "org": "meloy-kontrollutvalget",
+      "person": "aud-angell",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "KrF",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "andreas-fredrik-finne",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "arild-robert-kjerpeseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "einar-arthur-kilvik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "ellinor-june-sjoteig",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "grethe-anita-andersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "hans-ove-horsberg-hagen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "heidi-flottum",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "ida-johnsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "kai-nymo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "ken-henry-solhaug",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "kristian-johnsen-haukalid",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "kristian-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "leif-arne-krogh",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Meløy Frie Folkevalgte",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "maria-eibensteiner-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "marianne-hegge-skogsholm",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "marthe-barvik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "pal-einar-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "ragnhild-heen-andersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "sigurd-stormo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "siril-amalie-karoline-vedal",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "thomas-waernes-moen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "tommy-tangstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "meloy-kommunestyre",
+      "person": "tore-dybvik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Meløy Frie Folkevalgte",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
     {
       "org": "hs-omsorg",
       "person": "jorgen-hestdahl",
@@ -634,7 +1668,7 @@
     },
     {
       "org": "landbrukstjenester-salten-og-lofoten",
-      "person": "hilde-furuseth-johansen",
+      "person": "hilde-furuseth-johansen-32bbb0",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
@@ -694,7 +1728,7 @@
     },
     {
       "org": "landbrukstjenester-salten-og-lofoten",
-      "person": "sten-ole-eliassen",
+      "person": "sten-ole-eliassen-784d95",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -766,18 +1800,6 @@
     },
     {
       "org": "meloy-kommune-sentraladministrasjon",
-      "person": "marianne-stranden",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "meloy-kommune",
       "person": "marianne-stranden",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
@@ -911,14 +1933,124 @@
   ],
   "relasjoner": [
     {
+      "fra": "meloy-administrasjonsutvalget",
+      "til": "meloy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "fra": "meloy-driftsutvalg",
+      "til": "meloy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "fra": "meloy-eldreradet",
+      "til": "meloy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "fra": "meloy-formannskap",
+      "til": "meloy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "fra": "meloy-kommune-administrasjonen",
+      "til": "meloy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/kommunens-organisasjon 2026-09-25."
+      }
+    },
+    {
+      "fra": "meloy-kontrollutvalget",
+      "til": "meloy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "fra": "meloy-radet-for-personer-med-nedsatt-funksjonsevne",
+      "til": "meloy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
+      "fra": "meloy-utvalg-for-plan-og-kommunalteknikk",
+      "til": "meloy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "meloy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg 2026-09-25."
+      }
+    },
+    {
       "fra": "meloy-kommunestyre",
       "til": "meloy-kommune",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
       }
     },
     {
@@ -1209,7 +2341,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Meløy?",
+      "steg": [
+        {
+          "org": "meloy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "meloy-utvalg-for-plan-og-kommunalteknikk",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (meloy-kommune-no)."
+          }
+        },
+        {
+          "org": "meloy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Meløy kommune?",
+      "steg": [
+        {
+          "org": "meloy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "meloy-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (meloy-kommune-no)."
+          }
+        },
+        {
+          "org": "meloy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "helse",
@@ -1222,9 +2446,33 @@
     {
       "kode": "sjomat",
       "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
     }
   ],
   "org_segment": [
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
     {
       "org": "landbrukstjenester-salten-og-lofoten",
       "segment": "landbruk",
@@ -1232,11 +2480,6 @@
     },
     {
       "org": "nordlandssykehuset-hf-ambulanse-ornes",
-      "segment": "helse",
-      "styrke": 3
-    },
-    {
-      "org": "nordlandssykehuset",
       "segment": "helse",
       "styrke": 3
     },
@@ -1251,5 +2494,31 @@
       "styrke": 3
     }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "meloy-driftsutvalg",
+      "hva": "Leder av driftsutvalg i Meløy er ikke oppgitt.",
+      "hvorfor": "Kommunens side nevner organet, men ikke hvem som leder det (meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg)."
+    },
+    {
+      "gjelder": "meloy-kommunestyre",
+      "hva": "Hvem som var ordfører i Meløy før 7. mai 2026, og hvorfor det ble valgt ny ordfører.",
+      "hvorfor": "Ordførersiden oppgir bare ny ordfører og datoen. Kommunestyrets protokoll fra mai 2026 er ikke hentet."
+    },
+    {
+      "gjelder": "meloy-utvalg-for-plan-og-kommunalteknikk",
+      "hva": "Leder av utvalg for plan og kommunalteknikk i Meløy er ikke oppgitt.",
+      "hvorfor": "Kommunens side nevner organet, men ikke hvem som leder det (meloy.kommune.no/innhold/politikk-og-administrasjon/rad-og-utvalg)."
+    },
+    {
+      "gjelder": "meloy-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "meloy-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
 }

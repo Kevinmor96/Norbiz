@@ -5,17 +5,10 @@
     "fylkesnr": "18",
     "fylke": "Nordland",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -36,28 +29,513 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "flakstad-kommune-no",
+      "navn": "Flakstad kommune (flakstad.kommune.no)",
+      "url": "https://flakstad.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "flakstad-moteportal",
+      "navn": "Flakstad kommunes møteportal (ACOS Innsyn, flakstad.kommune.no)",
+      "url": "https://flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-lofoten-og-vesteralen-jordskifterett-rettskrets",
+      "navn": "Lofoten og Vesterålen jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/lofoten-og-vesteralen-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-salten-og-lofoten-tingrett-om",
+      "navn": "Salten og Lofoten tingrett: Om Salten og Lofoten tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/salten-og-lofoten-tingrett/om-salten-og-lofoten-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
     }
   ],
   "organisasjoner": [
     {
-      "key": "flakstad-kommunestyre",
-      "navn": "Kommunestyret i Flakstad",
+      "key": "flakstad-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Flakstad",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "flakstad-kommunestyre",
+      "kommunenr": "1859",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg for saker mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=10) 2026-09-25."
+      }
+    },
+    {
+      "key": "flakstad-eldreradet",
+      "navn": "Eldrerådet i Flakstad",
+      "kortnavn": "Eldrerådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "flakstad-kommunestyre",
+      "kommunenr": "1859",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=13) 2026-09-25."
+      }
+    },
+    {
+      "key": "flakstad-formannskap",
+      "navn": "Formannskapet i Flakstad",
+      "kortnavn": "Formannskapet",
       "nivaa": "kommune",
       "organtype": "folkevalgt_organ",
+      "overordnet": "flakstad-kommunestyre",
+      "kommunenr": "1859",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=12) 2026-09-25."
+      }
+    },
+    {
+      "key": "flakstad-kommune",
+      "orgnr": "863320852",
+      "navn": "Flakstad kommune",
+      "kortnavn": "Flakstad kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1859",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «FLAKSTAD KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1859."
+      }
+    },
+    {
+      "key": "flakstad-kommune-administrasjonen",
+      "navn": "Administrasjonen i Flakstad kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
       "overordnet": "flakstad-kommune",
       "kommunenr": "1859",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
       "myndighet": [
+        "innstilling",
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "flakstad-kommune-no",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "merknad": "Hentet fra flakstad.kommune.no/politikk/informasjonside-angaende-prosessen-for-mulig-kommunesammenslaing 2026-09-25."
+      }
+    },
+    {
+      "key": "flakstad-kontrollutvalget",
+      "navn": "Kontrollutvalget i Flakstad",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "flakstad-kommunestyre",
+      "kommunenr": "1859",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=19) 2026-09-25."
+      }
+    },
+    {
+      "key": "flakstad-rad-for-personer-med-funksjonsnedsettelse",
+      "navn": "Råd for personer med funksjonsnedsettelse i Flakstad",
+      "kortnavn": "Råd for personer med funksjonsnedsettelse",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "flakstad-kommunestyre",
+      "kommunenr": "1859",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=20) 2026-09-25."
+      }
+    },
+    {
+      "key": "flakstad-ungdomsradet",
+      "navn": "Ungdomsrådet i Flakstad",
+      "kortnavn": "Ungdomsrådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "flakstad-kommunestyre",
+      "kommunenr": "1859",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=15) 2026-09-25."
+      }
+    },
+    {
+      "key": "flakstad-kommunestyre",
+      "navn": "Kommunestyret i Flakstad",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "flakstad-kommune",
+      "kommunenr": "1859",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 11,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "lofoten-og-vesteralen-jordskifterett",
+      "orgnr": "926726609",
+      "navn": "Lofoten og Vesterålen jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i ti kommuner i Lofoten og Vesterålen, inkludert Lødingen.",
+      "belegg": {
+        "kilde": "domstol-no-lofoten-og-vesteralen-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-og-lofoten-tingrett",
+      "orgnr": "826723122",
+      "navn": "Salten og Lofoten tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for 16 kommuner i Salten og Lofoten, med bemannede rettssteder i Bodø og Svolvær.",
+      "belegg": {
+        "kilde": "domstol-no-salten-og-lofoten-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Domstolen har ifølge siden full fagkrets og dermed også enkelte forvaltningsoppgaver."
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
       }
     },
     {
@@ -80,25 +558,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: topp10-ansatte."
-      }
-    },
-    {
-      "key": "flakstad-kommune",
-      "orgnr": "863320852",
-      "navn": "Flakstad Kommune",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "1859",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
       }
     },
     {
@@ -280,6 +739,54 @@
   ],
   "personer": [
     {
+      "key": "per-oivind-sundell",
+      "navn": "Per Øivind Sundell"
+    },
+    {
+      "key": "anne-lise-johansen",
+      "navn": "Anne Lise Johansen"
+    },
+    {
+      "key": "einar-benjamin-benjaminsen",
+      "navn": "Einar Benjamin Benjaminsen"
+    },
+    {
+      "key": "julie-hellan-larsen",
+      "navn": "Julie Hellan Larsen"
+    },
+    {
+      "key": "kristine-knutsen-friis",
+      "navn": "Kristine Knutsen Friis"
+    },
+    {
+      "key": "marte-dreyer-eriksen",
+      "navn": "Marte Dreyer Eriksen"
+    },
+    {
+      "key": "niilo-nissinen",
+      "navn": "Niilo Nissinen"
+    },
+    {
+      "key": "randi-elisabeth-gregersen",
+      "navn": "Randi Elisabeth Gregersen"
+    },
+    {
+      "key": "raymond-abelsen",
+      "navn": "Raymond Abelsen"
+    },
+    {
+      "key": "stein-kristian-iversen",
+      "navn": "Stein-Kristian Iversen"
+    },
+    {
+      "key": "trond-eivind-kroken",
+      "navn": "Trond Eivind Kroken"
+    },
+    {
+      "key": "turid-helene-aksberg",
+      "navn": "Turid Helene Aksberg"
+    },
+    {
       "key": "angelita-helen-eriksen",
       "navn": "Angelita Helen Eriksen"
     },
@@ -336,11 +843,7 @@
       "navn": "Per Ansgar Benjaminsen"
     },
     {
-      "key": "per-oivind-sundell",
-      "navn": "Per Øivind Sundell"
-    },
-    {
-      "key": "petter-karlsen",
+      "key": "petter-karlsen-c2d7ed",
       "navn": "Petter Karlsen"
     },
     {
@@ -374,6 +877,237 @@
   ],
   "roller": [
     {
+      "org": "flakstad-formannskap",
+      "person": "einar-benjamin-benjaminsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Flakstad distriktsliste",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=12) 2026-09-25. Møteportalen fører ordføreren i formannskapet med funksjonen «ordfører»."
+      }
+    },
+    {
+      "org": "flakstad-kommune-administrasjonen",
+      "person": "per-oivind-sundell",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Flakstad kommune (flakstad.kommune.no), per 2026-09-25). Grunnlagets merknad: Hentet fra flakstad.kommune.no/politikk/informasjonside-angaende-prosessen-for-mulig-kommunesammenslaing 2026-09-25."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "julie-hellan-larsen",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx) 2026-09-25."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "einar-benjamin-benjaminsen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Flakstad distriktsliste",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx) 2026-09-25. Nettstedet skriver «Einar Benjaminsen (FDL)». Kilden skriver «Einar B. Benjaminsen»."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "anne-lise-johansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "einar-benjamin-benjaminsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Flakstad distriktsliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "julie-hellan-larsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "kristine-knutsen-friis",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Flakstad distriktsliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "marte-dreyer-eriksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "niilo-nissinen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "randi-elisabeth-gregersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "raymond-abelsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Flakstad distriktsliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "stein-kristian-iversen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Flakstad distriktsliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "trond-eivind-kroken",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "flakstad-kommunestyre",
+      "person": "turid-helene-aksberg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
       "org": "bjorn-gjertsen",
       "person": "kristian-gjertsen",
       "tittel": "Daglig leder",
@@ -390,18 +1124,6 @@
       "person": "kristian-gjertsen",
       "tittel": "Styreleder",
       "rolletype": "styreleder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "flakstad-kommune",
-      "person": "per-oivind-sundell",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -591,7 +1313,7 @@
     },
     {
       "org": "ramberg-lavpris",
-      "person": "petter-karlsen",
+      "person": "petter-karlsen-c2d7ed",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
@@ -603,7 +1325,7 @@
     },
     {
       "org": "ramberg-lavpris",
-      "person": "petter-karlsen",
+      "person": "petter-karlsen-c2d7ed",
       "tittel": "Styreleder",
       "rolletype": "styreleder",
       "status": "fast",
@@ -784,14 +1506,113 @@
   ],
   "relasjoner": [
     {
+      "fra": "flakstad-administrasjonsutvalget",
+      "til": "flakstad-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=10) 2026-09-25."
+      }
+    },
+    {
+      "fra": "flakstad-eldreradet",
+      "til": "flakstad-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=13) 2026-09-25."
+      }
+    },
+    {
+      "fra": "flakstad-formannskap",
+      "til": "flakstad-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=12) 2026-09-25."
+      }
+    },
+    {
+      "fra": "flakstad-kommune-administrasjonen",
+      "til": "flakstad-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "flakstad-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra flakstad.kommune.no/politikk/informasjonside-angaende-prosessen-for-mulig-kommunesammenslaing 2026-09-25."
+      }
+    },
+    {
+      "fra": "flakstad-kontrollutvalget",
+      "til": "flakstad-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=19) 2026-09-25."
+      }
+    },
+    {
+      "fra": "flakstad-rad-for-personer-med-funksjonsnedsettelse",
+      "til": "flakstad-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=20) 2026-09-25."
+      }
+    },
+    {
+      "fra": "flakstad-ungdomsradet",
+      "til": "flakstad-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "flakstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=15) 2026-09-25."
+      }
+    },
+    {
       "fra": "flakstad-kommunestyre",
       "til": "flakstad-kommune",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
       }
     }
   ],
@@ -1302,7 +2123,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Flakstad?",
+      "steg": [
+        {
+          "org": "flakstad-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "flakstad-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (flakstad-moteportal); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "flakstad-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Flakstad kommune?",
+      "steg": [
+        {
+          "org": "flakstad-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "flakstad-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (flakstad-moteportal)."
+          }
+        },
+        {
+          "org": "flakstad-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "handel",
@@ -1319,9 +2232,36 @@
     {
       "kode": "transport",
       "navn": "Transport"
+    },
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
     }
   ],
   "org_segment": [
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
     {
       "org": "bjorn-gjertsen",
       "segment": "sjomat",
@@ -1368,5 +2308,31 @@
       "styrke": 3
     }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "flakstad-administrasjonsutvalget",
+      "hva": "Leder av administrasjonsutvalget i Flakstad er ikke oppgitt.",
+      "hvorfor": "Møteportalen (ACOS Innsyn) fører ingen med funksjonen «Leder» i organet; ordføreren står oppført med funksjonen «Ordfører», men portalen sier ikke at ordføreren leder det (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=10)."
+    },
+    {
+      "gjelder": "flakstad-kommune",
+      "hva": "Utfallet av den rådgivende folkeavstemningen 8. juni 2026 om å slå seg sammen med Moskenes og Vestvågøy til Vest-Lofoten kommune, og kommunestyrets vedtak etterpå.",
+      "hvorfor": "Kommunens informasjonsside om prosessen er hentet, men resultatet fra juni 2026 er ikke lest."
+    },
+    {
+      "gjelder": "flakstad-kontrollutvalget",
+      "hva": "Leder av kontrollutvalget i Flakstad er ikke oppgitt.",
+      "hvorfor": "Møteportalen (ACOS Innsyn) oppgir ingen leder for organet (flakstad.kommune.no/innsyn.aspx?response=utvalg&MId1=533&scripturi=/innsyn.aspx&&utvalg_selected=19)."
+    },
+    {
+      "gjelder": "flakstad-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "flakstad-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
 }

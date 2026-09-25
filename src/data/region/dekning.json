@@ -1,0 +1,1118 @@
+{
+  "meta": {
+    "region": "Nord-Norge",
+    "sammenstilt": "2026-09-25",
+    "merknad": "Hvilke kommuner hvert regionale organ har myndighet over, med belegg. Brreg-importøren (scripts/brreg.ts) kopierer organets kanoniske rad inn i hver kommune på lista ved hver kjøring; rollene føres bare i eierens datasett. Et organ uten dokumentert dekning står bare hos eieren, med et hull. Se docs/avvik/flett-region-2026-09-25.md.",
+    "kilder": [
+      {
+        "key": "data-stortinget-no",
+        "navn": "Stortingets data (data.stortinget.no)",
+        "url": "https://data.stortinget.no",
+        "type": "register"
+      },
+      {
+        "key": "domstol-no-finnmark-jordskifterett-rettskrets",
+        "navn": "Finnmark jordskifterett: Vår rettskrets",
+        "url": "https://www.domstol.no/no/domstoler/jordskifterett/finnmark-jordskifterett/var-rettskrets/",
+        "type": "offisiell"
+      },
+      {
+        "key": "domstol-no-helgeland-jordskifterett-rettskrets",
+        "navn": "Helgeland jordskifterett: Vår rettskrets",
+        "url": "https://www.domstol.no/no/domstoler/jordskifterett/helgeland-jordskifterett/var-rettskrets/",
+        "type": "offisiell"
+      },
+      {
+        "key": "domstol-no-helgeland-tingrett-rettskrets",
+        "navn": "Helgeland tingrett: Rettssteder og kommuner (Mo i Rana, Brønnøysund, Sandnessjøen)",
+        "url": "https://www.domstol.no/no/domstoler/tingrett/helgeland-tingrett/",
+        "type": "offisiell"
+      },
+      {
+        "key": "domstol-no-indre-og-ostre-finnmark-tingrett-om",
+        "navn": "Indre og Østre Finnmark tingrett: Om tingretten",
+        "url": "https://www.domstol.no/no/domstoler/tingrett/sis--ja-nuorta-finnmarkku-diggegoddi--indre-og-ostre-finnmark-tingrett/om-indre-og-ostre-finnmark-tingrett/",
+        "type": "offisiell"
+      },
+      {
+        "key": "domstol-no-lofoten-og-vesteralen-jordskifterett-rettskrets",
+        "navn": "Lofoten og Vesterålen jordskifterett: Vår rettskrets",
+        "url": "https://www.domstol.no/no/domstoler/jordskifterett/lofoten-og-vesteralen-jordskifterett/var-rettskrets/",
+        "type": "offisiell"
+      },
+      {
+        "key": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+        "navn": "Midtre Hålogaland tingrett: Vår rettskrets",
+        "url": "https://www.domstol.no/no/domstoler/tingrett/midtre-halogaland-tingrett/var-rettskrets/",
+        "type": "offisiell"
+      },
+      {
+        "key": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+        "navn": "Ofoten og Sør-Troms jordskifterett: Vår rettskrets",
+        "url": "https://www.domstol.no/no/domstoler/jordskifterett/ofoten-og-sor-troms-jordskifterett/var-rettskrets/",
+        "type": "offisiell"
+      },
+      {
+        "key": "domstol-no-salten-jordskifterett-rettskrets",
+        "navn": "Salten jordskifterett: Vår rettskrets",
+        "url": "https://www.domstol.no/no/domstoler/jordskifterett/salten-jordskifterett/var-rettskrets/",
+        "type": "offisiell"
+      },
+      {
+        "key": "domstol-no-salten-og-lofoten-tingrett-rettskrets",
+        "navn": "Salten og Lofoten tingrett: Vår rettskrets",
+        "url": "https://www.domstol.no/no/domstoler/tingrett/salten-og-lofoten-tingrett/var-rettskrets/",
+        "type": "offisiell"
+      },
+      {
+        "key": "domstol-no-utmarksdomstolen-saksbehandling",
+        "navn": "Utmarksdomstolen for Finnmark: Saksbehandling",
+        "url": "https://www.domstol.no/no/domstoler/annen/utmarksdomstolen-for-finnmark/saksbehandling/",
+        "type": "offisiell"
+      },
+      {
+        "key": "domstol-no-vestre-finnmark-tingrett-om",
+        "navn": "Vestre Finnmark tingrett: Om Vestre Finnmark tingrett",
+        "url": "https://www.domstol.no/no/domstoler/tingrett/vestre-finnmark-tingrett/om-vestre-finnmark-tingrett/",
+        "type": "offisiell"
+      },
+      {
+        "key": "finnmarkssykehuset-no-foretaksledelsen",
+        "navn": "Finnmarkssykehuset: Foretaksledelsen",
+        "url": "https://www.finnmarkssykehuset.no/kontakt-oss/foretaksledelsen",
+        "type": "offisiell"
+      },
+      {
+        "key": "helse-nord-no-om-oss",
+        "navn": "Helse Nord RHF: Om oss",
+        "url": "https://www.helse-nord.no/om-oss/",
+        "type": "offisiell"
+      },
+      {
+        "key": "kartverket-kommuneinfo",
+        "navn": "Kartverket kommuneinfo (API)",
+        "url": "https://ws.geonorge.no/kommuneinfo/v1/kommuner",
+        "type": "register"
+      },
+      {
+        "key": "politiet-no-finnmark",
+        "navn": "Politiet: Finnmark politidistrikt",
+        "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/finnmark/",
+        "type": "offisiell"
+      },
+      {
+        "key": "politiet-no-nordland",
+        "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+        "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+        "type": "offisiell"
+      },
+      {
+        "key": "politiet-no-troms",
+        "navn": "Troms politidistrikt: Om oss",
+        "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/troms/",
+        "type": "offisiell"
+      },
+      {
+        "key": "ssb-klass-131",
+        "navn": "SSB Klass 131: Standard for kommuneinndeling",
+        "url": "https://data.ssb.no/api/klass/v1/classifications/131/codesAt?date=2026-09-25",
+        "type": "register"
+      },
+      {
+        "key": "statsforvalteren-no",
+        "navn": "Statsforvalteren (statsforvalteren.no)",
+        "url": "https://www.statsforvalteren.no",
+        "type": "offisiell"
+      },
+      {
+        "key": "statsforvalteren-no-nordland-om-oss",
+        "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+        "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+        "type": "offisiell"
+      }
+    ]
+  },
+  "dekning": [
+    {
+      "org": "finnmark-fylkeskommune",
+      "kommuner": [
+        "5601",
+        "5603",
+        "5605",
+        "5607",
+        "5610",
+        "5612",
+        "5614",
+        "5616",
+        "5618",
+        "5620",
+        "5622",
+        "5624",
+        "5626",
+        "5628",
+        "5630",
+        "5632",
+        "5634",
+        "5636"
+      ],
+      "belegg": {
+        "kilde": "ssb-klass-131",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunene med fylkesnummer 56 i SSB Klass 131, gyldig 25.09.2026."
+      }
+    },
+    {
+      "org": "finnmark-fylkesting",
+      "kommuner": [
+        "5601",
+        "5603",
+        "5605",
+        "5607",
+        "5610",
+        "5612",
+        "5614",
+        "5616",
+        "5618",
+        "5620",
+        "5622",
+        "5624",
+        "5626",
+        "5628",
+        "5630",
+        "5632",
+        "5634",
+        "5636"
+      ],
+      "belegg": {
+        "kilde": "ssb-klass-131",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunene med fylkesnummer 56 i SSB Klass 131, gyldig 25.09.2026."
+      }
+    },
+    {
+      "org": "finnmark-jordskifterett",
+      "kommuner": [
+        "5601",
+        "5603",
+        "5605",
+        "5607",
+        "5610",
+        "5612",
+        "5614",
+        "5616",
+        "5618",
+        "5620",
+        "5622",
+        "5624",
+        "5626",
+        "5628",
+        "5630",
+        "5632",
+        "5634",
+        "5636"
+      ],
+      "belegg": {
+        "kilde": "domstol-no-finnmark-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "domstol.no (25.09.2026): særdomstol for saker om fast eiendom i alle de 18 kommunene i Finnmark."
+      }
+    },
+    {
+      "org": "finnmark-politidistrikt",
+      "kommuner": [
+        "5601",
+        "5603",
+        "5605",
+        "5607",
+        "5610",
+        "5612",
+        "5614",
+        "5616",
+        "5618",
+        "5620",
+        "5622",
+        "5624",
+        "5626",
+        "5628",
+        "5630",
+        "5632",
+        "5634",
+        "5636"
+      ],
+      "belegg": {
+        "kilde": "politiet-no-finnmark",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Politidistriktet for hele Finnmark (politiet.no, 25.09.2026). Kommunene er fylke 56 i SSB Klass 131."
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "kommuner": [
+        "5601",
+        "5603",
+        "5605",
+        "5607",
+        "5610",
+        "5612",
+        "5614",
+        "5616",
+        "5618",
+        "5620",
+        "5622",
+        "5624",
+        "5626",
+        "5628",
+        "5630",
+        "5632",
+        "5634",
+        "5636"
+      ],
+      "belegg": {
+        "kilde": "finnmarkssykehuset-no-foretaksledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "finnmarkssykehuset.no (25.09.2026): helseforetaket for spesialisthelsetjenesten i Finnmark. Kommunene er fylke 56 i SSB Klass 131."
+      }
+    },
+    {
+      "org": "helgeland-jordskifterett",
+      "kommuner": [
+        "1811",
+        "1812",
+        "1813",
+        "1815",
+        "1816",
+        "1818",
+        "1820",
+        "1822",
+        "1824",
+        "1825",
+        "1826",
+        "1827",
+        "1828",
+        "1832",
+        "1833",
+        "1834",
+        "1835"
+      ],
+      "belegg": {
+        "kilde": "domstol-no-helgeland-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Siden skriver «Herøy» uten fylkesangivelse; tolket som Herøy i Nordland."
+      }
+    },
+    {
+      "org": "helgeland-tingrett",
+      "kommuner": [
+        "1811",
+        "1812",
+        "1813",
+        "1815",
+        "1816",
+        "1818",
+        "1820",
+        "1822",
+        "1824",
+        "1825",
+        "1826",
+        "1827",
+        "1828",
+        "1832",
+        "1833",
+        "1834",
+        "1835"
+      ],
+      "belegg": {
+        "kilde": "domstol-no-helgeland-tingrett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Rettssted Mo i Rana, Brønnøysund og Sandnessjøen; «Vår rettskrets» sier 17 kommuner."
+      }
+    },
+    {
+      "org": "helse-nord-rhf",
+      "kommuner": [
+        "1804",
+        "1806",
+        "1811",
+        "1812",
+        "1813",
+        "1815",
+        "1816",
+        "1818",
+        "1820",
+        "1822",
+        "1824",
+        "1825",
+        "1826",
+        "1827",
+        "1828",
+        "1832",
+        "1833",
+        "1834",
+        "1835",
+        "1836",
+        "1837",
+        "1838",
+        "1839",
+        "1840",
+        "1841",
+        "1845",
+        "1848",
+        "1851",
+        "1853",
+        "1856",
+        "1857",
+        "1859",
+        "1860",
+        "1865",
+        "1866",
+        "1867",
+        "1868",
+        "1870",
+        "1871",
+        "1874",
+        "1875",
+        "5501",
+        "5503",
+        "5510",
+        "5512",
+        "5514",
+        "5516",
+        "5518",
+        "5520",
+        "5522",
+        "5524",
+        "5526",
+        "5528",
+        "5530",
+        "5532",
+        "5534",
+        "5536",
+        "5538",
+        "5540",
+        "5542",
+        "5544",
+        "5546",
+        "5601",
+        "5603",
+        "5605",
+        "5607",
+        "5610",
+        "5612",
+        "5614",
+        "5616",
+        "5618",
+        "5620",
+        "5622",
+        "5624",
+        "5626",
+        "5628",
+        "5630",
+        "5632",
+        "5634",
+        "5636"
+      ],
+      "belegg": {
+        "kilde": "helse-nord-no-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "helse-nord.no (25.09.2026): «Helse Nord RHF skal sørge for at befolkningen i Nord-Norge og på Svalbard får gode spesialisthelsetjenester.» Kommunene er de 80 i Nordland, Troms og Finnmark i regionregisteret."
+      }
+    },
+    {
+      "org": "indre-og-ostre-finnmark-tingrett",
+      "kommuner": [
+        "5605",
+        "5607",
+        "5610",
+        "5612",
+        "5624",
+        "5626",
+        "5628",
+        "5630",
+        "5632",
+        "5634",
+        "5636"
+      ],
+      "belegg": {
+        "kilde": "domstol-no-indre-og-ostre-finnmark-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "domstol.no (25.09.2026): tingrett for Berlevåg, Båtsfjord, Gamvik, Karasjok, Kautokeino, Lebesby, Nesseby, Sør-Varanger, Tana, Vadsø og Vardø."
+      }
+    },
+    {
+      "org": "lofoten-og-vesteralen-jordskifterett",
+      "kommuner": [
+        "1851",
+        "1859",
+        "1860",
+        "1865",
+        "1866",
+        "1867",
+        "1868",
+        "1870",
+        "1871",
+        "1874"
+      ],
+      "belegg": {
+        "kilde": "domstol-no-lofoten-og-vesteralen-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "org": "midtre-halogaland-tingrett",
+      "kommuner": [
+        "1806",
+        "1851",
+        "1853",
+        "1866",
+        "1867",
+        "1868",
+        "1870",
+        "1871",
+        "5503",
+        "5510",
+        "5512",
+        "5514",
+        "5516",
+        "5518",
+        "5522"
+      ],
+      "belegg": {
+        "kilde": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Rettssted Harstad, Narvik og Sortland. Sju av kommunene ligger i Troms."
+      }
+    },
+    {
+      "org": "nordland-fylkeskommune",
+      "kommuner": [
+        "1804",
+        "1806",
+        "1811",
+        "1812",
+        "1813",
+        "1815",
+        "1816",
+        "1818",
+        "1820",
+        "1822",
+        "1824",
+        "1825",
+        "1826",
+        "1827",
+        "1828",
+        "1832",
+        "1833",
+        "1834",
+        "1835",
+        "1836",
+        "1837",
+        "1838",
+        "1839",
+        "1840",
+        "1841",
+        "1845",
+        "1848",
+        "1851",
+        "1853",
+        "1856",
+        "1857",
+        "1859",
+        "1860",
+        "1865",
+        "1866",
+        "1867",
+        "1868",
+        "1870",
+        "1871",
+        "1874",
+        "1875"
+      ],
+      "belegg": {
+        "kilde": "ssb-klass-131",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunene med fylkesnummer 18 i SSB Klass 131, gyldig 25.09.2026."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "kommuner": [
+        "1804",
+        "1806",
+        "1811",
+        "1812",
+        "1813",
+        "1815",
+        "1816",
+        "1818",
+        "1820",
+        "1822",
+        "1824",
+        "1825",
+        "1826",
+        "1827",
+        "1828",
+        "1832",
+        "1833",
+        "1834",
+        "1835",
+        "1836",
+        "1837",
+        "1838",
+        "1839",
+        "1840",
+        "1841",
+        "1845",
+        "1848",
+        "1851",
+        "1853",
+        "1856",
+        "1857",
+        "1859",
+        "1860",
+        "1865",
+        "1866",
+        "1867",
+        "1868",
+        "1870",
+        "1871",
+        "1874",
+        "1875"
+      ],
+      "belegg": {
+        "kilde": "ssb-klass-131",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunene med fylkesnummer 18 i SSB Klass 131, gyldig 25.09.2026."
+      }
+    },
+    {
+      "org": "nordland-politidistrikt",
+      "kommuner": [
+        "1804",
+        "1806",
+        "1812",
+        "1813",
+        "1815",
+        "1816",
+        "1818",
+        "1820",
+        "1822",
+        "1824",
+        "1825",
+        "1826",
+        "1827",
+        "1828",
+        "1832",
+        "1833",
+        "1834",
+        "1835",
+        "1836",
+        "1837",
+        "1838",
+        "1839",
+        "1840",
+        "1841",
+        "1845",
+        "1848",
+        "1851",
+        "1853",
+        "1856",
+        "1857",
+        "1859",
+        "1860",
+        "1865",
+        "1866",
+        "1867",
+        "1868",
+        "1870",
+        "1871",
+        "1874",
+        "1875",
+        "5516"
+      ],
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Alle kommuner i Nordland unntatt Bindal, pluss Gratangen i Troms."
+      }
+    },
+    {
+      "org": "ofoten-og-sor-troms-jordskifterett",
+      "kommuner": [
+        "1806",
+        "1853",
+        "5503",
+        "5510",
+        "5512",
+        "5514",
+        "5516",
+        "5518",
+        "5520",
+        "5522",
+        "5528"
+      ],
+      "belegg": {
+        "kilde": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Ni av kommunene ligger i Troms."
+      }
+    },
+    {
+      "org": "salten-jordskifterett",
+      "kommuner": [
+        "1804",
+        "1836",
+        "1837",
+        "1838",
+        "1839",
+        "1840",
+        "1841",
+        "1845",
+        "1848",
+        "1856",
+        "1857",
+        "1875"
+      ],
+      "belegg": {
+        "kilde": "domstol-no-salten-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "org": "salten-og-lofoten-tingrett",
+      "kommuner": [
+        "1804",
+        "1836",
+        "1837",
+        "1838",
+        "1839",
+        "1840",
+        "1841",
+        "1845",
+        "1848",
+        "1856",
+        "1857",
+        "1859",
+        "1860",
+        "1865",
+        "1874",
+        "1875"
+      ],
+      "belegg": {
+        "kilde": "domstol-no-salten-og-lofoten-tingrett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Rettssted Bodø og rettssted Svolvær."
+      }
+    },
+    {
+      "org": "sametinget",
+      "kommuner": [
+        "1826",
+        "1875",
+        "5512",
+        "5518",
+        "5540",
+        "5610",
+        "5612",
+        "5622",
+        "5628",
+        "5636"
+      ],
+      "belegg": {
+        "kilde": "kartverket-kommuneinfo",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunene i forvaltningsområdet for samisk språk ifølge Kartverket (regionregisteret, samisk_forvaltningsomrade)."
+      }
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "kommuner": [
+        "1804",
+        "1806",
+        "1811",
+        "1812",
+        "1813",
+        "1815",
+        "1816",
+        "1818",
+        "1820",
+        "1822",
+        "1824",
+        "1825",
+        "1826",
+        "1827",
+        "1828",
+        "1832",
+        "1833",
+        "1834",
+        "1835",
+        "1836",
+        "1837",
+        "1838",
+        "1839",
+        "1840",
+        "1841",
+        "1845",
+        "1848",
+        "1851",
+        "1853",
+        "1856",
+        "1857",
+        "1859",
+        "1860",
+        "1865",
+        "1866",
+        "1867",
+        "1868",
+        "1870",
+        "1871",
+        "1874",
+        "1875"
+      ],
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Statens representant i Nordland (statsforvalteren.no, 25.09.2026). Kommunene er fylke 18 i SSB Klass 131."
+      }
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "kommuner": [
+        "5501",
+        "5503",
+        "5510",
+        "5512",
+        "5514",
+        "5516",
+        "5518",
+        "5520",
+        "5522",
+        "5524",
+        "5526",
+        "5528",
+        "5530",
+        "5532",
+        "5534",
+        "5536",
+        "5538",
+        "5540",
+        "5542",
+        "5544",
+        "5546",
+        "5601",
+        "5603",
+        "5605",
+        "5607",
+        "5610",
+        "5612",
+        "5614",
+        "5616",
+        "5618",
+        "5620",
+        "5622",
+        "5624",
+        "5626",
+        "5628",
+        "5630",
+        "5632",
+        "5634",
+        "5636"
+      ],
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Embetet er Statsforvalteren i Troms og Finnmark (statsforvalteren.no, 25.09.2026). Kommunene er fylke 55 og 56 i SSB Klass 131."
+      }
+    },
+    {
+      "org": "stortinget-finnmark-valgkrets",
+      "kommuner": [
+        "5601",
+        "5603",
+        "5605",
+        "5607",
+        "5610",
+        "5612",
+        "5614",
+        "5616",
+        "5618",
+        "5620",
+        "5622",
+        "5624",
+        "5626",
+        "5628",
+        "5630",
+        "5632",
+        "5634",
+        "5636"
+      ],
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Valgkretsen er fylket: data.stortinget.no fører representantene per fylke. Kommunene er fylke 56 i SSB Klass 131."
+      }
+    },
+    {
+      "org": "stortinget-nordland-valgkrets",
+      "kommuner": [
+        "1804",
+        "1806",
+        "1811",
+        "1812",
+        "1813",
+        "1815",
+        "1816",
+        "1818",
+        "1820",
+        "1822",
+        "1824",
+        "1825",
+        "1826",
+        "1827",
+        "1828",
+        "1832",
+        "1833",
+        "1834",
+        "1835",
+        "1836",
+        "1837",
+        "1838",
+        "1839",
+        "1840",
+        "1841",
+        "1845",
+        "1848",
+        "1851",
+        "1853",
+        "1856",
+        "1857",
+        "1859",
+        "1860",
+        "1865",
+        "1866",
+        "1867",
+        "1868",
+        "1870",
+        "1871",
+        "1874",
+        "1875"
+      ],
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Valgkretsen er fylket: data.stortinget.no fører representantene per fylke. Kommunene er fylke 18 i SSB Klass 131."
+      }
+    },
+    {
+      "org": "stortinget-troms-valgkrets",
+      "kommuner": [
+        "5501",
+        "5503",
+        "5510",
+        "5512",
+        "5514",
+        "5516",
+        "5518",
+        "5520",
+        "5522",
+        "5524",
+        "5526",
+        "5528",
+        "5530",
+        "5532",
+        "5534",
+        "5536",
+        "5538",
+        "5540",
+        "5542",
+        "5544",
+        "5546"
+      ],
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Valgkretsen er fylket: data.stortinget.no fører representantene per fylke. Kommunene er fylke 55 i SSB Klass 131."
+      }
+    },
+    {
+      "org": "troms-fylkeskommune",
+      "kommuner": [
+        "5501",
+        "5503",
+        "5510",
+        "5512",
+        "5514",
+        "5516",
+        "5518",
+        "5520",
+        "5522",
+        "5524",
+        "5526",
+        "5528",
+        "5530",
+        "5532",
+        "5534",
+        "5536",
+        "5538",
+        "5540",
+        "5542",
+        "5544",
+        "5546"
+      ],
+      "belegg": {
+        "kilde": "ssb-klass-131",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunene med fylkesnummer 55 i SSB Klass 131, gyldig 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-fylkesting",
+      "kommuner": [
+        "5501",
+        "5503",
+        "5510",
+        "5512",
+        "5514",
+        "5516",
+        "5518",
+        "5520",
+        "5522",
+        "5524",
+        "5526",
+        "5528",
+        "5530",
+        "5532",
+        "5534",
+        "5536",
+        "5538",
+        "5540",
+        "5542",
+        "5544",
+        "5546"
+      ],
+      "belegg": {
+        "kilde": "ssb-klass-131",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunene med fylkesnummer 55 i SSB Klass 131, gyldig 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-politidistrikt",
+      "kommuner": [
+        "5501",
+        "5503",
+        "5510",
+        "5512",
+        "5514",
+        "5518",
+        "5520",
+        "5522",
+        "5524",
+        "5526",
+        "5528",
+        "5530",
+        "5532",
+        "5534",
+        "5536",
+        "5538",
+        "5540",
+        "5542",
+        "5544",
+        "5546"
+      ],
+      "belegg": {
+        "kilde": "politiet-no-troms",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Troms politidistrikt oppgir selv «20 kommuner i Troms fylke» (politiet.no, 25.09.2026). Den 21. kommunen, Gratangen, dekkes av Nordland politidistrikt ifølge politiet.no/nordland."
+      }
+    },
+    {
+      "org": "trondelag-politidistrikt",
+      "kommuner": [
+        "1811"
+      ],
+      "merknad": "Bare Nordland-delen er ført.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Bindal dekkes av Trøndelag politidistrikt ifølge Nordland politidistrikts egen side."
+      }
+    },
+    {
+      "org": "utmarksdomstolen-for-finnmark",
+      "kommuner": [
+        "5601",
+        "5603",
+        "5605",
+        "5607",
+        "5610",
+        "5612",
+        "5614",
+        "5616",
+        "5618",
+        "5620",
+        "5622",
+        "5624",
+        "5626",
+        "5628",
+        "5630",
+        "5632",
+        "5634",
+        "5636"
+      ],
+      "belegg": {
+        "kilde": "domstol-no-utmarksdomstolen-saksbehandling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "domstol.no (25.09.2026): avgjør tvister om rettigheter til grunn i Finnmark etter at Finnmarkskommisjonen har utredet et felt."
+      }
+    },
+    {
+      "org": "vestre-finnmark-tingrett",
+      "kommuner": [
+        "5546",
+        "5601",
+        "5603",
+        "5614",
+        "5616",
+        "5618",
+        "5620",
+        "5622"
+      ],
+      "belegg": {
+        "kilde": "domstol-no-vestre-finnmark-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "domstol.no (25.09.2026): tingrett for Alta, Hammerfest, Hasvik, Måsøy, Nordkapp, Porsanger og Loppa i Finnmark og Kvænangen i Troms."
+      }
+    }
+  ]
+}

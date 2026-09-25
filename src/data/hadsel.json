@@ -5,17 +5,10 @@
     "fylkesnr": "18",
     "fylke": "Nordland",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -41,28 +34,562 @@
       "key": "researchgrunnlag",
       "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
       "type": "sekundaer"
+    },
+    {
+      "key": "hadsel-kommune-no",
+      "navn": "Hadsel kommune (www.hadsel.kommune.no)",
+      "url": "https://www.hadsel.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "hadsel-moteportal",
+      "navn": "Hadsel kommunes møteportal (360 OpenGov, opengov.360online.com)",
+      "url": "https://opengov.360online.com/Meetings/hadsel_kommune",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "nordlandssykehuset-no-ledelsen",
+      "navn": "Nordlandssykehuset: Ledelsen (sist oppdatert 11.08.2026)",
+      "url": "https://www.nordlandssykehuset.no/om-oss/ledelsen-i-nordlandssykehuset/",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-lofoten-og-vesteralen-jordskifterett-rettskrets",
+      "navn": "Lofoten og Vesterålen jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/lofoten-og-vesteralen-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+      "navn": "Midtre Hålogaland tingrett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/midtre-halogaland-tingrett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
     {
-      "key": "hadsel-kommunestyre",
-      "navn": "Kommunestyret i Hadsel",
+      "key": "hadsel-eldrerad",
+      "navn": "Hadsel eldreråd",
+      "kortnavn": "Hadsel eldreråd",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "hadsel-kommunestyre",
+      "kommunenr": "1866",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/205647) 2026-09-25."
+      }
+    },
+    {
+      "key": "hadsel-formannskap",
+      "navn": "Formannskapet i Hadsel",
+      "kortnavn": "Formannskapet",
       "nivaa": "kommune",
       "organtype": "folkevalgt_organ",
+      "overordnet": "hadsel-kommunestyre",
+      "kommunenr": "1866",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/204771) 2026-09-25."
+      }
+    },
+    {
+      "key": "hadsel-hovedutvalg-teknisk",
+      "navn": "Hovedutvalg teknisk i Hadsel",
+      "kortnavn": "Hovedutvalg teknisk",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hadsel-kommunestyre",
+      "kommunenr": "1866",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/204776) 2026-09-25."
+      }
+    },
+    {
+      "key": "hadsel-kommune",
+      "orgnr": "958501420",
+      "navn": "Hadsel kommune",
+      "kortnavn": "Hadsel kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1866",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «HADSEL KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1866."
+      }
+    },
+    {
+      "key": "hadsel-kommune-administrasjonen",
+      "navn": "Administrasjonen i Hadsel kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
       "overordnet": "hadsel-kommune",
       "kommunenr": "1866",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
       "myndighet": [
+        "innstilling",
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "hadsel-kommune-no",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "merknad": "Hentet fra hadsel.kommune.no/kommunedirektor 2026-09-25."
+      }
+    },
+    {
+      "key": "hadsel-kontrollutvalget",
+      "navn": "Kontrollutvalg i Hadsel",
+      "kortnavn": "Kontrollutvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hadsel-kommunestyre",
+      "kommunenr": "1866",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/205672) 2026-09-25."
+      }
+    },
+    {
+      "key": "hadsel-partssammensatt-utvalg",
+      "navn": "Partssammensatt utvalg i Hadsel",
+      "kortnavn": "Partssammensatt utvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hadsel-kommunestyre",
+      "kommunenr": "1866",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg for saker mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/205643) 2026-09-25."
+      }
+    },
+    {
+      "key": "hadsel-rad-for-personer-med-funksjonsnedsettelse-i-hadsel",
+      "navn": "Råd for personer med funksjonsnedsettelse i Hadsel",
+      "kortnavn": "Råd for personer med funksjonsnedsettelse i Hadsel",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "hadsel-kommunestyre",
+      "kommunenr": "1866",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/205646) 2026-09-25."
+      }
+    },
+    {
+      "key": "hadsel-ungdomsradet",
+      "navn": "Ungdomsrådet i Hadsel",
+      "kortnavn": "Ungdomsrådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "hadsel-kommunestyre",
+      "kommunenr": "1866",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/209944) 2026-09-25."
+      }
+    },
+    {
+      "key": "hadsel-kommunestyre",
+      "navn": "Kommunestyret i Hadsel",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "hadsel-kommune",
+      "kommunenr": "1866",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 25,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "lofoten-og-vesteralen-jordskifterett",
+      "orgnr": "926726609",
+      "navn": "Lofoten og Vesterålen jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i ti kommuner i Lofoten og Vesterålen, inkludert Lødingen.",
+      "belegg": {
+        "kilde": "domstol-no-lofoten-og-vesteralen-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "midtre-halogaland-tingrett",
+      "orgnr": "926723073",
+      "navn": "Midtre Hålogaland tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "55",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for Narvik, Evenes, Lødingen, Andøy, Bø, Hadsel, Sortland og Øksnes i Nordland og sju kommuner i Troms, med rettssteder i Harstad, Narvik og Sortland.",
+      "belegg": {
+        "kilde": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Hovedsete i Harstad (Troms) ifølge Enhetsregisteret."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "segmenter": [
+        "helse"
+      ],
+      "myndighet": [
+        "innkjop"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Helseforetak med hovedsete i Bodø, eid av Helse Nord RHF.",
+      "belegg": {
+        "kilde": "nordlandssykehuset-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 983974910, organisasjonsform SÆR, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Antall ansatte i registeret: 6861."
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
       }
     },
     {
@@ -83,25 +610,6 @@
         "verifisering": "maa_verifiseres",
         "per": "2026-09",
         "merknad": "Grunnlaget oppgir ikke kilde for dette."
-      }
-    },
-    {
-      "key": "hadsel-kommune",
-      "orgnr": "958501420",
-      "navn": "Hadsel Kommune",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "1866",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
       }
     },
     {
@@ -293,28 +801,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
-      }
-    },
-    {
-      "key": "nordlandssykehuset",
-      "orgnr": "983974910",
-      "navn": "Nordlandssykehuset HF",
-      "nivaa": "stat",
-      "organtype": "HF",
-      "kommunenr": "1804",
-      "myndighet": [],
-      "segmenter": [
-        "helse"
-      ],
-      "gyldig_fra": "2001-12-18",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
       }
     },
     {
@@ -560,6 +1046,110 @@
   ],
   "personer": [
     {
+      "key": "lars-gunder-rask",
+      "navn": "Lars Gunder Rask"
+    },
+    {
+      "key": "oyvind-korsberg",
+      "navn": "Øyvind Korsberg"
+    },
+    {
+      "key": "age-hilmar-rusten",
+      "navn": "Åge Hilmar Rusten"
+    },
+    {
+      "key": "aina-johanne-nilsen",
+      "navn": "Aina Johanne Nilsen"
+    },
+    {
+      "key": "andreas-riibe-oien",
+      "navn": "Andreas Riibe-Øien"
+    },
+    {
+      "key": "anne-karine-innbjor",
+      "navn": "Anne Karine Innbjør"
+    },
+    {
+      "key": "anne-margrethe-cameron",
+      "navn": "Anne Margrethe Cameron"
+    },
+    {
+      "key": "arne-ivar-mikalsen",
+      "navn": "Arne Ivar Mikalsen"
+    },
+    {
+      "key": "arne-reidar-johansen",
+      "navn": "Arne-Reidar Johansen"
+    },
+    {
+      "key": "atle-nielsen",
+      "navn": "Atle Nielsen"
+    },
+    {
+      "key": "hakon-olsen",
+      "navn": "Håkon Olsen"
+    },
+    {
+      "key": "ivar-frank-fredriksen",
+      "navn": "Ivar Frank Fredriksen"
+    },
+    {
+      "key": "jan-steffensen",
+      "navn": "Jan Steffensen"
+    },
+    {
+      "key": "kjell-borge-freiberg",
+      "navn": "Kjell-Børge Freiberg"
+    },
+    {
+      "key": "kristin-lovise-fjaervoll",
+      "navn": "Kristin Lovise Fjærvoll"
+    },
+    {
+      "key": "lena-arntzen",
+      "navn": "Lena Arntzen"
+    },
+    {
+      "key": "margareth-bentzen",
+      "navn": "Margareth Bentzen"
+    },
+    {
+      "key": "orjan-robertsen",
+      "navn": "Ørjan Robertsen"
+    },
+    {
+      "key": "renathe-marie-eriksen",
+      "navn": "Renathe Marie Eriksen"
+    },
+    {
+      "key": "rene-cortis",
+      "navn": "René Cortis"
+    },
+    {
+      "key": "sylvi-dagny-olsen",
+      "navn": "Sylvi Dagny Olsen"
+    },
+    {
+      "key": "tone-ronne-gaasland",
+      "navn": "Tone Rønne Gaasland"
+    },
+    {
+      "key": "torbjorn-ytrehus-moldestad",
+      "navn": "Torbjørn Ytrehus Moldestad"
+    },
+    {
+      "key": "trude-karin-iversen",
+      "navn": "Trude Karin Iversen"
+    },
+    {
+      "key": "trude-lind",
+      "navn": "Trude Lind"
+    },
+    {
+      "key": "veronica-vangen-evensen",
+      "navn": "Veronica Vangen Evensen"
+    },
+    {
       "key": "amalie-berg",
       "navn": "Amalie Berg"
     },
@@ -672,11 +1262,11 @@
       "navn": "Lars Fredrik Stenvik"
     },
     {
-      "key": "lars-gunder-rask",
+      "key": "lars-gunder-rask-ca3c7f",
       "navn": "Lars Gunder Rask"
     },
     {
-      "key": "lena-amalie-hamnes",
+      "key": "lena-amalie-hamnes-8c24b3",
       "navn": "Lena Amalie Hamnes"
     },
     {
@@ -690,10 +1280,6 @@
     {
       "key": "marthe-hov-jacobsen",
       "navn": "Marthe Hov Jacobsen"
-    },
-    {
-      "key": "oyvind-korsberg",
-      "navn": "Øyvind Korsberg"
     },
     {
       "key": "preben-moen",
@@ -746,15 +1332,501 @@
   ],
   "roller": [
     {
-      "org": "hadsel-kommune",
-      "person": "oyvind-korsberg",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
+      "org": "hadsel-formannskap",
+      "person": "kjell-borge-freiberg",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
       "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/204771) 2026-09-25. Møteportalen fører ordføreren i formannskapet med funksjonen «Ordfører»."
+      }
+    },
+    {
+      "org": "hadsel-hovedutvalg-teknisk",
+      "person": "andreas-riibe-oien",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/204776) 2026-09-25."
+      }
+    },
+    {
+      "org": "hadsel-kommune-administrasjonen",
+      "person": "oyvind-korsberg",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "konstituert",
+      "fra": "2025-05-15",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
-        "per": "2026-09-25"
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Hadsel kommune (www.hadsel.kommune.no), per 2026-09-25). Grunnlagets merknad: Hentet fra hadsel.kommune.no/kommunedirektor 2026-09-25. Siden: «ble konstituert som kommunedirektør for Hadsel av kommunestyre 15.05.2025»."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "age-hilmar-rusten",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "hadsel-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hadsel.kommune.no/politikk-og-innsyn/politisk-ledelse 2026-09-25."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "kjell-borge-freiberg",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "hadsel-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hadsel.kommune.no/politikk-og-innsyn/politisk-ledelse 2026-09-25."
+      }
+    },
+    {
+      "org": "hadsel-kontrollutvalget",
+      "person": "atle-nielsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/205672) 2026-09-25."
+      }
+    },
+    {
+      "org": "hadsel-partssammensatt-utvalg",
+      "person": "kjell-borge-freiberg",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/205643) 2026-09-25."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "age-hilmar-rusten",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "aina-johanne-nilsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "andreas-riibe-oien",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "anne-karine-innbjor",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Melbu og omegn samarbeidsliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "anne-margrethe-cameron",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "arne-ivar-mikalsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "arne-reidar-johansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Melbu og omegn samarbeidsliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "atle-nielsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "hakon-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Melbu og omegn samarbeidsliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "ivar-frank-fredriksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "jan-steffensen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Melbu og omegn samarbeidsliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "kjell-borge-freiberg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "kristin-lovise-fjaervoll",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "lars-gunder-rask",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "lena-arntzen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "margareth-bentzen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "orjan-robertsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Melbu og omegn samarbeidsliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "renathe-marie-eriksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "rene-cortis",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "sylvi-dagny-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "tone-ronne-gaasland",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "torbjorn-ytrehus-moldestad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "MDG",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "trude-karin-iversen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "trude-lind",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hadsel-kommunestyre",
+      "person": "veronica-vangen-evensen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
       }
     },
     {
@@ -1083,7 +2155,7 @@
     },
     {
       "org": "quality-hotel-richard-with",
-      "person": "lars-gunder-rask",
+      "person": "lars-gunder-rask-ca3c7f",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -1251,7 +2323,7 @@
     },
     {
       "org": "stiftelsen-museum-nord",
-      "person": "lena-amalie-hamnes",
+      "person": "lena-amalie-hamnes-8c24b3",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
@@ -1384,14 +2456,124 @@
   ],
   "relasjoner": [
     {
+      "fra": "hadsel-eldrerad",
+      "til": "hadsel-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/205647) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hadsel-formannskap",
+      "til": "hadsel-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/204771) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hadsel-hovedutvalg-teknisk",
+      "til": "hadsel-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/204776) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hadsel-kommune-administrasjonen",
+      "til": "hadsel-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hadsel-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hadsel.kommune.no/kommunedirektor 2026-09-25."
+      }
+    },
+    {
+      "fra": "hadsel-kontrollutvalget",
+      "til": "hadsel-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/205672) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hadsel-partssammensatt-utvalg",
+      "til": "hadsel-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/205643) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hadsel-rad-for-personer-med-funksjonsnedsettelse-i-hadsel",
+      "til": "hadsel-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/205646) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hadsel-ungdomsradet",
+      "til": "hadsel-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hadsel-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra 360 OpenGov (opengov.360online.com/Meetings/hadsel_kommune/Boards/Details/209944) 2026-09-25."
+      }
+    },
+    {
       "fra": "hadsel-kommunestyre",
       "til": "hadsel-kommune",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
       }
     },
     {
@@ -1982,7 +3164,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Hadsel?",
+      "steg": [
+        {
+          "org": "hadsel-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "hadsel-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (hadsel-moteportal); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "hadsel-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Hadsel kommune?",
+      "steg": [
+        {
+          "org": "hadsel-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "hadsel-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (hadsel-moteportal)."
+          }
+        },
+        {
+          "org": "hadsel-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "eiendom-bygg",
@@ -2003,9 +3277,37 @@
     {
       "kode": "transport",
       "navn": "Transport"
+    },
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
     }
   ],
   "org_segment": [
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
     {
       "org": "torghatten-nord",
       "segment": "transport",
@@ -2057,11 +3359,6 @@
       "styrke": 3
     },
     {
-      "org": "nordlandssykehuset",
-      "segment": "helse",
-      "styrke": 3
-    },
-    {
       "org": "quality-hotel-richard-with",
       "segment": "reiseliv",
       "styrke": 3
@@ -2077,5 +3374,16 @@
       "styrke": 3
     }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "hadsel-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "hadsel-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
 }

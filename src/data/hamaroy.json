@@ -5,17 +5,10 @@
     "fylkesnr": "18",
     "fylke": "Nordland",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -36,28 +29,617 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "hamaroy-kommune-no",
+      "navn": "Hamarøy kommune (www.hamaroy.kommune.no)",
+      "url": "https://www.hamaroy.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "hamaroy-moteportal",
+      "navn": "Hamarøy kommunes møteportal (Elements Publikum, prod01.elementscloud.no)",
+      "url": "https://prod01.elementscloud.no/publikum/970542507_PROD-970542507/Dmb",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "nordlandssykehuset-no-ledelsen",
+      "navn": "Nordlandssykehuset: Ledelsen (sist oppdatert 11.08.2026)",
+      "url": "https://www.nordlandssykehuset.no/om-oss/ledelsen-i-nordlandssykehuset/",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-salten-jordskifterett-rettskrets",
+      "navn": "Salten jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/salten-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-salten-og-lofoten-tingrett-om",
+      "navn": "Salten og Lofoten tingrett: Om Salten og Lofoten tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/salten-og-lofoten-tingrett/om-salten-og-lofoten-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "sametinget-no",
+      "navn": "Sametinget (sametinget.no)",
+      "url": "https://www.sametinget.no",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
     {
-      "key": "hamaroy-kommunestyre",
-      "navn": "Kommunestyret i Hábmer - Hamarøy",
+      "key": "hamaroy-eldreradet",
+      "navn": "Eldrerådet i Hábmer - Hamarøy",
+      "kortnavn": "Eldrerådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "hamaroy-kommunestyre",
+      "kommunenr": "1875",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/18) 2026-09-25."
+      }
+    },
+    {
+      "key": "hamaroy-formannskap",
+      "navn": "Formannskapet i Hábmer - Hamarøy",
+      "kortnavn": "Formannskapet",
       "nivaa": "kommune",
       "organtype": "folkevalgt_organ",
+      "overordnet": "hamaroy-kommunestyre",
+      "kommunenr": "1875",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/3) 2026-09-25."
+      }
+    },
+    {
+      "key": "hamaroy-hovedutvalg-for-levekar",
+      "navn": "Hovedutvalg for levekår i Hábmer - Hamarøy",
+      "kortnavn": "Hovedutvalg for levekår",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hamaroy-kommunestyre",
+      "kommunenr": "1875",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/17) 2026-09-25."
+      }
+    },
+    {
+      "key": "hamaroy-hovedutvalg-for-samfunnsutvikling",
+      "navn": "Hovedutvalg for samfunnsutvikling i Hábmer - Hamarøy",
+      "kortnavn": "Hovedutvalg for samfunnsutvikling",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hamaroy-kommunestyre",
+      "kommunenr": "1875",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/16) 2026-09-25."
+      }
+    },
+    {
+      "key": "hamaroy-kommune",
+      "orgnr": "970542507",
+      "navn": "Hábmer - Hamarøy kommune",
+      "kortnavn": "Hamarøy kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1875",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ. Offisielt navn hos SSB: «Hábmer - Hamarøy».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «HAMARØY KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1875."
+      }
+    },
+    {
+      "key": "hamaroy-kommune-administrasjonen",
+      "navn": "Administrasjonen i Hábmer - Hamarøy kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
       "overordnet": "hamaroy-kommune",
       "kommunenr": "1875",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
       "myndighet": [
+        "innstilling",
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "hamaroy-kommune-no",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "merknad": "Hentet fra hamaroy.kommune.no/organisasjon/administrativ-ledelse 2026-09-25."
+      }
+    },
+    {
+      "key": "hamaroy-kontrollutvalget",
+      "navn": "Kontrollutvalget i Hábmer - Hamarøy",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hamaroy-kommunestyre",
+      "kommunenr": "1875",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/20) 2026-09-25."
+      }
+    },
+    {
+      "key": "hamaroy-partssammensatt-utvalg",
+      "navn": "Partssammensatt utvalg i Hábmer - Hamarøy",
+      "kortnavn": "Partssammensatt utvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hamaroy-kommunestyre",
+      "kommunenr": "1875",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg for saker mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/10) 2026-09-25."
+      }
+    },
+    {
+      "key": "hamaroy-rad-for-mennesker-med-nedsatt-funksjonsevne",
+      "navn": "Råd for mennesker med nedsatt funksjonsevne i Hábmer - Hamarøy",
+      "kortnavn": "Råd for mennesker med nedsatt funksjonsevne",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "hamaroy-kommunestyre",
+      "kommunenr": "1875",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/19) 2026-09-25."
+      }
+    },
+    {
+      "key": "hamaroy-ungdomsradet",
+      "navn": "Ungdomsrådet i Hábmer - Hamarøy",
+      "kortnavn": "Ungdomsrådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "hamaroy-kommunestyre",
+      "kommunenr": "1875",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/21) 2026-09-25."
+      }
+    },
+    {
+      "key": "hamaroy-kommunestyre",
+      "navn": "Kommunestyret i Hábmer - Hamarøy",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "hamaroy-kommune",
+      "kommunenr": "1875",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 17,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "segmenter": [
+        "helse"
+      ],
+      "myndighet": [
+        "innkjop"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Helseforetak med hovedsete i Bodø, eid av Helse Nord RHF.",
+      "belegg": {
+        "kilde": "nordlandssykehuset-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 983974910, organisasjonsform SÆR, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Antall ansatte i registeret: 6861."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-jordskifterett",
+      "orgnr": "926726684",
+      "navn": "Salten jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i 12 kommuner fra Rødøy til Hamarøy, inkludert Røst og Værøy.",
+      "belegg": {
+        "kilde": "domstol-no-salten-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-og-lofoten-tingrett",
+      "orgnr": "826723122",
+      "navn": "Salten og Lofoten tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for 16 kommuner i Salten og Lofoten, med bemannede rettssteder i Bodø og Svolvær.",
+      "belegg": {
+        "kilde": "domstol-no-salten-og-lofoten-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Domstolen har ifølge siden full fagkrets og dermed også enkelte forvaltningsoppgaver."
+      }
+    },
+    {
+      "key": "sametinget",
+      "orgnr": "974760347",
+      "navn": "Sametinget",
+      "nivaa": "samisk",
+      "organtype": "folkevalgt_organ",
+      "myndighet": [
+        "raadgivning",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samisk folkevalgt organ med konsultasjonsrett i arealsaker og adgang til innsigelse i samiske områder.",
+      "belegg": {
+        "kilde": "sametinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
       }
     },
     {
@@ -78,25 +660,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: topp10-ansatte."
-      }
-    },
-    {
-      "key": "hamaroy-kommune",
-      "orgnr": "970542507",
-      "navn": "Hamarøy Kommune",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "1875",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
       }
     },
     {
@@ -204,28 +767,6 @@
       }
     },
     {
-      "key": "nordlandssykehuset",
-      "orgnr": "983974910",
-      "navn": "Nordlandssykehuset HF",
-      "nivaa": "stat",
-      "organtype": "HF",
-      "kommunenr": "1804",
-      "myndighet": [],
-      "segmenter": [
-        "helse"
-      ],
-      "gyldig_fra": "2001-12-18",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
-      }
-    },
-    {
       "key": "nordlandssykehuset-hf-ambulanse-drag",
       "orgnr": "893562362",
       "navn": "Nordlandssykehuset HF Ambulanse Drag",
@@ -314,6 +855,82 @@
   ],
   "personer": [
     {
+      "key": "linda-jessen",
+      "navn": "Linda Jessen"
+    },
+    {
+      "key": "odd-borge-pedersen",
+      "navn": "Odd Børge Pedersen"
+    },
+    {
+      "key": "ann-irene-saeter",
+      "navn": "Ann Irene Sæter"
+    },
+    {
+      "key": "asbjorn-bye",
+      "navn": "Asbjørn Bye"
+    },
+    {
+      "key": "britt-kristoffersen-loksa",
+      "navn": "Britt Kristoffersen Løksa"
+    },
+    {
+      "key": "filip-mikkelsen",
+      "navn": "Filip Mikkelsen"
+    },
+    {
+      "key": "fred-eddy-dahlberg",
+      "navn": "Fred-Eddy Dahlberg"
+    },
+    {
+      "key": "hanne-sofie-j-jenssen",
+      "navn": "Hanne Sofie J. Jenssen"
+    },
+    {
+      "key": "kristin-tidemann-sandnes",
+      "navn": "Kristin Tidemann Sandnes"
+    },
+    {
+      "key": "kurt-ediassen",
+      "navn": "Kurt Ediassen"
+    },
+    {
+      "key": "lars-filip-paulsen",
+      "navn": "Lars Filip Paulsen"
+    },
+    {
+      "key": "lisa-knutsen",
+      "navn": "Lisa Knutsen"
+    },
+    {
+      "key": "marielle-haukas-jakobsen",
+      "navn": "Marielle Haukås Jakobsen"
+    },
+    {
+      "key": "per-elling-braseth-ellingsen",
+      "navn": "Per Elling Braseth-Ellingsen"
+    },
+    {
+      "key": "peter-berg-mikkelsen",
+      "navn": "Peter Berg Mikkelsen"
+    },
+    {
+      "key": "sverre-christian-eriksen",
+      "navn": "Sverre Christian Eriksen"
+    },
+    {
+      "key": "terje-oien",
+      "navn": "Terje Øien"
+    },
+    {
+      "key": "tone-ellingsen",
+      "navn": "Tone Ellingsen"
+    },
+    {
+      "key": "torfinn-hoivaag",
+      "navn": "Torfinn Høivaag"
+    },
+    {
       "key": "algirdas-zilinskas",
       "navn": "Algirdas Zilinskas"
     },
@@ -374,7 +991,7 @@
       "navn": "Geir-Rune Evensen"
     },
     {
-      "key": "gisle-erik-hansen",
+      "key": "gisle-erik-hansen-43883d",
       "navn": "Gisle Erik Hansen"
     },
     {
@@ -418,10 +1035,6 @@
       "navn": "Lars Øgsnes Solhaug"
     },
     {
-      "key": "linda-jessen",
-      "navn": "Linda Jessen"
-    },
-    {
       "key": "linda-merethe-engan",
       "navn": "Linda Merethe Engan"
     },
@@ -444,10 +1057,6 @@
     {
       "key": "miriam-anna-stina-paulsen",
       "navn": "Miriam Anna Stina Paulsen"
-    },
-    {
-      "key": "odd-borge-pedersen",
-      "navn": "Odd Børge Pedersen"
     },
     {
       "key": "oivind-skjevling",
@@ -502,11 +1111,394 @@
       "navn": "Tordis Sofie Langseth"
     },
     {
-      "key": "wibeke-aasjord-juul",
+      "key": "wibeke-aasjord-juul-4f1f89",
       "navn": "Wibeke Aasjord Juul"
     }
   ],
   "roller": [
+    {
+      "org": "hamaroy-formannskap",
+      "person": "britt-kristoffersen-loksa",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/3) 2026-09-25. Møteportalen fører ordføreren i formannskapet med funksjonen «Ordfører»."
+      }
+    },
+    {
+      "org": "hamaroy-hovedutvalg-for-levekar",
+      "person": "tone-ellingsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/17) 2026-09-25."
+      }
+    },
+    {
+      "org": "hamaroy-hovedutvalg-for-samfunnsutvikling",
+      "person": "kurt-ediassen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/16) 2026-09-25."
+      }
+    },
+    {
+      "org": "hamaroy-kommune-administrasjonen",
+      "person": "odd-borge-pedersen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Hamarøy kommune (www.hamaroy.kommune.no), per 2026-09-25). Grunnlagets merknad: Hentet fra hamaroy.kommune.no/organisasjon/administrativ-ledelse 2026-09-25."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "ann-irene-saeter",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/Dmb) 2026-09-25. Nettstedet skriver både «Ann Iren Skoglund Sæter» og «Ann Irene Sæter». Kilden skriver «Ann Irene Skoglund Sæter»."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "britt-kristoffersen-loksa",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "hamaroy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hamaroy.kommune.no/politikk/ordforer 2026-09-25."
+      }
+    },
+    {
+      "org": "hamaroy-kontrollutvalget",
+      "person": "peter-berg-mikkelsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/20) 2026-09-25."
+      }
+    },
+    {
+      "org": "hamaroy-partssammensatt-utvalg",
+      "person": "britt-kristoffersen-loksa",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/10) 2026-09-25. Kilden skriver «Britt Kristoffersen»."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "ann-irene-saeter",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "asbjorn-bye",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "britt-kristoffersen-loksa",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "filip-mikkelsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "fred-eddy-dahlberg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "hanne-sofie-j-jenssen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "kristin-tidemann-sandnes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "kurt-ediassen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "lars-filip-paulsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "linda-jessen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "lisa-knutsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "marielle-haukas-jakobsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "per-elling-braseth-ellingsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "sverre-christian-eriksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "terje-oien",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "tone-ellingsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "hamaroy-kommunestyre",
+      "person": "torfinn-hoivaag",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
     {
       "org": "arran-julevsame-guovdasj",
       "person": "anne-britt-klemetsen-haetta",
@@ -593,18 +1585,6 @@
     },
     {
       "org": "arran-julevsame-guovdasj",
-      "person": "linda-jessen",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "arran-julevsame-guovdasj",
       "person": "marita-karina-mikkelsen",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
@@ -640,18 +1620,6 @@
       }
     },
     {
-      "org": "hamaroy-kommune",
-      "person": "odd-borge-pedersen",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
       "org": "kystnett",
       "person": "arnt-kare-gjervik",
       "tittel": "Varamedlem (valgt av de ansatte)",
@@ -677,7 +1645,7 @@
     },
     {
       "org": "kystnett",
-      "person": "gisle-erik-hansen",
+      "person": "gisle-erik-hansen-43883d",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
@@ -869,7 +1837,7 @@
     },
     {
       "org": "kystnett",
-      "person": "wibeke-aasjord-juul",
+      "person": "wibeke-aasjord-juul-4f1f89",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -1098,14 +2066,135 @@
   ],
   "relasjoner": [
     {
+      "fra": "hamaroy-eldreradet",
+      "til": "hamaroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/18) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hamaroy-formannskap",
+      "til": "hamaroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/3) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hamaroy-hovedutvalg-for-levekar",
+      "til": "hamaroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/17) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hamaroy-hovedutvalg-for-samfunnsutvikling",
+      "til": "hamaroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/16) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hamaroy-kommune-administrasjonen",
+      "til": "hamaroy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hamaroy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hamaroy.kommune.no/organisasjon/administrativ-ledelse 2026-09-25."
+      }
+    },
+    {
+      "fra": "hamaroy-kontrollutvalget",
+      "til": "hamaroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/20) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hamaroy-partssammensatt-utvalg",
+      "til": "hamaroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/10) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hamaroy-rad-for-mennesker-med-nedsatt-funksjonsevne",
+      "til": "hamaroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/19) 2026-09-25."
+      }
+    },
+    {
+      "fra": "hamaroy-ungdomsradet",
+      "til": "hamaroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hamaroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/970542507_PROD-970542507/DmbBoard/21) 2026-09-25."
+      }
+    },
+    {
       "fra": "hamaroy-kommunestyre",
       "til": "hamaroy-kommune",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
       }
     },
     {
@@ -1422,7 +2511,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Hamarøy?",
+      "steg": [
+        {
+          "org": "hamaroy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "hamaroy-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (hamaroy-moteportal); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "hamaroy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Hamarøy kommune?",
+      "steg": [
+        {
+          "org": "hamaroy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "hamaroy-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (hamaroy-moteportal)."
+          }
+        },
+        {
+          "org": "hamaroy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "energi",
@@ -1435,9 +2616,37 @@
     {
       "kode": "sjomat",
       "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
     }
   ],
   "org_segment": [
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
     {
       "org": "kystnett",
       "segment": "energi",
@@ -1457,14 +2666,19 @@
       "org": "nordlandssykehuset-hf-ambulanse-oppeid",
       "segment": "helse",
       "styrke": 3
-    },
-    {
-      "org": "nordlandssykehuset",
-      "segment": "helse",
-      "styrke": 3
     }
   ],
   "hull": [
+    {
+      "gjelder": "hamaroy-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "hamaroy-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    },
     {
       "gjelder": "the-quartz-corp",
       "hva": "Regnskapstallene for 2025 er ført i USD.",

@@ -5,17 +5,10 @@
     "fylkesnr": "18",
     "fylke": "Nordland",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -36,28 +29,620 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "alstahaug-kommune-no",
+      "navn": "Alstahaug kommune (www.alstahaug.kommune.no)",
+      "url": "https://www.alstahaug.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "alstahaug-moteportal",
+      "navn": "Alstahaug kommunes møteportal (Elements Publikum, prod01.elementscloud.no)",
+      "url": "https://prod01.elementscloud.no/publikum/938712441_PROD-938712441/Dmb",
+      "type": "offisiell"
+    },
+    {
+      "key": "helgelandssykehuset-no-styremedlemmer",
+      "navn": "Helgelandssykehuset: Styremedlemmer (sist oppdatert 30.10.2024)",
+      "url": "https://www.helgelandssykehuset.no/om-oss/styret/styremedlemmer/",
+      "type": "offisiell"
+    },
+    {
+      "key": "helgelandssykehuset-no-sykehusledelsen",
+      "navn": "Helgelandssykehuset: Sykehusledelsen",
+      "url": "https://www.helgelandssykehuset.no/om-oss/sykehusledelsen/",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-helgeland-jordskifterett-rettskrets",
+      "navn": "Helgeland jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/helgeland-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-helgeland-tingrett-om",
+      "navn": "Helgeland tingrett: Om Helgeland tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/helgeland-tingrett/om-helgeland-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
     }
   ],
   "organisasjoner": [
     {
-      "key": "alstahaug-kommunestyre",
-      "navn": "Kommunestyret i Alstahaug",
+      "segmenter": [
+        "helse"
+      ],
+      "myndighet": [
+        "innkjop"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "helgelandssykehuset",
+      "orgnr": "983974929",
+      "navn": "Helgelandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Helseforetak med hovedsete i Alstahaug, eid av Helse Nord RHF.",
+      "belegg": {
+        "kilde": "helgelandssykehuset-no-sykehusledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 983974929, organisasjonsform SÆR, sektor 6100 (Statsforvaltningen), forretningsadresse i Alstahaug (1820). Antall ansatte i registeret: 2317."
+      }
+    },
+    {
+      "key": "alstahaug-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Alstahaug",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "alstahaug-kommunestyre",
+      "kommunenr": "1820",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg for saker mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/9) 2026-09-25."
+      }
+    },
+    {
+      "key": "alstahaug-eldreradet",
+      "navn": "Eldrerådet i Alstahaug",
+      "kortnavn": "Eldrerådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "alstahaug-kommunestyre",
+      "kommunenr": "1820",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/14) 2026-09-25."
+      }
+    },
+    {
+      "key": "alstahaug-formannskap",
+      "navn": "Formannskapet i Alstahaug",
+      "kortnavn": "Formannskapet",
       "nivaa": "kommune",
       "organtype": "folkevalgt_organ",
+      "overordnet": "alstahaug-kommunestyre",
+      "kommunenr": "1820",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/7) 2026-09-25."
+      }
+    },
+    {
+      "key": "alstahaug-kommune",
+      "orgnr": "938712441",
+      "navn": "Alstahaug kommune",
+      "kortnavn": "Alstahaug kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1820",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «ALSTAHAUG KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1820."
+      }
+    },
+    {
+      "key": "alstahaug-kommune-administrasjonen",
+      "navn": "Administrasjonen i Alstahaug kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
       "overordnet": "alstahaug-kommune",
       "kommunenr": "1820",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
       "myndighet": [
+        "innstilling",
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "alstahaug-kommune-no",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "merknad": "Hentet fra alstahaug.kommune.no 2026-09-25."
+      }
+    },
+    {
+      "key": "alstahaug-kontrollutvalget",
+      "navn": "Kontrollutvalget i Alstahaug",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "alstahaug-kommunestyre",
+      "kommunenr": "1820",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/17) 2026-09-25."
+      }
+    },
+    {
+      "key": "alstahaug-planutvalget",
+      "navn": "Planutvalget i Alstahaug",
+      "kortnavn": "Planutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "alstahaug-kommunestyre",
+      "kommunenr": "1820",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/8) 2026-09-25."
+      }
+    },
+    {
+      "key": "alstahaug-rad-for-personer-med-funksjonsnedsettelse",
+      "navn": "Råd for personer med funksjonsnedsettelse i Alstahaug",
+      "kortnavn": "Råd for personer med funksjonsnedsettelse",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "alstahaug-kommunestyre",
+      "kommunenr": "1820",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/13) 2026-09-25."
+      }
+    },
+    {
+      "key": "alstahaug-samferdselsutvalget",
+      "navn": "Samferdselsutvalget i Alstahaug",
+      "kortnavn": "Samferdselsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "alstahaug-kommunestyre",
+      "kommunenr": "1820",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/16) 2026-09-25."
+      }
+    },
+    {
+      "key": "alstahaug-ungdomsradet",
+      "navn": "Ungdomsrådet i Alstahaug",
+      "kortnavn": "Ungdomsrådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "alstahaug-kommunestyre",
+      "kommunenr": "1820",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/15) 2026-09-25."
+      }
+    },
+    {
+      "key": "alstahaug-kommunestyre",
+      "navn": "Kommunestyret i Alstahaug",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "alstahaug-kommune",
+      "kommunenr": "1820",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 27,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "transport"
+      ],
+      "myndighet": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "helgeland-havn",
+      "orgnr": "914531748",
+      "navn": "Helgeland Havn IKS",
+      "nivaa": "interkommunal",
+      "organtype": "IKS",
+      "fylkesnr": "18",
+      "kommunenr": "1820",
+      "beskrivelse": "Interkommunalt havneselskap eid av Alstahaug, Vefsn, Dønna og Leirfjord.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 914531748, organisasjonsform IKS, sektor 1510 (Kommunale foretak med ubegrenset ansvar), forretningsadresse i Alstahaug (1820). Antall ansatte i registeret: 12."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "helgeland-jordskifterett",
+      "orgnr": "926726722",
+      "navn": "Helgeland jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i de 17 kommunene på Helgeland.",
+      "belegg": {
+        "kilde": "domstol-no-helgeland-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "helgeland-tingrett",
+      "orgnr": "926723162",
+      "navn": "Helgeland tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for de 17 kommunene på Helgeland, med bemannede rettssteder i Brønnøysund, Mo i Rana og Sandnessjøen.",
+      "belegg": {
+        "kilde": "domstol-no-helgeland-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
       }
     },
     {
@@ -99,25 +684,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
-      }
-    },
-    {
-      "key": "alstahaug-kommune",
-      "orgnr": "938712441",
-      "navn": "Alstahaug Kommune",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "1820",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
       }
     },
     {
@@ -309,28 +875,6 @@
       }
     },
     {
-      "key": "helgelandssykehuset",
-      "orgnr": "983974929",
-      "navn": "Helgelandssykehuset HF",
-      "nivaa": "stat",
-      "organtype": "HF",
-      "kommunenr": "1820",
-      "myndighet": [],
-      "segmenter": [
-        "helse"
-      ],
-      "gyldig_fra": "2001-12-18",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
-      }
-    },
-    {
       "key": "mowi",
       "orgnr": "964118191",
       "navn": "Mowi ASA",
@@ -480,16 +1024,148 @@
   ],
   "personer": [
     {
-      "key": "andreas-fossum",
-      "navn": "Andreas Fossum"
-    },
-    {
       "key": "arnt-sverre-jakobsen",
       "navn": "Arnt Sverre Jakobsen"
     },
     {
+      "key": "lena-elisabeth-nielsen",
+      "navn": "Lena Elisabeth Nielsen"
+    },
+    {
+      "key": "lisbeth-sommervoll",
+      "navn": "Lisbeth Sommervoll"
+    },
+    {
+      "key": "rachel-elise-berg",
+      "navn": "Rachel Elise Berg"
+    },
+    {
+      "key": "anna-elisabet-oyen",
+      "navn": "Anna Elisabet Øyen"
+    },
+    {
+      "key": "anne-britt-breivik",
+      "navn": "Anne Britt Breivik"
+    },
+    {
+      "key": "bill-sune-ronning",
+      "navn": "Bill Sune Rønning"
+    },
+    {
+      "key": "christian-wiik-kynsveen",
+      "navn": "Christian Wiik Kynsveen"
+    },
+    {
+      "key": "hanne-nora-nilssen",
+      "navn": "Hanne Nora Nilssen"
+    },
+    {
+      "key": "heidi-norunn-klaussen",
+      "navn": "Heidi Norunn Klaussen"
+    },
+    {
+      "key": "ingar-atle-nykmark",
+      "navn": "Ingar Atle Nykmark"
+    },
+    {
+      "key": "jarle-petter-vang",
+      "navn": "Jarle Petter Vang"
+    },
+    {
+      "key": "john-andre-selnes",
+      "navn": "John Andre Selnes"
+    },
+    {
+      "key": "karl-einar-kjeldsand",
+      "navn": "Karl Einar Kjeldsand"
+    },
+    {
+      "key": "kyrre-pettersen",
+      "navn": "Kyrre Pettersen"
+    },
+    {
+      "key": "margit-steinholt",
+      "navn": "Margit Steinholt"
+    },
+    {
+      "key": "marit-igelbu-wiig",
+      "navn": "Marit Igelbu Wiig"
+    },
+    {
+      "key": "odd-arnold-skogsholm",
+      "navn": "Odd Arnold Skogsholm"
+    },
+    {
+      "key": "odd-magne-karlsen",
+      "navn": "Odd Magne Karlsen"
+    },
+    {
+      "key": "ole-gerhard-rino",
+      "navn": "Ole-Gerhard Rinø"
+    },
+    {
+      "key": "ole-nilssen",
+      "navn": "Ole Nilssen"
+    },
+    {
+      "key": "peter-arne-talseth",
+      "navn": "Peter-Arne Talseth"
+    },
+    {
+      "key": "rune-almas-larsen",
+      "navn": "Rune Almås Larsen"
+    },
+    {
+      "key": "sigsten-johansson",
+      "navn": "Sigsten Johansson"
+    },
+    {
+      "key": "skule-skulstad",
+      "navn": "Skule Skulstad"
+    },
+    {
+      "key": "tommy-leon-vistnes",
+      "navn": "Tommy Leon Vistnes"
+    },
+    {
+      "key": "tore-harry-jakobsen-vikedal",
+      "navn": "Tore Harry Jakobsen Vikedal"
+    },
+    {
+      "key": "trond-christiansen",
+      "navn": "Trond Christiansen"
+    },
+    {
+      "key": "trude-jaegtvik",
+      "navn": "Trude Jægtvik"
+    },
+    {
+      "key": "ulf-iversen",
+      "navn": "Ulf Iversen"
+    },
+    {
+      "key": "unni-merethe-sandoy",
+      "navn": "Unni Merethe Sandøy"
+    },
+    {
+      "key": "vetle-kristoffersen",
+      "navn": "Vetle Kristoffersen"
+    },
+    {
+      "key": "andreas-fossum",
+      "navn": "Andreas Fossum"
+    },
+    {
+      "key": "arne-johansen",
+      "navn": "Arne Johansen"
+    },
+    {
       "key": "birger-martin-jakobsen",
       "navn": "Birger Martin Jakobsen"
+    },
+    {
+      "key": "borge-lorentzsen",
+      "navn": "Børge Lorentzsen"
     },
     {
       "key": "christian-fredrik-sandberg-hoel",
@@ -506,6 +1182,10 @@
     {
       "key": "edgar-haugen",
       "navn": "Edgar Haugen"
+    },
+    {
+      "key": "einar-johnsen-meisfjord-fe3c5c",
+      "navn": "Einar Johnsen Meisfjord"
     },
     {
       "key": "elisabeth-kristiansen-benum",
@@ -532,6 +1212,10 @@
       "navn": "Jan-Dagfinn Lund"
     },
     {
+      "key": "jann-arne-lovdahl",
+      "navn": "Jann Arne Løvdahl"
+    },
+    {
       "key": "jann-harald-greger-winsents",
       "navn": "Jann Harald Greger Winsents"
     },
@@ -544,6 +1228,10 @@
       "navn": "Jostein Høberg"
     },
     {
+      "key": "kathrine-svendsen-fournaros",
+      "navn": "Kathrine Svendsen Fournaros"
+    },
+    {
       "key": "kjerstin-tollefsrod",
       "navn": "Kjerstin Tollefsrød"
     },
@@ -552,19 +1240,23 @@
       "navn": "Knut Jakobsen"
     },
     {
+      "key": "kolfinna-magnusdottir",
+      "navn": "Kolfinna Magnusdottir"
+    },
+    {
       "key": "kristoffer-bille-selmer",
       "navn": "Kristoffer Bille Selmer"
     },
     {
-      "key": "lena-elisabeth-nielsen",
-      "navn": "Lena Elisabeth Nielsen"
+      "key": "laila-brunvold",
+      "navn": "Laila Brunvold"
     },
     {
-      "key": "lisbeth-sommervoll",
-      "navn": "Lisbeth Sommervoll"
+      "key": "linda-renate-johansen-bamberg",
+      "navn": "Linda Renate Johansen Bamberg"
     },
     {
-      "key": "marit-wisthus",
+      "key": "marit-wisthus-0b985e",
       "navn": "Marit Wisthus"
     },
     {
@@ -594,10 +1286,6 @@
     {
       "key": "per-martin-knutsen",
       "navn": "Per Martin Knutsen"
-    },
-    {
-      "key": "rachel-elise-berg",
-      "navn": "Rachel Elise Berg"
     },
     {
       "key": "roger-jenssen",
@@ -646,6 +1334,575 @@
   ],
   "roller": [
     {
+      "status": "fast",
+      "org": "helgelandssykehuset",
+      "person": "lisbeth-sommervoll",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Helgelandssykehuset: Styremedlemmer (sist oppdatert 30.10.2024), per 2026-09-25). Grunnlagets merknad: Hentet fra helgelandssykehuset.no (styremedlemmer, sist oppdatert 30.10.2024) 25.09.2026."
+      }
+    },
+    {
+      "org": "alstahaug-administrasjonsutvalget",
+      "person": "trude-jaegtvik",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/9) 2026-09-25."
+      }
+    },
+    {
+      "org": "alstahaug-formannskap",
+      "person": "peter-arne-talseth",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/7) 2026-09-25. Møteportalen fører ordføreren i formannskapet med funksjonen «Ordfører»."
+      }
+    },
+    {
+      "org": "alstahaug-kommune-administrasjonen",
+      "person": "rachel-elise-berg",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Alstahaug kommune (www.alstahaug.kommune.no), per 2026-09-25). Grunnlagets merknad: Hentet fra alstahaug.kommune.no 2026-09-25. Oppgitt i bunnteksten på nettstedet."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "trude-jaegtvik",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "alstahaug-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra alstahaug.kommune.no/tjenester/politikk 2026-09-25."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "peter-arne-talseth",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "alstahaug-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra alstahaug.kommune.no/tjenester/politikk 2026-09-25. Møteportalen skriver «Peter-Arne Talseth». Kilden skriver «Peter Talseth»."
+      }
+    },
+    {
+      "org": "alstahaug-kontrollutvalget",
+      "person": "ulf-iversen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/17) 2026-09-25."
+      }
+    },
+    {
+      "org": "alstahaug-planutvalget",
+      "person": "tore-harry-jakobsen-vikedal",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/8) 2026-09-25."
+      }
+    },
+    {
+      "org": "alstahaug-samferdselsutvalget",
+      "person": "odd-arnold-skogsholm",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/16) 2026-09-25."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "anna-elisabet-oyen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "anne-britt-breivik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "arnt-sverre-jakobsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "bill-sune-ronning",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "christian-wiik-kynsveen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "hanne-nora-nilssen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "heidi-norunn-klaussen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "ingar-atle-nykmark",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "jarle-petter-vang",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "john-andre-selnes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "karl-einar-kjeldsand",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "kyrre-pettersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "margit-steinholt",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "marit-igelbu-wiig",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "odd-magne-karlsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "ole-gerhard-rino",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "ole-nilssen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "peter-arne-talseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "rune-almas-larsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "sigsten-johansson",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "skule-skulstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "tommy-leon-vistnes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "tore-harry-jakobsen-vikedal",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "trond-christiansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "trude-jaegtvik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "unni-merethe-sandoy",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "alstahaug-kommunestyre",
+      "person": "vetle-kristoffersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "helgelandssykehuset",
+      "person": "lena-elisabeth-nielsen",
+      "tittel": "Administrerende direktør",
+      "rolletype": "toppleder",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Helgelandssykehuset: Sykehusledelsen, per 2026-09-25). Grunnlagets merknad: Hentet fra helgelandssykehuset.no (sykehusledelsen) 25.09.2026."
+      }
+    },
+    {
       "org": "alstahaug-kommune-helse-og-sosialetaten",
       "person": "rachel-elise-berg",
       "tittel": "Daglig leder",
@@ -671,18 +1928,6 @@
     },
     {
       "org": "alstahaug-kommune-undervisning-og-barnehage",
-      "person": "rachel-elise-berg",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "alstahaug-kommune",
       "person": "rachel-elise-berg",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
@@ -722,6 +1967,102 @@
       "person": "stian-guttormsen",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "person": "arne-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "person": "borge-lorentzsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "person": "einar-johnsen-meisfjord-fe3c5c",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "person": "jann-arne-lovdahl",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "person": "kathrine-svendsen-fournaros",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "person": "kolfinna-magnusdottir",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "person": "laila-brunvold",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "person": "linda-renate-johansen-bamberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -887,31 +2228,7 @@
     },
     {
       "org": "helgelandssykehuset",
-      "person": "lena-elisabeth-nielsen",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helgelandssykehuset",
-      "person": "lisbeth-sommervoll",
-      "tittel": "Styreleder",
-      "rolletype": "styreleder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helgelandssykehuset",
-      "person": "marit-wisthus",
+      "person": "marit-wisthus-0b985e",
       "tittel": "Varamedlem (valgt av de ansatte)",
       "rolletype": "varamedlem",
       "status": "vara",
@@ -1139,18 +2456,6 @@
     },
     {
       "org": "slipen-mekaniske",
-      "person": "arnt-sverre-jakobsen",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "slipen-mekaniske",
       "person": "birger-martin-jakobsen",
       "tittel": "Styreleder",
       "rolletype": "styreleder",
@@ -1188,14 +2493,135 @@
   ],
   "relasjoner": [
     {
+      "fra": "alstahaug-administrasjonsutvalget",
+      "til": "alstahaug-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/9) 2026-09-25."
+      }
+    },
+    {
+      "fra": "alstahaug-eldreradet",
+      "til": "alstahaug-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/14) 2026-09-25."
+      }
+    },
+    {
+      "fra": "alstahaug-formannskap",
+      "til": "alstahaug-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/7) 2026-09-25."
+      }
+    },
+    {
+      "fra": "alstahaug-kommune-administrasjonen",
+      "til": "alstahaug-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "alstahaug-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra alstahaug.kommune.no 2026-09-25."
+      }
+    },
+    {
+      "fra": "alstahaug-kontrollutvalget",
+      "til": "alstahaug-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/17) 2026-09-25."
+      }
+    },
+    {
+      "fra": "alstahaug-planutvalget",
+      "til": "alstahaug-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/8) 2026-09-25."
+      }
+    },
+    {
+      "fra": "alstahaug-rad-for-personer-med-funksjonsnedsettelse",
+      "til": "alstahaug-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/13) 2026-09-25."
+      }
+    },
+    {
+      "fra": "alstahaug-samferdselsutvalget",
+      "til": "alstahaug-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/16) 2026-09-25."
+      }
+    },
+    {
+      "fra": "alstahaug-ungdomsradet",
+      "til": "alstahaug-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "alstahaug-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/938712441_PROD-938712441/DmbBoard/15) 2026-09-25."
+      }
+    },
+    {
       "fra": "alstahaug-kommunestyre",
       "til": "alstahaug-kommune",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
       }
     },
     {
@@ -1297,6 +2723,62 @@
       "aar": 2025,
       "type": "omsetning",
       "verdi": 149545445,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 12122844,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 11284609,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 43576072,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-havn",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 60065660,
       "enhet": "NOK",
       "konsern": false,
       "belegg": {
@@ -1588,7 +3070,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Alstahaug?",
+      "steg": [
+        {
+          "org": "alstahaug-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "alstahaug-planutvalget",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (alstahaug-moteportal)."
+          }
+        },
+        {
+          "org": "alstahaug-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Alstahaug kommune?",
+      "steg": [
+        {
+          "org": "alstahaug-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "alstahaug-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (alstahaug-moteportal)."
+          }
+        },
+        {
+          "org": "alstahaug-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "helse",
@@ -1605,9 +3179,42 @@
     {
       "kode": "transport",
       "navn": "Transport"
+    },
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
     }
   ],
   "org_segment": [
+    {
+      "org": "helgelandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "helgeland-havn",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
     {
       "org": "boreal-sjo-as-avd-sjo-sandnessjoen",
       "segment": "transport",
@@ -1621,11 +3228,6 @@
     {
       "org": "helgelandsbase",
       "segment": "transport",
-      "styrke": 3
-    },
-    {
-      "org": "helgelandssykehuset",
-      "segment": "helse",
       "styrke": 3
     },
     {
@@ -1644,5 +3246,21 @@
       "styrke": 3
     }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "alstahaug-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "helgelandssykehuset",
+      "hva": "Hvilke kommuner Helgelandssykehuset dekker, er ikke hentet.",
+      "hvorfor": "Opptaksområdet er ikke hentet fra helgelandssykehuset.no 25.09.2026. Organet vises derfor bare på Alstahaugs side."
+    },
+    {
+      "gjelder": "alstahaug-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
 }

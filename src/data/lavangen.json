@@ -5,17 +5,10 @@
     "fylkesnr": "55",
     "fylke": "Troms",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -36,28 +29,555 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "innsynpluss-lavangen-administrasjonsutvalget",
+      "navn": "Lavangen kommune, innsynsportal: Administrasjonsutvalget",
+      "url": "https://innsynpluss.onacos.no/lavangen/utvalg/#/details/u-6c3c4b13__86d9__4a8c__a2b6__33d3dcf70373-8!5L3odG",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-lavangen-formannskapet",
+      "navn": "Lavangen kommune, innsynsportal: Formannskapet",
+      "url": "https://innsynpluss.onacos.no/lavangen/utvalg/#/details/u-6c3c4b13__86d9__4a8c__a2b6__33d3dcf70373-2!SIGS1o",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-lavangen-kontrollutvalget",
+      "navn": "Lavangen kommune, innsynsportal: Kontrollutvalget",
+      "url": "https://innsynpluss.onacos.no/lavangen/utvalg/#/details/u-6c3c4b13__86d9__4a8c__a2b6__33d3dcf70373-15!TaNk0i",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-lavangen-levekarsutvalget",
+      "navn": "Lavangen kommune, innsynsportal: Levekårsutvalget",
+      "url": "https://innsynpluss.onacos.no/lavangen/utvalg/#/details/u-6c3c4b13__86d9__4a8c__a2b6__33d3dcf70373-3!8M3oeo",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-lavangen-planutvalget",
+      "navn": "Lavangen kommune, innsynsportal: Planutvalget",
+      "url": "https://innsynpluss.onacos.no/lavangen/utvalg/#/details/u-6c3c4b13__86d9__4a8c__a2b6__33d3dcf70373-5!EV7Leu",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-lavangen-samepolitisk-utvalg",
+      "navn": "Lavangen kommune, innsynsportal: Samepolitisk utvalg",
+      "url": "https://innsynpluss.onacos.no/lavangen/utvalg/#/details/u-6c3c4b13__86d9__4a8c__a2b6__33d3dcf70373-4!SWLrhQ",
+      "type": "offisiell"
+    },
+    {
+      "key": "lavangen-kommune-no-ordforer",
+      "navn": "Lavangen kommune: Ordfører",
+      "url": "https://www.lavangen.kommune.no/skjulte-sider/politikk/ordforer",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+      "navn": "Midtre Hålogaland tingrett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/midtre-halogaland-tingrett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+      "navn": "Ofoten og Sør-Troms jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/ofoten-og-sor-troms-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no",
+      "navn": "Politiet (politiet.no)",
+      "url": "https://www.politiet.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "sametinget-no",
+      "navn": "Sametinget (sametinget.no)",
+      "url": "https://www.sametinget.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no",
+      "navn": "Troms fylkeskommune (tromsfylke.no)",
+      "url": "https://www.tromsfylke.no",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
     {
-      "key": "lavangen-kommunestyre",
-      "navn": "Kommunestyret i Loabák - Lavangen",
+      "key": "lavangen-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Loabák - Lavangen",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "lavangen-kommunestyre",
+      "kommunenr": "5518",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg med folkevalgte og representanter for de ansatte, for saker om forholdet mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "lavangen-formannskap",
+      "navn": "Formannskapet i Loabák - Lavangen",
+      "kortnavn": "Formannskapet",
       "nivaa": "kommune",
       "organtype": "folkevalgt_organ",
-      "overordnet": "lavangen-kommune-loabaga-suohkan",
+      "overordnet": "lavangen-kommunestyre",
       "kommunenr": "5518",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 5,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ valgt av kommunestyret blant sine medlemmer. Det innstiller blant annet til økonomiplan og årsbudsjett.",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "lavangen-kommune",
+      "orgnr": "959469881",
+      "navn": "Loabák - Lavangen kommune",
+      "kortnavn": "Lavangen kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5518",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «LAVANGEN KOMMUNE LOABÁGA SUOHKAN». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "lavangen-kommune-administrasjonen",
+      "navn": "Administrasjonen i Loabák - Lavangen kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "lavangen-kommune",
+      "kommunenr": "5518",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "key": "lavangen-kontrollutvalget",
+      "navn": "Kontrollutvalget i Loabák - Lavangen",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "lavangen-kommunestyre",
+      "kommunenr": "5518",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "key": "lavangen-levekarsutvalget",
+      "navn": "Levekårsutvalget i Loabák - Lavangen",
+      "kortnavn": "Levekårsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "lavangen-kommunestyre",
+      "kommunenr": "5518",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-levekarsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "key": "lavangen-planutvalget",
+      "navn": "Planutvalget i Loabák - Lavangen",
+      "kortnavn": "Planutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "lavangen-kommunestyre",
+      "kommunenr": "5518",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 6,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-planutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "lavangen-samepolitisk-utvalg",
+      "navn": "Samepolitisk utvalg i Loabák - Lavangen",
+      "kortnavn": "Samepolitisk utvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "lavangen-kommunestyre",
+      "kommunenr": "5518",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-samepolitisk-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "key": "lavangen-kommunestyre",
+      "navn": "Kommunestyret i Loabák - Lavangen",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "lavangen-kommune",
+      "kommunenr": "5518",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 15,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "midtre-halogaland-tingrett",
+      "orgnr": "926723073",
+      "navn": "Midtre Hålogaland tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "55",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for Narvik, Evenes, Lødingen, Andøy, Bø, Hadsel, Sortland og Øksnes i Nordland og sju kommuner i Troms, med rettssteder i Harstad, Narvik og Sortland.",
+      "belegg": {
+        "kilde": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Hovedsete i Harstad (Troms) ifølge Enhetsregisteret."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "ofoten-og-sor-troms-jordskifterett",
+      "orgnr": "926726579",
+      "navn": "Ofoten og Sør-Troms jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "55",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i Narvik og Evenes i Nordland og ni kommuner i Troms.",
+      "belegg": {
+        "kilde": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Hovedsete i Harstad (Troms) ifølge Enhetsregisteret."
+      }
+    },
+    {
+      "key": "sametinget",
+      "orgnr": "974760347",
+      "navn": "Sametinget",
+      "nivaa": "samisk",
+      "organtype": "folkevalgt_organ",
+      "myndighet": [
+        "raadgivning",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samisk folkevalgt organ med konsultasjonsrett i arealsaker og adgang til innsigelse i samiske områder.",
+      "belegg": {
+        "kilde": "sametinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "stortinget-troms-valgkrets",
+      "navn": "Stortinget, Troms valgkrets",
+      "kortnavn": "Troms valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "55",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene fra Troms i perioden 2025–2029, som vedtar lover og budsjett.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune",
+      "orgnr": "930068128",
+      "navn": "Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt. Styres etter formannskapsmodellen: fylkesordføreren leder fylkestinget og fylkesutvalget.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»). Styringsmodellen er bekreftet på tromsfylke.no/politikk/fylkesordforer/ 25.09.2026: «Troms fylkeskommune styres etter formannskapsmodellen, hvor fylkesordføreren er den valgte lederen av fylkestinget.» Fylkesutvalgssiden sier at fylkesordføreren leder fylkesutvalget. Medieomtale ved konstitueringen i 2023 omtalte et fylkesråd og en fylkesrådsleder; fylkeskommunens egne sider har verken fylkesråd eller fylkesrådsleder."
+      }
+    },
+    {
+      "key": "troms-fylkesting",
+      "navn": "Fylkestinget i Troms",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "troms-fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
       "myndighet": [
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Fylkeskommunens folkevalgte organ, ledet av fylkesordføreren.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "tromsfylke-no",
         "verifisering": "oppgitt",
-        "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-politidistrikt",
+      "orgnr": "974769425",
+      "navn": "Troms politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Politi og påtale i 20 kommuner, pluss forvaltningsoppgaver som våpen- og utlendingssaker.",
+      "belegg": {
+        "kilde": "politiet-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
       }
     },
     {
@@ -123,25 +643,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: topp10-ansatte."
-      }
-    },
-    {
-      "key": "lavangen-kommune-loabaga-suohkan",
-      "orgnr": "959469881",
-      "navn": "Lavangen Kommune Loabága Suohkan",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "5518",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
       }
     },
     {
@@ -227,7 +728,75 @@
   ],
   "personer": [
     {
-      "key": "anita-helen-lovhaug",
+      "key": "hakon-nygard",
+      "navn": "Håkon Nygård"
+    },
+    {
+      "key": "ann-lovise-johnsen",
+      "navn": "Ann-Lovise Johnsen"
+    },
+    {
+      "key": "atle-lien",
+      "navn": "Atle Lien"
+    },
+    {
+      "key": "bjornar-andre-lundberg",
+      "navn": "Bjørnar André Lundberg"
+    },
+    {
+      "key": "daniel-helgesen",
+      "navn": "Daniel Helgesen"
+    },
+    {
+      "key": "franz-frantzen",
+      "navn": "Franz Frantzen"
+    },
+    {
+      "key": "hege-beate-myrseth-rollmoen",
+      "navn": "Hege Beate Myrseth Rollmoen"
+    },
+    {
+      "key": "jane-vibeke-johansen",
+      "navn": "Jane Vibeke Johansen"
+    },
+    {
+      "key": "johnny-magne-rokenes",
+      "navn": "Johnny Magne Røkenes"
+    },
+    {
+      "key": "karin-eriksen-lavangen",
+      "navn": "Karin Eriksen"
+    },
+    {
+      "key": "kjell-are-pettersen",
+      "navn": "Kjell-Are Pettersen"
+    },
+    {
+      "key": "klaus-larsen",
+      "navn": "Klaus Larsen"
+    },
+    {
+      "key": "maj-kristin-svendsen",
+      "navn": "Maj Kristin Svendsen"
+    },
+    {
+      "key": "marcus-nygard",
+      "navn": "Marcus Nygård"
+    },
+    {
+      "key": "ruben-bjerkmo",
+      "navn": "Ruben Bjerkmo"
+    },
+    {
+      "key": "thomas-johan-rokenes",
+      "navn": "Thomas Johan Røkenes"
+    },
+    {
+      "key": "tor-erik-lind",
+      "navn": "Tor Erik Lind"
+    },
+    {
+      "key": "anita-helen-lovhaug-1ea18f",
       "navn": "Anita Helén Løvhaug"
     },
     {
@@ -255,7 +824,7 @@
       "navn": "Cato Haakseth"
     },
     {
-      "key": "erling-bratsberg",
+      "key": "erling-bratsberg-e58c57",
       "navn": "Erling Bratsberg"
     },
     {
@@ -263,16 +832,8 @@
       "navn": "Frode Hansen"
     },
     {
-      "key": "hakon-nygard",
-      "navn": "Håkon Nygård"
-    },
-    {
       "key": "heidi-lundberg",
       "navn": "Heidi Lundberg"
-    },
-    {
-      "key": "karin-eriksen",
-      "navn": "Karin Eriksen"
     },
     {
       "key": "karl-johan-olsen",
@@ -307,7 +868,7 @@
       "navn": "Sissel Ramfjord Paulsen"
     },
     {
-      "key": "steen-audvin-linde",
+      "key": "steen-audvin-linde-d359f6",
       "navn": "Steen Audvin Linde"
     },
     {
@@ -329,8 +890,317 @@
   ],
   "roller": [
     {
+      "org": "lavangen-formannskap",
+      "person": "hege-beate-myrseth-rollmoen",
+      "tittel": "Ordfører",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Ordføreren er møteleder i formannskapet (kommuneloven § 6-1). Kilden skriver navnet «Hege Myrseth Rollmoen»; valgoppgjøret har «Hege Beate Myrseth Rollmoen»."
+      }
+    },
+    {
+      "org": "lavangen-kommune-administrasjonen",
+      "person": "karin-eriksen-lavangen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Lavangen kommune, innsynsportal: Formannskapet, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i LAVANGEN KOMMUNE LOABÁGA SUOHKAN (orgnr 959469881)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "klaus-larsen",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "lavangen-kommune-no-ordforer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra lavangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "hege-beate-myrseth-rollmoen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "lavangen-kommune-no-ordforer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra lavangen.kommune.no 25.09.2026. Siden oppgir at hun er ordfører i perioden 2023–2027. Siden skriver navnet «Hege Beate Rollmoen»; valgoppgjøret har «Hege Beate Myrseth Rollmoen»."
+      }
+    },
+    {
+      "org": "lavangen-planutvalget",
+      "person": "franz-frantzen",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-planutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "hege-beate-myrseth-rollmoen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "klaus-larsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "marcus-nygard",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "hakon-nygard",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "daniel-helgesen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "johnny-magne-rokenes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "jane-vibeke-johansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "maj-kristin-svendsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "atle-lien",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "tor-erik-lind",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "kjell-are-pettersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "bjornar-andre-lundberg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "ann-lovise-johnsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "thomas-johan-rokenes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "lavangen-kommunestyre",
+      "person": "ruben-bjerkmo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
       "org": "amestro",
-      "person": "anita-helen-lovhaug",
+      "person": "anita-helen-lovhaug-1ea18f",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
@@ -342,7 +1212,7 @@
     },
     {
       "org": "amestro",
-      "person": "erling-bratsberg",
+      "person": "erling-bratsberg-e58c57",
       "tittel": "Styreleder",
       "rolletype": "styreleder",
       "status": "fast",
@@ -358,18 +1228,6 @@
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "amestro",
-      "person": "hakon-nygard",
-      "tittel": "Varamedlem",
-      "rolletype": "varamedlem",
-      "status": "vara",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -438,7 +1296,7 @@
     },
     {
       "org": "amestro",
-      "person": "steen-audvin-linde",
+      "person": "steen-audvin-linde-d359f6",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
@@ -630,7 +1488,7 @@
     },
     {
       "org": "lavangen-kommune-loabaga-suohkan-helse-og-sosialetaten",
-      "person": "karin-eriksen",
+      "person": "karin-eriksen-lavangen",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
@@ -642,7 +1500,7 @@
     },
     {
       "org": "lavangen-kommune-loabaga-suohkan-oppvekstetaten",
-      "person": "karin-eriksen",
+      "person": "karin-eriksen-lavangen",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
@@ -654,7 +1512,7 @@
     },
     {
       "org": "lavangen-kommune-loabaga-suohkan-sentraladministrasjon",
-      "person": "karin-eriksen",
+      "person": "karin-eriksen-lavangen",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
@@ -666,19 +1524,7 @@
     },
     {
       "org": "lavangen-kommune-loabaga-suohkan-teknisk-etat",
-      "person": "karin-eriksen",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "lavangen-kommune-loabaga-suohkan",
-      "person": "karin-eriksen",
+      "person": "karin-eriksen-lavangen",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
@@ -691,14 +1537,112 @@
   ],
   "relasjoner": [
     {
-      "fra": "lavangen-kommunestyre",
-      "til": "lavangen-kommune-loabaga-suohkan",
+      "fra": "lavangen-administrasjonsutvalget",
+      "til": "lavangen-kommunestyre",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "innsynpluss-lavangen-administrasjonsutvalget",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "lavangen-formannskap",
+      "til": "lavangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "lavangen-kommune-administrasjonen",
+      "til": "lavangen-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "lavangen-kontrollutvalget",
+      "til": "lavangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "lavangen-levekarsutvalget",
+      "til": "lavangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-levekarsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "lavangen-planutvalget",
+      "til": "lavangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-planutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "lavangen-samepolitisk-utvalg",
+      "til": "lavangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-lavangen-samepolitisk-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "lavangen-kommunestyre",
+      "til": "lavangen-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "troms-fylkesting",
+      "til": "troms-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
       }
     }
   ],
@@ -873,7 +1817,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Lavangen?",
+      "steg": [
+        {
+          "org": "lavangen-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "lavangen-planutvalget",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (innsynpluss-lavangen-planutvalget)."
+          }
+        },
+        {
+          "org": "lavangen-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Lavangen kommune?",
+      "steg": [
+        {
+          "org": "lavangen-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "lavangen-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (innsynpluss-lavangen-formannskapet)."
+          }
+        },
+        {
+          "org": "lavangen-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "eiendom-bygg",
@@ -882,9 +1918,50 @@
     {
       "kode": "reiseliv",
       "navn": "Reiseliv"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
     }
   ],
   "org_segment": [
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
     {
       "org": "fjellkysten",
       "segment": "eiendom-bygg",
@@ -901,5 +1978,21 @@
       "styrke": 3
     }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "lavangen-kontrollutvalget",
+      "hva": "Lederen av kontrollutvalget i Lavangen er ikke oppgitt i kilden.",
+      "hvorfor": "Kilden (innsynpluss.onacos.no) viser kontrollutvalget, men ikke medlemmene med leder (sjekket 25.09.2026)."
+    },
+    {
+      "gjelder": "lavangen-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "lavangen-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
 }

@@ -5,17 +5,10 @@
     "fylkesnr": "55",
     "fylke": "Troms",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -41,28 +34,389 @@
       "key": "researchgrunnlag",
       "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
       "type": "sekundaer"
+    },
+    {
+      "key": "karlsoy-kommune-no-formannskap",
+      "navn": "Karlsøy kommune: Formannskap",
+      "url": "https://www.karlsoy.kommune.no/politikk/kommunestyret-og-formannskap/formannskap",
+      "type": "offisiell"
+    },
+    {
+      "key": "karlsoy-kommune-no-kommuneadministrasjon",
+      "navn": "Karlsøy kommune: Kommuneadministrasjon",
+      "url": "https://www.karlsoy.kommune.no/om-kommunen/kommuneadministrasjon",
+      "type": "offisiell"
+    },
+    {
+      "key": "karlsoy-kommune-no-ordforer",
+      "navn": "Karlsøy kommune: Ordfører",
+      "url": "https://www.karlsoy.kommune.no/politikk/ordforer",
+      "type": "offisiell"
+    },
+    {
+      "key": "karlsoy-kommune-no-rad-og-utvalg",
+      "navn": "Karlsøy kommune: Råd og utvalg",
+      "url": "https://www.karlsoy.kommune.no/politikk/rad-og-utvalg",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "purehelp",
+      "navn": "Purehelp",
+      "url": "https://www.purehelp.no",
+      "type": "sekundaer"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "politiet-no",
+      "navn": "Politiet (politiet.no)",
+      "url": "https://www.politiet.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no",
+      "navn": "Troms fylkeskommune (tromsfylke.no)",
+      "url": "https://www.tromsfylke.no",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
     {
-      "key": "karlsoy-kommunestyre",
-      "navn": "Kommunestyret i Karlsøy",
+      "key": "karlsoy-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Karlsøy",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "karlsoy-kommunestyre",
+      "kommunenr": "5534",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg med folkevalgte og representanter for de ansatte, for saker om forholdet mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "karlsoy-formannskap",
+      "navn": "Formannskapet i Karlsøy",
+      "kortnavn": "Formannskapet",
       "nivaa": "kommune",
       "organtype": "folkevalgt_organ",
-      "overordnet": "karlsoy-kommune-940330408",
+      "overordnet": "karlsoy-kommunestyre",
       "kommunenr": "5534",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
       "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ valgt av kommunestyret blant sine medlemmer. Det innstiller blant annet til økonomiplan og årsbudsjett.",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-formannskap",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "karlsoy-klagenemnda",
+      "navn": "Klagenemnda i Karlsøy",
+      "kortnavn": "Klagenemnda",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "karlsoy-kommunestyre",
+      "kommunenr": "5534",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "klage"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Behandler klager på enkeltvedtak der kommunen selv er klageinstans.",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "karlsoy-kommune",
+      "orgnr": "940330408",
+      "navn": "Karlsøy kommune",
+      "kortnavn": "Karlsøy kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5534",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «KARLSØY KOMMUNE». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "karlsoy-kommune-administrasjonen",
+      "navn": "Administrasjonen i Karlsøy kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "karlsoy-kommune",
+      "kommunenr": "5534",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "karlsoy-kommune-no-kommuneadministrasjon",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "karlsoy-kontrollutvalget",
+      "navn": "Kontrollutvalget i Karlsøy",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "karlsoy-kommunestyre",
+      "kommunenr": "5534",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "karlsoy-levekarsutvalget",
+      "navn": "Levekårsutvalget i Karlsøy",
+      "kortnavn": "Levekårsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "karlsoy-kommunestyre",
+      "kommunenr": "5534",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "karlsoy-plan-og-driftsutvalget",
+      "navn": "Plan- og driftsutvalget i Karlsøy",
+      "kortnavn": "Plan- og driftsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "karlsoy-kommunestyre",
+      "kommunenr": "5534",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026. Siden oppgir at kommunestyret har vedtatt å legge ned utvalget fra og med 31.12.2026. Vedtaket er ikke iverksatt, og utvalget er ført som aktivt."
+      }
+    },
+    {
+      "key": "karlsoy-kommunestyre",
+      "navn": "Kommunestyret i Karlsøy",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "karlsoy-kommune",
+      "kommunenr": "5534",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 17,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "remiks-miljopark",
+      "orgnr": "894462132",
+      "navn": "Remiks Miljøpark AS",
+      "kortnavn": "Remiks",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "avfall-miljo"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Avfallsselskap eid 99,99 prosent av Tromsø kommune, med Karlsøy kommune som eier av resten.",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Kilde i grunnlaget: Purehelp og Tromsø kommunes eierskapsmelding 2024. Må verifiseres mot Brreg."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
       }
     },
     {
@@ -86,6 +440,28 @@
       }
     },
     {
+      "key": "stortinget-troms-valgkrets",
+      "navn": "Stortinget, Troms valgkrets",
+      "kortnavn": "Troms valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "55",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene fra Troms i perioden 2025–2029, som vedtar lover og budsjett.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
       "key": "torghatten-nord",
       "orgnr": "993205117",
       "navn": "Torghatten Nord AS",
@@ -106,22 +482,68 @@
       }
     },
     {
-      "key": "karlsoy-kommune-940330408",
-      "orgnr": "940330408",
-      "navn": "Karlsøy Kommune",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "5534",
-      "myndighet": [],
+      "key": "troms-fylkeskommune",
+      "orgnr": "930068128",
+      "navn": "Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt. Styres etter formannskapsmodellen: fylkesordføreren leder fylkestinget og fylkesutvalget.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»). Styringsmodellen er bekreftet på tromsfylke.no/politikk/fylkesordforer/ 25.09.2026: «Troms fylkeskommune styres etter formannskapsmodellen, hvor fylkesordføreren er den valgte lederen av fylkestinget.» Fylkesutvalgssiden sier at fylkesordføreren leder fylkesutvalget. Medieomtale ved konstitueringen i 2023 omtalte et fylkesråd og en fylkesrådsleder; fylkeskommunens egne sider har verken fylkesråd eller fylkesrådsleder."
+      }
+    },
+    {
+      "key": "troms-fylkesting",
+      "navn": "Fylkestinget i Troms",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "troms-fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "beskrivelse": "Fylkeskommunens folkevalgte organ, ledet av fylkesordføreren.",
       "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-politidistrikt",
+      "orgnr": "974769425",
+      "navn": "Troms politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Politi og påtale i 20 kommuner, pluss forvaltningsoppgaver som våpen- og utlendingssaker.",
+      "belegg": {
+        "kilde": "politiet-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
       }
     },
     {
@@ -363,6 +785,86 @@
   ],
   "personer": [
     {
+      "key": "lars-steinar-laingen",
+      "navn": "Lars Steinar Laingen"
+    },
+    {
+      "key": "birger-hakon-bendiksen-bull",
+      "navn": "Birger Håkon Bendiksen Bull"
+    },
+    {
+      "key": "eirik-nordeng-ottesen",
+      "navn": "Eirik Nordeng Ottesen"
+    },
+    {
+      "key": "frank-dalan",
+      "navn": "Frank Dalan"
+    },
+    {
+      "key": "frank-harry-pettersen-karlsoy",
+      "navn": "Frank Harry Pettersen"
+    },
+    {
+      "key": "freddy-gunnar-mikkelsen",
+      "navn": "Freddy Gunnar Mikkelsen"
+    },
+    {
+      "key": "gunn-johanne-hansen",
+      "navn": "Gunn Johanne Hansen"
+    },
+    {
+      "key": "hanne-synnove-nilsen",
+      "navn": "Hanne Synnøve Nilsen"
+    },
+    {
+      "key": "hanny-ditlefsen",
+      "navn": "Hanny Ditlefsen"
+    },
+    {
+      "key": "idar-nordseth",
+      "navn": "Idar Nordseth"
+    },
+    {
+      "key": "jostein-richardsen",
+      "navn": "Jostein Richardsen"
+    },
+    {
+      "key": "marit-sirevag",
+      "navn": "Marit Sirevåg"
+    },
+    {
+      "key": "mona-benjaminsen-karlsoy",
+      "navn": "Mona Benjaminsen"
+    },
+    {
+      "key": "oyvind-kristian-rognseth",
+      "navn": "Øyvind Kristian Rognseth"
+    },
+    {
+      "key": "parabaran-rajalingam",
+      "navn": "Parabaran Rajalingam"
+    },
+    {
+      "key": "stein-ottar-eliassen-ditlefsen",
+      "navn": "Stein-Ottar Eliassen Ditlefsen"
+    },
+    {
+      "key": "sverre-anton-osvald-benum",
+      "navn": "Sverre Anton Osvald Benum"
+    },
+    {
+      "key": "tom-arild-ottesen",
+      "navn": "Tom-Arild Ottesen"
+    },
+    {
+      "key": "tyra-okshoff-midtgaard",
+      "navn": "Tyra Økshoff Midtgaard"
+    },
+    {
+      "key": "vigdis-johansen",
+      "navn": "Vigdis Johansen"
+    },
+    {
       "key": "anders-pedersen",
       "navn": "Anders Pedersen"
     },
@@ -383,15 +885,364 @@
       "navn": "Frode Eliassen"
     },
     {
-      "key": "lars-steinar-laingen",
-      "navn": "Lars Steinar Laingen"
-    },
-    {
       "key": "steinar-eliassen",
       "navn": "Steinar Eliassen"
     }
   ],
   "roller": [
+    {
+      "org": "karlsoy-klagenemnda",
+      "person": "vigdis-johansen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "karlsoy-kommune-administrasjonen",
+      "person": "lars-steinar-laingen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Karlsøy kommune: Kommuneadministrasjon, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i KARLSØY KOMMUNE (orgnr 940330408). Registeret har flere navneledd enn siden, som skriver «Lars Laingen»."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "mona-benjaminsen-karlsoy",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-ordforer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026. Siden oppgir at hun har vært ordfører siden 2015."
+      }
+    },
+    {
+      "org": "karlsoy-kontrollutvalget",
+      "person": "sverre-anton-osvald-benum",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Karlsøy Pensjonistliste",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026. Kilden skriver navnet «Sverre Benum»; valgoppgjøret har «Sverre Anton Osvald Benum». Partiet er hentet fra valgoppgjøret 2023 (Valgdirektoratet), ikke fra siden."
+      }
+    },
+    {
+      "org": "karlsoy-levekarsutvalget",
+      "person": "stein-ottar-eliassen-ditlefsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Felleslista for Ringvassøy, Reinøy og Rebbenesøy",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026. Kilden skriver navnet «Stein Ottar Ditlefsen»; valgoppgjøret har «Stein-Ottar Eliassen Ditlefsen». Partiet er hentet fra valgoppgjøret 2023 (Valgdirektoratet), ikke fra siden."
+      }
+    },
+    {
+      "org": "karlsoy-plan-og-driftsutvalget",
+      "person": "hanny-ditlefsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "mona-benjaminsen-karlsoy",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "oyvind-kristian-rognseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "eirik-nordeng-ottesen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "tom-arild-ottesen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "birger-hakon-bendiksen-bull",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "stein-ottar-eliassen-ditlefsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Felleslista for Ringvassøy, Reinøy og Rebbenesøy",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "frank-harry-pettersen-karlsoy",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "idar-nordseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "jostein-richardsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "sverre-anton-osvald-benum",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Karlsøy Pensjonistliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "hanne-synnove-nilsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "parabaran-rajalingam",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "tyra-okshoff-midtgaard",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "gunn-johanne-hansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "freddy-gunnar-mikkelsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "frank-dalan",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "karlsoy-kommunestyre",
+      "person": "marit-sirevag",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
     {
       "org": "karlsoy-kommune-helse-og-sosialetaten",
       "person": "lars-steinar-laingen",
@@ -515,14 +1366,123 @@
   ],
   "relasjoner": [
     {
-      "fra": "karlsoy-kommunestyre",
-      "til": "karlsoy-kommune-940330408",
+      "fra": "karlsoy-administrasjonsutvalget",
+      "til": "karlsoy-kommunestyre",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "karlsoy-formannskap",
+      "til": "karlsoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-formannskap",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "karlsoy-klagenemnda",
+      "til": "karlsoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "karlsoy-kommune-administrasjonen",
+      "til": "karlsoy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-kommuneadministrasjon",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "karlsoy-kontrollutvalget",
+      "til": "karlsoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "karlsoy-levekarsutvalget",
+      "til": "karlsoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "karlsoy-plan-og-driftsutvalget",
+      "til": "karlsoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "karlsoy-kommune-no-rad-og-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra karlsoy.kommune.no 25.09.2026. Siden oppgir at kommunestyret har vedtatt å legge ned utvalget fra og med 31.12.2026. Vedtaket er ikke iverksatt, og utvalget er ført som aktivt."
+      }
+    },
+    {
+      "fra": "karlsoy-kommunestyre",
+      "til": "karlsoy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "karlsoy-kommune",
+      "til": "remiks-miljopark",
+      "type": "eier",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget: «Karlsøy resten». Kilde: Purehelp og eierskapsmeldingen 2024."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "troms-fylkesting",
+      "til": "troms-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
       }
     },
     {
@@ -681,7 +1641,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Karlsøy?",
+      "steg": [
+        {
+          "org": "karlsoy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "karlsoy-plan-og-driftsutvalget",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (karlsoy-kommune-no-rad-og-utvalg)."
+          }
+        },
+        {
+          "org": "karlsoy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Karlsøy kommune?",
+      "steg": [
+        {
+          "org": "karlsoy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "karlsoy-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (karlsoy-kommune-no-formannskap)."
+          }
+        },
+        {
+          "org": "karlsoy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "sjomat",
@@ -690,9 +1742,59 @@
     {
       "kode": "transport",
       "navn": "Transport"
+    },
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
     }
   ],
   "org_segment": [
+    {
+      "org": "remiks-miljopark",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
     {
       "org": "leroy-aurora",
       "segment": "sjomat",
@@ -734,5 +1836,21 @@
       "styrke": 3
     }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "karlsoy-kommunestyre",
+      "hva": "Varaordføreren i Karlsøy er ikke navngitt på kommunens nettsider.",
+      "hvorfor": "Verken ordførersiden, kontaktsiden eller sidene om kommunestyret og formannskapet på karlsoy.kommune.no oppgir varaordfører (sjekket 25.09.2026)."
+    },
+    {
+      "gjelder": "karlsoy-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "karlsoy-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
 }

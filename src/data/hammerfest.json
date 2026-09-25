@@ -5,17 +5,10 @@
     "fylkesnr": "56",
     "fylke": "Finnmark",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -36,29 +29,704 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-eierroller",
+      "navn": "Enhetsregisteret: eierkommune (EIKM) og helseforetak (HLSE) i rollelisten, hentet med skript",
+      "url": "https://data.brreg.no/enhetsregisteret/api/enheter",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "finnmarkssykehuset-no-foretaksledelsen",
+      "navn": "Finnmarkssykehuset: Foretaksledelsen",
+      "url": "https://www.finnmarkssykehuset.no/kontakt-oss/foretaksledelsen",
+      "type": "offisiell"
+    },
+    {
+      "key": "finnmarkssykehuset-no-styret",
+      "navn": "Finnmarkssykehuset: Styret i Finnmarkssykehuset",
+      "url": "https://www.finnmarkssykehuset.no/om-oss/styret-i-finnmarkssykehuset",
+      "type": "offisiell"
+    },
+    {
+      "key": "hammerfest-kommune-no-administrasjonsutvalget",
+      "navn": "Hammerfest kommune: Administrasjonsutvalget",
+      "url": "https://hammerfest.kommune.no/politikk-og-organisasjon/politikk/politisk-organisering/folkevalgte-organer/administrasjonsutvalget.33561.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "hammerfest-kommune-no-formannskapet",
+      "navn": "Hammerfest kommune: Formannskapet",
+      "url": "https://hammerfest.kommune.no/politikk-og-organisasjon/politikk/politisk-organisering/folkevalgte-organer/formannskapet.33557.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "hammerfest-kommune-no-hammerfest-kommune-leverer-langt-bedre-resultat-enn-ventet-i-2025",
+      "navn": "Hammerfest kommune: Hammerfest kommune leverer langt bedre resultat enn ventet i 2025",
+      "url": "https://hammerfest.kommune.no/politikk-og-organisasjon/innsyn/info/pressemeldinger/hammerfest-kommune-leverer-langt-bedre-resultat-enn-ventet-i-2025.40322.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "hammerfest-kommune-no-hovedutvalget-for-helse-og-omsorg",
+      "navn": "Hammerfest kommune: Hovedutvalget for helse og omsorg",
+      "url": "https://hammerfest.kommune.no/politikk-og-organisasjon/politikk/politisk-organisering/folkevalgte-organer/hovedutvalget-for-helse-og-omsorg.33565.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "hammerfest-kommune-no-hovedutvalget-for-helse-oppvekst-og-kultur",
+      "navn": "Hammerfest kommune: Hovedutvalget for helse, oppvekst og kultur",
+      "url": "https://hammerfest.kommune.no/politikk-og-organisasjon/politikk/politisk-organisering/folkevalgte-organer/hovedutvalget-for-helse-oppvekst-og-kultur.41029.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "hammerfest-kommune-no-hovedutvalget-for-naring-miljo-og-utvikling",
+      "navn": "Hammerfest kommune: Hovedutvalget for næring, miljø og utvikling",
+      "url": "https://hammerfest.kommune.no/politikk-og-organisasjon/politikk/politisk-organisering/folkevalgte-organer/hovedutvalget-for-naring-miljo-og-utvikling.33567.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "hammerfest-kommune-no-hovedutvalget-for-oppvekst-og-kultur",
+      "navn": "Hammerfest kommune: Hovedutvalget for oppvekst og kultur",
+      "url": "https://hammerfest.kommune.no/politikk-og-organisasjon/politikk/politisk-organisering/folkevalgte-organer/hovedutvalget-for-oppvekst-og-kultur.33563.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "hammerfest-kommune-no-klagenemnda",
+      "navn": "Hammerfest kommune: Klagenemnda",
+      "url": "https://hammerfest.kommune.no/politikk-og-organisasjon/politikk/politisk-organisering/folkevalgte-organer/klagenemnda.33626.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "hammerfest-kommune-no-politisk-organisering",
+      "navn": "Hammerfest kommune: Politisk organisering",
+      "url": "https://hammerfest.kommune.no/politikk-og-organisasjon/politikk/politisk-organisering/",
+      "type": "offisiell"
+    },
+    {
+      "key": "kusek-no-hammerfest",
+      "navn": "Kontrollutvalgssekretariatet Vest-Finnmark IKS: kontrollutvalget i Hammerfest",
+      "url": "https://kusek.no/kontrollutvalg/hammerfest/",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "politiet-no-finnmark",
+      "navn": "Politiet: Finnmark politidistrikt",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/finnmark/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-finnmark-jordskifterett-rettskrets",
+      "navn": "Finnmark jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/finnmark-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-utmarksdomstolen-saksbehandling",
+      "navn": "Utmarksdomstolen for Finnmark: Saksbehandling",
+      "url": "https://www.domstol.no/no/domstoler/annen/utmarksdomstolen-for-finnmark/saksbehandling/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-vestre-finnmark-tingrett-om",
+      "navn": "Vestre Finnmark tingrett: Om Vestre Finnmark tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/vestre-finnmark-tingrett/om-vestre-finnmark-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "ffk-no-administrativ-ledelse",
+      "navn": "Finnmark fylkeskommune: Administrativ ledelse",
+      "url": "https://www.ffk.no/om-oss/administrativ-ledelse/",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
     {
-      "key": "hammerfest-kommunestyre",
-      "navn": "Kommunestyret i Hammerfest - Hámmerfeasta",
+      "key": "finnmarkssykehuset",
+      "orgnr": "983974880",
+      "navn": "Finnmarkssykehuset HF",
+      "kortnavn": "Finnmarkssykehuset",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "helse-nord-rhf",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "innkjop"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "beskrivelse": "Helseforetaket for spesialisthelsetjenesten i Finnmark, med sykehus i Hammerfest og Kirkenes og hovedkontor i Hammerfest.",
+      "belegg": {
+        "kilde": "finnmarkssykehuset-no-foretaksledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra finnmarkssykehuset.no (foretaksledelsen) 25.09.2026: sykehusene og hovedkontoret. Orgnr fra Enhetsregisteret."
+      },
+      "status": "aktiv",
+      "sensitiv": false
+    },
+    {
+      "key": "hammerfest-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Hammerfest - Hámmerfeasta",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hammerfest-kommunestyre",
+      "kommunenr": "5603",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg med folkevalgte og representanter for de ansatte, for saker om forholdet mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "hammerfest-formannskap",
+      "navn": "Formannskapet i Hammerfest - Hámmerfeasta",
+      "kortnavn": "Formannskapet",
       "nivaa": "kommune",
       "organtype": "folkevalgt_organ",
+      "overordnet": "hammerfest-kommunestyre",
+      "kommunenr": "5603",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ valgt av kommunestyret blant sine medlemmer. Det innstiller blant annet til økonomiplan og årsbudsjett.",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Siden oppgir at formannskapet har 9 medlemmer i 2023–2027 og at ordføreren er møteleder."
+      }
+    },
+    {
+      "key": "hammerfest-hovedutvalget-for-helse-og-omsorg",
+      "navn": "Hovedutvalget for helse og omsorg i Hammerfest - Hámmerfeasta",
+      "kortnavn": "Hovedutvalget for helse og omsorg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hammerfest-kommunestyre",
+      "kommunenr": "5603",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_til": "2026-06-02",
+      "status": "nedlagt",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-hovedutvalget-for-helse-og-omsorg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Siden oppgir at utvalget er nedlagt per 02.06.2026 og at ansvarsområdene er overført til et nytt utvalg."
+      }
+    },
+    {
+      "key": "hammerfest-hovedutvalget-for-helse-oppvekst-og-kultur",
+      "navn": "Hovedutvalget for helse, oppvekst og kultur i Hammerfest - Hámmerfeasta",
+      "kortnavn": "Hovedutvalget for helse, oppvekst og kultur",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hammerfest-kommunestyre",
+      "kommunenr": "5603",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-hovedutvalget-for-helse-oppvekst-og-kultur",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "hammerfest-hovedutvalget-for-naering-miljo-og-utvikling",
+      "navn": "Hovedutvalget for næring, miljø og utvikling i Hammerfest - Hámmerfeasta",
+      "kortnavn": "Hovedutvalget for næring, miljø og utvikling",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hammerfest-kommunestyre",
+      "kommunenr": "5603",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-hovedutvalget-for-naring-miljo-og-utvikling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "hammerfest-hovedutvalget-for-oppvekst-og-kultur",
+      "navn": "Hovedutvalget for oppvekst og kultur i Hammerfest - Hámmerfeasta",
+      "kortnavn": "Hovedutvalget for oppvekst og kultur",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hammerfest-kommunestyre",
+      "kommunenr": "5603",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_til": "2026-06-02",
+      "status": "nedlagt",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-hovedutvalget-for-oppvekst-og-kultur",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Siden oppgir at utvalget er nedlagt per 02.06.2026 og at ansvarsområdene er overført til et nytt utvalg."
+      }
+    },
+    {
+      "key": "hammerfest-klagenemnda",
+      "navn": "Klagenemnda i Hammerfest - Hámmerfeasta",
+      "kortnavn": "Klagenemnda",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hammerfest-kommunestyre",
+      "kommunenr": "5603",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "klage"
+      ],
+      "segmenter": [],
+      "gyldig_til": "2026-02-12",
+      "status": "nedlagt",
+      "sensitiv": false,
+      "beskrivelse": "Behandler klager på enkeltvedtak der kommunen selv er klageinstans.",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-klagenemnda",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Siden oppgir at klagenemnda er nedlagt per 12.02.2026 og at ansvarsområdene er overført til formannskapet."
+      }
+    },
+    {
+      "key": "hammerfest-kommune",
+      "orgnr": "921770669",
+      "navn": "Hammerfest - Hámmerfeasta kommune",
+      "kortnavn": "Hammerfest kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5603",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «HAMMERFEST KOMMUNE». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "hammerfest-kommune-administrasjonen",
+      "navn": "Administrasjonen i Hammerfest - Hámmerfeasta kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
       "overordnet": "hammerfest-kommune",
       "kommunenr": "5603",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
       "myndighet": [
+        "innstilling",
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "hammerfest-kommune-no-hammerfest-kommune-leverer-langt-bedre-resultat-enn-ventet-i-2025",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026."
       }
+    },
+    {
+      "key": "hammerfest-kontrollutvalget",
+      "navn": "Kontrollutvalget i Hammerfest - Hámmerfeasta",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "hammerfest-kommunestyre",
+      "kommunenr": "5603",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "kusek-no-hammerfest",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kusek.no 25.09.2026."
+      }
+    },
+    {
+      "key": "hammerfest-kommunestyre",
+      "navn": "Kommunestyret i Hammerfest - Hámmerfeasta",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "hammerfest-kommune",
+      "kommunenr": "5603",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 29,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "hammerfest-havn-kf",
+      "orgnr": "974795027",
+      "navn": "Hammerfest Havn KF",
+      "kortnavn": "Hammerfest Havn",
+      "nivaa": "kommune",
+      "organtype": "KF",
+      "overordnet": "hammerfest-kommune",
+      "kommunenr": "5603",
+      "fylkesnr": "56",
+      "segmenter": [
+        "transport"
+      ],
+      "beskrivelse": "Kommunalt foretak for havnevirksomhet, eid av Hammerfest kommune.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Næringskode 52.220 «Andre tjenester tilknyttet sjøtransport». Eierkommunen står som eierkommune (EIKM) i Rolle-API-et."
+      },
+      "myndighet": [],
+      "status": "aktiv",
+      "sensitiv": false
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune",
+      "orgnr": "830090282",
+      "navn": "Finnmark fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "finansiering"
+      ],
+      "beskrivelse": "Fylkeskommunen for Finnmark, med ansvar for samferdsel, videregående opplæring, tannhelse, kultur og miljø og næringsutvikling.",
+      "belegg": {
+        "kilde": "ffk-no-administrativ-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ffk.no (administrativ ledelse) 25.09.2026. Organisasjonsnummer og organisasjonsform (FYLK, forretningsadresse i Vadsø) fra Enhetsregisteret. Erstatter grunnlagets rad, som ikke oppga kilde."
+      },
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "gyldig_fra": "2024-01-01"
+    },
+    {
+      "key": "finnmark-fylkesting",
+      "navn": "Fylkestinget i Finnmark - Finnmárku - Finmarkku",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "finnmark-fylkeskommune",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 35,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "finnmark-jordskifterett",
+      "orgnr": "926726463",
+      "navn": "Finnmark jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Særdomstol for saker om fast eiendom i alle 18 kommunene i Finnmark, med sete i Vadsø.",
+      "belegg": {
+        "kilde": "domstol-no-finnmark-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Orgnr fra Enhetsregisteret."
+      },
+      "status": "aktiv"
+    },
+    {
+      "key": "finnmark-politidistrikt",
+      "orgnr": "984000049",
+      "navn": "Finnmark politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Politidistriktet for hele Finnmark, med administrasjon i Kirkenes.",
+      "belegg": {
+        "kilde": "politiet-no-finnmark",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026: politidistriktet for hele Finnmark, med administrasjon i Kirkenes. Orgnr og forretningsadresse (Sør-Varanger) fra Enhetsregisteret."
+      },
+      "segmenter": [],
+      "status": "aktiv"
+    },
+    {
+      "key": "stortinget-finnmark-valgkrets",
+      "navn": "Stortinget, Finnmark valgkrets",
+      "kortnavn": "Finnmark valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "56",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 4,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Finnmark for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
+      }
+    },
+    {
+      "key": "utmarksdomstolen-for-finnmark",
+      "orgnr": "926721682",
+      "navn": "Utmarksdomstolen for Finnmark",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Særdomstol som avgjør tvister om rettigheter til grunn i Finnmark etter at Finnmarkskommisjonen har utredet et felt. Slike saker kan ikke bringes inn for tingretten eller jordskifteretten.",
+      "belegg": {
+        "kilde": "domstol-no-utmarksdomstolen-saksbehandling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Forretningsadressen i Tromsø og orgnr er fra Enhetsregisteret."
+      },
+      "status": "aktiv"
+    },
+    {
+      "key": "vestre-finnmark-tingrett",
+      "orgnr": "926722956",
+      "navn": "Vestre Finnmark tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "sensitiv": true,
+      "gyldig_fra": "2021-04-26",
+      "beskrivelse": "Tingrett for Alta, Hammerfest, Hasvik, Måsøy, Nordkapp, Porsanger og Loppa i Finnmark og Kvænangen i Troms, med rettssteder i Alta og Hammerfest.",
+      "belegg": {
+        "kilde": "domstol-no-vestre-finnmark-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Opprettet 26.04.2021 ved sammenslåing av Alta og Hammerfest tingrett. Orgnr fra Enhetsregisteret."
+      },
+      "segmenter": [],
+      "status": "aktiv"
     },
     {
       "key": "aibel",
@@ -339,47 +1007,6 @@
       }
     },
     {
-      "key": "finnmark-politidistrikt",
-      "orgnr": "984000049",
-      "navn": "Finnmark Politidistrikt",
-      "nivaa": "stat",
-      "organtype": "politi",
-      "kommunenr": "5605",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": true,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
-      }
-    },
-    {
-      "key": "finnmarkssykehuset",
-      "orgnr": "983974880",
-      "navn": "Finnmarkssykehuset HF",
-      "nivaa": "stat",
-      "organtype": "HF",
-      "kommunenr": "5603",
-      "myndighet": [],
-      "segmenter": [
-        "helse"
-      ],
-      "gyldig_fra": "2001-12-18",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
-      }
-    },
-    {
       "key": "gagama-elektro",
       "orgnr": "942143710",
       "navn": "Gagama Elektro AS",
@@ -397,25 +1024,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
-      }
-    },
-    {
-      "key": "hammerfest-kommune",
-      "orgnr": "921770669",
-      "navn": "Hammerfest Kommune",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "5603",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
       }
     },
     {
@@ -510,7 +1118,7 @@
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": true,
-      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Finnmark Politidistrikt, med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Finnmark politidistrikt, med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
       "belegg": {
         "kilde": "enhetsregisteret",
         "verifisering": "verifisert",
@@ -897,6 +1505,138 @@
   ],
   "personer": [
     {
+      "key": "elisabeth-paulsen",
+      "navn": "Elisabeth Paulsen"
+    },
+    {
+      "key": "jan-tore-kvalnes",
+      "navn": "Jan Tore Kvalnes"
+    },
+    {
+      "key": "kjetil-kvamme",
+      "navn": "Kjetil Kvamme"
+    },
+    {
+      "key": "ole-hope",
+      "navn": "Ole Hope"
+    },
+    {
+      "key": "silje-merethe-holmgren",
+      "navn": "Silje Merethe Holmgren"
+    },
+    {
+      "key": "tarjei-jensen-bech",
+      "navn": "Tarjei Jensen Bech"
+    },
+    {
+      "key": "trine-olsen",
+      "navn": "Trine Olsen"
+    },
+    {
+      "key": "andreas-veum-gamst",
+      "navn": "Andreas Veum Gamst"
+    },
+    {
+      "key": "arne-reidar-myrseth",
+      "navn": "Arne Reidar Myrseth"
+    },
+    {
+      "key": "aud-marie-tandberg",
+      "navn": "Aud Marie Tandberg"
+    },
+    {
+      "key": "berit-hagensen",
+      "navn": "Berit Hågensen"
+    },
+    {
+      "key": "eline-sandvik",
+      "navn": "Eline Sandvik"
+    },
+    {
+      "key": "elisabeth-ronning",
+      "navn": "Elisabeth Rønning"
+    },
+    {
+      "key": "erik-johannessen",
+      "navn": "Erik Johannessen"
+    },
+    {
+      "key": "espen-hansen",
+      "navn": "Espen Hansen"
+    },
+    {
+      "key": "fay-renee-franksdatter-nilsen",
+      "navn": "Fay-Renée Franksdatter Nilsen"
+    },
+    {
+      "key": "fred-ove-nibe",
+      "navn": "Fred Ove Nibe"
+    },
+    {
+      "key": "grete-jensstad-svendsen",
+      "navn": "Grete Jensstad Svendsen"
+    },
+    {
+      "key": "heidi-marie-mauno-sletten",
+      "navn": "Heidi Marie Mauno Sletten"
+    },
+    {
+      "key": "ingrid-petrikke-olsen",
+      "navn": "Ingrid Petrikke Olsen"
+    },
+    {
+      "key": "kaj-gunnar-dahl",
+      "navn": "Kaj Gunnar Dahl"
+    },
+    {
+      "key": "kurt-alfred-methi",
+      "navn": "Kurt Alfred Methi"
+    },
+    {
+      "key": "lars-ivar-waehre",
+      "navn": "Lars Ivar Wæhre"
+    },
+    {
+      "key": "linn-nybraten-tjonso",
+      "navn": "Linn Nybråten Tjønsø"
+    },
+    {
+      "key": "lodve-a-svare",
+      "navn": "Lodve A. Svare"
+    },
+    {
+      "key": "madeleine-myrseth",
+      "navn": "Madeleine Myrseth"
+    },
+    {
+      "key": "marianne-simonsen",
+      "navn": "Marianne Simonsen"
+    },
+    {
+      "key": "ole-ingvald-hansen",
+      "navn": "Ole Ingvald Hansen"
+    },
+    {
+      "key": "pal-blix-johansen",
+      "navn": "Pål Blix-Johansen"
+    },
+    {
+      "key": "terje-rogde",
+      "navn": "Terje Rogde"
+    },
+    {
+      "key": "terje-wikstrom",
+      "navn": "Terje Wikstrøm"
+    },
+    {
+      "key": "truls-olufsen-mehus",
+      "navn": "Truls Olufsen-Mehus"
+    },
+    {
+      "key": "ulf-terje-nyheim-eliassen",
+      "navn": "Ulf Terje Nyheim Eliassen"
+    },
+    {
       "key": "aleksander-roynesdal",
       "navn": "Aleksander Røynesdal"
     },
@@ -933,6 +1673,10 @@
       "navn": "Christoffer Hansen"
     },
     {
+      "key": "dag-eriksen",
+      "navn": "Dag Eriksen"
+    },
+    {
       "key": "dan-gunvald-niko",
       "navn": "Dan Gunvald Nikø"
     },
@@ -943,10 +1687,6 @@
     {
       "key": "elin-molmann-holmgren",
       "navn": "Elin Mølmann Holmgren"
-    },
-    {
-      "key": "elisabeth-paulsen",
-      "navn": "Elisabeth Paulsen"
     },
     {
       "key": "ellen-johansen",
@@ -989,6 +1729,10 @@
       "navn": "Harald Johnsen"
     },
     {
+      "key": "harald-knudsen",
+      "navn": "Harald Knudsen"
+    },
+    {
       "key": "havard-hargaut-jensen",
       "navn": "Håvard Hargaut-Jensen"
     },
@@ -1013,12 +1757,12 @@
       "navn": "Jan Sigurd Handeland"
     },
     {
-      "key": "jan-tore-kvalnes",
-      "navn": "Jan Tore Kvalnes"
-    },
-    {
       "key": "jeanette-moland",
       "navn": "Jeanette Moland"
+    },
+    {
+      "key": "john-evert-wahl",
+      "navn": "John Evert Wahl"
     },
     {
       "key": "jonas-sjovold-andersen",
@@ -1061,10 +1805,6 @@
       "navn": "Kevin Eivik"
     },
     {
-      "key": "kjetil-kvamme",
-      "navn": "Kjetil Kvamme"
-    },
-    {
       "key": "kristina-isabell-andersen",
       "navn": "Kristina Isabell Andersen"
     },
@@ -1073,12 +1813,16 @@
       "navn": "Kristoffer Tollefsen"
     },
     {
-      "key": "lars-adler-hustad",
+      "key": "lars-adler-hustad-14a4bc",
       "navn": "Lars Adler Hustad"
     },
     {
       "key": "lise-karlsen",
       "navn": "Lise Karlsen"
+    },
+    {
+      "key": "marit-hansen",
+      "navn": "Marit Hansen"
     },
     {
       "key": "marita-hagerupsen-ostvig",
@@ -1117,10 +1861,6 @@
       "navn": "Odd Torbjørnsen"
     },
     {
-      "key": "ole-hope",
-      "navn": "Ole Hope"
-    },
-    {
       "key": "ole-jacob-pedersen",
       "navn": "Ole-Jacob Pedersen"
     },
@@ -1129,12 +1869,16 @@
       "navn": "Per-Arne Lid"
     },
     {
-      "key": "raymond-robertsen",
+      "key": "raymond-robertsen-5c8794",
       "navn": "Raymond Robertsen"
     },
     {
       "key": "ronny-malmo",
       "navn": "Ronny Malmo"
+    },
+    {
+      "key": "roy-ole-stromme",
+      "navn": "Roy Ole Strømme"
     },
     {
       "key": "runar-eriksen",
@@ -1147,6 +1891,10 @@
     {
       "key": "rune-andre-johansen-grolid",
       "navn": "Rune André Johansen Grolid"
+    },
+    {
+      "key": "rune-holmgren",
+      "navn": "Rune Holmgren"
     },
     {
       "key": "rune-mikalsen",
@@ -1165,8 +1913,8 @@
       "navn": "Sigurd Grayston Skjørestad"
     },
     {
-      "key": "silje-merethe-holmgren",
-      "navn": "Silje Merethe Holmgren"
+      "key": "sissel-lorentsen",
+      "navn": "Sissel Lorentsen"
     },
     {
       "key": "sivert-ribe-jacobsen",
@@ -1201,10 +1949,6 @@
       "navn": "Sverre Gagama"
     },
     {
-      "key": "tarjei-jensen-bech",
-      "navn": "Tarjei Jensen Bech"
-    },
-    {
       "key": "tine-johansen",
       "navn": "Tine Johansen"
     },
@@ -1213,19 +1957,564 @@
       "navn": "Tone Jæger Karlstad"
     },
     {
-      "key": "trine-olsen",
-      "navn": "Trine Olsen"
-    },
-    {
       "key": "trond-eriksen",
       "navn": "Trond Eriksen"
     },
     {
       "key": "vegar-ingebrigtsen-murberg",
       "navn": "Vegar Ingebrigtsen Murberg"
+    },
+    {
+      "key": "vidar-gulseth-holmgren",
+      "navn": "Vidar Gulseth Holmgren"
     }
   ],
   "roller": [
+    {
+      "org": "finnmarkssykehuset",
+      "person": "trine-olsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkssykehuset: Styret i Finnmarkssykehuset, per 2026-09-25). Grunnlagets merknad: Hentet fra finnmarkssykehuset.no 25.09.2026. Siden sier at styret er oppnevnt februar 2024 til februar 2026, mens styret i registeret er sist endret 30.03.2026."
+      }
+    },
+    {
+      "org": "hammerfest-kommune-administrasjonen",
+      "person": "elisabeth-paulsen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Hammerfest kommune: Hammerfest kommune leverer langt bedre resultat enn ventet i 2025, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i HAMMERFEST KOMMUNE (orgnr 921770669). Sidens merknad: Navnet står i en pressemelding fra kommunen om regnskapet for 2025; kommunens faste sider om organisasjonen oppgir det ikke."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "jan-tore-kvalnes",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Partiet Nord",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-politisk-organisering",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Partiet er hentet fra valgoppgjøret 2023 (Valgdirektoratet), ikke fra siden."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "terje-rogde",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-politisk-organisering",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Partiet er hentet fra valgoppgjøret 2023 (Valgdirektoratet), ikke fra siden."
+      }
+    },
+    {
+      "org": "hammerfest-kontrollutvalget",
+      "person": "ole-ingvald-hansen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "R",
+      "belegg": {
+        "kilde": "kusek-no-hammerfest",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kusek.no 25.09.2026."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "terje-wikstrom",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "berit-hagensen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "tarjei-jensen-bech",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "ulf-terje-nyheim-eliassen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "andreas-veum-gamst",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "silje-merethe-holmgren",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "grete-jensstad-svendsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "arne-reidar-myrseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll). Står som «Arne Myrseth» i Valgdirektoratets fil og i valgstyrets protokoll for Hammerfest. Samme person som i fylkestingsfila: samme parti og samme fødselsdato (sammenlignet i minnet, ikke lagret)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "madeleine-myrseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "fred-ove-nibe",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "terje-rogde",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "marianne-simonsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "kjetil-kvamme",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "kaj-gunnar-dahl",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "espen-hansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "fay-renee-franksdatter-nilsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "truls-olufsen-mehus",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "linn-nybraten-tjonso",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "MDG",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "jan-tore-kvalnes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Partiet Nord",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "kurt-alfred-methi",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Partiet Nord",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "heidi-marie-mauno-sletten",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Partiet Nord",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "eline-sandvik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Partiet Nord",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "pal-blix-johansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Partiet Nord",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "aud-marie-tandberg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "lars-ivar-waehre",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "elisabeth-ronning",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "erik-johannessen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "ingrid-petrikke-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "hammerfest-kommunestyre",
+      "person": "lodve-a-svare",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "ole-hope",
+      "tittel": "Administrerende direktør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkssykehuset: Foretaksledelsen, per 2026-09-25). Grunnlagets merknad: Hentet fra finnmarkssykehuset.no 25.09.2026. Siden er sist oppdatert 17.02.2026."
+      }
+    },
     {
       "org": "boreal-sjo-drift",
       "person": "dan-gunvald-niko",
@@ -1684,18 +2973,6 @@
     },
     {
       "org": "finnmarkssykehuset",
-      "person": "ole-hope",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "finnmarkssykehuset",
       "person": "semming-semmingsen",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
@@ -1724,18 +3001,6 @@
       "tittel": "Varamedlem (valgt av de ansatte)",
       "rolletype": "varamedlem",
       "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "finnmarkssykehuset",
-      "person": "trine-olsen",
-      "tittel": "Styreleder",
-      "rolletype": "styreleder",
-      "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -1887,6 +3152,126 @@
       }
     },
     {
+      "org": "hammerfest-havn-kf",
+      "person": "dag-eriksen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-havn-kf",
+      "person": "elin-molmann-holmgren",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-havn-kf",
+      "person": "harald-knudsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-havn-kf",
+      "person": "john-evert-wahl",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-havn-kf",
+      "person": "katrine-prydz",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-havn-kf",
+      "person": "marit-hansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-havn-kf",
+      "person": "roy-ole-stromme",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-havn-kf",
+      "person": "rune-holmgren",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-havn-kf",
+      "person": "sissel-lorentsen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-havn-kf",
+      "person": "vidar-gulseth-holmgren",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
       "org": "hammerfest-kommune-sektor-for-helse-og-omsorg",
       "person": "elisabeth-paulsen",
       "tittel": "Daglig leder",
@@ -1924,18 +3309,6 @@
     },
     {
       "org": "hammerfest-kommune-sentraladministrasjon",
-      "person": "elisabeth-paulsen",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "hammerfest-kommune",
       "person": "elisabeth-paulsen",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
@@ -2092,18 +3465,6 @@
     },
     {
       "org": "lucerna",
-      "person": "jan-tore-kvalnes",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "lucerna",
       "person": "jonas-sjovold-andersen",
       "tittel": "Varamedlem (valgt av de ansatte)",
       "rolletype": "varamedlem",
@@ -2140,19 +3501,7 @@
     },
     {
       "org": "lucerna",
-      "person": "kjetil-kvamme",
-      "tittel": "Varamedlem",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "lucerna",
-      "person": "lars-adler-hustad",
+      "person": "lars-adler-hustad-14a4bc",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
@@ -2176,7 +3525,7 @@
     },
     {
       "org": "lucerna",
-      "person": "raymond-robertsen",
+      "person": "raymond-robertsen-5c8794",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -2192,18 +3541,6 @@
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "lucerna",
-      "person": "silje-merethe-holmgren",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -2228,18 +3565,6 @@
       "tittel": "Styremedlem (valgt av de ansatte)",
       "rolletype": "styremedlem",
       "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "lucerna",
-      "person": "tarjei-jensen-bech",
-      "tittel": "Varamedlem",
-      "rolletype": "varamedlem",
-      "status": "vara",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -2321,14 +3646,201 @@
   ],
   "relasjoner": [
     {
+      "fra": "hammerfest-administrasjonsutvalget",
+      "til": "hammerfest-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "hammerfest-formannskap",
+      "til": "hammerfest-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Siden oppgir at formannskapet har 9 medlemmer i 2023–2027 og at ordføreren er møteleder."
+      }
+    },
+    {
+      "fra": "hammerfest-hovedutvalget-for-helse-og-omsorg",
+      "til": "hammerfest-hovedutvalget-for-helse-oppvekst-og-kultur",
+      "type": "erstattet_av",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-hovedutvalget-for-helse-og-omsorg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Siden oppgir at utvalget er nedlagt per 02.06.2026 og at ansvarsområdene er overført til et nytt utvalg."
+      }
+    },
+    {
+      "fra": "hammerfest-hovedutvalget-for-helse-og-omsorg",
+      "til": "hammerfest-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-hovedutvalget-for-helse-og-omsorg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Siden oppgir at utvalget er nedlagt per 02.06.2026 og at ansvarsområdene er overført til et nytt utvalg."
+      }
+    },
+    {
+      "fra": "hammerfest-hovedutvalget-for-helse-oppvekst-og-kultur",
+      "til": "hammerfest-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-hovedutvalget-for-helse-oppvekst-og-kultur",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "hammerfest-hovedutvalget-for-naering-miljo-og-utvikling",
+      "til": "hammerfest-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-hovedutvalget-for-naring-miljo-og-utvikling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "hammerfest-hovedutvalget-for-oppvekst-og-kultur",
+      "til": "hammerfest-hovedutvalget-for-helse-oppvekst-og-kultur",
+      "type": "erstattet_av",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-hovedutvalget-for-oppvekst-og-kultur",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Siden oppgir at utvalget er nedlagt per 02.06.2026 og at ansvarsområdene er overført til et nytt utvalg."
+      }
+    },
+    {
+      "fra": "hammerfest-hovedutvalget-for-oppvekst-og-kultur",
+      "til": "hammerfest-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-hovedutvalget-for-oppvekst-og-kultur",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Siden oppgir at utvalget er nedlagt per 02.06.2026 og at ansvarsområdene er overført til et nytt utvalg."
+      }
+    },
+    {
+      "fra": "hammerfest-klagenemnda",
+      "til": "hammerfest-formannskap",
+      "type": "erstattet_av",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-klagenemnda",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Siden oppgir at klagenemnda er nedlagt per 12.02.2026 og at ansvarsområdene er overført til formannskapet."
+      }
+    },
+    {
+      "fra": "hammerfest-klagenemnda",
+      "til": "hammerfest-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-klagenemnda",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026. Siden oppgir at klagenemnda er nedlagt per 12.02.2026 og at ansvarsområdene er overført til formannskapet."
+      }
+    },
+    {
+      "fra": "hammerfest-kommune-administrasjonen",
+      "til": "hammerfest-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "hammerfest-kommune-no-hammerfest-kommune-leverer-langt-bedre-resultat-enn-ventet-i-2025",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra hammerfest.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "hammerfest-kontrollutvalget",
+      "til": "hammerfest-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kusek-no-hammerfest",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kusek.no 25.09.2026."
+      }
+    },
+    {
       "fra": "hammerfest-kommunestyre",
       "til": "hammerfest-kommune",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "finnmarkssykehuset",
+      "til": "helse-nord-rhf",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "brreg-eierroller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Helse Nord RHF (883658752) står som helseforetak (HLSE) for Finnmarkssykehuset HF i rollelisten i Enhetsregisteret."
+      }
+    },
+    {
+      "fra": "hammerfest-havn-kf",
+      "til": "hammerfest-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Overordnet enhet i Enhetsregisteret: Hammerfest kommune (921770669)."
+      }
+    },
+    {
+      "fra": "hammerfest-kommune",
+      "til": "hammerfest-havn-kf",
+      "type": "eier",
+      "belegg": {
+        "kilde": "brreg-eierroller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Hammerfest kommune (921770669) står som eierkommune (EIKM) for Hammerfest Havn KF i Rolle-API-et."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "finnmark-fylkesting",
+      "til": "finnmark-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
       }
     },
     {
@@ -3071,7 +4583,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Hammerfest?",
+      "steg": [
+        {
+          "org": "hammerfest-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "hammerfest-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (hammerfest-kommune-no-formannskapet); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "hammerfest-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Hammerfest kommune?",
+      "steg": [
+        {
+          "org": "hammerfest-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "hammerfest-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (hammerfest-kommune-no-formannskapet)."
+          }
+        },
+        {
+          "org": "hammerfest-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "energi",
@@ -3092,9 +4696,62 @@
     {
       "kode": "transport",
       "navn": "Transport"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
     }
   ],
   "org_segment": [
+    {
+      "org": "finnmarkssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "hammerfest-havn-kf",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "finnmark-jordskifterett",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "utmarksdomstolen-for-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
     {
       "org": "boreal-sjo-drift",
       "segment": "transport",
@@ -3131,11 +4788,6 @@
       "styrke": 3
     },
     {
-      "org": "finnmarkssykehuset",
-      "segment": "helse",
-      "styrke": 3
-    },
-    {
       "org": "hk-crew",
       "segment": "transport",
       "styrke": 3
@@ -3161,5 +4813,21 @@
       "styrke": 3
     }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "hammerfest-kommune",
+      "hva": "Lederne av formannskapet og hovedutvalgene i Hammerfest er ikke tatt inn.",
+      "hvorfor": "Sidene om de folkevalgte organene på hammerfest.kommune.no beskriver sammensetning og myndighet, men lister ikke medlemmene (sjekket 25.09.2026)."
+    },
+    {
+      "gjelder": "hammerfest-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "hammerfest-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
 }

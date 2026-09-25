@@ -185,6 +185,14 @@ export interface ImportInn {
    * var alene i kjøringen.
    */
   eiere?: Map<string, string>;
+  /**
+   * Organnøklene til de regionale organene som har myndighet over kommunen
+   * (`src/data/region/dekning.json`): fylkeskommunen, statsforvalteren,
+   * politidistriktet og domstolene. Organet er grunnlag i eierens datasett,
+   * og raden kopieres hit ved hver kjøring, som andre kopier. Uten dekningen
+   * ville en kopi uten orgnr i utvalget falt bort ved neste kjøring.
+   */
+  dekning?: string[];
 }
 
 export type Avvikskategori =
@@ -1095,6 +1103,20 @@ export function importer(inn: ImportInn): ImportUt {
     }
   };
   for (const [, k] of sortert([...kopiPaaOrgnr], ([o]) => o)) kopier_(k.slug, k.org);
+
+  // Dekning: de regionale organene med myndighet over kommunen kopieres fra
+  // datasettet der de er grunnlag. Rollene føres der; her står bare raden og
+  // kjeden av overordnede. Er organet grunnlag her (en prosess viser til det),
+  // trengs ingen kopi.
+  for (const key of [...new Set(inn.dekning ?? [])].sort()) {
+    if (gOrgKeys.has(key) || kopiOrg.some((o) => o.key === key)) continue;
+    const orig = originaler.get(key);
+    if (!orig)
+      throw new Error(
+        `dekning: «${key}» er ikke grunnlag i noe annet datasett, så raden har ingen original.`,
+      );
+    kopier_(orig.slug, orig.org);
+  }
 
   for (const e of sortert(nyeEnheter, (x) => x.orgnr)) {
     const key = nokkelFor.get(e.orgnr)!;

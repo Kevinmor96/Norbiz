@@ -208,7 +208,9 @@ describe("RPC-ene gir det samme som lokal.ts", () => {
         );
       }
     }
-  });
+    // 45 søk over alle de 80 kommunene med folkevalgte og kommuneledelse tar
+    // over 30 sekunder i PGlite (23 før kommunestyrene kom med).
+  }, 90_000);
 
   it("gir null for det som ikke finnes, i begge", async () => {
     const svar = async (d: Datalag) => [

@@ -5,17 +5,10 @@
     "fylkesnr": "18",
     "fylke": "Nordland",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -65,28 +58,919 @@
       "navn": "Statens vegvesen (vegvesen.no)",
       "url": "https://www.vegvesen.no",
       "type": "offisiell"
+    },
+    {
+      "key": "bodo-kommune-no",
+      "navn": "Bodø kommune (bodo.kommune.no)",
+      "url": "https://bodo.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "bodo-moteportal",
+      "navn": "Bodø kommunes møteportal (Digdem, bodo.digdem.no)",
+      "url": "https://bodo.digdem.no/sru",
+      "type": "offisiell"
+    },
+    {
+      "key": "brreg-eierroller",
+      "navn": "Enhetsregisteret: eierkommune (EIKM) og helseforetak (HLSE) i rollelisten, hentet med skript",
+      "url": "https://data.brreg.no/enhetsregisteret/api/enheter",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-salten-jordskifterett-medarbeidere",
+      "navn": "Salten jordskifterett: Medarbeidere",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/salten-jordskifterett/medarbeidere/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-salten-jordskifterett-rettskrets",
+      "navn": "Salten jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/salten-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-salten-og-lofoten-tingrett-om",
+      "navn": "Salten og Lofoten tingrett: Om Salten og Lofoten tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/salten-og-lofoten-tingrett/om-salten-og-lofoten-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "nfk-no-fylkesordforer",
+      "navn": "Nordland fylkeskommune: Fylkesordfører",
+      "url": "https://www.nfk.no/politikk/fylkesting/fylkesordforer/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-fylkesrad",
+      "navn": "Nordland fylkeskommune: Fylkesrådet i Nordland 2023–2027",
+      "url": "https://www.nfk.no/politikk/fylkesrad/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-fylkesrad-eggesvik",
+      "navn": "Nordland fylkeskommune: Svein Øien Eggesvik – ansvarsområder",
+      "url": "https://www.nfk.no/politikk/fylkesrad/om-fylkesraden/svein-oien-eggesvik-ansvarsomrader.96443.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-fylkesrad-kvensjo",
+      "navn": "Nordland fylkeskommune: Marianne Dobak Kvensjø (H)",
+      "url": "https://www.nfk.no/politikk/fylkesrad/om-fylkesraden/marianne-dobak-kvensjo-h.93375.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-fylkesrad-mikalsen",
+      "navn": "Nordland fylkeskommune: Arne Ivar Mikalsen (V)",
+      "url": "https://www.nfk.no/politikk/fylkesrad/om-fylkesraden/arne-ivar-mikalsen-v.93377.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-fylkesrad-sennesvik",
+      "navn": "Nordland fylkeskommune: Joakim Sennesvik (H)",
+      "url": "https://www.nfk.no/politikk/fylkesrad/om-fylkesraden/joakim-sennesvik-h.93378.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-fylkesrad-viksund",
+      "navn": "Nordland fylkeskommune: Sisilja Viksund (H)",
+      "url": "https://www.nfk.no/politikk/fylkesrad/om-fylkesraden/sisilja-viksund-h.93380.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-fylkesting-representanter",
+      "navn": "Nordland fylkeskommune: fylkestingets representanter etter partitilhørighet (nfk.no)",
+      "url": "https://www.nfk.no/politikk/fylkesting/representanter-etter-partitilhorighet/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-fylkesvaraordforer",
+      "navn": "Nordland fylkeskommune: Fylkesvaraordfører",
+      "url": "https://www.nfk.no/politikk/fylkesting/fylkesvaraordforer/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-komiteer",
+      "navn": "Nordland fylkeskommune: Komitéer i fylkestinget",
+      "url": "https://www.nfk.no/politikk/fylkesting/komiteer/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-kontrollutvalget",
+      "navn": "Nordland fylkeskommune: Kontrollutvalget",
+      "url": "https://www.nfk.no/politikk/fylkesting/kontrollutvalget/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nord-no-styret",
+      "navn": "Nord universitet: Styret",
+      "url": "https://www.nord.no/om/organisasjonen/styret",
+      "type": "offisiell"
+    },
+    {
+      "key": "nord-no-universitetsledelsen",
+      "navn": "Nord universitet: Universitetsledelsen",
+      "url": "https://www.nord.no/om/organisasjonen/universitetsledelsen",
+      "type": "offisiell"
+    },
+    {
+      "key": "nordlandssykehuset-no-ledelsen",
+      "navn": "Nordlandssykehuset: Ledelsen (sist oppdatert 11.08.2026)",
+      "url": "https://www.nordlandssykehuset.no/om-oss/ledelsen-i-nordlandssykehuset/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nordlandssykehuset-no-styret",
+      "navn": "Nordlandssykehuset: Styret i Nordlandssykehuset",
+      "url": "https://www.nordlandssykehuset.no/om-oss/styret-i-nordlandssykehuset/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland-ledelsen",
+      "navn": "Nordland politidistrikt: Ledelsen i Nordland",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/om-nordland/fakta-og-viktige-milepaler",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-organisasjonskart",
+      "navn": "Statsforvalteren i Nordland: Organisasjonskart – avdelinger, seksjoner og ledere (PDF, udatert)",
+      "url": "https://www.statsforvalteren.no/siteassets/nordland/administrasjon/dokumenter/organisasjonskart---avdelinger-seksjoner-og-ledere.pdf",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-var-statsforvalter",
+      "navn": "Statsforvalteren i Nordland: Vår statsforvalter (oppdatert 12. juni)",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/var-statsforvalter/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-fy-2023",
+      "navn": "Valgte kandidater ved fylkestingsvalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_fylkesting_2023---med-forbehold-om-endringer.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
     }
   ],
   "organisasjoner": [
     {
-      "key": "bodo-kommunestyre",
-      "navn": "Kommunestyret i Bodø",
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "myndighet": [
+        "innkjop"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nord-universitet",
+      "orgnr": "970940243",
+      "navn": "Nord universitet",
+      "nivaa": "stat",
+      "organtype": "universitet",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Statlig universitet med hovedsete i Bodø, ledet av et styre og en rektor.",
+      "belegg": {
+        "kilde": "nord-no-universitetsledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 970940243, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Organisasjonsledd under Kunnskapsdepartementet (872417842). Antall ansatte i registeret: 1871."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "segmenter": [
+        "helse"
+      ],
+      "myndighet": [
+        "innkjop"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Helseforetak med hovedsete i Bodø, eid av Helse Nord RHF.",
+      "belegg": {
+        "kilde": "nordlandssykehuset-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 983974910, organisasjonsform SÆR, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Antall ansatte i registeret: 6861."
+      }
+    },
+    {
+      "key": "bodo-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Bodø",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "bodo-kommunestyre",
+      "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg for saker mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "key": "bodo-eldrerad",
+      "navn": "Bodø eldreråd",
+      "kortnavn": "Bodø eldreråd",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "bodo-kommunestyre",
+      "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "key": "bodo-formannskap",
+      "navn": "Formannskapet i Bodø",
+      "kortnavn": "Formannskapet",
       "nivaa": "kommune",
       "organtype": "folkevalgt_organ",
+      "overordnet": "bodo-kommunestyre",
+      "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "key": "bodo-klagenemnda",
+      "navn": "Klagenemnda i Bodø",
+      "kortnavn": "Klagenemnda",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "bodo-kommunestyre",
+      "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "klage"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Behandler klager på kommunale vedtak.",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "key": "bodo-kommune",
+      "orgnr": "972418013",
+      "navn": "Bodø kommune",
+      "kortnavn": "Bodø kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «BODØ KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1804."
+      }
+    },
+    {
+      "key": "bodo-kommune-administrasjonen",
+      "navn": "Administrasjonen i Bodø kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
       "overordnet": "bodo-kommune",
       "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
       "myndighet": [
+        "innstilling",
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "bodo-kommune-no",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "merknad": "Hentet fra bodo.kommune.no/om-bodo-kommune/organisasjonskart 2026-09-25."
+      }
+    },
+    {
+      "key": "bodo-kontrollutvalget",
+      "navn": "Kontrollutvalget i Bodø",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "bodo-kommunestyre",
+      "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "bodo-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra bodo.kommune.no/politikk-medvirkning-og-planer/politikk/politiske-utvalg-og-folkevalgte/styrer-rad-og-utvalg/kontrollutvalget 2026-09-25."
+      }
+    },
+    {
+      "key": "bodo-plan-og-miljoutvalget",
+      "navn": "Plan- og miljøutvalget i Bodø",
+      "kortnavn": "Plan- og miljøutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "bodo-kommunestyre",
+      "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "key": "bodo-rad-for-personer-med-funksjonsnedsettelse",
+      "navn": "Råd for personer med funksjonsnedsettelse i Bodø",
+      "kortnavn": "Råd for personer med funksjonsnedsettelse",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "bodo-kommunestyre",
+      "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "key": "bodo-ungdomsrad",
+      "navn": "Bodø ungdomsråd",
+      "kortnavn": "Bodø ungdomsråd",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "bodo-kommunestyre",
+      "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "key": "bodo-velferdsutvalget",
+      "navn": "Velferdsutvalget i Bodø",
+      "kortnavn": "Velferdsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "bodo-kommunestyre",
+      "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "key": "bodo-kommunestyre",
+      "navn": "Kommunestyret i Bodø",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "bodo-kommune",
+      "kommunenr": "1804",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 39,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "transport"
+      ],
+      "myndighet": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "bodo-havn",
+      "orgnr": "970542493",
+      "navn": "Bodø Havn KF",
+      "nivaa": "kommune",
+      "organtype": "KF",
+      "fylkesnr": "18",
+      "kommunenr": "1804",
+      "beskrivelse": "Kommunalt foretak som driver havnen i Bodø.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 970542493, organisasjonsform KF, sektor 1510 (Kommunale foretak med ubegrenset ansvar), forretningsadresse i Bodø (1804). Antall ansatte i registeret: 16."
+      },
+      "overordnet": "bodo-kommune"
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "tilsyn"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune-kontrollutvalg",
+      "navn": "Kontrollutvalget i Nordland fylkeskommune",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "fylke",
+      "organtype": "utvalg",
+      "overordnet": "nordland-fylkesting",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fører løpende tilsyn med den fylkeskommunale forvaltningen på vegne av fylkestinget og rapporterer til det.",
+      "belegg": {
+        "kilde": "nfk-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Sekretariat: K-Sekretariatet IKS."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak",
+        "innstilling"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkesrad",
+      "navn": "Fylkesrådet i Nordland",
+      "kortnavn": "Fylkesrådet",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkesting",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "antall_medlemmer": 7,
+      "beskrivelse": "Nordlands «regjering» ifølge fylkeskommunen: beslutter fylkesrådssaker og innstiller til vedtak i fylkestingssaker.",
+      "belegg": {
+        "kilde": "nfk-no-fylkesrad",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Sju medlemmer ifølge siden. Organisasjonskartet på nfk.no sier at fylkesrådet beslutter fylkesrådssaker og innstiller til vedtak i fylkestingssaker."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "innstilling"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-komite-finans-og-organisasjon",
+      "navn": "Komité for finans og organisasjon i fylkestinget i Nordland",
+      "kortnavn": "Komité for finans og organisasjon",
+      "nivaa": "fylke",
+      "organtype": "utvalg",
+      "overordnet": "nordland-fylkesting",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkestingskomité for finans og organisasjon; fylkestingets representanter er fordelt på fem slike komitéer.",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Fylkestingets representanter fordeles på fem komitéer."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "innstilling"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-komite-naering",
+      "navn": "Komité for næring i fylkestinget i Nordland",
+      "kortnavn": "Komité for næring",
+      "nivaa": "fylke",
+      "organtype": "utvalg",
+      "overordnet": "nordland-fylkesting",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkestingskomité for næring; fylkestingets representanter er fordelt på fem slike komitéer.",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Fylkestingets representanter fordeles på fem komitéer."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "innstilling"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-komite-samferdsel",
+      "navn": "Komité for samferdsel i fylkestinget i Nordland",
+      "kortnavn": "Komité for samferdsel",
+      "nivaa": "fylke",
+      "organtype": "utvalg",
+      "overordnet": "nordland-fylkesting",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkestingskomité for samferdsel; fylkestingets representanter er fordelt på fem slike komitéer.",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Fylkestingets representanter fordeles på fem komitéer."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "innstilling"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-komite-samfunn-kultur-og-miljo",
+      "navn": "Komité for samfunn, kultur og miljø i fylkestinget i Nordland",
+      "kortnavn": "Komité for samfunn, kultur og miljø",
+      "nivaa": "fylke",
+      "organtype": "utvalg",
+      "overordnet": "nordland-fylkesting",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkestingskomité for samfunn, kultur og miljø; fylkestingets representanter er fordelt på fem slike komitéer.",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Fylkestingets representanter fordeles på fem komitéer."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "innstilling"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-komite-utdanning-og-kompetanse",
+      "navn": "Komité for utdanning og kompetanse i fylkestinget i Nordland",
+      "kortnavn": "Komité for utdanning og kompetanse",
+      "nivaa": "fylke",
+      "organtype": "utvalg",
+      "overordnet": "nordland-fylkesting",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkestingskomité for utdanning og kompetanse; fylkestingets representanter er fordelt på fem slike komitéer.",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Fylkestingets representanter fordeles på fem komitéer."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-jordskifterett",
+      "orgnr": "926726684",
+      "navn": "Salten jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i 12 kommuner fra Rødøy til Hamarøy, inkludert Røst og Værøy.",
+      "belegg": {
+        "kilde": "domstol-no-salten-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-og-lofoten-tingrett",
+      "orgnr": "826723122",
+      "navn": "Salten og Lofoten tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for 16 kommuner i Salten og Lofoten, med bemannede rettssteder i Bodø og Svolvær.",
+      "belegg": {
+        "kilde": "domstol-no-salten-og-lofoten-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Domstolen har ifølge siden full fagkrets og dermed også enkelte forvaltningsoppgaver."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
       }
     },
     {
@@ -135,6 +1019,7 @@
     },
     {
       "key": "helse-nord-rhf",
+      "orgnr": "883658752",
       "navn": "Helse Nord RHF",
       "nivaa": "stat",
       "organtype": "RHF",
@@ -714,25 +1599,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: ansatte>=50."
-      }
-    },
-    {
-      "key": "bodo-kommune",
-      "orgnr": "972418013",
-      "navn": "Bodø Kommune",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "1804",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
       }
     },
     {
@@ -2139,27 +3005,6 @@
       }
     },
     {
-      "key": "nord-universitet",
-      "orgnr": "970940243",
-      "navn": "Nord Universitet",
-      "nivaa": "stat",
-      "organtype": "etat",
-      "kommunenr": "1804",
-      "myndighet": [],
-      "segmenter": [
-        "utdanning-forskning"
-      ],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 85.401 «Undervisning ved universiteter».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
-      }
-    },
-    {
       "key": "nordasfalt",
       "orgnr": "950501480",
       "navn": "Nordasfalt AS",
@@ -2217,25 +3062,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: omsetning>=100000000:2025."
-      }
-    },
-    {
-      "key": "nordland-fylkeskommune",
-      "orgnr": "964982953",
-      "navn": "Nordland Fylkeskommune",
-      "nivaa": "fylke",
-      "organtype": "fylkeskommune",
-      "kommunenr": "1804",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Fylkeskommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
       }
     },
     {
@@ -2319,25 +3145,6 @@
       }
     },
     {
-      "key": "nordland-politidistrikt",
-      "orgnr": "983999999",
-      "navn": "Nordland Politidistrikt",
-      "nivaa": "stat",
-      "organtype": "politi",
-      "kommunenr": "1804",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": true,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50."
-      }
-    },
-    {
       "key": "nordlandsbuss",
       "orgnr": "979910231",
       "navn": "Nordlandsbuss AS",
@@ -2357,28 +3164,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
-      }
-    },
-    {
-      "key": "nordlandssykehuset",
-      "orgnr": "983974910",
-      "navn": "Nordlandssykehuset HF",
-      "nivaa": "stat",
-      "organtype": "HF",
-      "kommunenr": "1804",
-      "myndighet": [],
-      "segmenter": [
-        "helse"
-      ],
-      "gyldig_fra": "2001-12-18",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
       }
     },
     {
@@ -3031,25 +3816,6 @@
       }
     },
     {
-      "key": "statsforvalteren-i-nordland",
-      "orgnr": "974764687",
-      "navn": "Statsforvalteren i Nordland",
-      "nivaa": "stat",
-      "organtype": "etat",
-      "kommunenr": "1804",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50."
-      }
-    },
-    {
       "key": "stian-lokas-hagen",
       "orgnr": "990597553",
       "navn": "Stian Løkås Hagen AS",
@@ -3343,6 +4109,410 @@
   ],
   "personer": [
     {
+      "key": "bente-haukas",
+      "navn": "Bente Haukås"
+    },
+    {
+      "key": "eivind-hansen",
+      "navn": "Eivind Hansen"
+    },
+    {
+      "key": "heidi-klokstad",
+      "navn": "Heidi Kløkstad"
+    },
+    {
+      "key": "kjell-hugvik",
+      "navn": "Kjell Hugvik"
+    },
+    {
+      "key": "kristin-schjenken-andersen",
+      "navn": "Kristin Schjenken Andersen"
+    },
+    {
+      "key": "levi-garseth-nesbakk",
+      "navn": "Levi Gårseth-Nesbakk"
+    },
+    {
+      "key": "ole-henrik-hjartoy",
+      "navn": "Ole-Henrik Hjartøy"
+    },
+    {
+      "key": "oyvind-fylling-jensen",
+      "navn": "Øyvind Fylling-Jensen"
+    },
+    {
+      "key": "selma-sorensen-bodogaard",
+      "navn": "Selma Sørensen Bodøgaard"
+    },
+    {
+      "key": "synnove-pettersen",
+      "navn": "Synnøve Pettersen"
+    },
+    {
+      "key": "tom-cato-karlsen",
+      "navn": "Tom Cato Karlsen"
+    },
+    {
+      "key": "agnete-tjaerandsen",
+      "navn": "Agnete Tjærandsen"
+    },
+    {
+      "key": "aina-nilsen",
+      "navn": "Aina Nilsen"
+    },
+    {
+      "key": "alexander-rosvold",
+      "navn": "Alexander Rosvold"
+    },
+    {
+      "key": "ali-horori",
+      "navn": "Ali Horori"
+    },
+    {
+      "key": "andreas-tymi",
+      "navn": "Andreas Tymi"
+    },
+    {
+      "key": "anette-amalie-abodsvik-bang",
+      "navn": "Anette Amalie Åbodsvik Bang"
+    },
+    {
+      "key": "anita-sollie",
+      "navn": "Anita Sollie"
+    },
+    {
+      "key": "ann-kristin-moldjord",
+      "navn": "Ann-Kristin Moldjord"
+    },
+    {
+      "key": "anne-gro-abrahamsen",
+      "navn": "Anne Gro Abrahamsen"
+    },
+    {
+      "key": "anniken-nylund-aasjord",
+      "navn": "Anniken Nylund Aasjord"
+    },
+    {
+      "key": "arne-ivar-mikalsen",
+      "navn": "Arne Ivar Mikalsen"
+    },
+    {
+      "key": "ashild-charlotte-pettersen",
+      "navn": "Åshild Charlotte Pettersen"
+    },
+    {
+      "key": "astri-dankertsen",
+      "navn": "Astri Dankertsen"
+    },
+    {
+      "key": "astrid-tove-olsen",
+      "navn": "Astrid Tove Olsen"
+    },
+    {
+      "key": "bard-ludvig-thorheim",
+      "navn": "Bård Ludvig Thorheim"
+    },
+    {
+      "key": "beate-bo-nilsen",
+      "navn": "Beate Bø Nilsen"
+    },
+    {
+      "key": "beate-sorslett",
+      "navn": "Beate Sørslett"
+    },
+    {
+      "key": "bent-joacim-bentzen",
+      "navn": "Bent-Joacim Bentzen"
+    },
+    {
+      "key": "bente-iren-hanssen",
+      "navn": "Bente Iren Hanssen"
+    },
+    {
+      "key": "bjorn-larsen",
+      "navn": "Bjørn Larsen"
+    },
+    {
+      "key": "bjorn-tore-zahl",
+      "navn": "Bjørn Tore Zahl"
+    },
+    {
+      "key": "bjornar-skjaeran",
+      "navn": "Bjørnar Skjæran"
+    },
+    {
+      "key": "christian-torset",
+      "navn": "Christian Torset"
+    },
+    {
+      "key": "christine-klippenvag-nordgard",
+      "navn": "Christine Klippenvåg Nordgård"
+    },
+    {
+      "key": "dagfinn-henrik-olsen",
+      "navn": "Dagfinn Henrik Olsen"
+    },
+    {
+      "key": "eivind-holst",
+      "navn": "Eivind Holst"
+    },
+    {
+      "key": "elin-dahlseng-eide",
+      "navn": "Elin Dahlseng Eide"
+    },
+    {
+      "key": "espen-andre-rokkan",
+      "navn": "Espen Andre Rokkan"
+    },
+    {
+      "key": "finn-ove-smith",
+      "navn": "Finn Ove Smith"
+    },
+    {
+      "key": "frank-schistad",
+      "navn": "Frank Schistad"
+    },
+    {
+      "key": "fredric-martinsen-persson",
+      "navn": "Fredric Martinsen Persson"
+    },
+    {
+      "key": "geir-jorgensen",
+      "navn": "Geir Jørgensen"
+    },
+    {
+      "key": "grete-ellingsen",
+      "navn": "Grete Ellingsen"
+    },
+    {
+      "key": "grethe-anita-andersen",
+      "navn": "Grethe Anita Andersen"
+    },
+    {
+      "key": "hakon-andreas-moller",
+      "navn": "Håkon Andreas Møller"
+    },
+    {
+      "key": "hilde-grande",
+      "navn": "Hilde Grande"
+    },
+    {
+      "key": "hilde-spraekenhus",
+      "navn": "Hilde Sprækenhus"
+    },
+    {
+      "key": "ida-gudding-johnsen",
+      "navn": "Ida Gudding Johnsen"
+    },
+    {
+      "key": "ingunn-pauline-skogmo-nordvang",
+      "navn": "Ingunn Pauline Skogmo-Nordvang"
+    },
+    {
+      "key": "jan-olav-opdal",
+      "navn": "Jan Olav Opdal"
+    },
+    {
+      "key": "jim-simonsen-jenssen",
+      "navn": "Jim Simonsen Jenssen"
+    },
+    {
+      "key": "joakim-sennesvik",
+      "navn": "Joakim Sennesvik"
+    },
+    {
+      "key": "kari-anne-bokestad-andreassen",
+      "navn": "Kari Anne Bøkestad Andreassen"
+    },
+    {
+      "key": "kari-baadstrand-sandnes",
+      "navn": "Kari Baadstrand Sandnes"
+    },
+    {
+      "key": "kassandra-eleni-bredrup-petsa",
+      "navn": "Kassandra Eleni Bredrup Petsa"
+    },
+    {
+      "key": "kauser-vakili",
+      "navn": "Kauser Vakili"
+    },
+    {
+      "key": "kim-andre-haugan-schei",
+      "navn": "Kim André Haugan Schei"
+    },
+    {
+      "key": "knut-petter-torgersen",
+      "navn": "Knut Petter Torgersen"
+    },
+    {
+      "key": "kyrre-kolvik",
+      "navn": "Kyrre Kolvik"
+    },
+    {
+      "key": "lars-petter-rekkedal",
+      "navn": "Lars Petter Rekkedal"
+    },
+    {
+      "key": "lena-amalie-hamnes",
+      "navn": "Lena Amalie Hamnes"
+    },
+    {
+      "key": "lena-breivik",
+      "navn": "Lena Breivik"
+    },
+    {
+      "key": "linda-helen-haukland",
+      "navn": "Linda Helén Haukland"
+    },
+    {
+      "key": "lisa-marie-marshall",
+      "navn": "Lisa Marie Marshall"
+    },
+    {
+      "key": "maria-strand-munkhaug",
+      "navn": "Maria Strand Munkhaug"
+    },
+    {
+      "key": "marianne-dobak-kvensjo",
+      "navn": "Marianne Dobak Kvensjø"
+    },
+    {
+      "key": "marianne-johansen",
+      "navn": "Marianne Johansen"
+    },
+    {
+      "key": "mohamed-ahmed-yusuf",
+      "navn": "Mohamed Ahmed Yusuf"
+    },
+    {
+      "key": "mohamed-jirde-ali",
+      "navn": "Mohamed Jirde Ali"
+    },
+    {
+      "key": "mona-nilsen",
+      "navn": "Mona Nilsen"
+    },
+    {
+      "key": "monica-andreassen-iveland",
+      "navn": "Monica Andreassen Iveland"
+    },
+    {
+      "key": "morten-stover-bodo",
+      "navn": "Morten Støver"
+    },
+    {
+      "key": "nathaniel-holan-larsen",
+      "navn": "Nathaniel Holan Larsen"
+    },
+    {
+      "key": "nora-elisif-vaag-miller",
+      "navn": "Nora Elisif Vaag Miller"
+    },
+    {
+      "key": "odd-arnold-skogsholm",
+      "navn": "Odd Arnold Skogsholm"
+    },
+    {
+      "key": "odd-emil-ingebrigtsen",
+      "navn": "Odd Emil Ingebrigtsen"
+    },
+    {
+      "key": "odd-langvatn",
+      "navn": "Odd Langvatn"
+    },
+    {
+      "key": "oystein-mathisen",
+      "navn": "Øystein Mathisen"
+    },
+    {
+      "key": "paula-lorentzen",
+      "navn": "Paula Lorentzen"
+    },
+    {
+      "key": "per-anton-nesjan",
+      "navn": "Per Anton Nesjan"
+    },
+    {
+      "key": "per-christian-b-jacobsen",
+      "navn": "Per Christian B. Jacobsen"
+    },
+    {
+      "key": "rakel-hunstad",
+      "navn": "Rakel Hunstad"
+    },
+    {
+      "key": "richard-dagsvik",
+      "navn": "Richard Dagsvik"
+    },
+    {
+      "key": "rita-lekang",
+      "navn": "Rita Lekang"
+    },
+    {
+      "key": "rune-ostergren",
+      "navn": "Rune Østergren"
+    },
+    {
+      "key": "sander-delp-horn",
+      "navn": "Sander Delp Horn"
+    },
+    {
+      "key": "sandra-lorenze-vestnes",
+      "navn": "Sandra Lorenze Vestnes"
+    },
+    {
+      "key": "sandra-tonne",
+      "navn": "Sandra Tønne"
+    },
+    {
+      "key": "simen-andre-knutsson",
+      "navn": "Simen André Knutssøn"
+    },
+    {
+      "key": "sisilja-viksund",
+      "navn": "Sisilja Viksund"
+    },
+    {
+      "key": "stian-hiis-bergh",
+      "navn": "Stian Hiis Bergh"
+    },
+    {
+      "key": "stig-tore-skogsholm",
+      "navn": "Stig Tore Skogsholm"
+    },
+    {
+      "key": "svein-magnar-oien-eggesvik",
+      "navn": "Svein Magnar Øien Eggesvik"
+    },
+    {
+      "key": "synne-hoyforsslett-bjorbaek",
+      "navn": "Synne Høyforsslett Bjørbæk"
+    },
+    {
+      "key": "tom-karoliussen",
+      "navn": "Tom Karoliussen"
+    },
+    {
+      "key": "tommy-wisth",
+      "navn": "Tommy Wisth"
+    },
+    {
+      "key": "trond-dalhaug",
+      "navn": "Trond Dalhaug"
+    },
+    {
+      "key": "vegard-henriksen",
+      "navn": "Vegard Henriksen"
+    },
+    {
+      "key": "vegard-johan-lind-jaeger",
+      "navn": "Vegard Johan Lind-Jæger"
+    },
+    {
+      "key": "viggo-willassen",
+      "navn": "Viggo Willassen"
+    },
+    {
       "key": "ahmed-iyad-hassan-algharib",
       "navn": "Ahmed Iyad Hassan Algharib"
     },
@@ -3369,6 +4539,10 @@
     {
       "key": "alf-eirik-rokenes",
       "navn": "Alf Eirik Røkenes"
+    },
+    {
+      "key": "alf-gunnar-holm",
+      "navn": "Alf Gunnar Holm"
     },
     {
       "key": "alf-hermann-gjertsen",
@@ -3531,10 +4705,6 @@
       "navn": "Bent-Wilhelm Johansen"
     },
     {
-      "key": "bente-haukas",
-      "navn": "Bente Haukås"
-    },
-    {
       "key": "bente-ingeborg-melo-arntsen",
       "navn": "Bente Ingeborg Melø Arntsen"
     },
@@ -3545,6 +4715,10 @@
     {
       "key": "berit-helene-woie-berg",
       "navn": "Berit Helene Woie-Berg"
+    },
+    {
+      "key": "bernt-aanonsen",
+      "navn": "Bernt Aanonsen"
     },
     {
       "key": "bjarne-mosas",
@@ -3591,6 +4765,10 @@
       "navn": "Brita Helen Bjørnbakk"
     },
     {
+      "key": "caroline-gjestemoen",
+      "navn": "Caroline Gjestemoen"
+    },
+    {
       "key": "carsten-tonnessen",
       "navn": "Carsten Tønnessen"
     },
@@ -3601,6 +4779,10 @@
     {
       "key": "cathrine-stavnes",
       "navn": "Cathrine Stavnes"
+    },
+    {
+      "key": "cato-henriksen",
+      "navn": "Cato Henriksen"
     },
     {
       "key": "cato-vinje-johansen",
@@ -3637,6 +4819,10 @@
     {
       "key": "christina-madsen",
       "navn": "Christina Madsen"
+    },
+    {
+      "key": "christine-hamnen",
+      "navn": "Christine Hamnen"
     },
     {
       "key": "dag-helge-harstad",
@@ -3719,10 +4905,6 @@
       "navn": "Eivind Eriksen Tømmerås"
     },
     {
-      "key": "eivind-hansen",
-      "navn": "Eivind Hansen"
-    },
-    {
       "key": "elin-notnes-nysaeter",
       "navn": "Elin Nøtnes Nysæter"
     },
@@ -3737,6 +4919,10 @@
     {
       "key": "elisabeth-trones-berg",
       "navn": "Elisabeth Trones Berg"
+    },
+    {
+      "key": "ellisiv-vibeke-lovold",
+      "navn": "Ellisiv Vibeke Løvold"
     },
     {
       "key": "elsa-kitt-gronningsaeter",
@@ -3827,7 +5013,7 @@
       "navn": "Geir Viggo Jonassen"
     },
     {
-      "key": "gisle-erik-hansen",
+      "key": "gisle-erik-hansen-43883d",
       "navn": "Gisle Erik Hansen"
     },
     {
@@ -3931,10 +5117,6 @@
       "navn": "Heidi Johanne Bråten"
     },
     {
-      "key": "heidi-klokstad",
-      "navn": "Heidi Kløkstad"
-    },
-    {
       "key": "heidi-meland",
       "navn": "Heidi Meland"
     },
@@ -3975,6 +5157,10 @@
       "navn": "Inge Henning Andersen"
     },
     {
+      "key": "inger-hilde-wigen",
+      "navn": "Inger-Hilde Wigen"
+    },
+    {
       "key": "inger-johnsen",
       "navn": "Inger Johnsen"
     },
@@ -3985,6 +5171,10 @@
     {
       "key": "ingrid-bech-stenseth",
       "navn": "Ingrid Bech Stenseth"
+    },
+    {
+      "key": "ingrid-teoline-engan-noren",
+      "navn": "Ingrid Teoline Engan Nøren"
     },
     {
       "key": "ingunn-margarete-wagner-anke",
@@ -4073,6 +5263,10 @@
     {
       "key": "jens-einar-ilstad-johansen",
       "navn": "Jens Einar Ilstad Johansen"
+    },
+    {
+      "key": "joachim-dypfest-johnsen",
+      "navn": "Joachim Dypfest Johnsen"
     },
     {
       "key": "joar-mathisen",
@@ -4207,12 +5401,12 @@
       "navn": "Kjell Gunnar Hansen"
     },
     {
-      "key": "kjell-hugvik",
-      "navn": "Kjell Hugvik"
-    },
-    {
       "key": "kjell-ivar-ysland",
       "navn": "Kjell-Ivar Ysland"
+    },
+    {
+      "key": "kjersti-terese-stormo",
+      "navn": "Kjersti Terese Stormo"
     },
     {
       "key": "kjetil-rakkenes-anda",
@@ -4261,10 +5455,6 @@
     {
       "key": "kristin-lian",
       "navn": "Kristin Lian"
-    },
-    {
-      "key": "kristin-schjenken-andersen",
-      "navn": "Kristin Schjenken Andersen"
     },
     {
       "key": "kristine-brasoygard-flagan",
@@ -4317,10 +5507,6 @@
     {
       "key": "lena-riise-pedersen",
       "navn": "Lena Riise Pedersen"
-    },
-    {
-      "key": "levi-garseth-nesbakk",
-      "navn": "Levi Gårseth-Nesbakk"
     },
     {
       "key": "lill-stabell",
@@ -4415,6 +5601,10 @@
       "navn": "Marie Elise Abelsen"
     },
     {
+      "key": "marius-wikberg",
+      "navn": "Marius Wikberg"
+    },
+    {
       "key": "marte-fredly-steen",
       "navn": "Marte Fredly-Steen"
     },
@@ -4491,10 +5681,6 @@
       "navn": "Morten Selnes"
     },
     {
-      "key": "morten-stover",
-      "navn": "Morten Støver"
-    },
-    {
       "key": "nebojsha-mihajlovski",
       "navn": "Nebojsha Mihajlovski"
     },
@@ -4525,10 +5711,6 @@
     {
       "key": "ole-fredrik-bakken",
       "navn": "Ole Fredrik Bakken"
-    },
-    {
-      "key": "ole-henrik-hjartoy",
-      "navn": "Ole-Henrik Hjartøy"
     },
     {
       "key": "ole-jakob-furset",
@@ -4581,10 +5763,6 @@
     {
       "key": "oyvind-eidnes",
       "navn": "Øyvind Eidnes"
-    },
-    {
-      "key": "oyvind-fylling-jensen",
-      "navn": "Øyvind Fylling-Jensen"
     },
     {
       "key": "oyvind-stemland-olsen",
@@ -4707,10 +5885,6 @@
       "navn": "Selja Von Zernichow"
     },
     {
-      "key": "selma-sorensen-bodogaard",
-      "navn": "Selma Sørensen Bodøgaard"
-    },
-    {
       "key": "sigrid-gundersen-myrvik",
       "navn": "Sigrid Gundersen Myrvik"
     },
@@ -4731,7 +5905,7 @@
       "navn": "Siri Tau Ursin"
     },
     {
-      "key": "siv-anita-johnsen-brekke",
+      "key": "siv-anita-johnsen-brekke-d7e989",
       "navn": "Siv Anita Johnsen Brekke"
     },
     {
@@ -4775,6 +5949,10 @@
       "navn": "Sten Helge Kristian Hansen"
     },
     {
+      "key": "sten-johan-sverre-johansen",
+      "navn": "Sten Johan Sverre Johansen"
+    },
+    {
       "key": "stephan-andre-skjelvan",
       "navn": "Stephan André Skjelvan"
     },
@@ -4799,6 +5977,10 @@
       "navn": "Svein Arild Johnsgård"
     },
     {
+      "key": "svein-mollersen",
+      "navn": "Svein Møllersen"
+    },
+    {
       "key": "sven-haakon-urving",
       "navn": "Sven Haakon Urving"
     },
@@ -4809,10 +5991,6 @@
     {
       "key": "sverre-coucheron",
       "navn": "Sverre Coucheron"
-    },
-    {
-      "key": "synnove-pettersen",
-      "navn": "Synnøve Pettersen"
     },
     {
       "key": "tanja-djuvik-haheimsnes",
@@ -4859,10 +6037,6 @@
       "navn": "Thorvald Holmvåg"
     },
     {
-      "key": "tom-cato-karlsen",
-      "navn": "Tom Cato Karlsen"
-    },
-    {
       "key": "tom-erik-pedersen",
       "navn": "Tom Erik Pedersen"
     },
@@ -4899,7 +6073,7 @@
       "navn": "Tor Gausemel Kristensen"
     },
     {
-      "key": "torbjorn-grimstad",
+      "key": "torbjorn-grimstad-632e6e",
       "navn": "Torbjørn Grimstad"
     },
     {
@@ -5024,6 +6198,1939 @@
     }
   ],
   "roller": [
+    {
+      "status": "fast",
+      "org": "nord-universitet",
+      "person": "oyvind-fylling-jensen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Nord universitet: Styret, per 2026-09-25). Grunnlagets merknad: Hentet fra nord.no (styret) 25.09.2026."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-politidistrikt",
+      "person": "heidi-klokstad",
+      "tittel": "Politimester",
+      "rolletype": "toppleder",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Nordland politidistrikt: Ledelsen i Nordland, per 2026-09-25). Grunnlagets merknad: Hentet fra politiet.no (ledelsen i Nordland) 25.09.2026."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordlandssykehuset",
+      "person": "eivind-hansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Nordlandssykehuset: Styret i Nordlandssykehuset, per 2026-09-25). Grunnlagets merknad: Hentet fra nordlandssykehuset.no (styret) 25.09.2026."
+      }
+    },
+    {
+      "org": "bodo-administrasjonsutvalget",
+      "person": "espen-andre-rokkan",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "org": "bodo-formannskap",
+      "person": "odd-emil-ingebrigtsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25. Møteportalen fører ordføreren i formannskapet med funksjonen «Leder»."
+      }
+    },
+    {
+      "org": "bodo-klagenemnda",
+      "person": "tommy-wisth",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "org": "bodo-kommune-administrasjonen",
+      "person": "kjell-hugvik",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Bodø kommune (bodo.kommune.no), per 2026-09-25). Grunnlagets merknad: Hentet fra bodo.kommune.no/om-bodo-kommune/organisasjonskart 2026-09-25."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "ida-gudding-johnsen",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "V",
+      "belegg": {
+        "kilde": "bodo-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra bodo.kommune.no/politikk-medvirkning-og-planer/politikk/politiske-utvalg-og-folkevalgte/ordforer-og-varaordforer 2026-09-25."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "odd-emil-ingebrigtsen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "bodo-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra bodo.kommune.no/politikk-medvirkning-og-planer/politikk/politiske-utvalg-og-folkevalgte/ordforer-og-varaordforer 2026-09-25. Ordfører i perioden 2023–2027 ifølge siden."
+      }
+    },
+    {
+      "org": "bodo-plan-og-miljoutvalget",
+      "person": "tommy-wisth",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "org": "bodo-velferdsutvalget",
+      "person": "kyrre-kolvik",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "agnete-tjaerandsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "alexander-rosvold",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "andreas-tymi",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "ann-kristin-moldjord",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "anne-gro-abrahamsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "astri-dankertsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "astrid-tove-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "bente-haukas",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "bjorn-tore-zahl",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "christine-klippenvag-nordgard",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "espen-andre-rokkan",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "finn-ove-smith",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "frank-schistad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "fredric-martinsen-persson",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "hakon-andreas-moller",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "MDG",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "ida-gudding-johnsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "ingunn-pauline-skogmo-nordvang",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "joakim-sennesvik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "kauser-vakili",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "kristin-schjenken-andersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "kyrre-kolvik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "lars-petter-rekkedal",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "lena-breivik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "lisa-marie-marshall",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "mohamed-ahmed-yusuf",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "mohamed-jirde-ali",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "morten-stover-bodo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "nora-elisif-vaag-miller",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "odd-emil-ingebrigtsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "ole-henrik-hjartoy",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "rakel-hunstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "sander-delp-horn",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "sandra-lorenze-vestnes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "selma-sorensen-bodogaard",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "simen-andre-knutsson",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "synnove-pettersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "tom-karoliussen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "tommy-wisth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "bodo-kommunestyre",
+      "person": "vegard-henriksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-fylkesting",
+      "person": "linda-helen-haukland",
+      "tittel": "Fylkesvaraordfører",
+      "rolletype": "nestleder",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "nfk-no-fylkesvaraordforer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Siden skriver navnet «Linda Hélen Haukland» og «Linda Helen Haukland»; Valgdirektoratets liste skriver «Linda Helén Haukland». Fylkesvaraordfører i perioden 2023–2027."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-fylkesting",
+      "person": "eivind-holst",
+      "tittel": "Fylkesordfører",
+      "rolletype": "politisk_leder",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "nfk-no-fylkesordforer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Fylkesordfører i perioden 2023–2027 ifølge siden."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-fylkesrad",
+      "person": "aina-nilsen",
+      "tittel": "Fylkesrådets nestleder og fylkesråd for finans og organisasjon",
+      "rolletype": "nestleder",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "nfk-no-fylkesrad",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Tittelen står som overskrift på oversiktssiden; personsiden hennes kaller henne «Fylkesråd for finans og organisasjon»."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-fylkesrad",
+      "person": "marianne-dobak-kvensjo",
+      "tittel": "Fylkesrådsleder",
+      "rolletype": "politisk_leder",
+      "parti": "H",
+      "belegg": {
+        "kilde": "nfk-no-fylkesrad-kvensjo",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-fylkesrad",
+      "person": "arne-ivar-mikalsen",
+      "tittel": "Fylkesråd for samfunn, kultur og miljø",
+      "rolletype": "utvalgsmedlem",
+      "parti": "V",
+      "belegg": {
+        "kilde": "nfk-no-fylkesrad-mikalsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-fylkesrad",
+      "person": "joakim-sennesvik",
+      "tittel": "Fylkesråd for utdanning og kompetanse",
+      "rolletype": "utvalgsmedlem",
+      "parti": "H",
+      "belegg": {
+        "kilde": "nfk-no-fylkesrad-sennesvik",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-fylkesrad",
+      "person": "richard-dagsvik",
+      "tittel": "Fylkesråd for samferdsel",
+      "rolletype": "utvalgsmedlem",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "nfk-no-fylkesrad",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Tittelen står som overskrift på oversiktssiden over fylkesrådet; personsiden hans (publisert 30.10.2025) lister bare ansvarsområder."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-fylkesrad",
+      "person": "sisilja-viksund",
+      "tittel": "Fylkesråd for utbygging og eiendom",
+      "rolletype": "utvalgsmedlem",
+      "parti": "H",
+      "belegg": {
+        "kilde": "nfk-no-fylkesrad-viksund",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Kontaktboksen på siden skriver «Sisilja Svendsen Viksund»."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-fylkesrad",
+      "person": "svein-magnar-oien-eggesvik",
+      "tittel": "Fylkesråd for næring",
+      "rolletype": "utvalgsmedlem",
+      "belegg": {
+        "kilde": "nfk-no-fylkesrad-eggesvik",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Siden skriver «Svein Øien Eggesvik»; Valgdirektoratets liste over valgte til fylkestinget 2023 skriver «Svein Magnar Øien Eggesvik». Partiet er ikke oppgitt på fylkesrådssidene og er derfor ikke ført."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-fylkeskommune-kontrollutvalg",
+      "person": "sandra-tonne",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "nfk-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-komite-finans-og-organisasjon",
+      "person": "elin-dahlseng-eide",
+      "tittel": "Komitéleder",
+      "rolletype": "utvalgsleder",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-komite-naering",
+      "person": "jim-simonsen-jenssen",
+      "tittel": "Komitéleder",
+      "rolletype": "utvalgsleder",
+      "parti": "H",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-komite-samferdsel",
+      "person": "viggo-willassen",
+      "tittel": "Komitéleder",
+      "rolletype": "utvalgsleder",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-komite-samfunn-kultur-og-miljo",
+      "person": "kassandra-eleni-bredrup-petsa",
+      "tittel": "Komitéleder",
+      "rolletype": "utvalgsleder",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Siden skriver «Kassandra Petsa» uten parti; Valgdirektoratets liste skriver «Kassandra Eleni Bredrup Petsa»."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "nordland-komite-utdanning-og-kompetanse",
+      "person": "maria-strand-munkhaug",
+      "tittel": "Komitéleder",
+      "rolletype": "utvalgsleder",
+      "parti": "H",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "statsforvalteren-nordland",
+      "person": "monica-andreassen-iveland",
+      "tittel": "Assisterende statsforvalter",
+      "rolletype": "nestleder_adm",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Fra organisasjonskartet (PDF lenket fra Om oss); kartet er ikke datert."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "statsforvalteren-nordland",
+      "person": "tom-cato-karlsen",
+      "tittel": "Statsforvalter",
+      "rolletype": "toppleder",
+      "fra": "2019-01-02",
+      "til_forventet": "2030-12-31",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Statsforvalteren i Nordland: Vår statsforvalter (oppdatert 12. juni), per 2026-09-25). Grunnlagets merknad: Hentet fra statsforvalteren.no 25.09.2026: tiltrådte som fylkesmann 2. januar 2019, åremålet går til 31. desember 2030."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "salten-jordskifterett",
+      "person": "trond-dalhaug",
+      "tittel": "Jordskifterettsleder",
+      "rolletype": "dommer_leder",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Salten jordskifterett: Medarbeidere, per 2026-09-25). Grunnlagets merknad: Hentet fra domstol.no (medarbeidere) 25.09.2026."
+      }
+    },
+    {
+      "status": "konstituert",
+      "org": "nordlandssykehuset",
+      "person": "beate-sorslett",
+      "tittel": "Konstituert administrerende direktør",
+      "rolletype": "toppleder",
+      "belegg": {
+        "kilde": "nordlandssykehuset-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nordlandssykehuset.no 25.09.2026. Siden er sist oppdatert 11.08.2026. Enhetsregisteret fører en annen person som daglig leder."
+      }
+    },
+    {
+      "status": "fungerende",
+      "org": "nord-universitet",
+      "person": "levi-garseth-nesbakk",
+      "tittel": "Rektor (fungerende)",
+      "rolletype": "toppleder",
+      "belegg": {
+        "kilde": "nord-no-universitetsledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nord.no 25.09.2026. Enhetsregisteret fører en annen person som daglig leder."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "aina-nilsen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "permisjon",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "nfk-no-fylkesting-representanter",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Valgt til fylkestinget for Sp ved valget i 2023 (Valgdirektoratets valgoppgjør). Er fylkesrådets nestleder og fylkesråd for finans og organisasjon ifølge nfk.no/politikk/fylkesrad og står ikke blant fylkestingets representanter på nfk.no. Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "ali-horori",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "anette-amalie-abodsvik-bang",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "anita-sollie",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "anniken-nylund-aasjord",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag). Står ikke blant fylkestingets representanter på nfk.no 25.09.2026; se hull."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "arne-ivar-mikalsen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "permisjon",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "nfk-no-fylkesting-representanter",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Valgt til fylkestinget for V ved valget i 2023 (Valgdirektoratets valgoppgjør). Er fylkesråd for samfunn, kultur og miljø ifølge nfk.no/politikk/fylkesrad og står ikke blant fylkestingets representanter på nfk.no. Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "ashild-charlotte-pettersen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "beate-bo-nilsen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "bente-iren-hanssen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag). Står som uavhengig representant på nfk.no 25.09.2026; se hull."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "bjorn-larsen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "christian-torset",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "eivind-holst",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "elin-dahlseng-eide",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "grete-ellingsen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag). Står ikke blant fylkestingets representanter på nfk.no 25.09.2026; se hull."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "grethe-anita-andersen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "hakon-andreas-moller",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "MDG",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "hilde-spraekenhus",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag). Står ikke blant fylkestingets representanter på nfk.no 25.09.2026; se hull."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "jan-olav-opdal",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "jim-simonsen-jenssen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "joakim-sennesvik",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "permisjon",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "nfk-no-fylkesting-representanter",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Valgt til fylkestinget for H ved valget i 2023 (Valgdirektoratets valgoppgjør). Er fylkesråd for utdanning og kompetanse ifølge nfk.no/politikk/fylkesrad og står ikke blant fylkestingets representanter på nfk.no. Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "kari-anne-bokestad-andreassen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "kassandra-eleni-bredrup-petsa",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "kim-andre-haugan-schei",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "knut-petter-torgersen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "lena-amalie-hamnes",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "linda-helen-haukland",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "maria-strand-munkhaug",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "marianne-dobak-kvensjo",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "permisjon",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "nfk-no-fylkesting-representanter",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Valgt til fylkestinget for H ved valget i 2023 (Valgdirektoratets valgoppgjør). Er fylkesrådsleder ifølge nfk.no/politikk/fylkesrad og står ikke blant fylkestingets representanter på nfk.no. Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "marianne-johansen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag). Står ikke blant fylkestingets representanter på nfk.no 25.09.2026; se hull."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "nathaniel-holan-larsen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "odd-arnold-skogsholm",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "odd-langvatn",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "paula-lorentzen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "per-anton-nesjan",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "per-christian-b-jacobsen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "richard-dagsvik",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "permisjon",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "nfk-no-fylkesting-representanter",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Valgt til fylkestinget for FrP ved valget i 2023 (Valgdirektoratets valgoppgjør). Er fylkesråd for samferdsel ifølge nfk.no/politikk/fylkesrad og står ikke blant fylkestingets representanter på nfk.no. Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "rita-lekang",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "rune-ostergren",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "sandra-tonne",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "stian-hiis-bergh",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "stig-tore-skogsholm",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "svein-magnar-oien-eggesvik",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "permisjon",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "nfk-no-fylkesting-representanter",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Valgt til fylkestinget for Sp ved valget i 2023 (Valgdirektoratets valgoppgjør). Er fylkesråd for næring ifølge nfk.no/politikk/fylkesrad og står ikke blant fylkestingets representanter på nfk.no. Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "synne-hoyforsslett-bjorbaek",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "vegard-johan-lind-jaeger",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "nordland-fylkesting",
+      "person": "viggo-willassen",
+      "tittel": "Fylkestingsmedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-fy-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter fylkestingsvalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i fylkesvalgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "stortinget-nordland-valgkrets",
+      "person": "bard-ludvig-thorheim",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2025-10-01",
+      "til_forventet": "2029-09-30",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fast representant for stortingsperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-nordland-valgkrets",
+      "person": "bent-joacim-bentzen",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2025-10-01",
+      "til_forventet": "2029-09-30",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fast representant for stortingsperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-nordland-valgkrets",
+      "person": "bjorn-larsen",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2025-10-01",
+      "til_forventet": "2029-09-30",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fast representant for stortingsperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-nordland-valgkrets",
+      "person": "bjornar-skjaeran",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "permisjon",
+      "parti": "Ap",
+      "fra": "2025-10-01",
+      "til_forventet": "2029-09-30",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fast representant for 2025–2029. Er statsråd (Kommunal- og distriktsminister, Kommunal- og distriktsdepartementet) og møter derfor ikke i Stortinget; en vararepresentant møter fast. Per 2026-09-25."
+      }
+    },
+    {
+      "org": "stortinget-nordland-valgkrets",
+      "person": "dagfinn-henrik-olsen",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2025-10-01",
+      "til_forventet": "2029-09-30",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fast representant for stortingsperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-nordland-valgkrets",
+      "person": "geir-jorgensen",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2025-10-01",
+      "til_forventet": "2029-09-30",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fast representant for stortingsperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-nordland-valgkrets",
+      "person": "hilde-grande",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2025-10-01",
+      "til_forventet": "2029-09-30",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fast representant for stortingsperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-nordland-valgkrets",
+      "person": "kari-baadstrand-sandnes",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "vara",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Møter fast som vararepresentant for en representant fra Nordland som er statsråd. Per 2026-09-25."
+      }
+    },
+    {
+      "org": "stortinget-nordland-valgkrets",
+      "person": "mona-nilsen",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2025-10-01",
+      "til_forventet": "2029-09-30",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fast representant for stortingsperioden 2025–2029."
+      }
+    },
+    {
+      "org": "stortinget-nordland-valgkrets",
+      "person": "oystein-mathisen",
+      "tittel": "Stortingsrepresentant",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2025-10-01",
+      "til_forventet": "2029-09-30",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fast representant for stortingsperioden 2025–2029."
+      }
+    },
     {
       "org": "aidn",
       "person": "morten-moe-gjendemsjo",
@@ -5661,6 +8768,150 @@
       }
     },
     {
+      "org": "bodo-havn",
+      "person": "bernt-aanonsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bodo-havn",
+      "person": "caroline-gjestemoen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bodo-havn",
+      "person": "cato-henriksen",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bodo-havn",
+      "person": "ellisiv-vibeke-lovold",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bodo-havn",
+      "person": "inger-hilde-wigen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bodo-havn",
+      "person": "ingrid-teoline-engan-noren",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bodo-havn",
+      "person": "joachim-dypfest-johnsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bodo-havn",
+      "person": "kjersti-terese-stormo",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bodo-havn",
+      "person": "malin-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bodo-havn",
+      "person": "marius-wikberg",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bodo-havn",
+      "person": "sten-johan-sverre-johansen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bodo-havn",
+      "person": "svein-mollersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
       "org": "bodo-hotelldrift",
       "person": "diana-balinova",
       "tittel": "Styremedlem",
@@ -5738,30 +8989,6 @@
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "bodo-kommune",
-      "person": "kjell-hugvik",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "bodo-spektrum",
-      "person": "bente-haukas",
-      "tittel": "Varamedlem",
-      "rolletype": "varamedlem",
-      "status": "vara",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -5857,18 +9084,6 @@
       "person": "sigurd-eggen-jakobsen",
       "tittel": "Styremedlem (valgt av de ansatte)",
       "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "bodo-spektrum",
-      "person": "synnove-pettersen",
-      "tittel": "Nestleder",
-      "rolletype": "nestleder",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -6178,18 +9393,6 @@
     },
     {
       "org": "coop-nordland",
-      "person": "ole-henrik-hjartoy",
-      "tittel": "Styreleder",
-      "rolletype": "styreleder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "coop-nordland",
       "person": "rita-monica-lekang",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
@@ -6217,6 +9420,18 @@
       "person": "terje-bjerknesli",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "digitaliserings-og-forvaltningsdepartementet",
+      "person": "christine-hamnen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -6422,18 +9637,6 @@
       "tittel": "Varamedlem (valgt av de ansatte)",
       "rolletype": "varamedlem",
       "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "elektro-bodo",
-      "person": "morten-stover",
-      "tittel": "Styreleder",
-      "rolletype": "styreleder",
-      "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -6698,18 +9901,6 @@
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "frem-kompetanse",
-      "person": "kristin-schjenken-andersen",
-      "tittel": "Varamedlem",
-      "rolletype": "varamedlem",
-      "status": "vara",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -8014,18 +11205,6 @@
     },
     {
       "org": "nord-studentsamskipnad",
-      "person": "levi-garseth-nesbakk",
-      "tittel": "Varamedlem",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "nord-studentsamskipnad",
       "person": "lisbeth-vistven-thomassen",
       "tittel": "Varamedlem (valgt av de ansatte)",
       "rolletype": "varamedlem",
@@ -8173,18 +11352,6 @@
       "person": "hanne-eleonora-solheim-hansen",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "nord-universitet",
-      "person": "oyvind-fylling-jensen",
-      "tittel": "Styreleder",
-      "rolletype": "styreleder",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -8374,18 +11541,6 @@
     },
     {
       "org": "nordkontakt",
-      "person": "morten-stover",
-      "tittel": "Varamedlem",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "nordkontakt",
       "person": "orjan-boe-rosnes",
       "tittel": "Styremedlem (valgt av de ansatte)",
       "rolletype": "styremedlem",
@@ -8509,18 +11664,6 @@
       "person": "laila-holmvaag",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "nordland-politidistrikt",
-      "person": "heidi-klokstad",
-      "tittel": "Daglig leder",
-      "rolletype": "toppleder",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -8678,18 +11821,6 @@
       "tittel": "Varamedlem (valgt av de ansatte)",
       "rolletype": "varamedlem",
       "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "nordlandssykehuset",
-      "person": "eivind-hansen",
-      "tittel": "Styreleder",
-      "rolletype": "styreleder",
-      "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -8903,18 +12034,6 @@
     {
       "org": "ostbo",
       "person": "malin-johansen",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "ostbo",
-      "person": "ole-henrik-hjartoy",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -9394,7 +12513,7 @@
     },
     {
       "org": "salten-brann",
-      "person": "gisle-erik-hansen",
+      "person": "gisle-erik-hansen-43883d",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -9502,7 +12621,7 @@
     },
     {
       "org": "salten-brann",
-      "person": "siv-anita-johnsen-brekke",
+      "person": "siv-anita-johnsen-brekke-d7e989",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
@@ -9514,7 +12633,7 @@
     },
     {
       "org": "salten-brann",
-      "person": "torbjorn-grimstad",
+      "person": "torbjorn-grimstad-632e6e",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -9542,6 +12661,18 @@
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salten-og-lofoten-tingrett",
+      "person": "alf-gunnar-holm",
+      "tittel": "Daglig leder",
+      "rolletype": "dommer_leder",
+      "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -9801,18 +12932,6 @@
       }
     },
     {
-      "org": "statsforvalteren-i-nordland",
-      "person": "tom-cato-karlsen",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
       "org": "stian-lokas-hagen",
       "person": "katrin-lokas",
       "tittel": "Varamedlem",
@@ -9938,18 +13057,6 @@
       "tittel": "Varamedlem (valgt av de ansatte)",
       "rolletype": "varamedlem",
       "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "stiftelsen-nordlandsmuseet",
-      "person": "selma-sorensen-bodogaard",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -10919,14 +14026,245 @@
   ],
   "relasjoner": [
     {
+      "fra": "bodo-administrasjonsutvalget",
+      "til": "bodo-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "fra": "bodo-eldrerad",
+      "til": "bodo-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "fra": "bodo-formannskap",
+      "til": "bodo-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "fra": "bodo-klagenemnda",
+      "til": "bodo-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "fra": "bodo-kommune-administrasjonen",
+      "til": "bodo-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "bodo-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra bodo.kommune.no/om-bodo-kommune/organisasjonskart 2026-09-25."
+      }
+    },
+    {
+      "fra": "bodo-kontrollutvalget",
+      "til": "bodo-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "bodo-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra bodo.kommune.no/politikk-medvirkning-og-planer/politikk/politiske-utvalg-og-folkevalgte/styrer-rad-og-utvalg/kontrollutvalget 2026-09-25."
+      }
+    },
+    {
+      "fra": "bodo-plan-og-miljoutvalget",
+      "til": "bodo-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "fra": "bodo-rad-for-personer-med-funksjonsnedsettelse",
+      "til": "bodo-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "fra": "bodo-ungdomsrad",
+      "til": "bodo-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
+      "fra": "bodo-velferdsutvalget",
+      "til": "bodo-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "bodo-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Digdem (bodo.digdem.no/sru) 2026-09-25."
+      }
+    },
+    {
       "fra": "bodo-kommunestyre",
       "til": "bodo-kommune",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "bodo-havn",
+      "til": "bodo-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Overordnet enhet i Enhetsregisteret: Bodø kommune (972418013)."
+      }
+    },
+    {
+      "fra": "nordland-fylkeskommune-kontrollutvalg",
+      "til": "nordland-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nfk-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
+      }
+    },
+    {
+      "fra": "nordland-fylkesrad",
+      "til": "nordland-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026. Fylkesrådet innstiller til fylkestinget, som er det øverste fylkeskommunale organet."
+      }
+    },
+    {
+      "fra": "nordland-komite-finans-og-organisasjon",
+      "til": "nordland-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "nordland-komite-naering",
+      "til": "nordland-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "nordland-komite-samferdsel",
+      "til": "nordland-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "nordland-komite-samfunn-kultur-og-miljo",
+      "til": "nordland-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "nordland-komite-utdanning-og-kompetanse",
+      "til": "nordland-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nfk-no-komiteer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nfk.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "bodo-kommune",
+      "til": "bodo-havn",
+      "type": "eier",
+      "belegg": {
+        "kilde": "brreg-eierroller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Enhetsregisteret fører kommunen (972418013) med rollen «Eierkommune». Et kommunalt foretak er en del av kommunen; registeret oppgir ingen andel."
       }
     },
     {
@@ -14969,7 +18307,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Bodø?",
+      "steg": [
+        {
+          "org": "bodo-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "bodo-plan-og-miljoutvalget",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (bodo-moteportal)."
+          }
+        },
+        {
+          "org": "bodo-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Bodø kommune?",
+      "steg": [
+        {
+          "org": "bodo-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "bodo-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (bodo-moteportal)."
+          }
+        },
+        {
+          "org": "bodo-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "avfall-miljo",
@@ -15010,9 +18440,38 @@
     {
       "kode": "utdanning-forskning",
       "navn": "Utdanning og forskning"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
     }
   ],
   "org_segment": [
+    {
+      "org": "nord-universitet",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "bodo-havn",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
     {
       "org": "avinor",
       "segment": "transport",
@@ -15159,18 +18618,8 @@
       "styrke": 3
     },
     {
-      "org": "nord-universitet",
-      "segment": "utdanning-forskning",
-      "styrke": 3
-    },
-    {
       "org": "nordlandsbuss",
       "segment": "transport",
-      "styrke": 3
-    },
-    {
-      "org": "nordlandssykehuset",
-      "segment": "helse",
       "styrke": 3
     },
     {
@@ -15254,5 +18703,84 @@
       "styrke": 3
     }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "bodo-kontrollutvalget",
+      "hva": "Leder av kontrollutvalget i Bodø er ikke oppgitt.",
+      "hvorfor": "Kommunens side nevner organet, men ikke hvem som leder det (bodo.kommune.no/politikk-medvirkning-og-planer/politikk/politiske-utvalg-og-folkevalgte/styrer-rad-og-utvalg/kontrollutvalget)."
+    },
+    {
+      "gjelder": "bodo-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "nordland-fylkesting",
+      "hva": "Endringer i fylkestinget etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står hos fylkeskommunen, som ikke er hentet."
+    },
+    {
+      "gjelder": "nordland-fylkesting",
+      "hva": "Fylkestingets sammensetning på nfk.no 25.09.2026 avviker fra valgoppgjøret utover fylkesrådet. Anniken Nylund Aasjord (SV), Grete Ellingsen (H), Hilde Sprækenhus (Ap) og Marianne Johansen (Ap) står ikke blant representantene, og Bente Iren Hanssen står som uavhengig, ikke for Industri- og Næringspartiet. Ti representanter på siden står ikke i valgoppgjøret og er ikke ført.",
+      "hvorfor": "Om det skyldes fritak, permisjon, navnebytte eller partibytte, står i fylkestingets møtebøker, som ikke er hentet. Rollene her viser valgoppgjøret. Oversikten er https://www.nfk.no/politikk/fylkesting/representanter-etter-partitilhorighet/.",
+      "personer": [
+        "anniken-nylund-aasjord",
+        "bente-iren-hanssen",
+        "grete-ellingsen",
+        "hilde-spraekenhus",
+        "marianne-johansen"
+      ]
+    },
+    {
+      "gjelder": "nordland-fylkeskommune",
+      "hva": "Hvilken stilling Enhetsregisterets daglige leder har i Nordland fylkeskommune, og hvem som utgjør den administrative toppledelsen.",
+      "hvorfor": "Siden «Administrativ ledelse» på nfk.no henter innholdet med skript fra et API som ga tomt svar (sjekket 25.09.2026). Organisasjonskartet navngir ingen ledere. Kan hentes fra nfk.no i en nettleser eller fra fylkeskommunens postjournal."
+    },
+    {
+      "gjelder": "salten-og-lofoten-tingrett",
+      "hva": "Hvem som er sorenskriver (domstolens leder).",
+      "hvorfor": "domstol.no navngir ikke sorenskriveren, nestlederen eller administrasjonssjefen (sjekket 25.09.2026). Enhetsregisteret fører en daglig leder, men i andre domstoler i regionen er registerets daglige leder en annen enn domstollederen. Kan avklares med domstolen eller i Domstoladministrasjonens oversikt over domstolledere."
+    },
+    {
+      "gjelder": "nordlandssykehuset",
+      "hva": "Hvem som er administrerende direktør.",
+      "hvorfor": "Enhetsregisteret fører en annen daglig leder enn den konstituerte administrerende direktøren på nordlandssykehuset.no. Begge er ført. Kan avklares i foretaksmøteprotokoller hos Helse Nord RHF.",
+      "personer": [
+        "beate-sorslett"
+      ]
+    },
+    {
+      "gjelder": "nord-universitet",
+      "hva": "Hvem som leder universitetet.",
+      "hvorfor": "Enhetsregisteret fører en annen daglig leder enn den fungerende rektoren på nord.no. Begge er ført. Kan avklares i styrets protokoller på nord.no.",
+      "personer": [
+        "levi-garseth-nesbakk"
+      ]
+    },
+    {
+      "gjelder": "nordland-fylkeskommune",
+      "hva": "Eierskapet bak de kommunalt og statlig eide aksjeselskapene (hvem eier hvor mye).",
+      "hvorfor": "Enhetsregisteret fører bare sektorkoden (kommunalt eller statlig eid), ikke eierne. Eierne står i Aksjonærregisteret og i kommunenes eierskapsmeldinger. For KF og IKS står eierkommunene i Rolle-API-et og er ført som relasjoner."
+    },
+    {
+      "gjelder": "nordland-fylkeskommune",
+      "hva": "Et offentlig eid ferje- eller hurtigbåtselskap i Nordland.",
+      "hvorfor": "Enhetsregisteret har ingen aktiv enhet i Nordland med kommunal, fylkeskommunal eller statlig sektorkode som driver ferje- eller hurtigbåtruter. Den eneste aktive offentlig eide enheten med sjøtransportkode (50) er PLUG VÅGAN AS (931173898, næringskode 50.203 «Forsyning for offshore»), som ifølge registeret skal forsyne fartøy med landstrøm. FYLKESBÅTENE AS står under avvikling. Ferje- og hurtigbåtrutene må derfor kartlegges gjennom fylkeskommunens kontrakter (nfk.no, postjournal)."
+    },
+    {
+      "gjelder": "nordlandssykehuset",
+      "hva": "Opptaksområdene til Nordlandssykehuset, Helgelandssykehuset og UNN Narvik.",
+      "hvorfor": "Hvilke kommuner hvert sykehus betjener, er ikke hentet. Står på helseforetakenes nettsider og i Helse Nords styresaker."
+    },
+    {
+      "gjelder": "nordlandssykehuset",
+      "hva": "Hvilke kommuner Nordlandssykehuset dekker, er ikke hentet.",
+      "hvorfor": "Opptaksområdet er ikke hentet fra nordlandssykehuset.no 25.09.2026. Organet vises derfor bare på Bodøs side."
+    },
+    {
+      "gjelder": "bodo-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
 }

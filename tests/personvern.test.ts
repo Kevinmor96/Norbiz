@@ -308,7 +308,21 @@ describe("en sperret person forsvinner", () => {
         organer,
         personer.filter((_, i) => i % 20 === 0).map((p) => p.navn),
       );
-      expect(personer.filter((p) => etter.includes(p.navn)).map((p) => p.key)).toEqual([]);
+      // Fylkesoversikten viser lederne i alle kommunene i fylket, og der kan
+      // en annen person ha samme navn som en sperret (i datasettet 25.09.2026:
+      // et varamedlem i et kraftselskap og en ordfører i en annen kommune).
+      // Navnene står ikke her: en test er ikke et sted å føre personer.
+      // Navnet til en person som ikke er sperret, og som svaret viser
+      // med sin egen nøkkel, tas derfor ut før navnesjekken. Nøkkelsjekken er
+      // den samme som før.
+      const sperret = new Set(personer.map((p) => p.key));
+      const andre = datasett
+        .flatMap((d) => d.data.personer)
+        .filter((p) => !sperret.has(p.key) && etter.includes(`"${p.key}"`))
+        .map((p) => p.navn)
+        .sort((a, b) => b.length - a.length);
+      const rest = andre.reduce((t, navn) => t.replaceAll(navn, ""), etter);
+      expect(personer.filter((p) => rest.includes(p.navn)).map((p) => p.key)).toEqual([]);
       expect(personer.filter((p) => etter.includes(`"${p.key}"`)).map((p) => p.key)).toEqual([]);
     });
   }, 120_000);

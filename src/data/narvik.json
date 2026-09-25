@@ -5,17 +5,10 @@
     "fylkesnr": "18",
     "fylke": "Nordland",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -46,28 +39,611 @@
       "key": "snl",
       "navn": "Store norske leksikon (SNL)",
       "type": "oppslagsverk"
+    },
+    {
+      "key": "brreg-eierroller",
+      "navn": "Enhetsregisteret: eierkommune (EIKM) og helseforetak (HLSE) i rollelisten, hentet med skript",
+      "url": "https://data.brreg.no/enhetsregisteret/api/enheter",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "narvik-kommune-no",
+      "navn": "Narvik kommune (www.narvik.kommune.no)",
+      "url": "https://www.narvik.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "narvik-moteportal",
+      "navn": "Narvik kommunes møteportal (ACOS Innsyn, www.narvik.kommune.no)",
+      "url": "https://www.narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+      "navn": "Midtre Hålogaland tingrett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/midtre-halogaland-tingrett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+      "navn": "Ofoten og Sør-Troms jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/ofoten-og-sor-troms-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
     {
-      "key": "narvik-kommunestyre",
-      "navn": "Kommunestyret i Narvik",
+      "key": "narvik-eldreradet",
+      "navn": "Eldrerådet i Narvik",
+      "kortnavn": "Eldrerådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "narvik-kommunestyre",
+      "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=15) 2026-09-25."
+      }
+    },
+    {
+      "key": "narvik-formannskap",
+      "navn": "Formannskapet i Narvik",
+      "kortnavn": "Formannskapet",
       "nivaa": "kommune",
       "organtype": "folkevalgt_organ",
+      "overordnet": "narvik-kommunestyre",
+      "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=9) 2026-09-25."
+      }
+    },
+    {
+      "key": "narvik-hovedutvalg-for-drift",
+      "navn": "Hovedutvalg for Drift i Narvik",
+      "kortnavn": "Hovedutvalg for Drift",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "narvik-kommunestyre",
+      "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=32) 2026-09-25."
+      }
+    },
+    {
+      "key": "narvik-hovedutvalg-for-plan-og-utvikling",
+      "navn": "Hovedutvalg for plan og utvikling i Narvik",
+      "kortnavn": "Hovedutvalg for plan og utvikling",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "narvik-kommunestyre",
+      "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=6) 2026-09-25."
+      }
+    },
+    {
+      "key": "narvik-kommune",
+      "orgnr": "959469059",
+      "navn": "Narvik kommune",
+      "kortnavn": "Narvik kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «NARVIK KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1806."
+      }
+    },
+    {
+      "key": "narvik-kommune-administrasjonen",
+      "navn": "Administrasjonen i Narvik kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
       "overordnet": "narvik-kommune",
       "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
       "myndighet": [
+        "innstilling",
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "narvik-kommune-no",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "merknad": "Hentet fra narvik.kommune.no/om-kommunen/organisasjon/organisasjonskart-narvik-kommune 2026-09-25."
+      }
+    },
+    {
+      "key": "narvik-kontrollutvalget",
+      "navn": "Kontrollutvalget i Narvik",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "narvik-kommunestyre",
+      "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "narvik-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra narvik.kommune.no/politikk/politiske-utvalg/kontrollutvalg 2026-09-25."
+      }
+    },
+    {
+      "key": "narvik-partssammensatt-utvalg",
+      "navn": "Partssammensatt utvalg i Narvik",
+      "kortnavn": "Partssammensatt utvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "narvik-kommunestyre",
+      "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg for saker mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=12) 2026-09-25."
+      }
+    },
+    {
+      "key": "narvik-radet-for-personer-med-funksjonsnedsettelse",
+      "navn": "Rådet for personer med funksjonsnedsettelse i Narvik",
+      "kortnavn": "Rådet for personer med funksjonsnedsettelse",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "narvik-kommunestyre",
+      "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=17) 2026-09-25."
+      }
+    },
+    {
+      "key": "narvik-saerskilt-klagenemnd",
+      "navn": "Særskilt klagenemnd i Narvik",
+      "kortnavn": "Særskilt klagenemnd",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "narvik-kommunestyre",
+      "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "klage"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Behandler klager på kommunale vedtak.",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=14) 2026-09-25."
+      }
+    },
+    {
+      "key": "narvik-ungdomsradet",
+      "navn": "Ungdomsrådet i Narvik",
+      "kortnavn": "Ungdomsrådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "narvik-kommunestyre",
+      "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=16) 2026-09-25."
+      }
+    },
+    {
+      "key": "narvik-kommunestyre",
+      "navn": "Kommunestyret i Narvik",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "narvik-kommune",
+      "kommunenr": "1806",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 31,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "transport"
+      ],
+      "myndighet": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "narvik-havn",
+      "orgnr": "974789019",
+      "navn": "Narvik Havn KF",
+      "nivaa": "kommune",
+      "organtype": "KF",
+      "fylkesnr": "18",
+      "kommunenr": "1806",
+      "beskrivelse": "Kommunalt foretak som driver havnen i Narvik.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 974789019, organisasjonsform KF, sektor 1510 (Kommunale foretak med ubegrenset ansvar), forretningsadresse i Narvik (1806). Antall ansatte i registeret: 24."
+      },
+      "overordnet": "narvik-kommune"
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "midtre-halogaland-tingrett",
+      "orgnr": "926723073",
+      "navn": "Midtre Hålogaland tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "55",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for Narvik, Evenes, Lødingen, Andøy, Bø, Hadsel, Sortland og Øksnes i Nordland og sju kommuner i Troms, med rettssteder i Harstad, Narvik og Sortland.",
+      "belegg": {
+        "kilde": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Hovedsete i Harstad (Troms) ifølge Enhetsregisteret."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "ofoten-og-sor-troms-jordskifterett",
+      "orgnr": "926726579",
+      "navn": "Ofoten og Sør-Troms jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "55",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i Narvik og Evenes i Nordland og ni kommuner i Troms.",
+      "belegg": {
+        "kilde": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Hovedsete i Harstad (Troms) ifølge Enhetsregisteret."
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
       }
     },
     {
@@ -96,6 +672,7 @@
     },
     {
       "key": "unn",
+      "orgnr": "983974899",
       "navn": "Universitetssykehuset Nord-Norge HF",
       "kortnavn": "UNN",
       "nivaa": "stat",
@@ -649,25 +1226,6 @@
       }
     },
     {
-      "key": "narvik-kommune",
-      "orgnr": "959469059",
-      "navn": "Narvik Kommune",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "1806",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
-      }
-    },
-    {
       "key": "narvik-politistasjon",
       "orgnr": "974755890",
       "navn": "Narvik Politistasjon",
@@ -679,7 +1237,7 @@
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": true,
-      "beskrivelse": "Arbeidssted i Narvik for Nordland Politidistrikt, med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
+      "beskrivelse": "Arbeidssted i Narvik for Nordland politidistrikt, med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
       "belegg": {
         "kilde": "enhetsregisteret",
         "verifisering": "verifisert",
@@ -810,25 +1368,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
-      }
-    },
-    {
-      "key": "nordland-politidistrikt",
-      "orgnr": "983999999",
-      "navn": "Nordland Politidistrikt",
-      "nivaa": "stat",
-      "organtype": "politi",
-      "kommunenr": "1804",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": true,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50."
       }
     },
     {
@@ -1326,6 +1865,134 @@
   ],
   "personer": [
     {
+      "key": "lars-norman-andersen",
+      "navn": "Lars Norman Andersen"
+    },
+    {
+      "key": "anne-svelstad-evju",
+      "navn": "Anne Svelstad Evju"
+    },
+    {
+      "key": "bjorn-eirik-kanstad",
+      "navn": "Bjørn Eirik Kanstad"
+    },
+    {
+      "key": "bjorn-kvandahl",
+      "navn": "Bjørn Kvandahl"
+    },
+    {
+      "key": "boy-arne-buyle",
+      "navn": "Boy-Arne Buyle"
+    },
+    {
+      "key": "cille-skogvoll",
+      "navn": "Cille Skogvoll"
+    },
+    {
+      "key": "elisabeth-grande",
+      "navn": "Elisabeth Grande"
+    },
+    {
+      "key": "eva-annett-nilsen",
+      "navn": "Eva Annett Nilsen"
+    },
+    {
+      "key": "eyvind-hanssen",
+      "navn": "Eyvind Hanssen"
+    },
+    {
+      "key": "gro-elisabeth-hoseth",
+      "navn": "Gro Elisabeth Hoseth"
+    },
+    {
+      "key": "gunnar-gamst",
+      "navn": "Gunnar Gamst"
+    },
+    {
+      "key": "guttorm-anders-aasebostol",
+      "navn": "Guttorm Anders Aasebøstøl"
+    },
+    {
+      "key": "jan-leif-frantzen",
+      "navn": "Jan-Leif Frantzen"
+    },
+    {
+      "key": "jan-olav-opdal",
+      "navn": "Jan Olav Opdal"
+    },
+    {
+      "key": "johan-daniel-olsen-haetta",
+      "navn": "Johan Daniel Olsen Hætta"
+    },
+    {
+      "key": "johnny-johan-olsen",
+      "navn": "Johnny Johan Olsen"
+    },
+    {
+      "key": "lars-erik-lillefloth",
+      "navn": "Lars Erik Lillefloth"
+    },
+    {
+      "key": "marit-ronning-birkely",
+      "navn": "Marit Rønning Birkely"
+    },
+    {
+      "key": "marte-elise-rydland-havaas",
+      "navn": "Marte Elise Rydland Havaas"
+    },
+    {
+      "key": "mikael-rolvag",
+      "navn": "Mikael Rølvåg"
+    },
+    {
+      "key": "nathaniel-holan-larsen",
+      "navn": "Nathaniel Holan Larsen"
+    },
+    {
+      "key": "oyvind-elias-johnsen",
+      "navn": "Øyvind Elias Johnsen"
+    },
+    {
+      "key": "ragne-johnsen-megard",
+      "navn": "Ragne Johnsen Megård"
+    },
+    {
+      "key": "rune-edvardsen-narvik",
+      "navn": "Rune Edvardsen"
+    },
+    {
+      "key": "rune-ernst-ostergren",
+      "navn": "Rune Ernst Østergren"
+    },
+    {
+      "key": "tina-josefine-sandnes-denstad",
+      "navn": "Tina Josefine Sandnes Denstad"
+    },
+    {
+      "key": "tonje-frydendal-olaussen",
+      "navn": "Tonje Frydendal Olaussen"
+    },
+    {
+      "key": "tonje-tollefsen-thune",
+      "navn": "Tonje Tollefsen Thune"
+    },
+    {
+      "key": "torkjell-lund",
+      "navn": "Torkjell Lund"
+    },
+    {
+      "key": "trine-remman",
+      "navn": "Trine Remman"
+    },
+    {
+      "key": "trond-gunnar-blomlie",
+      "navn": "Trond Gunnar Blomlie"
+    },
+    {
+      "key": "vegard-johan-lind-jaeger",
+      "navn": "Vegard Johan Lind-Jæger"
+    },
+    {
       "key": "alf-magnar-hansen",
       "navn": "Alf Magnar Hansen"
     },
@@ -1364,6 +2031,10 @@
     {
       "key": "ann-paula-pedersen",
       "navn": "Ann Paula Pedersen"
+    },
+    {
+      "key": "anna-kristin-ljunggren",
+      "navn": "Anna-Kristin Ljunggren"
     },
     {
       "key": "anne-mette-arntzen",
@@ -1414,6 +2085,10 @@
       "navn": "Bjørnar Ekhorn"
     },
     {
+      "key": "borge-edvardsen-klingan",
+      "navn": "Børge Edvardsen Klingan"
+    },
+    {
       "key": "borre-simonsen",
       "navn": "Børre Simonsen"
     },
@@ -1450,6 +2125,10 @@
       "navn": "Eirik Just Mathisen"
     },
     {
+      "key": "eirik-moe",
+      "navn": "Eirik Moe"
+    },
+    {
       "key": "elise-helen-braekken",
       "navn": "Elise Helen Brækken"
     },
@@ -1474,6 +2153,10 @@
       "navn": "Fredrik Holtet Lien"
     },
     {
+      "key": "frode-andreassen",
+      "navn": "Frode Andreassen"
+    },
+    {
       "key": "frode-bremerthun-rokne",
       "navn": "Frode Bremerthun Rokne"
     },
@@ -1492,6 +2175,10 @@
     {
       "key": "havard-arntzberg",
       "navn": "Håvard Arntzberg"
+    },
+    {
+      "key": "hege-skillingstad",
+      "navn": "Hege Skillingstad"
     },
     {
       "key": "heidi-ellingsen-sommerseth",
@@ -1520,6 +2207,10 @@
     {
       "key": "ida-margrethe-holmoy",
       "navn": "Ida Margrethe Holmøy"
+    },
+    {
+      "key": "ingeborg-johnsen",
+      "navn": "Ingeborg Johnsen"
     },
     {
       "key": "ingrid-svensrud",
@@ -1618,10 +2309,6 @@
       "navn": "Kristine Myklevold"
     },
     {
-      "key": "lars-norman-andersen",
-      "navn": "Lars Norman Andersen"
-    },
-    {
       "key": "lars-ola-sterud",
       "navn": "Lars Ola Sterud"
     },
@@ -1642,8 +2329,16 @@
       "navn": "Linn Beate Sollund-Walberg"
     },
     {
+      "key": "liv-signe-hundere-navarsete",
+      "navn": "Liv Signe Hundere Navarsete"
+    },
+    {
       "key": "maiken-edvardsen-hansen",
       "navn": "Maiken Edvardsen Hansen"
+    },
+    {
+      "key": "marie-lovise-ve",
+      "navn": "Marie Lovise Ve"
     },
     {
       "key": "marit-olsdatter-hienn",
@@ -1834,15 +2529,632 @@
       "navn": "Truls Hansen"
     },
     {
+      "key": "truls-torbla",
+      "navn": "Truls Torblå"
+    },
+    {
       "key": "vibeke-lund",
       "navn": "Vibeke Lund"
     },
     {
       "key": "wiggo-kare-knutsen",
       "navn": "Wiggo Kåre Knutsen"
+    },
+    {
+      "key": "yngve-odlo",
+      "navn": "Yngve Odlo"
     }
   ],
   "roller": [
+    {
+      "org": "narvik-formannskap",
+      "person": "rune-edvardsen-narvik",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=9) 2026-09-25. Møteportalen fører ordføreren i formannskapet med funksjonen «Utvalgsleder»."
+      }
+    },
+    {
+      "org": "narvik-hovedutvalg-for-drift",
+      "person": "tina-josefine-sandnes-denstad",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=32) 2026-09-25."
+      }
+    },
+    {
+      "org": "narvik-hovedutvalg-for-plan-og-utvikling",
+      "person": "ragne-johnsen-megard",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=6) 2026-09-25."
+      }
+    },
+    {
+      "org": "narvik-kommune-administrasjonen",
+      "person": "lars-norman-andersen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Narvik kommune (www.narvik.kommune.no), per 2026-09-25). Grunnlagets merknad: Hentet fra narvik.kommune.no/om-kommunen/organisasjon/organisasjonskart-narvik-kommune 2026-09-25."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "rune-ernst-ostergren",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "narvik-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra narvik.kommune.no/politikk/politiske-utvalg/narvik-kommunestyre 2026-09-25."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "rune-edvardsen-narvik",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "narvik-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra narvik.kommune.no/politikk/politiske-utvalg/narvik-kommunestyre 2026-09-25. Ordfører i perioden 2023–2027 ifølge siden."
+      }
+    },
+    {
+      "org": "narvik-kontrollutvalget",
+      "person": "elisabeth-grande",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "narvik-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra narvik.kommune.no/politikk/politiske-utvalg/kontrollutvalg 2026-09-25."
+      }
+    },
+    {
+      "org": "narvik-partssammensatt-utvalg",
+      "person": "rune-ernst-ostergren",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=12) 2026-09-25."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "anne-svelstad-evju",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "bjorn-eirik-kanstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "bjorn-kvandahl",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "boy-arne-buyle",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "cille-skogvoll",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "elisabeth-grande",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "eva-annett-nilsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "eyvind-hanssen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "gro-elisabeth-hoseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "gunnar-gamst",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "guttorm-anders-aasebostol",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "jan-leif-frantzen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "jan-olav-opdal",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "johan-daniel-olsen-haetta",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "johnny-johan-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "lars-erik-lillefloth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "marit-ronning-birkely",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "marte-elise-rydland-havaas",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "mikael-rolvag",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "nathaniel-holan-larsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "oyvind-elias-johnsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "ragne-johnsen-megard",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "rune-edvardsen-narvik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "rune-ernst-ostergren",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "tina-josefine-sandnes-denstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "tonje-frydendal-olaussen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "tonje-tollefsen-thune",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "torkjell-lund",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "trine-remman",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "trond-gunnar-blomlie",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "narvik-kommunestyre",
+      "person": "vegard-johan-lind-jaeger",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
     {
       "org": "2tal-utemiljo-anleggsgartner",
       "person": "arnt-hansen",
@@ -2816,10 +4128,130 @@
       }
     },
     {
-      "org": "narvik-kommune",
-      "person": "lars-norman-andersen",
+      "org": "narvik-havn",
+      "person": "anna-kristin-ljunggren",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "narvik-havn",
+      "person": "borge-edvardsen-klingan",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "narvik-havn",
+      "person": "eirik-moe",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "narvik-havn",
+      "person": "frode-andreassen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "narvik-havn",
+      "person": "hege-skillingstad",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "narvik-havn",
+      "person": "ingeborg-johnsen",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "narvik-havn",
+      "person": "liv-signe-hundere-navarsete",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "narvik-havn",
+      "person": "marie-lovise-ve",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "narvik-havn",
+      "person": "reidar-johan-schille",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "narvik-havn",
+      "person": "truls-torbla",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "narvik-havn",
+      "person": "yngve-odlo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -3562,14 +4994,168 @@
   ],
   "relasjoner": [
     {
+      "fra": "narvik-eldreradet",
+      "til": "narvik-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=15) 2026-09-25."
+      }
+    },
+    {
+      "fra": "narvik-formannskap",
+      "til": "narvik-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=9) 2026-09-25."
+      }
+    },
+    {
+      "fra": "narvik-hovedutvalg-for-drift",
+      "til": "narvik-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=32) 2026-09-25."
+      }
+    },
+    {
+      "fra": "narvik-hovedutvalg-for-plan-og-utvikling",
+      "til": "narvik-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=6) 2026-09-25."
+      }
+    },
+    {
+      "fra": "narvik-kommune-administrasjonen",
+      "til": "narvik-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "narvik-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra narvik.kommune.no/om-kommunen/organisasjon/organisasjonskart-narvik-kommune 2026-09-25."
+      }
+    },
+    {
+      "fra": "narvik-kontrollutvalget",
+      "til": "narvik-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "narvik-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra narvik.kommune.no/politikk/politiske-utvalg/kontrollutvalg 2026-09-25."
+      }
+    },
+    {
+      "fra": "narvik-partssammensatt-utvalg",
+      "til": "narvik-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=12) 2026-09-25."
+      }
+    },
+    {
+      "fra": "narvik-radet-for-personer-med-funksjonsnedsettelse",
+      "til": "narvik-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=17) 2026-09-25."
+      }
+    },
+    {
+      "fra": "narvik-saerskilt-klagenemnd",
+      "til": "narvik-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=14) 2026-09-25."
+      }
+    },
+    {
+      "fra": "narvik-ungdomsradet",
+      "til": "narvik-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "narvik-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=16) 2026-09-25."
+      }
+    },
+    {
       "fra": "narvik-kommunestyre",
       "til": "narvik-kommune",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "narvik-havn",
+      "til": "narvik-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Overordnet enhet i Enhetsregisteret: Narvik kommune (959469059)."
+      }
+    },
+    {
+      "fra": "narvik-kommune",
+      "til": "narvik-havn",
+      "type": "eier",
+      "belegg": {
+        "kilde": "brreg-eierroller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Enhetsregisteret fører kommunen (959469059) med rollen «Eierkommune». Et kommunalt foretak er en del av kommunen; registeret oppgir ingen andel."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
       }
     },
     {
@@ -5146,7 +6732,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Narvik?",
+      "steg": [
+        {
+          "org": "narvik-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "narvik-hovedutvalg-for-plan-og-utvikling",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (narvik-moteportal)."
+          }
+        },
+        {
+          "org": "narvik-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Narvik kommune?",
+      "steg": [
+        {
+          "org": "narvik-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "narvik-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (narvik-moteportal)."
+          }
+        },
+        {
+          "org": "narvik-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "avfall-miljo",
@@ -5183,9 +6861,33 @@
     {
       "kode": "utdanning-forskning",
       "navn": "Utdanning og forskning"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
     }
   ],
   "org_segment": [
+    {
+      "org": "narvik-havn",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
     {
       "org": "uit",
       "segment": "eiendom-bygg",
@@ -5347,5 +7049,21 @@
       "styrke": 3
     }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "narvik-saerskilt-klagenemnd",
+      "hva": "Leder av særskilt klagenemnd i Narvik er ikke oppgitt.",
+      "hvorfor": "Møteportalen (ACOS Innsyn) oppgir ingen leder for organet (narvik.kommune.no/innsyn.aspx?response=utvalg&MId1=396&scripturi=/innsyn.aspx&&utvalg_selected=14)."
+    },
+    {
+      "gjelder": "narvik-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "narvik-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
 }

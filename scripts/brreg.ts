@@ -31,7 +31,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import type { Regionregister } from "../src/data/region/types";
+import type { Dekningsregister, Regionregister } from "../src/data/region/types";
 import type { Kommunedatasett, Person } from "../src/data/types";
 import { samle, valider } from "../src/lib/data/samle";
 import { lesDatasett } from "./seed-build";
@@ -72,6 +72,7 @@ import { dagensDato, orgNavnNokkel, pentOrgNavn, slug } from "./brreg/tekst";
 export const MELLOMLAGER = join(ROT, "node_modules", ".cache", "maktkart-brreg");
 export const AVVIKMAPPE = join(ROT, "docs", "avvik");
 export const REGIONFIL = join(ROT, "src", "data", "region", "nord-norge.json");
+export const DEKNINGFIL = join(ROT, "src", "data", "region", "dekning.json");
 
 const KOMMUNELOVEN = {
   key: "kommuneloven",
@@ -91,6 +92,12 @@ export interface KjorValg {
   mellomlager: string | null;
   /** Regionregisteret med slug og navn for nye kommuner, eller null. */
   regionfil?: string | null;
+  /**
+   * Dekningsregisteret: hvilke regionale organer som har myndighet over hver
+   * kommune. Organenes rader kopieres inn i kommunenes datasett. Null eller en
+   * fil som ikke finnes: ingen dekning.
+   */
+  dekningfil?: string | null;
   salt: string;
   idag: string;
   konfig: Konfig;
@@ -114,6 +121,17 @@ export const serialiser = (d: Kommunedatasett): string => `${JSON.stringify(d, n
 function lesRegion(fil: string | null | undefined): Regionregister | null {
   if (!fil || !existsSync(fil)) return null;
   return JSON.parse(readFileSync(fil, "utf8")) as Regionregister;
+}
+
+/** kommunenr → organnøklene som dekker kommunen, sortert. */
+function lesDekning(fil: string | null | undefined): Map<string, string[]> {
+  const ut = new Map<string, string[]>();
+  if (!fil || !existsSync(fil)) return ut;
+  const d = JSON.parse(readFileSync(fil, "utf8")) as Dekningsregister;
+  for (const x of d.dekning)
+    for (const nr of x.kommuner) ut.set(nr, [...(ut.get(nr) ?? []), x.org]);
+  for (const [nr, keys] of ut) ut.set(nr, [...new Set(keys)].sort());
+  return ut;
 }
 
 /**
@@ -235,6 +253,7 @@ export async function kjor(v: KjorValg): Promise<KjorResultat[]> {
     http = mellomlagretHttp(v.http, v.mellomlager, v.salt, v.logg).http;
   }
   const region = lesRegion(v.regionfil);
+  const dekning = lesDekning(v.dekningfil);
   const paaDisk = lesDatasett(v.dataMappe);
   const tilstand = new Map(paaDisk.map((d) => [d.slug, d.data]));
   const opprinnelig = new Map(paaDisk.map((d) => [d.slug, serialiser(d.data)]));
@@ -356,6 +375,7 @@ export async function kjor(v: KjorValg): Promise<KjorResultat[]> {
     andre: [...tilstand].filter(([s]) => s !== j.slug).map(([s, data]) => ({ slug: s, data })),
     kjoringen,
     personregister,
+    dekning: dekning.get(j.nr) ?? [],
     ...eierskap,
   });
 
@@ -481,6 +501,7 @@ async function main(): Promise<void> {
     http: curlHttp({ minIntervallMs: konfig.felles.min_intervall_ms }),
     mellomlager: MELLOMLAGER,
     regionfil: REGIONFIL,
+    dekningfil: DEKNINGFIL,
     salt,
     idag: dagensDato(),
     konfig,

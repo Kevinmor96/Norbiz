@@ -5,17 +5,10 @@
     "fylkesnr": "55",
     "fylke": "Troms",
     "sammenstilt": "2026-09-25",
-    "grunnlag": "docs/brreg-import.md",
-    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
   },
   "kilder": [
-    {
-      "key": "kommuneloven",
-      "navn": "Kommuneloven (lovdata.no)",
-      "url": "https://lovdata.no/lov/2018-06-22-83",
-      "type": "register",
-      "lisens": "NLOD"
-    },
     {
       "key": "enhetsregisteret",
       "navn": "Enhetsregisteret (Brønnøysundregistrene)",
@@ -41,32 +34,476 @@
       "key": "researchgrunnlag",
       "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
       "type": "sekundaer"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "senja-kommune-no-formannskapet",
+      "navn": "Senja kommune: Senja formannskap",
+      "url": "https://www.senja.kommune.no/politikk/formannskapet/",
+      "type": "offisiell"
+    },
+    {
+      "key": "senja-kommune-no-kommunedirektor",
+      "navn": "Senja kommune: Kommunedirektør i Senja kommune",
+      "url": "https://www.senja.kommune.no/administrasjon/kommunedirektor/",
+      "type": "offisiell"
+    },
+    {
+      "key": "senja-kommune-no-kontrollutvalget",
+      "navn": "Senja kommune: Kontrollutvalget",
+      "url": "https://www.senja.kommune.no/politikk/andre-utvalg-rad-og-nemnder/kontrollutvalget/",
+      "type": "offisiell"
+    },
+    {
+      "key": "senja-kommune-no-ordforer",
+      "navn": "Senja kommune: Ordfører i Senja kommune",
+      "url": "https://www.senja.kommune.no/politikk/ordforer/",
+      "type": "offisiell"
+    },
+    {
+      "key": "senja-kommune-no-partssammensatt-utvalg-og-arbeidsmiljoutvalg",
+      "navn": "Senja kommune: Partssammensatt utvalg og arbeidsmiljøutvalg",
+      "url": "https://www.senja.kommune.no/politikk/andre-utvalg-rad-og-nemnder/partssammensatt-utvalg-og-arbeidsmiljoutvalg/",
+      "type": "offisiell"
+    },
+    {
+      "key": "senja-kommune-no-utvalg-for-helse-og-omsorg",
+      "navn": "Senja kommune: Utvalg for helse og omsorg",
+      "url": "https://www.senja.kommune.no/politikk/andre-utvalg-rad-og-nemnder/utvalg-for-helse-og-omsorg/",
+      "type": "offisiell"
+    },
+    {
+      "key": "senja-kommune-no-utvalg-for-oppvekst-og-kultur",
+      "navn": "Senja kommune: Utvalg for oppvekst og kultur",
+      "url": "https://www.senja.kommune.no/politikk/andre-utvalg-rad-og-nemnder/utvalg-for-oppvekst-og-kultur/",
+      "type": "offisiell"
+    },
+    {
+      "key": "senja-kommune-no-utvalg-for-samfunnsutvikling",
+      "navn": "Senja kommune: Utvalg for samfunnsutvikling",
+      "url": "https://www.senja.kommune.no/politikk/andre-utvalg-rad-og-nemnder/utvalg-for-samfunnsutvikling/",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "politiet-no",
+      "navn": "Politiet (politiet.no)",
+      "url": "https://www.politiet.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no",
+      "navn": "Troms fylkeskommune (tromsfylke.no)",
+      "url": "https://www.tromsfylke.no",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
     {
+      "key": "senja-formannskap",
+      "navn": "Formannskapet i Senja",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "senja-kommunestyre",
+      "kommunenr": "5530",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ valgt av kommunestyret blant sine medlemmer. Det innstiller blant annet til økonomiplan og årsbudsjett.",
+      "belegg": {
+        "kilde": "senja-kommune-no-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026. Siden sier at ordføreren leder formannskapet. Medlemslisten ligger i møteportalen (Elements), som ikke kunne leses maskinelt."
+      }
+    },
+    {
+      "key": "senja-kommune",
+      "orgnr": "921369417",
+      "navn": "Senja kommune",
+      "kortnavn": "Senja kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5530",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «SENJA KOMMUNE». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "senja-kommune-administrasjonen",
+      "navn": "Administrasjonen i Senja kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "senja-kommune",
+      "kommunenr": "5530",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "senja-kommune-no-kommunedirektor",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "senja-kontrollutvalget",
+      "navn": "Kontrollutvalget i Senja",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "senja-kommunestyre",
+      "kommunenr": "5530",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "senja-kommune-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "senja-partssammensatt-utvalg",
+      "navn": "Partssammensatt utvalg i Senja",
+      "kortnavn": "Partssammensatt utvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "senja-kommunestyre",
+      "kommunenr": "5530",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg med folkevalgte og representanter for de ansatte, for saker om forholdet mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "senja-kommune-no-partssammensatt-utvalg-og-arbeidsmiljoutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "senja-utvalg-for-helse-og-omsorg",
+      "navn": "Utvalg for helse og omsorg i Senja",
+      "kortnavn": "Utvalg for helse og omsorg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "senja-kommunestyre",
+      "kommunenr": "5530",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "senja-kommune-no-utvalg-for-helse-og-omsorg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "senja-utvalg-for-oppvekst-og-kultur",
+      "navn": "Utvalg for oppvekst og kultur i Senja",
+      "kortnavn": "Utvalg for oppvekst og kultur",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "senja-kommunestyre",
+      "kommunenr": "5530",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "senja-kommune-no-utvalg-for-oppvekst-og-kultur",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "senja-utvalg-for-samfunnsutvikling",
+      "navn": "Utvalg for samfunnsutvikling i Senja",
+      "kortnavn": "Utvalg for samfunnsutvikling",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "senja-kommunestyre",
+      "kommunenr": "5530",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "senja-kommune-no-utvalg-for-samfunnsutvikling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
       "key": "senja-kommunestyre",
       "navn": "Kommunestyret i Senja",
+      "kortnavn": "Kommunestyret",
       "nivaa": "kommune",
       "organtype": "folkevalgt_organ",
       "overordnet": "senja-kommune",
       "kommunenr": "5530",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 31,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "stortinget-troms-valgkrets",
+      "navn": "Stortinget, Troms valgkrets",
+      "kortnavn": "Troms valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "55",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene fra Troms i perioden 2025–2029, som vedtar lover og budsjett.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune",
+      "orgnr": "930068128",
+      "navn": "Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt. Styres etter formannskapsmodellen: fylkesordføreren leder fylkestinget og fylkesutvalget.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»). Styringsmodellen er bekreftet på tromsfylke.no/politikk/fylkesordforer/ 25.09.2026: «Troms fylkeskommune styres etter formannskapsmodellen, hvor fylkesordføreren er den valgte lederen av fylkestinget.» Fylkesutvalgssiden sier at fylkesordføreren leder fylkesutvalget. Medieomtale ved konstitueringen i 2023 omtalte et fylkesråd og en fylkesrådsleder; fylkeskommunens egne sider har verken fylkesråd eller fylkesrådsleder."
+      }
+    },
+    {
+      "key": "troms-fylkesting",
+      "navn": "Fylkestinget i Troms",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "troms-fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
       "myndighet": [
         "vedtak"
       ],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "beskrivelse": "Fylkeskommunens folkevalgte organ, ledet av fylkesordføreren.",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "tromsfylke-no",
         "verifisering": "oppgitt",
-        "per": "2026-09-25",
-        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-politidistrikt",
+      "orgnr": "974769425",
+      "navn": "Troms politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Politi og påtale i 20 kommuner, pluss forvaltningsoppgaver som våpen- og utlendingssaker.",
+      "belegg": {
+        "kilde": "politiet-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
       }
     },
     {
       "key": "unn",
+      "orgnr": "983974899",
       "navn": "Universitetssykehuset Nord-Norge HF",
       "kortnavn": "UNN",
       "nivaa": "stat",
@@ -708,25 +1145,6 @@
       }
     },
     {
-      "key": "senja-kommune",
-      "orgnr": "921369417",
-      "navn": "Senja Kommune",
-      "nivaa": "kommune",
-      "organtype": "kommune",
-      "kommunenr": "5530",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
-      }
-    },
-    {
       "key": "senja-videregaende-skole-avd-finnfjordbotn",
       "orgnr": "974546698",
       "navn": "Senja Videregående Skole Avd Finnfjordbotn",
@@ -940,6 +1358,138 @@
   ],
   "personer": [
     {
+      "key": "roy-alapnes",
+      "navn": "Roy Alapnes"
+    },
+    {
+      "key": "stine-jakobsson-stromso",
+      "navn": "Stine Jakobsson Strømsø"
+    },
+    {
+      "key": "tom-rune-eliseussen",
+      "navn": "Tom Rune Eliseussen"
+    },
+    {
+      "key": "aleksander-uteng",
+      "navn": "Aleksander Uteng"
+    },
+    {
+      "key": "alexander-edvardsen-asbol",
+      "navn": "Alexander Edvardsen Asbøl"
+    },
+    {
+      "key": "august-sebulonsen",
+      "navn": "August Sebulonsen"
+    },
+    {
+      "key": "beate-seljenes",
+      "navn": "Beate Seljenes"
+    },
+    {
+      "key": "elisabeth-bjornhaug-rognli",
+      "navn": "Elisabeth Bjørnhaug Rognli"
+    },
+    {
+      "key": "fred-ove-flakstad",
+      "navn": "Fred Ove Flakstad"
+    },
+    {
+      "key": "geir-inge-sivertsen",
+      "navn": "Geir Inge Sivertsen"
+    },
+    {
+      "key": "grethe-sebulonsen",
+      "navn": "Grethe Sebulonsen"
+    },
+    {
+      "key": "gunn-knorr",
+      "navn": "Gunn Knörr"
+    },
+    {
+      "key": "hege-bakken-karlsen",
+      "navn": "Hege Bakken Karlsen"
+    },
+    {
+      "key": "hilde-hofsoy-stromme",
+      "navn": "Hilde Hofsøy Strømme"
+    },
+    {
+      "key": "jan-harald-jansen",
+      "navn": "Jan Harald Jansen"
+    },
+    {
+      "key": "janne-helen-fyhn",
+      "navn": "Janne Helen Fyhn"
+    },
+    {
+      "key": "jon-kvistad",
+      "navn": "Jon Kvistad"
+    },
+    {
+      "key": "jostein-arild-hansen",
+      "navn": "Jostein Arild Hansen"
+    },
+    {
+      "key": "kay-erling-ludvigsen",
+      "navn": "Kay Erling Ludvigsen"
+    },
+    {
+      "key": "kenneth-moller",
+      "navn": "Kenneth Møller"
+    },
+    {
+      "key": "lasse-bondestad",
+      "navn": "Lasse Bondestad"
+    },
+    {
+      "key": "line-miriam-haugan-senja",
+      "navn": "Line Miriam Haugan"
+    },
+    {
+      "key": "louis-s-edvardsen",
+      "navn": "Louis S. Edvardsen"
+    },
+    {
+      "key": "margrethe-hagerupsen",
+      "navn": "Margrethe Hagerupsen"
+    },
+    {
+      "key": "marit-stubberud-hanssen",
+      "navn": "Marit Stubberud Hanssen"
+    },
+    {
+      "key": "michael-andersen",
+      "navn": "Michael Andersen"
+    },
+    {
+      "key": "rolf-bjornar-tollefsen",
+      "navn": "Rolf Bjørnar Tøllefsen"
+    },
+    {
+      "key": "sten-havard-langseth",
+      "navn": "Sten Håvard Langseth"
+    },
+    {
+      "key": "stina-amundsen-seljenes",
+      "navn": "Stina Amundsen Seljenes"
+    },
+    {
+      "key": "tom-are-nylund",
+      "navn": "Tom Are Nylund"
+    },
+    {
+      "key": "tommy-maurseth-larsen",
+      "navn": "Tommy Maurseth Larsen"
+    },
+    {
+      "key": "tonni-nylund",
+      "navn": "Tonni Nylund"
+    },
+    {
+      "key": "torbjorn-arthur-eide",
+      "navn": "Torbjørn Arthur Eide"
+    },
+    {
       "key": "alf-sverre-trasdahl",
       "navn": "Alf Sverre Tråsdahl"
     },
@@ -956,7 +1506,7 @@
       "navn": "Ann-Helena Berg"
     },
     {
-      "key": "anneli-anfeltmo",
+      "key": "anneli-anfeltmo-9cc2e3",
       "navn": "Anneli Anfeltmo"
     },
     {
@@ -972,7 +1522,7 @@
       "navn": "Astrid Myrvang Hagen"
     },
     {
-      "key": "beathe-hoel",
+      "key": "beathe-hoel-a7f8e1",
       "navn": "Beathe Hoel"
     },
     {
@@ -1008,7 +1558,7 @@
       "navn": "Erik Ramm"
     },
     {
-      "key": "eskil-dahl-olaussen",
+      "key": "eskil-dahl-olaussen-323da4",
       "navn": "Eskil Dahl Olaussen"
     },
     {
@@ -1100,7 +1650,7 @@
       "navn": "Ketil Isaksen"
     },
     {
-      "key": "kine-mari-hanssen-bertheussen",
+      "key": "kine-mari-hanssen-bertheussen-4fcb44",
       "navn": "Kine Mari Hanssen Bertheussen"
     },
     {
@@ -1108,7 +1658,7 @@
       "navn": "Kjersti Kleven"
     },
     {
-      "key": "lars-eriksen",
+      "key": "lars-eriksen-7898ba",
       "navn": "Lars Eriksen"
     },
     {
@@ -1120,7 +1670,7 @@
       "navn": "Lise Nes"
     },
     {
-      "key": "malin-tverseth",
+      "key": "malin-tverseth-4b0ac6",
       "navn": "Malin Tverseth"
     },
     {
@@ -1168,7 +1718,7 @@
       "navn": "Nils-Harald Opsahl"
     },
     {
-      "key": "oddgeir-kroken",
+      "key": "oddgeir-kroken-2404fe",
       "navn": "Oddgeir Kroken"
     },
     {
@@ -1216,10 +1766,6 @@
       "navn": "Ronny Moan"
     },
     {
-      "key": "roy-alapnes",
-      "navn": "Roy Alapnes"
-    },
-    {
       "key": "rune-skoglund",
       "navn": "Rune Skoglund"
     },
@@ -1244,20 +1790,12 @@
       "navn": "Stina Marianne Smetana-Svensen"
     },
     {
-      "key": "stine-jakobsson-stromso",
-      "navn": "Stine Jakobsson Strømsø"
-    },
-    {
-      "key": "terje-bertheussen",
+      "key": "terje-bertheussen-07f6ee",
       "navn": "Terje Bertheussen"
     },
     {
       "key": "terje-torvald-johansen",
       "navn": "Terje Torvald Johansen"
-    },
-    {
-      "key": "tom-rune-eliseussen",
-      "navn": "Tom Rune Eliseussen"
     },
     {
       "key": "tommy-torvanger",
@@ -1296,7 +1834,7 @@
       "navn": "Vidar Olsen"
     },
     {
-      "key": "ylva-signhild-sneve",
+      "key": "ylva-signhild-sneve-a5456b",
       "navn": "Ylva Signhild Sneve"
     },
     {
@@ -1305,6 +1843,557 @@
     }
   ],
   "roller": [
+    {
+      "org": "senja-kommune-administrasjonen",
+      "person": "stine-jakobsson-stromso",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Senja kommune: Kommunedirektør i Senja kommune, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i SENJA KOMMUNE (orgnr 921369417)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "marit-stubberud-hanssen",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "senja-kommune-no-ordforer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "geir-inge-sivertsen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "senja-kommune-no-ordforer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "senja-kontrollutvalget",
+      "person": "jon-kvistad",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Senjalista",
+      "belegg": {
+        "kilde": "senja-kommune-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "marit-stubberud-hanssen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "aleksander-uteng",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "margrethe-hagerupsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "jan-harald-jansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "fred-ove-flakstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "august-sebulonsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "kenneth-moller",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "tonni-nylund",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "lasse-bondestad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "hege-bakken-karlsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "geir-inge-sivertsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll). Står som «Geir-Inge Sivertsen» i Valgdirektoratets fil og i valgstyrets protokoll for Senja. Samme person som i fylkestingsfila: samme parti og samme fødselsdato (sammenlignet i minnet, ikke lagret)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "rolf-bjornar-tollefsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "line-miriam-haugan-senja",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "beate-seljenes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "louis-s-edvardsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "torbjorn-arthur-eide",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "alexander-edvardsen-asbol",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "tom-are-nylund",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "stina-amundsen-seljenes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "sten-havard-langseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "janne-helen-fyhn",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "gunn-knorr",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "kay-erling-ludvigsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "michael-andersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "elisabeth-bjornhaug-rognli",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Senjalista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "grethe-sebulonsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Senjalista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "jostein-arild-hansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Senjalista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "hilde-hofsoy-stromme",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Senjalista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "tom-rune-eliseussen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "roy-alapnes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "senja-kommunestyre",
+      "person": "tommy-maurseth-larsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
     {
       "org": "acroboat",
       "person": "vegard-kulseng-hansen",
@@ -1523,7 +2612,7 @@
     },
     {
       "org": "art-nor",
-      "person": "oddgeir-kroken",
+      "person": "oddgeir-kroken-2404fe",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -2027,18 +3116,6 @@
     },
     {
       "org": "flakstadvag-laks",
-      "person": "roy-alapnes",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "flakstadvag-laks",
       "person": "torstein-karlsen",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
@@ -2363,7 +3440,7 @@
     },
     {
       "org": "senja-avfall",
-      "person": "anneli-anfeltmo",
+      "person": "anneli-anfeltmo-9cc2e3",
       "tittel": "Nestleder",
       "rolletype": "nestleder",
       "status": "fast",
@@ -2387,7 +3464,7 @@
     },
     {
       "org": "senja-avfall",
-      "person": "beathe-hoel",
+      "person": "beathe-hoel-a7f8e1",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
@@ -2399,7 +3476,7 @@
     },
     {
       "org": "senja-avfall",
-      "person": "eskil-dahl-olaussen",
+      "person": "eskil-dahl-olaussen-323da4",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
@@ -2435,7 +3512,7 @@
     },
     {
       "org": "senja-avfall",
-      "person": "kine-mari-hanssen-bertheussen",
+      "person": "kine-mari-hanssen-bertheussen-4fcb44",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -2447,7 +3524,7 @@
     },
     {
       "org": "senja-avfall",
-      "person": "lars-eriksen",
+      "person": "lars-eriksen-7898ba",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -2459,7 +3536,7 @@
     },
     {
       "org": "senja-avfall",
-      "person": "malin-tverseth",
+      "person": "malin-tverseth-4b0ac6",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -2483,7 +3560,7 @@
     },
     {
       "org": "senja-avfall",
-      "person": "terje-bertheussen",
+      "person": "terje-bertheussen-07f6ee",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
@@ -2507,34 +3584,10 @@
     },
     {
       "org": "senja-avfall",
-      "person": "tom-rune-eliseussen",
-      "tittel": "Styreleder",
-      "rolletype": "styreleder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "senja-avfall",
-      "person": "ylva-signhild-sneve",
+      "person": "ylva-signhild-sneve-a5456b",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "senja-kommune",
-      "person": "stine-jakobsson-stromso",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -2676,14 +3729,112 @@
   ],
   "relasjoner": [
     {
+      "fra": "senja-formannskap",
+      "til": "senja-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "senja-kommune-no-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026. Siden sier at ordføreren leder formannskapet. Medlemslisten ligger i møteportalen (Elements), som ikke kunne leses maskinelt."
+      }
+    },
+    {
+      "fra": "senja-kommune-administrasjonen",
+      "til": "senja-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "senja-kommune-no-kommunedirektor",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "senja-kontrollutvalget",
+      "til": "senja-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "senja-kommune-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "senja-partssammensatt-utvalg",
+      "til": "senja-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "senja-kommune-no-partssammensatt-utvalg-og-arbeidsmiljoutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "senja-utvalg-for-helse-og-omsorg",
+      "til": "senja-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "senja-kommune-no-utvalg-for-helse-og-omsorg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "senja-utvalg-for-oppvekst-og-kultur",
+      "til": "senja-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "senja-kommune-no-utvalg-for-oppvekst-og-kultur",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "senja-utvalg-for-samfunnsutvikling",
+      "til": "senja-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "senja-kommune-no-utvalg-for-samfunnsutvikling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra senja.kommune.no 25.09.2026."
+      }
+    },
+    {
       "fra": "senja-kommunestyre",
       "til": "senja-kommune",
       "type": "overordnet",
       "belegg": {
-        "kilde": "kommuneloven",
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
         "verifisering": "oppgitt",
         "per": "2026-09-25",
-        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "troms-fylkesting",
+      "til": "troms-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
       }
     },
     {
@@ -3864,7 +5015,99 @@
     }
   ],
   "hendelser": [],
-  "prosesser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Senja?",
+      "steg": [
+        {
+          "org": "senja-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "senja-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (senja-kommune-no-formannskapet); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "senja-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Senja kommune?",
+      "steg": [
+        {
+          "org": "senja-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "senja-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (senja-kommune-no-formannskapet)."
+          }
+        },
+        {
+          "org": "senja-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
   "segmenter": [
     {
       "kode": "avfall-miljo",
@@ -3893,9 +5136,42 @@
     {
       "kode": "utdanning-forskning",
       "navn": "Utdanning og forskning"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
     }
   ],
   "org_segment": [
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
     {
       "org": "unn",
       "segment": "eiendom-bygg",
@@ -4007,5 +5283,21 @@
       "styrke": 3
     }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "senja-kommune",
+      "hva": "Lederne av formannskapet og hovedutvalgene i Senja er ikke tatt inn.",
+      "hvorfor": "Utvalgssidene på senja.kommune.no viser til medlemsfanen i møteportalen (Elements Publikum), som bygges med JavaScript og ikke kunne leses maskinelt (sjekket 25.09.2026)."
+    },
+    {
+      "gjelder": "senja-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "senja-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
 }

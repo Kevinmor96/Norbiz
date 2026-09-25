@@ -163,10 +163,32 @@ sin egen fil, `src/data/<slug>.json`.
 - **Kommunens egen enhet beholder nøkkelen.** En enhet kommunen har en egen
   rad for, og som eget grunnlag viser til (kommunens enhet under
   kommunestyret), blir ikke byttet ut med en annen kommunes grunnlagsrad.
-  Grunnlaget avgjør likevel hvem som fører rollene. Karlsøy kommune står
+  Grunnlaget avgjør likevel hvem som fører rollene. Karlsøy kommune sto
   derfor som `karlsoy-kommune` i Tromsøs grunnlag, med daglig leder, og som
-  `karlsoy-kommune-940330408` i Karlsøy, uten roller. Radene må slås sammen
-  for hånd.
+  `karlsoy-kommune-940330408` i Karlsøy, uten roller. Radene ble slått sammen
+  25.09.2026: Karlsøy har grunnlagsraden `karlsoy-kommune` med orgnr, og
+  `koblinger` for 5534 binder nøkkelen. Tromsøs eierrelasjon til Remiks står
+  i Karlsøys fil, så Tromsø ikke har en egen rad for kommunen. Sametinget sto
+  på samme måte som `sametinget` i Tromsøs grunnlag (uten orgnr, ikke koblet)
+  og `samediggi-sametinget` i Karasjok; `koblinger` for 5501 og orgnr i raden
+  gjør det til én nøkkel. Se `docs/avvik/flett-region-2026-09-25.md`.
+- **Dekning.** De regionale organene med myndighet over en kommune
+  (fylkeskommunen og fylkestinget, statsforvalteren, politidistriktet,
+  domstolene, helseforetaket, Helse Nord RHF, stortingsbenken og Sametinget)
+  står i `src/data/region/dekning.json`, med belegg for hvilke kommuner de
+  dekker. Organet er grunnlag i eierens datasett, og importøren kopierer raden,
+  kjeden av overordnede og kildene inn i hver kommune på lista ved hver
+  kjøring, som andre kopier. Rollene føres bare hos eieren. Uten dekningen
+  ville en kopi uten orgnr i kommunens utvalg (fylkestinget, stortingsbenken)
+  falt bort ved neste kjøring. Er organet grunnlag i kommunen selv (en prosess
+  viser til det), trengs ingen kopi. Et organ uten dokumentert dekning står
+  ikke i registeret; det står bare hos eieren, med et hull.
+- **Grunnlag i en Nordland-fil som viser til et organ Tromsø eier**, flytter
+  eierskapet: lavest kommunenummer vinner blant datasettene der organet er
+  grunnlag, og Nordlands numre (18xx) er lavere enn Troms' (55xx). Er Tromsøs
+  grunnlagsroller bekreftet mot registeret der, står rollen da to ganger.
+  Bruk dekningen, ikke en grunnlagsrad, når en Nordland-kommune bare skal vise
+  organet.
 - **Samme person.** Grunnlagskoblingene fra alle kommunene i kjøringen samles
   først, så en person som er koblet til grunnlaget i én kommune, får samme
   nøkkel i de andre. Registerpersoner får samme nøkkel i alle kommunene i samme
@@ -366,4 +388,5 @@ samlet; én og én tok 355 sekunder med 881 personer.
 | `scripts/brreg/rapport.ts` | Avviksrapporten og oppsummeringen |
 | `scripts/brreg/konfig.ts`, `scripts/brreg.config.json` | Terskler, alltid-med, koblinger, sensitive mønstre |
 | `src/data/brreg/nace-segment.json`, `src/data/brreg/orgform.json` | Tabellene |
+| `src/data/region/dekning.json` | Dekningen: regionale organer og kommunene de har myndighet over |
 | `tests/brreg-import.test.ts`, `tests/fixtures/brreg/` | Tester mot oppdiktede svar |
