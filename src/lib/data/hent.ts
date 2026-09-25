@@ -9,18 +9,20 @@
 //
 // Med server er det en TanStack Start-serverfunksjon. Handleren laster
 // datalaget på serveren, og nettleseren får bare svaret. Den statiske eksporten
-// har ingen server. Der feiler kallet, og svaret hentes i stedet som en fil
-// bygget ved eksporten: /data/kommune/<slug>.json og /data/organ/<key>.json
-// (rutene src/routes/data.*.ts, forhåndsrendret av vite.statisk.config.ts).
-// Når ett kall har feilet på den måten, går resten rett til filene.
+// har ingen server. Der hentes svaret som en fil bygget ved eksporten:
+// /data/kommune/<slug>.json og /data/organ/<key>.json (rutene
+// src/routes/data.*.ts, forhåndsrendret av vite.statisk.config.ts). Hvilken av
+// dem avgjøres ved bygget (src/lib/statisk.ts), ikke av en feil: en feil på
+// serveren er ekte og skal ikke skjules av en fil.
 //
 // Svarene huskes per nøkkel, så to seksjoner som ber om det samme, deler ett
-// kall, og en feil kan prøves igjen.
+// kall. En feil eller et tomt svar huskes ikke, så de kan prøves igjen.
 
 import { isNotFound, isRedirect, redirect } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
 
 import type { Kommuneside } from "@/lib/kommuneside";
+import { STATISK } from "@/lib/statisk";
 
 import type { OrganProfil } from "./kontrakt";
 
@@ -45,13 +47,6 @@ export const organprofilFn = createServerFn({ method: "GET" })
     return p ? tilSiden(p) : null;
   });
 
-/**
- * Sant i den statiske eksporten (satt av vite.statisk.config.ts), og når en
- * serverfunksjon har feilet i nettleseren på en måte som bare filen kunne
- * redde. Da går hentingen rett til filene.
- */
-let utenServer = import.meta.env["VITE_STATISK"] === "1";
-
 async function statisk<T>(sti: string): Promise<T | null> {
   const svar = await fetch(sti, { headers: { accept: "application/json" } });
   if (svar.status === 404) return null;
@@ -59,31 +54,27 @@ async function statisk<T>(sti: string): Promise<T | null> {
   return (await svar.json()) as T;
 }
 
-async function fraServerEllerFil<T>(kall: () => Promise<T>, fil: string): Promise<T | null> {
-  if (!utenServer) {
-    try {
-      return await kall();
-    } catch (feil) {
-      // Uten server er det ingenting å prøve igjen mot. Er det en server, er
-      // feilen ekte, og filen finnes heller ikke der.
-      utenServer = true;
-      try {
-        return await statisk<T>(fil);
-      } catch {
-        utenServer = false;
-        throw feil;
-      }
-    }
-  }
-  return statisk<T>(fil);
+function fraServerEllerFil<T>(kall: () => Promise<T>, fil: string): Promise<T | null> {
+  return STATISK ? statisk<T>(fil) : kall();
 }
 
-function husk<T>(minne: Map<string, Promise<T>>, nokkel: string, hent: () => Promise<T>) {
+function husk<T>(
+  minne: Map<string, Promise<T | null>>,
+  nokkel: string,
+  hent: () => Promise<T | null>,
+) {
   let p = minne.get(nokkel);
   if (!p) {
     p = hent();
     minne.set(nokkel, p);
-    p.catch(() => minne.delete(nokkel));
+    // Et tomt svar kan være forbigående, og kommunesiden prøver én gang til.
+    // Da må kallet gå på nytt, ikke få det huskede tomme svaret.
+    p.then(
+      (svar) => {
+        if (svar === null) minne.delete(nokkel);
+      },
+      () => minne.delete(nokkel),
+    );
   }
   return p;
 }

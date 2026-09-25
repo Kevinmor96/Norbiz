@@ -21,10 +21,22 @@ async function lesFil(kommunenr: string): Promise<Terrengfil | null> {
   return last ? await last() : null;
 }
 
-/** Kort avtrykk av stiene (FNV-1a), til adressen. */
+/**
+ * Kort avtrykk (FNV-1a) av alt som står i SVG-fila, til adressen. Fila caches
+ * som uforanderlig, så en endring i viewBox, tittel eller kote-id-er må også gi
+ * en ny adresse, ikke bare en endring i stiene.
+ */
 function avtrykk(t: Terrengfil): string {
   let h = 0x811c9dc5;
-  const tekst = t.hav + t.kyst.d + t.koter.map((k) => k.d).join("");
+  const tekst = [
+    t.bredde,
+    t.hoyde,
+    t.navn,
+    t.attribusjon,
+    t.hav,
+    t.kyst.d,
+    ...t.koter.map((k) => `${koteId(k.hoyde)} ${k.d}`),
+  ].join("\n");
   for (let i = 0; i < tekst.length; i++) h = Math.imul(h ^ tekst.charCodeAt(i), 0x01000193) >>> 0;
   return h.toString(36);
 }

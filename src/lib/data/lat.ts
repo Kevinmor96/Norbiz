@@ -147,14 +147,19 @@ export function lagLatLokal(kilde: Datakilde): LatDatalag {
     return d;
   }
 
+  // Indeksen er vanlige objekter fra JSON. Et oppslag på en nøkkel fra
+  // adressen må sjekke egne egenskaper: `constructor` og `__proto__` finnes på
+  // alle objekter og ga 500 i stedet for 404.
+  const egen = <T>(o: Record<string, T>, k: string): T | undefined =>
+    Object.hasOwn(o, k) ? o[k] : undefined;
   const slugFor = (ix: Dataindeks, kommunenr: string) =>
     ix.datasett.find((d) => d.meta.kommunenr === kommunenr)?.slug ?? null;
   const kommunefiler = (kommunenr: string) => (ix: Dataindeks) => {
     const slug = slugFor(ix, kommunenr);
-    return slug === null ? null : (ix.kommune[slug] ?? [slug]);
+    return slug === null ? null : (egen(ix.kommune, slug) ?? [slug]);
   };
   const organfiler = (key: string) => (ix: Dataindeks) => {
-    const her = ix.organ[key];
+    const her = egen(ix.organ, key);
     if (her) return her;
     const forste = ix.datasett.find((d) => d.organer.includes(key));
     return forste ? [forste.slug] : null;
@@ -187,7 +192,7 @@ export function lagLatLokal(kilde: Datakilde): LatDatalag {
     region_oversikt: async () => (await over(ingen))!.region_oversikt(),
     fylke_oversikt: (fylkesnr) =>
       med(
-        (ix) => ix.fylke[fylkesnr] ?? [],
+        (ix) => egen(ix.fylke, fylkesnr) ?? [],
         (d) => d.fylke_oversikt(fylkesnr),
         null,
       ),

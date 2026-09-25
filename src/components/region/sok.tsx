@@ -19,6 +19,7 @@ import type { RolleIOrgan, SokKommune, SokOrgan, Sokeresultat } from "@/lib/data
 import { normaliser, sokI, type Sokegrunnlag } from "@/lib/data/sok";
 import { antall } from "@/lib/format";
 import { NIVAANAVN } from "@/lib/navn";
+import { STATISK } from "@/lib/statisk";
 import { cn } from "@/lib/utils";
 
 import { offisielt } from "./navn";
@@ -33,7 +34,7 @@ export const sokServer = createServerFn({ method: "GET" })
     return sokIRegion(data.q, GRENSE);
   });
 
-/** Søkeindeksen fra den statiske eksporten, hentet én gang og bare når serveren mangler. */
+/** Søkeindeksen fra den statiske eksporten, hentet én gang, ved første søk. */
 let statiskIndeks: Promise<Sokegrunnlag> | null = null;
 async function sokStatisk(q: string): Promise<Sokeresultat> {
   statiskIndeks ??= fetch("/data/sokeindeks.json")
@@ -50,15 +51,12 @@ async function sokStatisk(q: string): Promise<Sokeresultat> {
 }
 
 /**
- * Søket over hele regionen: serverfunksjonen, og søkeindeksen fra den statiske
- * eksporten der det ikke finnes noen server. Kommunesøket bruker det samme.
+ * Søket over hele regionen: serverfunksjonen, og søkeindeksen i den statiske
+ * eksporten, som ikke har noen server. Kommunesøket bruker det samme. En feil
+ * på serveren vises som en feil; søkeindeksen finnes bare i eksporten.
  */
-export async function sokRegionen(q: string): Promise<Sokeresultat> {
-  try {
-    return await sokServer({ data: { q } });
-  } catch {
-    return sokStatisk(q);
-  }
+export function sokRegionen(q: string): Promise<Sokeresultat> {
+  return STATISK ? sokStatisk(q) : sokServer({ data: { q } });
 }
 
 type Treff =
