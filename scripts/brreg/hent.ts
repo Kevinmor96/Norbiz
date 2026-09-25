@@ -212,9 +212,12 @@ export function lesRoller(
   const ut: Rolle[] = [];
   let andre = 0;
   for (const gruppe of liste(j["rollegrupper"])) {
-    liste(obj(gruppe)?.["roller"]).forEach((r0, i) => {
+    // Et vasket svar har tatt bort de andre rollene og telt dem her.
+    andre += tall(obj(gruppe)?.["forkastet"]) ?? 0;
+    liste(obj(gruppe)?.["roller"]).forEach((r0, i0) => {
       const r = obj(r0);
       if (!r) return;
+      const i = tall(r["indeks"]) ?? i0;
       const kode = tekst(obj(r["type"])?.["kode"]);
       if (!kode || !(ROLLEKODER as readonly string[]).includes(kode)) {
         andre++;
@@ -299,7 +302,19 @@ function vaskAdresse(a: unknown): unknown {
 
 function vaskEnhetslik(e: J): J {
   const ut: J = { ...e };
-  for (const f of ["postadresse", "historiskeNavn", "telefon", "mobil", "epostadresse"]) delete ut[f];
+  // Adresser, kontaktdata, tidligere navn (et ENK bærer innehaverens navn) og
+  // fritekst om aktivitet og formål trengs ikke og lagres ikke.
+  for (const f of [
+    "postadresse",
+    "historiskeNavn",
+    "telefon",
+    "mobil",
+    "epostadresse",
+    "aktivitet",
+    "vedtektsfestetFormaal",
+    "paategninger",
+  ])
+    delete ut[f];
   for (const f of ["forretningsadresse", "beliggenhetsadresse"])
     if (f in ut) ut[f] = vaskAdresse(ut[f]);
   return ut;
@@ -321,7 +336,22 @@ export function vaskSvar(url: string, tekstSvar: string, salt: string): string {
   if (orgnr) {
     const o = obj(j);
     for (const gruppe of liste(o?.["rollegrupper"])) {
-      liste(obj(gruppe)?.["roller"]).forEach((r0, i) => {
+      const g = obj(gruppe);
+      if (!g) continue;
+      // Bare rollene Maktkart bruker, lagres. Kontaktpersoner, innehavere og
+      // andre persondata fra svaret skrives ikke til disk. Indeksen i gruppen
+      // beholdes som felt, fordi den inngår i pid-en til personer uten fødselsdato.
+      const roller = liste(g["roller"]);
+      roller.forEach((r0, i) => {
+        const r = obj(r0);
+        if (r && r["indeks"] === undefined) r["indeks"] = i;
+      });
+      g["roller"] = roller.filter((r0) =>
+        (ROLLEKODER as readonly string[]).includes(tekst(obj(obj(r0)?.["type"])?.["kode"]) ?? ""),
+      );
+      if (g["forkastet"] === undefined) g["forkastet"] = roller.length - liste(g["roller"]).length;
+      liste(g["roller"]).forEach((r0) => {
+        const i = tall(obj(r0)?.["indeks"]) ?? 0;
         const p = obj(obj(r0)?.["person"]);
         if (!p) return;
         const kode = tekst(obj(obj(r0)?.["type"])?.["kode"]) ?? "";
@@ -508,6 +538,8 @@ export interface HenteValg {
   /** Navn som slås opp. `grunnlag` = grunnlagets eget organ (null treff er da normalt). */
   navneoppslag: { navn: string; organisasjonsform?: string; grunnlag: boolean }[];
   regnskapOrgformer: string[];
+  /** Former som ikke tas inn (enkeltpersonforetak o.l.). Roller og regnskap hentes ikke for dem. */
+  hoppOrgformer: string[];
   rollerForOverordnede: boolean;
   /** Sensitive enheter får bare daglig leder med seg allerede her. */
   erSensitiv: (navn: string, naering: Naering[]) => boolean;
@@ -640,6 +672,7 @@ export async function hentKommune(http: Http, v: HenteValg): Promise<Oyeblikksbi
   }
   for (const orgnr of medRoller.sort()) {
     const e = bilde.enheter[orgnr];
+    if (e && v.hoppOrgformer.includes(e.orgform)) continue;
     const { status, json } = await hentJson(http, `${BRREG.enheter}/${orgnr}/roller`);
     if (status === 404 || status === 410) {
       bilde.roller[orgnr] = [];

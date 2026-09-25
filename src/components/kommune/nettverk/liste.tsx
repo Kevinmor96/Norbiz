@@ -8,11 +8,14 @@
 
 import { useState } from "react";
 
-import { Pastand } from "@/components/maktkart/kildemerke";
+import { Kildemerke, Pastand } from "@/components/maktkart/kildemerke";
+import { OrganLenke } from "@/components/organ/organ-skuff";
 import type { RolleIOrgan, Rollestatus } from "@/lib/data";
-import { antall } from "@/lib/format";
+import { antall, splittSisteOrd } from "@/lib/format";
 import type { Grafmodell } from "@/lib/graf/modell";
 import { cn } from "@/lib/utils";
+
+import { LENKESTIL } from "../pengene/felles";
 
 const STATUS: Record<Rollestatus, string | null> = {
   fast: null,
@@ -25,10 +28,43 @@ const STATUS: Record<Rollestatus, string | null> = {
 /** Hvor mange personer lista viser om gangen. */
 const SIDE = 24;
 
+const tilleggAv = (r: RolleIOrgan) => [r.parti, STATUS[r.status]].filter(Boolean).join(", ");
+
 /** «Styreleder i Grøtsund Industripark AS», «Fylkesordfører i Fylkestinget, Ap, i permisjon». */
 function rolletekst(r: RolleIOrgan): string {
-  const tillegg = [r.parti, STATUS[r.status]].filter(Boolean).join(", ");
+  const tillegg = tilleggAv(r);
   return `${r.tittel} i ${r.org.navn}${tillegg ? `, ${tillegg}` : ""}`;
+}
+
+/**
+ * Rollen som tekst, med organet som lenke til skuffen og kildemerket bundet
+ * til siste ord. Står organet sist, bindes merket til siste ord i navnet: den
+ * ytre spennen brytes ikke, den indre (resten av navnet) brytes som vanlig.
+ */
+function Rolletekst({ r, person }: { r: RolleIOrgan; person: string }) {
+  const tillegg = tilleggAv(r);
+  const pastand = `${person}: ${rolletekst(r)}`;
+  if (tillegg) {
+    return (
+      <>
+        {r.tittel} i <OrganLenke org={r.org} className={LENKESTIL} />
+        <Pastand tekst={`, ${tillegg}`} belegg={r.belegg} pastand={pastand} />
+      </>
+    );
+  }
+  const [foran, siste] = splittSisteOrd(r.org.navn);
+  return (
+    <>
+      {r.tittel} i{" "}
+      <span className="whitespace-nowrap">
+        <OrganLenke org={r.org} className={LENKESTIL}>
+          <span className="whitespace-normal">{foran}</span>
+          {siste}
+        </OrganLenke>
+        <Kildemerke belegg={r.belegg} pastand={pastand} />
+      </span>
+    </>
+  );
 }
 
 export function Personliste({
@@ -79,11 +115,7 @@ export function Personliste({
             <ul className="flex flex-col gap-1 text-[0.875rem] leading-[1.45]">
               {p.roller.map((r) => (
                 <li key={`${r.org.key}-${r.rolletype}-${r.tittel}`} className="text-pretty">
-                  <Pastand
-                    tekst={rolletekst(r)}
-                    belegg={r.belegg}
-                    pastand={`${p.person.navn}: ${rolletekst(r)}`}
-                  />
+                  <Rolletekst r={r} person={p.person.navn} />
                 </li>
               ))}
             </ul>

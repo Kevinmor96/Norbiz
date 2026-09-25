@@ -150,11 +150,17 @@ for (const { slug, data: d } of filer) {
         expect(kilder.has(b.kilde), `${hvor}: ${b.kilde}`).toBe(true);
     });
 
-    it("har ingenting verifisert: verifisert krever pipelinens tidsstempel, og datasettet har ingen", () => {
-      // Belegg i JSON har ikke noe felt for når påstanden ble hentet. Bare
-      // pipelinen kan sette `verifisert`, og da med `hentet` i basen.
-      const verifisert = alleBelegg(d).filter(({ b }) => b.verifisering === "verifisert");
-      expect(verifisert.map((x) => x.hvor)).toEqual([]);
+    it("har verifisert bare fra pipelinen: en registerkilde og hentedatoen i per", () => {
+      // Bare pipelinen (scripts/brreg.ts) kan sette `verifisert`, og da med
+      // hentedatoen som full dato i `per`. Seed-en gjør den til `hentet` i
+      // basen. En håndført påstand er aldri verifisert.
+      const type = new Map(d.kilder.map((k) => [k.key, k.type]));
+      const brudd = alleBelegg(d).filter(
+        ({ b }) =>
+          b.verifisering === "verifisert" &&
+          (type.get(b.kilde) !== "register" || !/^\d{4}-\d{2}-\d{2}$/.test(b.per ?? "")),
+      );
+      expect(brudd.map((x) => x.hvor)).toEqual([]);
     });
 
     it("har aldri mer enn maa_verifiseres fra en sekundærkilde (Proff, Purehelp)", () => {

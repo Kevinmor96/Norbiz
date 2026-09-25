@@ -25,7 +25,8 @@ import { MargIndeks } from "@/components/maktkart/marg-indeks";
 import { Sidefot } from "@/components/maktkart/sidefot";
 import { Tegnforklaring } from "@/components/maktkart/tegnforklaring";
 import { Topplinje } from "@/components/maktkart/topplinje";
-import { datoKort, lesbarDypt, tall } from "@/lib/format";
+import { datoKort, tall } from "@/lib/format";
+import { tilSiden } from "@/lib/nyttelast";
 import { nettstedUrl } from "@/lib/nettsted";
 
 const TITTEL = "Metode og personvern | Maktkart";
@@ -70,8 +71,8 @@ export const Route = createFileRoute("/metode")({
     )
       .filter((d): d is NonNullable<typeof d> => d !== null)
       .sort((a, b) => b.oversikt.dekning.organer - a.oversikt.dekning.organer);
-    // Svaret serialiseres inn i HTML-en. «[verifiser]» skal ikke stå der heller.
-    return lesbarDypt({ datasett });
+    // Svaret serialiseres inn i HTML-en. Se src/lib/nyttelast.ts.
+    return tilSiden({ datasett });
   },
   head: () => {
     const url = nettstedUrl("/metode");

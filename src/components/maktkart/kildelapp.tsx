@@ -70,7 +70,8 @@ export const MERKENE_ANKER = "merkene";
 function metodeLenke(): string {
   if (typeof document === "undefined") return `/metode#${MERKENE_ANKER}`;
   if (document.getElementById("metode")) return "#metode";
-  if (document.getElementById(MERKENE_ANKER)) return `#${MERKENE_ANKER}`;
+  // Stien og ikke id-en avgjør: forsiden har også en del som heter #merkene.
+  if (window.location.pathname.replace(/\/+$/, "") === "/metode") return `#${MERKENE_ANKER}`;
   return `/metode#${MERKENE_ANKER}`;
 }
 

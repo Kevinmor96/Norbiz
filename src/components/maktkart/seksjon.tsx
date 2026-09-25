@@ -67,6 +67,11 @@ export function Seksjon({
   );
 }
 
+/**
+ * Knappen som kopierer lenken til seksjonen. Den negative bunnmargen gjør at
+ * knappen aldri er høyere enn én tittellinje, så avstanden fra tittel til
+ * ingress er lik i alle seksjoner, også når tittelen får plass på én linje.
+ */
 function LenkeKnapp({ id }: { id: string }) {
   const [kopiert, settKopiert] = useState(false);
   const timer = useRef<number | undefined>(undefined);
@@ -89,7 +94,7 @@ function LenkeKnapp({ id }: { id: string }) {
           // Utklippstavlen kan være blokkert. Adressen i feltet er da lenken.
         }
       }}
-      className="relative mt-[0.35em] inline-grid size-7 shrink-0 place-items-center border border-transparent text-dempet transition-colors duration-150 hover:border-linje-sterk hover:text-trykk"
+      className="relative mt-[0.35em] -mb-[0.35em] inline-grid size-7 shrink-0 place-items-center border border-transparent text-dempet transition-colors duration-150 hover:border-linje-sterk hover:text-trykk"
     >
       <Link2 className="size-4" aria-hidden="true" />
       <span

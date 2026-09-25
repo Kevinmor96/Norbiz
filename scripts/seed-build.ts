@@ -72,12 +72,15 @@ const cmp = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
 const sortertPaa = <T>(kart: Map<string, T>): [string, T][] =>
   [...kart].sort(([a], [b]) => cmp(a, b));
 
-const BELEGG_KOLONNER = ["kilde_id", "verifisering", "per", "merknad"];
+const BELEGG_KOLONNER = ["kilde_id", "verifisering", "per", "merknad", "hentet"];
 const belegg = (b: Belegg) => [
   id("kilde", b.kilde),
   tekst(b.verifisering),
   tekst(b.per),
   tekst(b.merknad),
+  // Bare pipelinen (scripts/brreg.ts) setter `verifisert`, og da med
+  // hentedatoen i `per`. Basen krever `hentet` på hver verifisert rad.
+  b.verifisering === "verifisert" ? `${tekst(`${b.per ?? ""}T00:00:00Z`)}::timestamptz` : "null",
 ];
 
 /**
@@ -114,7 +117,9 @@ function insert(tabell: string, kolonner: string[], rader: string[][]): string {
   ].join("\n");
 }
 
-const ikkeVerifisert = (tabell: string) => `${tabell}.verifisering <> 'verifisert'`;
+/** En verifisert rad overskrives bare av en påstand som er hentet samme dag eller senere. */
+const ikkeVerifisert = (tabell: string) =>
+  `${tabell}.verifisering <> 'verifisert' or excluded.hentet >= ${tabell}.hentet`;
 
 // ---------------------------------------------------------------------------
 // Seed-en

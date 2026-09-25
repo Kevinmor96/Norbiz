@@ -155,8 +155,9 @@ const GJENSTAND: Record<string, string> = {
  *   «[verifiser via X]» ellers                                       → ««må verifiseres» mot X»
  *
  * Bruk den på all fritekst fra datasettet: merknader, hull, titler og
- * beskrivelser. Loaderne kjører `lesbarDypt` på alt de sender til siden, så
- * merket heller ikke står i den serialiserte tilstanden i HTML-en.
+ * beskrivelser. Loaderne kjører `tilSiden` (src/lib/nyttelast.ts) på alt de
+ * sender til siden, så merket heller ikke står i den serialiserte tilstanden
+ * i HTML-en.
  */
 export function lesbar(tekst: string): string {
   if (!tekst.includes("[")) return tekst;
@@ -205,38 +206,6 @@ export function hentesFra(tekst: string): string | null {
     /\bHentes fra (.+?)(?:\.(?=\s+[A-ZÆØÅ«])|\.?$)/.exec(t) ??
     /\bmå verifiseres»? (?:mot|i) (.+?)(?:\.(?=\s+[A-ZÆØÅ«])|[,;]|\.?$)/i.exec(t);
   return m ? m[1]!.trim() : null;
-}
-
-/**
- * `lesbar` på hver streng i et svar fra datalaget, uten å endre svaret selv.
- * Loaderne bruker den, fordi alt en loader returnerer, serialiseres inn i
- * HTML-en, og der leser både søkemotorer og «vis kilde».
- *
- * Et objekt som står flere steder i svaret, blir ett objekt i kopien også.
- * Serialiseringen skriver et delt objekt bare én gang, og en kopi per
- * forekomst ville gjort HTML-en større.
- */
-export function lesbarDypt<T>(verdi: T): T {
-  const sett = new WeakMap<object, unknown>();
-  const gaa = (v: unknown): unknown => {
-    if (typeof v === "string") return lesbar(v);
-    if (v === null || typeof v !== "object") return v;
-    const kjent = sett.get(v);
-    if (kjent !== undefined) return kjent;
-    if (Array.isArray(v)) {
-      const ut: unknown[] = [];
-      sett.set(v, ut);
-      for (const x of v) ut.push(gaa(x));
-      return ut;
-    }
-    // Bare vanlige objekter. Datoer, Map og klasser slippes gjennom urørt.
-    if (Object.getPrototypeOf(v) !== Object.prototype) return v;
-    const ut: Record<string, unknown> = {};
-    sett.set(v, ut);
-    for (const [k, x] of Object.entries(v)) ut[k] = gaa(x);
-    return ut;
-  };
-  return gaa(verdi) as T;
 }
 
 /**

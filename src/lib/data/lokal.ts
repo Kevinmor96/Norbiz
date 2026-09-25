@@ -179,8 +179,11 @@ export function lagLokal(s: Samling): Datalag {
     verifisering: b.verifisering,
     per: b.per ?? null,
     merknad: b.merknad ?? null,
-    // Datasettet har ingen tidsstempel. Bare pipelinen setter `hentet`, i basen.
-    hentet: null,
+    // Datasettet har ingen egen kolonne for når påstanden ble hentet. Bare
+    // pipelinen (scripts/brreg.ts) setter `verifisert`, og da med hentedatoen i
+    // `per`. Seed-en skriver den som `hentet` kl. 00:00 UTC, og dette er formen
+    // Postgres gir en timestamptz i jsonb når tidssonen er UTC (Supabase, PGlite).
+    hentet: b.verifisering === "verifisert" && b.per ? `${b.per}T00:00:00+00:00` : null,
   });
   const organRef = (key: string): OrganRef => {
     const o = org(key);

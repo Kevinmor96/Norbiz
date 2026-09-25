@@ -316,8 +316,11 @@ function tegn(kommunenr: string, u: Utsnitt): Terreng {
       .map((linje) => ({ linje, lukket: true })),
     skala,
   );
-  const kyst = linjesett(havringer, b, h, skala);
-  if (!kyst) throw new Error(`${u.navn}: fant ingen kystlinje i utsnittet`);
+  // Innlandskommuner (Karasjok, Kautokeino) har ikke hav i utsnittet. Da er
+  // havet og kystlinjen tomme stier, og kartbladet tegner bare kotene. Et
+  // utsnitt uten land er derimot et feil utsnitt.
+  if (maks <= KYST) throw new Error(`${u.navn}: utsnittet er bare hav`);
+  const kyst = linjesett(havringer, b, h, skala) ?? { d: "", lengde: 0 };
 
   const nivaaer: number[] = [];
   for (let n = EKVIDISTANSE; n < maks; n += EKVIDISTANSE) nivaaer.push(n);

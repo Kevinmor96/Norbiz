@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "kommunenr": "9998",
+    "kommune": "Fiskvik",
+    "fylkesnr": "99",
+    "fylke": "Fiktivfylket",
+    "sammenstilt": "2026-09-24",
+    "grunnlag": "tests/fixtures/brreg/fiskvik/datasett.json",
+    "merknad": "Oppdiktet grunnlag for testene av Brreg-importen. Ingenting her er fakta."
+  },
+  "kilder": [
+    { "key": "testgrunnlag", "navn": "Fiktivt researchgrunnlag", "type": "sekundaer" },
+    { "key": "fiskvik-kommune-no", "navn": "Fiskvik kommune (fiktiv nettside)", "type": "offisiell" },
+    { "key": "purehelp", "navn": "Purehelp", "url": "https://www.purehelp.no", "type": "sekundaer" }
+  ],
+  "organisasjoner": [
+    {
+      "key": "fiskvik-kommune",
+      "orgnr": "999000001",
+      "navn": "Fiskvik kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "9998",
+      "fylkesnr": "99",
+      "myndighet": ["vedtak", "eierskap"],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Oppdiktet kommune for tester.",
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" }
+    },
+    {
+      "key": "fiskvik-kommunestyre",
+      "navn": "Fiskvik kommunestyre",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "fiskvik-kommune",
+      "kommunenr": "9998",
+      "myndighet": ["vedtak"],
+      "segmenter": [],
+      "antall_medlemmer": 27,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Øverste folkevalgte organ i den oppdiktede kommunen.",
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" }
+    },
+    {
+      "key": "fiskvik-administrasjonen",
+      "navn": "Administrasjonen i Fiskvik kommune",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "fiskvik-kommune",
+      "kommunenr": "9998",
+      "myndighet": ["innstilling"],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Forbereder sakene for kommunestyret.",
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" }
+    },
+    {
+      "key": "fiskvik-havfiske",
+      "orgnr": "999100001",
+      "navn": "Fiskvik Havfiske AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": ["sjomat"],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Oppdiktet fiskebåtrederi.",
+      "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2026-09" }
+    },
+    {
+      "key": "fiskvik-sparebank",
+      "navn": "Fiskvik Sparebank",
+      "nivaa": "privat",
+      "organtype": "sparebank",
+      "myndighet": ["finansiering"],
+      "segmenter": ["finans"],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Oppdiktet lokal sparebank.",
+      "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2026-09" }
+    },
+    {
+      "key": "fiskvik-tingrett",
+      "navn": "Fiskvik tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "myndighet": ["vedtak"],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Oppdiktet tingrett.",
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" }
+    },
+    {
+      "key": "nordvik-kraft",
+      "orgnr": "999100007",
+      "navn": "Nordvik Kraft AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": ["eierskap"],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Oppdiktet kraftselskap med få ansatte i morselskapet.",
+      "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2026-09" }
+    },
+    {
+      "key": "fiskvik-havn-kf",
+      "orgnr": "999100099",
+      "navn": "Fiskvik Havn KF",
+      "nivaa": "kommune",
+      "organtype": "KF",
+      "overordnet": "fiskvik-kommune",
+      "kommunenr": "9998",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Oppdiktet havnevesen med et orgnr registeret ikke kjenner.",
+      "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2026-09" }
+    }
+  ],
+  "personer": [
+    { "key": "kari-kommunesen", "navn": "Kari Kommunesen" },
+    { "key": "per-fisker", "navn": "Per Fisker" },
+    { "key": "olga-styrmann", "navn": "Olga Styrmann" },
+    { "key": "jon-hansen", "navn": "Jon Hansen" },
+    { "key": "tore-tekst", "navn": "Tore Tekst" },
+    { "key": "dina-dommer", "navn": "Dina Dommer" }
+  ],
+  "roller": [
+    {
+      "org": "fiskvik-administrasjonen",
+      "person": "kari-kommunesen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" }
+    },
+    {
+      "org": "fiskvik-havfiske",
+      "person": "per-fisker",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2026-09", "merknad": "Grunnlaget oppgir ikke kilde for dette." }
+    },
+    {
+      "org": "fiskvik-havfiske",
+      "person": "olga-styrmann",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2025" }
+    },
+    {
+      "org": "fiskvik-kommunestyre",
+      "person": "jon-hansen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" }
+    },
+    {
+      "org": "fiskvik-kommunestyre",
+      "person": "tore-tekst",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" }
+    },
+    {
+      "org": "fiskvik-tingrett",
+      "person": "dina-dommer",
+      "tittel": "Sorenskriver",
+      "rolletype": "dommer_leder",
+      "status": "fast",
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" }
+    }
+  ],
+  "relasjoner": [
+    { "fra": "fiskvik-kommunestyre", "til": "fiskvik-kommune", "type": "overordnet", "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" } },
+    { "fra": "fiskvik-administrasjonen", "til": "fiskvik-kommune", "type": "overordnet", "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" } },
+    { "fra": "fiskvik-havn-kf", "til": "fiskvik-kommune", "type": "overordnet", "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" } },
+    { "fra": "fiskvik-kommune", "til": "fiskvik-havfiske", "type": "eier", "andel": 30, "belegg": { "kilde": "purehelp", "verifisering": "maa_verifiseres", "per": "2025" } }
+  ],
+  "nokkeltall": [
+    { "org": "fiskvik-havfiske", "aar": 2025, "type": "omsetning", "verdi": 412000000, "enhet": "NOK", "belegg": { "kilde": "purehelp", "verifisering": "maa_verifiseres", "per": "2025", "merknad": "Må verifiseres mot Regnskapsregisteret." } },
+    { "org": "fiskvik-havfiske", "aar": 2025, "type": "egenkapital", "verdi": 90000000, "enhet": "NOK", "konsern": false, "belegg": { "kilde": "purehelp", "verifisering": "maa_verifiseres", "per": "2025" } },
+    { "org": "nordvik-kraft", "aar": 2025, "type": "aarsresultat", "verdi": 55000000, "enhet": "NOK", "konsern": true, "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2025" } },
+    { "org": "nordvik-kraft", "aar": 2024, "type": "omsetning", "verdi": 700000000, "enhet": "NOK", "konsern": true, "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2024" } }
+  ],
+  "hendelser": [
+    {
+      "dato": "2025-06",
+      "presisjon": "maaned",
+      "type": "rollebytte",
+      "tittel": "Tore Tekst blir varaordfører",
+      "org": "fiskvik-kommunestyre",
+      "personer": ["tore-tekst"],
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2025-06" }
+    }
+  ],
+  "prosesser": [],
+  "segmenter": [
+    { "kode": "sjomat", "navn": "Sjømat, fiskeri og havbruk" },
+    { "kode": "finans", "navn": "Finans" }
+  ],
+  "org_segment": [
+    { "org": "fiskvik-havfiske", "segment": "sjomat", "styrke": 3 },
+    { "org": "fiskvik-sparebank", "segment": "finans", "styrke": 3 }
+  ],
+  "hull": []
+}
