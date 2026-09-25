@@ -7,7 +7,7 @@ import { Link } from "@tanstack/react-router";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
-import { ForhandsversjonTopp } from "./forhandsversjon";
+import { ForhandsversjonTopp, type Forhandsvarsel } from "./forhandsversjon";
 
 /** Ordmerket: en kartramme med kystlinje og kote. Ingen signalfarge, den er for kjeden. */
 export function Kartmerke({ className }: { className?: string }) {
@@ -47,13 +47,19 @@ export function Kartmerke({ className }: { className?: string }) {
 export function Topplinje({
   kommune,
   sammenstilt,
+  varsel,
   metodeHref = "/metode",
   proHref = "/pro",
 }: {
-  /** Kommunen siden handler om. Utelates på sider som ikke gjelder én kommune. */
-  kommune?: { navn: string; kommunenr: string } | null;
-  /** `YYYY-MM-DD`. Uten dato vises ikke forhåndsversjonen i topplinjen. */
+  /** Kommunen eller fylket siden handler om. Utelates på sider som ikke gjelder ett sted. */
+  kommune?: { navn: string; kommunenr: string; nummertekst?: string } | null;
+  /**
+   * `YYYY-MM-DD`. Uten dato og uten `varsel` vises ikke forhåndsversjonen i
+   * topplinjen. Setningen regnes fra gradene (se forhandsversjon.tsx).
+   */
   sammenstilt?: string | null;
+  /** Forhåndsvarselet siden har regnet fra gradene. */
+  varsel?: Forhandsvarsel | null;
   metodeHref?: string;
   proHref?: string;
 }) {
@@ -78,21 +84,18 @@ export function Topplinje({
           <p className="flex min-w-0 items-baseline gap-2 border-l border-linje pl-4 whitespace-nowrap">
             <b className="truncate font-semibold">{kommune.navn}</b>
             <span className="text-[0.875rem] text-dempet max-sm:hidden">
-              kommunenr. {kommune.kommunenr}
+              {kommune.nummertekst ?? `kommunenr. ${kommune.kommunenr}`}
             </span>
           </p>
         )}
-        {sammenstilt && (
-          <ForhandsversjonTopp
-            sammenstilt={sammenstilt}
-            className="ml-auto max-w-[27rem] max-marg:hidden"
-          />
+        {(sammenstilt || varsel) && (
+          <ForhandsversjonTopp varsel={varsel} className="ml-auto max-w-[27rem] max-marg:hidden" />
         )}
         <nav
           aria-label="Hovedmeny"
           className={cn(
             "flex gap-5 text-[0.9375rem] max-md:hidden",
-            sammenstilt ? "max-marg:ml-auto" : "ml-auto",
+            sammenstilt || varsel ? "max-marg:ml-auto" : "ml-auto",
           )}
         >
           <a href={metodeHref} className="no-underline hover:underline hover:decoration-signal">

@@ -39,6 +39,7 @@ export function Tegnforklaring({
   tittel,
   overskrift: Overskrift = "h2",
   telling,
+  visTall = true,
   className,
 }: {
   form?: "kompakt" | "full";
@@ -47,6 +48,12 @@ export function Tegnforklaring({
   overskrift?: "h2" | "h3" | undefined;
   /** Overstyrer tellingene fra KommuneKontekst. */
   telling?: Verifiseringstelling | undefined;
+  /**
+   * Av på sider som spenner over flere datasett som ikke kan summeres (forsiden
+   * for hele regionen): en påstand om Statsforvalteren står i mange kommuner.
+   * Da står gradene uten tall, og tallene står på fylkes- og kommunesidene.
+   */
+  visTall?: boolean | undefined;
   className?: string | undefined;
 }) {
   const kommune = useKommune();
@@ -83,15 +90,19 @@ export function Tegnforklaring({
               <span className="text-[0.875rem] leading-[1.45] text-dempet text-pretty">
                 {GRADER[g].lang}
               </span>
-              <span className="mt-auto pt-1 text-[0.8125rem] font-semibold tabular-nums">
-                {antall(t[g], "påstand", "påstander")}
-              </span>
+              {visTall && (
+                <span className="mt-auto pt-1 text-[0.8125rem] font-semibold tabular-nums">
+                  {antall(t[g], "påstand", "påstander")}
+                </span>
+              )}
             </>
           ) : (
             <>
               <MerkeSymbol grad={g} storrelse={14} className={GRADFARGE[g]} />
               <span className="text-[0.9375rem] font-semibold">{GRADER[g].navn}</span>
-              <span className="text-[0.8125rem] text-dempet tabular-nums">{tall(t[g])}</span>
+              <span className="text-[0.8125rem] text-dempet tabular-nums">
+                {visTall ? tall(t[g]) : ""}
+              </span>
               <span className="col-span-2 col-start-2 text-[0.75rem] leading-[1.35] text-dempet">
                 {GRADER[g].kort}
               </span>
@@ -117,7 +128,7 @@ export function Tegnforklaring({
           </p>
         )}
         {grader}
-        <Filtermelding telling={t} />
+        <Filtermelding telling={visTall ? t : null} />
       </div>
       {full && <Kildetyper />}
       {full && <Symbolforklaring full />}
@@ -126,15 +137,21 @@ export function Tegnforklaring({
 }
 
 /** «Viser må verifiseres: 143 merker. Vis alle». Står alltid i DOM-en, så skjermlesere hører endringen. */
-function Filtermelding({ telling }: { telling: Verifiseringstelling }) {
+function Filtermelding({ telling }: { telling: Verifiseringstelling | null }) {
   const { filter, settFilter } = useKildefilter();
   return (
     <p aria-live="polite" className="text-[0.8125rem] leading-[1.4]">
       {filter ? (
         <span className="block border border-dashed border-kote bg-papir px-2.5 py-2">
-          Viser {GRADER[filter].navn.toLowerCase()}:{" "}
-          <b className="font-semibold">{antall(telling[filter], "merke", "merker")}</b>.{" "}
-          {telling[filter] === 0 && "Ingen påstand har denne graden ennå. "}
+          Viser {GRADER[filter].navn.toLowerCase()}
+          {telling ? (
+            <>
+              : <b className="font-semibold">{antall(telling[filter], "merke", "merker")}</b>.{" "}
+              {telling[filter] === 0 && "Ingen påstand har denne graden ennå. "}
+            </>
+          ) : (
+            ". "
+          )}
           <button
             type="button"
             onClick={() => settFilter(null)}

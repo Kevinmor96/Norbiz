@@ -1,0 +1,1452 @@
+{
+  "meta": {
+    "kommunenr": "1834",
+    "kommune": "Lurøy",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "luroy-kommunestyre",
+      "navn": "Kommunestyret i Lurøy",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "luroy-kommune",
+      "kommunenr": "1834",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "helgeland-trafikkselskap",
+      "orgnr": "998450640",
+      "navn": "Helgeland Trafikkselskap AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-05-25",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "kvaroy-fiskeoppdrett-a-s",
+      "orgnr": "947672134",
+      "navn": "Kvarøy Fiskeoppdrett A/S",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1988-07-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "lovundlaks",
+      "orgnr": "940333067",
+      "navn": "Lovundlaks AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1986-09-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.300 «Tjenester tilknyttet fiske, fangst og akvakultur».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "luroy-kommune",
+      "orgnr": "940667852",
+      "navn": "Lurøy Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "luroy-kommune-helse-sosial-og-omsorgsetat",
+      "orgnr": "976972619",
+      "navn": "Lurøy Kommune Helse-, Sosial- og Omsorgsetat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1996-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "luroy-kommune-oppvekstetaten",
+      "orgnr": "974790351",
+      "navn": "Lurøy Kommune Oppvekstetaten",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "luroy-kommune-teknisk-etat",
+      "orgnr": "974791455",
+      "navn": "Lurøy Kommune Teknisk Etat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "luroyveiding",
+      "orgnr": "974379066",
+      "navn": "Lurøyveiding AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1995-03-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.110 «Fiske og fangst i sjø».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "momek-akva-service",
+      "orgnr": "926425048",
+      "navn": "Momek Akva Service AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2020-11-30",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nova-sea",
+      "orgnr": "961056268",
+      "navn": "Nova Sea AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1991-04-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sleneset-aqua-service",
+      "orgnr": "920637795",
+      "navn": "Sleneset Aqua Service AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2018-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.300 «Tjenester tilknyttet fiske, fangst og akvakultur».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "aleksander-saetern",
+      "navn": "Aleksander Sætern"
+    },
+    {
+      "key": "alf-goran-knutsen",
+      "navn": "Alf Gøran Knutsen"
+    },
+    {
+      "key": "anders-bjerke",
+      "navn": "Anders Bjerke"
+    },
+    {
+      "key": "asgeir-nergard",
+      "navn": "Asgeir Nergård"
+    },
+    {
+      "key": "benjamin-aspmodal-juberg",
+      "navn": "Benjamin Aspmodal Juberg"
+    },
+    {
+      "key": "brynjulf-kristensen",
+      "navn": "Brynjulf Kristensen"
+    },
+    {
+      "key": "camilla-therese-anbakk-riber",
+      "navn": "Camilla Therese Anbakk Riber"
+    },
+    {
+      "key": "cecilia-anna-jufors",
+      "navn": "Cecilia Anna Jufors"
+    },
+    {
+      "key": "christian-krogh-gangsoy",
+      "navn": "Christian Krogh Gangsøy"
+    },
+    {
+      "key": "dag-selnes-johansen",
+      "navn": "Dag Selnes Johansen"
+    },
+    {
+      "key": "egil-horstad",
+      "navn": "Egil Horstad"
+    },
+    {
+      "key": "egil-kristoffer-thomassen-fjellgaard",
+      "navn": "Egil Kristoffer Thomassen Fjellgaard"
+    },
+    {
+      "key": "gaute-hilling",
+      "navn": "Gaute Hilling"
+    },
+    {
+      "key": "gjermund-olsen",
+      "navn": "Gjermund Olsen"
+    },
+    {
+      "key": "havard-olsen",
+      "navn": "Håvard Olsen"
+    },
+    {
+      "key": "ida-knutsen",
+      "navn": "Ida Knutsen"
+    },
+    {
+      "key": "inger-helene-nitteberg-nordstad",
+      "navn": "Inger Helene Nitteberg Nordstad"
+    },
+    {
+      "key": "ingri-marie-sivertsen",
+      "navn": "Ingri Marie Sivertsen"
+    },
+    {
+      "key": "ingrid-johanne-bjorlo-nygaard",
+      "navn": "Ingrid Johanne Bjørlo Nygaard"
+    },
+    {
+      "key": "jacob-palmer-meland",
+      "navn": "Jacob Palmer Meland"
+    },
+    {
+      "key": "jorgen-aakre",
+      "navn": "Jørgen Aakre"
+    },
+    {
+      "key": "julie-anne-olvik",
+      "navn": "Julie-Anne Olvik"
+    },
+    {
+      "key": "kjersti-jonassen-eikeseth",
+      "navn": "Kjersti Jonassen Eikeseth"
+    },
+    {
+      "key": "knut-erik-edvardsen",
+      "navn": "Knut Erik Edvardsen"
+    },
+    {
+      "key": "kristian-botnen",
+      "navn": "Kristian Botnen"
+    },
+    {
+      "key": "ola-trygve-gjortz",
+      "navn": "Ola Trygve Gjørtz"
+    },
+    {
+      "key": "olav-soleide",
+      "navn": "Olav Soleide"
+    },
+    {
+      "key": "ole-aleksander-hovd",
+      "navn": "Ole-Aleksander Hovd"
+    },
+    {
+      "key": "orjan-halnes",
+      "navn": "Ørjan Halnes"
+    },
+    {
+      "key": "orjan-mortveit-tveiten",
+      "navn": "Ørjan Mortveit Tveiten"
+    },
+    {
+      "key": "robert-kristiansen-blomso",
+      "navn": "Robert Kristiansen Blomsø"
+    },
+    {
+      "key": "roger-skatland",
+      "navn": "Roger Skatland"
+    },
+    {
+      "key": "ronny-ostrem-pedersen",
+      "navn": "Ronny Østrem Pedersen"
+    },
+    {
+      "key": "rose-mari-berge",
+      "navn": "Rose-Mari Berge"
+    },
+    {
+      "key": "roy-ketil-markussen",
+      "navn": "Roy Ketil Markussen"
+    },
+    {
+      "key": "runar-fjellgaard",
+      "navn": "Runar Fjellgaard"
+    },
+    {
+      "key": "stian-kyrre-skjaervik",
+      "navn": "Stian Kyrre Skjærvik"
+    }
+  ],
+  "roller": [
+    {
+      "org": "helgeland-trafikkselskap",
+      "person": "anders-bjerke",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-trafikkselskap",
+      "person": "knut-erik-edvardsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-trafikkselskap",
+      "person": "robert-kristiansen-blomso",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-trafikkselskap",
+      "person": "robert-kristiansen-blomso",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "person": "alf-goran-knutsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "person": "gjermund-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "person": "havard-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "person": "ida-knutsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "person": "ingri-marie-sivertsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "person": "julie-anne-olvik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "person": "kristian-botnen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "person": "runar-fjellgaard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lovundlaks",
+      "person": "ingrid-johanne-bjorlo-nygaard",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lovundlaks",
+      "person": "jacob-palmer-meland",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lovundlaks",
+      "person": "jorgen-aakre",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lovundlaks",
+      "person": "roy-ketil-markussen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "luroy-kommune-helse-sosial-og-omsorgsetat",
+      "person": "stian-kyrre-skjaervik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "luroy-kommune-oppvekstetaten",
+      "person": "stian-kyrre-skjaervik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "luroy-kommune-teknisk-etat",
+      "person": "stian-kyrre-skjaervik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "luroy-kommune",
+      "person": "stian-kyrre-skjaervik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "luroyveiding",
+      "person": "dag-selnes-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "luroyveiding",
+      "person": "egil-horstad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "luroyveiding",
+      "person": "rose-mari-berge",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "luroyveiding",
+      "person": "rose-mari-berge",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-akva-service",
+      "person": "alf-goran-knutsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-akva-service",
+      "person": "gaute-hilling",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-akva-service",
+      "person": "ole-aleksander-hovd",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-akva-service",
+      "person": "roger-skatland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-akva-service",
+      "person": "ronny-ostrem-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "asgeir-nergard",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "benjamin-aspmodal-juberg",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "brynjulf-kristensen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "camilla-therese-anbakk-riber",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "cecilia-anna-jufors",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "christian-krogh-gangsoy",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "egil-kristoffer-thomassen-fjellgaard",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "inger-helene-nitteberg-nordstad",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "kjersti-jonassen-eikeseth",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "olav-soleide",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "orjan-halnes",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "orjan-mortveit-tveiten",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nova-sea",
+      "person": "orjan-mortveit-tveiten",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sleneset-aqua-service",
+      "person": "aleksander-saetern",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sleneset-aqua-service",
+      "person": "ola-trygve-gjortz",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sleneset-aqua-service",
+      "person": "olav-soleide",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sleneset-aqua-service",
+      "person": "orjan-mortveit-tveiten",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sleneset-aqua-service",
+      "person": "runar-fjellgaard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "luroy-kommunestyre",
+      "til": "luroy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "helgeland-trafikkselskap",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 20034,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-trafikkselskap",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -2309,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-trafikkselskap",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 753467,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-trafikkselskap",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 29318381,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 8749796,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 53310317,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 255483268,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 992319886,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lovundlaks",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 60736808,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lovundlaks",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 79940471,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lovundlaks",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 533468217,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lovundlaks",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 260813440,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "luroyveiding",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 32885336,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "luroyveiding",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 49836470,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "luroyveiding",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 176239097,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "luroyveiding",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 135006210,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "momek-akva-service",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 779950,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "momek-akva-service",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 885077,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "momek-akva-service",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1723982,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "momek-akva-service",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 23521171,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nova-sea",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1093471000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "nova-sea",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 290059000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "nova-sea",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5347432000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "nova-sea",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 5793134000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sleneset-aqua-service",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1453684,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sleneset-aqua-service",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1970091,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sleneset-aqua-service",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 19745573,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sleneset-aqua-service",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 39508876,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "kvaroy-fiskeoppdrett-a-s",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "lovundlaks",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "luroyveiding",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "nova-sea",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "sleneset-aqua-service",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

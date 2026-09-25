@@ -14,6 +14,7 @@ import { Route as MetodeRouteImport } from './routes/metode'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as FylkeSlugRouteImport } from './routes/fylke.$slug'
 import { Route as KommuneSlugRouteImport } from './routes/kommune.$slug'
 import { Route as OrganKeyRouteImport } from './routes/organ.$key'
 
@@ -42,6 +43,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FylkeSlugRoute = FylkeSlugRouteImport.update({
+  id: '/fylke/$slug',
+  path: '/fylke/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KommuneSlugRoute = KommuneSlugRouteImport.update({
   id: '/kommune/$slug',
   path: '/kommune/$slug',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/pro': typeof ProRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/fylke/$slug': typeof FylkeSlugRoute
   '/kommune/$slug': typeof KommuneSlugRoute
   '/organ/$key': typeof OrganKeyRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/pro': typeof ProRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/fylke/$slug': typeof FylkeSlugRoute
   '/kommune/$slug': typeof KommuneSlugRoute
   '/organ/$key': typeof OrganKeyRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/pro': typeof ProRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/fylke/$slug': typeof FylkeSlugRoute
   '/kommune/$slug': typeof KommuneSlugRoute
   '/organ/$key': typeof OrganKeyRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/pro'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/fylke/$slug'
     | '/kommune/$slug'
     | '/organ/$key'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/pro'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/fylke/$slug'
     | '/kommune/$slug'
     | '/organ/$key'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/pro'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/fylke/$slug'
     | '/kommune/$slug'
     | '/organ/$key'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   ProRoute: typeof ProRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  FylkeSlugRoute: typeof FylkeSlugRoute
   KommuneSlugRoute: typeof KommuneSlugRoute
   OrganKeyRoute: typeof OrganKeyRoute
 }
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fylke/$slug': {
+      id: '/fylke/$slug'
+      path: '/fylke/$slug'
+      fullPath: '/fylke/$slug'
+      preLoaderRoute: typeof FylkeSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kommune/$slug': {
       id: '/kommune/$slug'
       path: '/kommune/$slug'
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProRoute: ProRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  FylkeSlugRoute: FylkeSlugRoute,
   KommuneSlugRoute: KommuneSlugRoute,
   OrganKeyRoute: OrganKeyRoute,
 }

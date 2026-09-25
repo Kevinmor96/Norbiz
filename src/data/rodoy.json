@@ -1,0 +1,579 @@
+{
+  "meta": {
+    "kommunenr": "1836",
+    "kommune": "Rødøy",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "rodoy-kommunestyre",
+      "navn": "Kommunestyret i Rødøy",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "rodoy-kommune",
+      "kommunenr": "1836",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "arnulf-hansen-og-co",
+      "orgnr": "912339068",
+      "navn": "Arnulf Hansen og Co AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1836",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "1943-05-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.520 «Detaljhandel med jernvarer, byggevarer, fargevarer og glass».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "gigante-salmon-rodoy",
+      "orgnr": "922699453",
+      "navn": "Gigante Salmon Rødøy AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1836",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2019-04-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "mowi",
+      "orgnr": "964118191",
+      "navn": "Mowi ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "kommunenr": "4601",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1992-05-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Allmennaksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "mowi-avd-tjongsfjorden",
+      "orgnr": "874283932",
+      "navn": "Mowi Avd Tjongsfjorden",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "overordnet": "mowi",
+      "kommunenr": "1836",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rødøy for Mowi ASA, med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "rodoy-kommune",
+      "orgnr": "945717173",
+      "navn": "Rødøy Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1836",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "rodoy-kommune-helsesektor",
+      "orgnr": "974791498",
+      "navn": "Rødøy Kommune Helsesektor",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1836",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "rodoy-kommune-omsorgssektor",
+      "orgnr": "979352069",
+      "navn": "Rødøy Kommune Omsorgssektor",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1836",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1997-09-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "rodoy-kommune-skolesektor",
+      "orgnr": "974790378",
+      "navn": "Rødøy Kommune Skolesektor",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1836",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "rodoy-kommune-teknisk-etat",
+      "orgnr": "874791512",
+      "navn": "Rødøy Kommune Teknisk Etat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1836",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "annika-hansen",
+      "navn": "Annika Hansen"
+    },
+    {
+      "key": "hans-albert-nilsen",
+      "navn": "Hans Albert Nilsen"
+    },
+    {
+      "key": "harald-einar-kirknes-erichsen",
+      "navn": "Harald Einar Kirknes Erichsen"
+    },
+    {
+      "key": "kristian-lorentsen",
+      "navn": "Kristian Lorentsen"
+    },
+    {
+      "key": "trond-hansen",
+      "navn": "Trond Hansen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "arnulf-hansen-og-co",
+      "person": "annika-hansen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnulf-hansen-og-co",
+      "person": "hans-albert-nilsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnulf-hansen-og-co",
+      "person": "trond-hansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnulf-hansen-og-co",
+      "person": "trond-hansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gigante-salmon-rodoy",
+      "person": "kristian-lorentsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gigante-salmon-rodoy",
+      "person": "kristian-lorentsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rodoy-kommune-helsesektor",
+      "person": "harald-einar-kirknes-erichsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rodoy-kommune-omsorgssektor",
+      "person": "harald-einar-kirknes-erichsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rodoy-kommune-skolesektor",
+      "person": "harald-einar-kirknes-erichsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rodoy-kommune-teknisk-etat",
+      "person": "harald-einar-kirknes-erichsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rodoy-kommune",
+      "person": "harald-einar-kirknes-erichsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "rodoy-kommunestyre",
+      "til": "rodoy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "mowi-avd-tjongsfjorden",
+      "til": "mowi",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "arnulf-hansen-og-co",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -2048897,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "arnulf-hansen-og-co",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -755879,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "arnulf-hansen-og-co",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 15983062,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "arnulf-hansen-og-co",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 115861076,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gigante-salmon-rodoy",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -2667000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gigante-salmon-rodoy",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 6083000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gigante-salmon-rodoy",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1026367000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gigante-salmon-rodoy",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 71581000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "arnulf-hansen-og-co",
+      "segment": "handel",
+      "styrke": 2
+    },
+    {
+      "org": "gigante-salmon-rodoy",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "mowi-avd-tjongsfjorden",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "mowi",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

@@ -1,0 +1,443 @@
+{
+  "meta": {
+    "kommunenr": "1825",
+    "kommune": "Grane",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "grane-kommunestyre",
+      "navn": "Kommunestyret i Grane",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "grane-kommune",
+      "kommunenr": "1825",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "grane-kommune",
+      "orgnr": "940643112",
+      "navn": "Grane Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1825",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "norgesvinduet-svenningdal",
+      "orgnr": "952301179",
+      "navn": "Norgesvinduet Svenningdal AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1825",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1989-01-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 16.250 «Produksjon av dører og vinduer i tre».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "trixie-restaurant",
+      "orgnr": "997951220",
+      "navn": "Trixie Restaurant AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1825",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 56.110 «Drift av restauranter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "arne-margido-kvensjo",
+      "navn": "Arne Margido Kvensjø"
+    },
+    {
+      "key": "ase-lill-arntsberg",
+      "navn": "Åse Lill Arntsberg"
+    },
+    {
+      "key": "borge-steinmo-johnsen",
+      "navn": "Børge Steinmo Johnsen"
+    },
+    {
+      "key": "frank-arntsberg",
+      "navn": "Frank Arntsberg"
+    },
+    {
+      "key": "hediye-delal",
+      "navn": "Hediye Delal"
+    },
+    {
+      "key": "johan-wilhelm-arntsberg",
+      "navn": "Johan Wilhelm Arntsberg"
+    },
+    {
+      "key": "rahim-delal",
+      "navn": "Rahim Delal"
+    },
+    {
+      "key": "stian-arntsberg",
+      "navn": "Stian Arntsberg"
+    },
+    {
+      "key": "tone-waaler",
+      "navn": "Tone Waaler"
+    },
+    {
+      "key": "tove-lise-granmo",
+      "navn": "Tove Lise Granmo"
+    }
+  ],
+  "roller": [
+    {
+      "org": "grane-kommune",
+      "person": "borge-steinmo-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norgesvinduet-svenningdal",
+      "person": "arne-margido-kvensjo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norgesvinduet-svenningdal",
+      "person": "ase-lill-arntsberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norgesvinduet-svenningdal",
+      "person": "frank-arntsberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norgesvinduet-svenningdal",
+      "person": "johan-wilhelm-arntsberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norgesvinduet-svenningdal",
+      "person": "stian-arntsberg",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norgesvinduet-svenningdal",
+      "person": "stian-arntsberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norgesvinduet-svenningdal",
+      "person": "tone-waaler",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norgesvinduet-svenningdal",
+      "person": "tove-lise-granmo",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trixie-restaurant",
+      "person": "hediye-delal",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trixie-restaurant",
+      "person": "rahim-delal",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trixie-restaurant",
+      "person": "rahim-delal",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "grane-kommunestyre",
+      "til": "grane-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "norgesvinduet-svenningdal",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5463248,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "norgesvinduet-svenningdal",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 7178777,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "norgesvinduet-svenningdal",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 48863221,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "norgesvinduet-svenningdal",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 204548386,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "trixie-restaurant",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 101522,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "trixie-restaurant",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 126039,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "trixie-restaurant",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 720194,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "trixie-restaurant",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 12674762,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [],
+  "org_segment": [],
+  "hull": []
+}

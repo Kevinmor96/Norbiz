@@ -1,0 +1,3475 @@
+{
+  "meta": {
+    "kommunenr": "1865",
+    "kommune": "Vågan",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "vagan-kommunestyre",
+      "navn": "Kommunestyret i Vågan",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "vagan-kommune",
+      "kommunenr": "1865",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "aust-lofoten-videregaende-skole",
+      "orgnr": "974621134",
+      "navn": "Aust-Lofoten Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vågan for Nordland Fylkeskommune Utdanning og Kompetanse, med næringskode 85.310 «Videregående opplæring innenfor studieforberedende utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bacalao-drift",
+      "orgnr": "985909989",
+      "navn": "Bacalao Drift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2003-06-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 56.110 «Drift av restauranter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "bil-i-nord",
+      "orgnr": "983666280",
+      "navn": "Bil i Nord AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2001-08-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.810 «Detaljhandel med motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bylofoten",
+      "orgnr": "916555792",
+      "navn": "Bylofoten AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2015-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 56.110 «Drift av restauranter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "dsn-entreprenor",
+      "orgnr": "974397900",
+      "navn": "DSN Entreprenør AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 41.000 «Oppføring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "ellingsen-seafood",
+      "orgnr": "991952829",
+      "navn": "Ellingsen Seafood AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2007-09-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "elmea",
+      "orgnr": "986347801",
+      "navn": "Elmea AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "2003-12-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 35.140 «Distribusjon av elektrisitet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "gadus-norway",
+      "orgnr": "912191346",
+      "navn": "Gadus Norway AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2013-06-21",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 46.322 «Engroshandel med fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2024."
+      }
+    },
+    {
+      "key": "go2lofoten",
+      "orgnr": "818601212",
+      "navn": "GO2LOFOTEN AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2017-02-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 79.121 «Aktiviteter utført av utflukts- og eventarrangører».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "hopen-fisk",
+      "orgnr": "992854456",
+      "navn": "Hopen Fisk AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2008-06-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "iss-facility-services",
+      "orgnr": "914791723",
+      "navn": "Iss Facility Services AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1952-10-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 81.210 «Rengjøring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "iss-facility-services-as-avd-renhold-svolvaer",
+      "orgnr": "975910210",
+      "navn": "Iss Facility Services AS Avd Renhold Svolvær",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "iss-facility-services",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1994-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vågan for Iss Facility Services AS, med næringskode 81.210 «Rengjøring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "jg-hansen",
+      "orgnr": "998398886",
+      "navn": "JG Hansen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "2012-04-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "kringla",
+      "orgnr": "998835909",
+      "navn": "Kringla AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-08-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.710 «Produksjon av brød og ferske konditorvarer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "kystverket-874783242",
+      "orgnr": "874783242",
+      "navn": "Kystverket",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "1508",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "kystverket-kabelvag",
+      "orgnr": "974756633",
+      "navn": "Kystverket Kabelvåg",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "kystverket-874783242",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vågan for Kystverket, med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "lias",
+      "orgnr": "919147857",
+      "navn": "Lias AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "avfall-miljo"
+      ],
+      "gyldig_fra": "1972-07-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 88.993 «Arbeidstrening og varig tilrettelagt arbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "lofoten-elektro",
+      "orgnr": "925191086",
+      "navn": "Lofoten Elektro AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1972-11-08",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.210 «Elektrisk installasjonsarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nor-tekstil",
+      "orgnr": "988023868",
+      "navn": "Nor Tekstil AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "4602",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2005-03-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 96.100 «Vaskeri- og renserivirksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "nor-tekstil-as-avd-lofoten",
+      "orgnr": "914775256",
+      "navn": "Nor Tekstil AS Avd Lofoten",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "nor-tekstil",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-12-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vågan for Nor Tekstil AS, med næringskode 96.100 «Vaskeri- og renserivirksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "nordic-last-og-buss",
+      "orgnr": "979463332",
+      "navn": "Nordic Last og Buss AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1997-11-26",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 95.310 «Reparasjon og vedlikehold av motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "orgnr": "974793725",
+      "navn": "Nordland Fylkeskommune Utdanning og Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset-hf-ambulanse-svolvaer",
+      "orgnr": "993562599",
+      "navn": "Nordlandssykehuset HF Ambulanse Svolvær",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "nordlandssykehuset",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2009-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vågan for Nordlandssykehuset HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "polar-hotell-restaurantdrift",
+      "orgnr": "938050910",
+      "navn": "Polar Hotell & Restaurantdrift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "1985-09-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "saga-fisk",
+      "orgnr": "996712702",
+      "navn": "Saga Fisk AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2011-03-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.201 «Produksjon av saltfisk, tørrfisk og klippfisk».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "skarvik",
+      "orgnr": "970983449",
+      "navn": "Skarvik AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1994-05-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 33.150 «Reparasjon og vedlikehold av sivile skip og båter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "svinoya-rorbuer",
+      "orgnr": "992362626",
+      "navn": "Svinøya Rorbuer AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2008-01-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.200 «Drift av vandrerhjem og ferieleiligheter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "thon-hotel-lofoten",
+      "orgnr": "993819719",
+      "navn": "Thon Hotel Lofoten",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "polar-hotell-restaurantdrift",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2008-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vågan for Polar Hotell & Restaurantdrift AS, med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "thon-hotel-svolvaer",
+      "orgnr": "926506471",
+      "navn": "Thon Hotel Svolvær",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "polar-hotell-restaurantdrift",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2021-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vågan for Polar Hotell & Restaurantdrift AS, med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "trevarefabrikken",
+      "orgnr": "915541453",
+      "navn": "Trevarefabrikken AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2015-06-03",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "vagan-kommune",
+      "orgnr": "938644500",
+      "navn": "Vågan Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1865",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "aino-helene-ellingsen",
+      "navn": "Aino Helene Ellingsen"
+    },
+    {
+      "key": "aleksander-halrynjo-berg",
+      "navn": "Aleksander Halrynjo Berg"
+    },
+    {
+      "key": "andreas-ellingsen",
+      "navn": "Andreas Ellingsen"
+    },
+    {
+      "key": "andreas-kallay-hjelle",
+      "navn": "Andreas Kallay Hjelle"
+    },
+    {
+      "key": "ann-mari-olsen",
+      "navn": "Ann-Mari Olsen"
+    },
+    {
+      "key": "anne-fugelli-bjerke",
+      "navn": "Anne Fugelli Bjerke"
+    },
+    {
+      "key": "arnstein-brendeford",
+      "navn": "Arnstein Brendeford"
+    },
+    {
+      "key": "arnt-marelius-winther",
+      "navn": "Arnt Marelius Winther"
+    },
+    {
+      "key": "barbro-johansen",
+      "navn": "Barbro Johansen"
+    },
+    {
+      "key": "bard-egil-ronny-hanssen",
+      "navn": "Bård Egil Ronny Hanssen"
+    },
+    {
+      "key": "berhild-nilsen-ronning",
+      "navn": "Berhild Nilsen Rønning"
+    },
+    {
+      "key": "bjorn-gunter-stokvik",
+      "navn": "Bjørn Gunter Stokvik"
+    },
+    {
+      "key": "brita-pedersen",
+      "navn": "Brita Pedersen"
+    },
+    {
+      "key": "brynjar-angelsen",
+      "navn": "Brynjar Angelsen"
+    },
+    {
+      "key": "camilla-haukas-skjeseth",
+      "navn": "Camilla Haukås Skjeseth"
+    },
+    {
+      "key": "cato-stubberud",
+      "navn": "Cato Stubberud"
+    },
+    {
+      "key": "christin-engstad-pedersen",
+      "navn": "Christin Engstad Pedersen"
+    },
+    {
+      "key": "dawid-michal-sztormowski",
+      "navn": "Dawid Michal Sztormowski"
+    },
+    {
+      "key": "eddy-robin-hanssen",
+      "navn": "Eddy Robin Hanssen"
+    },
+    {
+      "key": "einar-jorgensen",
+      "navn": "Einar Jørgensen"
+    },
+    {
+      "key": "eirik-skjeseth",
+      "navn": "Eirik Skjeseth"
+    },
+    {
+      "key": "eirik-storeide",
+      "navn": "Eirik Storeide"
+    },
+    {
+      "key": "erik-engelien",
+      "navn": "Erik Engelien"
+    },
+    {
+      "key": "eyvind-arthur-holt",
+      "navn": "Eyvind Arthur Holt"
+    },
+    {
+      "key": "frank-gudmund-johnsen",
+      "navn": "Frank Gudmund Johnsen"
+    },
+    {
+      "key": "hans-joakim-niska",
+      "navn": "Hans Joakim Niska"
+    },
+    {
+      "key": "havard-ulvestad-sperre",
+      "navn": "Håvard Ulvestad Sperre"
+    },
+    {
+      "key": "helge-anders-dahlberg",
+      "navn": "Helge Anders Dahlberg"
+    },
+    {
+      "key": "hugo-hegrem",
+      "navn": "Hugo Hegrem"
+    },
+    {
+      "key": "inger-mari-voie",
+      "navn": "Inger Mari Voie"
+    },
+    {
+      "key": "inger-marie-sperre",
+      "navn": "Inger Marie Sperre"
+    },
+    {
+      "key": "ingunn-amundsen",
+      "navn": "Ingunn Amundsen"
+    },
+    {
+      "key": "jan-gunnar-hansen",
+      "navn": "Jan Gunnar Hansen"
+    },
+    {
+      "key": "jan-levi-brinchmann",
+      "navn": "Jan-Levi Brinchmann"
+    },
+    {
+      "key": "johannes-hanssen",
+      "navn": "Johannes Hanssen"
+    },
+    {
+      "key": "jorgen-rene-kosmo",
+      "navn": "Jørgen René Kosmo"
+    },
+    {
+      "key": "jorgen-skyrud-jensen",
+      "navn": "Jørgen Skyrud Jensen"
+    },
+    {
+      "key": "karl-hakon-kofstad",
+      "navn": "Karl Håkon Kofstad"
+    },
+    {
+      "key": "kenneth-bjorn-evjen",
+      "navn": "Kenneth Bjørn Evjen"
+    },
+    {
+      "key": "kenneth-grav",
+      "navn": "Kenneth Grav"
+    },
+    {
+      "key": "kjetil-peder-sperre",
+      "navn": "Kjetil Peder Sperre"
+    },
+    {
+      "key": "knut-ivar-saarheim",
+      "navn": "Knut Ivar Saarheim"
+    },
+    {
+      "key": "kristine-andreassen",
+      "navn": "Kristine Andreassen"
+    },
+    {
+      "key": "laila-ingelin-gardin",
+      "navn": "Laila Ingelin Gárdin"
+    },
+    {
+      "key": "lasse-mikal-bjorback",
+      "navn": "Lasse Mikal Bjørback"
+    },
+    {
+      "key": "line-ellingsen",
+      "navn": "Line Ellingsen"
+    },
+    {
+      "key": "liv-grete-kristoffersen-ellingsen",
+      "navn": "Liv Grete Kristoffersen Ellingsen"
+    },
+    {
+      "key": "magne-ilsaas",
+      "navn": "Magne Ilsaas"
+    },
+    {
+      "key": "marius-traethaug-loken",
+      "navn": "Marius Træthaug Løken"
+    },
+    {
+      "key": "martin-kallay-hjelle",
+      "navn": "Martin Kallay Hjelle"
+    },
+    {
+      "key": "mats-alfsen",
+      "navn": "Mats Alfsen"
+    },
+    {
+      "key": "morten-roar-hansen",
+      "navn": "Morten Roar Hansen"
+    },
+    {
+      "key": "nora-margrethe-nygaard-falch",
+      "navn": "Nora Margrethe Nygaard Falch"
+    },
+    {
+      "key": "oddrun-johanne-ellingsen-storhaug",
+      "navn": "Oddrun Johanne Ellingsen Storhaug"
+    },
+    {
+      "key": "ola-skjeseth",
+      "navn": "Ola Skjeseth"
+    },
+    {
+      "key": "pal-jorn-hanssen",
+      "navn": "Pål-Jørn Hanssen"
+    },
+    {
+      "key": "pal-reinold-martinussen",
+      "navn": "Pål Reinold Martinussen"
+    },
+    {
+      "key": "paul-borre-hanssen",
+      "navn": "Paul-Børre Hanssen"
+    },
+    {
+      "key": "per-didrik-hoff",
+      "navn": "Per Didrik Hoff"
+    },
+    {
+      "key": "per-gunnar-stromberg-rasmussen",
+      "navn": "Per Gunnar Strømberg Rasmussen"
+    },
+    {
+      "key": "petter-andreas-alfsen",
+      "navn": "Petter Andreas Alfsen"
+    },
+    {
+      "key": "rafal-pawel-szatanik",
+      "navn": "Rafal Pawel Szatanik"
+    },
+    {
+      "key": "robert-karl-wachter",
+      "navn": "Robert Karl Wachter"
+    },
+    {
+      "key": "roger-asleif-stokvik",
+      "navn": "Roger Asleif Stokvik"
+    },
+    {
+      "key": "rune-barosen-nilssen",
+      "navn": "Rune Barosen Nilssen"
+    },
+    {
+      "key": "rune-einar-fagerhaug",
+      "navn": "Rune Einar Fagerhaug"
+    },
+    {
+      "key": "sigrid-camilla-angell-iseli",
+      "navn": "Sigrid Camilla Angell Iseli"
+    },
+    {
+      "key": "silje-nilsen-huber",
+      "navn": "Silje Nilsen-Huber"
+    },
+    {
+      "key": "stig-jonny-hanssen",
+      "navn": "Stig Jonny Hanssen"
+    },
+    {
+      "key": "stig-kristian-pettersen",
+      "navn": "Stig Kristian Pettersen"
+    },
+    {
+      "key": "svein-harald-loken",
+      "navn": "Svein Harald Løken"
+    },
+    {
+      "key": "tanja-dahlberg",
+      "navn": "Tanja Dahlberg"
+    },
+    {
+      "key": "tarald-sivertsen",
+      "navn": "Tarald Sivertsen"
+    },
+    {
+      "key": "terje-hermod-wiik",
+      "navn": "Terje Hermod Wiik"
+    },
+    {
+      "key": "thor-drechsler",
+      "navn": "Thor Drechsler"
+    },
+    {
+      "key": "tom-erlend-kristiansen",
+      "navn": "Tom Erlend Kristiansen"
+    },
+    {
+      "key": "tomas-taujenis",
+      "navn": "Tomas Taujenis"
+    },
+    {
+      "key": "tommy-magnus-stensvik",
+      "navn": "Tommy Magnus Stensvik"
+    },
+    {
+      "key": "torfinn-olav-dahlberg",
+      "navn": "Torfinn Olav Dahlberg"
+    },
+    {
+      "key": "torfinn-rolandsen",
+      "navn": "Torfinn Rolandsen"
+    },
+    {
+      "key": "tove-christine-welle-haugland",
+      "navn": "Tove Christine Welle Haugland"
+    },
+    {
+      "key": "tove-edvardsen",
+      "navn": "Tove Edvardsen"
+    },
+    {
+      "key": "trond-danielsen",
+      "navn": "Trond Danielsen"
+    },
+    {
+      "key": "ulf-christian-ellingsen",
+      "navn": "Ulf Christian Ellingsen"
+    },
+    {
+      "key": "ulf-ellingsen",
+      "navn": "Ulf Ellingsen"
+    },
+    {
+      "key": "yvonne-berntsen",
+      "navn": "Yvonne Berntsen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "bacalao-drift",
+      "person": "eirik-skjeseth",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bacalao-drift",
+      "person": "eirik-skjeseth",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bacalao-drift",
+      "person": "ola-skjeseth",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bacalao-drift",
+      "person": "robert-karl-wachter",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bil-i-nord",
+      "person": "ingunn-amundsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bil-i-nord",
+      "person": "jorgen-rene-kosmo",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bil-i-nord",
+      "person": "kenneth-bjorn-evjen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bil-i-nord",
+      "person": "laila-ingelin-gardin",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bil-i-nord",
+      "person": "per-didrik-hoff",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bil-i-nord",
+      "person": "roger-asleif-stokvik",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bil-i-nord",
+      "person": "thor-drechsler",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bylofoten",
+      "person": "kristine-andreassen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bylofoten",
+      "person": "lasse-mikal-bjorback",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bylofoten",
+      "person": "lasse-mikal-bjorback",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dsn-entreprenor",
+      "person": "bjorn-gunter-stokvik",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dsn-entreprenor",
+      "person": "brynjar-angelsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dsn-entreprenor",
+      "person": "christin-engstad-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dsn-entreprenor",
+      "person": "helge-anders-dahlberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dsn-entreprenor",
+      "person": "morten-roar-hansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dsn-entreprenor",
+      "person": "torfinn-olav-dahlberg",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "person": "aino-helene-ellingsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "person": "andreas-ellingsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "person": "line-ellingsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "person": "line-ellingsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "person": "liv-grete-kristoffersen-ellingsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "person": "tarald-sivertsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "person": "ulf-christian-ellingsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "person": "ulf-ellingsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elmea",
+      "person": "arnstein-brendeford",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elmea",
+      "person": "arnt-marelius-winther",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elmea",
+      "person": "eirik-storeide",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elmea",
+      "person": "eyvind-arthur-holt",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elmea",
+      "person": "jan-levi-brinchmann",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elmea",
+      "person": "karl-hakon-kofstad",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elmea",
+      "person": "pal-reinold-martinussen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elmea",
+      "person": "silje-nilsen-huber",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elmea",
+      "person": "tove-christine-welle-haugland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elmea",
+      "person": "trond-danielsen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gadus-norway",
+      "person": "dawid-michal-sztormowski",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gadus-norway",
+      "person": "rafal-pawel-szatanik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gadus-norway",
+      "person": "rafal-pawel-szatanik",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "go2lofoten",
+      "person": "bard-egil-ronny-hanssen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "go2lofoten",
+      "person": "eddy-robin-hanssen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "go2lofoten",
+      "person": "eddy-robin-hanssen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "go2lofoten",
+      "person": "johannes-hanssen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "go2lofoten",
+      "person": "pal-jorn-hanssen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "go2lofoten",
+      "person": "paul-borre-hanssen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "go2lofoten",
+      "person": "stig-jonny-hanssen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hopen-fisk",
+      "person": "havard-ulvestad-sperre",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hopen-fisk",
+      "person": "inger-marie-sperre",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hopen-fisk",
+      "person": "kjetil-peder-sperre",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hopen-fisk",
+      "person": "sigrid-camilla-angell-iseli",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "jg-hansen",
+      "person": "jan-gunnar-hansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "jg-hansen",
+      "person": "jan-gunnar-hansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "jg-hansen",
+      "person": "tove-edvardsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kringla",
+      "person": "brita-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kringla",
+      "person": "cato-stubberud",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kringla",
+      "person": "cato-stubberud",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "anne-fugelli-bjerke",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "barbro-johansen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "berhild-nilsen-ronning",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "frank-gudmund-johnsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "inger-mari-voie",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "kenneth-grav",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "knut-ivar-saarheim",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "oddrun-johanne-ellingsen-storhaug",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "rune-barosen-nilssen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "rune-einar-fagerhaug",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "terje-hermod-wiik",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lias",
+      "person": "yvonne-berntsen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-elektro",
+      "person": "einar-jorgensen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-elektro",
+      "person": "jorgen-skyrud-jensen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-elektro",
+      "person": "tanja-dahlberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-elektro",
+      "person": "tom-erlend-kristiansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-elektro",
+      "person": "torfinn-rolandsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordic-last-og-buss",
+      "person": "aleksander-halrynjo-berg",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordic-last-og-buss",
+      "person": "ann-mari-olsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordic-last-og-buss",
+      "person": "erik-engelien",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordic-last-og-buss",
+      "person": "hans-joakim-niska",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordic-last-og-buss",
+      "person": "per-gunnar-stromberg-rasmussen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordic-last-og-buss",
+      "person": "stig-kristian-pettersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saga-fisk",
+      "person": "nora-margrethe-nygaard-falch",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saga-fisk",
+      "person": "nora-margrethe-nygaard-falch",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saga-fisk",
+      "person": "tomas-taujenis",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skarvik",
+      "person": "marius-traethaug-loken",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skarvik",
+      "person": "marius-traethaug-loken",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skarvik",
+      "person": "svein-harald-loken",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "svinoya-rorbuer",
+      "person": "camilla-haukas-skjeseth",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "svinoya-rorbuer",
+      "person": "hugo-hegrem",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "svinoya-rorbuer",
+      "person": "ola-skjeseth",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "svinoya-rorbuer",
+      "person": "ola-skjeseth",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trevarefabrikken",
+      "person": "andreas-kallay-hjelle",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trevarefabrikken",
+      "person": "magne-ilsaas",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trevarefabrikken",
+      "person": "martin-kallay-hjelle",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trevarefabrikken",
+      "person": "mats-alfsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trevarefabrikken",
+      "person": "mats-alfsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trevarefabrikken",
+      "person": "petter-andreas-alfsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vagan-kommune",
+      "person": "tommy-magnus-stensvik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "vagan-kommunestyre",
+      "til": "vagan-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "aust-lofoten-videregaende-skole",
+      "til": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "iss-facility-services-as-avd-renhold-svolvaer",
+      "til": "iss-facility-services",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "kystverket-kabelvag",
+      "til": "kystverket-874783242",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nor-tekstil-as-avd-lofoten",
+      "til": "nor-tekstil",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordlandssykehuset-hf-ambulanse-svolvaer",
+      "til": "nordlandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "thon-hotel-lofoten",
+      "til": "polar-hotell-restaurantdrift",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "thon-hotel-svolvaer",
+      "til": "polar-hotell-restaurantdrift",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "bacalao-drift",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2835777,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bacalao-drift",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3158500,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bacalao-drift",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7119817,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bacalao-drift",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 36624323,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bil-i-nord",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 53187963,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bil-i-nord",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 75617228,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bil-i-nord",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 107909264,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bil-i-nord",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 2130732376,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bylofoten",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -3322117,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bylofoten",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -4174175,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bylofoten",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": -314782,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bylofoten",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 61270036,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "dsn-entreprenor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 7542302,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "dsn-entreprenor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 9340188,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "dsn-entreprenor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 14867247,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "dsn-entreprenor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 100587867,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 166805330,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 246740780,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1160111774,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "ellingsen-seafood",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 1012873720,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "elmea",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 66448449,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "elmea",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 133879800,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "elmea",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 995609307,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "elmea",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 305784724,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gadus-norway",
+      "aar": 2024,
+      "type": "aarsresultat",
+      "verdi": -9194104,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gadus-norway",
+      "aar": 2024,
+      "type": "driftsresultat",
+      "verdi": -5305617,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gadus-norway",
+      "aar": 2024,
+      "type": "egenkapital",
+      "verdi": -6330017,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gadus-norway",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 115868596,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "go2lofoten",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2201300,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "go2lofoten",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3149218,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "go2lofoten",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2795874,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "go2lofoten",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 21789326,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hopen-fisk",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 240729,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hopen-fisk",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1729923,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hopen-fisk",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 22855680,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hopen-fisk",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 155615189,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "jg-hansen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 187628,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "jg-hansen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 145433,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "jg-hansen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5898505,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "jg-hansen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 117079808,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kringla",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1815849,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "kringla",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2156746,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "kringla",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5388773,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "kringla",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 30441669,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lias",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1628530,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lias",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1737219,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lias",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 37512289,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lias",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 40332751,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lofoten-elektro",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1386853,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lofoten-elektro",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1654350,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lofoten-elektro",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 17304487,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lofoten-elektro",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 101003981,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "nordic-last-og-buss",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 28461063,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nordic-last-og-buss",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 45154414,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nordic-last-og-buss",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 94666756,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nordic-last-og-buss",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 820500071,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saga-fisk",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 11741915,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saga-fisk",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 16419132,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saga-fisk",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 33530547,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saga-fisk",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 345043616,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "skarvik",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 6801999,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "skarvik",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 8269207,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "skarvik",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 25087202,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "skarvik",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 110482260,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "svinoya-rorbuer",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 10449747,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "svinoya-rorbuer",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 12103531,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "svinoya-rorbuer",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 23630090,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "svinoya-rorbuer",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 62691405,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "trevarefabrikken",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1069000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "trevarefabrikken",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1353247,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "trevarefabrikken",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1117579,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "trevarefabrikken",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 29547893,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "bylofoten",
+      "segment": "reiseliv",
+      "styrke": 2
+    },
+    {
+      "org": "dsn-entreprenor",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "ellingsen-seafood",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "elmea",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "hopen-fisk",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "jg-hansen",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "lias",
+      "segment": "avfall-miljo",
+      "styrke": 2
+    },
+    {
+      "org": "nordic-last-og-buss",
+      "segment": "transport",
+      "styrke": 2
+    },
+    {
+      "org": "nordlandssykehuset-hf-ambulanse-svolvaer",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "polar-hotell-restaurantdrift",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "saga-fisk",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "svinoya-rorbuer",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "thon-hotel-lofoten",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "thon-hotel-svolvaer",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "trevarefabrikken",
+      "segment": "reiseliv",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

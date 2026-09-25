@@ -32,13 +32,17 @@ const RPCER = [
   "beslutningskjede",
   "eierskap",
   "endringer",
+  "fylke_oversikt",
   "hull",
+  "kommune_grader",
   "kommune_oversikt",
   "kommuner",
   "nettverk",
   "organ_profil",
   "organer_for_segment",
   "organkart",
+  "region_oversikt",
+  "sok",
 ];
 
 /** Tabellene med belegg: hver rad er en påstand om verden. */

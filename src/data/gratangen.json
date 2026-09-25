@@ -1,0 +1,1258 @@
+{
+  "meta": {
+    "kommunenr": "5516",
+    "kommune": "Gratangen - Rivtták",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "gratangen-kommunestyre",
+      "navn": "Kommunestyret i Gratangen - Rivtták",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "gratangen-kommune",
+      "kommunenr": "5516",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "astafjord-slakteri",
+      "orgnr": "981137299",
+      "navn": "Astafjord Slakteri AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1999-08-25",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "astafjord-smolt",
+      "orgnr": "958916116",
+      "navn": "Astafjord Smolt AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1990-10-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.222 «Produksjon av yngel og settefisk i ferskvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "aurora-omsorg",
+      "orgnr": "923459405",
+      "navn": "Aurora Omsorg AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3103",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2019-08-29",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 87.991 «Tjenester i barneverninstitusjoner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "aurora-omsorg-as-avd-gratangstoppen",
+      "orgnr": "928995836",
+      "navn": "Aurora Omsorg AS Avd Gratangstoppen",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "aurora-omsorg",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2021-03-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Gratangen - Rivtták for Aurora Omsorg AS, med næringskode 87.991 «Tjenester i barneverninstitusjoner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "gratangen-kommune",
+      "orgnr": "959469415",
+      "navn": "Gratangen Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "gratangen-kommune-helse-og-sosialetat",
+      "orgnr": "974792451",
+      "navn": "Gratangen Kommune Helse- og Sosialetat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "gratangen-kommune-oppvekst-og-kulturetat",
+      "orgnr": "974789957",
+      "navn": "Gratangen Kommune Oppvekst- og Kulturetat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "gratanglaks",
+      "orgnr": "988365777",
+      "navn": "Gratanglaks AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2005-05-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "heka-bygg-eiendom",
+      "orgnr": "921429487",
+      "navn": "Heka Bygg Eiendom AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2018-09-08",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.330 «Gulvlegging og tapetsering».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "kasseriet",
+      "orgnr": "914411491",
+      "navn": "Kasseriet AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-10-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 22.220 «Produksjon av plastemballasje».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "montessoriskolen-morgan",
+      "orgnr": "912363821",
+      "navn": "Montessoriskolen Morgan AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2013-07-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 85.201 «Ordinær grunnskoleundervisning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "agnar-johan-hanssen",
+      "navn": "Agnar Johan Hanssen"
+    },
+    {
+      "key": "alexander-johnsen",
+      "navn": "Alexander Johnsen"
+    },
+    {
+      "key": "cato-haakseth",
+      "navn": "Cato Haakseth"
+    },
+    {
+      "key": "charles-rutherford-ildstad",
+      "navn": "Charles Rutherford Ildstad"
+    },
+    {
+      "key": "dagfinn-eidissen",
+      "navn": "Dagfinn Eidissen"
+    },
+    {
+      "key": "edmund-johannes-broback",
+      "navn": "Edmund Johannes Broback"
+    },
+    {
+      "key": "eirik-sillibakken",
+      "navn": "Eirik Sillibakken"
+    },
+    {
+      "key": "finn-willy-johnsen",
+      "navn": "Finn Willy Johnsen"
+    },
+    {
+      "key": "geir-lundberg",
+      "navn": "Geir Lundberg"
+    },
+    {
+      "key": "hallgeir-johan-helland",
+      "navn": "Hallgeir Johan Helland"
+    },
+    {
+      "key": "hanne-anette-bjerkmo",
+      "navn": "Hanne Anette Bjerkmo"
+    },
+    {
+      "key": "hanne-lundberg",
+      "navn": "Hanne Lundberg"
+    },
+    {
+      "key": "henrik-andre-paulsen",
+      "navn": "Henrik Andre Paulsen"
+    },
+    {
+      "key": "inger-lise-lein",
+      "navn": "Inger Lise Lein"
+    },
+    {
+      "key": "johannes-arne-arvesen",
+      "navn": "Johannes Arne Arvesen"
+    },
+    {
+      "key": "karolis-motiejunas",
+      "navn": "Karolis Motiejunas"
+    },
+    {
+      "key": "lars-kristian-berg",
+      "navn": "Lars Kristian Berg"
+    },
+    {
+      "key": "marius-arvesen",
+      "navn": "Marius Arvesen"
+    },
+    {
+      "key": "monica-lundberg",
+      "navn": "Monica Lundberg"
+    },
+    {
+      "key": "nina-johanne-gjertsen",
+      "navn": "Nina Johanne Gjertsen"
+    },
+    {
+      "key": "odd-steinar-olsen",
+      "navn": "Odd-Steinar Olsen"
+    },
+    {
+      "key": "paul-havard-zylla",
+      "navn": "Paul Håvard Zylla"
+    },
+    {
+      "key": "siw-monica-bondestad-nylund",
+      "navn": "Siw Monica Bondestad Nylund"
+    },
+    {
+      "key": "stein-ivar-antonsen",
+      "navn": "Stein Ivar Antonsen"
+    },
+    {
+      "key": "stian-lundberg",
+      "navn": "Stian Lundberg"
+    },
+    {
+      "key": "thomas-richard-schjelderup",
+      "navn": "Thomas Richard Schjelderup"
+    },
+    {
+      "key": "tore-lundberg",
+      "navn": "Tore Lundberg"
+    },
+    {
+      "key": "trine-lundberg",
+      "navn": "Trine Lundberg"
+    },
+    {
+      "key": "vivi-ann-bjerkmo",
+      "navn": "Vivi-Ann Bjerkmo"
+    }
+  ],
+  "roller": [
+    {
+      "org": "astafjord-slakteri",
+      "person": "alexander-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "geir-lundberg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "hallgeir-johan-helland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "johannes-arne-arvesen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "marius-arvesen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "stein-ivar-antonsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "tore-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "dagfinn-eidissen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "dagfinn-eidissen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "edmund-johannes-broback",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "hanne-lundberg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "johannes-arne-arvesen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "lars-kristian-berg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "odd-steinar-olsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "stein-ivar-antonsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "tore-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratangen-kommune-helse-og-sosialetat",
+      "person": "thomas-richard-schjelderup",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratangen-kommune-oppvekst-og-kulturetat",
+      "person": "thomas-richard-schjelderup",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratangen-kommune",
+      "person": "thomas-richard-schjelderup",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "finn-willy-johnsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "geir-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "monica-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "stein-ivar-antonsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "stian-lundberg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "tore-lundberg",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "trine-lundberg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "person": "henrik-andre-paulsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "person": "karolis-motiejunas",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "person": "karolis-motiejunas",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kasseriet",
+      "person": "cato-haakseth",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kasseriet",
+      "person": "charles-rutherford-ildstad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "agnar-johan-hanssen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "eirik-sillibakken",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "hanne-anette-bjerkmo",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "inger-lise-lein",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "nina-johanne-gjertsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "paul-havard-zylla",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "siw-monica-bondestad-nylund",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "vivi-ann-bjerkmo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "gratangen-kommunestyre",
+      "til": "gratangen-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "aurora-omsorg-as-avd-gratangstoppen",
+      "til": "aurora-omsorg",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "astafjord-slakteri",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4300813,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 9490280,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 61801813,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 148893655,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2882776,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4853436,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 91383135,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 68829068,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 54411562,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 70037398,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 675784204,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 678658856,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1324543,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -1032023,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 782463,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 11022640,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "kasseriet",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 10475441,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kasseriet",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 13439549,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kasseriet",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 14489452,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kasseriet",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 145243255,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 452993,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 436782,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2197095,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 12434407,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "astafjord-slakteri",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "gratanglaks",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

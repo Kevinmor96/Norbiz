@@ -21,7 +21,7 @@ export const GRADER: Record<Verifisering, Grad> = {
   verifisert: {
     navn: "Verifisert",
     kort: "Hentet av oss fra kilden, med tidsstempel.",
-    lang: "Hentet av Maktkarts egen innhenting direkte fra kilden, med tidsstempel. Ingen påstand har denne graden ennå.",
+    lang: "Hentet av Maktkarts egen innhenting direkte fra registeret, med hentedatoen. Bare det innhentingen selv har hentet, har denne graden.",
   },
   oppgitt: {
     navn: "Oppgitt",

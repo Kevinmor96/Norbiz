@@ -1,0 +1,530 @@
+{
+  "meta": {
+    "kommunenr": "5624",
+    "kommune": "Lebesby",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "lebesby-kommunestyre",
+      "navn": "Kommunestyret i Lebesby",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "lebesby-kommune",
+      "kommunenr": "5624",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "leroy-aurora",
+      "orgnr": "985940460",
+      "navn": "Lerøy Aurora AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Havbruksselskap eid av Lerøy Seafood Group ASA.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "hotel-nordkyn",
+      "orgnr": "894176032",
+      "navn": "Hotel Nordkyn AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5624",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2009-06-03",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "lebesby-kommune",
+      "orgnr": "940400392",
+      "navn": "Lebesby Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5624",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "lebesby-kommune-helse-og-sosialetat",
+      "orgnr": "974793385",
+      "navn": "Lebesby Kommune Helse- og Sosialetat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5624",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "lebesby-kommune-oppvekstetaten",
+      "orgnr": "974790130",
+      "navn": "Lebesby Kommune Oppvekstetaten",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5624",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "lebesby-kommune-sentraladministrasjon",
+      "orgnr": "974794896",
+      "navn": "Lebesby Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5624",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "lebesby-kommune-teknisk-etat",
+      "orgnr": "974793407",
+      "navn": "Lebesby Kommune Teknisk Etat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5624",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "leroy-aurora-as-avd-lebesby",
+      "orgnr": "988599581",
+      "navn": "Lerøy Aurora AS Avd Lebesby",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "leroy-aurora",
+      "kommunenr": "5624",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2005-08-29",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Lebesby for Lerøy Aurora AS, med næringskode 03.222 «Produksjon av yngel og settefisk i ferskvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "leroy-norway-seafoods",
+      "orgnr": "995548194",
+      "navn": "Lerøy Norway Seafoods AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2010-05-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "leroy-norway-seafoods-as-avd-kjollefjord",
+      "orgnr": "971655534",
+      "navn": "Lerøy Norway Seafoods AS Avd Kjøllefjord",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "leroy-norway-seafoods",
+      "kommunenr": "5624",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Lebesby for Lerøy Norway Seafoods AS, med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "amandus-matteo-evensen",
+      "navn": "Amandus Matteo Evensen"
+    },
+    {
+      "key": "harald-larssen",
+      "navn": "Harald Larssen"
+    },
+    {
+      "key": "jan-olav-evensen",
+      "navn": "Jan-Olav Evensen"
+    },
+    {
+      "key": "paivi-hannele-joensuu",
+      "navn": "Paivi Hannele Joensuu"
+    }
+  ],
+  "roller": [
+    {
+      "org": "hotel-nordkyn",
+      "person": "amandus-matteo-evensen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hotel-nordkyn",
+      "person": "jan-olav-evensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hotel-nordkyn",
+      "person": "jan-olav-evensen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hotel-nordkyn",
+      "person": "paivi-hannele-joensuu",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lebesby-kommune-helse-og-sosialetat",
+      "person": "harald-larssen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lebesby-kommune-oppvekstetaten",
+      "person": "harald-larssen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lebesby-kommune-sentraladministrasjon",
+      "person": "harald-larssen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lebesby-kommune-teknisk-etat",
+      "person": "harald-larssen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lebesby-kommune",
+      "person": "harald-larssen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "lebesby-kommunestyre",
+      "til": "lebesby-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "leroy-aurora-as-avd-lebesby",
+      "til": "leroy-aurora",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "leroy-norway-seafoods-as-avd-kjollefjord",
+      "til": "leroy-norway-seafoods",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "hotel-nordkyn",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 560820,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hotel-nordkyn",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 958113,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hotel-nordkyn",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2227141,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hotel-nordkyn",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 10769976,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "leroy-aurora",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "hotel-nordkyn",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "leroy-norway-seafoods-as-avd-kjollefjord",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "leroy-norway-seafoods",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

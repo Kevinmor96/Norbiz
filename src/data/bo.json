@@ -1,0 +1,926 @@
+{
+  "meta": {
+    "kommunenr": "1867",
+    "kommune": "Bø",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "bo-kommunestyre",
+      "navn": "Kommunestyret i Bø",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "bo-kommune",
+      "kommunenr": "1867",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "bo-kommune",
+      "orgnr": "945452676",
+      "navn": "Bø Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1867",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bo-kommune-helse-og-sosialavdeling",
+      "orgnr": "974792125",
+      "navn": "Bø Kommune Helse- og Sosialavdeling",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1867",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bo-kommune-oppvekstavdeling",
+      "orgnr": "974790491",
+      "navn": "Bø Kommune Oppvekstavdeling",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1867",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bo-kommune-teknisk-avdeling",
+      "orgnr": "974792141",
+      "navn": "Bø Kommune Teknisk Avdeling",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1867",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "egil-kristoffersen-sonner",
+      "orgnr": "913601963",
+      "navn": "Egil Kristoffersen & Sønner AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1867",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1966-08-24",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "framsikt",
+      "orgnr": "913187512",
+      "navn": "Framsikt AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1867",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-01-08",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 62.200 «Konsulentvirksomhet tilknyttet informasjonsteknologi og forvaltning og drift av it-systemer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset-hf-ambulanse-bo",
+      "orgnr": "990608474",
+      "navn": "Nordlandssykehuset HF Ambulanse Bø",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "nordlandssykehuset",
+      "kommunenr": "1867",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2006-12-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Bø for Nordlandssykehuset HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "ringstad-resort",
+      "orgnr": "925767743",
+      "navn": "Ringstad Resort AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1867",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2020-07-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "stendi",
+      "orgnr": "985194653",
+      "navn": "Stendi AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2002-09-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 87.991 «Tjenester i barneverninstitusjoner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "stendi-as-region-nord-ot-straume",
+      "orgnr": "815525442",
+      "navn": "Stendi AS Region Nord Ot Straume",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "stendi",
+      "kommunenr": "1867",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2015-05-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Bø for Stendi AS, med næringskode 87.201 «Omsorgstjenester i botilbud for personer med psykiske helseproblemer og/eller rusmiddelproblemer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "vesteralen-havbruk-bo",
+      "orgnr": "929699637",
+      "navn": "Vesterålen Havbruk Bø AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1867",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2022-08-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anders-johnsen",
+      "navn": "Anders Johnsen"
+    },
+    {
+      "key": "anna-elisabeth-kristoffersen",
+      "navn": "Anna Elisabeth Kristoffersen"
+    },
+    {
+      "key": "brynjar-kvaernstuen",
+      "navn": "Brynjar Kværnstuen"
+    },
+    {
+      "key": "emma-tygesen-dengsoee",
+      "navn": "Emma Tygesen Dengsoee"
+    },
+    {
+      "key": "erik-trondsen",
+      "navn": "Erik Trondsen"
+    },
+    {
+      "key": "eva-maria-kristoffersen",
+      "navn": "Eva Maria Kristoffersen"
+    },
+    {
+      "key": "fredd-jarle-wilsgard",
+      "navn": "Fredd-Jarle Wilsgård"
+    },
+    {
+      "key": "ivar-andre-simonsen",
+      "navn": "Ivar Andre Simonsen"
+    },
+    {
+      "key": "kim-mikael-hisinger",
+      "navn": "Kim Mikael Hisinger"
+    },
+    {
+      "key": "kine-anette-johnsen",
+      "navn": "Kine Anette Johnsen"
+    },
+    {
+      "key": "marie-kristin-ceder",
+      "navn": "Marie Kristin Ceder"
+    },
+    {
+      "key": "martin-kvaernstuen",
+      "navn": "Martin Kværnstuen"
+    },
+    {
+      "key": "ole-ekroll-sordahl",
+      "navn": "Ole Ekroll Sørdahl"
+    },
+    {
+      "key": "selja-von-zernichow",
+      "navn": "Selja Von Zernichow"
+    },
+    {
+      "key": "sondre-kristian-mortensen",
+      "navn": "Sondre Kristian Mortensen"
+    },
+    {
+      "key": "stian-berg",
+      "navn": "Stian Berg"
+    }
+  ],
+  "roller": [
+    {
+      "org": "bo-kommune-helse-og-sosialavdeling",
+      "person": "kine-anette-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bo-kommune-oppvekstavdeling",
+      "person": "kine-anette-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bo-kommune-teknisk-avdeling",
+      "person": "kine-anette-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bo-kommune",
+      "person": "kine-anette-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "egil-kristoffersen-sonner",
+      "person": "anna-elisabeth-kristoffersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "egil-kristoffersen-sonner",
+      "person": "eva-maria-kristoffersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "egil-kristoffersen-sonner",
+      "person": "eva-maria-kristoffersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "egil-kristoffersen-sonner",
+      "person": "fredd-jarle-wilsgard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "egil-kristoffersen-sonner",
+      "person": "ole-ekroll-sordahl",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "framsikt",
+      "person": "anders-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "framsikt",
+      "person": "emma-tygesen-dengsoee",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "framsikt",
+      "person": "kim-mikael-hisinger",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "framsikt",
+      "person": "marie-kristin-ceder",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "framsikt",
+      "person": "selja-von-zernichow",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "framsikt",
+      "person": "stian-berg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ringstad-resort",
+      "person": "erik-trondsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ringstad-resort",
+      "person": "ivar-andre-simonsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteralen-havbruk-bo",
+      "person": "brynjar-kvaernstuen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteralen-havbruk-bo",
+      "person": "martin-kvaernstuen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteralen-havbruk-bo",
+      "person": "sondre-kristian-mortensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "bo-kommunestyre",
+      "til": "bo-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "nordlandssykehuset-hf-ambulanse-bo",
+      "til": "nordlandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "stendi-as-region-nord-ot-straume",
+      "til": "stendi",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "egil-kristoffersen-sonner",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -29543648,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "egil-kristoffersen-sonner",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -59534045,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "egil-kristoffersen-sonner",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 815601171,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "egil-kristoffersen-sonner",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 719403050,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "framsikt",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 45746730,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "framsikt",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 55352749,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "framsikt",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 18034305,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "framsikt",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 220358725,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ringstad-resort",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -4706946,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ringstad-resort",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -4953113,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ringstad-resort",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1014144,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ringstad-resort",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 11082065,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteralen-havbruk-bo",
+      "aar": 2024,
+      "type": "aarsresultat",
+      "verdi": -9225079,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteralen-havbruk-bo",
+      "aar": 2024,
+      "type": "driftsresultat",
+      "verdi": -9206831,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteralen-havbruk-bo",
+      "aar": 2024,
+      "type": "egenkapital",
+      "verdi": 2372261,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteralen-havbruk-bo",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 494065,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "egil-kristoffersen-sonner",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset-hf-ambulanse-bo",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "ringstad-resort",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "vesteralen-havbruk-bo",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

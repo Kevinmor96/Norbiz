@@ -1,0 +1,375 @@
+{
+  "meta": {
+    "kommunenr": "5636",
+    "kommune": "Unjárga - Nesseby",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "nesseby-kommunestyre",
+      "navn": "Kommunestyret i Unjárga - Nesseby",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "unjargga-gielda-nesseby-kommune",
+      "kommunenr": "5636",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "orgnr": "894316462",
+      "navn": "Stiftelsen Deanu Ja Vàrjjat Museasiida/ Tana og Varanger Museumssiida",
+      "nivaa": "privat",
+      "organtype": "stiftelse",
+      "kommunenr": "5636",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2010-05-07",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stiftelse registrert i Enhetsregisteret med næringskode 91.212 «Drift av kulturhistoriske museer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "unjargga-gielda-nesseby-kommune",
+      "orgnr": "839953062",
+      "navn": "Unjargga Gielda / Nesseby Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5636",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "bjarne-henrik-johansen",
+      "navn": "Bjarne Henrik Johansen"
+    },
+    {
+      "key": "charles-petterson",
+      "navn": "Charles Petterson"
+    },
+    {
+      "key": "claus-andreas-pettersen",
+      "navn": "Claus Andreas Pettersen"
+    },
+    {
+      "key": "jovna-vars-smuk",
+      "navn": "Jovna Vars Smuk"
+    },
+    {
+      "key": "kjersti-schanche",
+      "navn": "Kjersti Schanche"
+    },
+    {
+      "key": "laila-strandbakke-smuk",
+      "navn": "Laila Strandbakke Smuk"
+    },
+    {
+      "key": "liv-astrid-kvammen-svaleng",
+      "navn": "Liv Astrid Kvammen Svaleng"
+    },
+    {
+      "key": "mariann-wollmann-magga",
+      "navn": "Mariann Wollmann Magga"
+    },
+    {
+      "key": "martin-velky",
+      "navn": "Martin Velky"
+    },
+    {
+      "key": "solveig-ballo",
+      "navn": "Solveig Ballo"
+    },
+    {
+      "key": "staal-nilsen",
+      "navn": "Staal Nilsen"
+    },
+    {
+      "key": "venke-lill-tormaenen",
+      "navn": "Venke Lill Tørmænen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "person": "bjarne-henrik-johansen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "person": "claus-andreas-pettersen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "person": "jovna-vars-smuk",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "person": "kjersti-schanche",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "person": "laila-strandbakke-smuk",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "person": "liv-astrid-kvammen-svaleng",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "person": "mariann-wollmann-magga",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "person": "martin-velky",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "person": "solveig-ballo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "person": "staal-nilsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "person": "venke-lill-tormaenen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "unjargga-gielda-nesseby-kommune",
+      "person": "charles-petterson",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "nesseby-kommunestyre",
+      "til": "unjargga-gielda-nesseby-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5136526,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3933643,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 20995237,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-deanu-ja-varjjat-museasiida-tana-og-varanger-museumssiida",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 22881581,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [],
+  "org_segment": [],
+  "hull": []
+}

@@ -1,0 +1,3165 @@
+{
+  "meta": {
+    "kommunenr": "5603",
+    "kommune": "Hammerfest - Hámmerfeasta",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "hammerfest-kommunestyre",
+      "navn": "Kommunestyret i Hammerfest - Hámmerfeasta",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "hammerfest-kommune",
+      "kommunenr": "5603",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "aibel",
+      "orgnr": "984735227",
+      "navn": "Aibel AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1108",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2002-06-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 30.110 «Bygging av sivile skip og flytende materiell».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "aibel-as-avd-hammerfest",
+      "orgnr": "990918147",
+      "navn": "Aibel AS Avd Hammerfest",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "aibel",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2006-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Aibel AS, med næringskode 09.109 «Andre tjenester tilknyttet utvinning av råolje og naturgass».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "boreal-sjo",
+      "orgnr": "974208849",
+      "navn": "Boreal Sjø AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1994-12-14",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 50.102 «Innenriks kystruter med passasjerer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "boreal-sjo-drift",
+      "orgnr": "996330982",
+      "navn": "Boreal Sjø Drift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2010-11-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 50.102 «Innenriks kystruter med passasjerer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "cermaq-norway",
+      "orgnr": "961922976",
+      "navn": "Cermaq Norway AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1848",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1991-08-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "cermaq-norway-as-avd-slakteri-rypefjord",
+      "orgnr": "981487575",
+      "navn": "Cermaq Norway AS Avd Slakteri Rypefjord",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "cermaq-norway",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2000-09-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Cermaq Norway AS, med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "coop-hammerfest",
+      "orgnr": "950490462",
+      "navn": "Coop Hammerfest SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "1929-11-08",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "coor-cleaning-catering-and-property",
+      "orgnr": "912523918",
+      "navn": "Coor Cleaning Catering And Property AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3201",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2013-09-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 81.210 «Rengjøring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "coor-cleaning-catering-and-property-avd-hammerfest-kantiner-equinor",
+      "orgnr": "919802499",
+      "navn": "Coor Cleaning Catering And Property Avd Hammerfest Kantiner Equinor",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "coor-cleaning-catering-and-property",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2017-12-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Coor Cleaning Catering And Property AS, med næringskode 56.220 «Kantinedrift og annen cateringvirksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "ditt-bud",
+      "orgnr": "992372540",
+      "navn": "Ditt Bud AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2008-02-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 53.200 «Andre post- og budtjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "equinor",
+      "orgnr": "923609016",
+      "navn": "Equinor ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "kommunenr": "1103",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "1972-09-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Allmennaksjeselskap registrert i Enhetsregisteret med næringskode 06.100 «Utvinning av råolje».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "equinor-asa-avd-hammerfest-lng-snohvit",
+      "orgnr": "893247092",
+      "navn": "Equinor ASA Avd Hammerfest LNG Snøhvit",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "overordnet": "equinor",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "2007-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Equinor ASA, med næringskode 06.200 «Utvinning av naturgass».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune-opplaering",
+      "orgnr": "832305502",
+      "navn": "Finnmark Fylkeskommune Opplæring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-10-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-politidistrikt",
+      "orgnr": "984000049",
+      "navn": "Finnmark Politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmarkssykehuset",
+      "orgnr": "983974880",
+      "navn": "Finnmarkssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "gagama-elektro",
+      "orgnr": "942143710",
+      "navn": "Gagama Elektro AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1986-08-29",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.210 «Elektrisk installasjonsarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "hammerfest-kommune",
+      "orgnr": "921770669",
+      "navn": "Hammerfest Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "hammerfest-kommune-sektor-for-helse-og-omsorg",
+      "orgnr": "974793024",
+      "navn": "Hammerfest Kommune Sektor for Helse og Omsorg",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "hammerfest-kommune-sektor-for-oppvekst-og-kultur",
+      "orgnr": "974790017",
+      "navn": "Hammerfest Kommune Sektor for Oppvekst og Kultur",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "hammerfest-kommune-sektor-for-teknisk-drift-og-eiendom",
+      "orgnr": "974793040",
+      "navn": "Hammerfest Kommune Sektor for Teknisk Drift og Eiendom",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "hammerfest-kommune-sentraladministrasjon",
+      "orgnr": "974794772",
+      "navn": "Hammerfest Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "hammerfest-politihus",
+      "orgnr": "874759082",
+      "navn": "Hammerfest Politihus",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "overordnet": "finnmark-politidistrikt",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Finnmark Politidistrikt, med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "hammerfest-videregaende-skole",
+      "orgnr": "874622702",
+      "navn": "Hammerfest Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "finnmark-fylkeskommune-opplaering",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Finnmark Fylkeskommune Opplæring, med næringskode 85.310 «Videregående opplæring innenfor studieforberedende utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "helsebemanning",
+      "orgnr": "996368807",
+      "navn": "Helsebemanning AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3405",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2010-11-26",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "helsebemanning-as-avd-hammerfest",
+      "orgnr": "996376214",
+      "navn": "Helsebemanning AS Avd Hammerfest",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "helsebemanning",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2011-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Helsebemanning AS, med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "hk-crew",
+      "orgnr": "923151508",
+      "navn": "HK Crew AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2019-06-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 50.102 «Innenriks kystruter med passasjerer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "jjs-prosjektpartner",
+      "orgnr": "990787328",
+      "navn": "JJS Prosjektpartner AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-01-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kaefer-energy",
+      "orgnr": "910608193",
+      "navn": "Kaefer Energy AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1103",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1977-08-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 09.109 «Andre tjenester tilknyttet utvinning av råolje og naturgass».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "kaefer-energy-as-avd-hammerfest",
+      "orgnr": "936805795",
+      "navn": "Kaefer Energy AS Avd Hammerfest",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "kaefer-energy",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2025-12-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Kaefer Energy AS, med næringskode 09.109 «Andre tjenester tilknyttet utvinning av råolje og naturgass».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "leonhard-nilsen-sonner",
+      "orgnr": "937843771",
+      "navn": "Leonhard Nilsen & Sønner AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1871",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1985-06-30",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 42.130 «Bygging av broer og tunneler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "leonhard-nilsen-sonner-as-avd-snohvit",
+      "orgnr": "927451948",
+      "navn": "Leonhard Nilsen & Sønner AS Avd Snøhvit",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "leonhard-nilsen-sonner",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2021-08-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Leonhard Nilsen & Sønner AS, med næringskode 42.130 «Bygging av broer og tunneler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "lucerna",
+      "orgnr": "982897327",
+      "navn": "Lucerna AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "2001-01-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 35.140 «Distribusjon av elektrisitet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "norsea-polarbase",
+      "orgnr": "913688899",
+      "navn": "Norsea Polarbase AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2014-01-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 52.220 «Andre tjenester tilknyttet sjøtransport».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "presis-vegdrift",
+      "orgnr": "914888794",
+      "navn": "Presis Vegdrift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "4601",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2015-01-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 42.110 «Bygging av veier og motorveier».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "presis-vegdrift-as-avd-hammerfest",
+      "orgnr": "915790453",
+      "navn": "Presis Vegdrift AS Avd Hammerfest",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "presis-vegdrift",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2015-09-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Presis Vegdrift AS, med næringskode 42.110 «Bygging av veier og motorveier».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "var-energi",
+      "orgnr": "919160675",
+      "navn": "Vår Energi ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "kommunenr": "1108",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "1965-05-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Allmennaksjeselskap registrert i Enhetsregisteret med næringskode 06.200 «Utvinning av naturgass».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "var-energi-asa-avd-hammerfest",
+      "orgnr": "998879523",
+      "navn": "Vår Energi ASA Avd Hammerfest",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "overordnet": "var-energi",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "2008-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Vår Energi ASA, med næringskode 06.100 «Utvinning av råolje».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "viggo-eriksen",
+      "orgnr": "981868846",
+      "navn": "Viggo Eriksen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1999-12-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "workshop-bemanning-kompetanse",
+      "orgnr": "988232637",
+      "navn": "Workshop Bemanning & Kompetanse AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2005-04-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "workshop-bemanning-kompetanse-as-avd-anlegg",
+      "orgnr": "933206920",
+      "navn": "Workshop Bemanning & Kompetanse AS Avd Anlegg",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "workshop-bemanning-kompetanse",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2024-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Hammerfest - Hámmerfeasta for Workshop Bemanning & Kompetanse AS, med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "aleksander-roynesdal",
+      "navn": "Aleksander Røynesdal"
+    },
+    {
+      "key": "andreas-moan",
+      "navn": "Andreas Moan"
+    },
+    {
+      "key": "ann-britt-henriksen",
+      "navn": "Ann Britt Henriksen"
+    },
+    {
+      "key": "bard-sjogren",
+      "navn": "Bård Sjøgren"
+    },
+    {
+      "key": "bent-martini",
+      "navn": "Bent Martini"
+    },
+    {
+      "key": "bjornar-leonardsen",
+      "navn": "Bjørnar Leonardsen"
+    },
+    {
+      "key": "borge-johansen",
+      "navn": "Børge Johansen"
+    },
+    {
+      "key": "chris-andre-bolstad-fauske",
+      "navn": "Chris-Andre Bolstad Fauske"
+    },
+    {
+      "key": "christoffer-hansen",
+      "navn": "Christoffer Hansen"
+    },
+    {
+      "key": "dan-gunvald-niko",
+      "navn": "Dan Gunvald Nikø"
+    },
+    {
+      "key": "dan-solvfester-andersen",
+      "navn": "Dan Sølvfester Andersen"
+    },
+    {
+      "key": "elin-molmann-holmgren",
+      "navn": "Elin Mølmann Holmgren"
+    },
+    {
+      "key": "elisabeth-paulsen",
+      "navn": "Elisabeth Paulsen"
+    },
+    {
+      "key": "ellen-johansen",
+      "navn": "Ellen Johansen"
+    },
+    {
+      "key": "erik-arnesen",
+      "navn": "Erik Arnesen"
+    },
+    {
+      "key": "espen-orud",
+      "navn": "Espen Ørud"
+    },
+    {
+      "key": "evy-fjellstad",
+      "navn": "Evy Fjellstad"
+    },
+    {
+      "key": "gaute-andre-olsen",
+      "navn": "Gaute Andre Olsen"
+    },
+    {
+      "key": "geir-erling-dormaenen",
+      "navn": "Geir Erling Dørmænen"
+    },
+    {
+      "key": "gudrun-botnen-rollefsen",
+      "navn": "Gudrun Botnen Rollefsen"
+    },
+    {
+      "key": "gunn-kristin-heatta",
+      "navn": "Gunn Kristin Heatta"
+    },
+    {
+      "key": "gunnar-olaf-bolle",
+      "navn": "Gunnar Olaf Bolle"
+    },
+    {
+      "key": "harald-johnsen",
+      "navn": "Harald Johnsen"
+    },
+    {
+      "key": "havard-hargaut-jensen",
+      "navn": "Håvard Hargaut-Jensen"
+    },
+    {
+      "key": "heidi-pevik",
+      "navn": "Heidi Pevik"
+    },
+    {
+      "key": "helge-olsen",
+      "navn": "Helge Olsen"
+    },
+    {
+      "key": "ida-dybdal-holthe",
+      "navn": "Ida Dybdal Holthe"
+    },
+    {
+      "key": "ivan-fossan",
+      "navn": "Ivan Fossan"
+    },
+    {
+      "key": "jan-sigurd-handeland",
+      "navn": "Jan Sigurd Handeland"
+    },
+    {
+      "key": "jan-tore-kvalnes",
+      "navn": "Jan Tore Kvalnes"
+    },
+    {
+      "key": "jeanette-moland",
+      "navn": "Jeanette Moland"
+    },
+    {
+      "key": "jonas-sjovold-andersen",
+      "navn": "Jonas Sjøvold Andersen"
+    },
+    {
+      "key": "jostein-torstad",
+      "navn": "Jostein Tørstad"
+    },
+    {
+      "key": "julia-sandnes-thomassen",
+      "navn": "Julia Sandnes Thomassen"
+    },
+    {
+      "key": "karianne-eriksen",
+      "navn": "Karianne Eriksen"
+    },
+    {
+      "key": "karl-henning-fredriksson-pedersen",
+      "navn": "Karl Henning Fredriksson Pedersen"
+    },
+    {
+      "key": "katrine-markussen",
+      "navn": "Katrine Markussen"
+    },
+    {
+      "key": "katrine-prydz",
+      "navn": "Katrine Prydz"
+    },
+    {
+      "key": "katrine-voll",
+      "navn": "Katrine Voll"
+    },
+    {
+      "key": "kevin-brendesaeter-janz",
+      "navn": "Kevin Brendesæter Janz"
+    },
+    {
+      "key": "kevin-eivik",
+      "navn": "Kevin Eivik"
+    },
+    {
+      "key": "kjetil-kvamme",
+      "navn": "Kjetil Kvamme"
+    },
+    {
+      "key": "kristina-isabell-andersen",
+      "navn": "Kristina Isabell Andersen"
+    },
+    {
+      "key": "kristoffer-tollefsen",
+      "navn": "Kristoffer Tollefsen"
+    },
+    {
+      "key": "lars-adler-hustad",
+      "navn": "Lars Adler Hustad"
+    },
+    {
+      "key": "lise-karlsen",
+      "navn": "Lise Karlsen"
+    },
+    {
+      "key": "marita-hagerupsen-ostvig",
+      "navn": "Marita Hagerupsen Østvig"
+    },
+    {
+      "key": "marte-lillebo",
+      "navn": "Marte Lillebø"
+    },
+    {
+      "key": "martine-arnesen-langseth",
+      "navn": "Martine Arnesen Langseth"
+    },
+    {
+      "key": "may-britt-lilletvedt",
+      "navn": "May Britt Lilletvedt"
+    },
+    {
+      "key": "mihkkal-bergstrom-oskal",
+      "navn": "Mihkkal Bergstrøm Oskal"
+    },
+    {
+      "key": "muslim-mohammad-saleh",
+      "navn": "Muslim Mohammad Saleh"
+    },
+    {
+      "key": "nikolai-knudsmoen-utheim",
+      "navn": "Nikolai Knudsmoen Utheim"
+    },
+    {
+      "key": "nina-kivijervi-jonassen",
+      "navn": "Nina Kivijervi Jonassen"
+    },
+    {
+      "key": "odd-torbjornsen",
+      "navn": "Odd Torbjørnsen"
+    },
+    {
+      "key": "ole-hope",
+      "navn": "Ole Hope"
+    },
+    {
+      "key": "ole-jacob-pedersen",
+      "navn": "Ole-Jacob Pedersen"
+    },
+    {
+      "key": "per-arne-lid",
+      "navn": "Per-Arne Lid"
+    },
+    {
+      "key": "raymond-robertsen",
+      "navn": "Raymond Robertsen"
+    },
+    {
+      "key": "ronny-malmo",
+      "navn": "Ronny Malmo"
+    },
+    {
+      "key": "runar-eriksen",
+      "navn": "Runar Eriksen"
+    },
+    {
+      "key": "runar-gamst",
+      "navn": "Runar Gamst"
+    },
+    {
+      "key": "rune-andre-johansen-grolid",
+      "navn": "Rune André Johansen Grolid"
+    },
+    {
+      "key": "rune-mikalsen",
+      "navn": "Rune Mikalsen"
+    },
+    {
+      "key": "sander-normann-berg",
+      "navn": "Sander Normann Berg"
+    },
+    {
+      "key": "semming-semmingsen",
+      "navn": "Semming Semmingsen"
+    },
+    {
+      "key": "sigurd-grayston-skjorestad",
+      "navn": "Sigurd Grayston Skjørestad"
+    },
+    {
+      "key": "silje-merethe-holmgren",
+      "navn": "Silje Merethe Holmgren"
+    },
+    {
+      "key": "sivert-ribe-jacobsen",
+      "navn": "Sivert Ribe Jacobsen"
+    },
+    {
+      "key": "stein-erik-bredal-olsen",
+      "navn": "Stein Erik Bredal-Olsen"
+    },
+    {
+      "key": "stian-hjellnes-zachariassen",
+      "navn": "Stian Hjellnes Zachariassen"
+    },
+    {
+      "key": "stian-ronning",
+      "navn": "Stian Rønning"
+    },
+    {
+      "key": "stig-gunnar-lyngmo",
+      "navn": "Stig-Gunnar Lyngmo"
+    },
+    {
+      "key": "susanne-hansen",
+      "navn": "Susanne Hansen"
+    },
+    {
+      "key": "svein-arne-eriksen",
+      "navn": "Svein Arne Eriksen"
+    },
+    {
+      "key": "sverre-gagama",
+      "navn": "Sverre Gagama"
+    },
+    {
+      "key": "tarjei-jensen-bech",
+      "navn": "Tarjei Jensen Bech"
+    },
+    {
+      "key": "tine-johansen",
+      "navn": "Tine Johansen"
+    },
+    {
+      "key": "tone-jaeger-karlstad",
+      "navn": "Tone Jæger Karlstad"
+    },
+    {
+      "key": "trine-olsen",
+      "navn": "Trine Olsen"
+    },
+    {
+      "key": "trond-eriksen",
+      "navn": "Trond Eriksen"
+    },
+    {
+      "key": "vegar-ingebrigtsen-murberg",
+      "navn": "Vegar Ingebrigtsen Murberg"
+    }
+  ],
+  "roller": [
+    {
+      "org": "boreal-sjo-drift",
+      "person": "dan-gunvald-niko",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo-drift",
+      "person": "dan-gunvald-niko",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo-drift",
+      "person": "stein-erik-bredal-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "person": "chris-andre-bolstad-fauske",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "person": "dan-gunvald-niko",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "person": "ida-dybdal-holthe",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "person": "ivan-fossan",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "person": "jan-sigurd-handeland",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "person": "katrine-voll",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "person": "nikolai-knudsmoen-utheim",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "person": "per-arne-lid",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "person": "ronny-malmo",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "person": "rune-andre-johansen-grolid",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "person": "stein-erik-bredal-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "ann-britt-henriksen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "bjornar-leonardsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "christoffer-hansen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "dan-solvfester-andersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "ellen-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "gunnar-olaf-bolle",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "katrine-prydz",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "kristina-isabell-andersen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "marita-hagerupsen-ostvig",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "muslim-mohammad-saleh",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "runar-eriksen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "person": "sivert-ribe-jacobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ditt-bud",
+      "person": "bard-sjogren",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ditt-bud",
+      "person": "gaute-andre-olsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ditt-bud",
+      "person": "gaute-andre-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "andreas-moan",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "evy-fjellstad",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "geir-erling-dormaenen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "gunn-kristin-heatta",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "jostein-torstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "julia-sandnes-thomassen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "lise-karlsen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "mihkkal-bergstrom-oskal",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "odd-torbjornsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "ole-hope",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "semming-semmingsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "stian-ronning",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "tine-johansen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "person": "trine-olsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "borge-johansen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "espen-orud",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "harald-johnsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "kristoffer-tollefsen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "nina-kivijervi-jonassen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "runar-gamst",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "sander-normann-berg",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "stig-gunnar-lyngmo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "svein-arne-eriksen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "sverre-gagama",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "tone-jaeger-karlstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "person": "vegar-ingebrigtsen-murberg",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-kommune-sektor-for-helse-og-omsorg",
+      "person": "elisabeth-paulsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-kommune-sektor-for-oppvekst-og-kultur",
+      "person": "elisabeth-paulsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-kommune-sektor-for-teknisk-drift-og-eiendom",
+      "person": "elisabeth-paulsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-kommune-sentraladministrasjon",
+      "person": "elisabeth-paulsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hammerfest-kommune",
+      "person": "elisabeth-paulsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hk-crew",
+      "person": "aleksander-roynesdal",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hk-crew",
+      "person": "bent-martini",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hk-crew",
+      "person": "bent-martini",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hk-crew",
+      "person": "marte-lillebo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "jjs-prosjektpartner",
+      "person": "helge-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "jjs-prosjektpartner",
+      "person": "kevin-eivik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "jjs-prosjektpartner",
+      "person": "sigurd-grayston-skjorestad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "elin-molmann-holmgren",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "erik-arnesen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "gudrun-botnen-rollefsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "havard-hargaut-jensen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "heidi-pevik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "jan-tore-kvalnes",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "jonas-sjovold-andersen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "karianne-eriksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "katrine-markussen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "kjetil-kvamme",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "lars-adler-hustad",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "martine-arnesen-langseth",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "raymond-robertsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "rune-mikalsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "silje-merethe-holmgren",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "stian-hjellnes-zachariassen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "susanne-hansen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lucerna",
+      "person": "tarjei-jensen-bech",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norsea-polarbase",
+      "person": "jeanette-moland",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norsea-polarbase",
+      "person": "karl-henning-fredriksson-pedersen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norsea-polarbase",
+      "person": "kevin-brendesaeter-janz",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norsea-polarbase",
+      "person": "may-britt-lilletvedt",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "norsea-polarbase",
+      "person": "ole-jacob-pedersen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "viggo-eriksen",
+      "person": "trond-eriksen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "hammerfest-kommunestyre",
+      "til": "hammerfest-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "aibel-as-avd-hammerfest",
+      "til": "aibel",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "cermaq-norway-as-avd-slakteri-rypefjord",
+      "til": "cermaq-norway",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "coor-cleaning-catering-and-property-avd-hammerfest-kantiner-equinor",
+      "til": "coor-cleaning-catering-and-property",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "equinor-asa-avd-hammerfest-lng-snohvit",
+      "til": "equinor",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "hammerfest-politihus",
+      "til": "finnmark-politidistrikt",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "hammerfest-videregaende-skole",
+      "til": "finnmark-fylkeskommune-opplaering",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "helsebemanning-as-avd-hammerfest",
+      "til": "helsebemanning",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "kaefer-energy-as-avd-hammerfest",
+      "til": "kaefer-energy",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "leonhard-nilsen-sonner-as-avd-snohvit",
+      "til": "leonhard-nilsen-sonner",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "presis-vegdrift-as-avd-hammerfest",
+      "til": "presis-vegdrift",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "var-energi-asa-avd-hammerfest",
+      "til": "var-energi",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "workshop-bemanning-kompetanse-as-avd-anlegg",
+      "til": "workshop-bemanning-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "boreal-sjo-drift",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4220614,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "boreal-sjo-drift",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4857684,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "boreal-sjo-drift",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1383288,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "boreal-sjo-drift",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 102061930,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -43625000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 120562000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 571328000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "boreal-sjo",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 2516226000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5926853,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 9030397,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 71943410,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "coop-hammerfest",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 223458849,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ditt-bud",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 970391,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ditt-bud",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1330939,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ditt-bud",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7909632,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ditt-bud",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 35337562,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 25575000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 183122000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 647907000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 3470483000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 8775604,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 11600132,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 18565713,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gagama-elektro",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 112538530,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "hk-crew",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 137226,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hk-crew",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 14040,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hk-crew",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": -4275213,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hk-crew",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 395047288,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "jjs-prosjektpartner",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3869735,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "jjs-prosjektpartner",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4962171,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "jjs-prosjektpartner",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5000000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "jjs-prosjektpartner",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 262181453,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lucerna",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 19573378,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lucerna",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 28138489,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lucerna",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 325289132,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lucerna",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 130426929,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "norsea-polarbase",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 53639331,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "norsea-polarbase",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 68649187,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "norsea-polarbase",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 56074349,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "norsea-polarbase",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 297500920,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "viggo-eriksen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 15517809,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "viggo-eriksen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 19744293,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "viggo-eriksen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 29772707,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "viggo-eriksen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 145187317,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "boreal-sjo-drift",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "boreal-sjo",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "cermaq-norway-as-avd-slakteri-rypefjord",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "cermaq-norway",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "coop-hammerfest",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "equinor-asa-avd-hammerfest-lng-snohvit",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "equinor",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "hk-crew",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "lucerna",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "norsea-polarbase",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "var-energi-asa-avd-hammerfest",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "var-energi",
+      "segment": "energi",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

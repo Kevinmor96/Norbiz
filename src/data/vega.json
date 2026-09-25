@@ -1,0 +1,837 @@
+{
+  "meta": {
+    "kommunenr": "1815",
+    "kommune": "Vega",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "vega-kommunestyre",
+      "navn": "Kommunestyret i Vega",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "vega-kommune",
+      "kommunenr": "1815",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "helgeland-landbrukstjenester",
+      "orgnr": "975931366",
+      "navn": "Helgeland Landbrukstjenester SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "1824",
+      "myndighet": [],
+      "segmenter": [
+        "landbruk"
+      ],
+      "gyldig_fra": "1995-10-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 01.620 «Tjenester tilknyttet husdyrhold».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "helgeland-landbrukstjenester-sa-avd-vega",
+      "orgnr": "974836297",
+      "navn": "Helgeland Landbrukstjenester SA Avd Vega",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "overordnet": "helgeland-landbrukstjenester",
+      "kommunenr": "1815",
+      "myndighet": [],
+      "segmenter": [
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vega for Helgeland Landbrukstjenester SA, med næringskode 01.620 «Tjenester tilknyttet husdyrhold».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "vega-delikatesser",
+      "orgnr": "989531360",
+      "navn": "Vega Delikatesser AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1815",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2006-02-14",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "vega-havhotell",
+      "orgnr": "928634132",
+      "navn": "Vega Havhotell AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1815",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2022-01-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "vega-kommune",
+      "orgnr": "941017975",
+      "navn": "Vega Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1815",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vega-media",
+      "orgnr": "984917120",
+      "navn": "Vega Media AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1815",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "2002-09-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 68.200 «Utleie av egen eller leid fast eiendom».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "vega-sjofarm-drift",
+      "orgnr": "934649389",
+      "navn": "Vega Sjøfarm Drift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1815",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2024-11-25",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "are-andreassen-moe",
+      "navn": "Are Andreassen Moe"
+    },
+    {
+      "key": "arnljot-arntsen",
+      "navn": "Arnljot Arntsen"
+    },
+    {
+      "key": "berit-erdal",
+      "navn": "Berit Erdal"
+    },
+    {
+      "key": "jonas-haugen-moller",
+      "navn": "Jonas Haugen Møller"
+    },
+    {
+      "key": "jorunn-fredriksen",
+      "navn": "Jorunn Fredriksen"
+    },
+    {
+      "key": "kai-andre-mortensen",
+      "navn": "Kai Andre Mortensen"
+    },
+    {
+      "key": "kato-gustav-fredriksen",
+      "navn": "Kato Gustav Fredriksen"
+    },
+    {
+      "key": "kim-roger-fredriksen",
+      "navn": "Kim Roger Fredriksen"
+    },
+    {
+      "key": "kine-susann-waade-edvardsen",
+      "navn": "Kine Susann Waade Edvardsen"
+    },
+    {
+      "key": "kristin-fredriksen",
+      "navn": "Kristin Fredriksen"
+    },
+    {
+      "key": "kurt-roger-moller",
+      "navn": "Kurt Roger Møller"
+    },
+    {
+      "key": "lars-olav-davidsen",
+      "navn": "Lars Olav Davidsen"
+    },
+    {
+      "key": "marianne-buchholz-brekke",
+      "navn": "Marianne Buchholz Brekke"
+    },
+    {
+      "key": "marina-overdal",
+      "navn": "Marina Øverdal"
+    },
+    {
+      "key": "merethe-haugen",
+      "navn": "Merethe Haugen"
+    },
+    {
+      "key": "nils-hilmar-gullsvag",
+      "navn": "Nils Hilmar Gullsvåg"
+    },
+    {
+      "key": "orjan-mortveit-tveiten",
+      "navn": "Ørjan Mortveit Tveiten"
+    },
+    {
+      "key": "sissel-hesjedal",
+      "navn": "Sissel Hesjedal"
+    },
+    {
+      "key": "tom-rune-davidsen",
+      "navn": "Tom-Rune Davidsen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "vega-delikatesser",
+      "person": "jorunn-fredriksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-delikatesser",
+      "person": "kato-gustav-fredriksen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-delikatesser",
+      "person": "kristin-fredriksen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-havhotell",
+      "person": "jonas-haugen-moller",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-havhotell",
+      "person": "jonas-haugen-moller",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-havhotell",
+      "person": "kurt-roger-moller",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-havhotell",
+      "person": "lars-olav-davidsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-havhotell",
+      "person": "merethe-haugen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-havhotell",
+      "person": "tom-rune-davidsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-kommune",
+      "person": "berit-erdal",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-media",
+      "person": "kai-andre-mortensen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-media",
+      "person": "marianne-buchholz-brekke",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-media",
+      "person": "marina-overdal",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-media",
+      "person": "nils-hilmar-gullsvag",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-sjofarm-drift",
+      "person": "are-andreassen-moe",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-sjofarm-drift",
+      "person": "arnljot-arntsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-sjofarm-drift",
+      "person": "kim-roger-fredriksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-sjofarm-drift",
+      "person": "kine-susann-waade-edvardsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-sjofarm-drift",
+      "person": "orjan-mortveit-tveiten",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vega-sjofarm-drift",
+      "person": "sissel-hesjedal",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "vega-kommunestyre",
+      "til": "vega-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "helgeland-landbrukstjenester-sa-avd-vega",
+      "til": "helgeland-landbrukstjenester",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "vega-delikatesser",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1042181,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-delikatesser",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1292297,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-delikatesser",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5910030,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-delikatesser",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 33704305,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-havhotell",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 701916,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-havhotell",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 826066,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-havhotell",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 4088067,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-havhotell",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 9342555,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-media",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -78810,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-media",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -32983,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-media",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1060676,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-media",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 4060861,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vega-sjofarm-drift",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -6541659,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "vega-sjofarm-drift",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -3183434,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "vega-sjofarm-drift",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 225731572,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "vega-sjofarm-drift",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 8196770,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "helgeland-landbrukstjenester-sa-avd-vega",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "helgeland-landbrukstjenester",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "vega-delikatesser",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "vega-havhotell",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "vega-media",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "vega-sjofarm-drift",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

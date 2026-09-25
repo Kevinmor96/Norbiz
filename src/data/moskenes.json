@@ -1,0 +1,957 @@
+{
+  "meta": {
+    "kommunenr": "1874",
+    "kommune": "Moskenes",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "moskenes-kommunestyre",
+      "navn": "Kommunestyret i Moskenes",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "moskenes-kommune",
+      "kommunenr": "1874",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "a-rorbuer",
+      "orgnr": "930772399",
+      "navn": "Å Rorbuer AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1874",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2023-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.200 «Drift av vandrerhjem og ferieleiligheter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "anitas-sjomat",
+      "orgnr": "998554624",
+      "navn": "Anitas Sjømat AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1874",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-06-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 56.110 «Drift av restauranter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "deco-norge",
+      "orgnr": "916204078",
+      "navn": "Deco Norge AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1874",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "2015-08-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 41.000 «Oppføring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "eliassen-rorbuer-drift",
+      "orgnr": "993912999",
+      "navn": "Eliassen Rorbuer Drift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1874",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2009-03-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "moskenes-kommune",
+      "orgnr": "945962151",
+      "navn": "Moskenes Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1874",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "moskenes-kommune-helse-og-sosialetat",
+      "orgnr": "974792249",
+      "navn": "Moskenes Kommune Helse- og Sosialetat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1874",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "moskenes-kommune-oppvekstsetat",
+      "orgnr": "974790602",
+      "navn": "Moskenes Kommune Oppvekstsetat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1874",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "moskenes-kommune-teknisk-etat",
+      "orgnr": "974792265",
+      "navn": "Moskenes Kommune Teknisk Etat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1874",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "reine-rorbuer-drift",
+      "orgnr": "911660679",
+      "navn": "Reine Rorbuer Drift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1874",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2013-02-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.200 «Drift av vandrerhjem og ferieleiligheter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "tapperiet-bistro",
+      "orgnr": "914213088",
+      "navn": "Tapperiet Bistro AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1874",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-09-08",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 56.110 «Drift av restauranter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "agata-honorata-gasior",
+      "navn": "Agata Honorata Gasior"
+    },
+    {
+      "key": "ali-kartal",
+      "navn": "Ali Kartal"
+    },
+    {
+      "key": "anikken-berg",
+      "navn": "Anikken Berg"
+    },
+    {
+      "key": "anita-olette-figenschou-gylseth",
+      "navn": "Anita Olette Figenschou Gylseth"
+    },
+    {
+      "key": "ann-turid-hjerde",
+      "navn": "Ann-Turid Hjerde"
+    },
+    {
+      "key": "erik-berg",
+      "navn": "Erik Berg"
+    },
+    {
+      "key": "erwin-damian-cwiek",
+      "navn": "Erwin Damian Cwiek"
+    },
+    {
+      "key": "jozef-mierzwa",
+      "navn": "Jozef Mierzwa"
+    },
+    {
+      "key": "ketil-utne-finstad-steira",
+      "navn": "Ketil Utne Finstad-Steira"
+    },
+    {
+      "key": "silje-kristin-hjerde",
+      "navn": "Silje Kristin Hjerde"
+    },
+    {
+      "key": "stephen-meinich-bache",
+      "navn": "Stephen Meinich-Bache"
+    }
+  ],
+  "roller": [
+    {
+      "org": "a-rorbuer",
+      "person": "anikken-berg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "a-rorbuer",
+      "person": "erik-berg",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "a-rorbuer",
+      "person": "stephen-meinich-bache",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "anitas-sjomat",
+      "person": "anita-olette-figenschou-gylseth",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "anitas-sjomat",
+      "person": "anita-olette-figenschou-gylseth",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "deco-norge",
+      "person": "jozef-mierzwa",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "deco-norge",
+      "person": "jozef-mierzwa",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "eliassen-rorbuer-drift",
+      "person": "agata-honorata-gasior",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "eliassen-rorbuer-drift",
+      "person": "erwin-damian-cwiek",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "eliassen-rorbuer-drift",
+      "person": "erwin-damian-cwiek",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "moskenes-kommune-helse-og-sosialetat",
+      "person": "ketil-utne-finstad-steira",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "moskenes-kommune-oppvekstsetat",
+      "person": "ketil-utne-finstad-steira",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "moskenes-kommune-teknisk-etat",
+      "person": "ketil-utne-finstad-steira",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "moskenes-kommune",
+      "person": "ketil-utne-finstad-steira",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "reine-rorbuer-drift",
+      "person": "anikken-berg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "reine-rorbuer-drift",
+      "person": "erik-berg",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "reine-rorbuer-drift",
+      "person": "stephen-meinich-bache",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tapperiet-bistro",
+      "person": "ali-kartal",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tapperiet-bistro",
+      "person": "ali-kartal",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tapperiet-bistro",
+      "person": "ann-turid-hjerde",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tapperiet-bistro",
+      "person": "silje-kristin-hjerde",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "moskenes-kommunestyre",
+      "til": "moskenes-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "a-rorbuer",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 139795,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "a-rorbuer",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 167438,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "a-rorbuer",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 100000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "a-rorbuer",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 22307562,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "anitas-sjomat",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 6939014,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "anitas-sjomat",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 8577335,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "anitas-sjomat",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 21044342,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "anitas-sjomat",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 37470393,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "deco-norge",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1044523,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "deco-norge",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -1162972,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "deco-norge",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5500851,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "deco-norge",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 25554351,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "eliassen-rorbuer-drift",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1283723,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "eliassen-rorbuer-drift",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1669421,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "eliassen-rorbuer-drift",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1808670,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "eliassen-rorbuer-drift",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 57552859,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "reine-rorbuer-drift",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4895322,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "reine-rorbuer-drift",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 5782628,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "reine-rorbuer-drift",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1835017,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "reine-rorbuer-drift",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 39658464,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "tapperiet-bistro",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1238384,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "tapperiet-bistro",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1991838,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "tapperiet-bistro",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 471354,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "tapperiet-bistro",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 19386264,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "a-rorbuer",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "deco-norge",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "eliassen-rorbuer-drift",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "reine-rorbuer-drift",
+      "segment": "reiseliv",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

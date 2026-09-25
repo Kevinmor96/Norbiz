@@ -1,0 +1,7019 @@
+{
+  "meta": {
+    "kommunenr": "1833",
+    "kommune": "Rana - Raane",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "rana-kommunestyre",
+      "navn": "Kommunestyret i Rana - Raane",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "rana-kommune",
+      "kommunenr": "1833",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "arne-sjule",
+      "orgnr": "913450566",
+      "navn": "Arne Sjule AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-03-25",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 46.390 «Engroshandel med bredt utvalg av nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "bakeriet-mo-i-rana",
+      "orgnr": "948134926",
+      "navn": "Bakeriet Mo i Rana AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-13",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.710 «Produksjon av brød og ferske konditorvarer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "bilalliansen",
+      "orgnr": "980394786",
+      "navn": "Bilalliansen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1998-10-30",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.810 «Detaljhandel med motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "boreal-buss",
+      "orgnr": "979437218",
+      "navn": "Boreal Buss AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5001",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1997-11-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "boreal-buss-as-avd-mo-i-rana",
+      "orgnr": "919388382",
+      "navn": "Boreal Buss AS Avd Mo i Rana",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "boreal-buss",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2017-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Boreal Buss AS, med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "coop-midt-norge",
+      "orgnr": "938786054",
+      "navn": "Coop Midt-Norge SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "5001",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "1970-02-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "coop-midt-norge-sa-avd-hypermarked-mo-i-rana",
+      "orgnr": "996516806",
+      "navn": "Coop Midt Norge SA Avd Hypermarked Mo i Rana",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "overordnet": "coop-midt-norge",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "2011-06-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Coop Midt-Norge SA, med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "driv-karriere",
+      "orgnr": "919864168",
+      "navn": "Driv Karriere AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1968-12-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 88.993 «Arbeidstrening og varig tilrettelagt arbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "elkem",
+      "orgnr": "911382008",
+      "navn": "Elkem ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "gyldig_fra": "1904-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Allmennaksjeselskap registrert i Enhetsregisteret med næringskode 20.130 «Produksjon av andre uorganiske kjemiske råvarer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "elkem-asa-rana",
+      "orgnr": "972171026",
+      "navn": "Elkem ASA Rana",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "overordnet": "elkem",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1989-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Elkem ASA, med næringskode 24.100 «Produksjon av jern og stål, samt ferrolegeringer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "emploi-helse",
+      "orgnr": "914922771",
+      "navn": "Emploi Helse AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-12-29",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "evry-card-services",
+      "orgnr": "981931114",
+      "navn": "Evry Card Services AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2000-03-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 62.200 «Konsulentvirksomhet tilknyttet informasjonsteknologi og forvaltning og drift av it-systemer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "ferroglobe-mangan-norge",
+      "orgnr": "957779808",
+      "navn": "Ferroglobe Mangan Norge AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1990-06-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 24.100 «Produksjon av jern og stål, samt ferrolegeringer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "haaland",
+      "orgnr": "920520146",
+      "navn": "Haaland AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2017-12-21",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.210 «Elektrisk installasjonsarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2024, topp10-ansatte."
+      }
+    },
+    {
+      "key": "helgeland-avfallsforedling",
+      "orgnr": "971140496",
+      "navn": "Helgeland Avfallsforedling IKS",
+      "nivaa": "interkommunal",
+      "organtype": "IKS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "avfall-miljo"
+      ],
+      "gyldig_fra": "1994-05-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Interkommunalt selskap registrert i Enhetsregisteret med næringskode 38.110 «Innsamling av ikke-farlig avfall».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "helgeland-plast",
+      "orgnr": "987065311",
+      "navn": "Helgeland Plast AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2004-07-08",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 22.210 «Produksjon av plater, film, rør og profiler av plast».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "helgelandssykehuset",
+      "orgnr": "983974929",
+      "navn": "Helgelandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "1820",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "helgelandssykehuset-hf-mo-i-rana-ambulansetjeneste",
+      "orgnr": "924275073",
+      "navn": "Helgelandssykehuset HF Mo i Rana Ambulansetjeneste",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "helgelandssykehuset",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2019-11-21",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Helgelandssykehuset HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "helgelandssykehuset-hf-mo-i-rana-somatikk",
+      "orgnr": "974795515",
+      "navn": "Helgelandssykehuset HF Mo i Rana - Somatikk",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "helgelandssykehuset",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Helgelandssykehuset HF, med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "helgelandssykehuset-hf-mo-i-rana-voksenpsykiatri",
+      "orgnr": "975326535",
+      "navn": "Helgelandssykehuset HF Mo i Rana Voksenpsykiatri",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "helgelandssykehuset",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "1994-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Helgelandssykehuset HF, med næringskode 86.102 «Psykiatriske sykehustjenester for voksne».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "helma-hotelldrift",
+      "orgnr": "935908965",
+      "navn": "Helma Hotelldrift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2025-07-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "hjh-fjell-og-anleggsentreprenor",
+      "orgnr": "982186919",
+      "navn": "HJH Fjell og Anleggsentreprenør AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2000-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "imo-sveiseindustri",
+      "orgnr": "958439709",
+      "navn": "Imo Sveiseindustri AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1990-03-26",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 25.110 «Produksjon av metallkonstruksjoner og deler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "imtas-prosjekt",
+      "orgnr": "987309113",
+      "navn": "Imtas Prosjekt AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2004-09-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 33.120 «Reparasjon og vedlikehold av maskiner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "klaff",
+      "orgnr": "998292239",
+      "navn": "Klaff AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-04-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "kvaroy-smolt",
+      "orgnr": "976969413",
+      "navn": "Kvarøy Smolt AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1996-11-26",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.222 «Produksjon av yngel og settefisk i ferskvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "kvikk-renhold",
+      "orgnr": "876335522",
+      "navn": "Kvikk Renhold AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1996-04-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 81.210 «Rengjøring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "linea",
+      "orgnr": "917424799",
+      "navn": "Linea AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1824",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "2016-05-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 35.140 «Distribusjon av elektrisitet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "linea-as-mo-i-rana",
+      "orgnr": "973184601",
+      "navn": "Linea AS Mo i Rana",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "linea",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "1989-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Linea AS, med næringskode 35.140 «Distribusjon av elektrisitet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "masonite-beams",
+      "orgnr": "925357065",
+      "navn": "Masonite Beams AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2020-05-29",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 16.230 «Produksjon av andre bygningsartikler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "mba-entreprenor",
+      "orgnr": "990694001",
+      "navn": "Mba Entreprenør AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "2006-11-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 41.000 «Oppføring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "meyergarden-turisthotell",
+      "orgnr": "881328542",
+      "navn": "Meyergården Turisthotell AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "1999-11-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "meyership",
+      "orgnr": "943164622",
+      "navn": "Meyership AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1987-05-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "mo-i-rana-politistasjon",
+      "orgnr": "974702509",
+      "navn": "Mo i Rana Politistasjon",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "overordnet": "nordland-politidistrikt",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Nordland Politidistrikt, med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "mo-industripark",
+      "orgnr": "914780152",
+      "navn": "Mo Industripark AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "1946-07-19",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 20.110 «Produksjon av industrigasser».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "mo-industritransport",
+      "orgnr": "952913557",
+      "navn": "Mo Industritransport AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1989-09-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 52.100 «Lagring».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "momek-civil",
+      "orgnr": "990797366",
+      "navn": "Momek Civil AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "2007-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 41.000 «Oppføring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "momek-services",
+      "orgnr": "992198923",
+      "navn": "Momek Services AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2008-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 25.530 «Bearbeiding av metaller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nasjonalbiblioteket",
+      "orgnr": "976029100",
+      "navn": "Nasjonalbiblioteket",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 91.112 «Drift av fag- og forskningsbiblioteker».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "nasjonalbiblioteket-avd-rana",
+      "orgnr": "974722682",
+      "navn": "Nasjonalbiblioteket Avd Rana",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "nasjonalbiblioteket",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Nasjonalbiblioteket, med næringskode 91.112 «Drift av fag- og forskningsbiblioteker».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nav-kontaktsenter",
+      "orgnr": "991013628",
+      "navn": "Nav Kontaktsenter",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2006-07-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.300 «Administrasjon av trygdeordninger underlagt offentlig forvaltning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "nav-kontaktsenter-nordland-mo",
+      "orgnr": "974720272",
+      "navn": "Nav Kontaktsenter Nordland Mo",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "nav-kontaktsenter",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Nav Kontaktsenter, med næringskode 84.300 «Administrasjon av trygdeordninger underlagt offentlig forvaltning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "nav-okonomi-stonad-avd-mo-i-rana",
+      "orgnr": "895821802",
+      "navn": "Nav Økonomi Stønad Avd Mo i Rana",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "nav-okonomilinjen",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2010-08-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Nav Økonomilinjen, med næringskode 84.300 «Administrasjon av trygdeordninger underlagt offentlig forvaltning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "nav-okonomilinjen",
+      "orgnr": "995277670",
+      "navn": "Nav Økonomilinjen",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2010-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.300 «Administrasjon av trygdeordninger underlagt offentlig forvaltning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "nemko-norlab",
+      "orgnr": "953018144",
+      "navn": "Nemko Norlab AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1989-09-07",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 71.200 «Teknisk prøving og analyse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "orgnr": "974793725",
+      "navn": "Nordland Fylkeskommune Utdanning og Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland Politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "northroads",
+      "orgnr": "815644042",
+      "navn": "Northroads AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2015-07-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 81.230 «Annen rengjøringsvirksomhet og snømåking».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "oijord-aanes-entreprenorforretning",
+      "orgnr": "957749933",
+      "navn": "Øijord & Aanes Entreprenørforretning AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1990-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "opcom",
+      "orgnr": "920322433",
+      "navn": "Opcom AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2018-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.210 «Elektrisk installasjonsarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "polarsirkelen-videregaende-skole",
+      "orgnr": "974621304",
+      "navn": "Polarsirkelen Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Nordland Fylkeskommune Utdanning og Kompetanse, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "posten-bring",
+      "orgnr": "984661185",
+      "navn": "Posten Bring AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2002-07-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 53.100 «Landsdekkende posttjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "posten-bring-as-mo-i-rana",
+      "orgnr": "997640748",
+      "navn": "Posten Bring AS Mo i Rana",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "posten-bring",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Posten Bring AS, med næringskode 53.100 «Landsdekkende posttjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "rana-gruber",
+      "orgnr": "953049724",
+      "navn": "Rana Gruber AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1989-08-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 07.100 «Bryting av jernmalm».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "rana-kommune",
+      "orgnr": "872418032",
+      "navn": "Rana Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "rana-kommune-helse-og-omsorg",
+      "orgnr": "985522774",
+      "navn": "Rana Kommune Helse og Omsorg",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2003-03-19",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "rana-kommune-oppvekst-og-kultur",
+      "orgnr": "974790343",
+      "navn": "Rana Kommune Oppvekst og Kultur",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "rana-kommune-stab-og-stottetjenester",
+      "orgnr": "974794241",
+      "navn": "Rana Kommune Stab og Støttetjenester",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "rana-kommune-tekniske-tjenester",
+      "orgnr": "974791420",
+      "navn": "Rana Kommune Tekniske Tjenester",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "selma-drift",
+      "orgnr": "993536342",
+      "navn": "Selma Drift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "2009-01-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "skatteetaten-974761076",
+      "orgnr": "974761076",
+      "navn": "Skatteetaten",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "skatteetaten-mo-i-rana",
+      "orgnr": "974647834",
+      "navn": "Skatteetaten Mo i Rana",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "skatteetaten-974761076",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Rana - Raane for Skatteetaten, med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sparebank-1-helgeland",
+      "orgnr": "937904029",
+      "navn": "Sparebank 1 Helgeland",
+      "nivaa": "privat",
+      "organtype": "sparebank",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [
+        "finans"
+      ],
+      "gyldig_fra": "1977-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Sparebank registrert i Enhetsregisteret med næringskode 64.190 «Banker og kredittforetak».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "sulland-mo",
+      "orgnr": "915167330",
+      "navn": "Sulland Mo AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1975-12-30",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 95.310 «Reparasjon og vedlikehold av motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "th-blikk",
+      "orgnr": "912783537",
+      "navn": "TH Blikk AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1833",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2013-10-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.410 «Takarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "alberto-jose-fuentes-alvarez",
+      "navn": "Alberto Jose Fuentes Alvarez"
+    },
+    {
+      "key": "alexander-johansen",
+      "navn": "Alexander Johansen"
+    },
+    {
+      "key": "alfred-kjoglum-olsen",
+      "navn": "Alfred Kjøglum Olsen"
+    },
+    {
+      "key": "andreas-william-hennyng",
+      "navn": "Andreas William Hennyng"
+    },
+    {
+      "key": "ane-hiller-fladvad",
+      "navn": "Ane Hiller Fladvad"
+    },
+    {
+      "key": "ann-cecilie-ursin-hilling",
+      "navn": "Ann Cecilie Ursin Hilling"
+    },
+    {
+      "key": "ann-helen-baadstrand",
+      "navn": "Ann-Helen Baadstrand"
+    },
+    {
+      "key": "anne-grete-sellin",
+      "navn": "Anne-Grete Sellin"
+    },
+    {
+      "key": "anne-kathrine-gjerdrum",
+      "navn": "Anne Kathrine Gjerdrum"
+    },
+    {
+      "key": "anne-paasche-jakobsen",
+      "navn": "Anne Paasche Jakobsen"
+    },
+    {
+      "key": "aqsa-noreen-butt",
+      "navn": "Aqsa Noreen Butt"
+    },
+    {
+      "key": "arnstein-landsem",
+      "navn": "Arnstein Landsem"
+    },
+    {
+      "key": "arthur-hilmar-bergersen",
+      "navn": "Arthur Hilmar Bergersen"
+    },
+    {
+      "key": "arve-reinsnes",
+      "navn": "Arve Reinsnes"
+    },
+    {
+      "key": "arve-ulriksen",
+      "navn": "Arve Ulriksen"
+    },
+    {
+      "key": "aslak-lid",
+      "navn": "Aslak Lid"
+    },
+    {
+      "key": "atle-arctander",
+      "navn": "Atle Arctander"
+    },
+    {
+      "key": "audhild-bang-rande",
+      "navn": "Audhild Bang Rande"
+    },
+    {
+      "key": "beathe-regina-bordevik",
+      "navn": "Beathe Regina Bordevik"
+    },
+    {
+      "key": "beatriz-garcia-cos-muntanola",
+      "navn": "Beatriz Garcia-Cos Muntanola"
+    },
+    {
+      "key": "benjamin-noel-camille-crespy",
+      "navn": "Benjamin Noel Camille Crespy"
+    },
+    {
+      "key": "benn-anders-mikalsen",
+      "navn": "Benn-Anders Mikalsen"
+    },
+    {
+      "key": "bente-abrahamsen",
+      "navn": "Bente Abrahamsen"
+    },
+    {
+      "key": "bjorn-andreas-krane",
+      "navn": "Bjørn Andreas Krane"
+    },
+    {
+      "key": "bjorn-audun-risoy",
+      "navn": "Bjørn Audun Risøy"
+    },
+    {
+      "key": "bjorn-einar-ugedal",
+      "navn": "Bjørn Einar Ugedal"
+    },
+    {
+      "key": "bjorn-inge-gjethammer",
+      "navn": "Bjørn Inge Gjethammer"
+    },
+    {
+      "key": "bjorn-tore-isaksen",
+      "navn": "Bjørn Tore Isaksen"
+    },
+    {
+      "key": "bjornar-stavnes",
+      "navn": "Bjørnar Stavnes"
+    },
+    {
+      "key": "camilla-johnsdatter-nilsen",
+      "navn": "Camilla Johnsdatter Nilsen"
+    },
+    {
+      "key": "conrad-lehne-drangsland",
+      "navn": "Conrad Lehne Drangsland"
+    },
+    {
+      "key": "david-cataford",
+      "navn": "David Cataford"
+    },
+    {
+      "key": "diana-balinova",
+      "navn": "Diana Balinova"
+    },
+    {
+      "key": "eigil-espejord-dabakk",
+      "navn": "Eigil Espejord Dåbakk"
+    },
+    {
+      "key": "eirik-michalsen",
+      "navn": "Eirik Michalsen"
+    },
+    {
+      "key": "eirin-halvorsen",
+      "navn": "Eirin Halvorsen"
+    },
+    {
+      "key": "ellen-bromstad-myrvold",
+      "navn": "Ellen Bromstad Myrvold"
+    },
+    {
+      "key": "erlend-hoyen",
+      "navn": "Erlend Høyen"
+    },
+    {
+      "key": "espen-haaland",
+      "navn": "Espen Haaland"
+    },
+    {
+      "key": "espen-skar",
+      "navn": "Espen Skår"
+    },
+    {
+      "key": "eva-nerdal-skog",
+      "navn": "Eva Nerdal Skog"
+    },
+    {
+      "key": "evelyn-iren-myrvoll",
+      "navn": "Evelyn Iren Myrvoll"
+    },
+    {
+      "key": "frank-asheim",
+      "navn": "Frank Åsheim"
+    },
+    {
+      "key": "frank-olav-larsen",
+      "navn": "Frank Olav Larsen"
+    },
+    {
+      "key": "fred-ronny-johansen",
+      "navn": "Fred Ronny Johansen"
+    },
+    {
+      "key": "freddy-bakken-braseth",
+      "navn": "Freddy Bakken Braseth"
+    },
+    {
+      "key": "fredrik-lundestad",
+      "navn": "Fredrik Lundestad"
+    },
+    {
+      "key": "geir-andre-nilsen",
+      "navn": "Geir Andre Nilsen"
+    },
+    {
+      "key": "geir-andreassen",
+      "navn": "Geir Andreassen"
+    },
+    {
+      "key": "geir-johnny-hansen",
+      "navn": "Geir Johnny Hansen"
+    },
+    {
+      "key": "geir-jorgen-landsem",
+      "navn": "Geir Jørgen Landsem"
+    },
+    {
+      "key": "gjermund-jakobsen",
+      "navn": "Gjermund Jakobsen"
+    },
+    {
+      "key": "gjermund-olsen",
+      "navn": "Gjermund Olsen"
+    },
+    {
+      "key": "goran-nerdal",
+      "navn": "Gøran Nerdal"
+    },
+    {
+      "key": "grete-seterdal",
+      "navn": "Grete Seterdal"
+    },
+    {
+      "key": "gunhild-kristin-myrbakk",
+      "navn": "Gunhild Kristin Myrbakk"
+    },
+    {
+      "key": "gunnar-kalstad",
+      "navn": "Gunnar Kalstad"
+    },
+    {
+      "key": "gunnar-moe",
+      "navn": "Gunnar Moe"
+    },
+    {
+      "key": "halvard-meisfjord",
+      "navn": "Halvard Meisfjord"
+    },
+    {
+      "key": "halvor-coward-olsen",
+      "navn": "Halvor Coward Olsen"
+    },
+    {
+      "key": "hanne-grimsland",
+      "navn": "Hanne Grimsland"
+    },
+    {
+      "key": "hanne-nordgaard",
+      "navn": "Hanne Nordgaard"
+    },
+    {
+      "key": "hans-johnny-hogas",
+      "navn": "Hans Johnny Høgås"
+    },
+    {
+      "key": "hans-petter-skjaeran",
+      "navn": "Hans-Petter Skjæran"
+    },
+    {
+      "key": "havard-johan-hagen",
+      "navn": "Håvard Johan Hagen"
+    },
+    {
+      "key": "hege-mariann-langset",
+      "navn": "Hege Mariann Langset"
+    },
+    {
+      "key": "helene-tvete",
+      "navn": "Helene Tvete"
+    },
+    {
+      "key": "helge-gjosaeter",
+      "navn": "Helge Gjøsæter"
+    },
+    {
+      "key": "henriette-zahl-pedersen",
+      "navn": "Henriette Zahl Pedersen"
+    },
+    {
+      "key": "hilde-lillerodvann",
+      "navn": "Hilde Lillerødvann"
+    },
+    {
+      "key": "hilde-mollevik-johannessen",
+      "navn": "Hilde Møllevik-Johannessen"
+    },
+    {
+      "key": "ida-katrin-robertsen-wang",
+      "navn": "Ida-Katrin Robertsen Wang"
+    },
+    {
+      "key": "ina-sofie-ruud",
+      "navn": "Ina Sofie Ruud"
+    },
+    {
+      "key": "jan-arild-vikestad",
+      "navn": "Jan Arild Vikestad"
+    },
+    {
+      "key": "jan-erik-jakobsen",
+      "navn": "Jan Erik Jakobsen"
+    },
+    {
+      "key": "jan-konrad-mikkelborg",
+      "navn": "Jan Konrad Mikkelborg"
+    },
+    {
+      "key": "jan-terje-mikalsen",
+      "navn": "Jan-Terje Mikalsen"
+    },
+    {
+      "key": "jane-kristin-aamodt-haugland",
+      "navn": "Jane Kristin Aamodt Haugland"
+    },
+    {
+      "key": "jens-kristian-ronning",
+      "navn": "Jens Kristian Rønning"
+    },
+    {
+      "key": "jens-petter-bakjord",
+      "navn": "Jens-Petter Bakjord"
+    },
+    {
+      "key": "johan-hovind",
+      "navn": "Johan Hovind"
+    },
+    {
+      "key": "johannes-sandhei",
+      "navn": "Johannes Sandhei"
+    },
+    {
+      "key": "john-bakken",
+      "navn": "John Bakken"
+    },
+    {
+      "key": "john-morten-abelsen",
+      "navn": "John Morten Abelsen"
+    },
+    {
+      "key": "kari-sehm-strifeldt",
+      "navn": "Kari Sehm Strifeldt"
+    },
+    {
+      "key": "karolina-marta-skomsoy",
+      "navn": "Karolina Marta Skomsøy"
+    },
+    {
+      "key": "katrine-stormdalshei",
+      "navn": "Katrine Stormdalshei"
+    },
+    {
+      "key": "kenneth-normann",
+      "navn": "Kenneth Normann"
+    },
+    {
+      "key": "kenneth-rabben",
+      "navn": "Kenneth Rabben"
+    },
+    {
+      "key": "kent-ove-oijord",
+      "navn": "Kent Ove Øijord"
+    },
+    {
+      "key": "kim-fagerli",
+      "navn": "Kim Fagerli"
+    },
+    {
+      "key": "kine-cecilie-ruud-valrygg",
+      "navn": "Kine Cecilie Ruud Valrygg"
+    },
+    {
+      "key": "kjell-arne-hagen",
+      "navn": "Kjell-Arne Hagen"
+    },
+    {
+      "key": "kjell-christer-kristoffersen",
+      "navn": "Kjell-Christer Kristoffersen"
+    },
+    {
+      "key": "kjell-ivar-skjaervik",
+      "navn": "Kjell Ivar Skjærvik"
+    },
+    {
+      "key": "kjell-trygve-kristoffersen",
+      "navn": "Kjell Trygve Kristoffersen"
+    },
+    {
+      "key": "knut-gullesen",
+      "navn": "Knut Gullesen"
+    },
+    {
+      "key": "knut-nesse",
+      "navn": "Knut Nesse"
+    },
+    {
+      "key": "kristin-hildrum",
+      "navn": "Kristin Hildrum"
+    },
+    {
+      "key": "lars-nygaard",
+      "navn": "Lars Nygaard"
+    },
+    {
+      "key": "leif-kare-hornnes-yndestad",
+      "navn": "Leif Kåre Hornnes Yndestad"
+    },
+    {
+      "key": "leif-olav-sagen",
+      "navn": "Leif Olav Sagen"
+    },
+    {
+      "key": "lena-holmen",
+      "navn": "Lena Holmen"
+    },
+    {
+      "key": "lena-katrin-aas",
+      "navn": "Lena Katrin Aas"
+    },
+    {
+      "key": "linda-thynes",
+      "navn": "Linda Thynes"
+    },
+    {
+      "key": "line-brygfjeld-krakstad",
+      "navn": "Line Brygfjeld Kråkstad"
+    },
+    {
+      "key": "line-rengard",
+      "navn": "Line Rengård"
+    },
+    {
+      "key": "linn-tverra",
+      "navn": "Linn Tverrå"
+    },
+    {
+      "key": "lisa-asland",
+      "navn": "Lisa Åsland"
+    },
+    {
+      "key": "lisa-mari-dalmo",
+      "navn": "Lisa-Mari Dalmo"
+    },
+    {
+      "key": "lisbeth-flageng",
+      "navn": "Lisbeth Flågeng"
+    },
+    {
+      "key": "lotte-volden",
+      "navn": "Lotte Volden"
+    },
+    {
+      "key": "marianne-terese-steinmo",
+      "navn": "Marianne Terese Steinmo"
+    },
+    {
+      "key": "marit-dille",
+      "navn": "Marit Dille"
+    },
+    {
+      "key": "marius-lovdal-eriksen",
+      "navn": "Marius Løvdal Eriksen"
+    },
+    {
+      "key": "martin-andre-hansen",
+      "navn": "Martin André Hansen"
+    },
+    {
+      "key": "mats-israelsen-hansen",
+      "navn": "Mats Israelsen Hansen"
+    },
+    {
+      "key": "mats-soreng",
+      "navn": "Mats Søreng"
+    },
+    {
+      "key": "merethe-aasen",
+      "navn": "Merethe Aasen"
+    },
+    {
+      "key": "mette-varem",
+      "navn": "Mette Varem"
+    },
+    {
+      "key": "miriam-alise-aavitsland-asland",
+      "navn": "Miriam Alise Aavitsland Åsland"
+    },
+    {
+      "key": "mona-kristin-bolin",
+      "navn": "Mona-Kristin Bolin"
+    },
+    {
+      "key": "morten-andre-kahrs",
+      "navn": "Morten André Kahrs"
+    },
+    {
+      "key": "nathalie-turcotte",
+      "navn": "Nathalie Turcotte"
+    },
+    {
+      "key": "niels-erik-norlund-aavatsmark",
+      "navn": "Niels Erik Nørlund Aavatsmark"
+    },
+    {
+      "key": "nils-harald-oyjord",
+      "navn": "Nils Harald Øyjord"
+    },
+    {
+      "key": "nina-therese-haaland",
+      "navn": "Nina Therese Haaland"
+    },
+    {
+      "key": "odd-arve-olsen",
+      "navn": "Odd Arve Olsen"
+    },
+    {
+      "key": "odd-arvid-sulland",
+      "navn": "Odd Arvid Sulland"
+    },
+    {
+      "key": "olav-hilmar-koloy",
+      "navn": "Olav Hilmar Koløy"
+    },
+    {
+      "key": "olav-weglo",
+      "navn": "Olav Weglo"
+    },
+    {
+      "key": "ole-petter-kornelius-landewall",
+      "navn": "Ole-Petter Kornelius Landewall"
+    },
+    {
+      "key": "ole-tom-sjule",
+      "navn": "Ole-Tom Sjule"
+    },
+    {
+      "key": "ove-bromseth",
+      "navn": "Ove Bromseth"
+    },
+    {
+      "key": "oyvind-sulland",
+      "navn": "Øyvind Sulland"
+    },
+    {
+      "key": "pasi-kalevi-mauno",
+      "navn": "Pasi Kalevi Mauno"
+    },
+    {
+      "key": "peder-morten-aasen-olsen",
+      "navn": "Peder Morten Aasen Olsen"
+    },
+    {
+      "key": "per-asle-pedersen",
+      "navn": "Per Asle Pedersen"
+    },
+    {
+      "key": "per-ove-oyberg",
+      "navn": "Per Ove Øyberg"
+    },
+    {
+      "key": "rachel-braaten-ovesen",
+      "navn": "Rachel Braaten Ovesen"
+    },
+    {
+      "key": "reidar-christoffer-bjornsen-wulfsberg",
+      "navn": "Reidar Christoffer Bjørnsen Wulfsberg"
+    },
+    {
+      "key": "ricky-allan-kristian-hagen",
+      "navn": "Ricky Allan Kristian Hagen"
+    },
+    {
+      "key": "rigmor-nygard-hansen",
+      "navn": "Rigmor Nygård Hansen"
+    },
+    {
+      "key": "robert-pettersen",
+      "navn": "Robert Pettersen"
+    },
+    {
+      "key": "robin-krane",
+      "navn": "Robin Krane"
+    },
+    {
+      "key": "roger-kruta",
+      "navn": "Roger Krutå"
+    },
+    {
+      "key": "roger-skatland",
+      "navn": "Roger Skatland"
+    },
+    {
+      "key": "ronny-meinkohn",
+      "navn": "Ronny Meinkøhn"
+    },
+    {
+      "key": "ronny-ostrem-pedersen",
+      "navn": "Ronny Østrem Pedersen"
+    },
+    {
+      "key": "rune-ronning",
+      "navn": "Rune Rønning"
+    },
+    {
+      "key": "siri-jakobsen",
+      "navn": "Siri Jakobsen"
+    },
+    {
+      "key": "sivert-lund",
+      "navn": "Sivert Lund"
+    },
+    {
+      "key": "siw-moxness",
+      "navn": "Siw Moxness"
+    },
+    {
+      "key": "solrun-johansen",
+      "navn": "Solrun Johansen"
+    },
+    {
+      "key": "stale-bjornstad",
+      "navn": "Ståle Bjørnstad"
+    },
+    {
+      "key": "stein-andre-olsen",
+      "navn": "Stein André Olsen"
+    },
+    {
+      "key": "stein-rune-oijord",
+      "navn": "Stein Rune Øijord"
+    },
+    {
+      "key": "steinar-olsen",
+      "navn": "Steinar Olsen"
+    },
+    {
+      "key": "stig-andre-olsen",
+      "navn": "Stig-Andre Olsen"
+    },
+    {
+      "key": "stine-mathisen",
+      "navn": "Stine Mathisen"
+    },
+    {
+      "key": "sumeet-kaur-uppal",
+      "navn": "Sumeet Kaur Uppal"
+    },
+    {
+      "key": "svein-arild-johnsgard",
+      "navn": "Svein Arild Johnsgård"
+    },
+    {
+      "key": "svein-yngvar-skogsoy",
+      "navn": "Svein Yngvar Skogsøy"
+    },
+    {
+      "key": "sverre-stalem",
+      "navn": "Sverre Stålem"
+    },
+    {
+      "key": "terje-anonli",
+      "navn": "Terje Ånonli"
+    },
+    {
+      "key": "therese-sulland",
+      "navn": "Therese Sulland"
+    },
+    {
+      "key": "thomas-lenningsvik",
+      "navn": "Thomas Lenningsvik"
+    },
+    {
+      "key": "thore-andre-hanssen",
+      "navn": "Thore Andre Hanssen"
+    },
+    {
+      "key": "tina-irene-bruhaug-andreassen",
+      "navn": "Tina Irene Bruhaug Andreassen"
+    },
+    {
+      "key": "tobias-heien-reinsnes",
+      "navn": "Tobias Heien Reinsnes"
+    },
+    {
+      "key": "tom-andre-engo",
+      "navn": "Tom Andre Engø"
+    },
+    {
+      "key": "tom-einar-hoholm",
+      "navn": "Tom Einar Hoholm"
+    },
+    {
+      "key": "tommy-johannessen",
+      "navn": "Tommy Johannessen"
+    },
+    {
+      "key": "tommy-junger-hogas",
+      "navn": "Tommy Junger-Høgås"
+    },
+    {
+      "key": "tone-helen-jakobsen",
+      "navn": "Tone Helen Jakobsen"
+    },
+    {
+      "key": "tone-liss-breiland",
+      "navn": "Tone Liss Breiland"
+    },
+    {
+      "key": "tone-lystrup-gardsjord",
+      "navn": "Tone Lystrup Gardsjord"
+    },
+    {
+      "key": "tor-aavatsmark",
+      "navn": "Tor Aavatsmark"
+    },
+    {
+      "key": "tor-erik-aag",
+      "navn": "Tor Erik Aag"
+    },
+    {
+      "key": "tore-hogli",
+      "navn": "Tore Høgli"
+    },
+    {
+      "key": "tore-kristiansen",
+      "navn": "Tore Kristiansen"
+    },
+    {
+      "key": "torill-aune-vatn",
+      "navn": "Torill Aune Vatn"
+    },
+    {
+      "key": "torje-aleksander-sulland",
+      "navn": "Torje Aleksander Sulland"
+    },
+    {
+      "key": "torunn-mangseth",
+      "navn": "Torunn Mangseth"
+    },
+    {
+      "key": "trine-bjerkli-gabor",
+      "navn": "Trine Bjerkli Gabor"
+    },
+    {
+      "key": "trond-arvid-haldorsen",
+      "navn": "Trond Arvid Haldorsen"
+    },
+    {
+      "key": "trond-erland-olsen",
+      "navn": "Trond Erland Olsen"
+    },
+    {
+      "key": "trond-fidje",
+      "navn": "Trond Fidje"
+    },
+    {
+      "key": "trond-harry-hansen",
+      "navn": "Trond Harry Hansen"
+    },
+    {
+      "key": "trond-jakobsen",
+      "navn": "Trond Jakobsen"
+    },
+    {
+      "key": "trond-landsem",
+      "navn": "Trond Landsem"
+    },
+    {
+      "key": "unn-beathe-sulland",
+      "navn": "Unn Beathe Sulland"
+    },
+    {
+      "key": "unn-tove-sternang",
+      "navn": "Unn Tove Sternang"
+    },
+    {
+      "key": "vanja-johansen",
+      "navn": "Vanja Johansen"
+    },
+    {
+      "key": "wiggo-dalmo",
+      "navn": "Wiggo Dalmo"
+    },
+    {
+      "key": "yngve-myhre",
+      "navn": "Yngve Myhre"
+    }
+  ],
+  "roller": [
+    {
+      "org": "arne-sjule",
+      "person": "hilde-mollevik-johannessen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arne-sjule",
+      "person": "kim-fagerli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arne-sjule",
+      "person": "tor-erik-aag",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "person": "bente-abrahamsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "person": "bjorn-inge-gjethammer",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "person": "grete-seterdal",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "person": "gunnar-kalstad",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "person": "jan-arild-vikestad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "person": "jan-arild-vikestad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "person": "trine-bjerkli-gabor",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "person": "trond-fidje",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bilalliansen",
+      "person": "alfred-kjoglum-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bilalliansen",
+      "person": "arnstein-landsem",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bilalliansen",
+      "person": "geir-jorgen-landsem",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bilalliansen",
+      "person": "odd-arve-olsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bilalliansen",
+      "person": "olav-weglo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bilalliansen",
+      "person": "roger-kruta",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bilalliansen",
+      "person": "trond-landsem",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "driv-karriere",
+      "person": "hans-petter-skjaeran",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "driv-karriere",
+      "person": "hilde-lillerodvann",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "driv-karriere",
+      "person": "jens-petter-bakjord",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "driv-karriere",
+      "person": "rachel-braaten-ovesen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "driv-karriere",
+      "person": "rigmor-nygard-hansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "driv-karriere",
+      "person": "svein-yngvar-skogsoy",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "driv-karriere",
+      "person": "tone-helen-jakobsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "emploi-helse",
+      "person": "lena-katrin-aas",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "emploi-helse",
+      "person": "lena-katrin-aas",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "emploi-helse",
+      "person": "lisa-asland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "emploi-helse",
+      "person": "steinar-olsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "emploi-helse",
+      "person": "tina-irene-bruhaug-andreassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "person": "aslak-lid",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "person": "bjornar-stavnes",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "person": "frank-olav-larsen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "person": "jane-kristin-aamodt-haugland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "person": "leif-kare-hornnes-yndestad",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "person": "linn-tverra",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "person": "pasi-kalevi-mauno",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "person": "sivert-lund",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "person": "stein-andre-olsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "person": "tone-liss-breiland",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "person": "unn-tove-sternang",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "person": "alberto-jose-fuentes-alvarez",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "person": "anne-grete-sellin",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "person": "beatriz-garcia-cos-muntanola",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "person": "benjamin-noel-camille-crespy",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "person": "gjermund-jakobsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "person": "hege-mariann-langset",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "person": "knut-gullesen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "person": "knut-gullesen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "person": "linda-thynes",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "person": "thomas-lenningsvik",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haaland",
+      "person": "ellen-bromstad-myrvold",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haaland",
+      "person": "espen-haaland",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haaland",
+      "person": "espen-haaland",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haaland",
+      "person": "helge-gjosaeter",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "eigil-espejord-dabakk",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "gunhild-kristin-myrbakk",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "hanne-grimsland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "kine-cecilie-ruud-valrygg",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "lena-holmen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "merethe-aasen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "mette-varem",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "peder-morten-aasen-olsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "per-asle-pedersen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "siri-jakobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "stine-mathisen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "terje-anonli",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "person": "thore-andre-hanssen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-plast",
+      "person": "freddy-bakken-braseth",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-plast",
+      "person": "knut-nesse",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-plast",
+      "person": "ronny-meinkohn",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helma-hotelldrift",
+      "person": "diana-balinova",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helma-hotelldrift",
+      "person": "lotte-volden",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helma-hotelldrift",
+      "person": "morten-andre-kahrs",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hjh-fjell-og-anleggsentreprenor",
+      "person": "arve-ulriksen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hjh-fjell-og-anleggsentreprenor",
+      "person": "hans-johnny-hogas",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hjh-fjell-og-anleggsentreprenor",
+      "person": "kenneth-rabben",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hjh-fjell-og-anleggsentreprenor",
+      "person": "nina-therese-haaland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "imo-sveiseindustri",
+      "person": "arve-reinsnes",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "imo-sveiseindustri",
+      "person": "tobias-heien-reinsnes",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "imo-sveiseindustri",
+      "person": "tobias-heien-reinsnes",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "imtas-prosjekt",
+      "person": "johannes-sandhei",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "imtas-prosjekt",
+      "person": "johannes-sandhei",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "imtas-prosjekt",
+      "person": "olav-hilmar-koloy",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "klaff",
+      "person": "fred-ronny-johansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "klaff",
+      "person": "fred-ronny-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "klaff",
+      "person": "trond-arvid-haldorsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-smolt",
+      "person": "gjermund-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-smolt",
+      "person": "jan-erik-jakobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-smolt",
+      "person": "jan-terje-mikalsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-smolt",
+      "person": "john-morten-abelsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-smolt",
+      "person": "kristin-hildrum",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaroy-smolt",
+      "person": "marit-dille",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvikk-renhold",
+      "person": "kjell-christer-kristoffersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvikk-renhold",
+      "person": "kjell-trygve-kristoffersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvikk-renhold",
+      "person": "kjell-trygve-kristoffersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masonite-beams",
+      "person": "atle-arctander",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masonite-beams",
+      "person": "conrad-lehne-drangsland",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masonite-beams",
+      "person": "eirin-halvorsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masonite-beams",
+      "person": "halvor-coward-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masonite-beams",
+      "person": "torunn-mangseth",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mba-entreprenor",
+      "person": "kristin-hildrum",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mba-entreprenor",
+      "person": "lisbeth-flageng",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mba-entreprenor",
+      "person": "ole-tom-sjule",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mba-entreprenor",
+      "person": "reidar-christoffer-bjornsen-wulfsberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mba-entreprenor",
+      "person": "rune-ronning",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mba-entreprenor",
+      "person": "tom-einar-hoholm",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mba-entreprenor",
+      "person": "trond-harry-hansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "person": "eva-nerdal-skog",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "person": "havard-johan-hagen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "person": "jan-konrad-mikkelborg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "person": "miriam-alise-aavitsland-asland",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "person": "niels-erik-norlund-aavatsmark",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "person": "ove-bromseth",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "person": "tor-aavatsmark",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyership",
+      "person": "arthur-hilmar-bergersen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyership",
+      "person": "bjorn-audun-risoy",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyership",
+      "person": "evelyn-iren-myrvoll",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyership",
+      "person": "leif-olav-sagen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyership",
+      "person": "mona-kristin-bolin",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meyership",
+      "person": "tore-hogli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "alberto-jose-fuentes-alvarez",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "anne-paasche-jakobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "benn-anders-mikalsen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "bjorn-einar-ugedal",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "eirik-michalsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "fredrik-lundestad",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "halvard-meisfjord",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "ida-katrin-robertsen-wang",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "ina-sofie-ruud",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "kari-sehm-strifeldt",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "katrine-stormdalshei",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "kjell-arne-hagen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "knut-gullesen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "lars-nygaard",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "stale-bjornstad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "stein-rune-oijord",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "person": "trond-erland-olsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "person": "bjorn-tore-isaksen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "person": "jens-kristian-ronning",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "person": "kent-ove-oijord",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "person": "mats-israelsen-hansen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "person": "nils-harald-oyjord",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "person": "stein-rune-oijord",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "person": "tommy-johannessen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "person": "tore-kristiansen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-civil",
+      "person": "goran-nerdal",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-civil",
+      "person": "goran-nerdal",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-civil",
+      "person": "lisa-mari-dalmo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-civil",
+      "person": "roger-skatland",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-civil",
+      "person": "ronny-ostrem-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-civil",
+      "person": "vanja-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-services",
+      "person": "alexander-johansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-services",
+      "person": "ane-hiller-fladvad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-services",
+      "person": "espen-haaland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-services",
+      "person": "frank-asheim",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-services",
+      "person": "kjell-ivar-skjaervik",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-services",
+      "person": "lisa-mari-dalmo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-services",
+      "person": "stig-andre-olsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-services",
+      "person": "tom-andre-engo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "momek-services",
+      "person": "wiggo-dalmo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "person": "aqsa-noreen-butt",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "person": "eigil-espejord-dabakk",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "person": "helene-tvete",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "person": "john-bakken",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "person": "karolina-marta-skomsoy",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "person": "per-ove-oyberg",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "person": "tone-lystrup-gardsjord",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "person": "torill-aune-vatn",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "northroads",
+      "person": "espen-skar",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "northroads",
+      "person": "geir-johnny-hansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "northroads",
+      "person": "hans-johnny-hogas",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "oijord-aanes-entreprenorforretning",
+      "person": "kent-ove-oijord",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "oijord-aanes-entreprenorforretning",
+      "person": "marius-lovdal-eriksen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "oijord-aanes-entreprenorforretning",
+      "person": "stein-rune-oijord",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "oijord-aanes-entreprenorforretning",
+      "person": "sverre-stalem",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "opcom",
+      "person": "ole-petter-kornelius-landewall",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "opcom",
+      "person": "ole-petter-kornelius-landewall",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "person": "andreas-william-hennyng",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "person": "camilla-johnsdatter-nilsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "person": "david-cataford",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "person": "gunnar-moe",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "person": "gunnar-moe",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "person": "henriette-zahl-pedersen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "person": "johan-hovind",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "person": "nathalie-turcotte",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "person": "ricky-allan-kristian-hagen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "person": "sumeet-kaur-uppal",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-kommune-helse-og-omsorg",
+      "person": "robert-pettersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-kommune-oppvekst-og-kultur",
+      "person": "robert-pettersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-kommune-stab-og-stottetjenester",
+      "person": "robert-pettersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-kommune-tekniske-tjenester",
+      "person": "robert-pettersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rana-kommune",
+      "person": "robert-pettersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "selma-drift",
+      "person": "geir-andre-nilsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "selma-drift",
+      "person": "geir-andre-nilsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "selma-drift",
+      "person": "line-rengard",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "ann-helen-baadstrand",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "audhild-bang-rande",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "bjorn-andreas-krane",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "erlend-hoyen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "geir-andreassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "hanne-nordgaard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "kenneth-normann",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "line-brygfjeld-krakstad",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "marianne-terese-steinmo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "mats-soreng",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "siw-moxness",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "solrun-johansen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "person": "yngve-myhre",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "person": "anne-kathrine-gjerdrum",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "person": "odd-arvid-sulland",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "person": "oyvind-sulland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "person": "svein-arild-johnsgard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "person": "therese-sulland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "person": "torje-aleksander-sulland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "person": "trond-jakobsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "person": "unn-beathe-sulland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "th-blikk",
+      "person": "ann-cecilie-ursin-hilling",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "th-blikk",
+      "person": "beathe-regina-bordevik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "th-blikk",
+      "person": "martin-andre-hansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "th-blikk",
+      "person": "robin-krane",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "th-blikk",
+      "person": "tommy-junger-hogas",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "th-blikk",
+      "person": "tommy-junger-hogas",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "rana-kommunestyre",
+      "til": "rana-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "boreal-buss-as-avd-mo-i-rana",
+      "til": "boreal-buss",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "coop-midt-norge-sa-avd-hypermarked-mo-i-rana",
+      "til": "coop-midt-norge",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "elkem-asa-rana",
+      "til": "elkem",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "helgelandssykehuset-hf-mo-i-rana-ambulansetjeneste",
+      "til": "helgelandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "helgelandssykehuset-hf-mo-i-rana-somatikk",
+      "til": "helgelandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "helgelandssykehuset-hf-mo-i-rana-voksenpsykiatri",
+      "til": "helgelandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "linea-as-mo-i-rana",
+      "til": "linea",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "mo-i-rana-politistasjon",
+      "til": "nordland-politidistrikt",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nasjonalbiblioteket-avd-rana",
+      "til": "nasjonalbiblioteket",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nav-kontaktsenter-nordland-mo",
+      "til": "nav-kontaktsenter",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nav-okonomi-stonad-avd-mo-i-rana",
+      "til": "nav-okonomilinjen",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "polarsirkelen-videregaende-skole",
+      "til": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "posten-bring-as-mo-i-rana",
+      "til": "posten-bring",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "skatteetaten-mo-i-rana",
+      "til": "skatteetaten-974761076",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "arne-sjule",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 698901,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arne-sjule",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1989235,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arne-sjule",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 29483012,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arne-sjule",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 341292065,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -3027527,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -2701850,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7874759,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bakeriet-mo-i-rana",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 54048138,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bilalliansen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3582681,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bilalliansen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2594758,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bilalliansen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5290868,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bilalliansen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 122686116,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "driv-karriere",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -681376,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "driv-karriere",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -481938,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "driv-karriere",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 13629779,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "driv-karriere",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 21433126,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "emploi-helse",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2941278,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "emploi-helse",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3566088,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "emploi-helse",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 4203308,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "emploi-helse",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 74850716,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 78527000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 97394000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 163243000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "evry-card-services",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 631464000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 6248510,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 5882737,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 24724940,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ferroglobe-mangan-norge",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 1239261770,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "haaland",
+      "aar": 2024,
+      "type": "aarsresultat",
+      "verdi": -31666214,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "haaland",
+      "aar": 2024,
+      "type": "driftsresultat",
+      "verdi": -43226421,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "haaland",
+      "aar": 2024,
+      "type": "egenkapital",
+      "verdi": -19842298,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "haaland",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 460635623,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 7809349,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 10189676,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 23059787,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 120538898,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "helgeland-plast",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 13728800,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-plast",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 23670871,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-plast",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 46033022,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-plast",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 517004006,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helma-hotelldrift",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1667371,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helma-hotelldrift",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -2135028,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helma-hotelldrift",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 247786,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helma-hotelldrift",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 9238642,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hjh-fjell-og-anleggsentreprenor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 11978326,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hjh-fjell-og-anleggsentreprenor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 17075755,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hjh-fjell-og-anleggsentreprenor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 39044267,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hjh-fjell-og-anleggsentreprenor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 270890840,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "imo-sveiseindustri",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4816958,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "imo-sveiseindustri",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 7899457,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "imo-sveiseindustri",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 28580711,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "imo-sveiseindustri",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 117814207,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "imtas-prosjekt",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 11229837,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "imtas-prosjekt",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 16006322,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "imtas-prosjekt",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 55055616,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "imtas-prosjekt",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 312347658,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "klaff",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1456738,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "klaff",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1823143,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "klaff",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 716444,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "klaff",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 29897118,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvaroy-smolt",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 12324511,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvaroy-smolt",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 24556836,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvaroy-smolt",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 216102505,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvaroy-smolt",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 128420643,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvikk-renhold",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1559902,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvikk-renhold",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2188876,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvikk-renhold",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 8600318,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvikk-renhold",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 55146755,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "masonite-beams",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -9233971,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "masonite-beams",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -4715889,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "masonite-beams",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 15965903,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "masonite-beams",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 144503684,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "mba-entreprenor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 11443817,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "mba-entreprenor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 18302887,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "mba-entreprenor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 21366917,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "mba-entreprenor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 297892153,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 713391,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 596869,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 6276040,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 97975025,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "meyership",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3835293,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "meyership",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 5299232,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "meyership",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 14137123,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "meyership",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 122703390,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 32638203,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 63372705,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 381416035,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "mo-industripark",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 255899804,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5106261,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 6247046,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 59180943,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "mo-industritransport",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 145785832,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "momek-civil",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 7911336,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "momek-civil",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 8345184,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "momek-civil",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 25624494,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "momek-civil",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 308687200,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "momek-services",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 26086265,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "momek-services",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 32447063,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "momek-services",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 40339976,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "momek-services",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 623068299,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5314939,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 6370593,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 44811553,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nemko-norlab",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 192377274,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "northroads",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3291535,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "northroads",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 7441613,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "northroads",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 10216103,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "northroads",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 156444806,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "oijord-aanes-entreprenorforretning",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5848149,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "oijord-aanes-entreprenorforretning",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 7478619,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "oijord-aanes-entreprenorforretning",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 34726932,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "oijord-aanes-entreprenorforretning",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 128576419,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "opcom",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -7195790,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "opcom",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -5653568,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "opcom",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": -3378605,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "opcom",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 76422956,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 300125818,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 323347615,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1032088495,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "rana-gruber",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 1565757377,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "selma-drift",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2112515,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "selma-drift",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2372537,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "selma-drift",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 12474610,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "selma-drift",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 149791521,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4398304,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 6436199,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 11618067,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sulland-mo",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 157893585,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "th-blikk",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 15103985,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "th-blikk",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 19657034,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "th-blikk",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 18941322,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "th-blikk",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 176079309,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "finans",
+      "navn": "Finans"
+    },
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "boreal-buss-as-avd-mo-i-rana",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "boreal-buss",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "coop-midt-norge-sa-avd-hypermarked-mo-i-rana",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "coop-midt-norge",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "elkem",
+      "segment": "utdanning-forskning",
+      "styrke": 2
+    },
+    {
+      "org": "helgeland-avfallsforedling",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helgelandssykehuset-hf-mo-i-rana-ambulansetjeneste",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "helgelandssykehuset-hf-mo-i-rana-somatikk",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "helgelandssykehuset-hf-mo-i-rana-voksenpsykiatri",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "helgelandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "helma-hotelldrift",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "linea-as-mo-i-rana",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "linea",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "mba-entreprenor",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "meyergarden-turisthotell",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "meyership",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "mo-industripark",
+      "segment": "eiendom-bygg",
+      "styrke": 2
+    },
+    {
+      "org": "momek-civil",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "selma-drift",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "sparebank-1-helgeland",
+      "segment": "finans",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

@@ -1,0 +1,845 @@
+{
+  "meta": {
+    "kommunenr": "5632",
+    "kommune": "Båtsfjord",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "batsfjord-kommunestyre",
+      "navn": "Kommunestyret i Båtsfjord",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "batsfjord-kommune",
+      "kommunenr": "5632",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "as-batsfjordbruket",
+      "orgnr": "929205634",
+      "navn": "AS Båtsfjordbruket",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5632",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1980-12-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "batsfjord-brygge-arctic-resort",
+      "orgnr": "928919323",
+      "navn": "Båtsfjord Brygge Arctic Resort AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5632",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2022-02-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "batsfjord-kommune",
+      "orgnr": "938795592",
+      "navn": "Båtsfjord Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5632",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "batsfjord-kommune-helse-og-omsorg",
+      "orgnr": "974793539",
+      "navn": "Båtsfjord Kommune Helse og Omsorg",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5632",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "batsfjord-kommune-kultur-og-oppvekst",
+      "orgnr": "974790181",
+      "navn": "Båtsfjord Kommune Kultur og Oppvekst",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5632",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "batsfjord-kommune-teknisk-etat",
+      "orgnr": "974793555",
+      "navn": "Båtsfjord Kommune Teknisk Etat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5632",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "ecura-bo-og-habilitering",
+      "orgnr": "991737308",
+      "navn": "Ecura Bo og Habilitering AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3407",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2007-09-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 87.202 «Omsorgstjenester i botilbud for personer med utviklingshemming eller med tilsvarende funksjonsnedsettelse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "ecura-bo-og-habilitering-as-avd-innlandet-7-batsfjord",
+      "orgnr": "930844500",
+      "navn": "Ecura Bo og Habilitering AS Avd Innlandet 7 Båtsfjord",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "ecura-bo-og-habilitering",
+      "kommunenr": "5632",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-03-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Båtsfjord for Ecura Bo og Habilitering AS, med næringskode 87.106 «Helse- og omsorgstjenester i bofelleskap, samlokaliserte omsorgsboliger og lignende».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "leroy-norway-seafoods",
+      "orgnr": "995548194",
+      "navn": "Lerøy Norway Seafoods AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2010-05-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "leroy-norway-seafoods-as-avd-batsfjord",
+      "orgnr": "974071037",
+      "navn": "Lerøy Norway Seafoods AS Avd Båtsfjord",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "leroy-norway-seafoods",
+      "kommunenr": "5632",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Båtsfjord for Lerøy Norway Seafoods AS, med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "materialhandelen",
+      "orgnr": "925622877",
+      "navn": "Materialhandelen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5632",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2020-08-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 46.830 «Engroshandel med tømmer, trelast, byggevarer og sanitærutstyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "seagourmet-norway",
+      "orgnr": "994551167",
+      "navn": "Seagourmet Norway AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5632",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2009-08-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "christina-pedersen-svendsen",
+      "navn": "Christina Pedersen Svendsen"
+    },
+    {
+      "key": "frode-sivert-gronberg",
+      "navn": "Frode Sivert Grønberg"
+    },
+    {
+      "key": "helen-johanne-andersen",
+      "navn": "Helen Johanne Andersen"
+    },
+    {
+      "key": "jan-arnulf-berg-grefstad",
+      "navn": "Jan Arnulf Berg Grefstad"
+    },
+    {
+      "key": "ketil-pettersen",
+      "navn": "Ketil Pettersen"
+    },
+    {
+      "key": "marius-josefsen",
+      "navn": "Marius Josefsen"
+    },
+    {
+      "key": "monica-brandtzaeg",
+      "navn": "Monica Brandtzæg"
+    },
+    {
+      "key": "per-magnus-sorensen",
+      "navn": "Per Magnus Sørensen"
+    },
+    {
+      "key": "peteris-pildegovics",
+      "navn": "Peteris Pildegovics"
+    },
+    {
+      "key": "sebastian-larsen-nilsen",
+      "navn": "Sebastian Larsen Nilsen"
+    },
+    {
+      "key": "sigvald-arctander-rist",
+      "navn": "Sigvald Arctander Rist"
+    },
+    {
+      "key": "torgeir-berg-grefstad",
+      "navn": "Torgeir Berg Grefstad"
+    }
+  ],
+  "roller": [
+    {
+      "org": "as-batsfjordbruket",
+      "person": "ketil-pettersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "as-batsfjordbruket",
+      "person": "marius-josefsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "as-batsfjordbruket",
+      "person": "sigvald-arctander-rist",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-brygge-arctic-resort",
+      "person": "frode-sivert-gronberg",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-brygge-arctic-resort",
+      "person": "monica-brandtzaeg",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-brygge-arctic-resort",
+      "person": "monica-brandtzaeg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-kommune-helse-og-omsorg",
+      "person": "sebastian-larsen-nilsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-kommune-kultur-og-oppvekst",
+      "person": "christina-pedersen-svendsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-kommune-teknisk-etat",
+      "person": "per-magnus-sorensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "batsfjord-kommune",
+      "person": "helen-johanne-andersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "materialhandelen",
+      "person": "jan-arnulf-berg-grefstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "materialhandelen",
+      "person": "jan-arnulf-berg-grefstad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "materialhandelen",
+      "person": "torgeir-berg-grefstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seagourmet-norway",
+      "person": "peteris-pildegovics",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "batsfjord-kommunestyre",
+      "til": "batsfjord-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "ecura-bo-og-habilitering-as-avd-innlandet-7-batsfjord",
+      "til": "ecura-bo-og-habilitering",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "leroy-norway-seafoods-as-avd-batsfjord",
+      "til": "leroy-norway-seafoods",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "as-batsfjordbruket",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -19534600,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "as-batsfjordbruket",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -19988551,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "as-batsfjordbruket",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 58823158,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "as-batsfjordbruket",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 273729855,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "batsfjord-brygge-arctic-resort",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 242480,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "batsfjord-brygge-arctic-resort",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 348149,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "batsfjord-brygge-arctic-resort",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1023835,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "batsfjord-brygge-arctic-resort",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 18431807,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "materialhandelen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1207957,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "materialhandelen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 894977,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "materialhandelen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 26588206,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "materialhandelen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 72689206,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seagourmet-norway",
+      "aar": 2024,
+      "type": "aarsresultat",
+      "verdi": -10342665,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seagourmet-norway",
+      "aar": 2024,
+      "type": "driftsresultat",
+      "verdi": -9236631,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seagourmet-norway",
+      "aar": 2024,
+      "type": "egenkapital",
+      "verdi": -94994229,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seagourmet-norway",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 56434096,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "as-batsfjordbruket",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "batsfjord-brygge-arctic-resort",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "ecura-bo-og-habilitering",
+      "segment": "helse",
+      "styrke": 2
+    },
+    {
+      "org": "leroy-norway-seafoods-as-avd-batsfjord",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "leroy-norway-seafoods",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "seagourmet-norway",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

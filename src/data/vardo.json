@@ -1,0 +1,979 @@
+{
+  "meta": {
+    "kommunenr": "5634",
+    "kommune": "Vardø",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "vardo-kommunestyre",
+      "navn": "Kommunestyret i Vardø",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "vardo-kommune",
+      "kommunenr": "5634",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "arctic-catch",
+      "orgnr": "993270040",
+      "navn": "Arctic Catch AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5634",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2008-10-30",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "destinasjon-vardo",
+      "orgnr": "914224934",
+      "navn": "Destinasjon Vardø AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5634",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2014-09-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 56.210 «Catering for arrangementer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-entreprenor",
+      "orgnr": "980684717",
+      "navn": "Finnmark Entreprenør AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5634",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1999-03-26",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-politidistrikt",
+      "orgnr": "984000049",
+      "navn": "Finnmark Politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kontoret-for-voldsoffererstatning",
+      "orgnr": "986187243",
+      "navn": "Kontoret for Voldsoffererstatning",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "5634",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "varanger-museum",
+      "orgnr": "989349716",
+      "navn": "Varanger Museum IKS",
+      "nivaa": "interkommunal",
+      "organtype": "IKS",
+      "kommunenr": "5634",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2005-12-19",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Interkommunalt selskap registrert i Enhetsregisteret med næringskode 91.212 «Drift av kulturhistoriske museer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vardo-kommune",
+      "orgnr": "972418048",
+      "navn": "Vardø Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5634",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vardo-kommune-enhet-for-grunnskole-barnehage-og-kultur",
+      "orgnr": "974790025",
+      "navn": "Vardø Kommune Enhet for Grunnskole, Barnehage og Kultur",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5634",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vardo-kommune-enhet-for-helse-og-sosial",
+      "orgnr": "974793059",
+      "navn": "Vardø Kommune Enhet for Helse og Sosial",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5634",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vardo-kommune-teknisk-naering-og-plan",
+      "orgnr": "974793075",
+      "navn": "Vardø Kommune Teknisk, Næring og Plan",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5634",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "vardo-politihus",
+      "orgnr": "974759152",
+      "navn": "Vardø Politihus",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "overordnet": "finnmark-politidistrikt",
+      "kommunenr": "5634",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Arbeidssted i Vardø for Finnmark Politidistrikt, med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "asbjorn-daugaard",
+      "navn": "Asbjørn Daugaard"
+    },
+    {
+      "key": "berit-he-jin-nilsen",
+      "navn": "Berit He Jin Nilsen"
+    },
+    {
+      "key": "bodil-dahl-monsen",
+      "navn": "Bodil Dahl Monsen"
+    },
+    {
+      "key": "einar-alfred-niemi",
+      "navn": "Einar Alfred Niemi"
+    },
+    {
+      "key": "gry-andreassen",
+      "navn": "Gry Andreassen"
+    },
+    {
+      "key": "hallgeir-sornes",
+      "navn": "Hallgeir Sørnes"
+    },
+    {
+      "key": "harald-gunnar-sunde",
+      "navn": "Harald Gunnar Sunde"
+    },
+    {
+      "key": "hild-tone-kristiansen",
+      "navn": "Hild Tone Kristiansen"
+    },
+    {
+      "key": "ida-pernille-brinchmann-ulle",
+      "navn": "Ida Pernille Brinchmann Ulle"
+    },
+    {
+      "key": "igor-smirnov",
+      "navn": "Igor Smirnov"
+    },
+    {
+      "key": "ivar-andreas-nikoma",
+      "navn": "Ivar Andreas Nikoma"
+    },
+    {
+      "key": "kare-tannvik",
+      "navn": "Kåre Tannvik"
+    },
+    {
+      "key": "konstantin-vasilenko",
+      "navn": "Konstantin Vasilenko"
+    },
+    {
+      "key": "morten-andersen",
+      "navn": "Morten Andersen"
+    },
+    {
+      "key": "nina-danielsen",
+      "navn": "Nina Danielsen"
+    },
+    {
+      "key": "oyvind-alapnes",
+      "navn": "Øyvind Alapnes"
+    },
+    {
+      "key": "randi-berit-sjolie",
+      "navn": "Randi Berit Sjølie"
+    },
+    {
+      "key": "renate-mienna",
+      "navn": "Renate Mienna"
+    },
+    {
+      "key": "robert-nesje",
+      "navn": "Robert Nesje"
+    },
+    {
+      "key": "sigurd-valdes-richardsen",
+      "navn": "Sigurd Valdés Richardsen"
+    },
+    {
+      "key": "silje-elisabeth-hemminghytt-magnussen",
+      "navn": "Silje Elisabeth Hemminghytt Magnussen"
+    },
+    {
+      "key": "tor-emil-sivertsen",
+      "navn": "Tor Emil Sivertsen"
+    },
+    {
+      "key": "tove-mette-lieng-antonsen",
+      "navn": "Tove-Mette Lieng Antonsen"
+    },
+    {
+      "key": "trond-anetsen",
+      "navn": "Trond Ånetsen"
+    },
+    {
+      "key": "yvonne-andersen",
+      "navn": "Yvonne Andersen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "arctic-catch",
+      "person": "igor-smirnov",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arctic-catch",
+      "person": "konstantin-vasilenko",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "destinasjon-vardo",
+      "person": "kare-tannvik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "destinasjon-vardo",
+      "person": "morten-andersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "destinasjon-vardo",
+      "person": "oyvind-alapnes",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "destinasjon-vardo",
+      "person": "tor-emil-sivertsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "destinasjon-vardo",
+      "person": "tove-mette-lieng-antonsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "destinasjon-vardo",
+      "person": "tove-mette-lieng-antonsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-entreprenor",
+      "person": "asbjorn-daugaard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-entreprenor",
+      "person": "asbjorn-daugaard",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-entreprenor",
+      "person": "ivar-andreas-nikoma",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kontoret-for-voldsoffererstatning",
+      "person": "yvonne-andersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "berit-he-jin-nilsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "bodil-dahl-monsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "einar-alfred-niemi",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "gry-andreassen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "harald-gunnar-sunde",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "hild-tone-kristiansen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "ida-pernille-brinchmann-ulle",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "nina-danielsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "randi-berit-sjolie",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "renate-mienna",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "robert-nesje",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "sigurd-valdes-richardsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "silje-elisabeth-hemminghytt-magnussen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "tor-emil-sivertsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "varanger-museum",
+      "person": "trond-anetsen",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardo-kommune-enhet-for-grunnskole-barnehage-og-kultur",
+      "person": "hallgeir-sornes",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardo-kommune-enhet-for-helse-og-sosial",
+      "person": "hallgeir-sornes",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardo-kommune-teknisk-naering-og-plan",
+      "person": "hallgeir-sornes",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardo-kommune",
+      "person": "hallgeir-sornes",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "vardo-kommunestyre",
+      "til": "vardo-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "vardo-politihus",
+      "til": "finnmark-politidistrikt",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "arctic-catch",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 9123657,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-catch",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 10618487,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-catch",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 31191401,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-catch",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 405494686,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "destinasjon-vardo",
+      "aar": 2024,
+      "type": "aarsresultat",
+      "verdi": 1103591,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "destinasjon-vardo",
+      "aar": 2024,
+      "type": "driftsresultat",
+      "verdi": 1116521,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "destinasjon-vardo",
+      "aar": 2024,
+      "type": "egenkapital",
+      "verdi": 599155,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "destinasjon-vardo",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 14651568,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "finnmark-entreprenor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 16328544,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmark-entreprenor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 19218730,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmark-entreprenor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 76372896,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmark-entreprenor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 73228928,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "arctic-catch",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "destinasjon-vardo",
+      "segment": "reiseliv",
+      "styrke": 2
+    }
+  ],
+  "hull": []
+}

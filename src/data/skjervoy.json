@@ -1,0 +1,968 @@
+{
+  "meta": {
+    "kommunenr": "5542",
+    "kommune": "Skjervøy",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "skjervoy-kommunestyre",
+      "navn": "Kommunestyret i Skjervøy",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "skjervoy-kommune",
+      "kommunenr": "5542",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "leroy-aurora",
+      "orgnr": "985940460",
+      "navn": "Lerøy Aurora AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Havbruksselskap eid av Lerøy Seafood Group ASA.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "arnoy-laks",
+      "orgnr": "994613405",
+      "navn": "Arnøy Laks AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5542",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2009-09-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "arnoy-laks-slakteri",
+      "orgnr": "895366722",
+      "navn": "Arnøy Laks Slakteri AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5542",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2010-03-25",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "leroy-aurora-as-avd-skjervoy-matfisk",
+      "orgnr": "937316593",
+      "navn": "Lerøy Aurora AS Avd Skjervøy Matfisk",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "leroy-aurora",
+      "kommunenr": "5542",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2026-03-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Skjervøy for Lerøy Aurora AS, med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "leroy-seafood-industri",
+      "orgnr": "996646734",
+      "navn": "Lerøy Seafood Industri AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "4625",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2011-02-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "leroy-seafood-industri-as-avdeling-skjervoy",
+      "orgnr": "991285660",
+      "navn": "Lerøy Seafood Industri AS Avdeling Skjervøy",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "leroy-seafood-industri",
+      "kommunenr": "5542",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2007-08-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Skjervøy for Lerøy Seafood Industri AS, med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nord-troms-glass",
+      "orgnr": "935365309",
+      "navn": "Nord Troms Glass AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5542",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2025-02-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.340 «Maler- og glassarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "skjervoy-kommune",
+      "orgnr": "941812716",
+      "navn": "Skjervøy Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5542",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "skjervoy-kommune-helse-og-omsorgsetat",
+      "orgnr": "974792931",
+      "navn": "Skjervøy Kommune Helse- og Omsorgsetat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5542",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "skjervoy-kommune-kultur-og-undervisningsetat",
+      "orgnr": "974789809",
+      "navn": "Skjervøy Kommune Kultur- og Undervisningsetat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5542",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "skjervoy-kommune-sentraladministrasjon",
+      "orgnr": "874794732",
+      "navn": "Skjervøy Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5542",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "skjervoy-kommune-teknisk-etat",
+      "orgnr": "974792958",
+      "navn": "Skjervøy Kommune Teknisk Etat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5542",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "arnt-jostein-berg",
+      "navn": "Arnt Jostein Berg"
+    },
+    {
+      "key": "birgitte-sorheim",
+      "navn": "Birgitte Sørheim"
+    },
+    {
+      "key": "geir-sverre-nygaard",
+      "navn": "Geir Sverre Nygaard"
+    },
+    {
+      "key": "grete-synnove-jacobsen",
+      "navn": "Grete Synnøve Jacobsen"
+    },
+    {
+      "key": "havard-hogstad",
+      "navn": "Håvard Høgstad"
+    },
+    {
+      "key": "magnus-aleksander-nygaard",
+      "navn": "Magnus Aleksander Nygaard"
+    },
+    {
+      "key": "merethe-rochmann",
+      "navn": "Merethe Rochmann"
+    },
+    {
+      "key": "roger-karlsen-55909d",
+      "navn": "Roger Karlsen"
+    },
+    {
+      "key": "sigrunn-grete-marie-nygaard",
+      "navn": "Sigrunn Grete Marie Nygaard"
+    },
+    {
+      "key": "thor-helge-nygaard",
+      "navn": "Thor Helge Nygaard"
+    },
+    {
+      "key": "toril-aamo",
+      "navn": "Toril Aamo"
+    },
+    {
+      "key": "torunn-berg-johansen",
+      "navn": "Torunn Berg Johansen"
+    },
+    {
+      "key": "werner-thorbjornsen",
+      "navn": "Werner Thorbjørnsen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "arnoy-laks-slakteri",
+      "person": "arnt-jostein-berg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "person": "birgitte-sorheim",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "person": "geir-sverre-nygaard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "person": "havard-hogstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "person": "magnus-aleksander-nygaard",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "person": "merethe-rochmann",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "person": "roger-karlsen-55909d",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "person": "sigrunn-grete-marie-nygaard",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "person": "thor-helge-nygaard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "person": "toril-aamo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "person": "torunn-berg-johansen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "person": "arnt-jostein-berg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "person": "birgitte-sorheim",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "person": "geir-sverre-nygaard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "person": "havard-hogstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "person": "magnus-aleksander-nygaard",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "person": "merethe-rochmann",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "person": "roger-karlsen-55909d",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "person": "sigrunn-grete-marie-nygaard",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "person": "thor-helge-nygaard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "person": "toril-aamo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "person": "torunn-berg-johansen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nord-troms-glass",
+      "person": "werner-thorbjornsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nord-troms-glass",
+      "person": "werner-thorbjornsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skjervoy-kommune-helse-og-omsorgsetat",
+      "person": "grete-synnove-jacobsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skjervoy-kommune-kultur-og-undervisningsetat",
+      "person": "grete-synnove-jacobsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skjervoy-kommune-sentraladministrasjon",
+      "person": "grete-synnove-jacobsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skjervoy-kommune-teknisk-etat",
+      "person": "grete-synnove-jacobsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skjervoy-kommune",
+      "person": "grete-synnove-jacobsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "skjervoy-kommunestyre",
+      "til": "skjervoy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "leroy-aurora-as-avd-skjervoy-matfisk",
+      "til": "leroy-aurora",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "leroy-seafood-industri-as-avdeling-skjervoy",
+      "til": "leroy-seafood-industri",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "arnoy-laks-slakteri",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5760082,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 10456469,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 37563436,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 136040497,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 47998739,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 73346612,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 383520137,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "arnoy-laks",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 408055050,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "nord-troms-glass",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2863450,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-02-12–2025-12-31."
+      }
+    },
+    {
+      "org": "nord-troms-glass",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3605308,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-02-12–2025-12-31."
+      }
+    },
+    {
+      "org": "nord-troms-glass",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": -601790,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-02-12–2025-12-31."
+      }
+    },
+    {
+      "org": "nord-troms-glass",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 49054963,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-02-12–2025-12-31."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "leroy-aurora",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "arnoy-laks-slakteri",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "arnoy-laks",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "leroy-aurora-as-avd-skjervoy-matfisk",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "leroy-seafood-industri-as-avdeling-skjervoy",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "leroy-seafood-industri",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

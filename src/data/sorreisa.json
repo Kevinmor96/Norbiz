@@ -1,0 +1,1000 @@
+{
+  "meta": {
+    "kommunenr": "5526",
+    "kommune": "Sørreisa",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "sorreisa-kommunestyre",
+      "navn": "Kommunestyret i Sørreisa",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "sorreisa-kommune",
+      "kommunenr": "5526",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "ferdighus",
+      "orgnr": "911612860",
+      "navn": "Ferdighus AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5526",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1965-03-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 16.230 «Produksjon av andre bygningsartikler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "haldorsen",
+      "orgnr": "928100731",
+      "navn": "Haldorsen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5526",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2021-09-29",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.820 «Detaljhandel med deler og utstyr til motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorreisa-kommune",
+      "orgnr": "940755603",
+      "navn": "Sørreisa Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5526",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorreisa-kommune-helse-og-sosial",
+      "orgnr": "974792605",
+      "navn": "Sørreisa Kommune Helse og Sosial",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5526",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorreisa-kommune-radmannen",
+      "orgnr": "974794632",
+      "navn": "Sørreisa Kommune Rådmannen",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5526",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorreisa-kommune-skoleadministrasjon",
+      "orgnr": "974789914",
+      "navn": "Sørreisa Kommune Skoleadministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5526",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorreisa-kommune-teknisk-og-planlegging",
+      "orgnr": "974792621",
+      "navn": "Sørreisa Kommune Teknisk og Planlegging",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5526",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorreisa-kran-og-transport",
+      "orgnr": "979879962",
+      "navn": "Sørreisa Kran og Transport AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5526",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1998-02-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorreisa-vask-og-som",
+      "orgnr": "988238449",
+      "navn": "Sørreisa Vask og Søm AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5526",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2005-04-21",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 33.190 «Reparasjon og vedlikehold av annet utstyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "tojo",
+      "orgnr": "919761172",
+      "navn": "Tojo AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5526",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2017-10-03",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.500 «Spesialisert byggevirksomhet i forbindelse med anleggsarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "amund-winther-lyshaug",
+      "navn": "Amund Winther Lyshaug"
+    },
+    {
+      "key": "bjorg-christina-haldorsen-rokke",
+      "navn": "Bjørg Christina Haldorsen Rokke"
+    },
+    {
+      "key": "hilde-kristiansen",
+      "navn": "Hilde Kristiansen"
+    },
+    {
+      "key": "ingrid-solvang",
+      "navn": "Ingrid Solvang"
+    },
+    {
+      "key": "johannes-haldorsen",
+      "navn": "Johannes Haldorsen"
+    },
+    {
+      "key": "johnny-werner-bjornslett",
+      "navn": "Johnny Werner Bjørnslett"
+    },
+    {
+      "key": "jostein-sigmund-sorstrom",
+      "navn": "Jostein Sigmund Sørstrøm"
+    },
+    {
+      "key": "margrete-haldorsen-nygaard",
+      "navn": "Margrete Haldorsen Nygaard"
+    },
+    {
+      "key": "odin-andreas-lindanger-ovesen",
+      "navn": "Odin Andreas Lindanger Ovesen"
+    },
+    {
+      "key": "ole-alfred-rolf-ovesen",
+      "navn": "Ole Alfred Rolf Ovesen"
+    },
+    {
+      "key": "ole-martin-larsen",
+      "navn": "Ole-Martin Larsen"
+    },
+    {
+      "key": "osvald-lyshaug",
+      "navn": "Osvald Lyshaug"
+    },
+    {
+      "key": "pal-eirik-jensen",
+      "navn": "Pål Eirik Jensen"
+    },
+    {
+      "key": "stig-knutsen",
+      "navn": "Stig Knutsen"
+    },
+    {
+      "key": "thorgeir-herulf-sorstrom",
+      "navn": "Thorgeir Herulf Sørstrøm"
+    },
+    {
+      "key": "tone-hausmann",
+      "navn": "Tone Hausmann"
+    },
+    {
+      "key": "tor-magne-haldorsen",
+      "navn": "Tor Magne Haldorsen"
+    },
+    {
+      "key": "tor-oddvar-jensen",
+      "navn": "Tor Oddvar Jensen"
+    },
+    {
+      "key": "tor-ovesen",
+      "navn": "Tor Ovesen"
+    },
+    {
+      "key": "tore-haldorsen",
+      "navn": "Tore Haldorsen"
+    },
+    {
+      "key": "truls-meyer",
+      "navn": "Truls Meyer"
+    }
+  ],
+  "roller": [
+    {
+      "org": "ferdighus",
+      "person": "odin-andreas-lindanger-ovesen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferdighus",
+      "person": "ole-alfred-rolf-ovesen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferdighus",
+      "person": "ole-martin-larsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferdighus",
+      "person": "stig-knutsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ferdighus",
+      "person": "tor-ovesen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haldorsen",
+      "person": "bjorg-christina-haldorsen-rokke",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haldorsen",
+      "person": "hilde-kristiansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haldorsen",
+      "person": "johannes-haldorsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haldorsen",
+      "person": "margrete-haldorsen-nygaard",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haldorsen",
+      "person": "tone-hausmann",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haldorsen",
+      "person": "tor-magne-haldorsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haldorsen",
+      "person": "tore-haldorsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-kommune-helse-og-sosial",
+      "person": "truls-meyer",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-kommune-radmannen",
+      "person": "truls-meyer",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-kommune-skoleadministrasjon",
+      "person": "truls-meyer",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-kommune-teknisk-og-planlegging",
+      "person": "truls-meyer",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-kommune",
+      "person": "truls-meyer",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-kran-og-transport",
+      "person": "amund-winther-lyshaug",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-kran-og-transport",
+      "person": "amund-winther-lyshaug",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-kran-og-transport",
+      "person": "osvald-lyshaug",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-vask-og-som",
+      "person": "ingrid-solvang",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-vask-og-som",
+      "person": "johnny-werner-bjornslett",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-vask-og-som",
+      "person": "pal-eirik-jensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-vask-og-som",
+      "person": "stig-knutsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorreisa-vask-og-som",
+      "person": "tor-oddvar-jensen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tojo",
+      "person": "jostein-sigmund-sorstrom",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tojo",
+      "person": "thorgeir-herulf-sorstrom",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tojo",
+      "person": "thorgeir-herulf-sorstrom",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "sorreisa-kommunestyre",
+      "til": "sorreisa-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "ferdighus",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1189700,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ferdighus",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 845860,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ferdighus",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 22686245,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ferdighus",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 92780340,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "haldorsen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1147382,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "haldorsen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -3442653,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "haldorsen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 28408320,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "haldorsen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 27097798,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sorreisa-kran-og-transport",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 34329,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sorreisa-kran-og-transport",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2869173,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sorreisa-kran-og-transport",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 17090637,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sorreisa-kran-og-transport",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 56004253,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sorreisa-vask-og-som",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 9920287,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sorreisa-vask-og-som",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 12226236,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sorreisa-vask-og-som",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 34501181,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sorreisa-vask-og-som",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 84935611,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "tojo",
+      "aar": 2024,
+      "type": "aarsresultat",
+      "verdi": 6867142,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "tojo",
+      "aar": 2024,
+      "type": "driftsresultat",
+      "verdi": 9100524,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "tojo",
+      "aar": 2024,
+      "type": "egenkapital",
+      "verdi": 11916020,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "tojo",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 40042732,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "sorreisa-kran-og-transport",
+      "segment": "transport",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

@@ -41,5 +41,12 @@ export function lagSupabaseDatalag(klient: RpcKlient): Datalag {
     organer_for_segment: (segment_kode, kommunenr) =>
       kall("organer_for_segment", { p_segment_kode: segment_kode, p_kommunenr: kommunenr }),
     hull: (kommunenr) => kall("hull", { p_kommunenr: kommunenr }),
+    kommune_grader: (kommunenr) => kall("kommune_grader", { p_kommunenr: kommunenr }),
+    region_oversikt: () => kall("region_oversikt"),
+    fylke_oversikt: (fylkesnr) => kall("fylke_oversikt", { p_fylkesnr: fylkesnr }),
+    // NFC her, fordi basen ikke normaliserer: «á» som a + aksent ville ellers
+    // brettes til «a » i basen og til «a» lokalt.
+    sok: (sporring, limit) =>
+      kall("sok", { p_sporring: sporring.normalize("NFC"), p_limit: Math.trunc(limit) }),
   };
 }

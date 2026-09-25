@@ -1,0 +1,750 @@
+{
+  "meta": {
+    "kommunenr": "5534",
+    "kommune": "Karlsøy",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "karlsoy-kommunestyre",
+      "navn": "Kommunestyret i Karlsøy",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "karlsoy-kommune-940330408",
+      "kommunenr": "5534",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "leroy-aurora",
+      "orgnr": "985940460",
+      "navn": "Lerøy Aurora AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Havbruksselskap eid av Lerøy Seafood Group ASA.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "torghatten-nord",
+      "orgnr": "993205117",
+      "navn": "Torghatten Nord AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Selskap for ferje og hurtigbåt.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "karlsoy-kommune-940330408",
+      "orgnr": "940330408",
+      "navn": "Karlsøy Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5534",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "karlsoy-kommune-helse-og-sosialetaten",
+      "orgnr": "974792818",
+      "navn": "Karlsøy Kommune Helse- og Sosialetaten",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5534",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "karlsoy-kommune-kultur-og-oppvekstetaten",
+      "orgnr": "974789841",
+      "navn": "Karlsøy Kommune Kultur- og Oppvekstetaten",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5534",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "karlsoy-kommune-teknisk-etat",
+      "orgnr": "974792834",
+      "navn": "Karlsøy Kommune Teknisk Etat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5534",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "karlsoybruket",
+      "orgnr": "893369252",
+      "navn": "Karlsøybruket AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5534",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2008-10-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.201 «Produksjon av saltfisk, tørrfisk og klippfisk».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "leroy-aurora-as-avd-karlsoy",
+      "orgnr": "991342532",
+      "navn": "Lerøy Aurora AS Avd Karlsøy",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "leroy-aurora",
+      "kommunenr": "5534",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2003-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Karlsøy for Lerøy Aurora AS, med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "salmar-dafjord",
+      "orgnr": "935182484",
+      "navn": "Salmar Dåfjord AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5014",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2024-11-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.222 «Produksjon av yngel og settefisk i ferskvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "salmar-dafjord-935212030",
+      "orgnr": "935212030",
+      "navn": "Salmar Dåfjord AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "salmar-dafjord",
+      "kommunenr": "5534",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2025-03-03",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Karlsøy for Salmar Dåfjord AS, med næringskode 03.222 «Produksjon av yngel og settefisk i ferskvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "salmar-farming",
+      "orgnr": "966840528",
+      "navn": "Salmar Farming AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5014",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1993-06-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "salmar-farming-as-avd-karlsoy",
+      "orgnr": "922584850",
+      "navn": "Salmar Farming AS Avd Karlsøy",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "salmar-farming",
+      "kommunenr": "5534",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2019-03-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Karlsøy for Salmar Farming AS, med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "torghatten-nord-as-avd-nord-troms",
+      "orgnr": "921071620",
+      "navn": "Torghatten Nord AS Avd Nord Troms",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "torghatten-nord",
+      "kommunenr": "5534",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2018-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Karlsøy for Torghatten Nord AS, med næringskode 50.102 «Innenriks kystruter med passasjerer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "torsvagbruket",
+      "orgnr": "968486667",
+      "navn": "Torsvågbruket AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5534",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1994-01-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.201 «Produksjon av saltfisk, tørrfisk og klippfisk».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anders-pedersen",
+      "navn": "Anders Pedersen"
+    },
+    {
+      "key": "anita-pedersen",
+      "navn": "Anita Pedersen"
+    },
+    {
+      "key": "bjorg-helen-nostvold",
+      "navn": "Bjørg Helen Nøstvold"
+    },
+    {
+      "key": "espen-lund-kirkvik",
+      "navn": "Espen Lund Kirkvik"
+    },
+    {
+      "key": "frode-eliassen",
+      "navn": "Frode Eliassen"
+    },
+    {
+      "key": "lars-steinar-laingen",
+      "navn": "Lars Steinar Laingen"
+    },
+    {
+      "key": "steinar-eliassen",
+      "navn": "Steinar Eliassen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "karlsoy-kommune-940330408",
+      "person": "lars-steinar-laingen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "karlsoy-kommune-helse-og-sosialetaten",
+      "person": "lars-steinar-laingen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "karlsoy-kommune-kultur-og-oppvekstetaten",
+      "person": "lars-steinar-laingen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "karlsoy-kommune-teknisk-etat",
+      "person": "lars-steinar-laingen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "karlsoybruket",
+      "person": "anders-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "karlsoybruket",
+      "person": "anders-pedersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "karlsoybruket",
+      "person": "anita-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "torsvagbruket",
+      "person": "bjorg-helen-nostvold",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "torsvagbruket",
+      "person": "espen-lund-kirkvik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "torsvagbruket",
+      "person": "frode-eliassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "torsvagbruket",
+      "person": "steinar-eliassen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "karlsoy-kommunestyre",
+      "til": "karlsoy-kommune-940330408",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "leroy-aurora-as-avd-karlsoy",
+      "til": "leroy-aurora",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "salmar-dafjord-935212030",
+      "til": "salmar-dafjord",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "salmar-farming-as-avd-karlsoy",
+      "til": "salmar-farming",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "torghatten-nord-as-avd-nord-troms",
+      "til": "torghatten-nord",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "karlsoybruket",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 31098908,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "karlsoybruket",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 77322659,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "karlsoybruket",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 210375354,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "karlsoybruket",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 1881206572,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "torsvagbruket",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3934180,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "torsvagbruket",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 8058032,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "torsvagbruket",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 16002818,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "torsvagbruket",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 137058263,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "leroy-aurora",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "torghatten-nord",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "karlsoybruket",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "leroy-aurora-as-avd-karlsoy",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "salmar-farming-as-avd-karlsoy",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "salmar-farming",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "torghatten-nord-as-avd-nord-troms",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "torsvagbruket",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

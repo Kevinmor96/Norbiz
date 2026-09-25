@@ -21,12 +21,25 @@ import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import type { Belegg, Kommunedatasett } from "../src/data/types";
+import type { Regionregister } from "../src/data/region/types";
+import type { Belegg, Kilde, Kommunedatasett } from "../src/data/types";
+import { lagSlug } from "../src/lib/data/lokal";
 import { nokkel, samle, valider, type Samling } from "../src/lib/data/samle";
 
 const ROT = join(dirname(fileURLToPath(import.meta.url)), "..");
 export const DATAMAPPE = join(ROT, "src", "data");
 export const SEEDFIL = join(ROT, "supabase", "seed", "seed.sql");
+export const REGIONFIL = join(DATAMAPPE, "region", "nord-norge.json");
+
+/** Regionregisteret, eller `null` når fila ikke finnes. */
+export function lesRegion(fil = REGIONFIL): Regionregister | null {
+  try {
+    return JSON.parse(readFileSync(fil, "utf8")) as Regionregister;
+  } catch (e) {
+    if ((e as NodeJS.ErrnoException).code === "ENOENT") return null;
+    throw e;
+  }
+}
 
 /** Alle `src/data/*.json`, sortert på filnavn, med slug fra filnavnet. */
 export function lesDatasett(mappe = DATAMAPPE): { slug: string; data: Kommunedatasett }[] {
@@ -125,10 +138,21 @@ const ikkeVerifisert = (tabell: string) =>
 // Seed-en
 // ---------------------------------------------------------------------------
 
-export function byggSeed(s: Samling): string {
+export function byggSeed(s: Samling, region: Regionregister | null = null): string {
   const feil = valider(s);
   if (feil.length > 0) {
     throw new Error(`Datasettet har ${feil.length} feil:\n  ${feil.join("\n  ")}`);
+  }
+
+  // Registerets kilder går i samme kildetabell. En kilde med samme nøkkel må
+  // være lik, som i samle.ts.
+  const kilder = new Map<string, Kilde>(s.kilder);
+  for (const k of region?.meta.kilder ?? []) {
+    const fra = kilder.get(k.key);
+    if (fra && JSON.stringify(fra) !== JSON.stringify(k)) {
+      throw new Error(`Kilden «${k.key}» står ulikt i regionregisteret og et datasett.`);
+    }
+    kilder.set(k.key, k);
   }
 
   const kommuneSlug = new Map(s.kommuner.map((k) => [k.meta.kommunenr, k.slug]));
@@ -140,7 +164,7 @@ export function byggSeed(s: Samling): string {
     upsert(
       "kilde",
       ["id", "key", "navn", "url", "type", "lisens"],
-      sortertPaa(s.kilder).map(([key, k]) => [
+      sortertPaa(kilder).map(([key, k]) => [
         id("kilde", key),
         tekst(key),
         tekst(k.navn),
@@ -491,6 +515,95 @@ export function byggSeed(s: Samling): string {
     ),
   );
 
+  if (region) {
+    const b = (x: Belegg) => belegg(x);
+    del(
+      "Regionen",
+      upsert(
+        "region",
+        ["id", "key", "navn", "sammenstilt", "merknad"],
+        [
+          [
+            id("region", lagSlug(region.meta.region)),
+            tekst(lagSlug(region.meta.region)),
+            tekst(region.meta.region),
+            tekst(region.meta.sammenstilt),
+            tekst(region.meta.merknad),
+          ],
+        ],
+        ["key"],
+      ),
+    );
+    const fylker = [...region.fylker].sort((x, y) => cmp(x.nr, y.nr));
+    const kommuner = [...region.kommuner].sort((x, y) => cmp(x.nr, y.nr));
+    // Registeret eier radene alene: det som ikke står der lenger, fjernes.
+    del(
+      "Regionregisteret: fjern det som ikke står i registeret",
+      [
+        `delete from region_kommune where slug not in (${kommuner.map((k) => tekst(k.slug)).join(", ") || "''"});`,
+        `delete from fylke where slug not in (${fylker.map((f) => tekst(lagSlug(f.navn))).join(", ") || "''"});`,
+        "",
+      ].join("\n"),
+    );
+    const folketall = [
+      "folketall",
+      "folketall_aar",
+      ...BELEGG_KOLONNER.map((k) => `folketall_${k}`),
+    ];
+    del(
+      "Fylker",
+      upsert(
+        "fylke",
+        ["id", "slug", "fylkesnr", "navn", "navn_offisielt", ...folketall, ...BELEGG_KOLONNER],
+        fylker.map((f) => [
+          id("fylke", lagSlug(f.navn)),
+          tekst(lagSlug(f.navn)),
+          tekst(f.nr),
+          tekst(f.navn),
+          tekst(f.navn_offisielt),
+          lit(f.folketall.verdi),
+          lit(f.folketall.aar),
+          ...b(f.folketall.belegg),
+          ...b(f.belegg),
+        ]),
+        ["slug"],
+      ),
+    );
+    del(
+      "Kommunene i regionregisteret",
+      upsert(
+        "region_kommune",
+        [
+          "id",
+          "slug",
+          "kommunenr",
+          "fylkesnr",
+          "navn",
+          "navn_offisielt",
+          ...folketall,
+          "samisk_forvaltningsomrade",
+          ...BELEGG_KOLONNER.map((k) => `geografi_${k}`),
+          ...BELEGG_KOLONNER,
+        ],
+        kommuner.map((k) => [
+          id("region_kommune", k.slug),
+          tekst(k.slug),
+          tekst(k.nr),
+          tekst(k.fylkesnr),
+          tekst(k.navn),
+          tekst(k.navn_offisielt),
+          lit(k.folketall.verdi),
+          lit(k.folketall.aar),
+          ...b(k.folketall.belegg),
+          lit(k.samisk_forvaltningsomrade),
+          ...b(k.geografi_belegg),
+          ...b(k.belegg),
+        ]),
+        ["slug"],
+      ),
+    );
+  }
+
   return [
     "-- Generert av scripts/seed-build.ts fra src/data/*.json. Ikke rediger for hånd:",
     "-- endre datasettet og kjør `npm run seed:build`.",
@@ -508,7 +621,7 @@ export function byggSeed(s: Samling): string {
 }
 
 function main(): void {
-  const sql = byggSeed(samle(lesDatasett()));
+  const sql = byggSeed(samle(lesDatasett()), lesRegion());
   mkdirSync(dirname(SEEDFIL), { recursive: true });
   writeFileSync(SEEDFIL, sql);
   const linjer = sql.split("\n").length;

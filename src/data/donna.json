@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "kommunenr": "1827",
+    "kommune": "Dønna",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "donna-kommunestyre",
+      "navn": "Kommunestyret i Dønna",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "donna-kommune",
+      "kommunenr": "1827",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "donna-kommune",
+      "orgnr": "945114878",
+      "navn": "Dønna Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1827",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "fishbase-salmon",
+      "orgnr": "891198752",
+      "navn": "Fishbase Salmon AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1827",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2007-03-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "letsea",
+      "orgnr": "976253744",
+      "navn": "Letsea AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1827",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "gyldig_fra": "1996-02-19",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 72.100 «Forskning og eksperimentell utvikling innenfor naturvitenskap og teknikk».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "mowi",
+      "orgnr": "964118191",
+      "navn": "Mowi ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "kommunenr": "4601",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1992-05-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Allmennaksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "mowi-avd-matfisk-donna",
+      "orgnr": "971979011",
+      "navn": "Mowi Avd Matfisk Dønna",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "overordnet": "mowi",
+      "kommunenr": "1827",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1982-07-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Dønna for Mowi ASA, med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "nortugs",
+      "orgnr": "879902002",
+      "navn": "Nortugs AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1827",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1998-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 50.203 «Forsyning for offshore».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "asbjorn-reinkind",
+      "navn": "Asbjørn Reinkind"
+    },
+    {
+      "key": "hans-ivar-meyer",
+      "navn": "Hans Ivar Meyer"
+    },
+    {
+      "key": "havard-yngve-jorgensen",
+      "navn": "Håvard Yngve Jørgensen"
+    },
+    {
+      "key": "heidi-halvorsen",
+      "navn": "Heidi Halvorsen"
+    },
+    {
+      "key": "henry-morten-thomassen",
+      "navn": "Henry Morten Thomassen"
+    },
+    {
+      "key": "kristian-johnsen",
+      "navn": "Kristian Johnsen"
+    },
+    {
+      "key": "martine-kjellsa",
+      "navn": "Martine Kjellså"
+    },
+    {
+      "key": "simon-leigh-wadsworth",
+      "navn": "Simon Leigh Wadsworth"
+    },
+    {
+      "key": "steffen-andre-konradsen",
+      "navn": "Steffen André Konradsen"
+    },
+    {
+      "key": "stein-ivar-lorentzen",
+      "navn": "Stein Ivar Lorentzen"
+    },
+    {
+      "key": "tor-henning-jorgensen",
+      "navn": "Tor Henning Jørgensen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "donna-kommune",
+      "person": "tor-henning-jorgensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fishbase-salmon",
+      "person": "henry-morten-thomassen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fishbase-salmon",
+      "person": "henry-morten-thomassen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fishbase-salmon",
+      "person": "steffen-andre-konradsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "letsea",
+      "person": "asbjorn-reinkind",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "letsea",
+      "person": "havard-yngve-jorgensen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "letsea",
+      "person": "heidi-halvorsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "letsea",
+      "person": "kristian-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "letsea",
+      "person": "martine-kjellsa",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "letsea",
+      "person": "simon-leigh-wadsworth",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nortugs",
+      "person": "hans-ivar-meyer",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nortugs",
+      "person": "hans-ivar-meyer",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nortugs",
+      "person": "stein-ivar-lorentzen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "donna-kommunestyre",
+      "til": "donna-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "mowi-avd-matfisk-donna",
+      "til": "mowi",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "fishbase-salmon",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 8833159,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fishbase-salmon",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 15580902,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fishbase-salmon",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 27040521,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fishbase-salmon",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 166239017,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "letsea",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 25884026,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "letsea",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 19911709,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "letsea",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 135746256,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "letsea",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 497184914,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "nortugs",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -6363138,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nortugs",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -5157687,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nortugs",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1724314,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nortugs",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 94913583,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "fishbase-salmon",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "letsea",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "mowi-avd-matfisk-donna",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "mowi",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

@@ -1,0 +1,1127 @@
+{
+  "meta": {
+    "kommunenr": "5520",
+    "kommune": "Bardu",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "bardu-kommunestyre",
+      "navn": "Kommunestyret i Bardu",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "bardu-kommune",
+      "kommunenr": "5520",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "bardu-kommune",
+      "orgnr": "864993982",
+      "navn": "Bardu Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5520",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "compass-group-norge",
+      "orgnr": "952507729",
+      "navn": "Compass Group Norge AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "1989-06-29",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 56.220 «Kantinedrift og annen cateringvirksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "compass-group-norge-as-avd-9109-setermoen",
+      "orgnr": "974715619",
+      "navn": "Compass Group Norge AS Avd 9109 Setermoen",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "compass-group-norge",
+      "kommunenr": "5520",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Bardu for Compass Group Norge AS, med næringskode 56.220 «Kantinedrift og annen cateringvirksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "coop-nord",
+      "orgnr": "938497257",
+      "navn": "Coop Nord SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "1926-11-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "extra-setermoen-1986",
+      "orgnr": "873188812",
+      "navn": "Extra Setermoen 1986",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "overordnet": "coop-nord",
+      "kommunenr": "5520",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Bardu for Coop Nord SA, med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "forsvarsbygg",
+      "orgnr": "975950662",
+      "navn": "Forsvarsbygg",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.220 «Forsvarsaktiviteter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "forsvarsbygg-region-nord",
+      "orgnr": "990706204",
+      "navn": "Forsvarsbygg Region Nord",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "forsvarsbygg",
+      "kommunenr": "5520",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-01-01",
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Arbeidssted i Bardu for Forsvarsbygg, med næringskode 84.220 «Forsvarsaktiviteter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "furuly-turbuss",
+      "orgnr": "992653167",
+      "navn": "Furuly Turbuss AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5520",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2008-03-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.320 «Passasjertransport utenom rutetabell».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "patricias-gatekjokken",
+      "orgnr": "835312992",
+      "navn": "Patricias Gatekjøkken AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5520",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2025-02-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 56.110 «Drift av restauranter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "polar-park",
+      "orgnr": "935844703",
+      "navn": "Polar Park AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5520",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1984-10-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 91.410 «Drift av botaniske og zoologiske hager».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "setermoen-mottak",
+      "orgnr": "982144744",
+      "navn": "Setermoen Mottak AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5520",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2000-03-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 87.992 «Asylmottakstjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "stiftelsen-viken-senter",
+      "orgnr": "984806329",
+      "navn": "Stiftelsen Viken Senter",
+      "nivaa": "privat",
+      "organtype": "stiftelse",
+      "kommunenr": "5520",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2002-04-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stiftelse registrert i Enhetsregisteret med næringskode 86.102 «Psykiatriske sykehustjenester for voksne».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "alf-leidulf-furuly",
+      "navn": "Alf Leidulf Furuly"
+    },
+    {
+      "key": "anne-bergljot-skoglund",
+      "navn": "Anne Bergljot Skoglund"
+    },
+    {
+      "key": "anne-lise-elisabeth-sorensen",
+      "navn": "Anne-Lise Elisabeth Sørensen"
+    },
+    {
+      "key": "anne-paula-dalheim",
+      "navn": "Anne Paula Dalheim"
+    },
+    {
+      "key": "benjamin-nordberg-furuly-f22a89",
+      "navn": "Benjamin Nordberg Furuly"
+    },
+    {
+      "key": "bjorn-tore-furuly",
+      "navn": "Bjørn Tore Furuly"
+    },
+    {
+      "key": "frank-sundermeier",
+      "navn": "Frank Sundermeier"
+    },
+    {
+      "key": "gitte-hoff",
+      "navn": "Gitte Hoff"
+    },
+    {
+      "key": "goril-westborg-smiseth",
+      "navn": "Gøril Westborg Smiseth"
+    },
+    {
+      "key": "gro-bjerregaard-lamoy",
+      "navn": "Gro Bjerregaard Lamøy"
+    },
+    {
+      "key": "gunnar-folden-grundetjern",
+      "navn": "Gunnar Folden Grundetjern"
+    },
+    {
+      "key": "irene-sorensen",
+      "navn": "Irene Sørensen"
+    },
+    {
+      "key": "jan-frode-josefsen",
+      "navn": "Jan-Frode Josefsen"
+    },
+    {
+      "key": "kjersti-utstol",
+      "navn": "Kjersti Utstøl"
+    },
+    {
+      "key": "kristian-fanghol",
+      "navn": "Kristian Fanghol"
+    },
+    {
+      "key": "oyvind-hofstad-nysted",
+      "navn": "Øyvind Hofstad Nysted"
+    },
+    {
+      "key": "per-bertram-dybwad-brochmann",
+      "navn": "Per Bertram Dybwad Brochmann"
+    },
+    {
+      "key": "sami-hajzeri",
+      "navn": "Sami Hajzeri"
+    },
+    {
+      "key": "stig-ronald-sletten",
+      "navn": "Stig Ronald Sletten"
+    },
+    {
+      "key": "stine-jakobsson-stromso",
+      "navn": "Stine Jakobsson Strømsø"
+    },
+    {
+      "key": "tor-einar-svendsen",
+      "navn": "Tor Einar Svendsen"
+    },
+    {
+      "key": "toralf-heimdal",
+      "navn": "Toralf Heimdal"
+    },
+    {
+      "key": "tore-lauvold-halvorsen",
+      "navn": "Tore Lauvold Halvorsen"
+    },
+    {
+      "key": "vegard-johansen",
+      "navn": "Vegard Johansen"
+    },
+    {
+      "key": "wenche-trasdahl",
+      "navn": "Wenche Tråsdahl"
+    }
+  ],
+  "roller": [
+    {
+      "org": "bardu-kommune",
+      "person": "vegard-johansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "furuly-turbuss",
+      "person": "alf-leidulf-furuly",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "furuly-turbuss",
+      "person": "benjamin-nordberg-furuly-f22a89",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "furuly-turbuss",
+      "person": "bjorn-tore-furuly",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "furuly-turbuss",
+      "person": "bjorn-tore-furuly",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "patricias-gatekjokken",
+      "person": "anne-lise-elisabeth-sorensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "patricias-gatekjokken",
+      "person": "anne-lise-elisabeth-sorensen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polar-park",
+      "person": "frank-sundermeier",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polar-park",
+      "person": "per-bertram-dybwad-brochmann",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polar-park",
+      "person": "stig-ronald-sletten",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polar-park",
+      "person": "toralf-heimdal",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "setermoen-mottak",
+      "person": "gitte-hoff",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "setermoen-mottak",
+      "person": "sami-hajzeri",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "setermoen-mottak",
+      "person": "sami-hajzeri",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "setermoen-mottak",
+      "person": "tor-einar-svendsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "setermoen-mottak",
+      "person": "wenche-trasdahl",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "anne-bergljot-skoglund",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "anne-paula-dalheim",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "goril-westborg-smiseth",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "gro-bjerregaard-lamoy",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "gunnar-folden-grundetjern",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "irene-sorensen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "jan-frode-josefsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "kjersti-utstol",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "kristian-fanghol",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "oyvind-hofstad-nysted",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "stine-jakobsson-stromso",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "person": "tore-lauvold-halvorsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "bardu-kommunestyre",
+      "til": "bardu-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "compass-group-norge-as-avd-9109-setermoen",
+      "til": "compass-group-norge",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "extra-setermoen-1986",
+      "til": "coop-nord",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "forsvarsbygg-region-nord",
+      "til": "forsvarsbygg",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "furuly-turbuss",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 473084,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "furuly-turbuss",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1025428,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "furuly-turbuss",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7254274,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "furuly-turbuss",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 18190647,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "patricias-gatekjokken",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2279556,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "patricias-gatekjokken",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3242155,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "patricias-gatekjokken",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 12174610,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "patricias-gatekjokken",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 19151129,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polar-park",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 8262984,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polar-park",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 11439962,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polar-park",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 40543869,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polar-park",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 25169212,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "setermoen-mottak",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 660635,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "setermoen-mottak",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 626448,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "setermoen-mottak",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 6128529,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "setermoen-mottak",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 26776762,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1650793,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3247455,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 10449180,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 68688602,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "compass-group-norge",
+      "segment": "reiseliv",
+      "styrke": 2
+    },
+    {
+      "org": "coop-nord",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "extra-setermoen-1986",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "furuly-turbuss",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "stiftelsen-viken-senter",
+      "segment": "helse",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

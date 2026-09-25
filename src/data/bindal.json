@@ -1,0 +1,611 @@
+{
+  "meta": {
+    "kommunenr": "1811",
+    "kommune": "Bindal",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "bindal-kommunestyre",
+      "navn": "Kommunestyret i Bindal",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "bindal-kommune",
+      "kommunenr": "1811",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "bindal-kommune",
+      "orgnr": "964983380",
+      "navn": "Bindal Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1811",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bindal-kommune-helse-og-sosialadministrasjon",
+      "orgnr": "874790982",
+      "navn": "Bindal Kommune Helse- og Sosialadministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1811",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bindal-kommune-oppvekst-og-kultur",
+      "orgnr": "874790222",
+      "navn": "Bindal Kommune Oppvekst og Kultur",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1811",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bindal-kommune-plan-og-utvikling",
+      "orgnr": "974791005",
+      "navn": "Bindal Kommune Plan og Utvikling",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1811",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "bindalseidet-skole",
+      "orgnr": "991288716",
+      "navn": "Bindalseidet Skole SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "1811",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-06-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 85.201 «Ordinær grunnskoleundervisning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "bindalssmolt",
+      "orgnr": "977106206",
+      "navn": "Bindalssmolt AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1811",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1996-11-13",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.212 «Produksjon av yngel og settefisk i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "aoife-karina-maloney-westgard",
+      "navn": "Aoife Karina Maloney Westgård"
+    },
+    {
+      "key": "arnstein-bekkavik",
+      "navn": "Arnstein Bekkavik"
+    },
+    {
+      "key": "beate-skillingstad",
+      "navn": "Beate Skillingstad"
+    },
+    {
+      "key": "elling-mikalsen-bokestad",
+      "navn": "Elling Mikalsen Bøkestad"
+    },
+    {
+      "key": "jorund-vegar-lislien",
+      "navn": "Jørund Vegar Lislien"
+    },
+    {
+      "key": "knut-jarle-toresen",
+      "navn": "Knut Jarle Toresen"
+    },
+    {
+      "key": "marianne-gutvik-valen",
+      "navn": "Marianne Gutvik-Valen"
+    },
+    {
+      "key": "merete-berg-hansen",
+      "navn": "Merete Berg-Hansen"
+    },
+    {
+      "key": "miriam-ekremsaeter-alsli",
+      "navn": "Miriam Ekremsæter Alsli"
+    },
+    {
+      "key": "mona-bern-erfjord-hald",
+      "navn": "Mona Bern Erfjord Hald"
+    },
+    {
+      "key": "morten-lund",
+      "navn": "Morten Lund"
+    },
+    {
+      "key": "roger-hanssen",
+      "navn": "Roger Hanssen"
+    },
+    {
+      "key": "roy-emilsen",
+      "navn": "Roy Emilsen"
+    },
+    {
+      "key": "svein-gustav-sinkaberg",
+      "navn": "Svein Gustav Sinkaberg"
+    },
+    {
+      "key": "tina-kristin-vassli-kveinsjo",
+      "navn": "Tina Kristin Vassli Kveinsjø"
+    },
+    {
+      "key": "turi-stromsnes-kvaloy",
+      "navn": "Turi Strømsnes Kvaløy"
+    }
+  ],
+  "roller": [
+    {
+      "org": "bindal-kommune-helse-og-sosialadministrasjon",
+      "person": "knut-jarle-toresen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindal-kommune-oppvekst-og-kultur",
+      "person": "knut-jarle-toresen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindal-kommune-plan-og-utvikling",
+      "person": "knut-jarle-toresen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindal-kommune",
+      "person": "knut-jarle-toresen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "person": "arnstein-bekkavik",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "person": "jorund-vegar-lislien",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "person": "marianne-gutvik-valen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "person": "merete-berg-hansen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "person": "miriam-ekremsaeter-alsli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "person": "mona-bern-erfjord-hald",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "person": "roger-hanssen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "person": "tina-kristin-vassli-kveinsjo",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "person": "turi-stromsnes-kvaloy",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalssmolt",
+      "person": "aoife-karina-maloney-westgard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalssmolt",
+      "person": "beate-skillingstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalssmolt",
+      "person": "elling-mikalsen-bokestad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalssmolt",
+      "person": "morten-lund",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalssmolt",
+      "person": "roy-emilsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bindalssmolt",
+      "person": "svein-gustav-sinkaberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "bindal-kommunestyre",
+      "til": "bindal-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "bindalseidet-skole",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 906626,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 457082,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 12651228,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bindalseidet-skole",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 14913270,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bindalssmolt",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 85298509,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bindalssmolt",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 119488137,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bindalssmolt",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 181495547,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bindalssmolt",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 316744295,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [],
+  "org_segment": [],
+  "hull": []
+}

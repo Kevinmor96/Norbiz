@@ -1,0 +1,1169 @@
+{
+  "meta": {
+    "kommunenr": "5607",
+    "kommune": "Vadsø",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "vadso-kommunestyre",
+      "navn": "Kommunestyret i Vadsø",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "vadso-kommune",
+      "kommunenr": "5607",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "barents-nett",
+      "orgnr": "971058854",
+      "navn": "Barents Nett AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "1994-06-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 35.140 «Distribusjon av elektrisitet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune-830090282",
+      "orgnr": "830090282",
+      "navn": "Finnmark Fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune-opplaering",
+      "orgnr": "832305502",
+      "navn": "Finnmark Fylkeskommune Opplæring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-10-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune-samferdsel",
+      "orgnr": "932305984",
+      "navn": "Finnmark Fylkeskommune Samferdsel",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-10-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune-sentraladministrasjonen",
+      "orgnr": "974795159",
+      "navn": "Finnmark Fylkeskommune Sentraladministrasjonen",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune-tannhelse",
+      "orgnr": "932306484",
+      "navn": "Finnmark Fylkeskommune Tannhelse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-10-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "harila",
+      "orgnr": "917630747",
+      "navn": "Harila AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1978-10-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.810 «Detaljhandel med motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "harila-motor",
+      "orgnr": "965445439",
+      "navn": "Harila Motor AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1992-11-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 95.310 «Reparasjon og vedlikehold av motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "kriminalomsorgsdirektoratet",
+      "orgnr": "911830868",
+      "navn": "Kriminalomsorgsdirektoratet",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "3205",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "prima-assistanse",
+      "orgnr": "989748319",
+      "navn": "Prima Assistanse AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2006-04-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 88.104 «Brukerstyrt personlig assistanse (bpa)».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "prima-assistanse-as-avd-vadso",
+      "orgnr": "831830522",
+      "navn": "Prima Assistanse AS Avd Vadsø",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "prima-assistanse",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-08-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vadsø for Prima Assistanse AS, med næringskode 88.104 «Brukerstyrt personlig assistanse (bpa)».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "statsforvalteren-i-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sykehusinnkjop",
+      "orgnr": "916879067",
+      "navn": "Sykehusinnkjøp HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2015-12-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vadso-fengsel",
+      "orgnr": "974748401",
+      "navn": "Vadsø Fengsel",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "kriminalomsorgsdirektoratet",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vadsø for Kriminalomsorgsdirektoratet, med næringskode 84.230 «Aktiviteter i rettsvesen og kriminalomsorg».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "vadso-kommune",
+      "orgnr": "964993602",
+      "navn": "Vadsø Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "bente-hayes",
+      "navn": "Bente Hayes"
+    },
+    {
+      "key": "bjorn-gunnar-johansen",
+      "navn": "Bjørn Gunnar Johansen"
+    },
+    {
+      "key": "glenn-tore-brevik-harila",
+      "navn": "Glenn Tore Brevik Harila"
+    },
+    {
+      "key": "guro-kvaal-brandshaug",
+      "navn": "Guro Kvaal Brandshaug"
+    },
+    {
+      "key": "halvor-garvik",
+      "navn": "Halvor Garvik"
+    },
+    {
+      "key": "halvor-grov",
+      "navn": "Halvor Grov"
+    },
+    {
+      "key": "henning-bjorneng-sagen",
+      "navn": "Henning Bjørneng Sagen"
+    },
+    {
+      "key": "jarle-lovenorn-lystad",
+      "navn": "Jarle Lövenörn Lystad"
+    },
+    {
+      "key": "jens-roald-betsi",
+      "navn": "Jens Roald Betsi"
+    },
+    {
+      "key": "jorn-borgersen",
+      "navn": "Jørn Borgersen"
+    },
+    {
+      "key": "kjersti-vevstad",
+      "navn": "Kjersti Vevstad"
+    },
+    {
+      "key": "linda-che-tran",
+      "navn": "Linda Che Tran"
+    },
+    {
+      "key": "marit-erikstad",
+      "navn": "Marit Erikstad"
+    },
+    {
+      "key": "mona-stensby",
+      "navn": "Mona Stensby"
+    },
+    {
+      "key": "odd-erlend-finboe-gabrielsen",
+      "navn": "Odd Erlend Finboe Gabrielsen"
+    },
+    {
+      "key": "per-karlsen",
+      "navn": "Per Karlsen"
+    },
+    {
+      "key": "ragnhild-fanebust",
+      "navn": "Ragnhild Fanebust"
+    },
+    {
+      "key": "ragnhild-marie-melleby-aslaksen",
+      "navn": "Ragnhild Marie Melleby Aslaksen"
+    },
+    {
+      "key": "randi-ostbo",
+      "navn": "Randi Østbø"
+    },
+    {
+      "key": "roy-emil-johansen",
+      "navn": "Roy Emil Johansen"
+    },
+    {
+      "key": "sunniva-jansdotter-nydahl-berg-rognerud",
+      "navn": "Sunniva Jansdotter Nydahl Berg Rognerud"
+    },
+    {
+      "key": "tom-erik-nilsen",
+      "navn": "Tom Erik Nilsen"
+    },
+    {
+      "key": "toril-feldt",
+      "navn": "Toril Feldt"
+    },
+    {
+      "key": "tormod-harila",
+      "navn": "Tormod Harila"
+    },
+    {
+      "key": "trond-sandsor-arntsen",
+      "navn": "Trond Sandsør Arntsen"
+    },
+    {
+      "key": "vegard-brevik-harila",
+      "navn": "Vegard Brevik Harila"
+    },
+    {
+      "key": "wenche-pedersen",
+      "navn": "Wenche Pedersen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "barents-nett",
+      "person": "guro-kvaal-brandshaug",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "barents-nett",
+      "person": "halvor-grov",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "barents-nett",
+      "person": "jens-roald-betsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "barents-nett",
+      "person": "jorn-borgersen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "barents-nett",
+      "person": "odd-erlend-finboe-gabrielsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "barents-nett",
+      "person": "roy-emil-johansen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-fylkeskommune-830090282",
+      "person": "kjersti-vevstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-fylkeskommune-opplaering",
+      "person": "kjersti-vevstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-fylkeskommune-samferdsel",
+      "person": "kjersti-vevstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-fylkeskommune-sentraladministrasjonen",
+      "person": "kjersti-vevstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-fylkeskommune-tannhelse",
+      "person": "kjersti-vevstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "harila-motor",
+      "person": "marit-erikstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "harila-motor",
+      "person": "tom-erik-nilsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "harila-motor",
+      "person": "tormod-harila",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "harila-motor",
+      "person": "vegard-brevik-harila",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "harila",
+      "person": "glenn-tore-brevik-harila",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "harila",
+      "person": "marit-erikstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "harila",
+      "person": "tormod-harila",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "harila",
+      "person": "vegard-brevik-harila",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "statsforvalteren-i-troms-og-finnmark",
+      "person": "toril-feldt",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "bente-hayes",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "bjorn-gunnar-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "halvor-garvik",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "henning-bjorneng-sagen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "linda-che-tran",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "mona-stensby",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "per-karlsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "ragnhild-fanebust",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "ragnhild-marie-melleby-aslaksen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "randi-ostbo",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "sunniva-jansdotter-nydahl-berg-rognerud",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "person": "trond-sandsor-arntsen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vadso-kommune",
+      "person": "jarle-lovenorn-lystad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vadso-kommune",
+      "person": "wenche-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "vadso-kommunestyre",
+      "til": "vadso-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "prima-assistanse-as-avd-vadso",
+      "til": "prima-assistanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "vadso-fengsel",
+      "til": "kriminalomsorgsdirektoratet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "barents-nett",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 21151000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "barents-nett",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 68240000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "barents-nett",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 470698000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "barents-nett",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 259116000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "harila-motor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -217634,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "harila-motor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -21099,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "harila-motor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 23109623,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "harila-motor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 345787373,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "harila",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 11553194,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "harila",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 14858876,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "harila",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 78311555,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "harila",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 771003765,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 0,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -5678000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 4849000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sykehusinnkjop",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 465155000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "barents-nett",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "sykehusinnkjop",
+      "segment": "helse",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

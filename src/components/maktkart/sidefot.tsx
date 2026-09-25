@@ -3,13 +3,18 @@
 
 import { datoKort } from "@/lib/format";
 
+import { useForhandsvarsel, type Forhandsvarsel } from "./forhandsversjon";
+
 export function Sidefot({
   sammenstilt,
   kommunenavn,
   terrengKreditt,
   metodeHref = "/metode",
+  varsel,
 }: {
   sammenstilt?: string | null;
+  /** Forhåndsvarselet regnet fra gradene. Utelatt: kommunens påstander eller den generelle setningen. */
+  varsel?: Forhandsvarsel | null;
   kommunenavn?: string | null;
   /** Kredittlinjen fra terrengfila. Utelates når siden ikke har kartblad. */
   terrengKreditt?: string | null;
@@ -17,6 +22,7 @@ export function Sidefot({
   metodeHref?: string;
 }) {
   const kilder = metodeHref.startsWith("#") ? "#kilder" : `${metodeHref}#kilder`;
+  const v = useForhandsvarsel(varsel);
   return (
     <footer className="mt-8 border-t border-trykk pt-8 pb-12">
       <div className="ramme grid gap-x-6 gap-y-6 text-[0.8125rem] leading-[1.5] text-dempet md:grid-cols-3">
@@ -24,8 +30,7 @@ export function Sidefot({
           <b className="mb-1 block font-semibold text-trykk">Maktkart</b>
           Arbeidsnavn. Forhåndsversjon
           {kommunenavn ? ` for ${kommunenavn}` : ""}
-          {sammenstilt ? `, sammenstilt ${datoKort(sammenstilt)} fra researchgrunnlaget` : ""}.
-          Ingen tall er etterprøvd mot Brreg ennå.{" "}
+          {sammenstilt ? `, sammenstilt ${datoKort(sammenstilt)}` : ""}. {v.lang}{" "}
           <a
             href={kilder}
             className="text-trykk underline decoration-linje-sterk hover:decoration-signal"

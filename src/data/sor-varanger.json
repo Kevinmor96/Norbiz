@@ -1,0 +1,2199 @@
+{
+  "meta": {
+    "kommunenr": "5605",
+    "kommune": "Sør-Varanger",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "sor-varanger-kommunestyre",
+      "navn": "Kommunestyret i Sør-Varanger",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "sor-varanger-kommune",
+      "kommunenr": "5605",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "audun-owre",
+      "orgnr": "930661600",
+      "navn": "Audun Øwre AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "2023-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "barel",
+      "orgnr": "967072745",
+      "navn": "Barel AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1993-06-14",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 27.400 «Produksjon av belysningsutstyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "bjornevatn-bygg",
+      "orgnr": "933464245",
+      "navn": "Bjørnevatn Bygg AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "2024-03-13",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 41.000 «Oppføring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "euro-sko-nord",
+      "orgnr": "992119721",
+      "navn": "Euro Sko Nord AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-12-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.720 «Detaljhandel med skotøy og lærvarer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune-opplaering",
+      "orgnr": "832305502",
+      "navn": "Finnmark Fylkeskommune Opplæring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-10-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-politidistrikt",
+      "orgnr": "984000049",
+      "navn": "Finnmark Politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmarkssykehuset",
+      "orgnr": "983974880",
+      "navn": "Finnmarkssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmarkssykehuset-hf-kirkenes-sykehus",
+      "orgnr": "974795930",
+      "navn": "Finnmarkssykehuset HF Kirkenes Sykehus",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "finnmarkssykehuset",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sør-Varanger for Finnmarkssykehuset HF, med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "forsvarsbygg",
+      "orgnr": "975950662",
+      "navn": "Forsvarsbygg",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.220 «Forsvarsaktiviteter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "forsvarsbygg-region-nord-v",
+      "orgnr": "990706409",
+      "navn": "Forsvarsbygg Region Nord V",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "forsvarsbygg",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-01-01",
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Arbeidssted i Sør-Varanger for Forsvarsbygg, med næringskode 84.220 «Forsvarsaktiviteter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "hurtigruten-sjo",
+      "orgnr": "985979456",
+      "navn": "Hurtigruten Sjø AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2003-08-25",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 50.102 «Innenriks kystruter med passasjerer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "hx-crew",
+      "orgnr": "927081970",
+      "navn": "HX Crew AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2021-02-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 50.101 «Utenriks sjøfart med passasjerer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "iss-facility-services",
+      "orgnr": "914791723",
+      "navn": "Iss Facility Services AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1952-10-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 81.210 «Rengjøring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "iss-facility-services-as-avd-renhold-kirkenes",
+      "orgnr": "993977454",
+      "navn": "Iss Facility Services AS Avd Renhold Kirkenes",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "iss-facility-services",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2009-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sør-Varanger for Iss Facility Services AS, med næringskode 81.210 «Rengjøring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "kimek",
+      "orgnr": "941982824",
+      "navn": "Kimek AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1986-11-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 33.150 «Reparasjon og vedlikehold av sivile skip og båter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "kirkenes-bil",
+      "orgnr": "967066699",
+      "navn": "Kirkenes Bil AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1993-07-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.810 «Detaljhandel med motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "kirkenes-trelast",
+      "orgnr": "983228895",
+      "navn": "Kirkenes Trelast AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2000-11-08",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 46.830 «Engroshandel med tømmer, trelast, byggevarer og sanitærutstyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "kirkenes-videregaende-skole",
+      "orgnr": "974622726",
+      "navn": "Kirkenes Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "finnmark-fylkeskommune-opplaering",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sør-Varanger for Finnmark Fylkeskommune Opplæring, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "lakarjouren",
+      "orgnr": "961410258",
+      "navn": "Läkarjouren AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1991-03-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "skatteetaten-974761076",
+      "orgnr": "974761076",
+      "navn": "Skatteetaten",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "skatteetaten-bjornevatn",
+      "orgnr": "936508960",
+      "navn": "Skatteetaten Bjørnevatn",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "skatteetaten-974761076",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2025-11-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sør-Varanger for Skatteetaten, med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "snowhotel-kirkenes",
+      "orgnr": "912467805",
+      "navn": "Snowhotel Kirkenes AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2013-07-26",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "sor-varanger-kommune",
+      "orgnr": "942110286",
+      "navn": "Sør-Varanger Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sor-varanger-kommune-helse-omsorg-og-velferd",
+      "orgnr": "974793563",
+      "navn": "Sør-Varanger Kommune Helse- Omsorg og Velferd",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sor-varanger-kommune-kultur-og-oppvekst",
+      "orgnr": "874790192",
+      "navn": "Sør-Varanger Kommune Kultur og Oppvekst",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sor-varanger-kommune-sentraladministrasjon",
+      "orgnr": "974794950",
+      "navn": "Sør-Varanger Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "sor-varanger-kommune-teknisk-drift",
+      "orgnr": "874793582",
+      "navn": "Sør-Varanger Kommune Teknisk Drift",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sundquist",
+      "orgnr": "996380602",
+      "navn": "Sundquist AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5605",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2011-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anna-elisabet-rutfors",
+      "navn": "Anna Elisabet Rutfors"
+    },
+    {
+      "key": "annika-mari-katrin-hogstrom",
+      "navn": "Annika Mari Katrin Högström"
+    },
+    {
+      "key": "bard-gamnes",
+      "navn": "Bård Gamnes"
+    },
+    {
+      "key": "bernt-eivind-osthus",
+      "navn": "Bernt Eivind Østhus"
+    },
+    {
+      "key": "bjorn-ole-hamre",
+      "navn": "Bjørn Ole Hamre"
+    },
+    {
+      "key": "bo-anders-nygren",
+      "navn": "Bo Anders Nygren"
+    },
+    {
+      "key": "carl-magnus-aberg",
+      "navn": "Carl Magnus Åberg"
+    },
+    {
+      "key": "claus-andre-andersen",
+      "navn": "Claus André Andersen"
+    },
+    {
+      "key": "eirik-wikan",
+      "navn": "Eirik Wikan"
+    },
+    {
+      "key": "ellen-katrine-olsdatter-haetta",
+      "navn": "Ellen Katrine Olsdatter Hætta"
+    },
+    {
+      "key": "finn-helge-lunde",
+      "navn": "Finn Helge Lunde"
+    },
+    {
+      "key": "gebhard-franz-rainer",
+      "navn": "Gebhard Franz Rainer"
+    },
+    {
+      "key": "gerry-robert-larsson-fedde",
+      "navn": "Gerry Robert Larsson-Fedde"
+    },
+    {
+      "key": "greger-mannsverk",
+      "navn": "Greger Mannsverk"
+    },
+    {
+      "key": "hedda-felin",
+      "navn": "Hedda Felin"
+    },
+    {
+      "key": "herbjorn-randa",
+      "navn": "Herbjørn Randa"
+    },
+    {
+      "key": "jan-tore-jorgensen",
+      "navn": "Jan Tore Jørgensen"
+    },
+    {
+      "key": "jeanette-laila-mariann-nilsson",
+      "navn": "Jeanette Laila Mariann Nilsson"
+    },
+    {
+      "key": "jonas-wessel",
+      "navn": "Jonas Wessel"
+    },
+    {
+      "key": "june-solheim",
+      "navn": "June Solheim"
+    },
+    {
+      "key": "kai-blix-iversen",
+      "navn": "Kai Blix Iversen"
+    },
+    {
+      "key": "kare-tannvik",
+      "navn": "Kåre Tannvik"
+    },
+    {
+      "key": "kjell-beddari",
+      "navn": "Kjell Beddari"
+    },
+    {
+      "key": "kristina-amalie-hamre",
+      "navn": "Kristina Amalie Hamre"
+    },
+    {
+      "key": "line-elisabeth-henriksen",
+      "navn": "Line Elisabeth Henriksen"
+    },
+    {
+      "key": "linn-hege-hansen",
+      "navn": "Linn-Hege Hansen"
+    },
+    {
+      "key": "liv-jullum-kristoffersen",
+      "navn": "Liv Jullum Kristoffersen"
+    },
+    {
+      "key": "mats-blix-iversen",
+      "navn": "Mats Blix Iversen"
+    },
+    {
+      "key": "mia-benedicte-blix-iversen",
+      "navn": "Mia Benedicte Blix Iversen"
+    },
+    {
+      "key": "monica-ravna-jerijervi",
+      "navn": "Monica Ravna Jerijervi"
+    },
+    {
+      "key": "nina-cecilie-bordi-overgaard",
+      "navn": "Nina Cecilie Bordi Øvergaard"
+    },
+    {
+      "key": "nina-elisabeth-bergman",
+      "navn": "Nina Elisabeth Bergman"
+    },
+    {
+      "key": "oddmar-labaha",
+      "navn": "Oddmar Labahå"
+    },
+    {
+      "key": "oddmund-nalelv-eriksen",
+      "navn": "Oddmund Nålelv Eriksen"
+    },
+    {
+      "key": "ola-arendt-mauritz-ronnqvist",
+      "navn": "Ola Arendt Mauritz Rönnqvist"
+    },
+    {
+      "key": "oyvind-alapnes",
+      "navn": "Øyvind Alapnes"
+    },
+    {
+      "key": "rainer-ingebrigtsen",
+      "navn": "Rainer Ingebrigtsen"
+    },
+    {
+      "key": "silje-randa",
+      "navn": "Silje Randa"
+    },
+    {
+      "key": "sindre-toreid-eriksen",
+      "navn": "Sindre Toreid Eriksen"
+    },
+    {
+      "key": "svein-werner-sundquist",
+      "navn": "Svein Werner Sundquist"
+    },
+    {
+      "key": "trine-skarvik",
+      "navn": "Trine Skårvik"
+    },
+    {
+      "key": "trond-yngve-haukanes",
+      "navn": "Trond Yngve Haukanes"
+    },
+    {
+      "key": "yngve-labaha",
+      "navn": "Yngve Labahå"
+    }
+  ],
+  "roller": [
+    {
+      "org": "barel",
+      "person": "bard-gamnes",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "barel",
+      "person": "bo-anders-nygren",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "barel",
+      "person": "nina-elisabeth-bergman",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bjornevatn-bygg",
+      "person": "herbjorn-randa",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bjornevatn-bygg",
+      "person": "herbjorn-randa",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "euro-sko-nord",
+      "person": "bjorn-ole-hamre",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "euro-sko-nord",
+      "person": "bjorn-ole-hamre",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "euro-sko-nord",
+      "person": "kristina-amalie-hamre",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "euro-sko-nord",
+      "person": "line-elisabeth-henriksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-politidistrikt",
+      "person": "ellen-katrine-olsdatter-haetta",
+      "tittel": "Daglig leder",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hurtigruten-sjo",
+      "person": "gerry-robert-larsson-fedde",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hurtigruten-sjo",
+      "person": "hedda-felin",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hurtigruten-sjo",
+      "person": "jonas-wessel",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hx-crew",
+      "person": "claus-andre-andersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hx-crew",
+      "person": "gebhard-franz-rainer",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hx-crew",
+      "person": "jonas-wessel",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kimek",
+      "person": "eirik-wikan",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kimek",
+      "person": "eirik-wikan",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kimek",
+      "person": "greger-mannsverk",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kimek",
+      "person": "jan-tore-jorgensen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kimek",
+      "person": "kjell-beddari",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kimek",
+      "person": "linn-hege-hansen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kimek",
+      "person": "monica-ravna-jerijervi",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kimek",
+      "person": "rainer-ingebrigtsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kimek",
+      "person": "sindre-toreid-eriksen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kimek",
+      "person": "trine-skarvik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kimek",
+      "person": "trond-yngve-haukanes",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kirkenes-bil",
+      "person": "june-solheim",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kirkenes-bil",
+      "person": "oddmar-labaha",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kirkenes-bil",
+      "person": "yngve-labaha",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kirkenes-bil",
+      "person": "yngve-labaha",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kirkenes-trelast",
+      "person": "kai-blix-iversen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kirkenes-trelast",
+      "person": "mats-blix-iversen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kirkenes-trelast",
+      "person": "mats-blix-iversen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kirkenes-trelast",
+      "person": "mia-benedicte-blix-iversen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakarjouren",
+      "person": "anna-elisabet-rutfors",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakarjouren",
+      "person": "annika-mari-katrin-hogstrom",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakarjouren",
+      "person": "carl-magnus-aberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakarjouren",
+      "person": "jeanette-laila-mariann-nilsson",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakarjouren",
+      "person": "ola-arendt-mauritz-ronnqvist",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "snowhotel-kirkenes",
+      "person": "bernt-eivind-osthus",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "snowhotel-kirkenes",
+      "person": "kare-tannvik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "snowhotel-kirkenes",
+      "person": "oyvind-alapnes",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "snowhotel-kirkenes",
+      "person": "silje-randa",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sor-varanger-kommune-helse-omsorg-og-velferd",
+      "person": "nina-cecilie-bordi-overgaard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sor-varanger-kommune-kultur-og-oppvekst",
+      "person": "nina-cecilie-bordi-overgaard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sor-varanger-kommune-sentraladministrasjon",
+      "person": "nina-cecilie-bordi-overgaard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sor-varanger-kommune-teknisk-drift",
+      "person": "nina-cecilie-bordi-overgaard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sor-varanger-kommune",
+      "person": "nina-cecilie-bordi-overgaard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sundquist",
+      "person": "finn-helge-lunde",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sundquist",
+      "person": "liv-jullum-kristoffersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sundquist",
+      "person": "oddmund-nalelv-eriksen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sundquist",
+      "person": "svein-werner-sundquist",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "sor-varanger-kommunestyre",
+      "til": "sor-varanger-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "finnmarkssykehuset-hf-kirkenes-sykehus",
+      "til": "finnmarkssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "forsvarsbygg-region-nord-v",
+      "til": "forsvarsbygg",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "iss-facility-services-as-avd-renhold-kirkenes",
+      "til": "iss-facility-services",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "kirkenes-videregaende-skole",
+      "til": "finnmark-fylkeskommune-opplaering",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "skatteetaten-bjornevatn",
+      "til": "skatteetaten-974761076",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "audun-owre",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 835314,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "audun-owre",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1213464,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "audun-owre",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2510999,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "audun-owre",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 127285697,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "barel",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 9886697,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "barel",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 12813906,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "barel",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 24322650,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "barel",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 97997256,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bjornevatn-bygg",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 16050039,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bjornevatn-bygg",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 20005528,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bjornevatn-bygg",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 15484494,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bjornevatn-bygg",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 65757959,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "euro-sko-nord",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2223923,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "euro-sko-nord",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2921926,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "euro-sko-nord",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 18042798,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "euro-sko-nord",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 46335873,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hurtigruten-sjo",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 45923446,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hurtigruten-sjo",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 51132147,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hurtigruten-sjo",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 149028357,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hurtigruten-sjo",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 1076807676,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kimek",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 11172311,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kimek",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 14500730,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kimek",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 17437467,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kimek",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 134809677,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kirkenes-bil",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 465740,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kirkenes-bil",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 5430957,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kirkenes-bil",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 26343203,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kirkenes-bil",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 190278681,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kirkenes-trelast",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5833587,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kirkenes-trelast",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 6845197,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kirkenes-trelast",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 47104294,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kirkenes-trelast",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 129323906,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lakarjouren",
+      "aar": 2026,
+      "type": "aarsresultat",
+      "verdi": -1512192,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-05-01–2026-04-30."
+      }
+    },
+    {
+      "org": "lakarjouren",
+      "aar": 2026,
+      "type": "driftsresultat",
+      "verdi": -1835438,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-05-01–2026-04-30."
+      }
+    },
+    {
+      "org": "lakarjouren",
+      "aar": 2026,
+      "type": "egenkapital",
+      "verdi": 15508369,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-05-01–2026-04-30."
+      }
+    },
+    {
+      "org": "lakarjouren",
+      "aar": 2026,
+      "type": "omsetning",
+      "verdi": 22320997,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-05-01–2026-04-30."
+      }
+    },
+    {
+      "org": "snowhotel-kirkenes",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 10386206,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "snowhotel-kirkenes",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 12955131,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "snowhotel-kirkenes",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 6156680,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "snowhotel-kirkenes",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 139071080,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sundquist",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5134228,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sundquist",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 6799492,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sundquist",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 14387510,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sundquist",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 97679636,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "audun-owre",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "bjornevatn-bygg",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "finnmarkssykehuset-hf-kirkenes-sykehus",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "hurtigruten-sjo",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "hx-crew",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "snowhotel-kirkenes",
+      "segment": "reiseliv",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "hx-crew",
+      "hva": "Regnskapstallene for 2024 er ført i EUR.",
+      "hvorfor": "Regnskapsregisteret fører dette regnskapet i en annen valuta enn kroner. Maktkart viser bare kronebeløp, blander aldri valutaer og regner ikke om uten en merket kurs."
+    }
+  ]
+}

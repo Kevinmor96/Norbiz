@@ -1,0 +1,1161 @@
+{
+  "meta": {
+    "kommunenr": "1838",
+    "kommune": "Gildeskål",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "gildeskal-kommunestyre",
+      "navn": "Kommunestyret i Gildeskål",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "gildeskal-kommune",
+      "kommunenr": "1838",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "arnoy-brygge",
+      "orgnr": "993540285",
+      "navn": "Arnøy Brygge AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1838",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2008-12-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 93.291 «Opplevelsesaktiviteter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "gildeskal-forskningsstasjon",
+      "orgnr": "950912278",
+      "navn": "Gildeskål Forskningsstasjon AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1838",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1988-12-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.300 «Tjenester tilknyttet fiske, fangst og akvakultur».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "gildeskal-kommune",
+      "orgnr": "845901422",
+      "navn": "Gildeskål Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1838",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "helgeland-smolt",
+      "orgnr": "991692800",
+      "navn": "Helgeland Smolt AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1838",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-07-03",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.222 «Produksjon av yngel og settefisk i ferskvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "meloy-videregaende-skole-avd-inndyr",
+      "orgnr": "874621412",
+      "navn": "Meløy Videregående Skole Avd Inndyr",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "kommunenr": "1838",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Gildeskål for Nordland Fylkeskommune Utdanning og Kompetanse, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "mowi",
+      "orgnr": "964118191",
+      "navn": "Mowi ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "kommunenr": "4601",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1992-05-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Allmennaksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "mowi-avd-gildeskal",
+      "orgnr": "973065424",
+      "navn": "Mowi Avd Gildeskål",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "overordnet": "mowi",
+      "kommunenr": "1838",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Gildeskål for Mowi ASA, med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "orgnr": "974793725",
+      "navn": "Nordland Fylkeskommune Utdanning og Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset-hf-ambulase-inndyr",
+      "orgnr": "993562181",
+      "navn": "Nordlandssykehuset HF Ambulase Inndyr",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "nordlandssykehuset",
+      "kommunenr": "1838",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2009-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Gildeskål for Nordlandssykehuset HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "polarplast",
+      "orgnr": "912192091",
+      "navn": "Polarplast AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1838",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2013-06-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 22.220 «Produksjon av plastemballasje».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "salten-brann",
+      "orgnr": "990565325",
+      "navn": "Salten Brann IKS",
+      "nivaa": "interkommunal",
+      "organtype": "IKS",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2006-04-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Interkommunalt selskap registrert i Enhetsregisteret med næringskode 84.250 «Brannvernaktiviteter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "salten-brann-iks-avdeling-gildeskal",
+      "orgnr": "893557342",
+      "navn": "Salten Brann IKS Avdeling Gildeskål",
+      "nivaa": "interkommunal",
+      "organtype": "IKS",
+      "overordnet": "salten-brann",
+      "kommunenr": "1838",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2008-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Gildeskål for Salten Brann IKS, med næringskode 84.250 «Brannvernaktiviteter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "salten-n950",
+      "orgnr": "882201252",
+      "navn": "Salten N950 AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1838",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2000-07-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "aksel-owe-olsen",
+      "navn": "Aksel Owe Olsen"
+    },
+    {
+      "key": "charlotte-fredriksen",
+      "navn": "Charlotte Fredriksen"
+    },
+    {
+      "key": "geir-mikkelsen",
+      "navn": "Geir Mikkelsen"
+    },
+    {
+      "key": "hans-orjan-wenberg",
+      "navn": "Hans Ørjan Wenberg"
+    },
+    {
+      "key": "helena-mjelde-karlsen",
+      "navn": "Helena Mjelde Karlsen"
+    },
+    {
+      "key": "jan-robert-roli-gjervik",
+      "navn": "Jan-Robert Røli-Gjervik"
+    },
+    {
+      "key": "joakim-whittall-norborg",
+      "navn": "Joakim Whittall Norborg"
+    },
+    {
+      "key": "john-kristian-karlsen",
+      "navn": "John Kristian Karlsen"
+    },
+    {
+      "key": "katrine-bones-enger-johnsen",
+      "navn": "Katrine Bones Enger-Johnsen"
+    },
+    {
+      "key": "lasse-willumsen",
+      "navn": "Lasse Willumsen"
+    },
+    {
+      "key": "magni-veturlidason",
+      "navn": "Magni Veturlidason"
+    },
+    {
+      "key": "morten-lovik-lorentsen",
+      "navn": "Morten Løvik Lorentsen"
+    },
+    {
+      "key": "nina-cecilie-mjelde-karlsen",
+      "navn": "Nina Cecilie Mjelde Karlsen"
+    },
+    {
+      "key": "orjan-mortveit-tveiten",
+      "navn": "Ørjan Mortveit Tveiten"
+    },
+    {
+      "key": "randi-busch-bokestad",
+      "navn": "Randi Busch Bøkestad"
+    },
+    {
+      "key": "roger-oksheim",
+      "navn": "Roger Øksheim"
+    },
+    {
+      "key": "ronald-jorgensen",
+      "navn": "Ronald Jørgensen"
+    },
+    {
+      "key": "roy-arne-eilertsen",
+      "navn": "Roy-Arne Eilertsen"
+    },
+    {
+      "key": "silje-nordgard",
+      "navn": "Silje Nordgård"
+    },
+    {
+      "key": "svenn-are-jenssen",
+      "navn": "Svenn Are Jenssen"
+    },
+    {
+      "key": "thomas-ljostveit-netland",
+      "navn": "Thomas Ljostveit Netland"
+    },
+    {
+      "key": "tomas-bjorna",
+      "navn": "Tomas Bjørnå"
+    },
+    {
+      "key": "tor-arne-gransjoen",
+      "navn": "Tor-Arne Gransjøen"
+    },
+    {
+      "key": "valeria-orudzheva",
+      "navn": "Valeria Orudzheva"
+    }
+  ],
+  "roller": [
+    {
+      "org": "arnoy-brygge",
+      "person": "helena-mjelde-karlsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-brygge",
+      "person": "john-kristian-karlsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-brygge",
+      "person": "nina-cecilie-mjelde-karlsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-brygge",
+      "person": "silje-nordgard",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arnoy-brygge",
+      "person": "svenn-are-jenssen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gildeskal-forskningsstasjon",
+      "person": "morten-lovik-lorentsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gildeskal-forskningsstasjon",
+      "person": "randi-busch-bokestad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gildeskal-forskningsstasjon",
+      "person": "ronald-jorgensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gildeskal-forskningsstasjon",
+      "person": "roy-arne-eilertsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gildeskal-forskningsstasjon",
+      "person": "tomas-bjorna",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gildeskal-kommune",
+      "person": "geir-mikkelsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-smolt",
+      "person": "charlotte-fredriksen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-smolt",
+      "person": "joakim-whittall-norborg",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-smolt",
+      "person": "orjan-mortveit-tveiten",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "helgeland-smolt",
+      "person": "thomas-ljostveit-netland",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarplast",
+      "person": "lasse-willumsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarplast",
+      "person": "lasse-willumsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarplast",
+      "person": "tor-arne-gransjoen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salten-n950",
+      "person": "aksel-owe-olsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salten-n950",
+      "person": "hans-orjan-wenberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salten-n950",
+      "person": "jan-robert-roli-gjervik",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salten-n950",
+      "person": "katrine-bones-enger-johnsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salten-n950",
+      "person": "magni-veturlidason",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salten-n950",
+      "person": "morten-lovik-lorentsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salten-n950",
+      "person": "roger-oksheim",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salten-n950",
+      "person": "valeria-orudzheva",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "gildeskal-kommunestyre",
+      "til": "gildeskal-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "meloy-videregaende-skole-avd-inndyr",
+      "til": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "mowi-avd-gildeskal",
+      "til": "mowi",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordlandssykehuset-hf-ambulase-inndyr",
+      "til": "nordlandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "salten-brann-iks-avdeling-gildeskal",
+      "til": "salten-brann",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "arnoy-brygge",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 164159,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arnoy-brygge",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 467206,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arnoy-brygge",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": -3541595,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arnoy-brygge",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 12001870,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gildeskal-forskningsstasjon",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 94774675,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gildeskal-forskningsstasjon",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 122357576,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gildeskal-forskningsstasjon",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 484896414,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gildeskal-forskningsstasjon",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 711389906,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "helgeland-smolt",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 183127565,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-smolt",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 255666880,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-smolt",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1248061992,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "helgeland-smolt",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 684687604,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polarplast",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2767841,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "polarplast",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4370154,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "polarplast",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 21737857,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "polarplast",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 133776521,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "salten-n950",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -19787730,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "salten-n950",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -9382378,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "salten-n950",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 161104411,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "salten-n950",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 243920787,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "arnoy-brygge",
+      "segment": "reiseliv",
+      "styrke": 2
+    },
+    {
+      "org": "gildeskal-forskningsstasjon",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "mowi-avd-gildeskal",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "mowi",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset-hf-ambulase-inndyr",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "salten-n950",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

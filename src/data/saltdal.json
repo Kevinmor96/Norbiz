@@ -1,0 +1,1529 @@
+{
+  "meta": {
+    "kommunenr": "1840",
+    "kommune": "Saltdal",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "saltdal-kommunestyre",
+      "navn": "Kommunestyret i Saltdal",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "saltdal-kommune",
+      "kommunenr": "1840",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "dragefossen",
+      "orgnr": "911204177",
+      "navn": "Dragefossen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "1928-08-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 35.121 «Produksjon av elektrisitet fra vannkraft».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "edelfarm",
+      "orgnr": "947038877",
+      "navn": "Edelfarm AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1988-04-29",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "hepro",
+      "orgnr": "937162103",
+      "navn": "Hepro AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1987-06-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 32.500 «Produksjon av medisinske og tanntekniske instrumenter og utstyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nexans-norway",
+      "orgnr": "981122607",
+      "navn": "Nexans Norway AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1999-07-07",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 27.320 «Produksjon av andre elektroniske og elektriske ledninger og kabler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "nexans-norway-as-avd-rognan",
+      "orgnr": "973129708",
+      "navn": "Nexans Norway AS Avd Rognan",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "nexans-norway",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Saltdal for Nexans Norway AS, med næringskode 27.320 «Produksjon av andre elektroniske og elektriske ledninger og kabler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "orgnr": "974793725",
+      "navn": "Nordland Fylkeskommune Utdanning og Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset-hf-amblanse-saltdal",
+      "orgnr": "993562327",
+      "navn": "Nordlandssykehuset HF Amblanse Saltdal",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "nordlandssykehuset",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2009-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Saltdal for Nordlandssykehuset HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "pk-strom",
+      "orgnr": "986514988",
+      "navn": "PK Strøm AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2004-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "rusanes-fabrikker",
+      "orgnr": "928759393",
+      "navn": "Rusånes Fabrikker AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1979-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 16.230 «Produksjon av andre bygningsartikler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "saltdal-kommune",
+      "orgnr": "972417734",
+      "navn": "Saltdal Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "saltdal-kommune-helse-og-familie",
+      "orgnr": "974791617",
+      "navn": "Saltdal Kommune Helse og Familie",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "saltdal-kommune-skoleadministrasjon",
+      "orgnr": "974790416",
+      "navn": "Saltdal Kommune Skoleadministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "saltdal-kommune-teknisk-drift",
+      "orgnr": "974791633",
+      "navn": "Saltdal Kommune Teknisk Drift",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "saltdal-videregaende-skole",
+      "orgnr": "974621274",
+      "navn": "Saltdal Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Saltdal for Nordland Fylkeskommune Utdanning og Kompetanse, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "stiftelsen-ribo",
+      "orgnr": "970981071",
+      "navn": "Stiftelsen Ribo",
+      "nivaa": "privat",
+      "organtype": "stiftelse",
+      "kommunenr": "1840",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1993-12-07",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stiftelse registrert i Enhetsregisteret med næringskode 87.101 «Tjenester i spesialinstitusjon innenfor helse- og omsorg».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "alice-oksheim",
+      "navn": "Alice Øksheim"
+    },
+    {
+      "key": "anja-strom",
+      "navn": "Anja Strøm"
+    },
+    {
+      "key": "ann-kristin-engan",
+      "navn": "Ann-Kristin Engan"
+    },
+    {
+      "key": "ann-kristin-rosvoll-lorentzen",
+      "navn": "Ann Kristin Rosvoll Lorentzen"
+    },
+    {
+      "key": "anna-christina-rubenhag",
+      "navn": "Anna Christina Rubenhag"
+    },
+    {
+      "key": "anna-therese-christina-wilson",
+      "navn": "Anna Therese Christina Wilson"
+    },
+    {
+      "key": "askild-mikaelsen",
+      "navn": "Askild Mikaelsen"
+    },
+    {
+      "key": "astrid-dagmar-jakobsen",
+      "navn": "Astrid Dagmar Jakobsen"
+    },
+    {
+      "key": "carl-christian-moland",
+      "navn": "Carl Christian Moland"
+    },
+    {
+      "key": "cato-pedersen",
+      "navn": "Cato Pedersen"
+    },
+    {
+      "key": "einar-storjord",
+      "navn": "Einar Storjord"
+    },
+    {
+      "key": "endre-gronnslett",
+      "navn": "Endre Grønnslett"
+    },
+    {
+      "key": "eva-elisabeth-kanck-sjovold",
+      "navn": "Eva Elisabeth Kanck Sjøvold"
+    },
+    {
+      "key": "geir-tore-jakobsen",
+      "navn": "Geir Tore Jakobsen"
+    },
+    {
+      "key": "inga-sofie-strom",
+      "navn": "Inga-Sofie Strøm"
+    },
+    {
+      "key": "ivar-andreas-forn",
+      "navn": "Ivar Andreas Forn"
+    },
+    {
+      "key": "johan-jorgen-holst",
+      "navn": "Johan Jørgen Holst"
+    },
+    {
+      "key": "johan-marcus-bjurman",
+      "navn": "Johan Marcus Bjurman"
+    },
+    {
+      "key": "katharina-drage-vassbakk",
+      "navn": "Katharina Drage Vassbakk"
+    },
+    {
+      "key": "kenneth-johnny-sundsfjord-jensen",
+      "navn": "Kenneth Johnny Sundsfjord Jensen"
+    },
+    {
+      "key": "martin-andreas-torper",
+      "navn": "Martin Andreas Torper"
+    },
+    {
+      "key": "mathias-yngve-hansen",
+      "navn": "Mathias Yngve Hansen"
+    },
+    {
+      "key": "mia-ulrika-malmros",
+      "navn": "Mia Ulrika Malmros"
+    },
+    {
+      "key": "odd-peder-holmvaag",
+      "navn": "Odd Peder Holmvaag"
+    },
+    {
+      "key": "ole-martin-jansen",
+      "navn": "Ole Martin Jansen"
+    },
+    {
+      "key": "pal-kenneth-strom",
+      "navn": "Pål Kenneth Strøm"
+    },
+    {
+      "key": "pal-viggo-mortensen",
+      "navn": "Pål Viggo Mortensen"
+    },
+    {
+      "key": "per-drage",
+      "navn": "Per Drage"
+    },
+    {
+      "key": "reidun-elise-dalheim",
+      "navn": "Reidun Elise Dalheim"
+    },
+    {
+      "key": "roger-oksheim",
+      "navn": "Roger Øksheim"
+    },
+    {
+      "key": "runar-lovdal-jensen",
+      "navn": "Runar Løvdal Jensen"
+    },
+    {
+      "key": "sara-isaksen-lundbakk",
+      "navn": "Sara Isaksen Lundbakk"
+    },
+    {
+      "key": "stein-ole-bauer-rorvik",
+      "navn": "Stein Ole Bauer-Rørvik"
+    },
+    {
+      "key": "sune-mikael-meisler",
+      "navn": "Sune Mikael Meisler"
+    },
+    {
+      "key": "sven-roger-johnsplass",
+      "navn": "Sven Roger Johnsplass"
+    },
+    {
+      "key": "tarald-sivertsen",
+      "navn": "Tarald Sivertsen"
+    },
+    {
+      "key": "tonje-kristine-koskinen",
+      "navn": "Tonje Kristine Koskinen"
+    },
+    {
+      "key": "trond-richard-bjornli",
+      "navn": "Trond Richard Bjørnli"
+    },
+    {
+      "key": "truls-paulsen",
+      "navn": "Truls Paulsen"
+    },
+    {
+      "key": "vidar-mossleth-larsen",
+      "navn": "Vidar Mossleth Larsen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "dragefossen",
+      "person": "anja-strom",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "ann-kristin-engan",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "ann-kristin-rosvoll-lorentzen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "askild-mikaelsen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "cato-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "einar-storjord",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "endre-gronnslett",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "katharina-drage-vassbakk",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "mathias-yngve-hansen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "ole-martin-jansen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "per-drage",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "runar-lovdal-jensen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "sara-isaksen-lundbakk",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "trond-richard-bjornli",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dragefossen",
+      "person": "truls-paulsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "edelfarm",
+      "person": "alice-oksheim",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "edelfarm",
+      "person": "ivar-andreas-forn",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "edelfarm",
+      "person": "roger-oksheim",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "edelfarm",
+      "person": "tarald-sivertsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hepro",
+      "person": "anna-christina-rubenhag",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hepro",
+      "person": "anna-therese-christina-wilson",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hepro",
+      "person": "geir-tore-jakobsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hepro",
+      "person": "geir-tore-jakobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hepro",
+      "person": "johan-marcus-bjurman",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "pk-strom",
+      "person": "alice-oksheim",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "pk-strom",
+      "person": "carl-christian-moland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "pk-strom",
+      "person": "inga-sofie-strom",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "pk-strom",
+      "person": "odd-peder-holmvaag",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "pk-strom",
+      "person": "pal-kenneth-strom",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "pk-strom",
+      "person": "vidar-mossleth-larsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rusanes-fabrikker",
+      "person": "einar-storjord",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rusanes-fabrikker",
+      "person": "johan-jorgen-holst",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rusanes-fabrikker",
+      "person": "martin-andreas-torper",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "rusanes-fabrikker",
+      "person": "mia-ulrika-malmros",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saltdal-kommune-helse-og-familie",
+      "person": "stein-ole-bauer-rorvik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saltdal-kommune-skoleadministrasjon",
+      "person": "stein-ole-bauer-rorvik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saltdal-kommune-teknisk-drift",
+      "person": "stein-ole-bauer-rorvik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saltdal-kommune",
+      "person": "stein-ole-bauer-rorvik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "person": "astrid-dagmar-jakobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "person": "eva-elisabeth-kanck-sjovold",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "person": "kenneth-johnny-sundsfjord-jensen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "person": "pal-viggo-mortensen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "person": "reidun-elise-dalheim",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "person": "sune-mikael-meisler",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "person": "sven-roger-johnsplass",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "person": "tonje-kristine-koskinen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "saltdal-kommunestyre",
+      "til": "saltdal-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "nexans-norway-as-avd-rognan",
+      "til": "nexans-norway",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordlandssykehuset-hf-amblanse-saltdal",
+      "til": "nordlandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "saltdal-videregaende-skole",
+      "til": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "dragefossen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3327104,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "dragefossen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3190005,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "dragefossen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 207910555,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "dragefossen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 201877548,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "edelfarm",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 19184957,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "edelfarm",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 49392828,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "edelfarm",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 190770971,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "edelfarm",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 395116223,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hepro",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 18398156,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hepro",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 26853890,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hepro",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 53429181,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hepro",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 362334577,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "pk-strom",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 6342812,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "pk-strom",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 11697774,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "pk-strom",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 53051732,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "pk-strom",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 210780006,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "rusanes-fabrikker",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -11320970,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "rusanes-fabrikker",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -12809127,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "rusanes-fabrikker",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 23869622,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "rusanes-fabrikker",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 131709549,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -896211,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -762213,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 35173976,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-ribo",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 55309843,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "dragefossen",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "edelfarm",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset-hf-amblanse-saltdal",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

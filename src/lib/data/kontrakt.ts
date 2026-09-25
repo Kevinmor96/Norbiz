@@ -603,6 +603,261 @@ export interface SegmentOrganer {
 /** `hull(p_kommunenr)`. Sortert på gjelder.key, hva. */
 export type Hulliste = HullPunkt[];
 
+// ---------------------------------------------------------------------------
+// Gradene: hvor mye av det siden viser, som er etterprøvd
+// ---------------------------------------------------------------------------
+
+/**
+ * Påstandene i et omfang etter verifiseringsgrad. `fra_register` teller
+ * påstander der kilden er et register (Brreg, SSB, Kartverket, Stortinget),
+ * uansett grad: en påstand grunnlaget har fra Brreg, men som pipelinen ikke har
+ * hentet, er `oppgitt` og likevel fra et register.
+ */
+export interface Gradtelling {
+  totalt: number;
+  verifisert: number;
+  oppgitt: number;
+  maa_verifiseres: number;
+  fra_register: number;
+}
+
+/**
+ * `kommune_grader(p_kommunenr)`. Samme omfang og samme påstander som
+ * `KommuneOversikt.verifisering`, delt på hva påstanden gjelder. Forhåndsvarselet
+ * regner herfra og aldri fra hvor mange merker som står på siden.
+ */
+export interface Grader {
+  alle: Gradtelling;
+  organer: Gradtelling;
+  roller: Gradtelling;
+  relasjoner: Gradtelling;
+  nokkeltall: Gradtelling;
+  hendelser: Gradtelling;
+  prosess_steg: Gradtelling;
+  /**
+   * Første og siste `per` blant de verifiserte påstandene: datoene pipelinen
+   * hentet dem fra registeret. `null` når ingenting er verifisert. En dato,
+   * ikke en ferskhetspåstand.
+   */
+  forst_hentet: string | null;
+  sist_hentet: string | null;
+}
+
+// ---------------------------------------------------------------------------
+// Regionen: alle kommunene og fylkene, også de uten datasett
+// ---------------------------------------------------------------------------
+
+/** Hvor mange virksomheter `fylke_oversikt` rangerer. */
+export const STORSTE_VIRKSOMHETER = 10;
+/** Søket svarer bare når spørringen har minst så mange tegn etter normalisering. */
+export const SOK_MIN_TEGN = 2;
+/** Største `limit` søket godtar, per gruppe. */
+export const SOK_MAKS = 50;
+
+/**
+ * Tegnene søket bretter bort. `fra[i]` blir `til[i]`, og etterpå blir «æ» til
+ * «ae» og «ß» til «ss». Store ASCII-bokstaver står i lista, så brettingen er
+ * den samme i alle lokaler: basen bruker `translate`, ikke `lower`, fordi
+ * `lower` på æ, ø og å avhenger av databasens lokale. Alt som ikke er a–z eller
+ * 0–9 etter brettingen, blir mellomrom. `tests/sok.test.ts` krever at lista
+ * dekker hver bokstav i navnene i datasettene og regionregisteret, og at
+ * `intern.fold` i basen gir det samme som `brett` i src/lib/data/sok.ts.
+ */
+export const BRETTING = {
+  fra:
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+    "ÀÁÂÃÄÅĀĂĄàáâãäåāăą" +
+    "ÇĆČçćč" +
+    "ĐÐđð" +
+    "ÈÉÊËĒĖĘĚèéêëēėęě" +
+    "ǦǤǧǥ" +
+    "ÌÍÎÏĪìíîïī" +
+    "Ǩǩ" +
+    "ŁłĽľ" +
+    "ÑŃŇŊñńňŋ" +
+    "ÒÓÔÕÖØŌòóôõöøō" +
+    "ŔŘŕř" +
+    "ŚŠŞśšş" +
+    "ŦŢŤŧţť" +
+    "ÙÚÛÜŪŮùúûüūů" +
+    "ÝŸýÿ" +
+    "ŹŻŽƷǮźżžʒǯ" +
+    "Æ",
+  til:
+    "abcdefghijklmnopqrstuvwxyz" +
+    "aaaaaaaaaaaaaaaaaa" +
+    "cccccc" +
+    "dddd" +
+    "eeeeeeeeeeeeeeee" +
+    "gggg" +
+    "iiiiiiiiii" +
+    "kk" +
+    "llll" +
+    "nnnnnnnn" +
+    "oooooooooooooo" +
+    "rrrr" +
+    "ssssss" +
+    "tttttt" +
+    "uuuuuuuuuuuu" +
+    "yyyy" +
+    "zzzzzzzzzz" +
+    "æ",
+  flertegn: [
+    ["æ", "ae"],
+    ["ß", "ss"],
+  ],
+} as const;
+
+export interface FolketallUt {
+  verdi: number;
+  /** Året tallet gjelder, per 1. januar. */
+  aar: number;
+  belegg: BeleggUt;
+}
+
+/** Det datasettet sier om kommunen. Samme tall som kommunesiden viser. */
+export interface Datasettdekning {
+  sammenstilt: string;
+  /** `KommuneOversikt.dekning.organer`, `.roller` og `.personer`. */
+  organer: number;
+  roller: number;
+  personer: number;
+  /**
+   * Hvor mange av `KommuneOversikt.ledere` som er ordfører (`politisk_leder`)
+   * og kommunedirektør (`toppleder`). Lar forsiden klassifisere dekningen uten
+   * å laste kommunens datasett.
+   */
+  ledere: { politisk_leder: number; toppleder: number };
+  grader: Grader;
+}
+
+/** En kommune i regionregisteret, med datasettet når det finnes. */
+export interface RegionKommune {
+  kommunenr: string;
+  /** Den norske delen av navnet, til trange flater: «Kautokeino». */
+  navn: string;
+  /** SSBs offisielle navn med alle språkformene: «Guovdageaidnu - Kautokeino». */
+  navn_offisielt: string;
+  slug: string;
+  fylkesnr: string;
+  folketall: FolketallUt;
+  samisk_forvaltningsomrade: boolean;
+  /** Belegg for nummer og offisielt navn. */
+  belegg: BeleggUt;
+  /** Belegg for det korte navnet og samisk forvaltningsområde (Kartverket). */
+  geografi_belegg: BeleggUt;
+  /** `null` når kommunen ikke har datasett ennå. */
+  datasett: Datasettdekning | null;
+}
+
+export interface RegionFylke {
+  fylkesnr: string;
+  navn: string;
+  /** «Troms - Romsa - Tromssa». */
+  navn_offisielt: string;
+  /** Brukes i URL-en: `/fylke/$slug`. */
+  slug: string;
+  folketall: FolketallUt;
+  belegg: BeleggUt;
+  antall_kommuner: number;
+  /** Kommuner i fylket med datasett. */
+  kartlagt: number;
+  /**
+   * Over kommunene i fylket, distinkt: Statsforvalteren står i mange
+   * kommunedatasett og telles én gang. Summen av kommunenes tall er derfor
+   * større enn fylkets.
+   */
+  dekning: { organer: number; roller: number; personer: number };
+  /** Distinkte påstander i omfanget til minst én kommune i fylket. */
+  grader: Grader;
+}
+
+/**
+ * `region_oversikt()`. Hele regionen fra regionregisteret, med det
+ * datasettene dekker. Kommuner uten datasett er med, med `datasett: null`.
+ */
+export interface RegionOversikt {
+  region: { navn: string; sammenstilt: string; merknad: string };
+  /** Sortert på fylkesnr. */
+  fylker: RegionFylke[];
+  /** Sortert på kommunenr. */
+  kommuner: RegionKommune[];
+  /** Kildene bak registeropplysningene. Sortert på key. */
+  kilder: KildeUt[];
+}
+
+/** Et av fylkets egne organer, med hvem som leder det. */
+export interface FylkeOrgan extends Organ {
+  ledere: Rolle[];
+  /** Aktive roller i lovgivende organer: stortingsrepresentantene. Ellers tom. */
+  representanter: Rolle[];
+}
+
+/**
+ * `fylke_oversikt(p_fylkesnr)`.
+ *
+ * `organer` er fylkets egne: aktive organer med fylkets fylkesnummer (fylkes-
+ * kommunen, fylkestinget, stortingsbenken), og aktive statsforvaltere uten
+ * kommunenummer som står i datasettet til en kommune i fylket. Sortert som
+ * organkartet: nivå, organtype, key.
+ *
+ * `storste` er de største virksomhetene med kommunenummer i fylket, målt i
+ * omsetning. Datasettene har ikke antall ansatte med år, og et tall uten år tas
+ * ikke inn, så rangeringen er etter omsetning, og året står ved tallet. For
+ * hvert organ brukes det første omsetningstallet uten periode i
+ * nøkkeltallsorteringen (nyeste år, selskapets eget før konsernet). Sortert på
+ * beløp synkende, key. Høyst `STORSTE_VIRKSOMHETER`.
+ */
+export interface FylkeOversikt {
+  fylke: RegionFylke;
+  /** Sortert på kommunenr. */
+  kommuner: RegionKommune[];
+  organer: FylkeOrgan[];
+  storste: { org: OrganRef; kommunenr: string; omsetning: NokkeltallUt }[];
+}
+
+/** En kommune i søket. */
+export interface SokKommune {
+  kommunenr: string;
+  navn: string;
+  navn_offisielt: string;
+  slug: string;
+  fylkesnr: string;
+  har_datasett: boolean;
+}
+
+export interface SokOrgan extends OrganRef {
+  orgnr: string | null;
+  kommunenr: string | null;
+}
+
+/**
+ * `sok(p_sporring, p_limit)`. Tre grupper, institusjon først: kommuner, organer
+ * og roller. En person finnes bare som en rolle i et organ, aldri alene.
+ *
+ * Spørringen brettes (`BRETTING`) og deles i ord. Et treff har hvert ord et sted
+ * i teksten. Rangen er 0 når navnet er lik spørringen, 1 når navnet begynner
+ * med den, 2 når hvert ord begynner et ord i teksten, og 3 ellers. Teksten er:
+ *
+ * - kommune: offisielt navn og kort navn. Navnene er begge.
+ * - organ: navn, kortnavn og org.nr. Navnene er navn og kortnavn.
+ * - rolle: personens navn, tittelen og organets navn og kortnavn. Navnet er
+ *   personens. Bare aktive roller som er synlige, og ingen roller for personer
+ *   med en synlig rolle i et sensitivt organ (samme regel som nettverket).
+ *
+ * Sortering: kommuner på rang, kommunenr; organer på rang, status (aktiv
+ * først), key; roller på rang, person.key, org.key, rolletype, fra. `antall`
+ * er alle treff i gruppen, `treff` de første `limit` (1–`SOK_MAKS`). Kortere
+ * spørring enn `SOK_MIN_TEGN` gir tomme grupper.
+ */
+export interface Sokeresultat {
+  /** Spørringen etter bretting: små bokstaver, uten aksenter, ord skilt med mellomrom. */
+  sporring: string;
+  kommuner: { antall: number; treff: SokKommune[] };
+  organer: { antall: number; treff: SokOrgan[] };
+  roller: { antall: number; treff: RolleIOrgan[] };
+}
+
 /**
  * Datalaget siden koder mot. Metodene heter som RPC-ene. Alle returnerer
  * `null` når kommunen, prosessen, organet eller segmentet ikke finnes.
@@ -618,4 +873,9 @@ export interface Datalag {
   endringer(kommunenr: string): Promise<Endringer | null>;
   organer_for_segment(segment_kode: string, kommunenr: string): Promise<SegmentOrganer | null>;
   hull(kommunenr: string): Promise<Hulliste | null>;
+  kommune_grader(kommunenr: string): Promise<Grader | null>;
+  region_oversikt(): Promise<RegionOversikt>;
+  /** `null` når fylket ikke er i regionregisteret. */
+  fylke_oversikt(fylkesnr: string): Promise<FylkeOversikt | null>;
+  sok(sporring: string, limit: number): Promise<Sokeresultat>;
 }

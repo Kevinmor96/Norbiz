@@ -1,0 +1,1321 @@
+{
+  "meta": {
+    "kommunenr": "1818",
+    "kommune": "Herøy (Nordland)",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "heroy-kommunestyre",
+      "navn": "Kommunestyret i Herøy (Nordland)",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "heroy-kommune",
+      "kommunenr": "1818",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "din-bemannings-partner",
+      "orgnr": "991233083",
+      "navn": "Din Bemannings Partner AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5001",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-05-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "din-bemannings-partner-as-avd-heroy",
+      "orgnr": "991747095",
+      "navn": "Din Bemannings Partner AS Avd Herøy",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "din-bemannings-partner",
+      "kommunenr": "1818",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-08-13",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Herøy (Nordland) for Din Bemannings Partner AS, med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "heroy-kommune",
+      "orgnr": "872417982",
+      "navn": "Herøy Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1818",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "inter-notservice",
+      "orgnr": "927172216",
+      "navn": "Inter Notservice AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1818",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2021-05-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 13.940 «Produksjon av tauverk, rep, hyssing og nett».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "metalltek",
+      "orgnr": "923773150",
+      "navn": "Metalltek AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1818",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2019-09-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 25.530 «Bearbeiding av metaller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "mowi",
+      "orgnr": "964118191",
+      "navn": "Mowi ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "kommunenr": "4601",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1992-05-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Allmennaksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "mowi-avd-slakteri-heroy",
+      "orgnr": "972354899",
+      "navn": "Mowi Avd Slakteri Herøy",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "overordnet": "mowi",
+      "kommunenr": "1818",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1993-05-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Herøy (Nordland) for Mowi ASA, med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "north-salmon-service",
+      "orgnr": "927449897",
+      "navn": "North Salmon Service AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1818",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2021-06-24",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 50.202 «Innenriks sjøfart med gods».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "per-johansen-transport",
+      "orgnr": "859860222",
+      "navn": "Per Johansen Transport AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1818",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1990-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "seloy-sjofarm",
+      "orgnr": "961288983",
+      "navn": "Seløy Sjøfarm AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1818",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1991-05-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "seloy-undervannsservice",
+      "orgnr": "943488185",
+      "navn": "Seløy Undervannsservice AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1818",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1987-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 42.210 «Bygging av vann- og kloakkanlegg».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "skolo",
+      "orgnr": "920732291",
+      "navn": "Skolo AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1818",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2018-04-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.200 «Drift av vandrerhjem og ferieleiligheter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "andreas-jakobsen",
+      "navn": "Andreas Jakobsen"
+    },
+    {
+      "key": "anne-berit-hanssen",
+      "navn": "Anne Berit Hanssen"
+    },
+    {
+      "key": "arnt-erling-paulsen",
+      "navn": "Arnt Erling Paulsen"
+    },
+    {
+      "key": "bjorn-andreas-krane",
+      "navn": "Bjørn Andreas Krane"
+    },
+    {
+      "key": "bjorn-johansen",
+      "navn": "Bjørn Johansen"
+    },
+    {
+      "key": "bjorn-olvik",
+      "navn": "Bjørn Olvik"
+    },
+    {
+      "key": "hans-petter-selstad",
+      "navn": "Hans-Petter Selstad"
+    },
+    {
+      "key": "henrik-skovly",
+      "navn": "Henrik Skovly"
+    },
+    {
+      "key": "ina-therese-jakobsen",
+      "navn": "Ina Therese Jakobsen"
+    },
+    {
+      "key": "ingrid-eroy-fagervik",
+      "navn": "Ingrid Erøy Fagervik"
+    },
+    {
+      "key": "jan-erik-jakobsen",
+      "navn": "Jan Erik Jakobsen"
+    },
+    {
+      "key": "jan-terje-mikalsen",
+      "navn": "Jan-Terje Mikalsen"
+    },
+    {
+      "key": "jonny-hanssen",
+      "navn": "Jonny Hanssen"
+    },
+    {
+      "key": "maria-jakobsen-theting",
+      "navn": "Maria Jakobsen Theting"
+    },
+    {
+      "key": "odd-gunnar-endresen",
+      "navn": "Odd Gunnar Endresen"
+    },
+    {
+      "key": "orjan-mortveit-tveiten",
+      "navn": "Ørjan Mortveit Tveiten"
+    },
+    {
+      "key": "oyvind-vedal-grottheim",
+      "navn": "Øyvind Vedal Grøttheim"
+    },
+    {
+      "key": "remi-david-fagervik",
+      "navn": "Remi David Fagervik"
+    },
+    {
+      "key": "robert-arnfinn-tonne",
+      "navn": "Robert Arnfinn Tønne"
+    },
+    {
+      "key": "rune-carl-vamrak",
+      "navn": "Rune Carl Vamråk"
+    },
+    {
+      "key": "rune-feldt",
+      "navn": "Rune Feldt"
+    },
+    {
+      "key": "steffen-jakobsen",
+      "navn": "Steffen Jakobsen"
+    },
+    {
+      "key": "svein-cato-jakobsen",
+      "navn": "Svein Cato Jakobsen"
+    },
+    {
+      "key": "tom-erik-mikalsen",
+      "navn": "Tom-Erik Mikalsen"
+    },
+    {
+      "key": "tommy-andre-pettersen",
+      "navn": "Tommy Andrè Pettersen"
+    },
+    {
+      "key": "torkil-wang",
+      "navn": "Torkil Wang"
+    }
+  ],
+  "roller": [
+    {
+      "org": "heroy-kommune",
+      "person": "henrik-skovly",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "inter-notservice",
+      "person": "bjorn-andreas-krane",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "inter-notservice",
+      "person": "hans-petter-selstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "inter-notservice",
+      "person": "jan-erik-jakobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "inter-notservice",
+      "person": "odd-gunnar-endresen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "inter-notservice",
+      "person": "odd-gunnar-endresen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "inter-notservice",
+      "person": "rune-carl-vamrak",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "metalltek",
+      "person": "jan-terje-mikalsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "metalltek",
+      "person": "tom-erik-mikalsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "metalltek",
+      "person": "tommy-andre-pettersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "metalltek",
+      "person": "torkil-wang",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "metalltek",
+      "person": "torkil-wang",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "north-salmon-service",
+      "person": "arnt-erling-paulsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "north-salmon-service",
+      "person": "arnt-erling-paulsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "north-salmon-service",
+      "person": "bjorn-olvik",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "north-salmon-service",
+      "person": "jonny-hanssen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "north-salmon-service",
+      "person": "orjan-mortveit-tveiten",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "per-johansen-transport",
+      "person": "robert-arnfinn-tonne",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "per-johansen-transport",
+      "person": "rune-feldt",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "per-johansen-transport",
+      "person": "rune-feldt",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seloy-sjofarm",
+      "person": "andreas-jakobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seloy-sjofarm",
+      "person": "ina-therese-jakobsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seloy-sjofarm",
+      "person": "ina-therese-jakobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seloy-sjofarm",
+      "person": "jan-erik-jakobsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seloy-sjofarm",
+      "person": "maria-jakobsen-theting",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seloy-sjofarm",
+      "person": "steffen-jakobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seloy-sjofarm",
+      "person": "svein-cato-jakobsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seloy-undervannsservice",
+      "person": "anne-berit-hanssen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seloy-undervannsservice",
+      "person": "bjorn-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seloy-undervannsservice",
+      "person": "oyvind-vedal-grottheim",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "seloy-undervannsservice",
+      "person": "robert-arnfinn-tonne",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skolo",
+      "person": "ingrid-eroy-fagervik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skolo",
+      "person": "ingrid-eroy-fagervik",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skolo",
+      "person": "remi-david-fagervik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "skolo",
+      "person": "remi-david-fagervik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "heroy-kommunestyre",
+      "til": "heroy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "din-bemannings-partner-as-avd-heroy",
+      "til": "din-bemannings-partner",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "mowi-avd-slakteri-heroy",
+      "til": "mowi",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "inter-notservice",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 7439048,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "inter-notservice",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 9726576,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "inter-notservice",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 14106795,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "inter-notservice",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 67195487,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "metalltek",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1733716,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "metalltek",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2225750,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "metalltek",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5128992,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "metalltek",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 15837134,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "north-salmon-service",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 171363,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "north-salmon-service",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -15874,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "north-salmon-service",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 6249065,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "north-salmon-service",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 50032871,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "per-johansen-transport",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1421204,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "per-johansen-transport",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1707235,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "per-johansen-transport",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 3792000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "per-johansen-transport",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 110179570,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seloy-sjofarm",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -34022669,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seloy-sjofarm",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3905369,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seloy-sjofarm",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 195432795,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seloy-sjofarm",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 293600912,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seloy-undervannsservice",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1740696,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seloy-undervannsservice",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1999680,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seloy-undervannsservice",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 49751315,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "seloy-undervannsservice",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 57875166,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "skolo",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -141262,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "skolo",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 210284,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "skolo",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 482754,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "skolo",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 4913866,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "mowi-avd-slakteri-heroy",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "mowi",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "north-salmon-service",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "per-johansen-transport",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "seloy-sjofarm",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "skolo",
+      "segment": "reiseliv",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

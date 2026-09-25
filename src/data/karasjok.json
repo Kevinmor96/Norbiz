@@ -1,0 +1,500 @@
+{
+  "meta": {
+    "kommunenr": "5610",
+    "kommune": "Kárášjohka - Karasjok",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "karasjok-kommunestyre",
+      "navn": "Kommunestyret i Kárášjohka - Karasjok",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "karasjoga-gielda-karasjok-kommune",
+      "kommunenr": "5610",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "de-samiske-videregaende-skoler-karasjok-og-kautokeino",
+      "orgnr": "971578807",
+      "navn": "De Samiske Videregående Skoler, Karasjok og Kautokeino",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 85.310 «Videregående opplæring innenfor studieforberedende utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmarkssykehuset",
+      "orgnr": "983974880",
+      "navn": "Finnmarkssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmarkssykehuset-hf-barne-og-ungdomspsyk-sanks-karasjok",
+      "orgnr": "913356837",
+      "navn": "Finnmarkssykehuset HF Barne og Ungdomspsyk Sanks Karasjok",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "finnmarkssykehuset",
+      "kommunenr": "5610",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2014-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Kárášjohka - Karasjok for Finnmarkssykehuset HF, med næringskode 86.104 «Psykiatriske sykehustjenester for barn og ungdom».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmarkssykehuset-hf-klinikk-psykisk-helsevern-og-rus-sanks-dps-midt-finnmark-bup-dag",
+      "orgnr": "974795183",
+      "navn": "Finnmarkssykehuset HF Klinikk Psykisk Helsevern og Rus Sanks/DPS Midt-Finnmark Bup - Dag",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "finnmarkssykehuset",
+      "kommunenr": "5610",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "1987-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Kárášjohka - Karasjok for Finnmarkssykehuset HF, med næringskode 86.104 «Psykiatriske sykehustjenester for barn og ungdom».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmarkssykehuset-hf-voksenpsykiatri-sanks-karasjok",
+      "orgnr": "992090367",
+      "navn": "Finnmarkssykehuset HF Voksenpsykiatri Sanks - Karasjok",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "finnmarkssykehuset",
+      "kommunenr": "5610",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2004-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Kárášjohka - Karasjok for Finnmarkssykehuset HF, med næringskode 86.102 «Psykiatriske sykehustjenester for voksne».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "karasjoga-gielda-karasjok-kommune",
+      "orgnr": "963376030",
+      "navn": "Karasjoga Gielda / Karasjok Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5610",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "karasjok-kommune-helse-og-omsorg",
+      "orgnr": "974793350",
+      "navn": "Karasjok Kommune Helse og Omsorg",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5610",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "karasjok-kommune-oppvekstsektor",
+      "orgnr": "974790122",
+      "navn": "Karasjok Kommune Oppvekstsektor",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5610",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "karasjok-kommune-teknisk-enhet",
+      "orgnr": "974793377",
+      "navn": "Karasjok Kommune Teknisk Enhet",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5610",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "norsk-rikskringkasting",
+      "orgnr": "976390512",
+      "navn": "Norsk Rikskringkasting AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1996-04-30",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 60.200 «Fjernsynsprogramvirksomhet, kringkasting og distribuering av audiovisuelle medier».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "norsk-rikskringkasting-as-avd-sapmi",
+      "orgnr": "973110888",
+      "navn": "Norsk Rikskringkasting AS Avd Sapmi",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "norsk-rikskringkasting",
+      "kommunenr": "5610",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1977-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Kárášjohka - Karasjok for Norsk Rikskringkasting AS, med næringskode 60.200 «Fjernsynsprogramvirksomhet, kringkasting og distribuering av audiovisuelle medier».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "samediggi-sametinget",
+      "orgnr": "974760347",
+      "navn": "Samediggi / Sametinget",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "5610",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Staten registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "samisk-videregaende-skole-karasjok",
+      "orgnr": "974760061",
+      "navn": "Samisk Videregående Skole Karasjok",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "de-samiske-videregaende-skoler-karasjok-og-kautokeino",
+      "kommunenr": "5610",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Kárášjohka - Karasjok for De Samiske Videregående Skoler, Karasjok og Kautokeino, med næringskode 85.310 «Videregående opplæring innenfor studieforberedende utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "per-tommy-somby",
+      "navn": "Per Tommy Somby"
+    },
+    {
+      "key": "rune-sverre-fjellheim",
+      "navn": "Rune Sverre Fjellheim"
+    }
+  ],
+  "roller": [
+    {
+      "org": "karasjoga-gielda-karasjok-kommune",
+      "person": "rune-sverre-fjellheim",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "karasjok-kommune-helse-og-omsorg",
+      "person": "rune-sverre-fjellheim",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "karasjok-kommune-oppvekstsektor",
+      "person": "rune-sverre-fjellheim",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "karasjok-kommune-teknisk-enhet",
+      "person": "rune-sverre-fjellheim",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "samediggi-sametinget",
+      "person": "per-tommy-somby",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "karasjok-kommunestyre",
+      "til": "karasjoga-gielda-karasjok-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "finnmarkssykehuset-hf-barne-og-ungdomspsyk-sanks-karasjok",
+      "til": "finnmarkssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "finnmarkssykehuset-hf-klinikk-psykisk-helsevern-og-rus-sanks-dps-midt-finnmark-bup-dag",
+      "til": "finnmarkssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "finnmarkssykehuset-hf-voksenpsykiatri-sanks-karasjok",
+      "til": "finnmarkssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "norsk-rikskringkasting-as-avd-sapmi",
+      "til": "norsk-rikskringkasting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "samisk-videregaende-skole-karasjok",
+      "til": "de-samiske-videregaende-skoler-karasjok-og-kautokeino",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "finnmarkssykehuset-hf-barne-og-ungdomspsyk-sanks-karasjok",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "finnmarkssykehuset-hf-klinikk-psykisk-helsevern-og-rus-sanks-dps-midt-finnmark-bup-dag",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "finnmarkssykehuset-hf-voksenpsykiatri-sanks-karasjok",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

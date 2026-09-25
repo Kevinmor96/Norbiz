@@ -5,11 +5,11 @@ import type { PGlite } from "@electric-sql/pglite";
 import { beforeAll, describe, expect, it } from "vitest";
 
 import type { Kommunedatasett } from "@/data/types";
-import { datasett } from "@/lib/data/lokal";
+import { lesDatasett } from "../scripts/seed-build";
 import { rpc, seedetDb, som, stoppetAv } from "./helpers/db";
 
 let db: PGlite;
-const tromso = datasett.find((d) => d.slug === "tromso")!.data as Kommunedatasett;
+const tromso = lesDatasett().find((d) => d.slug === "tromso")!.data as Kommunedatasett;
 const NR = tromso.meta.kommunenr;
 
 beforeAll(async () => {
@@ -26,9 +26,14 @@ async function iTransaksjon<T>(fn: () => Promise<T>): Promise<T> {
   }
 }
 
-/** Alle offentlige svar for kommunen, som én tekst. `organer` avgrenser organprofilene. */
+/**
+ * Alle offentlige svar for kommunen, som én tekst. `organer` avgrenser
+ * organprofilene. `sporringer` er søk som også tas med: navnene testen ser
+ * etter, så et søk på personen heller ikke finner henne.
+ */
 async function alleSvar(
   organer: string[] = tromso.organisasjoner.map((o) => o.key),
+  sporringer: string[] = [],
 ): Promise<string> {
   const svar: unknown[] = [
     await rpc(db, "kommuner"),
@@ -38,7 +43,11 @@ async function alleSvar(
     await rpc(db, "nettverk", [NR]),
     await rpc(db, "endringer", [NR]),
     await rpc(db, "hull", [NR]),
+    await rpc(db, "kommune_grader", [NR]),
+    await rpc(db, "region_oversikt"),
+    await rpc(db, "fylke_oversikt", [tromso.meta.fylkesnr]),
   ];
+  for (const q of sporringer) svar.push(await rpc(db, "sok", [q, 50]));
   for (const p of tromso.prosesser) svar.push(await rpc(db, "beslutningskjede", [NR, p.key]));
   for (const s of tromso.segmenter) svar.push(await rpc(db, "organer_for_segment", [s.kode, NR]));
   for (const o of organer) svar.push(await rpc(db, "organ_profil", [o]));
@@ -60,6 +69,7 @@ function organerFor(personKey: string): string[] {
 
 describe("rettigheter på tabellene", () => {
   const OFFENTLIGE = [
+    "fylke",
     "hendelse",
     "hull",
     "kilde",
@@ -70,6 +80,8 @@ describe("rettigheter på tabellene", () => {
     "organisasjon",
     "prosess",
     "prosess_steg",
+    "region",
+    "region_kommune",
     "relasjon",
     "rolleinnehav",
     "segment",
@@ -170,10 +182,16 @@ describe("sensitive organer", () => {
         `select tittel from rolleinnehav where org_id = intern.nokkel_id('organisasjon', '${TINGRETT}') and key in ('t1', 't2')`,
       );
       expect(roller.rows.map((r) => r.tittel)).toEqual(["Sorenskriver"]);
-      const alt = await alleSvar();
+      const alt = await alleSvar(undefined, ["Testine Dommerleder", "Testolf Saksbehandler"]);
       expect(alt).toContain("Testine Dommerleder");
       expect(alt).not.toContain("Testolf Saksbehandler");
       expect(alt).not.toContain('"test-saksbehandler"');
+      // Søket tar heller ikke med lederen: ingen roller i sensitive organer.
+      const sok = await rpc<{ roller: { treff: { person: { key: string } }[] } }>(db, "sok", [
+        "Testine Dommerleder",
+        50,
+      ]);
+      expect(sok.roller.treff).toEqual([]);
     });
   });
 
@@ -225,13 +243,13 @@ describe("en sperret person forsvinner", () => {
     "gunnar-wilhelmsen",
   ]) {
     it(`${key}: fra hver RPC, også hver organprofil`, async () => {
-      const foer = await som(db, "anon", () => alleSvar());
+      const foer = await som(db, "anon", () => alleSvar(undefined, [navn(key)]));
       expect(foer, "kontroll: navnet skal finnes før sperringen").toContain(navn(key));
 
       await iTransaksjon(async () => {
         await sperr(key);
         await db.exec("set local role anon;");
-        const etter = await alleSvar();
+        const etter = await alleSvar(undefined, [navn(key)]);
         expect(etter).not.toContain(navn(key));
         expect(etter).not.toContain(`"${key}"`);
       });
@@ -252,7 +270,7 @@ describe("en sperret person forsvinner", () => {
       await iTransaksjon(async () => {
         await sperr(p.key);
         await db.exec("set local role anon;");
-        const etter = await alleSvar(organerFor(p.key));
+        const etter = await alleSvar(organerFor(p.key), [p.navn]);
         expect(etter.includes(p.navn), p.key).toBe(false);
         expect(etter.includes(`"${p.key}"`), p.key).toBe(false);
       });
@@ -265,7 +283,11 @@ describe("en sperret person forsvinner", () => {
     await iTransaksjon(async () => {
       for (const p of personer) await sperr(p.key);
       await db.exec("set local role anon;");
-      const etter = await alleSvar(organer);
+      // Søket på hver tjuende person holder testen rask; regelen er den samme.
+      const etter = await alleSvar(
+        organer,
+        personer.filter((_, i) => i % 20 === 0).map((p) => p.navn),
+      );
       expect(personer.filter((p) => etter.includes(p.navn)).map((p) => p.key)).toEqual([]);
       expect(personer.filter((p) => etter.includes(`"${p.key}"`)).map((p) => p.key)).toEqual([]);
     });

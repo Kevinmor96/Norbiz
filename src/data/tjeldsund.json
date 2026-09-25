@@ -1,0 +1,1496 @@
+{
+  "meta": {
+    "kommunenr": "5512",
+    "kommune": "Dielddanuorri - Tjeldsund",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "tjeldsund-kommunestyre",
+      "navn": "Kommunestyret i Dielddanuorri - Tjeldsund",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "dielddanuori-suohkan-tjeldsund-kommune",
+      "kommunenr": "5512",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "bla-kors-klinikk-tjeldsund",
+      "orgnr": "976692888",
+      "navn": "Blå Kors Klinikk Tjeldsund AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5512",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1996-07-14",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 86.103 «Spesialisert rusbehandling».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "brann-og-redningsskolen",
+      "orgnr": "927006898",
+      "navn": "Brann- og Redningsskolen",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "direktoratet-for-samfunnssikkerhet-og-beredskap-dsb",
+      "kommunenr": "5512",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2021-05-01",
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Arbeidssted i Dielddanuorri - Tjeldsund for Direktoratet for Samfunnssikkerhet og Beredskap (DSB), med næringskode 85.404 «Undervisning innenfor lang høyere yrkesfaglig utdanning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "dielddanuori-suohkan-tjeldsund-kommune",
+      "orgnr": "959469326",
+      "navn": "Dielddanuori Suohkan - Tjeldsund Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5512",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "direktoratet-for-samfunnssikkerhet-og-beredskap-dsb",
+      "orgnr": "974760983",
+      "navn": "Direktoratet for Samfunnssikkerhet og Beredskap (DSB)",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "3905",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.220 «Forsvarsaktiviteter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "grovfjord-mek-verksted-2-0",
+      "orgnr": "931841491",
+      "navn": "Grovfjord Mek. Verksted 2.0 AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5512",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-07-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 30.110 «Bygging av sivile skip og flytende materiell».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "henriksen-ventilasjon",
+      "orgnr": "914884748",
+      "navn": "Henriksen Ventilasjon AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5512",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2015-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.223 «Ventilasjonsarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "maritime-innredning-nord",
+      "orgnr": "814456102",
+      "navn": "Maritime Innredning Nord AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5512",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-10-24",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 30.110 «Bygging av sivile skip og flytende materiell».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "norges-arktiske-studentsamskipnad",
+      "orgnr": "958673027",
+      "navn": "Norges Arktiske Studentsamskipnad",
+      "nivaa": "stat",
+      "organtype": "saerlovselskap",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-01-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 94.992 «Aktiviteter i andre medlemsorganisasjoner ellers».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "norges-arktiske-studentsamskipnad-avd-fjelldal-kantine-699",
+      "orgnr": "988901598",
+      "navn": "Norges Arktiske Studentsamskipnad Avd Fjelldal Kantine (699)",
+      "nivaa": "stat",
+      "organtype": "saerlovselskap",
+      "overordnet": "norges-arktiske-studentsamskipnad",
+      "kommunenr": "5512",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2005-11-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Dielddanuorri - Tjeldsund for Norges Arktiske Studentsamskipnad, med næringskode 56.220 «Kantinedrift og annen cateringvirksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "tjeldsundbrua-hotel",
+      "orgnr": "984140436",
+      "navn": "Tjeldsundbrua Hotel AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5512",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2002-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "trollvika-drift",
+      "orgnr": "912274551",
+      "navn": "Trollvika Drift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5512",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2013-07-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vardobaiki",
+      "orgnr": "985425329",
+      "navn": "Várdobáiki AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5512",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2002-11-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 94.992 «Aktiviteter i andre medlemsorganisasjoner ellers».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "aleksander-larsen-balteskard",
+      "navn": "Aleksander Larsen Balteskard"
+    },
+    {
+      "key": "anita-ellefsen",
+      "navn": "Anita Ellefsen"
+    },
+    {
+      "key": "anne-marie-guttorm-graven",
+      "navn": "Anne Marie Guttorm Graven"
+    },
+    {
+      "key": "arne-balteskard",
+      "navn": "Arne Balteskard"
+    },
+    {
+      "key": "arnt-marius-eriksen",
+      "navn": "Arnt Marius Eriksen"
+    },
+    {
+      "key": "ase-marie-valen-olsen",
+      "navn": "Åse Marie Valen Olsen"
+    },
+    {
+      "key": "audun-kjell-andreassen",
+      "navn": "Audun Kjell Andreassen"
+    },
+    {
+      "key": "bard-markus-hansen",
+      "navn": "Bård Markus Hansen"
+    },
+    {
+      "key": "bjorn-tore-sorensen",
+      "navn": "Bjørn Tore Sørensen"
+    },
+    {
+      "key": "bjornar-pedersen",
+      "navn": "Bjørnar Pedersen"
+    },
+    {
+      "key": "christian-sohlberg",
+      "navn": "Christian Sohlberg"
+    },
+    {
+      "key": "connie-renate-mohaug",
+      "navn": "Connie Renate Mohaug"
+    },
+    {
+      "key": "eirik-skogstad-andreassen",
+      "navn": "Eirik Skogstad Andreassen"
+    },
+    {
+      "key": "elisabeth-balteskard",
+      "navn": "Elisabeth Balteskard"
+    },
+    {
+      "key": "elisabeth-meek",
+      "navn": "Elisabeth Meek"
+    },
+    {
+      "key": "elsa-helene-skogstad-johnsen",
+      "navn": "Elsa Helene Skogstad Johnsen"
+    },
+    {
+      "key": "else-marie-stenhaug",
+      "navn": "Else Marie Stenhaug"
+    },
+    {
+      "key": "harald-eilert-johnsen",
+      "navn": "Harald Eilert Johnsen"
+    },
+    {
+      "key": "harald-martin-valen-olsen",
+      "navn": "Harald Martin Valen Olsen"
+    },
+    {
+      "key": "ida-helen-nilsen",
+      "navn": "Ida Helen Nilsen"
+    },
+    {
+      "key": "jann-arne-bardo",
+      "navn": "Jann Arne Bardo"
+    },
+    {
+      "key": "jonas-blytt-polden",
+      "navn": "Jonas Blytt Polden"
+    },
+    {
+      "key": "jorun-niia-murberg",
+      "navn": "Jorun Niia Murberg"
+    },
+    {
+      "key": "karl-albert-kjerstad",
+      "navn": "Karl-Albert Kjerstad"
+    },
+    {
+      "key": "kjersti-myrnes-balto",
+      "navn": "Kjersti Myrnes Balto"
+    },
+    {
+      "key": "marianne-bendiksen",
+      "navn": "Marianne Bendiksen"
+    },
+    {
+      "key": "merete-jankila",
+      "navn": "Merete Jankila"
+    },
+    {
+      "key": "odd-arne-hansen",
+      "navn": "Odd Arne Hansen"
+    },
+    {
+      "key": "odd-martin-dalbakk",
+      "navn": "Odd-Martin Dalbakk"
+    },
+    {
+      "key": "olav-henry-olsen",
+      "navn": "Olav Henry Olsen"
+    },
+    {
+      "key": "peder-ingar-hansen-buljo",
+      "navn": "Peder Ingar Hansen Buljo"
+    },
+    {
+      "key": "ragnhild-karine-samuelsen",
+      "navn": "Ragnhild Karine Samuelsen"
+    },
+    {
+      "key": "robin-eivik",
+      "navn": "Robin Eivik"
+    },
+    {
+      "key": "rune-torbergsen",
+      "navn": "Rune Torbergsen"
+    },
+    {
+      "key": "siw-skogstad-johnsen",
+      "navn": "Siw Skogstad Johnsen"
+    },
+    {
+      "key": "soren-nikolai-balteskard",
+      "navn": "Søren Nikolai Balteskard"
+    },
+    {
+      "key": "sunna-regine-inga",
+      "navn": "Sunna Regine Inga"
+    },
+    {
+      "key": "susanne-amalie-langstrand-andersen",
+      "navn": "Susanne Amalie Langstrand-Andersen"
+    },
+    {
+      "key": "sverre-andreas-balteskard",
+      "navn": "Sverre Andreas Balteskard"
+    },
+    {
+      "key": "tone-solvi-elvebakk",
+      "navn": "Tone Sølvi Elvebakk"
+    },
+    {
+      "key": "trude-hagland",
+      "navn": "Trude Hagland"
+    },
+    {
+      "key": "vidar-hugo-henriksen",
+      "navn": "Vidar Hugo Henriksen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "bla-kors-klinikk-tjeldsund",
+      "person": "anita-ellefsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bla-kors-klinikk-tjeldsund",
+      "person": "christian-sohlberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bla-kors-klinikk-tjeldsund",
+      "person": "ida-helen-nilsen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bla-kors-klinikk-tjeldsund",
+      "person": "karl-albert-kjerstad",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bla-kors-klinikk-tjeldsund",
+      "person": "merete-jankila",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bla-kors-klinikk-tjeldsund",
+      "person": "ragnhild-karine-samuelsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bla-kors-klinikk-tjeldsund",
+      "person": "robin-eivik",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dielddanuori-suohkan-tjeldsund-kommune",
+      "person": "bjorn-tore-sorensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "grovfjord-mek-verksted-2-0",
+      "person": "bard-markus-hansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "grovfjord-mek-verksted-2-0",
+      "person": "elisabeth-balteskard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "grovfjord-mek-verksted-2-0",
+      "person": "elisabeth-meek",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "grovfjord-mek-verksted-2-0",
+      "person": "jann-arne-bardo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "grovfjord-mek-verksted-2-0",
+      "person": "soren-nikolai-balteskard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "grovfjord-mek-verksted-2-0",
+      "person": "sverre-andreas-balteskard",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "henriksen-ventilasjon",
+      "person": "vidar-hugo-henriksen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "henriksen-ventilasjon",
+      "person": "vidar-hugo-henriksen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "maritime-innredning-nord",
+      "person": "bard-markus-hansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "maritime-innredning-nord",
+      "person": "bjornar-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "maritime-innredning-nord",
+      "person": "bjornar-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tjeldsundbrua-hotel",
+      "person": "audun-kjell-andreassen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tjeldsundbrua-hotel",
+      "person": "eirik-skogstad-andreassen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tjeldsundbrua-hotel",
+      "person": "elsa-helene-skogstad-johnsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tjeldsundbrua-hotel",
+      "person": "harald-eilert-johnsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tjeldsundbrua-hotel",
+      "person": "jonas-blytt-polden",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tjeldsundbrua-hotel",
+      "person": "rune-torbergsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tjeldsundbrua-hotel",
+      "person": "siw-skogstad-johnsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "person": "aleksander-larsen-balteskard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "person": "arne-balteskard",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "person": "ase-marie-valen-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "person": "harald-martin-valen-olsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "person": "marianne-bendiksen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "person": "marianne-bendiksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "person": "olav-henry-olsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "person": "soren-nikolai-balteskard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "anne-marie-guttorm-graven",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "arnt-marius-eriksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "connie-renate-mohaug",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "else-marie-stenhaug",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "jorun-niia-murberg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "kjersti-myrnes-balto",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "odd-arne-hansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "odd-martin-dalbakk",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "peder-ingar-hansen-buljo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "sunna-regine-inga",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "susanne-amalie-langstrand-andersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "tone-solvi-elvebakk",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "person": "trude-hagland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "tjeldsund-kommunestyre",
+      "til": "dielddanuori-suohkan-tjeldsund-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "brann-og-redningsskolen",
+      "til": "direktoratet-for-samfunnssikkerhet-og-beredskap-dsb",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "norges-arktiske-studentsamskipnad-avd-fjelldal-kantine-699",
+      "til": "norges-arktiske-studentsamskipnad",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "bla-kors-klinikk-tjeldsund",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 8156066,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bla-kors-klinikk-tjeldsund",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 6927694,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bla-kors-klinikk-tjeldsund",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 16669434,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bla-kors-klinikk-tjeldsund",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 76408616,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "grovfjord-mek-verksted-2-0",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -6372352,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "grovfjord-mek-verksted-2-0",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -6158051,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "grovfjord-mek-verksted-2-0",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 9919665,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "grovfjord-mek-verksted-2-0",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 106461926,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "henriksen-ventilasjon",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 7420,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "henriksen-ventilasjon",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -50423,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "henriksen-ventilasjon",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2787029,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "henriksen-ventilasjon",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 24432682,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "maritime-innredning-nord",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1030758,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "maritime-innredning-nord",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1229569,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "maritime-innredning-nord",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 6920792,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "maritime-innredning-nord",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 55205245,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "tjeldsundbrua-hotel",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 660858,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "tjeldsundbrua-hotel",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2572455,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "tjeldsundbrua-hotel",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7400667,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "tjeldsundbrua-hotel",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 24307416,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 11678485,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 12894721,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 101488712,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "trollvika-drift",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 185634187,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 652575,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1710782,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 8174075,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "vardobaiki",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 19860884,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "tjeldsundbrua-hotel",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "trollvika-drift",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

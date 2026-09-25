@@ -1,0 +1,1294 @@
+{
+  "meta": {
+    "kommunenr": "5524",
+    "kommune": "Målselv",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "malselv-kommunestyre",
+      "navn": "Kommunestyret i Målselv",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "malselv-kommune",
+      "kommunenr": "5524",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "bardufoss-videregaende-skole",
+      "orgnr": "974546817",
+      "navn": "Bardufoss Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "troms-fylkeskommune-kompetanse",
+      "kommunenr": "5524",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Målselv for Troms Fylkeskommune Kompetanse, med næringskode 85.310 «Videregående opplæring innenfor studieforberedende utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "coop-nord",
+      "orgnr": "938497257",
+      "navn": "Coop Nord SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "1926-11-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "heggmo",
+      "orgnr": "875333402",
+      "navn": "Heggmo AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5524",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "1995-08-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "lian-s-caravan-fritid",
+      "orgnr": "990946205",
+      "navn": "Lian's Caravan & Fritid AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5524",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-01-25",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.810 «Detaljhandel med motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "malselv-fjellandsby",
+      "orgnr": "912719367",
+      "navn": "Målselv Fjellandsby AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5524",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2013-10-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 93.110 «Drift av idrettsanlegg».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "malselv-kommune",
+      "orgnr": "972418005",
+      "navn": "Målselv Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5524",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "malselv-maskin-transport",
+      "orgnr": "818313942",
+      "navn": "Målselv Maskin & Transport AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5524",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1973-11-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nortura",
+      "orgnr": "938752648",
+      "navn": "Nortura SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1931-06-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 10.110 «Bearbeiding og konservering av kjøtt unntatt fjørfekjøtt».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "nortura-sa-avd-malselv",
+      "orgnr": "973187430",
+      "navn": "Nortura SA Avd Målselv",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "overordnet": "nortura",
+      "kommunenr": "5524",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1985-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Målselv for Nortura SA, med næringskode 10.110 «Bearbeiding og konservering av kjøtt unntatt fjørfekjøtt».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "obs-bygg-bardufoss-3173",
+      "orgnr": "973188828",
+      "navn": "Obs Bygg Bardufoss 3173",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "overordnet": "coop-nord",
+      "kommunenr": "5524",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1984-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Målselv for Coop Nord SA, med næringskode 47.520 «Detaljhandel med jernvarer, byggevarer, fargevarer og glass».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "polarbadet",
+      "orgnr": "960731131",
+      "navn": "Polarbadet AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5524",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1990-12-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 93.210 «Drift av fornøyelses- og temaparker».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "storegga-entreprenor",
+      "orgnr": "934922301",
+      "navn": "Storegga Entreprenør AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5524",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "1984-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 41.000 «Oppføring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "troms-fylkeskommune-kompetanse",
+      "orgnr": "974793741",
+      "navn": "Troms Fylkeskommune Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anny-oen",
+      "navn": "Anny Øen"
+    },
+    {
+      "key": "are-heggmo",
+      "navn": "Are Heggmo"
+    },
+    {
+      "key": "dagfinn-eikas",
+      "navn": "Dagfinn Eikås"
+    },
+    {
+      "key": "egil-harald-serowy",
+      "navn": "Egil Harald Serowy"
+    },
+    {
+      "key": "eivind-olsen",
+      "navn": "Eivind Olsen"
+    },
+    {
+      "key": "erik-anders-helin",
+      "navn": "Erik-Anders Helin"
+    },
+    {
+      "key": "erlend-fossbakk-lian",
+      "navn": "Erlend Fossbakk Lian"
+    },
+    {
+      "key": "eskil-dahl-olaussen",
+      "navn": "Eskil Dahl Olaussen"
+    },
+    {
+      "key": "frank-eriksen",
+      "navn": "Frank Eriksen"
+    },
+    {
+      "key": "frank-robert-torkildsen",
+      "navn": "Frank Robert Torkildsen"
+    },
+    {
+      "key": "fred-degerstrom",
+      "navn": "Fred Degerstrøm"
+    },
+    {
+      "key": "frode-kiil",
+      "navn": "Frode Kiil"
+    },
+    {
+      "key": "geir-flata",
+      "navn": "Geir Flåta"
+    },
+    {
+      "key": "geir-ingebrigtsen-husby",
+      "navn": "Geir Ingebrigtsen Husby"
+    },
+    {
+      "key": "gunnar-heggmo",
+      "navn": "Gunnar Heggmo"
+    },
+    {
+      "key": "gunnar-kvamme",
+      "navn": "Gunnar Kvamme"
+    },
+    {
+      "key": "guri-lian",
+      "navn": "Guri Lian"
+    },
+    {
+      "key": "hege-lian",
+      "navn": "Hege Lian"
+    },
+    {
+      "key": "henrik-stangnes",
+      "navn": "Henrik Stangnes"
+    },
+    {
+      "key": "inger-hilde-berntsen",
+      "navn": "Inger Hilde Berntsen"
+    },
+    {
+      "key": "jan-hugo-sorensen",
+      "navn": "Jan Hugo Sørensen"
+    },
+    {
+      "key": "linda-nordgard-holmebukt",
+      "navn": "Linda Nordgård Holmebukt"
+    },
+    {
+      "key": "linn-merete-andreassen",
+      "navn": "Linn Merete Andreassen"
+    },
+    {
+      "key": "martin-nymo",
+      "navn": "Martin Nymo"
+    },
+    {
+      "key": "mona-lian",
+      "navn": "Mona Lian"
+    },
+    {
+      "key": "ole-johan-pedersen",
+      "navn": "Ole Johan Pedersen"
+    },
+    {
+      "key": "oystein-adolf-johansen",
+      "navn": "Øystein Adolf Johansen"
+    },
+    {
+      "key": "pal-einar-eilertsen",
+      "navn": "Pål Einar Eilertsen"
+    },
+    {
+      "key": "per-trygve-kongsnes",
+      "navn": "Per Trygve Kongsnes"
+    },
+    {
+      "key": "stian-olsen",
+      "navn": "Stian Olsen"
+    },
+    {
+      "key": "torild-olsen",
+      "navn": "Torild Olsen"
+    },
+    {
+      "key": "trond-inge-eriksen",
+      "navn": "Trond-Inge Eriksen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "heggmo",
+      "person": "are-heggmo",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "heggmo",
+      "person": "are-heggmo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "heggmo",
+      "person": "egil-harald-serowy",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "heggmo",
+      "person": "gunnar-heggmo",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lian-s-caravan-fritid",
+      "person": "dagfinn-eikas",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lian-s-caravan-fritid",
+      "person": "erlend-fossbakk-lian",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lian-s-caravan-fritid",
+      "person": "guri-lian",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lian-s-caravan-fritid",
+      "person": "hege-lian",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lian-s-caravan-fritid",
+      "person": "hege-lian",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lian-s-caravan-fritid",
+      "person": "mona-lian",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-fjellandsby",
+      "person": "fred-degerstrom",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-fjellandsby",
+      "person": "frode-kiil",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-fjellandsby",
+      "person": "gunnar-kvamme",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-fjellandsby",
+      "person": "ole-johan-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-fjellandsby",
+      "person": "ole-johan-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-fjellandsby",
+      "person": "oystein-adolf-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-fjellandsby",
+      "person": "pal-einar-eilertsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-kommune",
+      "person": "jan-hugo-sorensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-maskin-transport",
+      "person": "anny-oen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-maskin-transport",
+      "person": "erik-anders-helin",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-maskin-transport",
+      "person": "frank-eriksen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-maskin-transport",
+      "person": "geir-flata",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "malselv-maskin-transport",
+      "person": "trond-inge-eriksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarbadet",
+      "person": "eskil-dahl-olaussen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarbadet",
+      "person": "frank-robert-torkildsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarbadet",
+      "person": "geir-ingebrigtsen-husby",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarbadet",
+      "person": "henrik-stangnes",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarbadet",
+      "person": "inger-hilde-berntsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarbadet",
+      "person": "linda-nordgard-holmebukt",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarbadet",
+      "person": "linn-merete-andreassen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarbadet",
+      "person": "martin-nymo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storegga-entreprenor",
+      "person": "eivind-olsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storegga-entreprenor",
+      "person": "per-trygve-kongsnes",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storegga-entreprenor",
+      "person": "stian-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storegga-entreprenor",
+      "person": "torild-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "malselv-kommunestyre",
+      "til": "malselv-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "bardufoss-videregaende-skole",
+      "til": "troms-fylkeskommune-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nortura-sa-avd-malselv",
+      "til": "nortura",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "obs-bygg-bardufoss-3173",
+      "til": "coop-nord",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "heggmo",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1659520,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "heggmo",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1693224,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "heggmo",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 13475382,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "heggmo",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 76797227,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lian-s-caravan-fritid",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2866902,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lian-s-caravan-fritid",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 5694358,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lian-s-caravan-fritid",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 95903545,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lian-s-caravan-fritid",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 248517103,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "malselv-fjellandsby",
+      "aar": 2024,
+      "type": "aarsresultat",
+      "verdi": -3185680,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "malselv-fjellandsby",
+      "aar": 2024,
+      "type": "driftsresultat",
+      "verdi": -2448060,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "malselv-fjellandsby",
+      "aar": 2024,
+      "type": "egenkapital",
+      "verdi": -770372,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "malselv-fjellandsby",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 13675450,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "malselv-maskin-transport",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 37567323,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "malselv-maskin-transport",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 41843093,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "malselv-maskin-transport",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 166105413,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "malselv-maskin-transport",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 284800540,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polarbadet",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -2775751,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polarbadet",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -1687736,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polarbadet",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1516095,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polarbadet",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 10340892,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "storegga-entreprenor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4325230,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "storegga-entreprenor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4323959,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "storegga-entreprenor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 34776704,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "storegga-entreprenor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 122843116,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "coop-nord",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "heggmo",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "storegga-entreprenor",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

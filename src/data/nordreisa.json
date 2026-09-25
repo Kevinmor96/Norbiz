@@ -1,0 +1,785 @@
+{
+  "meta": {
+    "kommunenr": "5544",
+    "kommune": "Nordreisa - Ráisa - Raisi",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "nordreisa-kommunestyre",
+      "navn": "Kommunestyret i Nordreisa - Ráisa - Raisi",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordreisa-kommune",
+      "kommunenr": "5544",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "bussring",
+      "orgnr": "986519807",
+      "navn": "Bussring AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2004-01-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.320 «Passasjertransport utenom rutetabell».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "connect-bus-norge",
+      "orgnr": "971654007",
+      "navn": "Connect Bus Norge AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3207",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1995-01-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "connect-bus-norge-as-avd-storslett",
+      "orgnr": "932537079",
+      "navn": "Connect Bus Norge AS Avd Storslett",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "connect-bus-norge",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2023-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nordreisa - Ráisa - Raisi for Connect Bus Norge AS, med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "landbruk-nord",
+      "orgnr": "871404062",
+      "navn": "Landbruk Nord SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "5532",
+      "myndighet": [],
+      "segmenter": [
+        "landbruk"
+      ],
+      "gyldig_fra": "1995-02-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 01.620 «Tjenester tilknyttet husdyrhold».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "landbruk-nord-sa-avd-nordreisa",
+      "orgnr": "913672402",
+      "navn": "Landbruk Nord SA Avd Nordreisa",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "overordnet": "landbruk-nord",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [
+        "landbruk"
+      ],
+      "gyldig_fra": "2014-01-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nordreisa - Ráisa - Raisi for Landbruk Nord SA, med næringskode 01.620 «Tjenester tilknyttet husdyrhold».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "nord-troms-videregaende-skole-avd-nordreisa",
+      "orgnr": "974546957",
+      "navn": "Nord-Troms Videregående Skole Avd Nordreisa",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "troms-fylkeskommune-kompetanse",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nordreisa - Ráisa - Raisi for Troms Fylkeskommune Kompetanse, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordreisa-kommune",
+      "orgnr": "943350833",
+      "navn": "Nordreisa Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordreisa-kommune-drift-og-utvikling",
+      "orgnr": "974792982",
+      "navn": "Nordreisa Kommune Drift og Utvikling",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordreisa-kommune-oppvekst-og-kultur",
+      "orgnr": "974789795",
+      "navn": "Nordreisa Kommune Oppvekst og Kultur",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordreisa-kommune-sektor-for-helse-og-omsorg",
+      "orgnr": "999186831",
+      "navn": "Nordreisa Kommune Sektor for Helse og Omsorg",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-11-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "troms-fylkeskommune-kompetanse",
+      "orgnr": "974793741",
+      "navn": "Troms Fylkeskommune Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "universitetssykehuset-nord-norge",
+      "orgnr": "983974899",
+      "navn": "Universitetssykehuset Nord-Norge HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [
+        "helse",
+        "reiseliv"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "universitetssykehuset-nord-norge-hf-voksenpsykiatrisk-polikl-storslett",
+      "orgnr": "874547042",
+      "navn": "Universitetssykehuset Nord-Norge HF Voksenpsykiatrisk Polikl Storslett",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "universitetssykehuset-nord-norge",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nordreisa - Ráisa - Raisi for Universitetssykehuset Nord-Norge HF, med næringskode 86.102 «Psykiatriske sykehustjenester for voksne».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "vissi",
+      "orgnr": "921683057",
+      "navn": "Vissi AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "2018-10-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 35.140 «Distribusjon av elektrisitet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anders-sorensen-hoifodt",
+      "navn": "Anders Sørensen Høifødt"
+    },
+    {
+      "key": "bente-nyvoll",
+      "navn": "Bente Nyvoll"
+    },
+    {
+      "key": "erling-stene-martinsen",
+      "navn": "Erling Stene Martinsen"
+    },
+    {
+      "key": "finn-paulsen",
+      "navn": "Finn Paulsen"
+    },
+    {
+      "key": "henry-nyvoll",
+      "navn": "Henry Nyvoll"
+    },
+    {
+      "key": "may-britt-paulsen",
+      "navn": "May Britt Paulsen"
+    },
+    {
+      "key": "ole-henning-fredriksen",
+      "navn": "Ole Henning Fredriksen"
+    },
+    {
+      "key": "siri-ytterstad",
+      "navn": "Siri Ytterstad"
+    },
+    {
+      "key": "torbjorn-johansen",
+      "navn": "Torbjørn Johansen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "bussring",
+      "person": "anders-sorensen-hoifodt",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bussring",
+      "person": "bente-nyvoll",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bussring",
+      "person": "henry-nyvoll",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bussring",
+      "person": "may-britt-paulsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bussring",
+      "person": "ole-henning-fredriksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bussring",
+      "person": "torbjorn-johansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordreisa-kommune-drift-og-utvikling",
+      "person": "siri-ytterstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordreisa-kommune-oppvekst-og-kultur",
+      "person": "siri-ytterstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordreisa-kommune-sektor-for-helse-og-omsorg",
+      "person": "siri-ytterstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordreisa-kommune",
+      "person": "siri-ytterstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vissi",
+      "person": "erling-stene-martinsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vissi",
+      "person": "finn-paulsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "nordreisa-kommunestyre",
+      "til": "nordreisa-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "connect-bus-norge-as-avd-storslett",
+      "til": "connect-bus-norge",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "landbruk-nord-sa-avd-nordreisa",
+      "til": "landbruk-nord",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nord-troms-videregaende-skole-avd-nordreisa",
+      "til": "troms-fylkeskommune-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "universitetssykehuset-nord-norge-hf-voksenpsykiatrisk-polikl-storslett",
+      "til": "universitetssykehuset-nord-norge",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "bussring",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 212659,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bussring",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4296952,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bussring",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 13770242,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bussring",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 154872814,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vissi",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 18552141,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vissi",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 35296820,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vissi",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 137326125,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vissi",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 126658357,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "bussring",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "connect-bus-norge-as-avd-storslett",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "connect-bus-norge",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "landbruk-nord-sa-avd-nordreisa",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "landbruk-nord",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "universitetssykehuset-nord-norge-hf-voksenpsykiatrisk-polikl-storslett",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "universitetssykehuset-nord-norge",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "universitetssykehuset-nord-norge",
+      "segment": "reiseliv",
+      "styrke": 2
+    },
+    {
+      "org": "vissi",
+      "segment": "energi",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

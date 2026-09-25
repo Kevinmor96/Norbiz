@@ -1,0 +1,1015 @@
+{
+  "meta": {
+    "kommunenr": "5620",
+    "kommune": "Nordkapp",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "nordkapp-kommunestyre",
+      "navn": "Kommunestyret i Nordkapp",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordkapp-kommune",
+      "kommunenr": "5620",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "area-nett",
+      "orgnr": "923993355",
+      "navn": "Area Nett AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5620",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "2019-11-13",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 35.140 «Distribusjon av elektrisitet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune-opplaering",
+      "orgnr": "832305502",
+      "navn": "Finnmark Fylkeskommune Opplæring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-10-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "myre-fiskemottak",
+      "orgnr": "989118927",
+      "navn": "Myre Fiskemottak AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1868",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2005-12-13",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2024, topp10-ansatte."
+      }
+    },
+    {
+      "key": "myre-fiskemottak-as-avd-kamoyvaer",
+      "orgnr": "924885556",
+      "navn": "Myre Fiskemottak AS Avd Kamøyvær",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "myre-fiskemottak",
+      "kommunenr": "5620",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2020-03-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nordkapp for Myre Fiskemottak AS, med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordkapp-kommune",
+      "orgnr": "938469415",
+      "navn": "Nordkapp Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5620",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordkapp-kommune-helse-og-sosialsektoren",
+      "orgnr": "974793296",
+      "navn": "Nordkapp Kommune Helse- og Sosialsektoren",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5620",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordkapp-kommune-oppvekst-og-kultursektoren",
+      "orgnr": "974790106",
+      "navn": "Nordkapp Kommune Oppvekst- og Kultursektoren",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5620",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordkapp-kommune-teknisk-sektor",
+      "orgnr": "974793318",
+      "navn": "Nordkapp Kommune Teknisk Sektor",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5620",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordkapp-videregaende-skole",
+      "orgnr": "974622734",
+      "navn": "Nordkapp Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "finnmark-fylkeskommune-opplaering",
+      "kommunenr": "5620",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nordkapp for Finnmark Fylkeskommune Opplæring, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordkapphallen",
+      "orgnr": "973190032",
+      "navn": "Nordkapphallen",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "scandic-hotels",
+      "kommunenr": "5620",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nordkapp for Scandic Hotels AS, med næringskode 56.110 «Drift av restauranter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordvagen",
+      "orgnr": "976768965",
+      "navn": "Nordvågen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5620",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1996-09-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.201 «Produksjon av saltfisk, tørrfisk og klippfisk».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "perleporten-kulturhus",
+      "orgnr": "998003644",
+      "navn": "Perleporten Kulturhus AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5620",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-02-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 56.110 «Drift av restauranter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "scandic-hotels",
+      "orgnr": "953149117",
+      "navn": "Scandic Hotels AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "1989-09-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "storbukt-fiskeindustri",
+      "orgnr": "961773202",
+      "navn": "Storbukt Fiskeindustri AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5620",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1991-08-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.201 «Produksjon av saltfisk, tørrfisk og klippfisk».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anton-fjeldvaer",
+      "navn": "Anton Fjeldvær"
+    },
+    {
+      "key": "birgit-lahdesmaki-johansen-fosse",
+      "navn": "Birgit Lähdesmäki Johansen Fosse"
+    },
+    {
+      "key": "bjorg-helen-nostvold",
+      "navn": "Bjørg Helen Nøstvold"
+    },
+    {
+      "key": "bjorn-ronald-olsen",
+      "navn": "Bjørn Ronald Olsen"
+    },
+    {
+      "key": "eli-nilsen",
+      "navn": "Eli Nilsen"
+    },
+    {
+      "key": "frode-eliassen",
+      "navn": "Frode Eliassen"
+    },
+    {
+      "key": "hanne-benjaminsen",
+      "navn": "Hanne Benjaminsen"
+    },
+    {
+      "key": "havard-pedersen",
+      "navn": "Håvard Pedersen"
+    },
+    {
+      "key": "inger-lise-hovik",
+      "navn": "Inger Lise Høvik"
+    },
+    {
+      "key": "jonas-johnsen",
+      "navn": "Jonas Johnsen"
+    },
+    {
+      "key": "leif-roger-nylund",
+      "navn": "Leif Roger Nylund"
+    },
+    {
+      "key": "lindis-ramona-heggvik-aune",
+      "navn": "Lindis Ramona Heggvik Aune"
+    },
+    {
+      "key": "lisa-lahdesmaki-fosse",
+      "navn": "Lisa Lahdesmaki Fosse"
+    },
+    {
+      "key": "simen-lahdesmaki-fosse-linnestad",
+      "navn": "Simen Lahdesmaki Fosse-Linnestad"
+    },
+    {
+      "key": "steinar-eliassen",
+      "navn": "Steinar Eliassen"
+    },
+    {
+      "key": "tor-steve-jensen",
+      "navn": "Tor Steve Jensen"
+    },
+    {
+      "key": "tore-fosse",
+      "navn": "Tore Fosse"
+    },
+    {
+      "key": "victor-jensen",
+      "navn": "Victor Jensen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "area-nett",
+      "person": "eli-nilsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "area-nett",
+      "person": "havard-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "area-nett",
+      "person": "jonas-johnsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "area-nett",
+      "person": "victor-jensen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordkapp-kommune-helse-og-sosialsektoren",
+      "person": "inger-lise-hovik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordkapp-kommune-oppvekst-og-kultursektoren",
+      "person": "inger-lise-hovik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordkapp-kommune-teknisk-sektor",
+      "person": "inger-lise-hovik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordkapp-kommune",
+      "person": "inger-lise-hovik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordvagen",
+      "person": "bjorg-helen-nostvold",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordvagen",
+      "person": "frode-eliassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordvagen",
+      "person": "leif-roger-nylund",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordvagen",
+      "person": "steinar-eliassen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "perleporten-kulturhus",
+      "person": "birgit-lahdesmaki-johansen-fosse",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "perleporten-kulturhus",
+      "person": "birgit-lahdesmaki-johansen-fosse",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "perleporten-kulturhus",
+      "person": "lisa-lahdesmaki-fosse",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "perleporten-kulturhus",
+      "person": "simen-lahdesmaki-fosse-linnestad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "perleporten-kulturhus",
+      "person": "tor-steve-jensen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "perleporten-kulturhus",
+      "person": "tore-fosse",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storbukt-fiskeindustri",
+      "person": "anton-fjeldvaer",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storbukt-fiskeindustri",
+      "person": "bjorn-ronald-olsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storbukt-fiskeindustri",
+      "person": "hanne-benjaminsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storbukt-fiskeindustri",
+      "person": "lindis-ramona-heggvik-aune",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "nordkapp-kommunestyre",
+      "til": "nordkapp-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "myre-fiskemottak-as-avd-kamoyvaer",
+      "til": "myre-fiskemottak",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordkapp-videregaende-skole",
+      "til": "finnmark-fylkeskommune-opplaering",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordkapphallen",
+      "til": "scandic-hotels",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "area-nett",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 14032593,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "area-nett",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 27168542,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "area-nett",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 422481107,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "area-nett",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 195487341,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nordvagen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1119851,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nordvagen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1697763,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nordvagen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 26121670,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nordvagen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 140037036,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "perleporten-kulturhus",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 19241,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "perleporten-kulturhus",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 349334,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "perleporten-kulturhus",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1820704,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "perleporten-kulturhus",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 14007605,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "storbukt-fiskeindustri",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5927264,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "storbukt-fiskeindustri",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 36842537,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "storbukt-fiskeindustri",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 12564590,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "storbukt-fiskeindustri",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 263776109,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "area-nett",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "myre-fiskemottak-as-avd-kamoyvaer",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "myre-fiskemottak",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "nordvagen",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "scandic-hotels",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "storbukt-fiskeindustri",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

@@ -26,6 +26,20 @@ export async function nyDb(): Promise<PGlite> {
   return db;
 }
 
+/**
+ * Som nyDb(), med seed-en regnet fra dagens datasett og regionregister, ikke
+ * lest fra fila. Kontrakttesten bruker denne, så den sammenligner basen og
+ * lokal.ts over de samme dataene også når supabase/seed/seed.sql venter på å
+ * bli bygget på nytt. At fila er oppdatert, er en egen test.
+ */
+export async function ferskDb(): Promise<PGlite> {
+  const { byggSeed, lesDatasett, lesRegion } = await import("../../scripts/seed-build");
+  const { samle } = await import("../../src/lib/data/samle");
+  const db = await nyDb();
+  await db.exec(byggSeed(samle(lesDatasett()), lesRegion()));
+  return db;
+}
+
 /** Som nyDb(), med seed-en fra supabase/seed/seed.sql lastet. */
 export async function seedetDb(): Promise<PGlite> {
   const db = await nyDb();

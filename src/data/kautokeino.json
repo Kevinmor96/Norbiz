@@ -1,0 +1,801 @@
+{
+  "meta": {
+    "kommunenr": "5612",
+    "kommune": "Guovdageaidnu - Kautokeino",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "kautokeino-kommunestyre",
+      "navn": "Kommunestyret i Guovdageaidnu - Kautokeino",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "guovdageainnu-suohkan-kautokeino-kommune",
+      "kommunenr": "5612",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "arctic-drilling",
+      "orgnr": "883950232",
+      "navn": "Arctic Drilling AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2001-11-14",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 09.900 «Tjenester tilknyttet annen bergverksdrift».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "de-samiske-videregaende-skoler-karasjok-og-kautokeino",
+      "orgnr": "971578807",
+      "navn": "De Samiske Videregående Skoler, Karasjok og Kautokeino",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 85.310 «Videregående opplæring innenfor studieforberedende utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "guovdageainnu-suohkan-kautokeino-kommune",
+      "orgnr": "945475056",
+      "navn": "Guovdageainnu Suohkan / Kautokeino Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "juhls-silver-gallery",
+      "orgnr": "959250073",
+      "navn": "Juhls Silver Gallery AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1990-06-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 32.120 «Produksjon av smykker og lignende artikler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "kautokeino-kommune-helse-og-omsorgsenhet",
+      "orgnr": "913759613",
+      "navn": "Kautokeino Kommune Helse- og Omsorgsenhet",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kautokeino-kommune-kultur-og-oppvekstenhet",
+      "orgnr": "913759214",
+      "navn": "Kautokeino Kommune Kultur- og Oppvekstenhet",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kautokeino-kommune-radmannens-stab",
+      "orgnr": "913759540",
+      "navn": "Kautokeino Kommune Rådmannens Stab",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kautokeino-kommune-teknisk-enhet",
+      "orgnr": "913759672",
+      "navn": "Kautokeino Kommune Teknisk Enhet",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "niilas",
+      "orgnr": "826847972",
+      "navn": "Niilas AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2021-03-08",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sami-allaskuvla-samisk-hogskole",
+      "orgnr": "971519363",
+      "navn": "Sámi Allaskuvla Samisk Høgskole",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 85.403 «Undervisning ved andre høgskoler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "andreas-ausland",
+      "navn": "Andreas Ausland"
+    },
+    {
+      "key": "anne-marie-johansdatter-gaino",
+      "navn": "Anne-Marie Johansdatter Gaino"
+    },
+    {
+      "key": "beathe-pettersen",
+      "navn": "Beathe Pettersen"
+    },
+    {
+      "key": "johan-anders-klemetsen",
+      "navn": "Johan Anders Klemetsen"
+    },
+    {
+      "key": "jorgen-johnsen",
+      "navn": "Jørgen Johnsen"
+    },
+    {
+      "key": "karin-haetta",
+      "navn": "Karin Hætta"
+    },
+    {
+      "key": "lars-petter-mathisen",
+      "navn": "Lars Petter Mathisen"
+    },
+    {
+      "key": "matthias-benjamin-tanski",
+      "navn": "Matthias Benjamin Tanski"
+    },
+    {
+      "key": "nils-arne-haetta",
+      "navn": "Nils Arne Hætta"
+    },
+    {
+      "key": "odd-arne-haetta",
+      "navn": "Odd Arne Hætta"
+    },
+    {
+      "key": "outi-anna-maria-piira",
+      "navn": "Outi Anna-Maria Piira"
+    },
+    {
+      "key": "rauna-juhls-tveitnes",
+      "navn": "Rauna Juhls Tveitnes"
+    },
+    {
+      "key": "reidar-tveitnes",
+      "navn": "Reidar Tveitnes"
+    },
+    {
+      "key": "roy-anders-karlsen",
+      "navn": "Roy Anders Karlsen"
+    },
+    {
+      "key": "sunniva-juhls",
+      "navn": "Sunniva Juhls"
+    }
+  ],
+  "roller": [
+    {
+      "org": "arctic-drilling",
+      "person": "jorgen-johnsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arctic-drilling",
+      "person": "roy-anders-karlsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arctic-drilling",
+      "person": "roy-anders-karlsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "de-samiske-videregaende-skoler-karasjok-og-kautokeino",
+      "person": "johan-anders-klemetsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "guovdageainnu-suohkan-kautokeino-kommune",
+      "person": "karin-haetta",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "andreas-ausland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "beathe-pettersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "outi-anna-maria-piira",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "rauna-juhls-tveitnes",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "reidar-tveitnes",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "sunniva-juhls",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "sunniva-juhls",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kautokeino-kommune-helse-og-omsorgsenhet",
+      "person": "karin-haetta",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kautokeino-kommune-kultur-og-oppvekstenhet",
+      "person": "karin-haetta",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kautokeino-kommune-radmannens-stab",
+      "person": "karin-haetta",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kautokeino-kommune-teknisk-enhet",
+      "person": "karin-haetta",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "niilas",
+      "person": "lars-petter-mathisen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "niilas",
+      "person": "matthias-benjamin-tanski",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "niilas",
+      "person": "matthias-benjamin-tanski",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "niilas",
+      "person": "nils-arne-haetta",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "niilas",
+      "person": "odd-arne-haetta",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sami-allaskuvla-samisk-hogskole",
+      "person": "anne-marie-johansdatter-gaino",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "kautokeino-kommunestyre",
+      "til": "guovdageainnu-suohkan-kautokeino-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "arctic-drilling",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 947047,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-drilling",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1398898,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-drilling",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 13018354,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-drilling",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 28253043,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1551359,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -1775778,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 12401316,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 16133705,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "niilas",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3247435,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "niilas",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4177233,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "niilas",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1024432,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "niilas",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 27950090,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "niilas",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "sami-allaskuvla-samisk-hogskole",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

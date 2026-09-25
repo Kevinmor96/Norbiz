@@ -1,0 +1,905 @@
+{
+  "meta": {
+    "kommunenr": "5518",
+    "kommune": "Loabák - Lavangen",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "lavangen-kommunestyre",
+      "navn": "Kommunestyret i Loabák - Lavangen",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "lavangen-kommune-loabaga-suohkan",
+      "kommunenr": "5518",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "amestro",
+      "orgnr": "935587379",
+      "navn": "Amestro AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5518",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1984-06-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 88.993 «Arbeidstrening og varig tilrettelagt arbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "fjellkysten",
+      "orgnr": "992553650",
+      "navn": "Fjellkysten AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5518",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg",
+        "reiseliv"
+      ],
+      "gyldig_fra": "2008-04-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 68.200 «Utleie av egen eller leid fast eiendom».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "lapphaugen-turiststasjon",
+      "orgnr": "990841292",
+      "navn": "Lapphaugen Turiststasjon AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5518",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2007-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.300 «Drift av campingplasser».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "lavangen-kommune-loabaga-suohkan",
+      "orgnr": "959469881",
+      "navn": "Lavangen Kommune Loabága Suohkan",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5518",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "lavangen-kommune-loabaga-suohkan-helse-og-sosialetaten",
+      "orgnr": "974792486",
+      "navn": "Lavangen Kommune Loabága Suohkan Helse og Sosialetaten",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5518",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "lavangen-kommune-loabaga-suohkan-oppvekstetaten",
+      "orgnr": "974789752",
+      "navn": "Lavangen Kommune Loabága Suohkan Oppvekstetaten",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5518",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1977-03-21",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "lavangen-kommune-loabaga-suohkan-sentraladministrasjon",
+      "orgnr": "974794527",
+      "navn": "Lavangen Kommune Loabága Suohkan Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5518",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "lavangen-kommune-loabaga-suohkan-teknisk-etat",
+      "orgnr": "974792508",
+      "navn": "Lavangen Kommune Loabága Suohkan Teknisk Etat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5518",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anita-helen-lovhaug",
+      "navn": "Anita Helén Løvhaug"
+    },
+    {
+      "key": "anne-strommesen",
+      "navn": "Anne Strømmesen"
+    },
+    {
+      "key": "arne-olav-lundberg",
+      "navn": "Arne Olav Lundberg"
+    },
+    {
+      "key": "aurora-sofie-lyngmo-olsen",
+      "navn": "Aurora Sofie Lyngmo-Olsen"
+    },
+    {
+      "key": "bjorn-fjaervoll-nordmo",
+      "navn": "Bjørn Fjærvoll Nordmo"
+    },
+    {
+      "key": "borge-hemmingsen",
+      "navn": "Børge Hemmingsen"
+    },
+    {
+      "key": "cato-haakseth",
+      "navn": "Cato Haakseth"
+    },
+    {
+      "key": "erling-bratsberg",
+      "navn": "Erling Bratsberg"
+    },
+    {
+      "key": "frode-hansen",
+      "navn": "Frode Hansen"
+    },
+    {
+      "key": "hakon-nygard",
+      "navn": "Håkon Nygård"
+    },
+    {
+      "key": "heidi-lundberg",
+      "navn": "Heidi Lundberg"
+    },
+    {
+      "key": "karin-eriksen",
+      "navn": "Karin Eriksen"
+    },
+    {
+      "key": "karl-johan-olsen",
+      "navn": "Karl Johan Olsen"
+    },
+    {
+      "key": "kjartan-eilert-smuk",
+      "navn": "Kjartan Eilert Smuk"
+    },
+    {
+      "key": "kjell-arne-kvammen",
+      "navn": "Kjell Arne Kvammen"
+    },
+    {
+      "key": "lars-bjornar-lyngmo",
+      "navn": "Lars Bjørnar Lyngmo"
+    },
+    {
+      "key": "may-britt-flatmo",
+      "navn": "May Britt Flatmo"
+    },
+    {
+      "key": "merethe-elisabeth-lundberg",
+      "navn": "Merethe Elisabeth Lundberg"
+    },
+    {
+      "key": "silje-mari-rystad",
+      "navn": "Silje Mari Rystad"
+    },
+    {
+      "key": "sissel-ramfjord-paulsen",
+      "navn": "Sissel Ramfjord Paulsen"
+    },
+    {
+      "key": "steen-audvin-linde",
+      "navn": "Steen Audvin Linde"
+    },
+    {
+      "key": "tanja-marita-skavholm",
+      "navn": "Tanja Marita Skavholm"
+    },
+    {
+      "key": "tone-jensen-steinsund",
+      "navn": "Tone Jensen Steinsund"
+    },
+    {
+      "key": "tor-ivar-lyngmo",
+      "navn": "Tor Ivar Lyngmo"
+    },
+    {
+      "key": "yngvar-mikkel-mikkelsen",
+      "navn": "Yngvar Mikkel Mikkelsen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "amestro",
+      "person": "anita-helen-lovhaug",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "erling-bratsberg",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "frode-hansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "hakon-nygard",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "karl-johan-olsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "kjartan-eilert-smuk",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "may-britt-flatmo",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "silje-mari-rystad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "sissel-ramfjord-paulsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "steen-audvin-linde",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "tanja-marita-skavholm",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "tone-jensen-steinsund",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "amestro",
+      "person": "yngvar-mikkel-mikkelsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fjellkysten",
+      "person": "anne-strommesen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fjellkysten",
+      "person": "aurora-sofie-lyngmo-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fjellkysten",
+      "person": "borge-hemmingsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fjellkysten",
+      "person": "kjell-arne-kvammen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fjellkysten",
+      "person": "lars-bjornar-lyngmo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fjellkysten",
+      "person": "tor-ivar-lyngmo",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fjellkysten",
+      "person": "tor-ivar-lyngmo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lapphaugen-turiststasjon",
+      "person": "arne-olav-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lapphaugen-turiststasjon",
+      "person": "bjorn-fjaervoll-nordmo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lapphaugen-turiststasjon",
+      "person": "cato-haakseth",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lapphaugen-turiststasjon",
+      "person": "heidi-lundberg",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lapphaugen-turiststasjon",
+      "person": "merethe-elisabeth-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lavangen-kommune-loabaga-suohkan-helse-og-sosialetaten",
+      "person": "karin-eriksen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lavangen-kommune-loabaga-suohkan-oppvekstetaten",
+      "person": "karin-eriksen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lavangen-kommune-loabaga-suohkan-sentraladministrasjon",
+      "person": "karin-eriksen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lavangen-kommune-loabaga-suohkan-teknisk-etat",
+      "person": "karin-eriksen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lavangen-kommune-loabaga-suohkan",
+      "person": "karin-eriksen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "lavangen-kommunestyre",
+      "til": "lavangen-kommune-loabaga-suohkan",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "amestro",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1101240,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "amestro",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1423160,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "amestro",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 9091250,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "amestro",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 25332179,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fjellkysten",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 344003,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fjellkysten",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 859251,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fjellkysten",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 3768941,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fjellkysten",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 9034464,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lapphaugen-turiststasjon",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1291800,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lapphaugen-turiststasjon",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1610743,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lapphaugen-turiststasjon",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2878640,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lapphaugen-turiststasjon",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 9483168,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "fjellkysten",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "fjellkysten",
+      "segment": "reiseliv",
+      "styrke": 2
+    },
+    {
+      "org": "lapphaugen-turiststasjon",
+      "segment": "reiseliv",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

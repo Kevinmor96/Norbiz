@@ -1,0 +1,751 @@
+{
+  "meta": {
+    "kommunenr": "1845",
+    "kommune": "Sørfold - Fuolldá",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "sorfold-kommunestyre",
+      "navn": "Kommunestyret i Sørfold - Fuolldá",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "sorfold-kommune",
+      "kommunenr": "1845",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "benchmark-genetics-norway",
+      "orgnr": "983506925",
+      "navn": "Benchmark Genetics Norway AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "4601",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat",
+        "utdanning-forskning"
+      ],
+      "gyldig_fra": "2001-05-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.300 «Tjenester tilknyttet fiske, fangst og akvakultur».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "benchmark-genetics-norway-as-avd-engan",
+      "orgnr": "916018460",
+      "navn": "Benchmark Genetics Norway AS Avd Engan",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "benchmark-genetics-norway",
+      "kommunenr": "1845",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2015-08-13",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sørfold - Fuolldá for Benchmark Genetics Norway AS, med næringskode 03.212 «Produksjon av yngel og settefisk i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "elkem",
+      "orgnr": "911382008",
+      "navn": "Elkem ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "gyldig_fra": "1904-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Allmennaksjeselskap registrert i Enhetsregisteret med næringskode 20.130 «Produksjon av andre uorganiske kjemiske råvarer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "elkem-asa-avd-salten-verk",
+      "orgnr": "973095366",
+      "navn": "Elkem ASA Avd Salten Verk",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "overordnet": "elkem",
+      "kommunenr": "1845",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sørfold - Fuolldá for Elkem ASA, med næringskode 20.130 «Produksjon av andre uorganiske kjemiske råvarer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "mowi",
+      "orgnr": "964118191",
+      "navn": "Mowi ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "kommunenr": "4601",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1992-05-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Allmennaksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "mowi-avd-matfisk-salten",
+      "orgnr": "972330981",
+      "navn": "Mowi Avd Matfisk Salten",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "overordnet": "mowi",
+      "kommunenr": "1845",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1988-12-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sørfold - Fuolldá for Mowi ASA, med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "omya-hustadmarmor",
+      "orgnr": "912864227",
+      "navn": "Omya Hustadmarmor AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1579",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1978-04-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 20.130 «Produksjon av andre uorganiske kjemiske råvarer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "omya-hustadmarmor-as-avd-hammerfall-dolomitt",
+      "orgnr": "971746351",
+      "navn": "Omya Hustadmarmor AS Avd Hammerfall Dolomitt",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "omya-hustadmarmor",
+      "kommunenr": "1845",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sørfold - Fuolldá for Omya Hustadmarmor AS, med næringskode 08.110 «Bryting av dekorstein, kalkstein, gips, skifer og annen stein».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "sisomar",
+      "orgnr": "987520507",
+      "navn": "Sisomar AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1845",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2004-11-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.222 «Produksjon av yngel og settefisk i ferskvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorfold-kommune",
+      "orgnr": "972417750",
+      "navn": "Sørfold Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1845",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorfold-kommune-sentraladministrasjon",
+      "orgnr": "974794349",
+      "navn": "Sørfold Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1845",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorfold-kommune-sosial-og-omsorgsadministrasjon",
+      "orgnr": "980361888",
+      "navn": "Sørfold Kommune Sosial- og Omsorgsadministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1845",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1998-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorfold-kommune-teknisk-naering",
+      "orgnr": "974791722",
+      "navn": "Sørfold Kommune Teknisk/Næring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1845",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "sorfold-oppvekst",
+      "orgnr": "974790440",
+      "navn": "Sørfold Oppvekst",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1845",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "beate-skillingstad",
+      "navn": "Beate Skillingstad"
+    },
+    {
+      "key": "elling-mikalsen-bokestad",
+      "navn": "Elling Mikalsen Bøkestad"
+    },
+    {
+      "key": "ida-margrethe-holmoy",
+      "navn": "Ida Margrethe Holmøy"
+    },
+    {
+      "key": "jon-bjarne-meisfjord",
+      "navn": "Jon Bjarne Meisfjord"
+    },
+    {
+      "key": "katharina-diana-mosseng",
+      "navn": "Katharina Diana Mosseng"
+    },
+    {
+      "key": "marit-gundersen-skjaervik",
+      "navn": "Marit Gundersen Skjærvik"
+    },
+    {
+      "key": "ola-helge-holmoy",
+      "navn": "Ola Helge Holmøy"
+    },
+    {
+      "key": "ole-martin-lund-andreassen",
+      "navn": "Ole-Martin Lund Andreassen"
+    },
+    {
+      "key": "roger-dagfinn-simonsen",
+      "navn": "Roger Dagfinn Simonsen"
+    },
+    {
+      "key": "roger-mosseng",
+      "navn": "Roger Mosseng"
+    },
+    {
+      "key": "tore-holand",
+      "navn": "Tore Holand"
+    },
+    {
+      "key": "torill-leachon-morkhagen",
+      "navn": "Torill Leachon Mørkhagen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "sisomar",
+      "person": "beate-skillingstad",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sisomar",
+      "person": "elling-mikalsen-bokestad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sisomar",
+      "person": "ida-margrethe-holmoy",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sisomar",
+      "person": "jon-bjarne-meisfjord",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sisomar",
+      "person": "katharina-diana-mosseng",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sisomar",
+      "person": "marit-gundersen-skjaervik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sisomar",
+      "person": "ola-helge-holmoy",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sisomar",
+      "person": "ole-martin-lund-andreassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sisomar",
+      "person": "roger-dagfinn-simonsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sisomar",
+      "person": "roger-mosseng",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sisomar",
+      "person": "tore-holand",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorfold-kommune-sentraladministrasjon",
+      "person": "torill-leachon-morkhagen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorfold-kommune-sosial-og-omsorgsadministrasjon",
+      "person": "torill-leachon-morkhagen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorfold-kommune-teknisk-naering",
+      "person": "torill-leachon-morkhagen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorfold-kommune",
+      "person": "torill-leachon-morkhagen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sorfold-oppvekst",
+      "person": "torill-leachon-morkhagen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "sorfold-kommunestyre",
+      "til": "sorfold-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "benchmark-genetics-norway-as-avd-engan",
+      "til": "benchmark-genetics-norway",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "elkem-asa-avd-salten-verk",
+      "til": "elkem",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "mowi-avd-matfisk-salten",
+      "til": "mowi",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "omya-hustadmarmor-as-avd-hammerfall-dolomitt",
+      "til": "omya-hustadmarmor",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "sisomar",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 22918457,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sisomar",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 82238064,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sisomar",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 257429741,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sisomar",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 247989257,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "benchmark-genetics-norway",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "benchmark-genetics-norway",
+      "segment": "utdanning-forskning",
+      "styrke": 2
+    },
+    {
+      "org": "elkem",
+      "segment": "utdanning-forskning",
+      "styrke": 2
+    },
+    {
+      "org": "mowi-avd-matfisk-salten",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "mowi",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

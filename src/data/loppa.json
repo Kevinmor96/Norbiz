@@ -1,0 +1,769 @@
+{
+  "meta": {
+    "kommunenr": "5614",
+    "kommune": "Loppa",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "loppa-kommunestyre",
+      "navn": "Kommunestyret i Loppa",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "loppa-kommune",
+      "kommunenr": "5614",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "finnmarksalpene-360",
+      "orgnr": "829514222",
+      "navn": "Finnmarksalpene 360 AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5614",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2022-06-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 79.121 «Aktiviteter utført av utflukts- og eventarrangører».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "frydenbo-yards-oksfjord",
+      "orgnr": "966021136",
+      "navn": "Frydenbø Yards Øksfjord AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5614",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1992-12-21",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 33.150 «Reparasjon og vedlikehold av sivile skip og båter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "loppa-kommune",
+      "orgnr": "963063237",
+      "navn": "Loppa Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5614",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "loppa-kommune-driftsavdelingen",
+      "orgnr": "974793199",
+      "navn": "Loppa Kommune Driftsavdelingen",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5614",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "loppa-kommune-levekarsseksjonen",
+      "orgnr": "974790068",
+      "navn": "Loppa Kommune Levekårsseksjonen",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5614",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "okj-transport",
+      "orgnr": "961418143",
+      "navn": "Okj Transport AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5614",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1991-07-07",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "oksfjord-fiskeindustri",
+      "orgnr": "924010762",
+      "navn": "Øksfjord Fiskeindustri AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5614",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2019-11-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 46.322 «Engroshandel med fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "polarfeed",
+      "orgnr": "825504672",
+      "navn": "Polarfeed AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2020-06-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.300 «Tjenester tilknyttet fiske, fangst og akvakultur».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "polarfeed-as-avd-oksfjord",
+      "orgnr": "982312930",
+      "navn": "Polarfeed AS Avd Øksfjord",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "polarfeed",
+      "kommunenr": "5614",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2000-06-14",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Loppa for Polarfeed AS, med næringskode 03.300 «Tjenester tilknyttet fiske, fangst og akvakultur».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anders-stoltz-rasmussen",
+      "navn": "Anders Stoltz-Rasmussen"
+    },
+    {
+      "key": "eivind-boe",
+      "navn": "Eivind Bøe"
+    },
+    {
+      "key": "frank-baekken",
+      "navn": "Frank Bækken"
+    },
+    {
+      "key": "hans-ivar-pedersen",
+      "navn": "Hans Ivar Pedersen"
+    },
+    {
+      "key": "inger-elisabeth-tvedt",
+      "navn": "Inger Elisabeth Tvedt"
+    },
+    {
+      "key": "kim-goran-pedersen",
+      "navn": "Kim Gøran Pedersen"
+    },
+    {
+      "key": "knut-ivar-bendiksen",
+      "navn": "Knut Ivar Bendiksen"
+    },
+    {
+      "key": "margrethe-gotteberg-nesse",
+      "navn": "Margrethe Gotteberg Nesse"
+    },
+    {
+      "key": "maria-sotkajaervi",
+      "navn": "Maria Sotkajærvi"
+    },
+    {
+      "key": "ole-karstein-johansen",
+      "navn": "Ole-Karstein Johansen"
+    },
+    {
+      "key": "venke-pedersen",
+      "navn": "Venke Pedersen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "finnmarksalpene-360",
+      "person": "kim-goran-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarksalpene-360",
+      "person": "kim-goran-pedersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarksalpene-360",
+      "person": "maria-sotkajaervi",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "frydenbo-yards-oksfjord",
+      "person": "anders-stoltz-rasmussen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "frydenbo-yards-oksfjord",
+      "person": "eivind-boe",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "frydenbo-yards-oksfjord",
+      "person": "frank-baekken",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "frydenbo-yards-oksfjord",
+      "person": "margrethe-gotteberg-nesse",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "loppa-kommune-driftsavdelingen",
+      "person": "inger-elisabeth-tvedt",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "loppa-kommune-levekarsseksjonen",
+      "person": "inger-elisabeth-tvedt",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "loppa-kommune",
+      "person": "inger-elisabeth-tvedt",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "okj-transport",
+      "person": "ole-karstein-johansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "okj-transport",
+      "person": "ole-karstein-johansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "okj-transport",
+      "person": "venke-pedersen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "oksfjord-fiskeindustri",
+      "person": "hans-ivar-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "oksfjord-fiskeindustri",
+      "person": "hans-ivar-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "oksfjord-fiskeindustri",
+      "person": "knut-ivar-bendiksen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "loppa-kommunestyre",
+      "til": "loppa-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "polarfeed-as-avd-oksfjord",
+      "til": "polarfeed",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "finnmarksalpene-360",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -60690,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmarksalpene-360",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -15129,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmarksalpene-360",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": -34444,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmarksalpene-360",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 2919915,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "frydenbo-yards-oksfjord",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 718879,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "frydenbo-yards-oksfjord",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 831949,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "frydenbo-yards-oksfjord",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 4817613,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "frydenbo-yards-oksfjord",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 26443914,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "okj-transport",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1468348,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "okj-transport",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -1433924,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "okj-transport",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 6881301,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "okj-transport",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 37013576,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "oksfjord-fiskeindustri",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -2100422,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "oksfjord-fiskeindustri",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -2287770,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "oksfjord-fiskeindustri",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7876585,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "oksfjord-fiskeindustri",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 368787751,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "okj-transport",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "polarfeed-as-avd-oksfjord",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "polarfeed",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

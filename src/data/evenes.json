@@ -1,0 +1,817 @@
+{
+  "meta": {
+    "kommunenr": "1853",
+    "kommune": "Evenes - Evenášši",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "evenes-kommunestyre",
+      "navn": "Kommunestyret i Evenes - Evenášši",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "evenes-kommune-evenassi-suohkan",
+      "kommunenr": "1853",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "actio-omsorg",
+      "orgnr": "934657187",
+      "navn": "Actio Omsorg AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1853",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2024-11-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 86.993 «Andre helsetjenester ellers».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "avarn-security-aviation",
+      "orgnr": "992147377",
+      "navn": "Avarn Security Aviation AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3209",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2008-01-03",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 80.010 «Etterforskningstjenester og private vakttjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "avarn-security-aviation-as-avd-harstad-narvik-vakttjenester",
+      "orgnr": "924872985",
+      "navn": "Avarn Security Aviation AS Avd Harstad/Narvik Vakttjenester",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "avarn-security-aviation",
+      "kommunenr": "1853",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2020-03-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Evenes - Evenášši for Avarn Security Aviation AS, med næringskode 80.010 «Etterforskningstjenester og private vakttjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "avinor-985198292",
+      "orgnr": "985198292",
+      "navn": "Avinor AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2002-12-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 52.230 «Andre tjenester tilknyttet lufttransport».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "avinor-as-avd-harstad-narvik-lufthavn",
+      "orgnr": "974719851",
+      "navn": "Avinor AS Avd Harstad/Narvik Lufthavn",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "avinor-985198292",
+      "kommunenr": "1853",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Evenes - Evenášši for Avinor AS, med næringskode 52.230 «Andre tjenester tilknyttet lufttransport».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "erm-drift",
+      "orgnr": "921572476",
+      "navn": "Erm Drift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1853",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2018-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "evenes-kommune-evenassi-suohkan",
+      "orgnr": "940642140",
+      "navn": "Evenes Kommune / Evenássi Suohkan",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1853",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "first-rent-a-car-norway",
+      "orgnr": "985588392",
+      "navn": "First Rent A Car Norway AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2003-03-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 77.110 «Utleie og leasing av biler og andre lette motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "first-rent-a-car-norway-as-avd-evenes-ap",
+      "orgnr": "982787769",
+      "navn": "First Rent A Car Norway AS Avd Evenes Ap",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "first-rent-a-car-norway",
+      "kommunenr": "1853",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2000-12-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Evenes - Evenášši for First Rent A Car Norway AS, med næringskode 77.110 «Utleie og leasing av biler og andre lette motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "norges-blindeforbund",
+      "orgnr": "971038179",
+      "navn": "Norges Blindeforbund",
+      "nivaa": "interesse",
+      "organtype": "forening",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1909-10-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Forening/lag/innretning registrert i Enhetsregisteret med næringskode 88.996 «Andre sosialtjenester uten botilbud ellers».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "norges-blindeforbund-evenes-syn-og-mestringssenter",
+      "orgnr": "990994501",
+      "navn": "Norges Blindeforbund Evenes Syn- og Mestringssenter",
+      "nivaa": "interesse",
+      "organtype": "forening",
+      "overordnet": "norges-blindeforbund",
+      "kommunenr": "1853",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Evenes - Evenášši for Norges Blindeforbund, med næringskode 88.996 «Andre sosialtjenester uten botilbud ellers».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "select-service-partner",
+      "orgnr": "837657652",
+      "navn": "Select Service Partner AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3209",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1985-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 56.110 «Drift av restauranter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "select-service-partner-as-avd-harstad-narvik-lufthavn-evenes",
+      "orgnr": "973066110",
+      "navn": "Select Service Partner AS Avd Harstad/Narvik Lufthavn Evenes",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "select-service-partner",
+      "kommunenr": "1853",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1985-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Evenes - Evenášši for Select Service Partner AS, med næringskode 56.110 «Drift av restauranter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "wideroe-ground-handling",
+      "orgnr": "914426537",
+      "navn": "Widerøe Ground Handling AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2014-10-22",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 52.230 «Andre tjenester tilknyttet lufttransport».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "wideroe-ground-handling-as-avd-ground-services-evenes",
+      "orgnr": "887157642",
+      "navn": "Widerøe Ground Handling AS Avd Ground Services Evenes",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "wideroe-ground-handling",
+      "kommunenr": "1853",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2004-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Evenes - Evenášši for Widerøe Ground Handling AS, med næringskode 52.230 «Andre tjenester tilknyttet lufttransport».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "wideroe-ground-handling-as-avd-ramp-evenes",
+      "orgnr": "914264820",
+      "navn": "Widerøe Ground Handling AS Avd Ramp Evenes",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "wideroe-ground-handling",
+      "kommunenr": "1853",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2014-07-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Evenes - Evenášši for Widerøe Ground Handling AS, med næringskode 52.240 «Lasting og lossing».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "andreas-eide-buestad",
+      "navn": "Andreas Eide Buestad"
+    },
+    {
+      "key": "cato-olsen-birkestrand",
+      "navn": "Cato Olsen Birkestrand"
+    },
+    {
+      "key": "elisabet-norlund",
+      "navn": "Elisabet Norlund"
+    },
+    {
+      "key": "fritz-aanes",
+      "navn": "Fritz Aanes"
+    },
+    {
+      "key": "jan-inge-yttervik",
+      "navn": "Jan Inge Yttervik"
+    },
+    {
+      "key": "kristian-hoyer-andreassen",
+      "navn": "Kristian Hoyer Andreassen"
+    },
+    {
+      "key": "marcus-petter-lindal-birkestrand",
+      "navn": "Marcus Petter Lindal Birkestrand"
+    },
+    {
+      "key": "matthias-benjamin-tanski",
+      "navn": "Matthias Benjamin Tanski"
+    }
+  ],
+  "roller": [
+    {
+      "org": "actio-omsorg",
+      "person": "cato-olsen-birkestrand",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "actio-omsorg",
+      "person": "fritz-aanes",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "actio-omsorg",
+      "person": "jan-inge-yttervik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "actio-omsorg",
+      "person": "jan-inge-yttervik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "actio-omsorg",
+      "person": "kristian-hoyer-andreassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "actio-omsorg",
+      "person": "marcus-petter-lindal-birkestrand",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "erm-drift",
+      "person": "andreas-eide-buestad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "erm-drift",
+      "person": "matthias-benjamin-tanski",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "erm-drift",
+      "person": "matthias-benjamin-tanski",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "evenes-kommune-evenassi-suohkan",
+      "person": "elisabet-norlund",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "evenes-kommunestyre",
+      "til": "evenes-kommune-evenassi-suohkan",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "avarn-security-aviation-as-avd-harstad-narvik-vakttjenester",
+      "til": "avarn-security-aviation",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "avinor-as-avd-harstad-narvik-lufthavn",
+      "til": "avinor-985198292",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "first-rent-a-car-norway-as-avd-evenes-ap",
+      "til": "first-rent-a-car-norway",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "norges-blindeforbund-evenes-syn-og-mestringssenter",
+      "til": "norges-blindeforbund",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "select-service-partner-as-avd-harstad-narvik-lufthavn-evenes",
+      "til": "select-service-partner",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "wideroe-ground-handling-as-avd-ground-services-evenes",
+      "til": "wideroe-ground-handling",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "wideroe-ground-handling-as-avd-ramp-evenes",
+      "til": "wideroe-ground-handling",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "actio-omsorg",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 857960,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "actio-omsorg",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1130825,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "actio-omsorg",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 896276,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "actio-omsorg",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 2416105,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "erm-drift",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 6883702,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "erm-drift",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 8682555,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "erm-drift",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 45821,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "erm-drift",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 44091829,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "actio-omsorg",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "avarn-security-aviation",
+      "segment": "transport",
+      "styrke": 2
+    },
+    {
+      "org": "avinor-985198292",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "avinor-as-avd-harstad-narvik-lufthavn",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "erm-drift",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "wideroe-ground-handling-as-avd-ground-services-evenes",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "wideroe-ground-handling-as-avd-ramp-evenes",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "wideroe-ground-handling",
+      "segment": "transport",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

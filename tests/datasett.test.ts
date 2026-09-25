@@ -26,7 +26,7 @@ import {
   SENSITIV_SYNLIGE_ROLLETYPER,
   VERIFISERINGER,
 } from "@/lib/data/kontrakt";
-import { datasett, lokal } from "@/lib/data/lokal";
+import { datafiler, lokal } from "@/lib/data/datasett";
 import { nokkel, samle, valider } from "@/lib/data/samle";
 import { lesDatasett } from "../scripts/seed-build";
 
@@ -59,9 +59,9 @@ const fold = (t: string) =>
     .replace(/Æ/g, "AE")
     .toLowerCase();
 
-it("finner minst ett datasett, og lokal.ts laster de samme filene", () => {
+it("finner minst ett datasett, og datalaget laster de samme filene", () => {
   expect(filer.length).toBeGreaterThan(0);
-  expect(datasett.map((d) => d.slug).sort()).toEqual(filer.map((f) => f.slug));
+  expect(Object.keys(datafiler).sort()).toEqual(filer.map((f) => f.slug));
 });
 
 it("samles uten konflikter og uten referansefeil", () => {

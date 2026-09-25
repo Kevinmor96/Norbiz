@@ -1,0 +1,1142 @@
+{
+  "meta": {
+    "kommunenr": "5622",
+    "kommune": "Porsanger - Porsángu - Porsanki",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "porsanger-kommunestyre",
+      "navn": "Kommunestyret i Porsanger - Porsángu - Porsanki",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "porsanger-kommune",
+      "kommunenr": "5622",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune-opplaering",
+      "orgnr": "832305502",
+      "navn": "Finnmark Fylkeskommune Opplæring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-10-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmarkseiendommen",
+      "orgnr": "989480731",
+      "navn": "Finnmarkseiendommen",
+      "nivaa": "stat",
+      "organtype": "saerlovselskap",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "2005-11-25",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 68.320 «Eiendomsforvaltning på oppdrag».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "lakselv-hotell",
+      "orgnr": "922887233",
+      "navn": "Lakselv Hotell AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2019-04-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "lakselv-videregaende-skole",
+      "orgnr": "974622742",
+      "navn": "Lakselv Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "finnmark-fylkeskommune-opplaering",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Porsanger - Porsángu - Porsanki for Finnmark Fylkeskommune Opplæring, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nor-log",
+      "orgnr": "916407157",
+      "navn": "Nor-Log AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1160",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1976-11-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "nor-log-as-avd-lakselv",
+      "orgnr": "979284136",
+      "navn": "Nor-Log AS Avd Lakselv",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "nor-log",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1997-09-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Porsanger - Porsángu - Porsanki for Nor-Log AS, med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "porsanger-kommune",
+      "orgnr": "959411735",
+      "navn": "Porsanger Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "porsanger-kommune-helse-sosial-pleie-og-omsorg",
+      "orgnr": "974793326",
+      "navn": "Porsanger Kommune Helse, Sosial, Pleie og Omsorg",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "porsanger-kommune-kultur-og-oppvekstavdelingen",
+      "orgnr": "974790114",
+      "navn": "Porsanger Kommune Kultur- og Oppvekstavdelingen",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "porsanger-kommune-miljo-naering-og-kommunal-teknikk",
+      "orgnr": "974793342",
+      "navn": "Porsanger Kommune Miljø, Næring og Kommunal Teknikk",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "saarela-barnehage",
+      "orgnr": "962145000",
+      "navn": "Saarela Barnehage AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1991-10-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 85.100 «Førskoleundervisning og drift av barnehager».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "stiftelsen-solbratt-omsorgssenter",
+      "orgnr": "929948661",
+      "navn": "Stiftelsen Solbrått Omsorgssenter",
+      "nivaa": "privat",
+      "organtype": "stiftelse",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2022-09-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stiftelse registrert i Enhetsregisteret med næringskode 87.102 «Sykehjemstjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anita-harriet-rokstad-johansen",
+      "navn": "Anita Harriet Rokstad Johansen"
+    },
+    {
+      "key": "arnulf-audun-sandvik",
+      "navn": "Arnulf Audun Sandvik"
+    },
+    {
+      "key": "bard-yngve-pettersen",
+      "navn": "Bård Yngve Pettersen"
+    },
+    {
+      "key": "eva-danielsen-husby",
+      "navn": "Eva Danielsen Husby"
+    },
+    {
+      "key": "heidi-fostervold-falk",
+      "navn": "Heidi Fostervold Falk"
+    },
+    {
+      "key": "inger-marie-gaup-eira",
+      "navn": "Inger Marie Gaup Eira"
+    },
+    {
+      "key": "ingri-karlsen",
+      "navn": "Ingri Karlsen"
+    },
+    {
+      "key": "ingvild-heimstad-iversen",
+      "navn": "Ingvild Heimstad Iversen"
+    },
+    {
+      "key": "jan-einar-rokstad-johansen",
+      "navn": "Jan Einar Rokstad Johansen"
+    },
+    {
+      "key": "joakim-rokstad-pedersen",
+      "navn": "Joakim Rokstad Pedersen"
+    },
+    {
+      "key": "johanne-borch",
+      "navn": "Johanne Borch"
+    },
+    {
+      "key": "kurt-pasvikbamsen-wikan",
+      "navn": "Kurt Pasvikbamsen Wikan"
+    },
+    {
+      "key": "leif-rune-paulsen",
+      "navn": "Leif Rune Paulsen"
+    },
+    {
+      "key": "line-aimee-kalak",
+      "navn": "Line Aimee Kalak"
+    },
+    {
+      "key": "linn-carina-utsi",
+      "navn": "Linn Carina Utsi"
+    },
+    {
+      "key": "maret-alehtta-guhttor",
+      "navn": "Maret Alehtta Guhttor"
+    },
+    {
+      "key": "michael-hafsahl",
+      "navn": "Michael Hafsahl"
+    },
+    {
+      "key": "michelle-tubez",
+      "navn": "Michelle Tubez"
+    },
+    {
+      "key": "mona-skanke",
+      "navn": "Mona Skanke"
+    },
+    {
+      "key": "nils-mikkel-m-somby",
+      "navn": "Nils Mikkel M Somby"
+    },
+    {
+      "key": "odd-jarle-johansen",
+      "navn": "Odd Jarle Johansen"
+    },
+    {
+      "key": "oyvind-lindback",
+      "navn": "Øyvind Lindbäck"
+    },
+    {
+      "key": "reidun-helene-mortensen",
+      "navn": "Reidun Helene Mortensen"
+    },
+    {
+      "key": "siri-eliassen",
+      "navn": "Siri Eliassen"
+    },
+    {
+      "key": "siv-anne-persen",
+      "navn": "Siv-Anne Persen"
+    },
+    {
+      "key": "steinar-tangen-lindbaeck",
+      "navn": "Steinar Tangen Lindbæck"
+    },
+    {
+      "key": "thomas-arild-molmann",
+      "navn": "Thomas Arild Mølmann"
+    },
+    {
+      "key": "tom-mikalsen",
+      "navn": "Tom Mikalsen"
+    },
+    {
+      "key": "tom-rune-storhaug-lindback",
+      "navn": "Tom Rune Storhaug Lindbäck"
+    },
+    {
+      "key": "willy-andreas-pedersen",
+      "navn": "Willy Andreas Pedersen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "finnmarkseiendommen",
+      "person": "eva-danielsen-husby",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "inger-marie-gaup-eira",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "ingvild-heimstad-iversen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "kurt-pasvikbamsen-wikan",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "line-aimee-kalak",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "maret-alehtta-guhttor",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "nils-mikkel-m-somby",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "oyvind-lindback",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "reidun-helene-mortensen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "siv-anne-persen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "thomas-arild-molmann",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "tom-mikalsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "willy-andreas-pedersen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "person": "anita-harriet-rokstad-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "person": "jan-einar-rokstad-johansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "person": "joakim-rokstad-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "person": "joakim-rokstad-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "person": "odd-jarle-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "porsanger-kommune-helse-sosial-pleie-og-omsorg",
+      "person": "linn-carina-utsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "porsanger-kommune-kultur-og-oppvekstavdelingen",
+      "person": "linn-carina-utsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "porsanger-kommune-miljo-naering-og-kommunal-teknikk",
+      "person": "linn-carina-utsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "porsanger-kommune",
+      "person": "linn-carina-utsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "ingri-karlsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "johanne-borch",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "leif-rune-paulsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "michelle-tubez",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "mona-skanke",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "siri-eliassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "steinar-tangen-lindbaeck",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "tom-rune-storhaug-lindback",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "person": "arnulf-audun-sandvik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "person": "bard-yngve-pettersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "person": "heidi-fostervold-falk",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "person": "michael-hafsahl",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "porsanger-kommunestyre",
+      "til": "porsanger-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "lakselv-videregaende-skole",
+      "til": "finnmark-fylkeskommune-opplaering",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nor-log-as-avd-lakselv",
+      "til": "nor-log",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "finnmarkseiendommen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 14750596,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 13224005,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 154726140,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 96696844,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -359542,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -654548,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7986397,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 16147616,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -2455484,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -2560294,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5630236,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 15890282,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2643324,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2678528,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2140753,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 17958939,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "finnmarkseiendommen",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "lakselv-hotell",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "nor-log-as-avd-lakselv",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "nor-log",
+      "segment": "transport",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

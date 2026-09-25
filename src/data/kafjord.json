@@ -1,0 +1,655 @@
+{
+  "meta": {
+    "kommunenr": "5540",
+    "kommune": "Gáivuotna - Kåfjord - Kaivuono",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "kafjord-kommunestyre",
+      "navn": "Kommunestyret i Gáivuotna - Kåfjord - Kaivuono",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "gaivuona-suohkan-kafjord-kommune-kaivuonon-komuuni",
+      "kommunenr": "5540",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "gaivuona-suohkan-kafjord-kommune-kaivuonon-komuuni",
+      "orgnr": "940363586",
+      "navn": "Gaivuona Suohkan Kåfjord Kommune Kaivuonon Komuuni",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kafjord-kommune-drift",
+      "orgnr": "974792923",
+      "navn": "Kåfjord Kommune Drift",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kafjord-kommune-omsorg",
+      "orgnr": "974789817",
+      "navn": "Kåfjord Kommune Omsorg",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kafjord-kommune-oppvekst",
+      "orgnr": "933398099",
+      "navn": "Kåfjord Kommune Oppvekst",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 85.201 «Ordinær grunnskoleundervisning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kafjord-kommune-sentraladministrasjon",
+      "orgnr": "974794721",
+      "navn": "Kåfjord Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "kafjord-vekst",
+      "orgnr": "967448028",
+      "navn": "Kåfjord Vekst AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1993-04-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 88.993 «Arbeidstrening og varig tilrettelagt arbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "manndalen-maskin",
+      "orgnr": "897935082",
+      "navn": "Manndalen Maskin AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "universitetssykehuset-nord-norge",
+      "orgnr": "983974899",
+      "navn": "Universitetssykehuset Nord-Norge HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [
+        "helse",
+        "reiseliv"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "universitetssykehuset-nord-norge-hf-ambulansetjenesten-kafjord",
+      "orgnr": "875936182",
+      "navn": "Universitetssykehuset Nord-Norge HF Ambulansetjenesten Kåfjord",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "universitetssykehuset-nord-norge",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "1995-12-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Gáivuotna - Kåfjord - Kaivuono for Universitetssykehuset Nord-Norge HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "einar-eriksen",
+      "navn": "Einar Eriksen"
+    },
+    {
+      "key": "gunn-andersen",
+      "navn": "Gunn Andersen"
+    },
+    {
+      "key": "inger-lise-pedersen",
+      "navn": "Inger Lise Pedersen"
+    },
+    {
+      "key": "inghild-isaksen-blomstereng",
+      "navn": "Inghild Isaksen Blomstereng"
+    },
+    {
+      "key": "jarle-pedersen",
+      "navn": "Jarle Pedersen"
+    },
+    {
+      "key": "johnny-olsen",
+      "navn": "Johnny Olsen"
+    },
+    {
+      "key": "karin-anbjorg-karlsen",
+      "navn": "Karin Anbjørg Karlsen"
+    },
+    {
+      "key": "kristoffer-pedersen",
+      "navn": "Kristoffer Pedersen"
+    },
+    {
+      "key": "lisa-marie-pedersen-solbakken",
+      "navn": "Lisa Marie Pedersen Solbakken"
+    },
+    {
+      "key": "liv-vigdis-solvang",
+      "navn": "Liv Vigdis Solvang"
+    },
+    {
+      "key": "torstein-jenssen",
+      "navn": "Torstein Jenssen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "gaivuona-suohkan-kafjord-kommune-kaivuonon-komuuni",
+      "person": "gunn-andersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-kommune-drift",
+      "person": "gunn-andersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-kommune-omsorg",
+      "person": "gunn-andersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-kommune-oppvekst",
+      "person": "gunn-andersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-kommune-sentraladministrasjon",
+      "person": "gunn-andersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "person": "einar-eriksen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "person": "inghild-isaksen-blomstereng",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "person": "johnny-olsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "person": "karin-anbjorg-karlsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "person": "liv-vigdis-solvang",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "person": "torstein-jenssen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "person": "inger-lise-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "person": "jarle-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "person": "jarle-pedersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "person": "kristoffer-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "person": "lisa-marie-pedersen-solbakken",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "kafjord-kommunestyre",
+      "til": "gaivuona-suohkan-kafjord-kommune-kaivuonon-komuuni",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "universitetssykehuset-nord-norge-hf-ambulansetjenesten-kafjord",
+      "til": "universitetssykehuset-nord-norge",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "kafjord-vekst",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 733157,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 439248,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7835961,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 6007632,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4722569,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 6259227,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 31066086,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 71856469,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "universitetssykehuset-nord-norge-hf-ambulansetjenesten-kafjord",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "universitetssykehuset-nord-norge",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "universitetssykehuset-nord-norge",
+      "segment": "reiseliv",
+      "styrke": 2
+    }
+  ],
+  "hull": []
+}

@@ -1,0 +1,378 @@
+{
+  "meta": {
+    "kommunenr": "1822",
+    "kommune": "Leirfjord",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "leirfjord-kommunestyre",
+      "navn": "Kommunestyret i Leirfjord",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "leirfjord-kommune",
+      "kommunenr": "1822",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "barnevernstjenesten-ytre-helgeland",
+      "orgnr": "994963201",
+      "navn": "Barnevernstjenesten Ytre Helgeland",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1822",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2010-01-01",
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 88.991 «Barneverntjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "helgeland-landbrukstjenester",
+      "orgnr": "975931366",
+      "navn": "Helgeland Landbrukstjenester SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "1824",
+      "myndighet": [],
+      "segmenter": [
+        "landbruk"
+      ],
+      "gyldig_fra": "1995-10-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 01.620 «Tjenester tilknyttet husdyrhold».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "helgeland-landbrukstjenester-sa-avd-leirfjord",
+      "orgnr": "980508811",
+      "navn": "Helgeland Landbrukstjenester SA Avd Leirfjord",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "overordnet": "helgeland-landbrukstjenester",
+      "kommunenr": "1822",
+      "myndighet": [],
+      "segmenter": [
+        "landbruk"
+      ],
+      "gyldig_fra": "1999-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Leirfjord for Helgeland Landbrukstjenester SA, med næringskode 01.620 «Tjenester tilknyttet husdyrhold».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "leirfjord-kommune",
+      "orgnr": "945034572",
+      "navn": "Leirfjord Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1822",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "leland-varetransport",
+      "orgnr": "912463885",
+      "navn": "Leland Varetransport AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1822",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2013-08-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 53.200 «Andre post- og budtjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "jomar-alex-bonsaksen",
+      "navn": "Jomar Alex Bonsaksen"
+    },
+    {
+      "key": "jon-arne-bonsaksen",
+      "navn": "Jon Arne Bonsaksen"
+    },
+    {
+      "key": "marius-andre-bonsaksen",
+      "navn": "Marius Andre Bonsaksen"
+    },
+    {
+      "key": "peter-andre-haaland",
+      "navn": "Peter Andre Haaland"
+    },
+    {
+      "key": "sten-rino-bonsaksen",
+      "navn": "Sten Rino Bonsaksen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "barnevernstjenesten-ytre-helgeland",
+      "person": "peter-andre-haaland",
+      "tittel": "Daglig leder",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "leirfjord-kommune",
+      "person": "peter-andre-haaland",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "leland-varetransport",
+      "person": "jomar-alex-bonsaksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "leland-varetransport",
+      "person": "jon-arne-bonsaksen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "leland-varetransport",
+      "person": "jon-arne-bonsaksen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "leland-varetransport",
+      "person": "marius-andre-bonsaksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "leland-varetransport",
+      "person": "sten-rino-bonsaksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "leirfjord-kommunestyre",
+      "til": "leirfjord-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "helgeland-landbrukstjenester-sa-avd-leirfjord",
+      "til": "helgeland-landbrukstjenester",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "leland-varetransport",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 824542,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "leland-varetransport",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1207249,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "leland-varetransport",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2138894,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "leland-varetransport",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 10780251,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "helgeland-landbrukstjenester-sa-avd-leirfjord",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "helgeland-landbrukstjenester",
+      "segment": "landbruk",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

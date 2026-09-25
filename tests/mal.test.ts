@@ -9,24 +9,26 @@ import type { PGlite } from "@electric-sql/pglite";
 import { beforeAll, describe, expect, it } from "vitest";
 
 import type { Datalag } from "@/lib/data/kontrakt";
-import { datasett, lagLokal } from "@/lib/data/lokal";
+import { lagLokal } from "@/lib/data/lokal";
 import { samle, valider } from "@/lib/data/samle";
 import { lagSupabaseDatalag } from "@/lib/data/supabase";
-import { byggSeed } from "../scripts/seed-build";
+import { byggSeed, lesDatasett, lesRegion } from "../scripts/seed-build";
 import { anonKlient, nyDb } from "./helpers/db";
 import { fiktiveDatasett } from "./helpers/fiktive";
 
+const datasett = lesDatasett();
+const region = lesRegion();
 const tromso = datasett.find((d) => d.slug === "tromso")!;
 const alle = [...datasett, ...fiktiveDatasett(tromso.data)];
 const samling = samle(alle);
-const lokal = lagLokal(samling);
+const lokal = lagLokal(samling, { region });
 
 let db: PGlite;
 let base: Datalag;
 
 beforeAll(async () => {
   db = await nyDb();
-  await db.exec(byggSeed(samling));
+  await db.exec(byggSeed(samling, region));
   base = lagSupabaseDatalag(anonKlient(db));
 });
 
@@ -60,10 +62,19 @@ for (const { slug, data } of alle) {
     await lik("nettverk", nr);
     await lik("endringer", nr);
     await lik("hull", nr);
+    await lik("kommune_grader", nr);
     for (const p of data.prosesser) await lik("beslutningskjede", nr, p.key);
     for (const s of samling.segmenter.keys()) await lik("organer_for_segment", s, nr);
   });
 }
+
+it("regionen, fylkene og søket er like, også med fiktive kommuner utenfor registeret", async () => {
+  await lik("region_oversikt");
+  for (const f of region?.fylker ?? []) await lik("fylke_oversikt", f.nr);
+  for (const q of ["testvik", "fiktiv", "kari fiktiv", "Ola", "lise", "mette motsagt", "styreleder"]) {
+    await lik("sok", q, 20);
+  }
+});
 
 it("organ_profil er lik for hvert organ i samlingen", async () => {
   for (const key of samling.organisasjoner.keys()) await lik("organ_profil", key);

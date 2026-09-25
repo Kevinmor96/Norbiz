@@ -7,11 +7,17 @@
 //
 // Ingen React, ingen klokke, ingen tilfeldighet. Alle lister har fast
 // rekkefølge (se `kontrakt.ts`).
+//
+// Fila regner bare. Hvilke datasett som lastes, og når, bestemmer
+// `datasett.ts` (latt, per kommune) med `lat.ts` og indeksen i `indeks.ts`.
+// `lagLokal` gir samme svar over en del av samlingen som over hele, så lenge
+// delen har det svaret trenger. Indeksen sier hva det er, og
+// `tests/lat.test.ts` sjekker det for hver kommune, hvert organ og hvert fylke.
 
+import type { Regionregister } from "../../data/region/types";
 import type {
   Belegg,
   Hull,
-  Kommunedatasett,
   Nokkeltall,
   Organisasjon,
   Relasjon,
@@ -30,13 +36,19 @@ import {
   ROLLETYPER,
   SENSITIV_SYNLIGE_ROLLETYPER,
   SISTE_ENDRINGER,
+  STORSTE_VIRKSOMHETER,
   type BeleggUt,
   type Beslutningskjede,
   type Datalag,
   type Eierandel,
+  type Datasettdekning,
   type Eierskap,
   type Endring,
   type Endringer,
+  type FylkeOrgan,
+  type FylkeOversikt,
+  type Grader,
+  type Gradtelling,
   type HullPunkt,
   type KildeUt,
   type Kommune,
@@ -49,12 +61,16 @@ import {
   type OrganProfil,
   type OrganRef,
   type PersonRef,
+  type RegionFylke,
+  type RegionKommune,
+  type RegionOversikt,
   type RelasjonUt,
   type Rolle,
   type RolleIOrgan,
   type SegmentOrganer,
 } from "./kontrakt";
-import { samle, type KommuneIDatasett, type SamletHendelse, type Samling } from "./samle";
+import { nokkel, type KommuneIDatasett, type SamletHendelse, type Samling } from "./samle";
+import { sokI, type Sokegrunnlag } from "./sok";
 
 // ---------------------------------------------------------------------------
 // Sortering. Tekst sammenlignes på kodeenhet, som tilsvarer `collate "C"`.
@@ -149,8 +165,63 @@ const erLeder = (t: string) => (LEDERTYPER as readonly string[]).includes(t);
 const erAktiv = (r: Rolleinnehav) => r.til === undefined && r.motsagt !== true;
 const erSkjedd = (t: string) => !(IKKE_SKJEDD_TYPER as readonly string[]).includes(t);
 
+/** Det kommunesiden og fylkessidene teller, per kommune og per fylke. */
+export interface Fylkeaggregat {
+  kartlagt: number;
+  dekning: RegionFylke["dekning"];
+  grader: Grader;
+}
+export interface Aggregater {
+  /** Nøkkel: kommunenummer. Én per datasett. */
+  kommuner: Record<string, Datasettdekning>;
+  /** Nøkkel: fylkesnummer. Ett per fylke i regionregisteret. */
+  fylker: Record<string, Fylkeaggregat>;
+}
+
+export interface LokalValg {
+  /** Regionregisteret (src/data/region/nord-norge.json). Uten det er regionen tom. */
+  region?: Regionregister | null;
+  /**
+   * Tallene per kommune og fylke, ferdig regnet over hele samlingen. Den late
+   * implementasjonen gir dem fra indeksen, fordi en del av samlingen ikke kan
+   * regne dem. Utelatt: regnet her, over `s`.
+   */
+  aggregater?: Aggregater;
+}
+
+export interface LokalDatalag extends Datalag {
+  /** Tallene `region_oversikt` og `fylke_oversikt` bygger på, regnet over `s`. */
+  beregnAggregater(): Aggregater;
+}
+
+/** ASCII-kebab, samme regel som sluggene i regionregisteret: æ→ae, ø→o, å→a. */
+export function lagSlug(navn: string): string {
+  return navn
+    .toLowerCase()
+    .replace(/æ/g, "ae")
+    .replace(/ø/g, "o")
+    .replace(/å/g, "a")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+/** Grupperer en liste på en nøkkel. Rekkefølgen i hver gruppe er listens. */
+function grupper<T>(xs: Iterable<T>, nokkelFor: (x: T) => string | undefined): Map<string, T[]> {
+  const m = new Map<string, T[]>();
+  for (const x of xs) {
+    const k = nokkelFor(x);
+    if (k === undefined) continue;
+    const l = m.get(k);
+    if (l) l.push(x);
+    else m.set(k, [x]);
+  }
+  return m;
+}
+
 /** Lager datalaget over en samling. Eksportert for tester. */
-export function lagLokal(s: Samling): Datalag {
+export function lagLokal(s: Samling, valg: LokalValg = {}): LokalDatalag {
   const org = (key: string): Organisasjon => {
     const o = s.organisasjoner.get(key);
     if (!o) throw new Error(`Ukjent organisasjon «${key}»`);
@@ -172,6 +243,17 @@ export function lagLokal(s: Samling): Datalag {
 
   const kommuneAvNr = new Map(s.kommuner.map((k) => [k.meta.kommunenr, k]));
   const omfang = new Map(s.kommuner.map((k) => [k.meta.kommunenr, new Set(k.organer)]));
+
+  // Oppslag per organ. Med hele regionen i én samling er det tusenvis av
+  // organer, og et filter over alle rollene per organ ble for tregt.
+  const rollerPerOrg = grupper(synligeRoller, (r) => r.org);
+  const relasjonerFra = grupper(relasjoner, (r) => r.fra);
+  const relasjonerTil = grupper(relasjoner, (r) => r.til);
+  const nokkeltallPerOrg = grupper(nokkeltall, (n) => n.org);
+  const hendelserPerOrg = grupper(hendelser, (h) => h.org);
+  const hullPerOrg = grupper(hull, (h) => h.gjelder);
+  const segmenterPerOrg = grupper(orgSegment, (x) => x.org);
+  const underordnede = grupper(s.organisasjoner.values(), (o) => o.overordnet);
 
   // --- byggesteiner --------------------------------------------------------
 
@@ -287,7 +369,7 @@ export function lagLokal(s: Samling): Datalag {
   });
   const ledere = (orgKey: string): Rolle[] =>
     sortert(
-      synligeRoller.filter((r) => r.org === orgKey && erAktiv(r) && erLeder(r.rolletype)),
+      (rollerPerOrg.get(orgKey) ?? []).filter((r) => erAktiv(r) && erLeder(r.rolletype)),
       rolleSortering,
     ).map(rolle);
 
@@ -321,6 +403,15 @@ export function lagLokal(s: Samling): Datalag {
       )[0] ?? null;
     return { k, o, roller, rel, nt, hend, hul, belegg, kommuneorgan };
   }
+
+  /** Ordfører og kommunedirektør: aktive toppverv i organer med kommunens nummer. */
+  const kommunensLedere = (km: NonNullable<ReturnType<typeof iKommune>>, kommunenr: string) =>
+    km.roller.filter(
+      (r) =>
+        erAktiv(r) &&
+        (r.rolletype === "politisk_leder" || r.rolletype === "toppleder") &&
+        org(r.org).kommunenr === kommunenr,
+    );
 
   function endringer(kommunenr: string): Endringer | null {
     const km = iKommune(kommunenr);
@@ -380,12 +471,7 @@ export function lagLokal(s: Samling): Datalag {
           }
         : null,
       ledere: sortert(
-        km.roller.filter(
-          (r) =>
-            erAktiv(r) &&
-            (r.rolletype === "politisk_leder" || r.rolletype === "toppleder") &&
-            org(r.org).kommunenr === kommunenr,
-        ),
+        kommunensLedere(km, kommunenr),
         etter(
           på((r) => r.rolletype, rolletype),
           på((r) => r.org, tekst),
@@ -494,11 +580,11 @@ export function lagLokal(s: Samling): Datalag {
     const o = s.organisasjoner.get(orgKey);
     if (!o) return null;
 
-    const roller = synligeRoller.filter((r) => r.org === orgKey);
-    const inn = relasjoner.filter((r) => r.til === orgKey);
-    const ut = relasjoner.filter((r) => r.fra === orgKey);
-    const nt = nokkeltall.filter((n) => n.org === orgKey);
-    const hend = hendelser.filter((h) => h.org === orgKey);
+    const roller = rollerPerOrg.get(orgKey) ?? [];
+    const inn = relasjonerTil.get(orgKey) ?? [];
+    const ut = relasjonerFra.get(orgKey) ?? [];
+    const nt = nokkeltallPerOrg.get(orgKey) ?? [];
+    const hend = hendelserPerOrg.get(orgKey) ?? [];
 
     const relasjonUt = (r: Relasjon, retning: "ut" | "inn"): RelasjonUt => ({
       ...eierandel(r, retning === "ut" ? r.til : r.fra),
@@ -519,7 +605,7 @@ export function lagLokal(s: Samling): Datalag {
       organ: {
         ...organ(orgKey),
         segmenter: sortert(
-          orgSegment.filter((x) => x.org === orgKey),
+          segmenterPerOrg.get(orgKey) ?? [],
           etter(
             på((x) => x.styrke, synkende(tall)),
             på((x) => x.segment, tekst),
@@ -532,7 +618,7 @@ export function lagLokal(s: Samling): Datalag {
       },
       overordnet: o.overordnet === undefined ? null : organRef(o.overordnet),
       underordnede: sortert(
-        [...s.organisasjoner.values()].filter((x) => x.overordnet === orgKey).map((x) => x.key),
+        (underordnede.get(orgKey) ?? []).map((x) => x.key),
         tekst,
       ).map(organRef),
       roller: {
@@ -565,7 +651,7 @@ export function lagLokal(s: Samling): Datalag {
       nokkeltall: sortert(nt, nokkeltallSortering).map(nokkeltallUt),
       hendelser: sortert(hend, skjeddSortering).map(endring),
       hull: sortert(
-        hull.filter((h) => h.gjelder === orgKey),
+        hullPerOrg.get(orgKey) ?? [],
         på((h) => h.hva, tekst),
       ).map(hullPunkt),
       kilder: sortert(kilder, tekst).map(kildeUt),
@@ -731,6 +817,352 @@ export function lagLokal(s: Samling): Datalag {
     ).map(hullPunkt);
   }
 
+  // --- gradene -------------------------------------------------------------
+
+  const kildetype = (key: string) => s.kilder.get(key)?.type ?? regionKilder.get(key)?.type;
+
+  function telling(belegg: Belegg[]): Gradtelling {
+    const t: Gradtelling = {
+      totalt: 0,
+      verifisert: 0,
+      oppgitt: 0,
+      maa_verifiseres: 0,
+      fra_register: 0,
+    };
+    for (const b of belegg) {
+      t.totalt += 1;
+      t[b.verifisering] += 1;
+      if (kildetype(b.kilde) === "register") t.fra_register += 1;
+    }
+    return t;
+  }
+
+  type Deler = Record<Exclude<keyof Grader, "alle" | "forst_hentet" | "sist_hentet">, Belegg[]>;
+
+  function grader(d: Deler): Grader {
+    const alle = [
+      ...d.organer,
+      ...d.roller,
+      ...d.relasjoner,
+      ...d.nokkeltall,
+      ...d.hendelser,
+      ...d.prosess_steg,
+    ];
+    // `per` på en verifisert påstand er datoen pipelinen hentet den.
+    const hentet = sortert(
+      alle.flatMap((b) => (b.verifisering === "verifisert" && b.per ? [b.per] : [])),
+      tekst,
+    );
+    return {
+      alle: telling(alle),
+      organer: telling(d.organer),
+      roller: telling(d.roller),
+      relasjoner: telling(d.relasjoner),
+      nokkeltall: telling(d.nokkeltall),
+      hendelser: telling(d.hendelser),
+      prosess_steg: telling(d.prosess_steg),
+      forst_hentet: hentet[0] ?? null,
+      sist_hentet: hentet[hentet.length - 1] ?? null,
+    };
+  }
+
+  /** Påstandene i kommunens omfang, de samme som `kommune_oversikt.verifisering` teller. */
+  function kommuneDeler(km: NonNullable<ReturnType<typeof iKommune>>): Deler {
+    return {
+      organer: km.k.organer.map((key) => org(key).belegg),
+      roller: km.roller.map((r) => r.belegg),
+      relasjoner: km.rel.map((r) => r.belegg),
+      nokkeltall: km.nt.map((n) => n.belegg),
+      hendelser: km.hend.map((h) => h.belegg),
+      prosess_steg: km.k.prosesser.flatMap((p) => p.steg.map((st) => st.belegg)),
+    };
+  }
+
+  function kommune_grader(kommunenr: string): Grader | null {
+    const km = iKommune(kommunenr);
+    return km ? grader(kommuneDeler(km)) : null;
+  }
+
+  // --- regionen ------------------------------------------------------------
+
+  const register = valg.region ?? null;
+  const regionKilder = new Map((register?.meta.kilder ?? []).map((k) => [k.key, k]));
+  const regionKildeUt = (key: string): KildeUt => {
+    const k = regionKilder.get(key) ?? s.kilder.get(key);
+    if (!k) throw new Error(`Ukjent kilde «${key}» i regionregisteret`);
+    return { key: k.key, navn: k.navn, url: k.url ?? null, type: k.type, lisens: k.lisens ?? null };
+  };
+  const regionBelegg = (b: Belegg): BeleggUt => ({
+    kilde: regionKildeUt(b.kilde),
+    verifisering: b.verifisering,
+    per: b.per ?? null,
+    merknad: b.merknad ?? null,
+    hentet: b.verifisering === "verifisert" && b.per ? `${b.per}T00:00:00+00:00` : null,
+  });
+
+  /** Kommunenumrene i fylket, fra registeret. */
+  const kommunerIFylke = (fylkesnr: string) =>
+    (register?.kommuner ?? []).filter((k) => k.fylkesnr === fylkesnr);
+
+  function beregnAggregater(): Aggregater {
+    const kommuner: Aggregater["kommuner"] = {};
+    for (const k of s.kommuner) {
+      const nr = k.meta.kommunenr;
+      const km = iKommune(nr)!;
+      kommuner[nr] = {
+        sammenstilt: k.meta.sammenstilt,
+        organer: km.o.size,
+        roller: km.roller.length,
+        personer: new Set(km.roller.map((r) => r.person)).size,
+        ledere: {
+          politisk_leder: kommunensLedere(km, nr).filter((r) => r.rolletype === "politisk_leder")
+            .length,
+          toppleder: kommunensLedere(km, nr).filter((r) => r.rolletype === "toppleder").length,
+        },
+        grader: grader(kommuneDeler(km)),
+      };
+    }
+
+    // Over fylket er hver påstand med én gang, selv når den står i omfanget til
+    // flere kommuner. Nøklene er de samme som seed-en avleder id-ene av.
+    const fylker: Aggregater["fylker"] = {};
+    for (const f of register?.fylker ?? []) {
+      const organer = new Map<string, Belegg>();
+      const roller = new Map<string, Rolleinnehav>();
+      const rel = new Map<string, Belegg>();
+      const nt = new Map<string, Belegg>();
+      const hend = new Map<string, Belegg>();
+      const steg: Belegg[] = [];
+      let kartlagt = 0;
+      for (const rk of kommunerIFylke(f.nr)) {
+        const km = iKommune(rk.nr);
+        if (!km) continue;
+        kartlagt += 1;
+        for (const key of km.k.organer) organer.set(key, org(key).belegg);
+        for (const r of km.roller) roller.set(nokkel.rolle(r), r);
+        for (const r of km.rel) rel.set(nokkel.relasjon(r), r.belegg);
+        for (const n of km.nt) nt.set(nokkel.nokkeltall(n), n.belegg);
+        for (const h of km.hend) hend.set(nokkel.hendelse(h), h.belegg);
+        for (const p of km.k.prosesser) for (const st of p.steg) steg.push(st.belegg);
+      }
+      fylker[f.nr] = {
+        kartlagt,
+        dekning: {
+          organer: organer.size,
+          roller: roller.size,
+          personer: new Set([...roller.values()].map((r) => r.person)).size,
+        },
+        grader: grader({
+          organer: [...organer.values()],
+          roller: [...roller.values()].map((r) => r.belegg),
+          relasjoner: [...rel.values()],
+          nokkeltall: [...nt.values()],
+          hendelser: [...hend.values()],
+          prosess_steg: steg,
+        }),
+      };
+    }
+    return { kommuner, fylker };
+  }
+
+  let aggregatMinne: Aggregater | undefined = valg.aggregater;
+  const aggregater = () => (aggregatMinne ??= beregnAggregater());
+
+  const regionKommune = (k: Regionregister["kommuner"][number]): RegionKommune => ({
+    kommunenr: k.nr,
+    navn: k.navn,
+    navn_offisielt: k.navn_offisielt,
+    slug: k.slug,
+    fylkesnr: k.fylkesnr,
+    folketall: {
+      verdi: k.folketall.verdi,
+      aar: k.folketall.aar,
+      belegg: regionBelegg(k.folketall.belegg),
+    },
+    samisk_forvaltningsomrade: k.samisk_forvaltningsomrade,
+    belegg: regionBelegg(k.belegg),
+    geografi_belegg: regionBelegg(k.geografi_belegg),
+    datasett: aggregater().kommuner[k.nr] ?? null,
+  });
+
+  const tomGrad = (): Gradtelling => ({
+    totalt: 0,
+    verifisert: 0,
+    oppgitt: 0,
+    maa_verifiseres: 0,
+    fra_register: 0,
+  });
+  const tommeGrader = (): Grader => ({
+    alle: tomGrad(),
+    organer: tomGrad(),
+    roller: tomGrad(),
+    relasjoner: tomGrad(),
+    nokkeltall: tomGrad(),
+    hendelser: tomGrad(),
+    prosess_steg: tomGrad(),
+    forst_hentet: null,
+    sist_hentet: null,
+  });
+
+  const regionFylke = (f: Regionregister["fylker"][number]): RegionFylke => {
+    const a = aggregater().fylker[f.nr];
+    return {
+      fylkesnr: f.nr,
+      navn: f.navn,
+      navn_offisielt: f.navn_offisielt,
+      slug: lagSlug(f.navn),
+      folketall: {
+        verdi: f.folketall.verdi,
+        aar: f.folketall.aar,
+        belegg: regionBelegg(f.folketall.belegg),
+      },
+      belegg: regionBelegg(f.belegg),
+      antall_kommuner: kommunerIFylke(f.nr).length,
+      kartlagt: a?.kartlagt ?? 0,
+      dekning: a?.dekning ?? { organer: 0, roller: 0, personer: 0 },
+      grader: a?.grader ?? tommeGrader(),
+    };
+  };
+
+  function region_oversikt(): RegionOversikt {
+    if (!register) {
+      return {
+        region: { navn: "", sammenstilt: "", merknad: "" },
+        fylker: [],
+        kommuner: [],
+        kilder: [],
+      };
+    }
+    const fylker = sortert(
+      register.fylker,
+      på((f) => f.nr, tekst),
+    ).map(regionFylke);
+    const kommuner = sortert(
+      register.kommuner,
+      på((k) => k.nr, tekst),
+    ).map(regionKommune);
+    const kilder = new Set([
+      ...register.fylker.flatMap((f) => [f.belegg.kilde, f.folketall.belegg.kilde]),
+      ...register.kommuner.flatMap((k) => [
+        k.belegg.kilde,
+        k.folketall.belegg.kilde,
+        k.geografi_belegg.kilde,
+      ]),
+    ]);
+    return {
+      region: {
+        navn: register.meta.region,
+        sammenstilt: register.meta.sammenstilt,
+        merknad: register.meta.merknad,
+      },
+      fylker,
+      kommuner,
+      kilder: sortert(kilder, tekst).map(regionKildeUt),
+    };
+  }
+
+  function fylke_oversikt(fylkesnr: string): FylkeOversikt | null {
+    const f = register?.fylker.find((x) => x.nr === fylkesnr);
+    if (!f) return null;
+    const iFylke = sortert(
+      kommunerIFylke(fylkesnr),
+      på((k) => k.nr, tekst),
+    );
+    const nr = new Set(iFylke.map((k) => k.nr));
+    const omfangF = new Set(
+      s.kommuner.filter((k) => nr.has(k.meta.kommunenr)).flatMap((k) => k.organer),
+    );
+
+    const egne = sortert(
+      [...s.organisasjoner.values()]
+        .filter(
+          (o) =>
+            o.status === "aktiv" &&
+            (o.fylkesnr === fylkesnr ||
+              (o.organtype === "statsforvalter" &&
+                o.kommunenr === undefined &&
+                omfangF.has(o.key))),
+        )
+        .map((o) => o.key),
+      etter(
+        på((key) => org(key).nivaa, nivaa),
+        på((key) => org(key).organtype, organtype),
+        på((key) => key, tekst),
+      ),
+    );
+    const organer: FylkeOrgan[] = egne.map((key) => ({
+      ...organ(key),
+      ledere: ledere(key),
+      representanter:
+        org(key).organtype === "lovgivende"
+          ? sortert((rollerPerOrg.get(key) ?? []).filter(erAktiv), rolleSortering).map(rolle)
+          : [],
+    }));
+
+    // Omsetning er det eneste størrelsesmålet med år i datasettene.
+    const storste = sortert(
+      [...s.organisasjoner.values()].flatMap((o) => {
+        if (o.status !== "aktiv" || o.kommunenr === undefined || !nr.has(o.kommunenr)) return [];
+        const forste = sortert(
+          (nokkeltallPerOrg.get(o.key) ?? []).filter(
+            (n) => n.type === "omsetning" && n.periode === undefined,
+          ),
+          nokkeltallSortering,
+        )[0];
+        return forste ? [{ o, n: forste }] : [];
+      }),
+      etter(
+        på((x) => x.n.verdi, synkende(tall)),
+        på((x) => x.o.key, tekst),
+      ),
+    )
+      .slice(0, STORSTE_VIRKSOMHETER)
+      .map((x) => ({
+        org: organRef(x.o.key),
+        kommunenr: x.o.kommunenr!,
+        omsetning: nokkeltallUt(x.n),
+      }));
+
+    return {
+      fylke: regionFylke(f),
+      kommuner: iFylke.map(regionKommune),
+      organer,
+      storste,
+    };
+  }
+
+  // --- søket ---------------------------------------------------------------
+
+  let grunnlag: Sokegrunnlag | undefined;
+  function sokegrunnlag(): Sokegrunnlag {
+    if (grunnlag) return grunnlag;
+    // Samme regel som nettverket: en person med en synlig rolle i et sensitivt
+    // organ er ikke med, og ingen roller i sensitive organer er med.
+    const utelatt = new Set(synligeRoller.filter((r) => org(r.org).sensitiv).map((r) => r.person));
+    grunnlag = {
+      kommuner: sortert(
+        register?.kommuner ?? [],
+        på((k) => k.nr, tekst),
+      ).map((k) => ({
+        kommunenr: k.nr,
+        navn: k.navn,
+        navn_offisielt: k.navn_offisielt,
+        slug: k.slug,
+        fylkesnr: k.fylkesnr,
+        har_datasett: kommuneAvNr.has(k.nr),
+      })),
+      organer: [...s.organisasjoner.values()].map((o) => ({
+        ...organRef(o.key),
+        orgnr: o.orgnr ?? null,
+        kommunenr: o.kommunenr ?? null,
+      })),
+      roller: synligeRoller
+        .filter((r) => erAktiv(r) && !org(r.org).sensitiv && !utelatt.has(r.person))
+        .map(rolleIOrgan),
+    };
+    return grunnlag;
+  }
+
   const kommunerListe = () =>
     s.kommuner.map((k) => ({ ...kommune(k), antall_organer: k.organer.length }));
 
@@ -746,23 +1178,10 @@ export function lagLokal(s: Samling): Datalag {
     organer_for_segment: async (segmentKode, kommunenr) =>
       organer_for_segment(segmentKode, kommunenr),
     hull: async (kommunenr) => hullFor(kommunenr),
+    kommune_grader: async (kommunenr) => kommune_grader(kommunenr),
+    region_oversikt: async () => region_oversikt(),
+    fylke_oversikt: async (fylkesnr) => fylke_oversikt(fylkesnr),
+    sok: async (sporring, limit) => sokI(sokegrunnlag(), sporring, limit),
+    beregnAggregater,
   };
 }
-
-// ---------------------------------------------------------------------------
-// Datasettene. Alle `src/data/*.json` lastes, som i seed-byggeren. En ny
-// kommune er en ny fil, ingen kodeendring.
-// ---------------------------------------------------------------------------
-
-const filer = import.meta.glob<Kommunedatasett>("../../data/*.json", {
-  eager: true,
-  import: "default",
-});
-
-/** Kommunedatasettene med slug fra filnavnet. */
-export const datasett = Object.entries(filer).map(([sti, data]) => ({
-  slug: sti.replace(/^.*\//, "").replace(/\.json$/, ""),
-  data,
-}));
-
-export const lokal: Datalag = lagLokal(samle(datasett));

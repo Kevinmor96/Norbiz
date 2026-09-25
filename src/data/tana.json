@@ -1,0 +1,891 @@
+{
+  "meta": {
+    "kommunenr": "5628",
+    "kommune": "Deatnu - Tana",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "tana-kommunestyre",
+      "navn": "Kommunestyret i Deatnu - Tana",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "deanu-gielda-tana-kommune",
+      "kommunenr": "5628",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "deanu-gielda-tana-kommune",
+      "orgnr": "943505527",
+      "navn": "Deanu Gielda / Tana Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5628",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "elkem",
+      "orgnr": "911382008",
+      "navn": "Elkem ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "gyldig_fra": "1904-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Allmennaksjeselskap registrert i Enhetsregisteret med næringskode 20.130 «Produksjon av andre uorganiske kjemiske råvarer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "elkem-asa-tana",
+      "orgnr": "974142171",
+      "navn": "Elkem ASA Tana",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "overordnet": "elkem",
+      "kommunenr": "5628",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Deatnu - Tana for Elkem ASA, med næringskode 08.990 «Annen bryting og utvinning ikke nevnt annet sted».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune-opplaering",
+      "orgnr": "832305502",
+      "navn": "Finnmark Fylkeskommune Opplæring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-10-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmark-rein",
+      "orgnr": "965807691",
+      "navn": "Finnmark Rein AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5628",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1992-12-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.110 «Bearbeiding og konservering av kjøtt unntatt fjørfekjøtt».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "finnmarkssykehuset",
+      "orgnr": "983974880",
+      "navn": "Finnmarkssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "5603",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finnmarkssykehuset-hf-voksenpsykiatri-tana",
+      "orgnr": "974795965",
+      "navn": "Finnmarkssykehuset HF Voksenpsykiatri - Tana",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "finnmarkssykehuset",
+      "kommunenr": "5628",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "1989-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Deatnu - Tana for Finnmarkssykehuset HF, med næringskode 86.102 «Psykiatriske sykehustjenester for voksne».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "guttormsen-ev",
+      "orgnr": "935211301",
+      "navn": "Guttormsen Ev AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5628",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2025-01-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "masternes-gjenvinning",
+      "orgnr": "979128150",
+      "navn": "Masternes Gjenvinning AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5628",
+      "myndighet": [],
+      "segmenter": [
+        "avfall-miljo"
+      ],
+      "gyldig_fra": "1997-07-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 38.110 «Innsamling av ikke-farlig avfall».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "tana-kommune-helse-og-sosialadministrasjon",
+      "orgnr": "974793474",
+      "navn": "Tana Kommune Helse- og Sosialadministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5628",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "tana-kommune-miljo-og-naering",
+      "orgnr": "974793490",
+      "navn": "Tana Kommune Miljø og Næring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5628",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "tana-kommune-sentraladministrasjon",
+      "orgnr": "974794926",
+      "navn": "Tana Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5628",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "tana-kommune-skoleadministrasjon",
+      "orgnr": "974790165",
+      "navn": "Tana Kommune Skoleadministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5628",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "tana-videregaende-skole",
+      "orgnr": "974064332",
+      "navn": "Tana Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "finnmark-fylkeskommune-opplaering",
+      "kommunenr": "5628",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Deatnu - Tana for Finnmark Fylkeskommune Opplæring, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anja-karoline-pedersen-noste",
+      "navn": "Anja Karoline Pedersen Noste"
+    },
+    {
+      "key": "are-smuk-figved",
+      "navn": "Are Smuk Figved"
+    },
+    {
+      "key": "audun-celius",
+      "navn": "Audun Celius"
+    },
+    {
+      "key": "inger-eline-eriksen-fjellgren",
+      "navn": "Inger Eline Eriksen Fjellgren"
+    },
+    {
+      "key": "ingvild-wartiainen",
+      "navn": "Ingvild Wartiainen"
+    },
+    {
+      "key": "jarle-wilfred-andreassen",
+      "navn": "Jarle Wilfred Andreassen"
+    },
+    {
+      "key": "johan-mathis-nilsen-buljo",
+      "navn": "Johan Mathis Nilsen Buljo"
+    },
+    {
+      "key": "jorgen-holten-jorgensen",
+      "navn": "Jørgen Holten Jørgensen"
+    },
+    {
+      "key": "jorn-are-guttormsen",
+      "navn": "Jørn-Are Guttormsen"
+    },
+    {
+      "key": "leif-arne-haughom",
+      "navn": "Leif Arne Haughom"
+    },
+    {
+      "key": "lise-mette-knudsen-heggheim",
+      "navn": "Lise Mette Knudsen Heggheim"
+    },
+    {
+      "key": "marius-aabo",
+      "navn": "Marius Aabø"
+    },
+    {
+      "key": "rune-larsen",
+      "navn": "Rune Larsen"
+    },
+    {
+      "key": "siv-anita-biti-helander",
+      "navn": "Siv Anita Biti-Helander"
+    }
+  ],
+  "roller": [
+    {
+      "org": "deanu-gielda-tana-kommune",
+      "person": "jorgen-holten-jorgensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-rein",
+      "person": "are-smuk-figved",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-rein",
+      "person": "johan-mathis-nilsen-buljo",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finnmark-rein",
+      "person": "marius-aabo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "guttormsen-ev",
+      "person": "jorn-are-guttormsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "guttormsen-ev",
+      "person": "jorn-are-guttormsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "person": "anja-karoline-pedersen-noste",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "person": "audun-celius",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "person": "ingvild-wartiainen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "person": "jarle-wilfred-andreassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "person": "leif-arne-haughom",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "person": "lise-mette-knudsen-heggheim",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "person": "rune-larsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "person": "siv-anita-biti-helander",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tana-kommune-helse-og-sosialadministrasjon",
+      "person": "inger-eline-eriksen-fjellgren",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tana-kommune-miljo-og-naering",
+      "person": "inger-eline-eriksen-fjellgren",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tana-kommune-sentraladministrasjon",
+      "person": "inger-eline-eriksen-fjellgren",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "tana-kommune-skoleadministrasjon",
+      "person": "inger-eline-eriksen-fjellgren",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "tana-kommunestyre",
+      "til": "deanu-gielda-tana-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "elkem-asa-tana",
+      "til": "elkem",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "finnmarkssykehuset-hf-voksenpsykiatri-tana",
+      "til": "finnmarkssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "tana-videregaende-skole",
+      "til": "finnmark-fylkeskommune-opplaering",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "finnmark-rein",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2977068,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmark-rein",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4187914,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmark-rein",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 22316747,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finnmark-rein",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 169724162,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "guttormsen-ev",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -113674,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-01-20–2025-12-31."
+      }
+    },
+    {
+      "org": "guttormsen-ev",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -132952,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-01-20–2025-12-31."
+      }
+    },
+    {
+      "org": "guttormsen-ev",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": -525405,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-01-20–2025-12-31."
+      }
+    },
+    {
+      "org": "guttormsen-ev",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 14206852,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-01-20–2025-12-31."
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1950953,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 5971687,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 42916613,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 140932699,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "elkem",
+      "segment": "utdanning-forskning",
+      "styrke": 2
+    },
+    {
+      "org": "finnmarkssykehuset-hf-voksenpsykiatri-tana",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "guttormsen-ev",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "masternes-gjenvinning",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

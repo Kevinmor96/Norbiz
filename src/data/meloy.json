@@ -1,0 +1,1255 @@
+{
+  "meta": {
+    "kommunenr": "1837",
+    "kommune": "Meløy",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "meloy-kommunestyre",
+      "navn": "Kommunestyret i Meløy",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "meloy-kommune",
+      "kommunenr": "1837",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "bilfinger-norway",
+      "orgnr": "988996564",
+      "navn": "Bilfinger Norway AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "4001",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2005-11-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 33.120 «Reparasjon og vedlikehold av maskiner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "bilfinger-norway-as-avd-glomfjord",
+      "orgnr": "991466932",
+      "navn": "Bilfinger Norway AS Avd Glomfjord",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "bilfinger-norway",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-09-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Meløy for Bilfinger Norway AS, med næringskode 33.120 «Reparasjon og vedlikehold av maskiner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "ewos",
+      "orgnr": "979184832",
+      "navn": "Ewos AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "4601",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1997-08-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.912 «Produksjon av fôrvarer for akvakultur».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "ewos-as-avd-halsa",
+      "orgnr": "972171409",
+      "navn": "Ewos AS Avd Halsa",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "ewos",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1989-08-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Meløy for Ewos AS, med næringskode 10.912 «Produksjon av fôrvarer for akvakultur».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "hs-omsorg",
+      "orgnr": "932165341",
+      "navn": "HS Omsorg AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-09-08",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 88.996 «Andre sosialtjenester uten botilbud ellers».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "landbrukstjenester-salten-og-lofoten",
+      "orgnr": "971394560",
+      "navn": "Landbrukstjenester Salten og Lofoten SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [
+        "landbruk"
+      ],
+      "gyldig_fra": "1995-02-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 01.620 «Tjenester tilknyttet husdyrhold».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "meloy-kommune",
+      "orgnr": "970189866",
+      "navn": "Meløy Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "meloy-kommune-helse-og-mestring",
+      "orgnr": "974791528",
+      "navn": "Meløy Kommune Helse og Mestring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "meloy-kommune-kommunalteknikk-plan-og-naering",
+      "orgnr": "990436886",
+      "navn": "Meløy Kommune Kommunalteknikk, Plan og Næring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2006-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "meloy-kommune-oppvekst",
+      "orgnr": "974790386",
+      "navn": "Meløy Kommune Oppvekst",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "meloy-kommune-sentraladministrasjon",
+      "orgnr": "974794284",
+      "navn": "Meløy Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "meloy-videregaende-skole",
+      "orgnr": "974621193",
+      "navn": "Meløy Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Meløy for Nordland Fylkeskommune Utdanning og Kompetanse, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "orgnr": "974793725",
+      "navn": "Nordland Fylkeskommune Utdanning og Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset-hf-ambulanse-ornes",
+      "orgnr": "993562084",
+      "navn": "Nordlandssykehuset HF Ambulanse Ørnes",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "nordlandssykehuset",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2009-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Meløy for Nordlandssykehuset HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "nova-sea",
+      "orgnr": "961056268",
+      "navn": "Nova Sea AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1834",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1991-04-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nova-sea-as-avd-engavagen",
+      "orgnr": "974307081",
+      "navn": "Nova Sea AS Avd Engavågen",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "nova-sea",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Meløy for Nova Sea AS, med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "nscale-drift",
+      "orgnr": "828605062",
+      "navn": "Nscale Drift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2022-01-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 62.200 «Konsulentvirksomhet tilknyttet informasjonsteknologi og forvaltning og drift av it-systemer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "stiftelsen-nordtun-helserehab",
+      "orgnr": "936079857",
+      "navn": "Stiftelsen Nordtun Helserehab",
+      "nivaa": "privat",
+      "organtype": "stiftelse",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stiftelse registrert i Enhetsregisteret med næringskode 87.101 «Tjenester i spesialinstitusjon innenfor helse- og omsorg».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "yara-norge",
+      "orgnr": "984015666",
+      "navn": "Yara Norge AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2001-11-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 20.150 «Produksjon av gjødsel og nitrogenforbindelser».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "yara-norge-as-glomfjord-fabrikker",
+      "orgnr": "974285150",
+      "navn": "Yara Norge AS Glomfjord Fabrikker",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "yara-norge",
+      "kommunenr": "1837",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Meløy for Yara Norge AS, med næringskode 20.150 «Produksjon av gjødsel og nitrogenforbindelser».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anne-grete-laila-kvikstad",
+      "navn": "Anne Grete Laila Kvikstad"
+    },
+    {
+      "key": "bjorg-gustavsen",
+      "navn": "Bjørg Gustavsen"
+    },
+    {
+      "key": "cherilyn-anastasia-stephanie-laban",
+      "navn": "Cherilyn Anastasia Stephanie Laban"
+    },
+    {
+      "key": "hilde-furuseth-johansen",
+      "navn": "Hilde Furuseth Johansen"
+    },
+    {
+      "key": "jorgen-hestdahl",
+      "navn": "Jørgen Hestdahl"
+    },
+    {
+      "key": "kurt-magne-ediassen",
+      "navn": "Kurt Magne Ediassen"
+    },
+    {
+      "key": "line-jaeger-hansen",
+      "navn": "Line Jæger Hansen"
+    },
+    {
+      "key": "marianne-stranden",
+      "navn": "Marianne Stranden"
+    },
+    {
+      "key": "mariella-vink-de-roos",
+      "navn": "Mariella Vink-De Roos"
+    },
+    {
+      "key": "marius-skalevik",
+      "navn": "Marius Skålevik"
+    },
+    {
+      "key": "may-britt-pedersen-delbekk",
+      "navn": "May-Britt Pedersen Delbekk"
+    },
+    {
+      "key": "merete-karin-kristensen",
+      "navn": "Merete Karin Kristensen"
+    },
+    {
+      "key": "mona-alm",
+      "navn": "Mona Alm"
+    },
+    {
+      "key": "oystein-samnoen",
+      "navn": "Øystein Samnøen"
+    },
+    {
+      "key": "oyvind-mevik",
+      "navn": "Øyvind Mevik"
+    },
+    {
+      "key": "per-steinar-krogstad",
+      "navn": "Per-Steinar Krogstad"
+    },
+    {
+      "key": "solveig-kolderup-utvik",
+      "navn": "Solveig Kolderup Utvik"
+    },
+    {
+      "key": "sten-ole-eliassen",
+      "navn": "Sten Ole Eliassen"
+    },
+    {
+      "key": "thomas-saele",
+      "navn": "Thomas Sæle"
+    },
+    {
+      "key": "tore-krogstad",
+      "navn": "Tore Krogstad"
+    },
+    {
+      "key": "trond-ivar-heidenberg",
+      "navn": "Trond Ivar Heidenberg"
+    },
+    {
+      "key": "vidar-magne-hasselberg",
+      "navn": "Vidar Magne Hasselberg"
+    }
+  ],
+  "roller": [
+    {
+      "org": "hs-omsorg",
+      "person": "jorgen-hestdahl",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hs-omsorg",
+      "person": "jorgen-hestdahl",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hs-omsorg",
+      "person": "marius-skalevik",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "person": "anne-grete-laila-kvikstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "person": "hilde-furuseth-johansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "person": "kurt-magne-ediassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "person": "mariella-vink-de-roos",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "person": "oyvind-mevik",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "person": "solveig-kolderup-utvik",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "person": "sten-ole-eliassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "person": "trond-ivar-heidenberg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "person": "vidar-magne-hasselberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meloy-kommune-helse-og-mestring",
+      "person": "marianne-stranden",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meloy-kommune-kommunalteknikk-plan-og-naering",
+      "person": "marianne-stranden",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meloy-kommune-oppvekst",
+      "person": "marianne-stranden",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meloy-kommune-sentraladministrasjon",
+      "person": "marianne-stranden",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "meloy-kommune",
+      "person": "marianne-stranden",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nscale-drift",
+      "person": "cherilyn-anastasia-stephanie-laban",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "person": "bjorg-gustavsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "person": "line-jaeger-hansen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "person": "may-britt-pedersen-delbekk",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "person": "merete-karin-kristensen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "person": "mona-alm",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "person": "oystein-samnoen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "person": "per-steinar-krogstad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "person": "thomas-saele",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "person": "tore-krogstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "meloy-kommunestyre",
+      "til": "meloy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "bilfinger-norway-as-avd-glomfjord",
+      "til": "bilfinger-norway",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "ewos-as-avd-halsa",
+      "til": "ewos",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "meloy-videregaende-skole",
+      "til": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordlandssykehuset-hf-ambulanse-ornes",
+      "til": "nordlandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nova-sea-as-avd-engavagen",
+      "til": "nova-sea",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "yara-norge-as-glomfjord-fabrikker",
+      "til": "yara-norge",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "hs-omsorg",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 46960,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hs-omsorg",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 221852,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hs-omsorg",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 216255,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hs-omsorg",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 8830907,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 355566,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 311565,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1378181,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 29042163,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nscale-drift",
+      "aar": 2024,
+      "type": "aarsresultat",
+      "verdi": 373949,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nscale-drift",
+      "aar": 2024,
+      "type": "driftsresultat",
+      "verdi": 2334259,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nscale-drift",
+      "aar": 2024,
+      "type": "egenkapital",
+      "verdi": 496727,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nscale-drift",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 27005248,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 588889,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 982833,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 21360584,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "stiftelsen-nordtun-helserehab",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 57325902,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "landbrukstjenester-salten-og-lofoten",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset-hf-ambulanse-ornes",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nova-sea-as-avd-engavagen",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "nova-sea",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

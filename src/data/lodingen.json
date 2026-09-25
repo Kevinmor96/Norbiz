@@ -1,0 +1,1087 @@
+{
+  "meta": {
+    "kommunenr": "1851",
+    "kommune": "Lødingen",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "lodingen-kommunestyre",
+      "navn": "Kommunestyret i Lødingen",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "lodingen-kommune",
+      "kommunenr": "1851",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "kanstad-trelast",
+      "orgnr": "980577511",
+      "navn": "Kanstad Trelast AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1851",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "1999-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 41.000 «Oppføring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "kystverket-874783242",
+      "orgnr": "874783242",
+      "navn": "Kystverket",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "1508",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "kystverket-lodingen",
+      "orgnr": "979530692",
+      "navn": "Kystverket Lødingen",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "kystverket-874783242",
+      "kommunenr": "1851",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Lødingen for Kystverket, med næringskode 52.220 «Andre tjenester tilknyttet sjøtransport».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "laeringsverkstedet-lodingen-barnehage",
+      "orgnr": "874050512",
+      "navn": "Læringsverkstedet Lødingen Barnehage",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "laeringsverkstedet-lodingen-barnehage-930874140",
+      "kommunenr": "1851",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Lødingen for Læringsverkstedet Lødingen Barnehage AS, med næringskode 85.100 «Førskoleundervisning og drift av barnehager».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "laeringsverkstedet-lodingen-barnehage-930874140",
+      "orgnr": "930874140",
+      "navn": "Læringsverkstedet Lødingen Barnehage AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3209",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2022-11-25",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 85.100 «Førskoleundervisning og drift av barnehager».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "lodingen-bilservice",
+      "orgnr": "892035792",
+      "navn": "Lødingen Bilservice AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1851",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2007-09-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.300 «Detaljhandel med drivstoff til motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "lodingen-fisk",
+      "orgnr": "884625882",
+      "navn": "Lødingen Fisk AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1851",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2002-05-24",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.222 «Produksjon av yngel og settefisk i ferskvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "lodingen-kommune",
+      "orgnr": "945468661",
+      "navn": "Lødingen Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1851",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vestfjord-service",
+      "orgnr": "912170802",
+      "navn": "Vestfjord Service AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1851",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2013-05-21",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 81.100 «Kombinerte tjenester tilknyttet eiendomsdrift».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "ymek",
+      "orgnr": "966918675",
+      "navn": "Ymek AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1851",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1993-06-29",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 33.150 «Reparasjon og vedlikehold av sivile skip og båter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "zalaris-hr-services-norway",
+      "orgnr": "990796378",
+      "navn": "Zalaris HR Services Norway AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1851",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2006-11-30",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 62.200 «Konsulentvirksomhet tilknyttet informasjonsteknologi og forvaltning og drift av it-systemer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "bjorn-harald-moen",
+      "navn": "Bjørn Harald Moen"
+    },
+    {
+      "key": "bodil-kanstad-enebakk",
+      "navn": "Bodil Kanstad Enebakk"
+    },
+    {
+      "key": "einar-kanstad",
+      "navn": "Einar Kanstad"
+    },
+    {
+      "key": "elena-gardaman",
+      "navn": "Elena Gardaman"
+    },
+    {
+      "key": "gunnar-henry-jarl-klo",
+      "navn": "Gunnar Henry Jarl Klo"
+    },
+    {
+      "key": "gunnar-manum",
+      "navn": "Gunnar Manum"
+    },
+    {
+      "key": "hans-petter-mellerud",
+      "navn": "Hans Petter Mellerud"
+    },
+    {
+      "key": "ingve-kanstad",
+      "navn": "Ingve Kanstad"
+    },
+    {
+      "key": "john-tore-berntsen",
+      "navn": "John Tore Berntsen"
+    },
+    {
+      "key": "ken-rune-bekkeli",
+      "navn": "Ken Rune Bekkeli"
+    },
+    {
+      "key": "kristian-fredrik-jarl-klo",
+      "navn": "Kristian Fredrik Jarl Klo"
+    },
+    {
+      "key": "lars-gunder-rask",
+      "navn": "Lars Gunder Rask"
+    },
+    {
+      "key": "odd-geir-bekkeli",
+      "navn": "Odd Geir Bekkeli"
+    },
+    {
+      "key": "ole-anders-strand",
+      "navn": "Ole Anders Strand"
+    },
+    {
+      "key": "roger-dagfinn-simonsen",
+      "navn": "Roger Dagfinn Simonsen"
+    },
+    {
+      "key": "rolf-arne-reinholdtsen",
+      "navn": "Rolf Arne Reinholdtsen"
+    },
+    {
+      "key": "ronny-sorensen",
+      "navn": "Ronny Sørensen"
+    },
+    {
+      "key": "stine-ytterstad",
+      "navn": "Stine Ytterstad"
+    },
+    {
+      "key": "terje-roger-moen",
+      "navn": "Terje Roger Moen"
+    },
+    {
+      "key": "tor-johnny-enebakk",
+      "navn": "Tor Johnny Enebakk"
+    },
+    {
+      "key": "trude-vollheim",
+      "navn": "Trude Vollheim"
+    },
+    {
+      "key": "truls-olsen",
+      "navn": "Truls Olsen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "kanstad-trelast",
+      "person": "bodil-kanstad-enebakk",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kanstad-trelast",
+      "person": "bodil-kanstad-enebakk",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kanstad-trelast",
+      "person": "einar-kanstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kanstad-trelast",
+      "person": "ingve-kanstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kanstad-trelast",
+      "person": "lars-gunder-rask",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-bilservice",
+      "person": "bjorn-harald-moen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-bilservice",
+      "person": "bjorn-harald-moen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-bilservice",
+      "person": "elena-gardaman",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-bilservice",
+      "person": "terje-roger-moen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "person": "gunnar-henry-jarl-klo",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "person": "john-tore-berntsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "person": "ken-rune-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "person": "kristian-fredrik-jarl-klo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "person": "odd-geir-bekkeli",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "person": "roger-dagfinn-simonsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "person": "rolf-arne-reinholdtsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "person": "truls-olsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lodingen-kommune",
+      "person": "trude-vollheim",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestfjord-service",
+      "person": "tor-johnny-enebakk",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestfjord-service",
+      "person": "tor-johnny-enebakk",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ymek",
+      "person": "ole-anders-strand",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ymek",
+      "person": "ronny-sorensen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ymek",
+      "person": "stine-ytterstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "zalaris-hr-services-norway",
+      "person": "gunnar-manum",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "zalaris-hr-services-norway",
+      "person": "hans-petter-mellerud",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "zalaris-hr-services-norway",
+      "person": "hans-petter-mellerud",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "lodingen-kommunestyre",
+      "til": "lodingen-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "kystverket-lodingen",
+      "til": "kystverket-874783242",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "laeringsverkstedet-lodingen-barnehage",
+      "til": "laeringsverkstedet-lodingen-barnehage-930874140",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "kanstad-trelast",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -3677902,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kanstad-trelast",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -3033586,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kanstad-trelast",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 27780034,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kanstad-trelast",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 37595093,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lodingen-bilservice",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 731666,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lodingen-bilservice",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1275210,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lodingen-bilservice",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1597860,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lodingen-bilservice",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 15917726,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 8432816,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 13307143,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 166423757,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lodingen-fisk",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 89347242,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vestfjord-service",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 46624,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vestfjord-service",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 71876,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vestfjord-service",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 200872,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vestfjord-service",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 5170174,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ymek",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -2333720,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ymek",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -2796620,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ymek",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 9935772,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ymek",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 38873970,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "zalaris-hr-services-norway",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 9641288,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "zalaris-hr-services-norway",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 11704794,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "zalaris-hr-services-norway",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7281009,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "zalaris-hr-services-norway",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 292619843,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "kanstad-trelast",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "kystverket-lodingen",
+      "segment": "transport",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

@@ -1,0 +1,557 @@
+{
+  "meta": {
+    "kommunenr": "5510",
+    "kommune": "Kvæfjord",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "kvaefjord-kommunestyre",
+      "navn": "Kommunestyret i Kvæfjord",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "kvaefjord-kommune",
+      "kommunenr": "5510",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "barne-ungdoms-og-familiedirektoratet",
+      "orgnr": "986128433",
+      "navn": "Barne-, Ungdoms- og Familiedirektoratet",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "bufetat-nord-kvaefjord-ungdomssenter",
+      "orgnr": "987205822",
+      "navn": "Bufetat Nord Kvæfjord Ungdomssenter",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "barne-ungdoms-og-familiedirektoratet",
+      "kommunenr": "5510",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2004-09-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Kvæfjord for Barne-, Ungdoms- og Familiedirektoratet, med næringskode 87.991 «Tjenester i barneverninstitusjoner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "human-care",
+      "orgnr": "997915038",
+      "navn": "Human Care AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3905",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-01-13",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 88.104 «Brukerstyrt personlig assistanse (bpa)».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "human-care-as-avd-bpa-nord",
+      "orgnr": "936682081",
+      "navn": "Human Care AS Avd Bpa Nord",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "human-care",
+      "kommunenr": "5510",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2025-11-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Kvæfjord for Human Care AS, med næringskode 88.996 «Andre sosialtjenester uten botilbud ellers».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "human-care-bo",
+      "orgnr": "925034657",
+      "navn": "Human Care Bo AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3905",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2020-03-03",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 87.999 «Andre botilbud innenfor sosiale tjenester ikke nevnt annet sted».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "human-care-bo-as-avd-kvaefjord",
+      "orgnr": "921526318",
+      "navn": "Human Care Bo AS Avd Kvæfjord",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "human-care-bo",
+      "kommunenr": "5510",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2018-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Kvæfjord for Human Care Bo AS, med næringskode 87.999 «Andre botilbud innenfor sosiale tjenester ikke nevnt annet sted».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kvaefjord-grus-pukk",
+      "orgnr": "963402198",
+      "navn": "Kvæfjord Grus & Pukk AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5510",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1992-01-30",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 08.120 «Utvinning fra grus- og sandtak, og utvinning av leire og kaolin».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "kvaefjord-kommune",
+      "orgnr": "972417998",
+      "navn": "Kvæfjord Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5510",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kvaefjord-kommune-fellesadministrasjonen",
+      "orgnr": "974794551",
+      "navn": "Kvæfjord Kommune Fellesadministrasjonen",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5510",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "kvaefjord-kommune-helse-og-omsorgsavdeling",
+      "orgnr": "974792338",
+      "navn": "Kvæfjord Kommune Helse- og Omsorgsavdeling",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5510",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kvaefjord-kommune-kultur-og-oppvekstavdeling",
+      "orgnr": "874789992",
+      "navn": "Kvæfjord Kommune Kultur- og Oppvekstavdeling",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5510",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kvaefjord-kommune-teknisk-avdeling",
+      "orgnr": "974792354",
+      "navn": "Kvæfjord Kommune Teknisk Avdeling",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5510",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "stangnes-ra-videregaende-skole-avd-ra",
+      "orgnr": "974056925",
+      "navn": "Stangnes Rå Videregående Skole Avd Rå",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "troms-fylkeskommune-kompetanse",
+      "kommunenr": "5510",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Kvæfjord for Troms Fylkeskommune Kompetanse, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "troms-fylkeskommune-kompetanse",
+      "orgnr": "974793741",
+      "navn": "Troms Fylkeskommune Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "per-bjorn-holm-varsi",
+      "navn": "Per Bjørn Holm-Varsi"
+    },
+    {
+      "key": "trond-inge-vebostad",
+      "navn": "Trond-Inge Vebostad"
+    }
+  ],
+  "roller": [
+    {
+      "org": "kvaefjord-grus-pukk",
+      "person": "trond-inge-vebostad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaefjord-grus-pukk",
+      "person": "trond-inge-vebostad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaefjord-kommune-fellesadministrasjonen",
+      "person": "per-bjorn-holm-varsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaefjord-kommune-helse-og-omsorgsavdeling",
+      "person": "per-bjorn-holm-varsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaefjord-kommune-kultur-og-oppvekstavdeling",
+      "person": "per-bjorn-holm-varsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaefjord-kommune-teknisk-avdeling",
+      "person": "per-bjorn-holm-varsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaefjord-kommune",
+      "person": "per-bjorn-holm-varsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "kvaefjord-kommunestyre",
+      "til": "kvaefjord-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "bufetat-nord-kvaefjord-ungdomssenter",
+      "til": "barne-ungdoms-og-familiedirektoratet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "human-care-as-avd-bpa-nord",
+      "til": "human-care",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "human-care-bo-as-avd-kvaefjord",
+      "til": "human-care-bo",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "stangnes-ra-videregaende-skole-avd-ra",
+      "til": "troms-fylkeskommune-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "kvaefjord-grus-pukk",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 213812,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvaefjord-grus-pukk",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 416825,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvaefjord-grus-pukk",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1778431,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvaefjord-grus-pukk",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 15024063,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [],
+  "org_segment": [],
+  "hull": []
+}

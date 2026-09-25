@@ -1,0 +1,792 @@
+{
+  "meta": {
+    "kommunenr": "5538",
+    "kommune": "Storfjord - Omasvuotna - Omasvuono",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "storfjord-kommunestyre",
+      "navn": "Kommunestyret i Storfjord - Omasvuotna - Omasvuono",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "storfjord-kommune",
+      "kommunenr": "5538",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "dam-og-sjoplastring",
+      "orgnr": "926848917",
+      "navn": "Dam og Sjøplastring AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5538",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2021-03-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "mesta",
+      "orgnr": "992804440",
+      "navn": "Mesta AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2008-05-21",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 42.110 «Bygging av veier og motorveier».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "mesta-as-avd-oteren",
+      "orgnr": "920817289",
+      "navn": "Mesta AS Avd Oteren",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "mesta",
+      "kommunenr": "5538",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2018-05-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Storfjord - Omasvuotna - Omasvuono for Mesta AS, med næringskode 42.110 «Bygging av veier og motorveier».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "north-experience",
+      "orgnr": "913455894",
+      "navn": "North Experience AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5538",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2014-03-21",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 79.902 «Guide- og reiseledervirksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "stendi",
+      "orgnr": "985194653",
+      "navn": "Stendi AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2002-09-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 87.991 «Tjenester i barneverninstitusjoner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "stendi-as-region-nord-ot-skibotnsenteret",
+      "orgnr": "916657897",
+      "navn": "Stendi AS Region Nord Ot Skibotnsenteret",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "stendi",
+      "kommunenr": "5538",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2015-03-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Storfjord - Omasvuotna - Omasvuono for Stendi AS, med næringskode 87.300 «Omsorgstjenester i botilbud for eldre eller personer med fysisk funksjonsnedsettelse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "storfjord-kommune",
+      "orgnr": "964994129",
+      "navn": "Storfjord Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5538",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "storfjord-kommune-driftsetaten",
+      "orgnr": "974792893",
+      "navn": "Storfjord Kommune Driftsetaten",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5538",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "storfjord-kommune-helse-og-omsorgsetaten",
+      "orgnr": "974792877",
+      "navn": "Storfjord Kommune Helse- og Omsorgsetaten",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5538",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "storfjord-kommune-oppvekst-og-kulturetaten",
+      "orgnr": "974789825",
+      "navn": "Storfjord Kommune Oppvekst- og Kulturetaten",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5538",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "unicare-nord-norge",
+      "orgnr": "980684997",
+      "navn": "Unicare Nord-Norge AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5601",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1999-02-26",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 87.101 «Tjenester i spesialinstitusjon innenfor helse- og omsorg».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "unicare-skibotn",
+      "orgnr": "922688117",
+      "navn": "Unicare Skibotn",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "unicare-nord-norge",
+      "kommunenr": "5538",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2019-03-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Storfjord - Omasvuotna - Omasvuono for Unicare Nord-Norge AS, med næringskode 87.101 «Tjenester i spesialinstitusjon innenfor helse- og omsorg».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "wiiks-transport",
+      "orgnr": "958391803",
+      "navn": "Wiiks Transport AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5538",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1990-04-19",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anders-mjaaland",
+      "navn": "Anders Mjaaland"
+    },
+    {
+      "key": "arngrim-kiil-molberg",
+      "navn": "Arngrim Kiil Molberg"
+    },
+    {
+      "key": "frode-michal-nilsen",
+      "navn": "Frode Michal Nilsen"
+    },
+    {
+      "key": "jonas-einar-tetlie",
+      "navn": "Jonas Einar Tetlie"
+    },
+    {
+      "key": "maria-figenschau",
+      "navn": "Maria Figenschau"
+    },
+    {
+      "key": "marit-olsdatter-hienn",
+      "navn": "Marit Olsdatter Hienn"
+    },
+    {
+      "key": "silje-lovise-tjonna",
+      "navn": "Silje Lovise Tjønna"
+    },
+    {
+      "key": "stale-andre-indregard",
+      "navn": "Ståle Andre Indregård"
+    },
+    {
+      "key": "stale-koht-hansen",
+      "navn": "Ståle Koht Hansen"
+    },
+    {
+      "key": "thomas-seppola",
+      "navn": "Thomas Seppola"
+    }
+  ],
+  "roller": [
+    {
+      "org": "dam-og-sjoplastring",
+      "person": "frode-michal-nilsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dam-og-sjoplastring",
+      "person": "jonas-einar-tetlie",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dam-og-sjoplastring",
+      "person": "marit-olsdatter-hienn",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dam-og-sjoplastring",
+      "person": "stale-koht-hansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dam-og-sjoplastring",
+      "person": "stale-koht-hansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "north-experience",
+      "person": "thomas-seppola",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "north-experience",
+      "person": "thomas-seppola",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storfjord-kommune-driftsetaten",
+      "person": "maria-figenschau",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storfjord-kommune-helse-og-omsorgsetaten",
+      "person": "maria-figenschau",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storfjord-kommune-oppvekst-og-kulturetaten",
+      "person": "maria-figenschau",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "storfjord-kommune",
+      "person": "maria-figenschau",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "wiiks-transport",
+      "person": "anders-mjaaland",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "wiiks-transport",
+      "person": "arngrim-kiil-molberg",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "wiiks-transport",
+      "person": "silje-lovise-tjonna",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "wiiks-transport",
+      "person": "stale-andre-indregard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "storfjord-kommunestyre",
+      "til": "storfjord-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "mesta-as-avd-oteren",
+      "til": "mesta",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "stendi-as-region-nord-ot-skibotnsenteret",
+      "til": "stendi",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "unicare-skibotn",
+      "til": "unicare-nord-norge",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "dam-og-sjoplastring",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 8348816,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "dam-og-sjoplastring",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 7724460,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "dam-og-sjoplastring",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 14549626,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "dam-og-sjoplastring",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 39569800,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "north-experience",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -7453,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "north-experience",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 438799,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "north-experience",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": -203434,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "north-experience",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 10904244,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "wiiks-transport",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -5064675,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "wiiks-transport",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -5315081,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "wiiks-transport",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1372591,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "wiiks-transport",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 257734423,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "north-experience",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "wiiks-transport",
+      "segment": "transport",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

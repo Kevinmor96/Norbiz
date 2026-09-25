@@ -1,0 +1,1200 @@
+{
+  "meta": {
+    "kommunenr": "5514",
+    "kommune": "Ibestad",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "ibestad-kommunestyre",
+      "navn": "Kommunestyret i Ibestad",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "ibestad-kommune",
+      "kommunenr": "5514",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "breivoll-marine-produkter",
+      "orgnr": "837564832",
+      "navn": "Breivoll Marine Produkter AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5514",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1985-12-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "bronnbat-nord-management",
+      "orgnr": "919233354",
+      "navn": "Brønnbåt Nord Management AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5514",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2017-05-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "haloy-havservice",
+      "orgnr": "983902065",
+      "navn": "Håløy Havservice AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5514",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2001-10-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.300 «Tjenester tilknyttet fiske, fangst og akvakultur».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "hh-handel",
+      "orgnr": "913811135",
+      "navn": "HH Handel AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5514",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "2014-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "ibestad-kommune",
+      "orgnr": "959469792",
+      "navn": "Ibestad Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5514",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kleiva-fiskefarm",
+      "orgnr": "942027672",
+      "navn": "Kleiva Fiskefarm AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5514",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1986-09-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "l-johnsen",
+      "orgnr": "986744614",
+      "navn": "L. Johnsen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5514",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2004-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "toco-a-s",
+      "orgnr": "946037230",
+      "navn": "Tøco A/S",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5514",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1987-12-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 69.202 «Regnskapsføring og bokføring».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "arne-balteskard",
+      "navn": "Arne Balteskard"
+    },
+    {
+      "key": "ase-marie-valen-olsen",
+      "navn": "Åse Marie Valen Olsen"
+    },
+    {
+      "key": "borge-arvesen",
+      "navn": "Børge Arvesen"
+    },
+    {
+      "key": "christian-balteskard",
+      "navn": "Christian Balteskard"
+    },
+    {
+      "key": "eidar-viktor-tollefsen",
+      "navn": "Eidar Viktor Tøllefsen"
+    },
+    {
+      "key": "finn-hakon-jorstad",
+      "navn": "Finn Håkon Jørstad"
+    },
+    {
+      "key": "frank-halvar-solvang",
+      "navn": "Frank Halvar Solvang"
+    },
+    {
+      "key": "hildegunn-thode-hansen",
+      "navn": "Hildegunn Thode Hansen"
+    },
+    {
+      "key": "hugo-henning-salomonsen",
+      "navn": "Hugo Henning Salomonsen"
+    },
+    {
+      "key": "johannes-arne-arvesen",
+      "navn": "Johannes Arne Arvesen"
+    },
+    {
+      "key": "jostein-arvesen",
+      "navn": "Jostein Arvesen"
+    },
+    {
+      "key": "ken-rune-bekkeli",
+      "navn": "Ken Rune Bekkeli"
+    },
+    {
+      "key": "kjell-gunnar-olsen",
+      "navn": "Kjell Gunnar Olsen"
+    },
+    {
+      "key": "lars-marvin-johnsen",
+      "navn": "Lars Marvin Johnsen"
+    },
+    {
+      "key": "marianne-bendiksen",
+      "navn": "Marianne Bendiksen"
+    },
+    {
+      "key": "marius-arvesen",
+      "navn": "Marius Arvesen"
+    },
+    {
+      "key": "mathias-lundberg",
+      "navn": "Mathias Lundberg"
+    },
+    {
+      "key": "per-harald-olsen",
+      "navn": "Per Harald Olsen"
+    },
+    {
+      "key": "per-ludvik-hansen",
+      "navn": "Per Ludvik Hansen"
+    },
+    {
+      "key": "remi-heggen-ronning",
+      "navn": "Remi Heggen Rønning"
+    },
+    {
+      "key": "rune-andre-tollefsen",
+      "navn": "Rune André Tøllefsen"
+    },
+    {
+      "key": "siv-oddrun-aakenes-heggen",
+      "navn": "Siv Oddrun Aakenes Heggen"
+    },
+    {
+      "key": "soren-nikolai-balteskard",
+      "navn": "Søren Nikolai Balteskard"
+    },
+    {
+      "key": "thore-markus-mikalsen",
+      "navn": "Thore Markus Mikalsen"
+    },
+    {
+      "key": "tore-lundberg",
+      "navn": "Tore Lundberg"
+    },
+    {
+      "key": "vibeke-marie-arvesen-aspdal",
+      "navn": "Vibeke Marie Arvesen Aspdal"
+    }
+  ],
+  "roller": [
+    {
+      "org": "breivoll-marine-produkter",
+      "person": "arne-balteskard",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "breivoll-marine-produkter",
+      "person": "ase-marie-valen-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "breivoll-marine-produkter",
+      "person": "christian-balteskard",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "breivoll-marine-produkter",
+      "person": "frank-halvar-solvang",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "breivoll-marine-produkter",
+      "person": "kjell-gunnar-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "breivoll-marine-produkter",
+      "person": "marianne-bendiksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "breivoll-marine-produkter",
+      "person": "soren-nikolai-balteskard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "breivoll-marine-produkter",
+      "person": "thore-markus-mikalsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnbat-nord-management",
+      "person": "johannes-arne-arvesen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnbat-nord-management",
+      "person": "ken-rune-bekkeli",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnbat-nord-management",
+      "person": "per-harald-olsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnbat-nord-management",
+      "person": "tore-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haloy-havservice",
+      "person": "johannes-arne-arvesen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haloy-havservice",
+      "person": "marius-arvesen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haloy-havservice",
+      "person": "mathias-lundberg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haloy-havservice",
+      "person": "remi-heggen-ronning",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "haloy-havservice",
+      "person": "tore-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hh-handel",
+      "person": "per-ludvik-hansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hh-handel",
+      "person": "siv-oddrun-aakenes-heggen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "hh-handel",
+      "person": "siv-oddrun-aakenes-heggen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ibestad-kommune",
+      "person": "hildegunn-thode-hansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kleiva-fiskefarm",
+      "person": "borge-arvesen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kleiva-fiskefarm",
+      "person": "johannes-arne-arvesen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kleiva-fiskefarm",
+      "person": "jostein-arvesen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kleiva-fiskefarm",
+      "person": "marius-arvesen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kleiva-fiskefarm",
+      "person": "marius-arvesen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kleiva-fiskefarm",
+      "person": "vibeke-marie-arvesen-aspdal",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "l-johnsen",
+      "person": "hugo-henning-salomonsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "l-johnsen",
+      "person": "lars-marvin-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "l-johnsen",
+      "person": "lars-marvin-johnsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "toco-a-s",
+      "person": "eidar-viktor-tollefsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "toco-a-s",
+      "person": "finn-hakon-jorstad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "toco-a-s",
+      "person": "rune-andre-tollefsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "toco-a-s",
+      "person": "rune-andre-tollefsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "ibestad-kommunestyre",
+      "til": "ibestad-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "breivoll-marine-produkter",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1668751,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "breivoll-marine-produkter",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3659605,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "breivoll-marine-produkter",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 16742733,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "breivoll-marine-produkter",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 69759734,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bronnbat-nord-management",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4320062,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bronnbat-nord-management",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 5069352,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bronnbat-nord-management",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 20666066,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bronnbat-nord-management",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 62992517,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "haloy-havservice",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2585739,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "haloy-havservice",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 15635786,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "haloy-havservice",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 56637150,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "haloy-havservice",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 113944837,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hh-handel",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1208463,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hh-handel",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2655848,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hh-handel",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 11865044,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "hh-handel",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 40976664,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kleiva-fiskefarm",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 51324677,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kleiva-fiskefarm",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 114956285,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kleiva-fiskefarm",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 452916525,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kleiva-fiskefarm",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 841166124,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "l-johnsen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 197595,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "l-johnsen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 493615,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "l-johnsen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 3528367,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "l-johnsen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 47214335,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "toco-a-s",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 372615,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "toco-a-s",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 605232,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "toco-a-s",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 951896,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "toco-a-s",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 29605138,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "breivoll-marine-produkter",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "haloy-havservice",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "hh-handel",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "kleiva-fiskefarm",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "l-johnsen",
+      "segment": "transport",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}

@@ -1,0 +1,1440 @@
+{
+  "meta": {
+    "kommunenr": "1813",
+    "kommune": "Brønnøy",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/brreg-import.md",
+    "merknad": "Sammenstilt 2026-09-25 fra Brønnøysundregistrene av scripts/brreg.ts. Kommunen har ikke noe researchgrunnlag ennå: kommunestyret følger av kommuneloven, og medlemmene er ikke hentet."
+  },
+  "kilder": [
+    {
+      "key": "kommuneloven",
+      "navn": "Kommuneloven (lovdata.no)",
+      "url": "https://lovdata.no/lov/2018-06-22-83",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "bronnoy-kommunestyre",
+      "navn": "Kommunestyret i Brønnøy",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "bronnoy-kommune",
+      "kommunenr": "1813",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens øverste organ, som alle kommuner har.",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "akvafuture",
+      "orgnr": "996482537",
+      "navn": "Akvafuture AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2011-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "bronnoy-kalk",
+      "orgnr": "979112106",
+      "navn": "Brønnøy Kalk AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1997-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 08.110 «Bryting av dekorstein, kalkstein, gips, skifer og annen stein».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "bronnoy-kommune",
+      "orgnr": "964983291",
+      "navn": "Brønnøy Kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: kommunen, ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bronnoy-kommune-helse-og-velferd",
+      "orgnr": "937818017",
+      "navn": "Brønnøy Kommune Helse og Velferd",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bronnoy-kommune-oppvekst",
+      "orgnr": "937818106",
+      "navn": "Brønnøy Kommune Oppvekst",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bronnoy-kommune-samfunn",
+      "orgnr": "937817827",
+      "navn": "Brønnøy Kommune Samfunn",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2016-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bronnoy-kommune-sentraladministrasjon",
+      "orgnr": "937817762",
+      "navn": "Brønnøy Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "bronnoy-landbrukstjenester",
+      "orgnr": "971391529",
+      "navn": "Brønnøy Landbrukstjenester SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [
+        "landbruk"
+      ],
+      "gyldig_fra": "1995-02-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 01.620 «Tjenester tilknyttet husdyrhold».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bronnoysund-videregaende-skole",
+      "orgnr": "974621401",
+      "navn": "Brønnøysund Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Brønnøy for Nordland Fylkeskommune Utdanning og Kompetanse, med næringskode 85.310 «Videregående opplæring innenfor studieforberedende utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "connect-bus-norge",
+      "orgnr": "971654007",
+      "navn": "Connect Bus Norge AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3207",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1995-01-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "connect-bus-norge-as-avd-bronnoysund",
+      "orgnr": "932536927",
+      "navn": "Connect Bus Norge AS Avd Brønnøysund",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "connect-bus-norge",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2023-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Brønnøy for Connect Bus Norge AS, med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "digitaliseringsdirektoratet",
+      "orgnr": "991825827",
+      "navn": "Digitaliseringsdirektoratet",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "digitaliseringsdirektoratet-avd-bronnoysund",
+      "orgnr": "924203617",
+      "navn": "Digitaliseringsdirektoratet Avd Brønnøysund",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "digitaliseringsdirektoratet",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2020-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Brønnøy for Digitaliseringsdirektoratet, med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "helgelandssykehuset",
+      "orgnr": "983974929",
+      "navn": "Helgelandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "1820",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2001-12-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "helgelandssykehuset-hf-bronnoysund-ambulansetjeneste",
+      "orgnr": "924274964",
+      "navn": "Helgelandssykehuset HF Brønnøysund Ambulansetjeneste",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "helgelandssykehuset",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2019-11-21",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Brønnøy for Helgelandssykehuset HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "iss-facility-services",
+      "orgnr": "914791723",
+      "navn": "Iss Facility Services AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1952-10-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 81.210 «Rengjøring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "iss-facility-services-as-avd-renhold-bronnoysund",
+      "orgnr": "975927075",
+      "navn": "Iss Facility Services AS Avd Renhold Brønnøysund",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "iss-facility-services",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1996-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Brønnøy for Iss Facility Services AS, med næringskode 81.210 «Rengjøring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "orgnr": "974793725",
+      "navn": "Nordland Fylkeskommune Utdanning og Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "registerenheten-i-bronnoysund",
+      "orgnr": "974760673",
+      "navn": "Registerenheten i Brønnøysund",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "stetind-entreprenor",
+      "orgnr": "926335499",
+      "navn": "Stetind Entreprenør AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2020-12-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "torghatten-midt",
+      "orgnr": "992620447",
+      "navn": "Torghatten Midt AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5001",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2008-04-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 50.102 «Innenriks kystruter med passasjerer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "torghatten-midt-as-avd-sjo",
+      "orgnr": "974330377",
+      "navn": "Torghatten Midt AS Avd Sjø",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "torghatten-midt",
+      "kommunenr": "1813",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Brønnøy for Torghatten Midt AS, med næringskode 50.102 «Innenriks kystruter med passasjerer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anne-tone-steinsvik",
+      "navn": "Anne Tone Steinsvik"
+    },
+    {
+      "key": "audhild-bang-rande",
+      "navn": "Audhild Bang Rande"
+    },
+    {
+      "key": "bard-kristian-flore",
+      "navn": "Bård Kristian Flore"
+    },
+    {
+      "key": "bernt-endre-andreassen",
+      "navn": "Bernt Endre Andreassen"
+    },
+    {
+      "key": "brynjar-kristian-forbergskog",
+      "navn": "Brynjar Kristian Forbergskog"
+    },
+    {
+      "key": "eivind-iden",
+      "navn": "Eivind Iden"
+    },
+    {
+      "key": "frank-gronbeck-nilsen",
+      "navn": "Frank Grønbeck Nilsen"
+    },
+    {
+      "key": "grete-lokoy",
+      "navn": "Grete Lokøy"
+    },
+    {
+      "key": "iben-anne-marta-steinsvik",
+      "navn": "Iben Anne-Marta Steinsvik"
+    },
+    {
+      "key": "inger-lise-strom",
+      "navn": "Inger Lise Strøm"
+    },
+    {
+      "key": "iselin-vedal-sandnes",
+      "navn": "Iselin Vedal Sandnes"
+    },
+    {
+      "key": "kari-anne-bokestad-andreassen",
+      "navn": "Kari Anne Bøkestad Andreassen"
+    },
+    {
+      "key": "kyrre-olaf-johansen",
+      "navn": "Kyrre Olaf Johansen"
+    },
+    {
+      "key": "matthew-steinsvik-hadley",
+      "navn": "Matthew Steinsvik Hadley"
+    },
+    {
+      "key": "nina-nyheim-skogmo",
+      "navn": "Nina Nyheim Skogmo"
+    },
+    {
+      "key": "nina-steinsvik",
+      "navn": "Nina Steinsvik"
+    },
+    {
+      "key": "ramona-flostrand",
+      "navn": "Ramona Flostrand"
+    },
+    {
+      "key": "raymond-langfjord",
+      "navn": "Raymond Langfjord"
+    },
+    {
+      "key": "roald-dolmen",
+      "navn": "Roald Dolmen"
+    },
+    {
+      "key": "roger-drange",
+      "navn": "Roger Drange"
+    },
+    {
+      "key": "ronald-jacobsen",
+      "navn": "Ronald Jacobsen"
+    },
+    {
+      "key": "rune-einvold",
+      "navn": "Rune Einvold"
+    },
+    {
+      "key": "sigbjorn-gladso",
+      "navn": "Sigbjørn Gladsø"
+    },
+    {
+      "key": "stefan-moe-klausmark",
+      "navn": "Stefan Moe Klausmark"
+    },
+    {
+      "key": "stein-sturla-steinsvik",
+      "navn": "Stein Sturla Steinsvik"
+    },
+    {
+      "key": "stig-roar-olsen",
+      "navn": "Stig Roar Olsen"
+    },
+    {
+      "key": "sturla-sand",
+      "navn": "Sturla Sand"
+    },
+    {
+      "key": "thomas-myrholt",
+      "navn": "Thomas Myrholt"
+    },
+    {
+      "key": "turid-halseth",
+      "navn": "Turid Halseth"
+    },
+    {
+      "key": "vegard-sandoy",
+      "navn": "Vegard Sandøy"
+    },
+    {
+      "key": "vivian-bjornback-molid",
+      "navn": "Vivian Bjørnback Molid"
+    }
+  ],
+  "roller": [
+    {
+      "org": "akvafuture",
+      "person": "audhild-bang-rande",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "akvafuture",
+      "person": "brynjar-kristian-forbergskog",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "akvafuture",
+      "person": "kari-anne-bokestad-andreassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "akvafuture",
+      "person": "roald-dolmen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "akvafuture",
+      "person": "sigbjorn-gladso",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "akvafuture",
+      "person": "sturla-sand",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "akvafuture",
+      "person": "thomas-myrholt",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "person": "anne-tone-steinsvik",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "person": "iben-anne-marta-steinsvik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "person": "kyrre-olaf-johansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "person": "matthew-steinsvik-hadley",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "person": "nina-steinsvik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "person": "raymond-langfjord",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "person": "ronald-jacobsen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "person": "stein-sturla-steinsvik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "person": "vivian-bjornback-molid",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kommune-helse-og-velferd",
+      "person": "frank-gronbeck-nilsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kommune-oppvekst",
+      "person": "frank-gronbeck-nilsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kommune-samfunn",
+      "person": "frank-gronbeck-nilsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kommune-sentraladministrasjon",
+      "person": "frank-gronbeck-nilsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-kommune",
+      "person": "frank-gronbeck-nilsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "person": "bernt-endre-andreassen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "person": "iselin-vedal-sandnes",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "person": "nina-nyheim-skogmo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "person": "ramona-flostrand",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "person": "rune-einvold",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "person": "stefan-moe-klausmark",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "person": "stig-roar-olsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "person": "turid-halseth",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "person": "vegard-sandoy",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "registerenheten-i-bronnoysund",
+      "person": "inger-lise-strom",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stetind-entreprenor",
+      "person": "bard-kristian-flore",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stetind-entreprenor",
+      "person": "bard-kristian-flore",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stetind-entreprenor",
+      "person": "eivind-iden",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stetind-entreprenor",
+      "person": "grete-lokoy",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stetind-entreprenor",
+      "person": "roger-drange",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "bronnoy-kommunestyre",
+      "til": "bronnoy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kommuneloven",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "bronnoysund-videregaende-skole",
+      "til": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "connect-bus-norge-as-avd-bronnoysund",
+      "til": "connect-bus-norge",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "digitaliseringsdirektoratet-avd-bronnoysund",
+      "til": "digitaliseringsdirektoratet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "helgelandssykehuset-hf-bronnoysund-ambulansetjeneste",
+      "til": "helgelandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "iss-facility-services-as-avd-renhold-bronnoysund",
+      "til": "iss-facility-services",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "torghatten-midt-as-avd-sjo",
+      "til": "torghatten-midt",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "akvafuture",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 28098446,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "akvafuture",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 40385229,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "akvafuture",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 380713052,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "akvafuture",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 233837126,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 7431901,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 14279463,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 52801693,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bronnoy-kalk",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 192066244,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 451265,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 368987,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1076271,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 14996262,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stetind-entreprenor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 12470338,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stetind-entreprenor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 16595594,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stetind-entreprenor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 21410165,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stetind-entreprenor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 170560779,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "akvafuture",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "bronnoy-landbrukstjenester",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "connect-bus-norge-as-avd-bronnoysund",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "connect-bus-norge",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "helgelandssykehuset-hf-bronnoysund-ambulansetjeneste",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "helgelandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "torghatten-midt-as-avd-sjo",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "torghatten-midt",
+      "segment": "transport",
+      "styrke": 3
+    }
+  ],
+  "hull": []
+}
