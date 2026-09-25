@@ -1,0 +1,4976 @@
+{
+  "meta": {
+    "kommunenr": "1870",
+    "kommune": "Sortland - Suortá",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "domstol-no-lofoten-og-vesteralen-jordskifterett-ansatte",
+      "navn": "Lofoten og Vesterålen jordskifterett: Medarbeidere",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/lofoten-og-vesteralen-jordskifterett/ansatte/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-lofoten-og-vesteralen-jordskifterett-rettskrets",
+      "navn": "Lofoten og Vesterålen jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/lofoten-og-vesteralen-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "nordlandssykehuset-no-ledelsen",
+      "navn": "Nordlandssykehuset: Ledelsen (sist oppdatert 11.08.2026)",
+      "url": "https://www.nordlandssykehuset.no/om-oss/ledelsen-i-nordlandssykehuset/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "sortland-kommune-no",
+      "navn": "Sortland kommune (www.sortland.kommune.no)",
+      "url": "https://www.sortland.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+      "navn": "Midtre Hålogaland tingrett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/midtre-halogaland-tingrett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "sortland-formannskap",
+      "navn": "Formannskapet i Sortland - Suortá",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "sortland-kommunestyre",
+      "kommunenr": "1870",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "sortland-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra sortland.kommune.no/politikk/ordforer 2026-09-25."
+      }
+    },
+    {
+      "key": "sortland-kommune",
+      "orgnr": "847737492",
+      "navn": "Sortland - Suortá kommune",
+      "kortnavn": "Sortland kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1870",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ. Offisielt navn hos SSB: «Sortland - Suortá».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «SORTLAND KOMMUNE / SUORTTÁ SOUHKAN», organisasjonsform KOMM, forretningsadresse i kommune 1870."
+      }
+    },
+    {
+      "key": "sortland-kommune-administrasjonen",
+      "navn": "Administrasjonen i Sortland - Suortá kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "sortland-kommune",
+      "kommunenr": "1870",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "sortland-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra sortland.kommune.no/innsyn/organisasjon/kommunedirektor 2026-09-25."
+      }
+    },
+    {
+      "key": "sortland-kontrollutvalget",
+      "navn": "Kontrollutvalget i Sortland - Suortá",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "sortland-kommunestyre",
+      "kommunenr": "1870",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "sortland-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra sortland.kommune.no/politikk/kontrollutvalget 2026-09-25."
+      }
+    },
+    {
+      "key": "sortland-kommunestyre",
+      "navn": "Kommunestyret i Sortland - Suortá",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "sortland-kommune",
+      "kommunenr": "1870",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 27,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "lofoten-og-vesteralen-jordskifterett",
+      "orgnr": "926726609",
+      "navn": "Lofoten og Vesterålen jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i ti kommuner i Lofoten og Vesterålen, inkludert Lødingen.",
+      "belegg": {
+        "kilde": "domstol-no-lofoten-og-vesteralen-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "midtre-halogaland-tingrett",
+      "orgnr": "926723073",
+      "navn": "Midtre Hålogaland tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "55",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for Narvik, Evenes, Lødingen, Andøy, Bø, Hadsel, Sortland og Øksnes i Nordland og sju kommuner i Troms, med rettssteder i Harstad, Narvik og Sortland.",
+      "belegg": {
+        "kilde": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Hovedsete i Harstad (Troms) ifølge Enhetsregisteret."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "segmenter": [
+        "helse"
+      ],
+      "myndighet": [
+        "innkjop"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Helseforetak med hovedsete i Bodø, eid av Helse Nord RHF.",
+      "belegg": {
+        "kilde": "nordlandssykehuset-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 983974910, organisasjonsform SÆR, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Antall ansatte i registeret: 6861."
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
+      }
+    },
+    {
+      "key": "barne-ungdoms-og-familiedirektoratet",
+      "orgnr": "986128433",
+      "navn": "Barne-, Ungdoms- og Familiedirektoratet",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "biltrend-vesteralen",
+      "orgnr": "985527474",
+      "navn": "Biltrend Vesterålen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2002-12-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 95.310 «Reparasjon og vedlikehold av motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "bjorn-ovik",
+      "orgnr": "893108882",
+      "navn": "Bjørn Ovik AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2008-08-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.990 «Annen spesialisert bygge- og anleggsvirksomhet ikke nevnt annet sted».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "boreal-buss",
+      "orgnr": "979437218",
+      "navn": "Boreal Buss AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5001",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1997-11-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "boreal-buss-as-avd-vesteralen",
+      "orgnr": "974295857",
+      "navn": "Boreal Buss AS Avd Vesterålen",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "boreal-buss",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sortland - Suortá for Boreal Buss AS, med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "bufetat-nord-sollia-barne-og-ungdomssenter",
+      "orgnr": "974621495",
+      "navn": "Bufetat Nord Sollia Barne- og Ungdomssenter",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "barne-ungdoms-og-familiedirektoratet",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sortland - Suortá for Barne-, Ungdoms- og Familiedirektoratet, med næringskode 87.991 «Tjenester i barneverninstitusjoner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "bulldozer-maskinlag-entreprenor",
+      "orgnr": "979473524",
+      "navn": "Bulldozer Maskinlag Entreprenør AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1997-12-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "eidsfjord-sjofarm",
+      "orgnr": "958023685",
+      "navn": "Eidsfjord Sjøfarm AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1990-07-03",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "eimskip-shipping",
+      "orgnr": "997345517",
+      "navn": "Eimskip Shipping AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2011-09-07",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 50.201 «Utenriks sjøfart med gods».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "el-team",
+      "orgnr": "983389317",
+      "navn": "El-Team AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2001-05-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.210 «Elektrisk installasjonsarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "elkjop-vesteralen",
+      "orgnr": "980896994",
+      "navn": "Elkjøp Vesterålen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1999-06-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.400 «Detaljhandel med informasjons- og kommunikasjonsteknologiutstyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "holmoy-maritime",
+      "orgnr": "913304993",
+      "navn": "Holmøy Maritime AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2014-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "holmoy-produkter",
+      "orgnr": "927185180",
+      "navn": "Holmøy Produkter AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2021-05-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "jobzone-norge",
+      "orgnr": "983032222",
+      "navn": "Jobzone Norge AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2001-01-26",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "jobzone-norge-as-avd-halogaland",
+      "orgnr": "990420920",
+      "navn": "Jobzone Norge AS Avd Hålogaland",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "jobzone-norge",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2006-06-24",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sortland - Suortá for Jobzone Norge AS, med næringskode 78.200 «Utleie av arbeidskraft og andre personaladministrative tjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "landbrukstjenesten-midtre-halogaland",
+      "orgnr": "970921621",
+      "navn": "Landbrukstjenesten Midtre Hålogaland SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "landbruk"
+      ],
+      "gyldig_fra": "1974-09-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 01.610 «Tjenester tilknyttet planteproduksjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "losseteamet",
+      "orgnr": "923471472",
+      "navn": "Losseteamet AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2019-08-26",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 52.240 «Lasting og lossing».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "orgnr": "974793725",
+      "navn": "Nordland Fylkeskommune Utdanning og Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset-hf-ambulanse-sortland",
+      "orgnr": "990739412",
+      "navn": "Nordlandssykehuset HF Ambulanse Sortland",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "nordlandssykehuset",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2006-12-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sortland - Suortá for Nordlandssykehuset HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordtrafikk",
+      "orgnr": "988374474",
+      "navn": "Nordtrafikk AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2005-06-03",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "ottar-bergersen-sonner",
+      "orgnr": "928086429",
+      "navn": "Ottar Bergersen & Sønner AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2021-08-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "reno-vest-produksjon",
+      "orgnr": "912209571",
+      "navn": "Reno-Vest Produksjon AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "avfall-miljo"
+      ],
+      "gyldig_fra": "2013-06-03",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 38.110 «Innsamling av ikke-farlig avfall».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sa-produksjon",
+      "orgnr": "928333973",
+      "navn": "SA-Produksjon AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2021-11-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 88.993 «Arbeidstrening og varig tilrettelagt arbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "sortland-auto",
+      "orgnr": "975931226",
+      "navn": "Sortland Auto AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-11-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.810 «Detaljhandel med motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "sortland-caravan",
+      "orgnr": "935447402",
+      "navn": "Sortland Caravan AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1984-02-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.810 «Detaljhandel med motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "sortland-entreprenor",
+      "orgnr": "846625992",
+      "navn": "Sortland Entreprenør AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "1988-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 41.000 «Oppføring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "sortland-politistasjon",
+      "orgnr": "974756862",
+      "navn": "Sortland Politistasjon",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "overordnet": "nordland-politidistrikt",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Arbeidssted i Sortland - Suortá for Nordland politidistrikt, med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "sortland-videregaende-skole-avd-sortland",
+      "orgnr": "974621053",
+      "navn": "Sortland Videregående Skole Avd Sortland",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Sortland - Suortá for Nordland Fylkeskommune Utdanning og Kompetanse, med næringskode 85.310 «Videregående opplæring innenfor studieforberedende utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "teknisk-bureau-sortland",
+      "orgnr": "935396387",
+      "navn": "Teknisk Bureau Sortland AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1984-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 95.310 «Reparasjon og vedlikehold av motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "vestall",
+      "orgnr": "968168134",
+      "navn": "Vestall AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "1993-12-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 35.140 «Distribusjon av elektrisitet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "vesteraalens",
+      "orgnr": "987004169",
+      "navn": "Vesteraalens AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2004-06-07",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "vesteralen-bil",
+      "orgnr": "976550285",
+      "navn": "Vesterålen Bil AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1996-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.810 «Detaljhandel med motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "vesteralen-hotelldrift",
+      "orgnr": "923017933",
+      "navn": "Vesterålen Hotelldrift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2019-05-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "xl-bygg-sortland",
+      "orgnr": "946616184",
+      "navn": "XL-Bygg Sortland AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1870",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 46.830 «Engroshandel med tømmer, trelast, byggevarer og sanitærutstyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "fred-frivag",
+      "navn": "Fred Frivåg"
+    },
+    {
+      "key": "leif-asmund-hovden",
+      "navn": "Leif Åsmund Hovden"
+    },
+    {
+      "key": "roar-wessel-olsen",
+      "navn": "Roar Wessel-Olsen"
+    },
+    {
+      "key": "ann-cathrin-stafseth",
+      "navn": "Ann Cathrin Stafseth"
+    },
+    {
+      "key": "beate-bo-nilsen",
+      "navn": "Beate Bø Nilsen"
+    },
+    {
+      "key": "britt-marie-stiberg",
+      "navn": "Britt Marie Stiberg"
+    },
+    {
+      "key": "christoffer-ellingsen",
+      "navn": "Christoffer Ellingsen"
+    },
+    {
+      "key": "einar-marstad",
+      "navn": "Einar Mårstad"
+    },
+    {
+      "key": "elisabeth-reinsnes",
+      "navn": "Elisabeth Reinsnes"
+    },
+    {
+      "key": "frank-ludvigsen",
+      "navn": "Frank Ludvigsen"
+    },
+    {
+      "key": "grete-ellingsen",
+      "navn": "Grete Ellingsen"
+    },
+    {
+      "key": "helene-enoksen",
+      "navn": "Helene Enoksen"
+    },
+    {
+      "key": "ina-beathe-alexandra-jensen",
+      "navn": "Ina Beathe Alexandra Jensen"
+    },
+    {
+      "key": "joakim-eivik",
+      "navn": "Joakim Eivik"
+    },
+    {
+      "key": "jorn-hermod-martinussen",
+      "navn": "Jørn Hermod Martinussen"
+    },
+    {
+      "key": "kristian-barstad-ellingsen",
+      "navn": "Kristian Barstad Ellingsen"
+    },
+    {
+      "key": "lill-kristin-johannessen",
+      "navn": "Lill-Kristin Johannessen"
+    },
+    {
+      "key": "liv-tjonso",
+      "navn": "Liv Tjønsø"
+    },
+    {
+      "key": "marius-enoksen",
+      "navn": "Marius Enoksen"
+    },
+    {
+      "key": "maroun-abou-zeid",
+      "navn": "Maroun Abou Zeid"
+    },
+    {
+      "key": "marte-mari-moen-hovlund",
+      "navn": "Marte Mari Moen Hovlund"
+    },
+    {
+      "key": "mette-rokenes",
+      "navn": "Mette Røkenes"
+    },
+    {
+      "key": "nina-kraknes",
+      "navn": "Nina Kraknes"
+    },
+    {
+      "key": "roy-allan-jenssen",
+      "navn": "Roy-Allan Jenssen"
+    },
+    {
+      "key": "rune-stigen-kvannli",
+      "navn": "Rune Stigen Kvannli"
+    },
+    {
+      "key": "sigrid-randers-pehrson",
+      "navn": "Sigrid Randers-Pehrson"
+    },
+    {
+      "key": "silvia-ovik-marhaug",
+      "navn": "Silvia Ovik Marhaug"
+    },
+    {
+      "key": "toine-c-sannes",
+      "navn": "Toine C. Sannes"
+    },
+    {
+      "key": "tove-mette-bjorkmo",
+      "navn": "Tove Mette Bjørkmo"
+    },
+    {
+      "key": "alf-magnar-hansen",
+      "navn": "Alf Magnar Hansen"
+    },
+    {
+      "key": "ane-nordahl-carlsen",
+      "navn": "Ane Nordahl Carlsen"
+    },
+    {
+      "key": "anita-jacobsen",
+      "navn": "Anita Jacobsen"
+    },
+    {
+      "key": "arne-olav-flo",
+      "navn": "Arne Olav Flø"
+    },
+    {
+      "key": "arvid-nyborg",
+      "navn": "Arvid Nyborg"
+    },
+    {
+      "key": "ase-helene-ronning-eilertsen",
+      "navn": "Åse Helene Rønning Eilertsen"
+    },
+    {
+      "key": "atle-bakke",
+      "navn": "Atle Bakke"
+    },
+    {
+      "key": "borge-holm",
+      "navn": "Børge Holm"
+    },
+    {
+      "key": "daniel-lagesen",
+      "navn": "Daniel Lagesen"
+    },
+    {
+      "key": "elise-gustavsen",
+      "navn": "Elise Gustavsen"
+    },
+    {
+      "key": "ellen-margrete-davidsen",
+      "navn": "Ellen Margrete Davidsen"
+    },
+    {
+      "key": "even-magnar-hanssen",
+      "navn": "Even Magnar Hanssen"
+    },
+    {
+      "key": "guro-irene-grimstvedt",
+      "navn": "Guro Irene Grimstvedt"
+    },
+    {
+      "key": "haakon-knudsen",
+      "navn": "Haakon Knudsen"
+    },
+    {
+      "key": "hallgeir-fredrik-stavoy",
+      "navn": "Hallgeir Fredrik Stavøy"
+    },
+    {
+      "key": "halvard-severin-pettersen",
+      "navn": "Halvard Severin Pettersen"
+    },
+    {
+      "key": "hanne-elise-skare",
+      "navn": "Hanne Elise Skare"
+    },
+    {
+      "key": "heidi-holmoy",
+      "navn": "Heidi Holmøy"
+    },
+    {
+      "key": "helena-midtgard",
+      "navn": "Helena Midtgård"
+    },
+    {
+      "key": "hilde-norum-nilsen",
+      "navn": "Hilde Norum Nilsen"
+    },
+    {
+      "key": "ida-margrethe-holmoy",
+      "navn": "Ida Margrethe Holmøy"
+    },
+    {
+      "key": "jarle-normann-frantzen",
+      "navn": "Jarle Normann Frantzen"
+    },
+    {
+      "key": "jeanette-pauline-sollie",
+      "navn": "Jeanette Pauline Sollie"
+    },
+    {
+      "key": "john-kristian-elvenes-stoltz",
+      "navn": "John Kristian Elvenes Stoltz"
+    },
+    {
+      "key": "jorgen-sollie",
+      "navn": "Jørgen Sollie"
+    },
+    {
+      "key": "kay-arne-nygard",
+      "navn": "Kay-Arne Nygård"
+    },
+    {
+      "key": "kay-hugo-hanssen",
+      "navn": "Kay-Hugo Hanssen"
+    },
+    {
+      "key": "kim-andre-gjellestad",
+      "navn": "Kim Andre Gjellestad"
+    },
+    {
+      "key": "kine-ellingsen-stavoy",
+      "navn": "Kine Ellingsen Stavøy"
+    },
+    {
+      "key": "knut-roald-holmoy",
+      "navn": "Knut Roald Holmøy"
+    },
+    {
+      "key": "kristian-eilertsen",
+      "navn": "Kristian Eilertsen"
+    },
+    {
+      "key": "kristoffer-gabrielsen-nyborg",
+      "navn": "Kristoffer Gabrielsen Nyborg"
+    },
+    {
+      "key": "kurt-ivan-dishington-johnsen",
+      "navn": "Kurt-Ivan Dishington Johnsen"
+    },
+    {
+      "key": "lara-konradsdottir",
+      "navn": "Lara Konradsdottir"
+    },
+    {
+      "key": "leif-werner-einangen-johansen",
+      "navn": "Leif Werner Einangen Johansen"
+    },
+    {
+      "key": "lisbeth-yttervik-reinholdtsen",
+      "navn": "Lisbeth Yttervik Reinholdtsen"
+    },
+    {
+      "key": "lise-anette-gustavsen",
+      "navn": "Lise Anette Gustavsen"
+    },
+    {
+      "key": "lukasz-marcin-kutarba",
+      "navn": "Lukasz Marcin Kutarba"
+    },
+    {
+      "key": "mads-hakon-rokenes",
+      "navn": "Mads Håkon Røkenes"
+    },
+    {
+      "key": "marina-gjertsen-pettersen",
+      "navn": "Marina Gjertsen Pettersen"
+    },
+    {
+      "key": "marius-molund",
+      "navn": "Marius Molund"
+    },
+    {
+      "key": "marte-camilla-gabrielsen-nyborg",
+      "navn": "Marte Camilla Gabrielsen Nyborg"
+    },
+    {
+      "key": "mats-eirik-johnsen",
+      "navn": "Mats Eirik Johnsen"
+    },
+    {
+      "key": "morten-roll",
+      "navn": "Morten Roll"
+    },
+    {
+      "key": "nikolai-eliassen",
+      "navn": "Nikolai Eliassen"
+    },
+    {
+      "key": "odd-are-sorensen",
+      "navn": "Odd-Are Sørensen"
+    },
+    {
+      "key": "oddbjorn-toften",
+      "navn": "Oddbjørn Toften"
+    },
+    {
+      "key": "oddvar-sigvard-antonsen",
+      "navn": "Oddvar Sigvard Antonsen"
+    },
+    {
+      "key": "olaf-erling-prestlokken",
+      "navn": "Olaf Erling Prestløkken"
+    },
+    {
+      "key": "olafur-orri-olafsson",
+      "navn": "Olafur Orri Olafsson"
+    },
+    {
+      "key": "ole-kristian-kjellbakk",
+      "navn": "Ole Kristian Kjellbakk"
+    },
+    {
+      "key": "orjan-ovik",
+      "navn": "Ørjan Ovik"
+    },
+    {
+      "key": "oystein-olesen",
+      "navn": "Øystein Olesen"
+    },
+    {
+      "key": "per-ivar-molund",
+      "navn": "Per Ivar Molund"
+    },
+    {
+      "key": "peter-heistad-pedersen",
+      "navn": "Peter Heistad Pedersen"
+    },
+    {
+      "key": "ragnhill-mari-ovesen",
+      "navn": "Ragnhill Mari Ovesen"
+    },
+    {
+      "key": "randi-hokland",
+      "navn": "Randi Hokland"
+    },
+    {
+      "key": "renate-fjellheim-johnsen",
+      "navn": "Renate Fjellheim Johnsen"
+    },
+    {
+      "key": "roger-brynjulf-mosand",
+      "navn": "Roger Brynjulf Mosand"
+    },
+    {
+      "key": "roger-dagfinn-simonsen",
+      "navn": "Roger Dagfinn Simonsen"
+    },
+    {
+      "key": "ronny-jens-hansen",
+      "navn": "Ronny Jens Hansen"
+    },
+    {
+      "key": "ronny-michal-bergersen",
+      "navn": "Ronny Michal Bergersen"
+    },
+    {
+      "key": "roy-simon-bang",
+      "navn": "Roy Simon Bang"
+    },
+    {
+      "key": "signe-ringstad",
+      "navn": "Signe Ringstad"
+    },
+    {
+      "key": "stian-reinholdtsen",
+      "navn": "Stian Reinholdtsen"
+    },
+    {
+      "key": "svein-arne-simonsen",
+      "navn": "Svein Arne Simonsen"
+    },
+    {
+      "key": "svein-erik-nicolaysen",
+      "navn": "Svein Erik Nicolaysen"
+    },
+    {
+      "key": "sverre-christian-utvag",
+      "navn": "Sverre Christian Utvåg"
+    },
+    {
+      "key": "tage-saervold-ellingsen",
+      "navn": "Tage Særvold Ellingsen"
+    },
+    {
+      "key": "terje-gudbrandsen",
+      "navn": "Terje Gudbrandsen"
+    },
+    {
+      "key": "tom-gunnar-aasen",
+      "navn": "Tom Gunnar Aasen"
+    },
+    {
+      "key": "tom-meier",
+      "navn": "Tom Meier"
+    },
+    {
+      "key": "tom-rainer-nilsen",
+      "navn": "Tom Rainer Nilsen"
+    },
+    {
+      "key": "torbjorn-asbakk",
+      "navn": "Torbjørn Åsbakk"
+    },
+    {
+      "key": "tore-holand",
+      "navn": "Tore Holand"
+    },
+    {
+      "key": "torgeir-arntsen",
+      "navn": "Torgeir Arntsen"
+    },
+    {
+      "key": "trond-forsdahl",
+      "navn": "Trond Forsdahl"
+    },
+    {
+      "key": "trond-helge-skretting",
+      "navn": "Trond Helge Skretting"
+    },
+    {
+      "key": "vetle-elias-johnsen",
+      "navn": "Vetle Elias Johnsen"
+    },
+    {
+      "key": "yngvar-johnsen",
+      "navn": "Yngvar Johnsen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "sortland-formannskap",
+      "person": "grete-ellingsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "sortland-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra sortland.kommune.no/politikk/ordforer 2026-09-25. Ordførersiden: ordføreren «leder møtene i kommunestyret og formannskapet»."
+      }
+    },
+    {
+      "org": "sortland-kommune-administrasjonen",
+      "person": "leif-asmund-hovden",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "konstituert",
+      "fra": "2026-05-28",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Sortland kommune (www.sortland.kommune.no), per 2026-09-25). Grunnlagets merknad: Hentet fra sortland.kommune.no/innsyn/organisasjon/kommunedirektor 2026-09-25. Siden: «konstituert kommunedirektør i Sortland kommune, fra 28. mai 2026»."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "maroun-abou-zeid",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "sortland-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra sortland.kommune.no/politikk/ordforer 2026-09-25."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "grete-ellingsen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "sortland-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra sortland.kommune.no/politikk/ordforer 2026-09-25. Siden: «valgt som ordfører for perioden 2023-2027»."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "ann-cathrin-stafseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "beate-bo-nilsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "christoffer-ellingsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "einar-marstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "elisabeth-reinsnes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "frank-ludvigsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "fred-frivag",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "grete-ellingsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "helene-enoksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "ina-beathe-alexandra-jensen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "joakim-eivik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "jorn-hermod-martinussen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "kristian-barstad-ellingsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "lill-kristin-johannessen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "liv-tjonso",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "marius-enoksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "maroun-abou-zeid",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "marte-mari-moen-hovlund",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "mette-rokenes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "nina-kraknes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "roar-wessel-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "roy-allan-jenssen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "rune-stigen-kvannli",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "sigrid-randers-pehrson",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "silvia-ovik-marhaug",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "toine-c-sannes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "MDG",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "sortland-kommunestyre",
+      "person": "tove-mette-bjorkmo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "status": "fast",
+      "org": "lofoten-og-vesteralen-jordskifterett",
+      "person": "britt-marie-stiberg",
+      "tittel": "Jordskifterettsleder",
+      "rolletype": "dommer_leder",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Lofoten og Vesterålen jordskifterett: Medarbeidere, per 2026-09-25). Grunnlagets merknad: Hentet fra domstol.no (medarbeidere) 25.09.2026."
+      }
+    },
+    {
+      "org": "biltrend-vesteralen",
+      "person": "guro-irene-grimstvedt",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "biltrend-vesteralen",
+      "person": "haakon-knudsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "biltrend-vesteralen",
+      "person": "marius-molund",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "biltrend-vesteralen",
+      "person": "per-ivar-molund",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bjorn-ovik",
+      "person": "orjan-ovik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bjorn-ovik",
+      "person": "torgeir-arntsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bjorn-ovik",
+      "person": "trond-helge-skretting",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bulldozer-maskinlag-entreprenor",
+      "person": "jarle-normann-frantzen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bulldozer-maskinlag-entreprenor",
+      "person": "lise-anette-gustavsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bulldozer-maskinlag-entreprenor",
+      "person": "oddbjorn-toften",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "eidsfjord-sjofarm",
+      "person": "knut-roald-holmoy",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "eidsfjord-sjofarm",
+      "person": "roger-dagfinn-simonsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "eimskip-shipping",
+      "person": "lara-konradsdottir",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "eimskip-shipping",
+      "person": "nikolai-eliassen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "el-team",
+      "person": "mads-hakon-rokenes",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "el-team",
+      "person": "mads-hakon-rokenes",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "el-team",
+      "person": "olaf-erling-prestlokken",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elkjop-vesteralen",
+      "person": "mats-eirik-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "elkjop-vesteralen",
+      "person": "mats-eirik-johnsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "holmoy-maritime",
+      "person": "heidi-holmoy",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "holmoy-maritime",
+      "person": "kay-arne-nygard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "holmoy-maritime",
+      "person": "knut-roald-holmoy",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "holmoy-maritime",
+      "person": "lisbeth-yttervik-reinholdtsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "holmoy-maritime",
+      "person": "stian-reinholdtsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "holmoy-maritime",
+      "person": "svein-erik-nicolaysen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "holmoy-maritime",
+      "person": "tore-holand",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "holmoy-produkter",
+      "person": "borge-holm",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "holmoy-produkter",
+      "person": "knut-roald-holmoy",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "person": "daniel-lagesen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "person": "even-magnar-hanssen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "person": "helena-midtgard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "person": "john-kristian-elvenes-stoltz",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "person": "lukasz-marcin-kutarba",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "person": "marina-gjertsen-pettersen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "person": "randi-hokland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "person": "ronny-jens-hansen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "person": "svein-arne-simonsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "losseteamet",
+      "person": "borge-holm",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "losseteamet",
+      "person": "roy-simon-bang",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordtrafikk",
+      "person": "hilde-norum-nilsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordtrafikk",
+      "person": "jeanette-pauline-sollie",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordtrafikk",
+      "person": "jorgen-sollie",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordtrafikk",
+      "person": "jorgen-sollie",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordtrafikk",
+      "person": "olafur-orri-olafsson",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordtrafikk",
+      "person": "tom-rainer-nilsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ottar-bergersen-sonner",
+      "person": "ronny-michal-bergersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ottar-bergersen-sonner",
+      "person": "ronny-michal-bergersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "reno-vest-produksjon",
+      "person": "elise-gustavsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "reno-vest-produksjon",
+      "person": "hanne-elise-skare",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "reno-vest-produksjon",
+      "person": "roger-brynjulf-mosand",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "reno-vest-produksjon",
+      "person": "tage-saervold-ellingsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sa-produksjon",
+      "person": "ellen-margrete-davidsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sa-produksjon",
+      "person": "kim-andre-gjellestad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sa-produksjon",
+      "person": "kurt-ivan-dishington-johnsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sa-produksjon",
+      "person": "ragnhill-mari-ovesen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sa-produksjon",
+      "person": "tom-gunnar-aasen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sa-produksjon",
+      "person": "tom-meier",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-auto",
+      "person": "arvid-nyborg",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-auto",
+      "person": "kristoffer-gabrielsen-nyborg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-auto",
+      "person": "marte-camilla-gabrielsen-nyborg",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-auto",
+      "person": "marte-camilla-gabrielsen-nyborg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-caravan",
+      "person": "renate-fjellheim-johnsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-caravan",
+      "person": "vetle-elias-johnsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-caravan",
+      "person": "yngvar-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-caravan",
+      "person": "yngvar-johnsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-entreprenor",
+      "person": "kristian-eilertsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-entreprenor",
+      "person": "oystein-olesen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-entreprenor",
+      "person": "signe-ringstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sortland-entreprenor",
+      "person": "torgeir-arntsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "teknisk-bureau-sortland",
+      "person": "anita-jacobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "teknisk-bureau-sortland",
+      "person": "oddvar-sigvard-antonsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "teknisk-bureau-sortland",
+      "person": "trond-forsdahl",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestall",
+      "person": "arne-olav-flo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestall",
+      "person": "ase-helene-ronning-eilertsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestall",
+      "person": "halvard-severin-pettersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestall",
+      "person": "leif-werner-einangen-johansen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestall",
+      "person": "morten-roll",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestall",
+      "person": "odd-are-sorensen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestall",
+      "person": "torbjorn-asbakk",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteraalens",
+      "person": "ane-nordahl-carlsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteraalens",
+      "person": "kay-hugo-hanssen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteraalens",
+      "person": "ole-kristian-kjellbakk",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteralen-bil",
+      "person": "hallgeir-fredrik-stavoy",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteralen-bil",
+      "person": "kine-ellingsen-stavoy",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteralen-bil",
+      "person": "terje-gudbrandsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteralen-hotelldrift",
+      "person": "alf-magnar-hansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteralen-hotelldrift",
+      "person": "ida-margrethe-holmoy",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteralen-hotelldrift",
+      "person": "kay-arne-nygard",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vesteralen-hotelldrift",
+      "person": "sverre-christian-utvag",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "xl-bygg-sortland",
+      "person": "atle-bakke",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "xl-bygg-sortland",
+      "person": "peter-heistad-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "xl-bygg-sortland",
+      "person": "signe-ringstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "xl-bygg-sortland",
+      "person": "torgeir-arntsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "sortland-formannskap",
+      "til": "sortland-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "sortland-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra sortland.kommune.no/politikk/ordforer 2026-09-25."
+      }
+    },
+    {
+      "fra": "sortland-kommune-administrasjonen",
+      "til": "sortland-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "sortland-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra sortland.kommune.no/innsyn/organisasjon/kommunedirektor 2026-09-25."
+      }
+    },
+    {
+      "fra": "sortland-kontrollutvalget",
+      "til": "sortland-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "sortland-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra sortland.kommune.no/politikk/kontrollutvalget 2026-09-25."
+      }
+    },
+    {
+      "fra": "sortland-kommunestyre",
+      "til": "sortland-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
+      }
+    },
+    {
+      "fra": "boreal-buss-as-avd-vesteralen",
+      "til": "boreal-buss",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "bufetat-nord-sollia-barne-og-ungdomssenter",
+      "til": "barne-ungdoms-og-familiedirektoratet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "jobzone-norge-as-avd-halogaland",
+      "til": "jobzone-norge",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordlandssykehuset-hf-ambulanse-sortland",
+      "til": "nordlandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "sortland-politistasjon",
+      "til": "nordland-politidistrikt",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "sortland-videregaende-skole-avd-sortland",
+      "til": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "biltrend-vesteralen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 758108,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "biltrend-vesteralen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2296874,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "biltrend-vesteralen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 16387908,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "biltrend-vesteralen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 125970268,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bjorn-ovik",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1917009,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bjorn-ovik",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2835892,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bjorn-ovik",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 14063670,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bjorn-ovik",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 122657635,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bulldozer-maskinlag-entreprenor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 445634,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bulldozer-maskinlag-entreprenor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4711499,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bulldozer-maskinlag-entreprenor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 19900995,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bulldozer-maskinlag-entreprenor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 185551533,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "eidsfjord-sjofarm",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 47351293,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "eidsfjord-sjofarm",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 70368785,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "eidsfjord-sjofarm",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 598414389,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "eidsfjord-sjofarm",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 1475819978,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "eimskip-shipping",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1889402,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "eimskip-shipping",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2929240,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "eimskip-shipping",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 48296637,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "eimskip-shipping",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 216649493,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "el-team",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 16800956,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "el-team",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 21099515,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "el-team",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 28808532,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "el-team",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 239391947,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "elkjop-vesteralen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 6756908,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "elkjop-vesteralen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 8575299,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "elkjop-vesteralen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7779180,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "elkjop-vesteralen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 132398595,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "holmoy-maritime",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 160358696,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "holmoy-maritime",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 42092812,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "holmoy-maritime",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 371911056,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "holmoy-maritime",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 286146631,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "holmoy-produkter",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 12284294,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "holmoy-produkter",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 14858755,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "holmoy-produkter",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 19273714,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "holmoy-produkter",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 275506508,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 231746,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 266912,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2610592,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 18992867,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "losseteamet",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 45139,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "losseteamet",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 58119,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "losseteamet",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1272749,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "losseteamet",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 8802840,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "nordtrafikk",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1395056,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "nordtrafikk",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3110467,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "nordtrafikk",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2047228,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "nordtrafikk",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 123001204,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "ottar-bergersen-sonner",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4756610,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ottar-bergersen-sonner",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 5237963,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ottar-bergersen-sonner",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 64732965,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ottar-bergersen-sonner",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 284035767,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "reno-vest-produksjon",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -9745250,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "reno-vest-produksjon",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -10656103,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "reno-vest-produksjon",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 28231157,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "reno-vest-produksjon",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 136674708,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sa-produksjon",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 794789,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sa-produksjon",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 574985,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sa-produksjon",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 13873563,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sa-produksjon",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 12753268,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sortland-auto",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3000866,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sortland-auto",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4653830,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sortland-auto",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 27839231,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sortland-auto",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 159510563,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sortland-caravan",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1493758,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sortland-caravan",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 646674,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sortland-caravan",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5611879,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sortland-caravan",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 115454849,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sortland-entreprenor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2855759,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sortland-entreprenor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2513052,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sortland-entreprenor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 8493007,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "sortland-entreprenor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 292449521,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "teknisk-bureau-sortland",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1386608,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "teknisk-bureau-sortland",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2496013,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "teknisk-bureau-sortland",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 9665323,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "teknisk-bureau-sortland",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 145965051,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vestall",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 17912622,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vestall",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 41109115,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vestall",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 206842094,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vestall",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 137807341,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteraalens",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 10120299,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteraalens",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 13754571,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteraalens",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 153946846,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteraalens",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 149039808,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteralen-bil",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1986696,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "vesteralen-bil",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3095237,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "vesteralen-bil",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 13608970,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "vesteralen-bil",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 107196183,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "vesteralen-hotelldrift",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3805216,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteralen-hotelldrift",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4613616,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteralen-hotelldrift",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 100449,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vesteralen-hotelldrift",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 57913545,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "xl-bygg-sortland",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3595341,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "xl-bygg-sortland",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 5733966,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "xl-bygg-sortland",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2975132,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "xl-bygg-sortland",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 141981959,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Sortland?",
+      "steg": [
+        {
+          "org": "sortland-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "sortland-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (sortland-kommune-no); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "sortland-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Sortland kommune?",
+      "steg": [
+        {
+          "org": "sortland-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "sortland-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (sortland-kommune-no)."
+          }
+        },
+        {
+          "org": "sortland-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "boreal-buss-as-avd-vesteralen",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "boreal-buss",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "eidsfjord-sjofarm",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "eimskip-shipping",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "holmoy-maritime",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "holmoy-produkter",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "landbrukstjenesten-midtre-halogaland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "losseteamet",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset-hf-ambulanse-sortland",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordtrafikk",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "ottar-bergersen-sonner",
+      "segment": "transport",
+      "styrke": 2
+    },
+    {
+      "org": "reno-vest-produksjon",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "sortland-entreprenor",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "vestall",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "vesteraalens",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "vesteralen-hotelldrift",
+      "segment": "reiseliv",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "sortland-kommune-administrasjonen",
+      "hva": "Hvorfor kommunedirektørstillingen er besatt med konstitusjon fra 28. mai 2026, og om fast kommunedirektør er ansatt.",
+      "hvorfor": "Siden oppgir bare konstitusjonen."
+    },
+    {
+      "gjelder": "sortland-kontrollutvalget",
+      "hva": "Leder av kontrollutvalget i Sortland er ikke oppgitt.",
+      "hvorfor": "Kommunens side nevner organet, men ikke hvem som leder det (sortland.kommune.no/politikk/kontrollutvalget)."
+    },
+    {
+      "gjelder": "sortland-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "sortland-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

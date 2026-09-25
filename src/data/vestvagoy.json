@@ -1,0 +1,5702 @@
+{
+  "meta": {
+    "kommunenr": "1860",
+    "kommune": "Vestvågøy",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "nordlandssykehuset-no-ledelsen",
+      "navn": "Nordlandssykehuset: Ledelsen (sist oppdatert 11.08.2026)",
+      "url": "https://www.nordlandssykehuset.no/om-oss/ledelsen-i-nordlandssykehuset/",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "vestvagoy-kommune-no",
+      "navn": "Vestvågøy kommune (www.vestvagoy.kommune.no)",
+      "url": "https://www.vestvagoy.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "vestvagoy-moteportal",
+      "navn": "Vestvågøy kommunes møteportal (ACOS Innsyn, www.vestvagoy.kommune.no)",
+      "url": "https://www.vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-lofoten-og-vesteralen-jordskifterett-rettskrets",
+      "navn": "Lofoten og Vesterålen jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/lofoten-og-vesteralen-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-salten-og-lofoten-tingrett-om",
+      "navn": "Salten og Lofoten tingrett: Om Salten og Lofoten tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/salten-og-lofoten-tingrett/om-salten-og-lofoten-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "vestvagoy-administrasjonsutvalg",
+      "navn": "Administrasjonsutvalg i Vestvågøy",
+      "kortnavn": "Administrasjonsutvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "vestvagoy-kommunestyre",
+      "kommunenr": "1860",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg for saker mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=42) 2026-09-25."
+      }
+    },
+    {
+      "key": "vestvagoy-eldreradet",
+      "navn": "Eldrerådet i Vestvågøy",
+      "kortnavn": "Eldrerådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "vestvagoy-kommunestyre",
+      "kommunenr": "1860",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=22) 2026-09-25."
+      }
+    },
+    {
+      "key": "vestvagoy-formannskap",
+      "navn": "Formannskapet i Vestvågøy",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "vestvagoy-kommunestyre",
+      "kommunenr": "1860",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=2) 2026-09-25."
+      }
+    },
+    {
+      "key": "vestvagoy-kommune",
+      "orgnr": "942570619",
+      "navn": "Vestvågøy kommune",
+      "kortnavn": "Vestvågøy kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1860",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «VESTVÅGØY KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1860."
+      }
+    },
+    {
+      "key": "vestvagoy-kommune-administrasjonen",
+      "navn": "Administrasjonen i Vestvågøy kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "vestvagoy-kommune",
+      "kommunenr": "1860",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Administrasjonen er ikke beskrevet på sidene som ble hentet; organet er tatt med fordi kommunen har en registrert daglig leder."
+      }
+    },
+    {
+      "key": "vestvagoy-kontrollutvalget",
+      "navn": "Kontrollutvalget i Vestvågøy",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "vestvagoy-kommunestyre",
+      "kommunenr": "1860",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "vestvagoy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx 2026-09-25. Innsynsportalen lister utvalget uten medlemmer."
+      }
+    },
+    {
+      "key": "vestvagoy-naeringsutvalget",
+      "navn": "Næringsutvalget i Vestvågøy",
+      "kortnavn": "Næringsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "vestvagoy-kommunestyre",
+      "kommunenr": "1860",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=21) 2026-09-25."
+      }
+    },
+    {
+      "key": "vestvagoy-radet-for-personer-med-funksjonsnedsettelse",
+      "navn": "Rådet for personer med funksjonsnedsettelse i Vestvågøy",
+      "kortnavn": "Rådet for personer med funksjonsnedsettelse",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "vestvagoy-kommunestyre",
+      "kommunenr": "1860",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=16) 2026-09-25."
+      }
+    },
+    {
+      "key": "vestvagoy-teknisk-utvalg",
+      "navn": "Teknisk utvalg i Vestvågøy",
+      "kortnavn": "Teknisk utvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "vestvagoy-kommunestyre",
+      "kommunenr": "1860",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=49) 2026-09-25."
+      }
+    },
+    {
+      "key": "vestvagoy-ungdommens-kommunestyre",
+      "navn": "Ungdommens kommunestyre i Vestvågøy",
+      "kortnavn": "Ungdommens kommunestyre",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "vestvagoy-kommunestyre",
+      "kommunenr": "1860",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=45) 2026-09-25."
+      }
+    },
+    {
+      "key": "vestvagoy-kommunestyre",
+      "navn": "Kommunestyret i Vestvågøy",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "vestvagoy-kommune",
+      "kommunenr": "1860",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 33,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "lofoten-og-vesteralen-jordskifterett",
+      "orgnr": "926726609",
+      "navn": "Lofoten og Vesterålen jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i ti kommuner i Lofoten og Vesterålen, inkludert Lødingen.",
+      "belegg": {
+        "kilde": "domstol-no-lofoten-og-vesteralen-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "segmenter": [
+        "helse"
+      ],
+      "myndighet": [
+        "innkjop"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Helseforetak med hovedsete i Bodø, eid av Helse Nord RHF.",
+      "belegg": {
+        "kilde": "nordlandssykehuset-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 983974910, organisasjonsform SÆR, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Antall ansatte i registeret: 6861."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-og-lofoten-tingrett",
+      "orgnr": "826723122",
+      "navn": "Salten og Lofoten tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for 16 kommuner i Salten og Lofoten, med bemannede rettssteder i Bodø og Svolvær.",
+      "belegg": {
+        "kilde": "domstol-no-salten-og-lofoten-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Domstolen har ifølge siden full fagkrets og dermed også enkelte forvaltningsoppgaver."
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
+      }
+    },
+    {
+      "key": "aqila",
+      "orgnr": "937155085",
+      "navn": "Aqila AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1985-01-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.210 «Elektrisk installasjonsarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "arctic-guide-service",
+      "orgnr": "882923932",
+      "navn": "Arctic Guide Service AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2001-01-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 79.902 «Guide- og reiseledervirksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "boreal-buss",
+      "orgnr": "979437218",
+      "navn": "Boreal Buss AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5001",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1997-11-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "boreal-buss-as-avd-lofoten",
+      "orgnr": "974330814",
+      "navn": "Boreal Buss AS Avd Lofoten",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "boreal-buss",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vestvågøy for Boreal Buss AS, med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "brekken-anlegg",
+      "orgnr": "926782312",
+      "navn": "Brekken Anlegg AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2021-02-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "byggtorget-lofoten",
+      "orgnr": "916250894",
+      "navn": "Byggtorget Lofoten AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2015-11-07",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.520 «Detaljhandel med jernvarer, byggevarer, fargevarer og glass».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "feel24",
+      "orgnr": "918478361",
+      "navn": "FEEL24 AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2017-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 93.130 «Treningssentervirksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "feel24-nordland",
+      "orgnr": "922222622",
+      "navn": "FEEL24 Nordland AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2019-01-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 93.130 «Treningssentervirksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "horns-slakteri",
+      "orgnr": "950381442",
+      "navn": "Horns Slakteri AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-12-07",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.110 «Bearbeiding og konservering av kjøtt unntatt fjørfekjøtt».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "isqueen",
+      "orgnr": "952217860",
+      "navn": "Isqueen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1989-06-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "k-kristoffersen",
+      "orgnr": "925572675",
+      "navn": "K. Kristoffersen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "2020-08-13",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "leroy-norway-seafoods",
+      "orgnr": "995548194",
+      "navn": "Lerøy Norway Seafoods AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2010-05-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "leroy-norway-seafoods-as-avd-stamsund",
+      "orgnr": "974087499",
+      "navn": "Lerøy Norway Seafoods AS Avd Stamsund",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "leroy-norway-seafoods",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vestvågøy for Lerøy Norway Seafoods AS, med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "lofot-entreprenor",
+      "orgnr": "943758956",
+      "navn": "Lofot Entreprenør AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "1987-01-13",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 41.000 «Oppføring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "lofoten-avfallsselskap",
+      "orgnr": "971014407",
+      "navn": "Lofoten Avfallsselskap IKS",
+      "nivaa": "interkommunal",
+      "organtype": "IKS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "avfall-miljo"
+      ],
+      "gyldig_fra": "2002-12-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Interkommunalt selskap registrert i Enhetsregisteret med næringskode 38.110 «Innsamling av ikke-farlig avfall».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "lofoten-rental-hub",
+      "orgnr": "935561477",
+      "navn": "Lofoten Rental Hub AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2025-03-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.200 «Drift av vandrerhjem og ferieleiligheter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "lofoten-sjoprodukter",
+      "orgnr": "943609551",
+      "navn": "Lofoten Sjøprodukter AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1987-01-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "lofothallen",
+      "orgnr": "978654118",
+      "navn": "Lofothallen AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1997-01-29",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 93.110 «Drift av idrettsanlegg».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "lofotprodukt",
+      "orgnr": "971141603",
+      "navn": "Lofotprodukt AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1994-09-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "museum-nord-naeringsdrift",
+      "orgnr": "971159235",
+      "navn": "Museum Nord Næringsdrift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1994-09-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 91.212 «Drift av kulturhistoriske museer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "orgnr": "974793725",
+      "navn": "Nordland Fylkeskommune Utdanning og Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset-hf-ambulanse-gravdal",
+      "orgnr": "993562564",
+      "navn": "Nordlandssykehuset HF Ambulanse Gravdal",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "nordlandssykehuset",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2009-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vestvågøy for Nordlandssykehuset HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "nordlandssykehuset-hf-somatikk-gravdal",
+      "orgnr": "974795558",
+      "navn": "Nordlandssykehuset HF Somatikk - Gravdal",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "nordlandssykehuset",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vestvågøy for Nordlandssykehuset HF, med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset-hf-stab-stottetjenester-gravdal",
+      "orgnr": "993573078",
+      "navn": "Nordlandssykehuset HF Stab/Støttetjenester Gravdal",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "nordlandssykehuset",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2009-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vestvågøy for Nordlandssykehuset HF, med næringskode 86.101 «Somatiske sykehustjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "polarfeed",
+      "orgnr": "825504672",
+      "navn": "Polarfeed AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2020-06-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.300 «Tjenester tilknyttet fiske, fangst og akvakultur».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "sparebank-68-grader-nord",
+      "orgnr": "937905378",
+      "navn": "Sparebank 68 Grader Nord",
+      "nivaa": "privat",
+      "organtype": "sparebank",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "finans"
+      ],
+      "gyldig_fra": "1926-04-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Sparebank registrert i Enhetsregisteret med næringskode 64.190 «Banker og kredittforetak».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "stim",
+      "orgnr": "964873755",
+      "navn": "Stim AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning",
+        "sjomat"
+      ],
+      "gyldig_fra": "1992-08-30",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 46.460 «Engroshandel med apotekvarer og medisinske varer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "teft-entreprenor",
+      "orgnr": "985233004",
+      "navn": "Teft Entreprenør AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "2002-11-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 41.000 «Oppføring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "teknisk-bureau-leknes",
+      "orgnr": "915019102",
+      "navn": "Teknisk Bureau Leknes AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2015-02-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.810 «Detaljhandel med motorvogner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "the-qrill-company",
+      "orgnr": "988354139",
+      "navn": "The Qrill Company AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2005-06-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.110 «Fiske og fangst i sjø».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "thore-magnussen-og-sonn",
+      "orgnr": "975950824",
+      "navn": "Thore Magnussen og Sønn AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-12-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "vest-lofoten-videregaende-skole",
+      "orgnr": "974621169",
+      "navn": "Vest-Lofoten Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Vestvågøy for Nordland Fylkeskommune Utdanning og Kompetanse, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vestvagoy-kommune-helse-og-mestring",
+      "orgnr": "876663562",
+      "navn": "Vestvågøy Kommune Helse- og Mestring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1996-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vestvagoy-kommune-oppvekst",
+      "orgnr": "974790610",
+      "navn": "Vestvågøy Kommune - Oppvekst",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vestvagoy-kommune-radmann-og-stotteenheter",
+      "orgnr": "974794454",
+      "navn": "Vestvågøy Kommune - Rådmann og Støtteenheter",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "vestvagoy-kommune-samfunn-og-teknikk",
+      "orgnr": "974792052",
+      "navn": "Vestvågøy Kommune - Samfunn og Teknikk",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1860",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "anne-sissel-sand",
+      "navn": "Anne Sissel Sand"
+    },
+    {
+      "key": "freddy-henningsen",
+      "navn": "Freddy Henningsen"
+    },
+    {
+      "key": "kenneth-grav",
+      "navn": "Kenneth Grav"
+    },
+    {
+      "key": "arne-martin-finstad",
+      "navn": "Arne Martin Finstad"
+    },
+    {
+      "key": "arnfinn-hay",
+      "navn": "Arnfinn Hay"
+    },
+    {
+      "key": "asbjorn-pettersen",
+      "navn": "Asbjørn Pettersen"
+    },
+    {
+      "key": "asbjorn-sjolie",
+      "navn": "Asbjørn Sjølie"
+    },
+    {
+      "key": "borge-iversen",
+      "navn": "Børge Iversen"
+    },
+    {
+      "key": "desiree-skjerpen-hogmo",
+      "navn": "Desirée Skjerpen Høgmo"
+    },
+    {
+      "key": "elisabeth-holand",
+      "navn": "Elisabeth Holand"
+    },
+    {
+      "key": "eva-karin-busch",
+      "navn": "Eva-Karin Busch"
+    },
+    {
+      "key": "goran-rasmussen-aland",
+      "navn": "Gøran Rasmussen-Åland"
+    },
+    {
+      "key": "hanne-marthe-ringkjop",
+      "navn": "Hanne Marthe Ringkjøp"
+    },
+    {
+      "key": "hilde-grande",
+      "navn": "Hilde Grande"
+    },
+    {
+      "key": "jens-jentoft",
+      "navn": "Jens Jentoft"
+    },
+    {
+      "key": "john-inge-berg",
+      "navn": "John Inge Berg"
+    },
+    {
+      "key": "jonny-finstad",
+      "navn": "Jonny Finstad"
+    },
+    {
+      "key": "kent-age-johansen",
+      "navn": "Kent Åge Johansen"
+    },
+    {
+      "key": "kurt-atle-hansen",
+      "navn": "Kurt Atle Hansen"
+    },
+    {
+      "key": "lene-henningsen",
+      "navn": "Lene Henningsen"
+    },
+    {
+      "key": "magnus-ellingsen",
+      "navn": "Magnus Ellingsen"
+    },
+    {
+      "key": "maja-krogtoft-klevstad",
+      "navn": "Maja Krogtoft Klevstad"
+    },
+    {
+      "key": "monica-kleffelgard-hartviksen",
+      "navn": "Monica Kleffelgård Hartviksen"
+    },
+    {
+      "key": "odd-eskil-andersen",
+      "navn": "Odd Eskil Andersen"
+    },
+    {
+      "key": "odd-vingmyr-nicolaysen",
+      "navn": "Odd Vingmyr Nicolaysen"
+    },
+    {
+      "key": "pal-kruger",
+      "navn": "Pål Krüger"
+    },
+    {
+      "key": "ragnhild-emilie-asberg",
+      "navn": "Ragnhild Emilie Åsberg"
+    },
+    {
+      "key": "reidar-jelstrup-egeland",
+      "navn": "Reidar Jelstrup Egeland"
+    },
+    {
+      "key": "remi-solberg",
+      "navn": "Remi Solberg"
+    },
+    {
+      "key": "silje-natalie-kvello",
+      "navn": "Silje Natalie Kvello"
+    },
+    {
+      "key": "sten-angelsen",
+      "navn": "Sten Angelsen"
+    },
+    {
+      "key": "stig-bang",
+      "navn": "Stig Bang"
+    },
+    {
+      "key": "tone-may-nordstrand",
+      "navn": "Tone May Nordstrand"
+    },
+    {
+      "key": "aksel-kristoffer-gregersen",
+      "navn": "Aksel Kristoffer Gregersen"
+    },
+    {
+      "key": "alf-lie",
+      "navn": "Alf Lie"
+    },
+    {
+      "key": "amanda-hanson-kordt",
+      "navn": "Amanda Hanson Kordt"
+    },
+    {
+      "key": "andreas-storl",
+      "navn": "Andreas Storl"
+    },
+    {
+      "key": "anett-ingeborg-kristensen",
+      "navn": "Anett Ingeborg Kristensen"
+    },
+    {
+      "key": "anette-morrison-b6df2e",
+      "navn": "Anette Morrison"
+    },
+    {
+      "key": "ann-hege-lund",
+      "navn": "Ann-Hege Lund"
+    },
+    {
+      "key": "anna-viktoria-mosseng",
+      "navn": "Anna Viktoria Mosseng"
+    },
+    {
+      "key": "anne-lise-haakestad",
+      "navn": "Anne Lise Haakestad"
+    },
+    {
+      "key": "arild-odd-horn",
+      "navn": "Arild Odd Horn"
+    },
+    {
+      "key": "arne-vilmar-amundsen-larsen",
+      "navn": "Arne Vilmar Amundsen Larsen"
+    },
+    {
+      "key": "arstein-svihus",
+      "navn": "Årstein Svihus"
+    },
+    {
+      "key": "bendik-noren",
+      "navn": "Bendik Nøren"
+    },
+    {
+      "key": "berit-tora-sand",
+      "navn": "Berit Tora Sand"
+    },
+    {
+      "key": "borge-larsen",
+      "navn": "Børge Larsen"
+    },
+    {
+      "key": "britt-lisbeth-mosseng",
+      "navn": "Britt Lisbeth Mosseng"
+    },
+    {
+      "key": "carl-erik-arnesen",
+      "navn": "Carl Erik Arnesen"
+    },
+    {
+      "key": "charlotte-cecilie-solberg-hakonsen",
+      "navn": "Charlotte Cecilie Solberg Håkonsen"
+    },
+    {
+      "key": "christina-therese-alvilde-eilertsen-skarheim",
+      "navn": "Christina Therese Alvilde Eilertsen Skarheim"
+    },
+    {
+      "key": "dag-reidar-morch",
+      "navn": "Dag Reidar Mørch"
+    },
+    {
+      "key": "daniel-bun-dawooda-sowe",
+      "navn": "Daniel Bun Dawooda Sowe"
+    },
+    {
+      "key": "danielle-louise-olavsen",
+      "navn": "Danielle Louise Olavsen"
+    },
+    {
+      "key": "desiree-iselin-skjerpen-hogmo",
+      "navn": "Desirée Iselin Skjerpen Høgmo"
+    },
+    {
+      "key": "egil-arne-wiik-08d551",
+      "navn": "Egil Arne Wiik"
+    },
+    {
+      "key": "einar-johan-roste",
+      "navn": "Einar Johan Røste"
+    },
+    {
+      "key": "emelie-folkesson-norling",
+      "navn": "Emelie Folkesson Norling"
+    },
+    {
+      "key": "erling-johan-vestgard",
+      "navn": "Erling Johan Vestgård"
+    },
+    {
+      "key": "geir-davidsen",
+      "navn": "Geir Davidsen"
+    },
+    {
+      "key": "gjermund-vian",
+      "navn": "Gjermund Vian"
+    },
+    {
+      "key": "goran-ellingsen",
+      "navn": "Gøran Ellingsen"
+    },
+    {
+      "key": "grethe-isaksen",
+      "navn": "Grethe Isaksen"
+    },
+    {
+      "key": "halvar-bendiksen",
+      "navn": "Halvar Bendiksen"
+    },
+    {
+      "key": "hanna-gabler",
+      "navn": "Hanna Gabler"
+    },
+    {
+      "key": "havard-edvardsen",
+      "navn": "Håvard Edvardsen"
+    },
+    {
+      "key": "hege-kristine-fleines-christoffersen",
+      "navn": "Hege Kristine Fleines Christoffersen"
+    },
+    {
+      "key": "henrik-rist-kristiansen",
+      "navn": "Henrik Rist Kristiansen"
+    },
+    {
+      "key": "hilde-elisabeth-holand",
+      "navn": "Hilde Elisabeth Holand"
+    },
+    {
+      "key": "hilde-johanne-hansen",
+      "navn": "Hilde Johanne Hansen"
+    },
+    {
+      "key": "hill-marta-solberg",
+      "navn": "Hill Marta Solberg"
+    },
+    {
+      "key": "hugo-thode-hansen",
+      "navn": "Hugo Thode Hansen"
+    },
+    {
+      "key": "jim-roger-nordly",
+      "navn": "Jim Roger Nordly"
+    },
+    {
+      "key": "julie-beck-gjellesvik",
+      "navn": "Julie Beck Gjellesvik"
+    },
+    {
+      "key": "julie-therese-saether",
+      "navn": "Julie Therese Sæther"
+    },
+    {
+      "key": "katharina-diana-mosseng",
+      "navn": "Katharina Diana Mosseng"
+    },
+    {
+      "key": "kent-kristoffersen",
+      "navn": "Kent Kristoffersen"
+    },
+    {
+      "key": "kjersti-delp-d365c8",
+      "navn": "Kjersti Delp"
+    },
+    {
+      "key": "kjersti-eline-tonnessen-busch",
+      "navn": "Kjersti Eline Tønnessen Busch"
+    },
+    {
+      "key": "kjersti-fossaskaret-eltoft-kruger",
+      "navn": "Kjersti Fossåskaret Eltoft Krüger"
+    },
+    {
+      "key": "knut-olav-horn",
+      "navn": "Knut Olav Horn"
+    },
+    {
+      "key": "kurt-johan-svendsen",
+      "navn": "Kurt Johan Svendsen"
+    },
+    {
+      "key": "lars-erik-flygel",
+      "navn": "Lars Erik Flygel"
+    },
+    {
+      "key": "lars-fredrik-stenvik",
+      "navn": "Lars Fredrik Stenvik"
+    },
+    {
+      "key": "lena-amalie-hamnes-8c24b3",
+      "navn": "Lena Amalie Hamnes"
+    },
+    {
+      "key": "lena-hope",
+      "navn": "Lena Hope"
+    },
+    {
+      "key": "lill-torbjorg-leirbakken-stabell",
+      "navn": "Lill Torbjørg Leirbakken Stabell"
+    },
+    {
+      "key": "line-yvonne-storvold-hansen",
+      "navn": "Line Yvonne Størvold Hansen"
+    },
+    {
+      "key": "lisa-margrethe-arctander",
+      "navn": "Lisa-Margrethe Arctander"
+    },
+    {
+      "key": "lisa-mari-haukenes-abelsen",
+      "navn": "Lisa Mari Haukenes Abelsen"
+    },
+    {
+      "key": "magnar-marius-lorentzen",
+      "navn": "Magnar Marius Lorentzen"
+    },
+    {
+      "key": "marianne-flaaten",
+      "navn": "Marianne Flaaten"
+    },
+    {
+      "key": "marius-naerheim",
+      "navn": "Marius Nærheim"
+    },
+    {
+      "key": "marthe-hov-jacobsen",
+      "navn": "Marthe Hov Jacobsen"
+    },
+    {
+      "key": "martin-gjolme",
+      "navn": "Martin Gjølme"
+    },
+    {
+      "key": "mats-nygaard-johnsen",
+      "navn": "Mats Nygaard Johnsen"
+    },
+    {
+      "key": "mats-ola-martinsen",
+      "navn": "Mats Ola Martinsen"
+    },
+    {
+      "key": "matts-eirik-johansen",
+      "navn": "Matts Eirik Johansen"
+    },
+    {
+      "key": "mona-kristine-rosvold",
+      "navn": "Mona Kristine Rosvold"
+    },
+    {
+      "key": "morten-amundsen",
+      "navn": "Morten Amundsen"
+    },
+    {
+      "key": "morten-arctander-moe",
+      "navn": "Morten Arctander Moe"
+    },
+    {
+      "key": "morten-erik-kristiansen",
+      "navn": "Morten Erik Kristiansen"
+    },
+    {
+      "key": "oddvar-sigvard-antonsen",
+      "navn": "Oddvar Sigvard Antonsen"
+    },
+    {
+      "key": "olav-andreas-ervik",
+      "navn": "Olav Andreas Ervik"
+    },
+    {
+      "key": "ole-vegard-mosseng",
+      "navn": "Ole Vegard Mosseng"
+    },
+    {
+      "key": "orjan-magnussen",
+      "navn": "Ørjan Magnussen"
+    },
+    {
+      "key": "orjan-torsteinsen",
+      "navn": "Ørjan Torsteinsen"
+    },
+    {
+      "key": "oyvind-lovdal",
+      "navn": "Øyvind Løvdal"
+    },
+    {
+      "key": "paal-christian-kruger",
+      "navn": "Paal Christian Krüger"
+    },
+    {
+      "key": "per-henning-meloy",
+      "navn": "Per Henning Meløy"
+    },
+    {
+      "key": "ragnar-freyr-palsson",
+      "navn": "Ragnar Freyr Palsson"
+    },
+    {
+      "key": "randi-elisabeth-gregersen-69e5e2",
+      "navn": "Randi Elisabeth Gregersen"
+    },
+    {
+      "key": "raymond-abelsen-0c32ae",
+      "navn": "Raymond Abelsen"
+    },
+    {
+      "key": "roger-jensen",
+      "navn": "Roger Jensen"
+    },
+    {
+      "key": "roger-mosseng",
+      "navn": "Roger Mosseng"
+    },
+    {
+      "key": "ronny-johan-solheim",
+      "navn": "Ronny Johan Solheim"
+    },
+    {
+      "key": "rudi-mikal-christensen",
+      "navn": "Rudi Mikal Christensen"
+    },
+    {
+      "key": "runar-brekken",
+      "navn": "Runar Brekken"
+    },
+    {
+      "key": "sergio-climent-del-olmo",
+      "navn": "Sergio Climent Del Olmo"
+    },
+    {
+      "key": "sigvald-arctander-rist",
+      "navn": "Sigvald Arctander Rist"
+    },
+    {
+      "key": "sonja-alice-steen",
+      "navn": "Sonja Alice Steen"
+    },
+    {
+      "key": "soren-fredrik-voie",
+      "navn": "Søren Fredrik Voie"
+    },
+    {
+      "key": "stein-age-martinsen",
+      "navn": "Stein Åge Martinsen"
+    },
+    {
+      "key": "sten-arthur-angelsen",
+      "navn": "Sten Arthur Angelsen"
+    },
+    {
+      "key": "terje-boe",
+      "navn": "Terje Bøe"
+    },
+    {
+      "key": "terje-storslett",
+      "navn": "Terje Storslett"
+    },
+    {
+      "key": "thomas-andre-nilsen",
+      "navn": "Thomas André Nilsen"
+    },
+    {
+      "key": "thomas-peter-vaale-ljungqvist",
+      "navn": "Thomas Peter Vaale Ljungqvist"
+    },
+    {
+      "key": "timothy-henningsen-horgan",
+      "navn": "Timothy Henningsen Horgan"
+    },
+    {
+      "key": "torbjorn-asbakk",
+      "navn": "Torbjørn Åsbakk"
+    },
+    {
+      "key": "torbjorn-halvdan-pedersen",
+      "navn": "Torbjørn Halvdan Pedersen"
+    },
+    {
+      "key": "tore-holand",
+      "navn": "Tore Holand"
+    },
+    {
+      "key": "torgeir-johan-svae",
+      "navn": "Torgeir Johan Svae"
+    },
+    {
+      "key": "torje-askheim",
+      "navn": "Torje Askheim"
+    },
+    {
+      "key": "torunn-rorvik-wilhelmsson",
+      "navn": "Torunn Rørvik Wilhelmsson"
+    },
+    {
+      "key": "trond-williksen",
+      "navn": "Trond Williksen"
+    },
+    {
+      "key": "tuva-greaker",
+      "navn": "Tuva Greaker"
+    },
+    {
+      "key": "violet-svendsen",
+      "navn": "Violet Svendsen"
+    },
+    {
+      "key": "webjorn-barstad",
+      "navn": "Webjørn Barstad"
+    },
+    {
+      "key": "werner-horn",
+      "navn": "Werner Horn"
+    }
+  ],
+  "roller": [
+    {
+      "org": "vestvagoy-administrasjonsutvalg",
+      "person": "asbjorn-sjolie",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=42) 2026-09-25."
+      }
+    },
+    {
+      "org": "vestvagoy-formannskap",
+      "person": "jonny-finstad",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=2) 2026-09-25. Møteportalen fører ordføreren i formannskapet med funksjonen «Ordfører»."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "pal-kruger",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx) 2026-09-25."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "jonny-finstad",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx) 2026-09-25."
+      }
+    },
+    {
+      "org": "vestvagoy-naeringsutvalget",
+      "person": "pal-kruger",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=21) 2026-09-25."
+      }
+    },
+    {
+      "org": "vestvagoy-teknisk-utvalg",
+      "person": "pal-kruger",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=49) 2026-09-25."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "anne-sissel-sand",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "arne-martin-finstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "arnfinn-hay",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "asbjorn-pettersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "asbjorn-sjolie",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "borge-iversen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "desiree-skjerpen-hogmo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "elisabeth-holand",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "eva-karin-busch",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "freddy-henningsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "goran-rasmussen-aland",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "hanne-marthe-ringkjop",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "hilde-grande",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "jens-jentoft",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "john-inge-berg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "jonny-finstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "kenneth-grav",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "kent-age-johansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "kurt-atle-hansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "lene-henningsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "magnus-ellingsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "maja-krogtoft-klevstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "monica-kleffelgard-hartviksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "odd-eskil-andersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Norgesdemokratene",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "odd-vingmyr-nicolaysen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "pal-kruger",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "ragnhild-emilie-asberg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "reidar-jelstrup-egeland",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "MDG",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "remi-solberg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "silje-natalie-kvello",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "sten-angelsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "stig-bang",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vestvagoy-kommunestyre",
+      "person": "tone-may-nordstrand",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "aqila",
+      "person": "bendik-noren",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "aqila",
+      "person": "einar-johan-roste",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "aqila",
+      "person": "hege-kristine-fleines-christoffersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "aqila",
+      "person": "lars-erik-flygel",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "aqila",
+      "person": "oyvind-lovdal",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "aqila",
+      "person": "torbjorn-asbakk",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arctic-guide-service",
+      "person": "amanda-hanson-kordt",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arctic-guide-service",
+      "person": "andreas-storl",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arctic-guide-service",
+      "person": "sergio-climent-del-olmo",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "brekken-anlegg",
+      "person": "runar-brekken",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "brekken-anlegg",
+      "person": "runar-brekken",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "byggtorget-lofoten",
+      "person": "alf-lie",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "byggtorget-lofoten",
+      "person": "morten-amundsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "byggtorget-lofoten",
+      "person": "morten-amundsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "feel24-nordland",
+      "person": "hanna-gabler",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "feel24-nordland",
+      "person": "mats-ola-martinsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "feel24-nordland",
+      "person": "thomas-andre-nilsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "feel24",
+      "person": "hanna-gabler",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "feel24",
+      "person": "mats-ola-martinsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "horns-slakteri",
+      "person": "arild-odd-horn",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "horns-slakteri",
+      "person": "goran-ellingsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "horns-slakteri",
+      "person": "knut-olav-horn",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "horns-slakteri",
+      "person": "werner-horn",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "isqueen",
+      "person": "erling-johan-vestgard",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "isqueen",
+      "person": "kurt-johan-svendsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "isqueen",
+      "person": "kurt-johan-svendsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "isqueen",
+      "person": "violet-svendsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "k-kristoffersen",
+      "person": "kent-kristoffersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "k-kristoffersen",
+      "person": "kent-kristoffersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofot-entreprenor",
+      "person": "alf-lie",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofot-entreprenor",
+      "person": "alf-lie",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofot-entreprenor",
+      "person": "magnar-marius-lorentzen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "anette-morrison-b6df2e",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "christina-therese-alvilde-eilertsen-skarheim",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "egil-arne-wiik-08d551",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "gjermund-vian",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "grethe-isaksen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "halvar-bendiksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "hilde-elisabeth-holand",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "kjersti-delp-d365c8",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "marianne-flaaten",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "ragnar-freyr-palsson",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "randi-elisabeth-gregersen-69e5e2",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "person": "raymond-abelsen-0c32ae",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-rental-hub",
+      "person": "aksel-kristoffer-gregersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-rental-hub",
+      "person": "henrik-rist-kristiansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-sjoprodukter",
+      "person": "anna-viktoria-mosseng",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-sjoprodukter",
+      "person": "britt-lisbeth-mosseng",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-sjoprodukter",
+      "person": "katharina-diana-mosseng",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-sjoprodukter",
+      "person": "ole-vegard-mosseng",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-sjoprodukter",
+      "person": "roger-mosseng",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-sjoprodukter",
+      "person": "roger-mosseng",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofothallen",
+      "person": "anne-lise-haakestad",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofothallen",
+      "person": "danielle-louise-olavsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofothallen",
+      "person": "desiree-iselin-skjerpen-hogmo",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofothallen",
+      "person": "kjersti-fossaskaret-eltoft-kruger",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofothallen",
+      "person": "lisa-margrethe-arctander",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofothallen",
+      "person": "roger-jensen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofothallen",
+      "person": "stein-age-martinsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofothallen",
+      "person": "sten-arthur-angelsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofotprodukt",
+      "person": "sigvald-arctander-rist",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofotprodukt",
+      "person": "thomas-peter-vaale-ljungqvist",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofotprodukt",
+      "person": "torgeir-johan-svae",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "ann-hege-lund",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "arstein-svihus",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "borge-larsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "daniel-bun-dawooda-sowe",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "geir-davidsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "hilde-johanne-hansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "hill-marta-solberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "julie-beck-gjellesvik",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "julie-therese-saether",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "kjersti-eline-tonnessen-busch",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "lars-fredrik-stenvik",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "lena-amalie-hamnes-8c24b3",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "lena-hope",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "marthe-hov-jacobsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "sonja-alice-steen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "soren-fredrik-voie",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "terje-boe",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "terje-storslett",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "person": "torunn-rorvik-wilhelmsson",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarfeed",
+      "person": "arne-vilmar-amundsen-larsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarfeed",
+      "person": "paal-christian-kruger",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "polarfeed",
+      "person": "tore-holand",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "person": "anett-ingeborg-kristensen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "person": "hugo-thode-hansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "person": "line-yvonne-storvold-hansen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "person": "lisa-mari-haukenes-abelsen",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "person": "mats-nygaard-johnsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "person": "mona-kristine-rosvold",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "person": "morten-erik-kristiansen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "person": "orjan-torsteinsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "person": "per-henning-meloy",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "person": "rudi-mikal-christensen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "person": "torje-askheim",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stim",
+      "person": "carl-erik-arnesen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stim",
+      "person": "emelie-folkesson-norling",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stim",
+      "person": "jim-roger-nordly",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stim",
+      "person": "martin-gjolme",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stim",
+      "person": "olav-andreas-ervik",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stim",
+      "person": "paal-christian-kruger",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stim",
+      "person": "trond-williksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stim",
+      "person": "tuva-greaker",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "teft-entreprenor",
+      "person": "havard-edvardsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "teft-entreprenor",
+      "person": "morten-arctander-moe",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "teft-entreprenor",
+      "person": "torbjorn-halvdan-pedersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "teknisk-bureau-leknes",
+      "person": "oddvar-sigvard-antonsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "teknisk-bureau-leknes",
+      "person": "ronny-johan-solheim",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "the-qrill-company",
+      "person": "charlotte-cecilie-solberg-hakonsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "the-qrill-company",
+      "person": "matts-eirik-johansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "the-qrill-company",
+      "person": "timothy-henningsen-horgan",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "the-qrill-company",
+      "person": "webjorn-barstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "thore-magnussen-og-sonn",
+      "person": "berit-tora-sand",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "thore-magnussen-og-sonn",
+      "person": "dag-reidar-morch",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "thore-magnussen-og-sonn",
+      "person": "marius-naerheim",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "thore-magnussen-og-sonn",
+      "person": "orjan-magnussen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestvagoy-kommune-helse-og-mestring",
+      "person": "lill-torbjorg-leirbakken-stabell",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestvagoy-kommune-oppvekst",
+      "person": "lill-torbjorg-leirbakken-stabell",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestvagoy-kommune-radmann-og-stotteenheter",
+      "person": "lill-torbjorg-leirbakken-stabell",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestvagoy-kommune-samfunn-og-teknikk",
+      "person": "lill-torbjorg-leirbakken-stabell",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vestvagoy-kommune",
+      "person": "lill-torbjorg-leirbakken-stabell",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "vestvagoy-administrasjonsutvalg",
+      "til": "vestvagoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=42) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vestvagoy-eldreradet",
+      "til": "vestvagoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=22) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vestvagoy-formannskap",
+      "til": "vestvagoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=2) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vestvagoy-kommune-administrasjonen",
+      "til": "vestvagoy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Administrasjonen er ikke beskrevet på sidene som ble hentet; organet er tatt med fordi kommunen har en registrert daglig leder."
+      }
+    },
+    {
+      "fra": "vestvagoy-kontrollutvalget",
+      "til": "vestvagoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vestvagoy-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx 2026-09-25. Innsynsportalen lister utvalget uten medlemmer."
+      }
+    },
+    {
+      "fra": "vestvagoy-naeringsutvalget",
+      "til": "vestvagoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=21) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vestvagoy-radet-for-personer-med-funksjonsnedsettelse",
+      "til": "vestvagoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=16) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vestvagoy-teknisk-utvalg",
+      "til": "vestvagoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=49) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vestvagoy-ungdommens-kommunestyre",
+      "til": "vestvagoy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vestvagoy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx&&utvalg_selected=45) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vestvagoy-kommunestyre",
+      "til": "vestvagoy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
+      }
+    },
+    {
+      "fra": "boreal-buss-as-avd-lofoten",
+      "til": "boreal-buss",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "leroy-norway-seafoods-as-avd-stamsund",
+      "til": "leroy-norway-seafoods",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordlandssykehuset-hf-ambulanse-gravdal",
+      "til": "nordlandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordlandssykehuset-hf-somatikk-gravdal",
+      "til": "nordlandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordlandssykehuset-hf-stab-stottetjenester-gravdal",
+      "til": "nordlandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "vest-lofoten-videregaende-skole",
+      "til": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "aqila",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5716769,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "aqila",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 6503950,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "aqila",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 28912473,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "aqila",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 139207841,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-guide-service",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -3936484,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-guide-service",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -4694652,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-guide-service",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 599863,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-guide-service",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 36048222,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "brekken-anlegg",
+      "aar": 2024,
+      "type": "aarsresultat",
+      "verdi": 8777114,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "brekken-anlegg",
+      "aar": 2024,
+      "type": "driftsresultat",
+      "verdi": 11912629,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "brekken-anlegg",
+      "aar": 2024,
+      "type": "egenkapital",
+      "verdi": 16056177,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "brekken-anlegg",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 64659392,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "byggtorget-lofoten",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2570963,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "byggtorget-lofoten",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4304782,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "byggtorget-lofoten",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 28603670,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "byggtorget-lofoten",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 128883322,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "feel24-nordland",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 19999899,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "feel24-nordland",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 25969263,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "feel24-nordland",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 532121,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "feel24-nordland",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 93898113,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "feel24",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 48247411,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "feel24",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 59573137,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "feel24",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 17538947,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "feel24",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 186227994,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "horns-slakteri",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2686057,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "horns-slakteri",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2286546,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "horns-slakteri",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 22808037,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "horns-slakteri",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 189422528,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "isqueen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -36628875,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "isqueen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -17659692,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "isqueen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 193500099,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "isqueen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 462552677,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "k-kristoffersen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2831338,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "k-kristoffersen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3491434,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "k-kristoffersen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2979966,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "k-kristoffersen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 178573563,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofot-entreprenor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3093886,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofot-entreprenor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4591795,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofot-entreprenor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 43695951,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofot-entreprenor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 209680138,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 7545833,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 9629466,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 69429010,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 100544481,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofoten-rental-hub",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 0,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-03-12–2025-12-31."
+      }
+    },
+    {
+      "org": "lofoten-rental-hub",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 0,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-03-12–2025-12-31."
+      }
+    },
+    {
+      "org": "lofoten-rental-hub",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 23500,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-03-12–2025-12-31."
+      }
+    },
+    {
+      "org": "lofoten-rental-hub",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 0,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap. Regnskapsperioden er 2025-03-12–2025-12-31."
+      }
+    },
+    {
+      "org": "lofoten-sjoprodukter",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 90914965,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofoten-sjoprodukter",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 150734455,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofoten-sjoprodukter",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 563553626,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofoten-sjoprodukter",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 780564200,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofothallen",
+      "aar": 2024,
+      "type": "aarsresultat",
+      "verdi": -648895,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofothallen",
+      "aar": 2024,
+      "type": "driftsresultat",
+      "verdi": -671805,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofothallen",
+      "aar": 2024,
+      "type": "egenkapital",
+      "verdi": -1832075,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofothallen",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 16181102,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofotprodukt",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 12707849,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lofotprodukt",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 23291142,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lofotprodukt",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 234695324,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lofotprodukt",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 1006891643,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 998516,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 860190,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 17489126,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "museum-nord-naeringsdrift",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 87531025,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polarfeed",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 14182927,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polarfeed",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 22473555,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polarfeed",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 43356740,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "polarfeed",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 523048562,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stim",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 248268506,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "stim",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 95256033,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "stim",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 412217007,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "stim",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 1656239114,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "teft-entreprenor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2124577,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "teft-entreprenor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2917392,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "teft-entreprenor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7433567,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "teft-entreprenor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 58867076,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "teknisk-bureau-leknes",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -3102854,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "teknisk-bureau-leknes",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -3167716,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "teknisk-bureau-leknes",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 3027023,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "teknisk-bureau-leknes",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 105106161,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "thore-magnussen-og-sonn",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1528168,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "thore-magnussen-og-sonn",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -1653967,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "thore-magnussen-og-sonn",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 36393711,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "thore-magnussen-og-sonn",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 161083954,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Vestvågøy?",
+      "steg": [
+        {
+          "org": "vestvagoy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "vestvagoy-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (vestvagoy-moteportal); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "vestvagoy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Vestvågøy kommune?",
+      "steg": [
+        {
+          "org": "vestvagoy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "vestvagoy-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (vestvagoy-moteportal)."
+          }
+        },
+        {
+          "org": "vestvagoy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "finans",
+      "navn": "Finans"
+    },
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "arctic-guide-service",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "boreal-buss-as-avd-lofoten",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "boreal-buss",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "feel24-nordland",
+      "segment": "helse",
+      "styrke": 2
+    },
+    {
+      "org": "isqueen",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "k-kristoffersen",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "leroy-norway-seafoods-as-avd-stamsund",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "leroy-norway-seafoods",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "lofot-entreprenor",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "lofoten-avfallsselskap",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "lofoten-rental-hub",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "lofoten-sjoprodukter",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "lofotprodukt",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset-hf-ambulanse-gravdal",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset-hf-somatikk-gravdal",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset-hf-stab-stottetjenester-gravdal",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "polarfeed",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "sparebank-68-grader-nord",
+      "segment": "finans",
+      "styrke": 3
+    },
+    {
+      "org": "stim",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "stim",
+      "segment": "utdanning-forskning",
+      "styrke": 2
+    },
+    {
+      "org": "teft-entreprenor",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "the-qrill-company",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "vestvagoy-kommune",
+      "hva": "Kommunen har en fellesnemnd for Vest-Lofoten kommune sammen med Moskenes. Vedtaket om sammenslåing, tidsplanen og fellesnemndas medlemmer er ikke hentet.",
+      "hvorfor": "Innsynsportalen viser «Fellesnemnd Vest-Lofoten kommune» med møter i 2026, men uten medlemsliste; Flakstads side sier at Moskenes og Vestvågøy har vedtatt å slå seg sammen."
+    },
+    {
+      "gjelder": "vestvagoy-kommune-administrasjonen",
+      "hva": "Kommunens nettsted navngir ikke kommunedirektøren på sidene som ble hentet.",
+      "hvorfor": "Enhetsregisterets daglig leder er brukt."
+    },
+    {
+      "gjelder": "vestvagoy-kontrollutvalget",
+      "hva": "Leder av kontrollutvalget i Vestvågøy er ikke oppgitt.",
+      "hvorfor": "Kommunens side nevner organet, men ikke hvem som leder det (vestvagoy.kommune.no/innsyn.aspx?response=utvalg&MId1=1827&scripturi=/innsyn.aspx)."
+    },
+    {
+      "gjelder": "vestvagoy-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "vestvagoy-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    },
+    {
+      "gjelder": "the-qrill-company",
+      "hva": "Regnskapstallene for 2025 er ført i USD.",
+      "hvorfor": "Regnskapsregisteret fører dette regnskapet i en annen valuta enn kroner. Maktkart viser bare kronebeløp, blander aldri valutaer og regner ikke om uten en merket kurs."
+    }
+  ]
+}

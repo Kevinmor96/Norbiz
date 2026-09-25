@@ -1,0 +1,2475 @@
+{
+  "meta": {
+    "kommunenr": "5622",
+    "kommune": "Porsanger - Porsáŋgu - Porsanki",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "fefo-no-om-fefo",
+      "navn": "Finnmarkseiendommen (FeFo): Om FeFo",
+      "url": "https://www.fefo.no/om-fefo/",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-porsanger-administrasjonsutvalget",
+      "navn": "Porsanger kommune, innsynsportal: Administrasjonsutvalget",
+      "url": "https://innsynpluss.onacos.no/porsanger/utvalg/#/details/u-4be6d91a__97e6__4ca2__830d__8a5de4e775c1-13!QMT83i",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-porsanger-dispensasjonsutvalg",
+      "navn": "Porsanger kommune, innsynsportal: Dispensasjonsutvalg",
+      "url": "https://innsynpluss.onacos.no/porsanger/utvalg/#/details/u-4be6d91a__97e6__4ca2__830d__8a5de4e775c1-9!aFCRyd",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-porsanger-formannskapet",
+      "navn": "Porsanger kommune, innsynsportal: Formannskapet",
+      "url": "https://innsynpluss.onacos.no/porsanger/utvalg/#/details/u-4be6d91a__97e6__4ca2__830d__8a5de4e775c1-2!WcbPSS",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-porsanger-kommunal-klagenemd",
+      "navn": "Porsanger kommune, innsynsportal: Kommunal klagenemd",
+      "url": "https://innsynpluss.onacos.no/porsanger/utvalg/#/details/u-4be6d91a__97e6__4ca2__830d__8a5de4e775c1-10!usPWab",
+      "type": "offisiell"
+    },
+    {
+      "key": "kusek-no-porsanger",
+      "navn": "Kontrollutvalgssekretariatet Vest-Finnmark IKS: kontrollutvalget i Porsanger",
+      "url": "https://kusek.no/kontrollutvalg/porsanger/",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "porsanger-kommune-no-kommunedirektor-og-ledergruppen",
+      "navn": "Porsanger kommune: Kommunedirektør og ledergruppen",
+      "url": "https://www.porsanger.kommune.no/om-kommunen/kommunedirektor-og-ledergruppen",
+      "type": "offisiell"
+    },
+    {
+      "key": "porsanger-kommune-no-politikk-og-medvirkning",
+      "navn": "Porsanger kommune: Politikk og medvirkning",
+      "url": "https://www.porsanger.kommune.no/tjenester/politikk-og-medvirkning",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "brreg-eierroller",
+      "navn": "Enhetsregisteret: eierkommune (EIKM) og helseforetak (HLSE) i rollelisten, hentet med skript",
+      "url": "https://data.brreg.no/enhetsregisteret/api/enheter",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-finnmark-jordskifterett-rettskrets",
+      "navn": "Finnmark jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/finnmark-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-utmarksdomstolen-saksbehandling",
+      "navn": "Utmarksdomstolen for Finnmark: Saksbehandling",
+      "url": "https://www.domstol.no/no/domstoler/annen/utmarksdomstolen-for-finnmark/saksbehandling/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-vestre-finnmark-tingrett-om",
+      "navn": "Vestre Finnmark tingrett: Om Vestre Finnmark tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/vestre-finnmark-tingrett/om-vestre-finnmark-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "ffk-no-administrativ-ledelse",
+      "navn": "Finnmark fylkeskommune: Administrativ ledelse",
+      "url": "https://www.ffk.no/om-oss/administrativ-ledelse/",
+      "type": "offisiell"
+    },
+    {
+      "key": "finnmarkssykehuset-no-foretaksledelsen",
+      "navn": "Finnmarkssykehuset: Foretaksledelsen",
+      "url": "https://www.finnmarkssykehuset.no/kontakt-oss/foretaksledelsen",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-finnmark",
+      "navn": "Politiet: Finnmark politidistrikt",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/finnmark/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "sametinget-no",
+      "navn": "Sametinget (sametinget.no)",
+      "url": "https://www.sametinget.no",
+      "type": "offisiell"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "finnmarkseiendommen",
+      "orgnr": "989480731",
+      "navn": "Finnmarkseiendommen - Finnmárkkuopmodat",
+      "kortnavn": "FeFo",
+      "nivaa": "fylke",
+      "organtype": "saerlovselskap",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "eierskap",
+        "vedtak"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "antall_medlemmer": 6,
+      "beskrivelse": "Grunneier som forvalter om lag 95 prosent av landarealet i Finnmark. Styret har seks medlemmer: tre valgt av Finnmark fylkesting og tre valgt av Sametinget.",
+      "belegg": {
+        "kilde": "fefo-no-om-fefo",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fefo.no 25.09.2026. Organisasjonsnummer og organisasjonsform (SÆR) er kontrollert mot Enhetsregisteret."
+      },
+      "status": "aktiv",
+      "sensitiv": false
+    },
+    {
+      "key": "porsanger-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Porsanger - Porsáŋgu - Porsanki",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "porsanger-kommunestyre",
+      "kommunenr": "5622",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg med folkevalgte og representanter for de ansatte, for saker om forholdet mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "porsanger-dispensasjonsutvalget",
+      "navn": "Dispensasjonsutvalget i Porsanger - Porsáŋgu - Porsanki",
+      "kortnavn": "Dispensasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "porsanger-kommunestyre",
+      "kommunenr": "5622",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 3,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-dispensasjonsutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "porsanger-formannskap",
+      "navn": "Formannskapet i Porsanger - Porsáŋgu - Porsanki",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "porsanger-kommunestyre",
+      "kommunenr": "5622",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ valgt av kommunestyret blant sine medlemmer. Det innstiller blant annet til økonomiplan og årsbudsjett.",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "porsanger-klagenemnda",
+      "navn": "Klagenemnda i Porsanger - Porsáŋgu - Porsanki",
+      "kortnavn": "Klagenemnda",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "porsanger-kommunestyre",
+      "kommunenr": "5622",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "klage"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 3,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Behandler klager på enkeltvedtak der kommunen selv er klageinstans.",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-kommunal-klagenemd",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "porsanger-kommune",
+      "orgnr": "959411735",
+      "navn": "Porsanger - Porsáŋgu - Porsanki kommune",
+      "kortnavn": "Porsanger kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5622",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «PORSANGER KOMMUNE». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "porsanger-kommune-administrasjonen",
+      "navn": "Administrasjonen i Porsanger - Porsáŋgu - Porsanki kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "porsanger-kommune",
+      "kommunenr": "5622",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "porsanger-kommune-no-kommunedirektor-og-ledergruppen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra porsanger.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "porsanger-kontrollutvalget",
+      "navn": "Kontrollutvalget i Porsanger - Porsáŋgu - Porsanki",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "porsanger-kommunestyre",
+      "kommunenr": "5622",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "kusek-no-porsanger",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kusek.no 25.09.2026."
+      }
+    },
+    {
+      "key": "porsanger-kommunestyre",
+      "navn": "Kommunestyret i Porsanger - Porsáŋgu - Porsanki",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "porsanger-kommune",
+      "kommunenr": "5622",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 19,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune",
+      "orgnr": "830090282",
+      "navn": "Finnmark fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "finansiering"
+      ],
+      "beskrivelse": "Fylkeskommunen for Finnmark, med ansvar for samferdsel, videregående opplæring, tannhelse, kultur og miljø og næringsutvikling.",
+      "belegg": {
+        "kilde": "ffk-no-administrativ-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ffk.no (administrativ ledelse) 25.09.2026. Organisasjonsnummer og organisasjonsform (FYLK, forretningsadresse i Vadsø) fra Enhetsregisteret. Erstatter grunnlagets rad, som ikke oppga kilde."
+      },
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "gyldig_fra": "2024-01-01"
+    },
+    {
+      "key": "finnmark-fylkesting",
+      "navn": "Fylkestinget i Finnmark - Finnmárku - Finmarkku",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "finnmark-fylkeskommune",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 35,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "finnmark-jordskifterett",
+      "orgnr": "926726463",
+      "navn": "Finnmark jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Særdomstol for saker om fast eiendom i alle 18 kommunene i Finnmark, med sete i Vadsø.",
+      "belegg": {
+        "kilde": "domstol-no-finnmark-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Orgnr fra Enhetsregisteret."
+      },
+      "status": "aktiv"
+    },
+    {
+      "key": "finnmark-politidistrikt",
+      "orgnr": "984000049",
+      "navn": "Finnmark politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Politidistriktet for hele Finnmark, med administrasjon i Kirkenes.",
+      "belegg": {
+        "kilde": "politiet-no-finnmark",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026: politidistriktet for hele Finnmark, med administrasjon i Kirkenes. Orgnr og forretningsadresse (Sør-Varanger) fra Enhetsregisteret."
+      },
+      "segmenter": [],
+      "status": "aktiv"
+    },
+    {
+      "key": "finnmarkssykehuset",
+      "orgnr": "983974880",
+      "navn": "Finnmarkssykehuset HF",
+      "kortnavn": "Finnmarkssykehuset",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "helse-nord-rhf",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "innkjop"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "beskrivelse": "Helseforetaket for spesialisthelsetjenesten i Finnmark, med sykehus i Hammerfest og Kirkenes og hovedkontor i Hammerfest.",
+      "belegg": {
+        "kilde": "finnmarkssykehuset-no-foretaksledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra finnmarkssykehuset.no (foretaksledelsen) 25.09.2026: sykehusene og hovedkontoret. Orgnr fra Enhetsregisteret."
+      },
+      "status": "aktiv",
+      "sensitiv": false
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "sametinget",
+      "orgnr": "974760347",
+      "navn": "Sametinget",
+      "nivaa": "samisk",
+      "organtype": "folkevalgt_organ",
+      "myndighet": [
+        "raadgivning",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samisk folkevalgt organ med konsultasjonsrett i arealsaker og adgang til innsigelse i samiske områder.",
+      "belegg": {
+        "kilde": "sametinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "stortinget-finnmark-valgkrets",
+      "navn": "Stortinget, Finnmark valgkrets",
+      "kortnavn": "Finnmark valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "56",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 4,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Finnmark for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
+      }
+    },
+    {
+      "key": "utmarksdomstolen-for-finnmark",
+      "orgnr": "926721682",
+      "navn": "Utmarksdomstolen for Finnmark",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Særdomstol som avgjør tvister om rettigheter til grunn i Finnmark etter at Finnmarkskommisjonen har utredet et felt. Slike saker kan ikke bringes inn for tingretten eller jordskifteretten.",
+      "belegg": {
+        "kilde": "domstol-no-utmarksdomstolen-saksbehandling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Forretningsadressen i Tromsø og orgnr er fra Enhetsregisteret."
+      },
+      "status": "aktiv"
+    },
+    {
+      "key": "vestre-finnmark-tingrett",
+      "orgnr": "926722956",
+      "navn": "Vestre Finnmark tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "sensitiv": true,
+      "gyldig_fra": "2021-04-26",
+      "beskrivelse": "Tingrett for Alta, Hammerfest, Hasvik, Måsøy, Nordkapp, Porsanger og Loppa i Finnmark og Kvænangen i Troms, med rettssteder i Alta og Hammerfest.",
+      "belegg": {
+        "kilde": "domstol-no-vestre-finnmark-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Opprettet 26.04.2021 ved sammenslåing av Alta og Hammerfest tingrett. Orgnr fra Enhetsregisteret."
+      },
+      "segmenter": [],
+      "status": "aktiv"
+    },
+    {
+      "key": "finnmark-fylkeskommune-opplaering",
+      "orgnr": "832305502",
+      "navn": "Finnmark Fylkeskommune Opplæring",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5607",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-10-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "lakselv-hotell",
+      "orgnr": "922887233",
+      "navn": "Lakselv Hotell AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2019-04-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "lakselv-videregaende-skole",
+      "orgnr": "974622742",
+      "navn": "Lakselv Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "finnmark-fylkeskommune-opplaering",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Porsanger - Porsáŋgu - Porsanki for Finnmark Fylkeskommune Opplæring, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nor-log",
+      "orgnr": "916407157",
+      "navn": "Nor-Log AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1160",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1976-11-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "nor-log-as-avd-lakselv",
+      "orgnr": "979284136",
+      "navn": "Nor-Log AS Avd Lakselv",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "nor-log",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1997-09-15",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Porsanger - Porsáŋgu - Porsanki for Nor-Log AS, med næringskode 49.410 «Godstransport på vei».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "porsanger-kommune-helse-sosial-pleie-og-omsorg",
+      "orgnr": "974793326",
+      "navn": "Porsanger Kommune Helse, Sosial, Pleie og Omsorg",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "porsanger-kommune-kultur-og-oppvekstavdelingen",
+      "orgnr": "974790114",
+      "navn": "Porsanger Kommune Kultur- og Oppvekstavdelingen",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "porsanger-kommune-miljo-naering-og-kommunal-teknikk",
+      "orgnr": "974793342",
+      "navn": "Porsanger Kommune Miljø, Næring og Kommunal Teknikk",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "saarela-barnehage",
+      "orgnr": "962145000",
+      "navn": "Saarela Barnehage AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1991-10-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 85.100 «Førskoleundervisning og drift av barnehager».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "stiftelsen-solbratt-omsorgssenter",
+      "orgnr": "929948661",
+      "navn": "Stiftelsen Solbrått Omsorgssenter",
+      "nivaa": "privat",
+      "organtype": "stiftelse",
+      "kommunenr": "5622",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2022-09-27",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stiftelse registrert i Enhetsregisteret med næringskode 87.102 «Sykehjemstjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "eva-danielsen-husby",
+      "navn": "Eva Danielsen Husby"
+    },
+    {
+      "key": "inger-marie-gaup-eira",
+      "navn": "Inger Marie Gaup Eira"
+    },
+    {
+      "key": "ingvild-heimstad-iversen",
+      "navn": "Ingvild Heimstad Iversen"
+    },
+    {
+      "key": "kurt-pasvikbamsen-wikan",
+      "navn": "Kurt Pasvikbamsen Wikan"
+    },
+    {
+      "key": "line-aimee-kalak",
+      "navn": "Line Aimee Kalak"
+    },
+    {
+      "key": "linn-carina-utsi",
+      "navn": "Linn Carina Utsi"
+    },
+    {
+      "key": "maret-alehtta-guhttor",
+      "navn": "Maret Alehtta Guhttor"
+    },
+    {
+      "key": "nils-mikkel-m-somby",
+      "navn": "Nils Mikkel M Somby"
+    },
+    {
+      "key": "oyvind-lindback",
+      "navn": "Øyvind Lindbäck"
+    },
+    {
+      "key": "reidun-helene-mortensen",
+      "navn": "Reidun Helene Mortensen"
+    },
+    {
+      "key": "siv-anne-persen",
+      "navn": "Siv-Anne Persen"
+    },
+    {
+      "key": "thomas-arild-molmann",
+      "navn": "Thomas Arild Mølmann"
+    },
+    {
+      "key": "willy-andreas-pedersen",
+      "navn": "Willy Andreas Pedersen"
+    },
+    {
+      "key": "age-arnfinn-persen",
+      "navn": "Åge Arnfinn Persen"
+    },
+    {
+      "key": "bjornar-pedersen",
+      "navn": "Bjørnar Pedersen"
+    },
+    {
+      "key": "fred-willy-persen",
+      "navn": "Fred Willy Persen"
+    },
+    {
+      "key": "glenn-jolma",
+      "navn": "Glenn Jolma"
+    },
+    {
+      "key": "hans-magnus-thunestvedt",
+      "navn": "Hans Magnus Thunestvedt"
+    },
+    {
+      "key": "helge-nicolaisen",
+      "navn": "Helge Nicolaisen"
+    },
+    {
+      "key": "helge-ragnvald-olaussen",
+      "navn": "Helge Ragnvald Olaussen"
+    },
+    {
+      "key": "heli-marjaana-korhonen",
+      "navn": "Heli Marjaana Korhonen"
+    },
+    {
+      "key": "hilde-skanke",
+      "navn": "Hilde Skanke"
+    },
+    {
+      "key": "jo-inge-hesjevik",
+      "navn": "Jo Inge Hesjevik"
+    },
+    {
+      "key": "jon-nikolaisen",
+      "navn": "Jon Nikolaisen"
+    },
+    {
+      "key": "maj-britt-kollevag-busaet",
+      "navn": "Maj-Britt Kollevåg Busæt"
+    },
+    {
+      "key": "mariell-haugli",
+      "navn": "Mariell Haugli"
+    },
+    {
+      "key": "nina-kulsland-eriksson",
+      "navn": "Nina Kulsland Eriksson"
+    },
+    {
+      "key": "roar-nesbo",
+      "navn": "Roar Nesbø"
+    },
+    {
+      "key": "robert-severin-pedersen",
+      "navn": "Robert Severin Pedersen"
+    },
+    {
+      "key": "stig-ronny-nilsen",
+      "navn": "Stig-Ronny Nilsen"
+    },
+    {
+      "key": "sylvi-josefine-johnsen",
+      "navn": "Sylvi Josefine Johnsen"
+    },
+    {
+      "key": "torgeir-kare-thomassen",
+      "navn": "Torgeir Kåre Thomassen"
+    },
+    {
+      "key": "unni-johansen",
+      "navn": "Unni Johansen"
+    },
+    {
+      "key": "vetle-langedahl",
+      "navn": "Vetle Langedahl"
+    },
+    {
+      "key": "anita-harriet-rokstad-johansen",
+      "navn": "Anita Harriet Rokstad Johansen"
+    },
+    {
+      "key": "arnulf-audun-sandvik",
+      "navn": "Arnulf Audun Sandvik"
+    },
+    {
+      "key": "bard-yngve-pettersen",
+      "navn": "Bård Yngve Pettersen"
+    },
+    {
+      "key": "heidi-fostervold-falk",
+      "navn": "Heidi Fostervold Falk"
+    },
+    {
+      "key": "ingri-karlsen",
+      "navn": "Ingri Karlsen"
+    },
+    {
+      "key": "jan-einar-rokstad-johansen",
+      "navn": "Jan Einar Rokstad Johansen"
+    },
+    {
+      "key": "joakim-rokstad-pedersen",
+      "navn": "Joakim Rokstad Pedersen"
+    },
+    {
+      "key": "johanne-borch",
+      "navn": "Johanne Borch"
+    },
+    {
+      "key": "leif-rune-paulsen",
+      "navn": "Leif Rune Paulsen"
+    },
+    {
+      "key": "michael-hafsahl",
+      "navn": "Michael Hafsahl"
+    },
+    {
+      "key": "michelle-tubez",
+      "navn": "Michelle Tubez"
+    },
+    {
+      "key": "mona-skanke",
+      "navn": "Mona Skanke"
+    },
+    {
+      "key": "odd-jarle-johansen",
+      "navn": "Odd Jarle Johansen"
+    },
+    {
+      "key": "siri-eliassen",
+      "navn": "Siri Eliassen"
+    },
+    {
+      "key": "steinar-tangen-lindbaeck",
+      "navn": "Steinar Tangen Lindbæck"
+    },
+    {
+      "key": "tom-mikalsen",
+      "navn": "Tom Mikalsen"
+    },
+    {
+      "key": "tom-rune-storhaug-lindback",
+      "navn": "Tom Rune Storhaug Lindbäck"
+    }
+  ],
+  "roller": [
+    {
+      "org": "finnmarkseiendommen",
+      "person": "eva-danielsen-husby",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Valgt av Finnmark fylkesting ifølge fefo.no, der hun står som «Eva D. Husby»."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "inger-marie-gaup-eira",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Valgt av Sametinget som reindriftens representant ifølge fefo.no."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "ingvild-heimstad-iversen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Personlig vara for et av styremedlemmene valgt av Finnmark fylkesting, ifølge fefo.no."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "kurt-pasvikbamsen-wikan",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Valgt av Finnmark fylkesting ifølge fefo.no, der han står som «Kurt P. Wikan»."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "line-aimee-kalak",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Personlig vara for nestlederen, valgt av Sametinget, ifølge fefo.no, der hun står som «Line Kalak»."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "maret-alehtta-guhttor",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Valgt av Sametinget ifølge fefo.no, der hun står som «Máret Guhttor»."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "nils-mikkel-m-somby",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Personlig vara for reindriftens representant, valgt av Sametinget, ifølge fefo.no, der han står som «Nils Mikkel Somby»."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "oyvind-lindback",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Valgt av Sametinget ifølge fefo.no."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "reidun-helene-mortensen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Personlig vara for et av styremedlemmene valgt av Finnmark fylkesting, ifølge fefo.no, der hun står som «Reidun Mortensen»."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "siv-anne-persen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Personlig vara for styrelederen, valgt av Sametinget, ifølge fefo.no, der hun står som «Siv Anne Persen»."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "thomas-arild-molmann",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Valgt av Finnmark fylkesting ifølge fefo.no."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "willy-andreas-pedersen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Finnmarkseiendommen (FeFo): Om FeFo, per 2026-09-25). Grunnlagets merknad: Hentet fra fefo.no 25.09.2026. Personlig vara for et av styremedlemmene valgt av Finnmark fylkesting, ifølge fefo.no, der han står som «Willy Pedersen»."
+      }
+    },
+    {
+      "org": "porsanger-administrasjonsutvalget",
+      "person": "stig-ronny-nilsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "porsanger-dispensasjonsutvalget",
+      "person": "hilde-skanke",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-dispensasjonsutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "porsanger-formannskap",
+      "person": "jo-inge-hesjevik",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "porsanger-klagenemnda",
+      "person": "unni-johansen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-kommunal-klagenemd",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "porsanger-kommune-administrasjonen",
+      "person": "linn-carina-utsi",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Porsanger kommune: Kommunedirektør og ledergruppen, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i PORSANGER KOMMUNE (orgnr 959411735)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "heli-marjaana-korhonen",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Tverrpolitisk liste i Porsanger TLP",
+      "belegg": {
+        "kilde": "porsanger-kommune-no-politikk-og-medvirkning",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra porsanger.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "jo-inge-hesjevik",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "porsanger-kommune-no-politikk-og-medvirkning",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra porsanger.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "porsanger-kontrollutvalget",
+      "person": "robert-severin-pedersen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "kusek-no-porsanger",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kusek.no 25.09.2026."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "mariell-haugli",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "roar-nesbo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "hilde-skanke",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "stig-ronny-nilsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "fred-willy-persen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "torgeir-kare-thomassen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "jo-inge-hesjevik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "nina-kulsland-eriksson",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "glenn-jolma",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "vetle-langedahl",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "bjornar-pedersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "maj-britt-kollevag-busaet",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "sylvi-josefine-johnsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "jon-nikolaisen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "hans-magnus-thunestvedt",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Tverrpolitisk liste i Porsanger TLP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "heli-marjaana-korhonen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Tverrpolitisk liste i Porsanger TLP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "helge-nicolaisen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Tverrpolitisk liste i Porsanger TLP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "helge-ragnvald-olaussen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Tverrpolitisk liste i Porsanger TLP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "porsanger-kommunestyre",
+      "person": "age-arnfinn-persen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Tverrpolitisk liste i Porsanger TLP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "person": "tom-mikalsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "person": "anita-harriet-rokstad-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "person": "jan-einar-rokstad-johansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "person": "joakim-rokstad-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "person": "joakim-rokstad-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "person": "odd-jarle-johansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "porsanger-kommune-helse-sosial-pleie-og-omsorg",
+      "person": "linn-carina-utsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "porsanger-kommune-kultur-og-oppvekstavdelingen",
+      "person": "linn-carina-utsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "porsanger-kommune-miljo-naering-og-kommunal-teknikk",
+      "person": "linn-carina-utsi",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "ingri-karlsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "johanne-borch",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "leif-rune-paulsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "michelle-tubez",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "mona-skanke",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "siri-eliassen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "steinar-tangen-lindbaeck",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "person": "tom-rune-storhaug-lindback",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "person": "arnulf-audun-sandvik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "person": "bard-yngve-pettersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "person": "heidi-fostervold-falk",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "person": "michael-hafsahl",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "porsanger-administrasjonsutvalget",
+      "til": "porsanger-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "porsanger-dispensasjonsutvalget",
+      "til": "porsanger-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-dispensasjonsutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "porsanger-formannskap",
+      "til": "porsanger-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "porsanger-klagenemnda",
+      "til": "porsanger-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-porsanger-kommunal-klagenemd",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "porsanger-kommune-administrasjonen",
+      "til": "porsanger-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "porsanger-kommune-no-kommunedirektor-og-ledergruppen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra porsanger.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "porsanger-kontrollutvalget",
+      "til": "porsanger-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kusek-no-porsanger",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kusek.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "porsanger-kommunestyre",
+      "til": "porsanger-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "finnmark-fylkesting",
+      "til": "finnmark-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
+      }
+    },
+    {
+      "fra": "finnmarkssykehuset",
+      "til": "helse-nord-rhf",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "brreg-eierroller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Helse Nord RHF (883658752) står som helseforetak (HLSE) for Finnmarkssykehuset HF i rollelisten i Enhetsregisteret."
+      }
+    },
+    {
+      "fra": "lakselv-videregaende-skole",
+      "til": "finnmark-fylkeskommune-opplaering",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nor-log-as-avd-lakselv",
+      "til": "nor-log",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "finnmarkseiendommen",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 14750596,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 13224005,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 154726140,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "finnmarkseiendommen",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 96696844,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -359542,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -654548,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7986397,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lakselv-hotell",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 16147616,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -2455484,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -2560294,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5630236,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "saarela-barnehage",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 15890282,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2643324,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2678528,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2140753,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "stiftelsen-solbratt-omsorgssenter",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 17958939,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Porsanger?",
+      "steg": [
+        {
+          "org": "porsanger-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "porsanger-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (innsynpluss-porsanger-formannskapet); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "porsanger-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Porsanger kommune?",
+      "steg": [
+        {
+          "org": "porsanger-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "porsanger-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (innsynpluss-porsanger-formannskapet)."
+          }
+        },
+        {
+          "org": "porsanger-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "finnmarkseiendommen",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "finnmark-jordskifterett",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "utmarksdomstolen-for-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "lakselv-hotell",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "nor-log-as-avd-lakselv",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "nor-log",
+      "segment": "transport",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "porsanger-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "finnmarkseiendommen",
+      "hva": "Lederen er ikke navngitt på fefo.no.",
+      "hvorfor": "fefo.no omtaler lederen som «direktøren», men navngir ham ikke, og ansattsøket lastes med JavaScript. Lederen er derfor ført med rollen i Enhetsregisteret, «daglig leder»."
+    },
+    {
+      "gjelder": "porsanger-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

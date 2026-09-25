@@ -1,374 +1,335 @@
-import type { PGlite } from '@electric-sql/pglite';
-import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
-import { rejects, resetData, sharedDb } from './helpers/db.js';
+// Skjemaet: migrasjonene, sikkerhetsreglene for funksjoner og views,
+// verdilistene og constraintene som bærer invariantene i CLAUDE.md.
+
+import type { PGlite } from "@electric-sql/pglite";
+import { beforeAll, describe, expect, it } from "vitest";
+
+import {
+  ENHETER,
+  HENDELSESTYPER,
+  KILDETYPER,
+  MYNDIGHETER,
+  NIVAAER,
+  NOKKELTALLTYPER,
+  ORGANTYPER,
+  ORGSTATUSER,
+  PRESISJONER,
+  REKKEVIDDER,
+  RELASJONSTYPER,
+  ROLLESTATUSER,
+  ROLLETYPER,
+  VERIFISERINGER,
+} from "@/lib/data/kontrakt";
+import { ferskDb, migrasjonsfiler, stoppetAv } from "./helpers/db";
 
 let db: PGlite;
 
 beforeAll(async () => {
-  db = await sharedDb();
+  db = await ferskDb();
 });
 
-beforeEach(async () => {
-  await resetData(db);
+const RPCER = [
+  "beslutningskjede",
+  "eierskap",
+  "endringer",
+  "fylke_oversikt",
+  "hull",
+  "kommune_grader",
+  "kommune_oversikt",
+  "kommuner",
+  "nettverk",
+  "organ_profil",
+  "organer_for_segment",
+  "organkart",
+  "region_oversikt",
+  "sok",
+];
+
+/** Tabellene med belegg: hver rad er en påstand om verden. */
+const PASTANDSTABELLER = [
+  "organisasjon",
+  "rolleinnehav",
+  "relasjon",
+  "nokkeltall",
+  "hendelse",
+  "prosess_steg",
+];
+
+describe("migrasjonene", () => {
+  it("er nummerert fortløpende fra 0001 med små bokstaver i navnet", async () => {
+    const filer = await migrasjonsfiler();
+    expect(filer.length).toBeGreaterThan(0);
+    filer.forEach((f, i) =>
+      expect(f).toMatch(new RegExp(`^${String(i + 1).padStart(4, "0")}_[a-z0-9_]+\\.sql$`)),
+    );
+  });
+
+  it("lar seg kjøre på en tom base (seedetDb lyktes)", async () => {
+    const r = await db.query<{ n: number }>(`select count(*)::int as n from organisasjon`);
+    expect(r.rows[0]!.n).toBeGreaterThan(0);
+  });
+
+  it("bruker aldri gen_random_uuid() som standard for seedede tabeller", async () => {
+    const r = await db.query<{ tabell: string }>(`
+      select c.table_name as tabell from information_schema.columns c
+      where c.table_schema = 'public' and c.column_default ilike '%random%'
+      order by 1
+    `);
+    // Bare tabellene publikum skriver til, som aldri seedes.
+    expect(r.rows.map((x) => x.tabell)).toEqual(["innsigelse", "venteliste"]);
+  });
 });
 
-describe('enums', () => {
-  it('definerer de seks enumene med riktige verdier', async () => {
-    const res = await db.query<{ typname: string; labels: string[] }>(`
-      select t.typname, array_agg(e.enumlabel order by e.enumsortorder) as labels
-      from pg_type t
-      join pg_enum e on e.enumtypid = t.oid
+describe("sikkerhet", () => {
+  it("har RLS på for hver eneste tabell i public", async () => {
+    // Uten fast antall: en ny tabell uten RLS skal feile her, ikke gli forbi
+    // fordi en test teller til 16.
+    const r = await db.query<{ tabell: string }>(`
+      select c.relname as tabell from pg_class c
+      where c.relnamespace = 'public'::regnamespace and c.relkind in ('r', 'p') and not c.relrowsecurity
+      order by 1
+    `);
+    expect(r.rows).toEqual([]);
+  });
+
+  it("har ingen security definer-funksjon", async () => {
+    const r = await db.query<{ navn: string }>(`
+      select n.nspname || '.' || p.proname as navn from pg_proc p
+      join pg_namespace n on n.oid = p.pronamespace
+      where n.nspname in ('public', 'intern') and p.prosecdef
+    `);
+    expect(r.rows).toEqual([]);
+  });
+
+  it("setter search_path på hver funksjon", async () => {
+    const r = await db.query<{ navn: string }>(`
+      select n.nspname || '.' || p.proname as navn from pg_proc p
+      join pg_namespace n on n.oid = p.pronamespace
+      where n.nspname in ('public', 'intern')
+        and not exists (select 1 from unnest(coalesce(p.proconfig, '{}')) c where c like 'search_path=%')
+    `);
+    expect(r.rows).toEqual([]);
+  });
+
+  it("kjører hvert view med security_invoker", async () => {
+    const r = await db.query<{ navn: string }>(`
+      select n.nspname || '.' || c.relname as navn from pg_class c
+      join pg_namespace n on n.oid = c.relnamespace
+      where n.nspname in ('public', 'intern') and c.relkind in ('v', 'm')
+        and not coalesce(c.reloptions @> array['security_invoker=true'], false)
+    `);
+    expect(r.rows).toEqual([]);
+  });
+
+  it("eksponerer nøyaktig RPC-ene i public, og anon kan kalle hver av dem", async () => {
+    const r = await db.query<{ navn: string; anon: boolean; public_: boolean }>(`
+      select p.proname as navn,
+             has_function_privilege('anon', p.oid, 'execute') as anon,
+             exists (
+               select 1 from aclexplode(coalesce(p.proacl, acldefault('f', p.proowner))) a
+               where a.grantee = 0 and a.privilege_type = 'EXECUTE'
+             ) as public_
+      from pg_proc p where p.pronamespace = 'public'::regnamespace
+      order by 1
+    `);
+    expect(r.rows.map((x) => x.navn)).toEqual(RPCER);
+    expect(r.rows.filter((x) => !x.anon)).toEqual([]);
+    // Ikke gitt til PUBLIC: hver rolle som kan kalle, er gitt eksplisitt.
+    expect(r.rows.filter((x) => x.public_)).toEqual([]);
+  });
+});
+
+describe("verdilistene", () => {
+  it("er de samme, i samme rekkefølge, i basen og i kontrakt.ts", async () => {
+    const r = await db.query<{ typ: string; verdier: string[] }>(`
+      select t.typname as typ, array_agg(e.enumlabel order by e.enumsortorder) as verdier
+      from pg_type t join pg_enum e on e.enumtypid = t.oid
+      where t.typnamespace = 'public'::regnamespace
       group by t.typname
-      order by t.typname
     `);
-    const byName = Object.fromEntries(res.rows.map((r) => [r.typname, r.labels]));
-
-    expect(byName['data_quality']).toEqual(['mock', 'ssb', 'brreg', 'beregnet', 'ai_anslag']);
-    expect(byName['region_level']).toEqual(['land', 'fylke', 'kommune']);
-    expect(byName['unit_type']).toEqual(['foretak', 'virksomhet']);
-    expect(byName['coverage']).toEqual(['alle', 'as_only']);
-    expect(byName['konfidens']).toEqual(['lav', 'middels', 'hoy']);
-    expect(byName['mangel_arsak']).toEqual([
-      'ikke_publisert', 'konfidensielt', 'ikke_relevant', 'kommer_senere', 'brudd',
-    ]);
+    const i = Object.fromEntries(r.rows.map((x) => [x.typ, x.verdier]));
+    expect(i["kildetype"]).toEqual([...KILDETYPER]);
+    expect(i["verifisering"]).toEqual([...VERIFISERINGER]);
+    expect(i["presisjon"]).toEqual([...PRESISJONER]);
+    expect(i["nivaa"]).toEqual([...NIVAAER]);
+    expect(i["organtype"]).toEqual([...ORGANTYPER]);
+    expect(i["myndighet"]).toEqual([...MYNDIGHETER]);
+    expect(i["rekkevidde"]).toEqual([...REKKEVIDDER]);
+    expect(i["orgstatus"]).toEqual([...ORGSTATUSER]);
+    expect(i["rolletype"]).toEqual([...ROLLETYPER]);
+    expect(i["rollestatus"]).toEqual([...ROLLESTATUSER]);
+    expect(i["relasjonstype"]).toEqual([...RELASJONSTYPER]);
+    expect(i["nokkeltalltype"]).toEqual([...NOKKELTALLTYPER]);
+    expect(i["enhet"]).toEqual([...ENHETER]);
+    expect(i["hendelsestype"]).toEqual([...HENDELSESTYPER]);
   });
 });
 
-describe('industries', () => {
-  it('håndhever nace_level 1-5 og selvrefererende hierarki', async () => {
-    await db.exec(`
-      insert into industries (nace_code, nace_level, name, common_name, slug)
-      values ('96', 2, 'Annen personlig tjenesteyting', 'Personlig tjenesteyting', 'personlig-tjenesteyting');
-    `);
-    await db.exec(`
-      insert into industries (nace_code, nace_level, parent_code, name, common_name, slug)
-      values ('96.021', 5, '96', 'Frisering', 'Frisørsalong', 'frisorsalong');
-    `);
-    const n = await db.query<{ count: number }>(`select count(*) from industries`);
-    expect(Number(n.rows[0]!.count)).toBe(2);
+describe("påstandstabellene", () => {
+  it("har belegg på hver rad: kilde, verifisering, per, merknad og hentet", async () => {
+    for (const t of PASTANDSTABELLER) {
+      const r = await db.query<{ column_name: string; is_nullable: string; udt_name: string }>(
+        `select column_name, is_nullable, udt_name from information_schema.columns
+         where table_schema = 'public' and table_name = $1`,
+        [t],
+      );
+      const k = Object.fromEntries(r.rows.map((x) => [x.column_name, x]));
+      expect(k["kilde_id"]?.is_nullable, t).toBe("NO");
+      expect(k["verifisering"]?.udt_name, t).toBe("verifisering");
+      expect(k["verifisering"]?.is_nullable, t).toBe("NO");
+      expect(k["per"], t).toBeDefined();
+      expect(k["merknad"], t).toBeDefined();
+      expect(k["hentet"]?.udt_name, t).toBe("timestamptz");
+    }
+  });
 
-    const badLevel = await rejects(
-      db,
-      `insert into industries (nace_code, nace_level, name, common_name, slug)
-       values ('99', 7, 'x', 'x', 'x')`,
-      'industries_nace_level_check',
-    );
-    expect(badLevel).toBe(true);
+  it("har fremmednøkkel til kilde, tidsstempelkrav for verifisert og sekundærkilde-triggeren", async () => {
+    for (const t of PASTANDSTABELLER) {
+      const fk = await db.query(
+        `select 1 from pg_constraint c
+         where c.conrelid = $1::regclass and c.contype = 'f' and c.confrelid = 'kilde'::regclass`,
+        [t],
+      );
+      expect(fk.rows.length, t).toBe(1);
+      const ck = await db.query(
+        `select 1 from pg_constraint where conrelid = $1::regclass and conname = $2`,
+        [t, `${t}_verifisert_har_tid`],
+      );
+      expect(ck.rows.length, t).toBe(1);
+      const tg = await db.query(
+        `select 1 from pg_trigger g join pg_proc p on p.oid = g.tgfoid
+         where g.tgrelid = $1::regclass and p.proname = 'sjekk_belegg'`,
+        [t],
+      );
+      expect(tg.rows.length, t).toBe(1);
+    }
+  });
 
-    const badParent = await rejects(
-      db,
-      `insert into industries (nace_code, nace_level, parent_code, name, common_name, slug)
-       values ('55.101', 5, 'finnes-ikke', 'x', 'x', 'x')`,
-      'industries_parent_code_fkey',
-    );
-    expect(badParent).toBe(true);
+  it("har en unik nøkkel og en id som er avledet av den", async () => {
+    for (const t of [
+      ...PASTANDSTABELLER.filter((x) => x !== "prosess_steg"),
+      "kilde",
+      "person",
+      "hull",
+    ]) {
+      const r = await db.query<{ n: number }>(
+        `select count(*)::int as n from ${t} where id <> intern.nokkel_id($1, key)`,
+        [t],
+      );
+      expect(r.rows[0]!.n, t).toBe(0);
+    }
   });
 });
 
-describe('regions', () => {
-  it('tillater samme kode i flere årganger, men ikke duplikat årgang', async () => {
-    await db.exec(`
-      insert into regions (code, name, level, valid_from_year, valid_to_year) values
-        ('0', 'Norge', 'land', 2017, null),
-        ('46', 'Vestland', 'fylke', 2020, 2023),
-        ('46', 'Vestland', 'fylke', 2024, null);
-    `);
-    const n = await db.query<{ count: number }>(`select count(*) from regions`);
-    expect(Number(n.rows[0]!.count)).toBe(3);
+describe("constraintene", () => {
+  const org = (endring: string) => `
+    insert into organisasjon (id, key, navn, nivaa, organtype, status, sensitiv, beskrivelse, kilde_id, verifisering, per, hentet)
+    select intern.nokkel_id('organisasjon', 'x-test'), 'x-test', 'Test', 'kommune', 'utvalg', 'aktiv', false, 'Test.',
+           intern.nokkel_id('kilde', 'tromso-kommune-no'), 'oppgitt', '2026-09', null
+    ${endring}`;
 
-    const dup = await rejects(
-      db,
-      `insert into regions (code, name, level, valid_from_year)
-       values ('46', 'Vestland', 'fylke', 2024)`,
-      'regions_code_valid_from_year_key',
+  it("godtar en gyldig rad (kontroll for testene under)", async () => {
+    expect(await stoppetAv(db, org(""))).toBeNull();
+  });
+
+  it("avviser verifisert uten tidsstempel, og godtar det med", async () => {
+    expect(
+      await stoppetAv(
+        db,
+        `${org("")}; update organisasjon set verifisering = 'verifisert' where key = 'x-test'`,
+      ),
+    ).toBe("organisasjon_verifisert_har_tid");
+    expect(
+      await stoppetAv(
+        db,
+        `${org("")}; update organisasjon set verifisering = 'verifisert', hentet = now() where key = 'x-test'`,
+      ),
+    ).toBeNull();
+  });
+
+  it("avviser en påstand fra Purehelp som er mer enn maa_verifiseres", async () => {
+    expect(
+      await stoppetAv(
+        db,
+        `update nokkeltall set verifisering = 'oppgitt' where kilde_id = intern.nokkel_id('kilde', 'purehelp')`,
+      ),
+    ).toBe("nokkeltall_sekundaerkilde");
+  });
+
+  it("avviser en id som ikke er avledet av nøkkelen", async () => {
+    expect(
+      await stoppetAv(
+        db,
+        `${org("")}; update organisasjon set id = gen_random_uuid() where key = 'x-test'`,
+      ),
+    ).toBe("organisasjon_id_fra_key");
+  });
+
+  it("avviser en dato som ikke er ISO", async () => {
+    expect(
+      await stoppetAv(
+        db,
+        `${org("")}; update organisasjon set per = '24.09.2026' where key = 'x-test'`,
+      ),
+    ).toBe("organisasjon_per_check");
+  });
+
+  it("avviser parti på en rolle utenfor folkevalgte organer", async () => {
+    expect(
+      await stoppetAv(
+        db,
+        `update rolleinnehav set parti = 'Ap' where org_id = intern.nokkel_id('organisasjon', 'troms-kraft')`,
+      ),
+    ).toBe("rolleinnehav_parti_bare_folkevalgte");
+  });
+
+  it("avviser samme rolle for samme person i overlappende perioder", async () => {
+    const key = "tromso-kommunestyre|gunnar-wilhelmsen|politisk_leder|2025";
+    expect(
+      await stoppetAv(
+        db,
+        `insert into rolleinnehav (id, key, org_id, person_id, tittel, rolletype, status, fra, kilde_id, verifisering)
+         values (intern.nokkel_id('rolleinnehav', '${key}'), '${key}',
+                 intern.nokkel_id('organisasjon', 'tromso-kommunestyre'), intern.nokkel_id('person', 'gunnar-wilhelmsen'),
+                 'Ordfører', 'politisk_leder', 'fast', '2025', intern.nokkel_id('kilde', 'tromso-kommune-no'), 'oppgitt')`,
+      ),
+    ).toBe("rolleinnehav_ingen_overlapp");
+  });
+
+  it("avviser et nøkkeltall uten år", async () => {
+    expect(await stoppetAv(db, `update nokkeltall set aar = null`)).toMatch(/aar.*null|null.*aar/);
+  });
+
+  it("avviser eierandel over 100 og andel på en relasjon som ikke er eierskap", async () => {
+    expect(
+      await stoppetAv(
+        db,
+        `update relasjon set andel = 101 where type = 'eier' and andel is not null`,
+      ),
+    ).toBe("relasjon_andel_check");
+    expect(await stoppetAv(db, `update relasjon set andel = 10 where type = 'overordnet'`)).toBe(
+      "relasjon_andel_bare_eier",
     );
-    expect(dup).toBe(true);
-  });
-});
-
-async function seedRefs(db: PGlite) {
-  await db.exec(`
-    insert into industries (nace_code, nace_level, name, common_name, slug) values
-      ('96',    2, 'Annen personlig tjenesteyting', 'Personlig tjenesteyting', 'pt'),
-      ('96.0',  3, 'Annen personlig tjenesteyting', 'Personlig tjenesteyting', 'pt3'),
-      ('96.021',5, 'Frisering', 'Frisørsalong', 'frisorsalong');
-    insert into regions (code, name, level, valid_from_year) values
-      ('0',  'Norge', 'land',  2017),
-      ('03', 'Oslo',  'fylke', 2020);
-  `);
-}
-
-const ID = (t: string, w: string) => `(select id from ${t} where ${w})`;
-
-describe('industry_stats', () => {
-  it('tillater nasjonale rader på nivå 5', async () => {
-    await seedRefs(db);
-    await db.exec(`
-      insert into industry_stats
-        (industry_id, region_id, year, unit_type, nace_level, region_level,
-         n_enheter, omsetning_total, source, data_quality, coverage)
-      values
-        (${ID('industries', `nace_code='96.021'`)}, ${ID('regions', `code='0'`)},
-         2023, 'foretak', 5, 'land', 3200, 6100000000, 'SSB:12910', 'ssb', 'alle');
-    `);
-    const n = await db.query<{ count: number }>(`select count(*) from industry_stats`);
-    expect(Number(n.rows[0]!.count)).toBe(1);
   });
 
-  it('avviser regionale rader på nivå 4 og 5', async () => {
-    await seedRefs(db);
-    const blocked = await rejects(
-      db,
-      `insert into industry_stats
-         (industry_id, region_id, year, unit_type, nace_level, region_level,
-          n_enheter, omsetning_total, source, data_quality, coverage)
-       values
-         (${ID('industries', `nace_code='96.021'`)}, ${ID('regions', `code='03'`)},
-          2023, 'virksomhet', 5, 'fylke', 410, 780000000, 'SSB:12936', 'ssb', 'alle')`,
-      'industry_stats_regional_grain',
-    );
-    expect(blocked).toBe(true);
+  it("avviser en hendelse med presisjon som ikke passer datoen", async () => {
+    expect(
+      await stoppetAv(db, `update hendelse set presisjon = 'dag' where length(dato) = 4`),
+    ).toBe("hendelse_presisjon_passer");
   });
 
-  it('tillater regionale rader på nivå 3', async () => {
-    await seedRefs(db);
-    await db.exec(`
-      insert into industry_stats
-        (industry_id, region_id, year, unit_type, nace_level, region_level,
-         n_enheter, omsetning_total, driftsresultat_total, driftsmargin_pct,
-         source, data_quality, coverage)
-      values
-        (${ID('industries', `nace_code='96.0'`)}, ${ID('regions', `code='03'`)},
-         2023, 'virksomhet', 3, 'fylke', 410, 780000000, null, null,
-         'SSB:12936', 'ssb', 'alle');
-    `);
-    const r = await db.query<{ driftsmargin_pct: number | null }>(
-      `select driftsmargin_pct from industry_stats`,
-    );
-    expect(r.rows[0]!.driftsmargin_pct).toBeNull();
-  });
-
-  it('avviser duplikat på (industry, region, year, unit_type)', async () => {
-    await seedRefs(db);
-    const ins = `
-      insert into industry_stats
-        (industry_id, region_id, year, unit_type, nace_level, region_level,
-         n_enheter, omsetning_total, source, data_quality, coverage)
-      values
-        (${ID('industries', `nace_code='96.021'`)}, ${ID('regions', `code='0'`)},
-         2023, 'foretak', 5, 'land', 3200, 6100000000, 'SSB:12910', 'ssb', 'alle')`;
-    await db.exec(ins);
-    const dup = await rejects(db, ins, 'industry_stats_natural_key');
-    expect(dup).toBe(true);
-  });
-});
-
-describe('companies', () => {
-  it('utleder inngar_i_regnskapssnitt fra organisasjonsform og regnskapsar', async () => {
-    await db.exec(`
-      insert into companies (org_nr, navn, nace_code, kommune_code, organisasjonsform,
-                             ansatte, omsetning, driftsresultat, egenkapital, regnskapsar,
-                             source, data_quality)
-      values
-        ('811234567', 'Salong AS',  '96.021', '0301', 'AS',  6, 5200000, 410000, 900000, 2023, 'brreg', 'brreg'),
-        ('922345678', 'Salong ENK', '96.021', '0301', 'ENK', 1, null,    null,   null,   null, 'brreg', 'brreg');
-    `);
-    const r = await db.query<{ org_nr: string; inngar: boolean }>(
-      `select org_nr, inngar_i_regnskapssnitt as inngar from companies order by org_nr`,
-    );
-    expect(r.rows[0]!.inngar).toBe(true);
-    expect(r.rows[1]!.inngar).toBe(false);
-  });
-});
-
-describe('industry_estimates', () => {
-  it('krever ai_anslag som data_quality og et ikke-tomt basert_pa', async () => {
-    await seedRefs(db);
-    await db.exec(`
-      insert into industry_estimates
-        (industry_id, metrikk, intervall_lav, intervall_hoy, enhet, konfidens,
-         begrunnelse, basert_pa, model, prompt_version, source, data_quality)
-      values
-        (${ID('industries', `nace_code='96.021'`)}, 'etableringskapital',
-         300000, 800000, 'NOK', 'middels',
-         'Utstyr, stolleie og tre måneders drift før positiv kontantstrøm.',
-         '[{"table":"industry_stats","year":2023}]'::jsonb,
-         'claude', 'v1', 'ai:claude', 'ai_anslag');
-    `);
-
-    const wrongQuality = await rejects(
-      db,
-      `insert into industry_estimates
-         (industry_id, metrikk, verdi_num, konfidens, begrunnelse, basert_pa,
-          model, prompt_version, source, data_quality)
-       values (${ID('industries', `nace_code='96.0'`)}, 'x', 1, 'lav', 'y',
-               '[{"a":1}]'::jsonb, 'm', 'v1', 's', 'ssb')`,
-      'industry_estimates_must_be_estimate',
-    );
-    expect(wrongQuality).toBe(true);
-
-    const emptyBasis = await rejects(
-      db,
-      `insert into industry_estimates
-         (industry_id, metrikk, verdi_num, konfidens, begrunnelse, basert_pa,
-          model, prompt_version, source, data_quality)
-       values (${ID('industries', `nace_code='96.0'`)}, 'x', 1, 'lav', 'y',
-               '[]'::jsonb, 'm', 'v1', 's', 'ai_anslag')`,
-      'industry_estimates_basert_pa_nonempty',
-    );
-    expect(emptyBasis).toBe(true);
-  });
-});
-
-describe('ai_insights', () => {
-  it('krever ikke-tomme referanser og alvorlighet 1-5', async () => {
-    await seedRefs(db);
-    await db.exec(`
-      insert into ai_insights
-        (industry_id, region_id, year, type, tittel, body, alvorlighet,
-         referanser, knyttet_til, model, prompt_version, data_quality)
-      values
-        (${ID('industries', `nace_code='96.021'`)}, ${ID('regions', `code='0'`)},
-         2023, 'avvik', 'Marginen faller mens antall foretak øker',
-         'Driftsmarginen har falt tre år på rad samtidig som antall foretak har økt.',
-         4, '[{"table":"industry_stats","field":"driftsmargin_pct"}]'::jsonb,
-         'driftsmargin', 'claude', 'v1', 'ai_anslag');
-    `);
-
-    const badSeverity = await rejects(
-      db,
-      `insert into ai_insights
-         (industry_id, region_id, type, tittel, body, alvorlighet, referanser,
-          model, prompt_version, data_quality)
-       values (${ID('industries', `nace_code='96.0'`)}, ${ID('regions', `code='0'`)},
-               'risiko', 't', 'b', 9, '[{"a":1}]'::jsonb, 'm', 'v1', 'ai_anslag')`,
-      'ai_insights_alvorlighet_check',
-    );
-    expect(badSeverity).toBe(true);
-
-    const noRefs = await rejects(
-      db,
-      `insert into ai_insights
-         (industry_id, region_id, type, tittel, body, alvorlighet, referanser,
-          model, prompt_version, data_quality)
-       values (${ID('industries', `nace_code='96.0'`)}, ${ID('regions', `code='0'`)},
-               'risiko', 't', 'b', 3, '[]'::jsonb, 'm', 'v1', 'ai_anslag')`,
-      'ai_insights_referanser_nonempty',
-    );
-    expect(noRefs).toBe(true);
-  });
-});
-
-describe('companies_snapshot', () => {
-  it('tar imot flere årganger av samme selskap', async () => {
-    await db.exec(`
-      insert into companies_snapshot
-        (org_nr, regnskapsar, hentet_dato, navn, organisasjonsform,
-         omsetning, source, data_quality)
-      values
-        ('811234567', 2023, '2024-09-01', 'Salong AS', 'AS', 5200000, 'brreg', 'brreg'),
-        ('811234567', 2024, '2025-09-01', 'Salong AS', 'AS', 5900000, 'brreg', 'brreg');
-    `);
-    const r = await db.query<{ count: number }>(
-      `select count(*) from companies_snapshot where org_nr = '811234567'`,
-    );
-    // Poenget med tabellen: historikk akkumuleres i stedet for å overskrives.
-    expect(Number(r.rows[0]!.count)).toBe(2);
-  });
-
-  it('avviser duplikat av samme selskap, år og uttrekksdato', async () => {
-    const ins = `insert into companies_snapshot
-      (org_nr, regnskapsar, hentet_dato, navn, organisasjonsform, source, data_quality)
-      values ('922345678', 2023, '2024-09-01', 'B AS', 'AS', 'brreg', 'brreg')`;
-    await db.exec(ins);
-    const dup = await rejects(db, ins, 'companies_snapshot_pkey');
-    expect(dup).toBe(true);
-  });
-});
-
-describe('score_config', () => {
-  it('har en terskel for egenbygde aggregater', async () => {
-    const r = await db.query<{ min_enheter: number; min_enheter_aggregat: number }>(
-      `select min_enheter, min_enheter_aggregat from score_config`,
-    );
-    expect(Number(r.rows[0]!.min_enheter)).toBe(20);
-    // Speiler SSBs undertrykkingsregel så vi ikke avslører enkeltselskaper
-    // i småkommuner. Se spec 2.17.
-    expect(Number(r.rows[0]!.min_enheter_aggregat)).toBe(5);
-  });
-});
-
-describe('industry_wages', () => {
-  beforeEach(async () => {
-    await seedRefs(db);
-  });
-
-  it('holder én rad per næring, region, år og yrke — også når region og yrke er NULL', async () => {
-    const ins = `
-      insert into industry_wages
-        (industry_id, region_id, year, nace_level, region_level,
-         manedslonn_gjennomsnitt, manedslonn_median, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre,
-         antall_ansatte, source, data_quality, coverage)
-      values
-        (${ID('industries', `nace_code='96.021'`)}, null, 2024, 5, null,
-         41200, 39800, 33100, 52400, 8400, 'SSB:11418', 'ssb', 'alle')`;
-    await db.exec(ins);
-    // nulls not distinct: samme rad to ganger skal avvises selv med NULL-felter.
-    const dup = await rejects(db, ins, 'industry_wages_natural_key');
-    expect(dup).toBe(true);
-  });
-
-  it('avviser et spenn som går baklengs', async () => {
-    const bad = await rejects(
-      db,
-      `insert into industry_wages
-         (industry_id, year, nace_level, manedslonn_kvartil_nedre, manedslonn_kvartil_ovre,
-          source, data_quality, coverage)
-       values (${ID('industries', `nace_code='96.021'`)}, 2024, 5, 52400, 33100,
-               'SSB:11418', 'ssb', 'alle')`,
-      'industry_wages_kvartil_order',
-    );
-    expect(bad).toBe(true);
-  });
-
-  it('avviser en median som ligger utenfor spennet', async () => {
-    const bad = await rejects(
-      db,
-      `insert into industry_wages
-         (industry_id, year, nace_level, manedslonn_median, manedslonn_kvartil_nedre,
-          manedslonn_kvartil_ovre, source, data_quality, coverage)
-       values (${ID('industries', `nace_code='96.021'`)}, 2024, 5, 61000, 33100, 52400,
-               'SSB:11418', 'ssb', 'alle')`,
-      'industry_wages_median_within',
-    );
-    expect(bad).toBe(true);
-  });
-
-  it('avviser regionale lønnsrader over 3-siffer NACE', async () => {
-    const bad = await rejects(
-      db,
-      `insert into industry_wages
-         (industry_id, region_id, year, nace_level, region_level,
-          manedslonn_median, source, data_quality, coverage)
-       values (${ID('industries', `nace_code='96.021'`)}, ${ID('regions', `code='03'`)},
-               2024, 5, 'fylke', 39800, 'SSB:11418', 'ssb', 'alle')`,
-      'industry_wages_regional_grain',
-    );
-    expect(bad).toBe(true);
-  });
-
-  it('tillater en yrkesrad ved siden av næringsraden', async () => {
-    await db.exec(`
-      insert into industry_wages
-        (industry_id, year, nace_level, yrke_kode, yrke_navn,
-         manedslonn_median, source, data_quality, coverage)
-      values
-        (${ID('industries', `nace_code='96.021'`)}, 2024, 5, null, null,
-         39800, 'SSB:11418', 'ssb', 'alle'),
-        (${ID('industries', `nace_code='96.021'`)}, 2024, 5, '5141', 'Frisør',
-         37200, 'SSB:11418', 'beregnet', 'alle');
-    `);
-    const r = await db.query<{ count: number }>(`select count(*) from industry_wages`);
-    expect(Number(r.rows[0]!.count)).toBe(2);
+  it("avviser en hendelse eller et hull som nevner en person som ikke finnes", async () => {
+    expect(
+      await stoppetAv(
+        db,
+        `update hendelse set personer = array[intern.nokkel_id('person', 'finnes-ikke')]`,
+      ),
+    ).toBe("hendelse_personer_finnes");
+    expect(
+      await stoppetAv(
+        db,
+        `update hull set personer = array[intern.nokkel_id('person', 'finnes-ikke')]`,
+      ),
+    ).toBe("hull_personer_finnes");
   });
 });

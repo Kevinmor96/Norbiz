@@ -1,0 +1,2393 @@
+{
+  "meta": {
+    "kommunenr": "5516",
+    "kommune": "Gratangen - Rivtták",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "gratangen-kommune-no-administrasjon",
+      "navn": "Gratangen kommune: Administrasjon",
+      "url": "https://www.gratangen.kommune.no/tjenesteomrader/administrasjon",
+      "type": "offisiell"
+    },
+    {
+      "key": "gratangen-kommune-no-kommunestyre-formannskap-og-utvalg-2023-2027",
+      "navn": "Gratangen kommune: Kommunestyre, Formannskap og utvalg 2023-2027",
+      "url": "https://www.gratangen.kommune.no/tjenesteomrader/politikk/valgperioden-2023-2027/kommunestyre-formannskap-og-utvalg-2023-2027",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "opengov-gratangen-202475",
+      "navn": "Gratangen kommune, møteportal: Formannskap 2023-2027",
+      "url": "https://opengov.360online.com/Meetings/gratangen/Boards/Details/202475",
+      "type": "offisiell"
+    },
+    {
+      "key": "opengov-gratangen-202518",
+      "navn": "Gratangen kommune, møteportal: ADU (Administrasjonsutvalget) 2023-2027",
+      "url": "https://opengov.360online.com/Meetings/gratangen/Boards/Details/202518",
+      "type": "offisiell"
+    },
+    {
+      "key": "opengov-gratangen-202519",
+      "navn": "Gratangen kommune, møteportal: Kontrollutvalg 2023-2027",
+      "url": "https://opengov.360online.com/Meetings/gratangen/Boards/Details/202519",
+      "type": "offisiell"
+    },
+    {
+      "key": "opengov-gratangen-202556",
+      "navn": "Gratangen kommune, møteportal: Hovedutvalget for Helse og omsorg 2023-2027",
+      "url": "https://opengov.360online.com/Meetings/gratangen/Boards/Details/202556",
+      "type": "offisiell"
+    },
+    {
+      "key": "opengov-gratangen-202557",
+      "navn": "Gratangen kommune, møteportal: Hovedutvalget for Forvaltning og utvikling 2023-2027",
+      "url": "https://opengov.360online.com/Meetings/gratangen/Boards/Details/202557",
+      "type": "offisiell"
+    },
+    {
+      "key": "opengov-gratangen-202559",
+      "navn": "Gratangen kommune, møteportal: Hovedutvalget for Oppvekst og kultur 2023-2027",
+      "url": "https://opengov.360online.com/Meetings/gratangen/Boards/Details/202559",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+      "navn": "Midtre Hålogaland tingrett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/midtre-halogaland-tingrett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+      "navn": "Ofoten og Sør-Troms jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/ofoten-og-sor-troms-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "tromsfylke-no",
+      "navn": "Troms fylkeskommune (tromsfylke.no)",
+      "url": "https://www.tromsfylke.no",
+      "type": "offisiell"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "gratangen-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Gratangen - Rivtták",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "gratangen-kommunestyre",
+      "kommunenr": "5516",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 5,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg med folkevalgte og representanter for de ansatte, for saker om forholdet mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "opengov-gratangen-202518",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "gratangen-formannskap",
+      "navn": "Formannskapet i Gratangen - Rivtták",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "gratangen-kommunestyre",
+      "kommunenr": "5516",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 6,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ valgt av kommunestyret blant sine medlemmer. Det innstiller blant annet til økonomiplan og årsbudsjett.",
+      "belegg": {
+        "kilde": "opengov-gratangen-202475",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "gratangen-hovedutvalget-for-forvaltning-og-utvikling",
+      "navn": "Hovedutvalget for forvaltning og utvikling i Gratangen - Rivtták",
+      "kortnavn": "Hovedutvalget for forvaltning og utvikling",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "gratangen-kommunestyre",
+      "kommunenr": "5516",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 5,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "opengov-gratangen-202557",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "gratangen-hovedutvalget-for-helse-og-omsorg",
+      "navn": "Hovedutvalget for helse og omsorg i Gratangen - Rivtták",
+      "kortnavn": "Hovedutvalget for helse og omsorg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "gratangen-kommunestyre",
+      "kommunenr": "5516",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 5,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "opengov-gratangen-202556",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "gratangen-hovedutvalget-for-oppvekst-og-kultur",
+      "navn": "Hovedutvalget for oppvekst og kultur i Gratangen - Rivtták",
+      "kortnavn": "Hovedutvalget for oppvekst og kultur",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "gratangen-kommunestyre",
+      "kommunenr": "5516",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 5,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "opengov-gratangen-202559",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "gratangen-kommune",
+      "orgnr": "959469415",
+      "navn": "Gratangen - Rivtták kommune",
+      "kortnavn": "Gratangen kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5516",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «GRATANGEN KOMMUNE». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "gratangen-kommune-administrasjonen",
+      "navn": "Administrasjonen i Gratangen - Rivtták kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "gratangen-kommune",
+      "kommunenr": "5516",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "gratangen-kommune-no-administrasjon",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra gratangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "gratangen-kontrollutvalget",
+      "navn": "Kontrollutvalget i Gratangen - Rivtták",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "gratangen-kommunestyre",
+      "kommunenr": "5516",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "opengov-gratangen-202519",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026."
+      }
+    },
+    {
+      "key": "gratangen-kommunestyre",
+      "navn": "Kommunestyret i Gratangen - Rivtták",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "gratangen-kommune",
+      "kommunenr": "5516",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 15,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "midtre-halogaland-tingrett",
+      "orgnr": "926723073",
+      "navn": "Midtre Hålogaland tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "55",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for Narvik, Evenes, Lødingen, Andøy, Bø, Hadsel, Sortland og Øksnes i Nordland og sju kommuner i Troms, med rettssteder i Harstad, Narvik og Sortland.",
+      "belegg": {
+        "kilde": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Hovedsete i Harstad (Troms) ifølge Enhetsregisteret."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "ofoten-og-sor-troms-jordskifterett",
+      "orgnr": "926726579",
+      "navn": "Ofoten og Sør-Troms jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "55",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i Narvik og Evenes i Nordland og ni kommuner i Troms.",
+      "belegg": {
+        "kilde": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Hovedsete i Harstad (Troms) ifølge Enhetsregisteret."
+      }
+    },
+    {
+      "key": "stortinget-troms-valgkrets",
+      "navn": "Stortinget, Troms valgkrets",
+      "kortnavn": "Troms valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "55",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene fra Troms i perioden 2025–2029, som vedtar lover og budsjett.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune",
+      "orgnr": "930068128",
+      "navn": "Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt. Styres etter formannskapsmodellen: fylkesordføreren leder fylkestinget og fylkesutvalget.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»). Styringsmodellen er bekreftet på tromsfylke.no/politikk/fylkesordforer/ 25.09.2026: «Troms fylkeskommune styres etter formannskapsmodellen, hvor fylkesordføreren er den valgte lederen av fylkestinget.» Fylkesutvalgssiden sier at fylkesordføreren leder fylkesutvalget. Medieomtale ved konstitueringen i 2023 omtalte et fylkesråd og en fylkesrådsleder; fylkeskommunens egne sider har verken fylkesråd eller fylkesrådsleder."
+      }
+    },
+    {
+      "key": "troms-fylkesting",
+      "navn": "Fylkestinget i Troms",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "troms-fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte organ, ledet av fylkesordføreren.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "astafjord-slakteri",
+      "orgnr": "981137299",
+      "navn": "Astafjord Slakteri AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1999-08-25",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.203 «Frysing og videre bearbeiding av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "astafjord-smolt",
+      "orgnr": "958916116",
+      "navn": "Astafjord Smolt AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1990-10-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.222 «Produksjon av yngel og settefisk i ferskvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "aurora-omsorg",
+      "orgnr": "923459405",
+      "navn": "Aurora Omsorg AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3103",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2019-08-29",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 87.991 «Tjenester i barneverninstitusjoner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "aurora-omsorg-as-avd-gratangstoppen",
+      "orgnr": "928995836",
+      "navn": "Aurora Omsorg AS Avd Gratangstoppen",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "aurora-omsorg",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2021-03-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Gratangen - Rivtták for Aurora Omsorg AS, med næringskode 87.991 «Tjenester i barneverninstitusjoner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "gratangen-kommune-helse-og-sosialetat",
+      "orgnr": "974792451",
+      "navn": "Gratangen Kommune Helse- og Sosialetat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "gratangen-kommune-oppvekst-og-kulturetat",
+      "orgnr": "974789957",
+      "navn": "Gratangen Kommune Oppvekst- og Kulturetat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "gratanglaks",
+      "orgnr": "988365777",
+      "navn": "Gratanglaks AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2005-05-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "heka-bygg-eiendom",
+      "orgnr": "921429487",
+      "navn": "Heka Bygg Eiendom AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2018-09-08",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.330 «Gulvlegging og tapetsering».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "kasseriet",
+      "orgnr": "914411491",
+      "navn": "Kasseriet AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-10-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 22.220 «Produksjon av plastemballasje».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "montessoriskolen-morgan",
+      "orgnr": "912363821",
+      "navn": "Montessoriskolen Morgan AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5516",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2013-07-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 85.201 «Ordinær grunnskoleundervisning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "thomas-richard-schjelderup",
+      "navn": "Thomas Richard Schjelderup"
+    },
+    {
+      "key": "anita-karlsen-gratangen",
+      "navn": "Anita Karlsen"
+    },
+    {
+      "key": "elsa-holm",
+      "navn": "Elsa Holm"
+    },
+    {
+      "key": "irmelin-stormo-fagerjord",
+      "navn": "Irmelin Stormo Fagerjord"
+    },
+    {
+      "key": "kjetil-andreas-fjellheim",
+      "navn": "Kjetil Andreas Fjellheim"
+    },
+    {
+      "key": "liv-kari-johansen",
+      "navn": "Liv Kari Johansen"
+    },
+    {
+      "key": "magnus-nikolaisen",
+      "navn": "Magnus Nikolaisen"
+    },
+    {
+      "key": "oddgeir-nergaard",
+      "navn": "Oddgeir Nergaard"
+    },
+    {
+      "key": "roy-idar-sandberg",
+      "navn": "Roy Idar Sandberg"
+    },
+    {
+      "key": "roy-josefsen",
+      "navn": "Roy Josefsen"
+    },
+    {
+      "key": "steen-audvin-linde",
+      "navn": "Steen Audvin Linde"
+    },
+    {
+      "key": "svanaug-andersen",
+      "navn": "Svanaug Andersen"
+    },
+    {
+      "key": "sverre-nordmo",
+      "navn": "Sverre Nordmo"
+    },
+    {
+      "key": "tore-richardsen",
+      "navn": "Tore Richardsen"
+    },
+    {
+      "key": "torill-hansen",
+      "navn": "Torill Hansen"
+    },
+    {
+      "key": "trond-andreassen",
+      "navn": "Trond Andreassen"
+    },
+    {
+      "key": "yngvar-mikkelsen",
+      "navn": "Yngvar Mikkelsen"
+    },
+    {
+      "key": "agnar-johan-hanssen",
+      "navn": "Agnar Johan Hanssen"
+    },
+    {
+      "key": "alexander-johnsen",
+      "navn": "Alexander Johnsen"
+    },
+    {
+      "key": "cato-haakseth",
+      "navn": "Cato Haakseth"
+    },
+    {
+      "key": "charles-rutherford-ildstad",
+      "navn": "Charles Rutherford Ildstad"
+    },
+    {
+      "key": "dagfinn-eidissen",
+      "navn": "Dagfinn Eidissen"
+    },
+    {
+      "key": "edmund-johannes-broback",
+      "navn": "Edmund Johannes Broback"
+    },
+    {
+      "key": "eirik-sillibakken",
+      "navn": "Eirik Sillibakken"
+    },
+    {
+      "key": "finn-willy-johnsen",
+      "navn": "Finn Willy Johnsen"
+    },
+    {
+      "key": "geir-lundberg",
+      "navn": "Geir Lundberg"
+    },
+    {
+      "key": "hallgeir-johan-helland",
+      "navn": "Hallgeir Johan Helland"
+    },
+    {
+      "key": "hanne-anette-bjerkmo",
+      "navn": "Hanne Anette Bjerkmo"
+    },
+    {
+      "key": "hanne-lundberg",
+      "navn": "Hanne Lundberg"
+    },
+    {
+      "key": "henrik-andre-paulsen",
+      "navn": "Henrik Andre Paulsen"
+    },
+    {
+      "key": "inger-lise-lein",
+      "navn": "Inger Lise Lein"
+    },
+    {
+      "key": "johannes-arne-arvesen",
+      "navn": "Johannes Arne Arvesen"
+    },
+    {
+      "key": "karolis-motiejunas",
+      "navn": "Karolis Motiejunas"
+    },
+    {
+      "key": "lars-kristian-berg",
+      "navn": "Lars Kristian Berg"
+    },
+    {
+      "key": "marius-arvesen",
+      "navn": "Marius Arvesen"
+    },
+    {
+      "key": "monica-lundberg",
+      "navn": "Monica Lundberg"
+    },
+    {
+      "key": "nina-johanne-gjertsen",
+      "navn": "Nina Johanne Gjertsen"
+    },
+    {
+      "key": "odd-steinar-olsen",
+      "navn": "Odd-Steinar Olsen"
+    },
+    {
+      "key": "paul-havard-zylla",
+      "navn": "Paul Håvard Zylla"
+    },
+    {
+      "key": "siw-monica-bondestad-nylund",
+      "navn": "Siw Monica Bondestad Nylund"
+    },
+    {
+      "key": "stein-ivar-antonsen",
+      "navn": "Stein Ivar Antonsen"
+    },
+    {
+      "key": "stian-lundberg",
+      "navn": "Stian Lundberg"
+    },
+    {
+      "key": "tore-lundberg",
+      "navn": "Tore Lundberg"
+    },
+    {
+      "key": "trine-lundberg",
+      "navn": "Trine Lundberg"
+    },
+    {
+      "key": "vivi-ann-bjerkmo",
+      "navn": "Vivi-Ann Bjerkmo"
+    }
+  ],
+  "roller": [
+    {
+      "org": "gratangen-administrasjonsutvalget",
+      "person": "anita-karlsen-gratangen",
+      "tittel": "Leder i utvalg",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "opengov-gratangen-202518",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026."
+      }
+    },
+    {
+      "org": "gratangen-formannskap",
+      "person": "anita-karlsen-gratangen",
+      "tittel": "Ordfører",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "opengov-gratangen-202475",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026. Ordføreren er møteleder i formannskapet (kommuneloven § 6-1)."
+      }
+    },
+    {
+      "org": "gratangen-hovedutvalget-for-forvaltning-og-utvikling",
+      "person": "torill-hansen",
+      "tittel": "Leder i utvalg",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "opengov-gratangen-202557",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026."
+      }
+    },
+    {
+      "org": "gratangen-hovedutvalget-for-helse-og-omsorg",
+      "person": "yngvar-mikkelsen",
+      "tittel": "Leder i utvalg",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "opengov-gratangen-202556",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026."
+      }
+    },
+    {
+      "org": "gratangen-hovedutvalget-for-oppvekst-og-kultur",
+      "person": "oddgeir-nergaard",
+      "tittel": "Leder i utvalg",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "opengov-gratangen-202559",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026."
+      }
+    },
+    {
+      "org": "gratangen-kommune-administrasjonen",
+      "person": "thomas-richard-schjelderup",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Gratangen kommune: Administrasjon, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i GRATANGEN KOMMUNE (orgnr 959469415). Registeret har flere navneledd enn siden, som skriver «Thomas Schjelderup»."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "yngvar-mikkelsen",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "gratangen-kommune-no-kommunestyre-formannskap-og-utvalg-2023-2027",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra gratangen.kommune.no 25.09.2026. Siden fører ham for Gratangen Senterparti (GSP)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "anita-karlsen-gratangen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "gratangen-kommune-no-kommunestyre-formannskap-og-utvalg-2023-2027",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra gratangen.kommune.no 25.09.2026. Siden fører henne for Gratangen Senterparti (GSP)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "roy-idar-sandberg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "liv-kari-johansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "svanaug-andersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "steen-audvin-linde",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "roy-josefsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "sverre-nordmo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "anita-karlsen-gratangen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "yngvar-mikkelsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "irmelin-stormo-fagerjord",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "trond-andreassen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "tore-richardsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "torill-hansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "elsa-holm",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "magnus-nikolaisen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "gratangen-kommunestyre",
+      "person": "kjetil-andreas-fjellheim",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Tverrpolitisk Liste for Gratangen",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "alexander-johnsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "geir-lundberg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "hallgeir-johan-helland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "johannes-arne-arvesen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "marius-arvesen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "stein-ivar-antonsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "person": "tore-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "dagfinn-eidissen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "dagfinn-eidissen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "edmund-johannes-broback",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "hanne-lundberg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "johannes-arne-arvesen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "lars-kristian-berg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "odd-steinar-olsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "stein-ivar-antonsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "person": "tore-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratangen-kommune-helse-og-sosialetat",
+      "person": "thomas-richard-schjelderup",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratangen-kommune-oppvekst-og-kulturetat",
+      "person": "thomas-richard-schjelderup",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "finn-willy-johnsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "geir-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "monica-lundberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "stein-ivar-antonsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "stian-lundberg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "tore-lundberg",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "person": "trine-lundberg",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "person": "henrik-andre-paulsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "person": "karolis-motiejunas",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "person": "karolis-motiejunas",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kasseriet",
+      "person": "cato-haakseth",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kasseriet",
+      "person": "charles-rutherford-ildstad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "agnar-johan-hanssen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "eirik-sillibakken",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "hanne-anette-bjerkmo",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "inger-lise-lein",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "nina-johanne-gjertsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "paul-havard-zylla",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "siw-monica-bondestad-nylund",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "person": "vivi-ann-bjerkmo",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "gratangen-administrasjonsutvalget",
+      "til": "gratangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "opengov-gratangen-202518",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "gratangen-formannskap",
+      "til": "gratangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "opengov-gratangen-202475",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "gratangen-hovedutvalget-for-forvaltning-og-utvikling",
+      "til": "gratangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "opengov-gratangen-202557",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "gratangen-hovedutvalget-for-helse-og-omsorg",
+      "til": "gratangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "opengov-gratangen-202556",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "gratangen-hovedutvalget-for-oppvekst-og-kultur",
+      "til": "gratangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "opengov-gratangen-202559",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "gratangen-kommune-administrasjonen",
+      "til": "gratangen-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "gratangen-kommune-no-administrasjon",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra gratangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "gratangen-kontrollutvalget",
+      "til": "gratangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "opengov-gratangen-202519",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra opengov.360online.com 25.09.2026."
+      }
+    },
+    {
+      "fra": "gratangen-kommunestyre",
+      "til": "gratangen-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "troms-fylkesting",
+      "til": "troms-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "aurora-omsorg-as-avd-gratangstoppen",
+      "til": "aurora-omsorg",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "astafjord-slakteri",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4300813,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 9490280,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 61801813,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-slakteri",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 148893655,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2882776,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4853436,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 91383135,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astafjord-smolt",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 68829068,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 54411562,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 70037398,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 675784204,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "gratanglaks",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 678658856,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1324543,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -1032023,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 782463,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "heka-bygg-eiendom",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 11022640,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "kasseriet",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 10475441,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kasseriet",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 13439549,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kasseriet",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 14489452,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kasseriet",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 145243255,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 452993,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 436782,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2197095,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "montessoriskolen-morgan",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 12434407,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Gratangen?",
+      "steg": [
+        {
+          "org": "gratangen-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "gratangen-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (opengov-gratangen-202475); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "gratangen-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Gratangen kommune?",
+      "steg": [
+        {
+          "org": "gratangen-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "gratangen-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (opengov-gratangen-202475)."
+          }
+        },
+        {
+          "org": "gratangen-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "astafjord-slakteri",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "gratanglaks",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "gratangen-kontrollutvalget",
+      "hva": "Lederen av kontrollutvalget i Gratangen er ikke oppgitt i kilden.",
+      "hvorfor": "Kilden (opengov.360online.com) viser kontrollutvalget, men ikke medlemmene med leder (sjekket 25.09.2026)."
+    },
+    {
+      "gjelder": "gratangen-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "gratangen-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

@@ -1,0 +1,2252 @@
+{
+  "meta": {
+    "kommunenr": "5522",
+    "kommune": "Salangen",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "innsynpluss-salangen-administrasjonsutvalg",
+      "navn": "Salangen kommune, innsynsportal: Administrasjonsutvalg",
+      "url": "https://innsynpluss.onacos.no/salangen/utvalg/#/details/u-d64a4353__2689__4b94__806f__09e6a7c4c9be-5!mGzyxM",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-salangen-formannskap",
+      "navn": "Salangen kommune, innsynsportal: Formannskap",
+      "url": "https://innsynpluss.onacos.no/salangen/utvalg/#/details/u-d64a4353__2689__4b94__806f__09e6a7c4c9be-4!Mq4UGe",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-salangen-kontrollutvalg",
+      "navn": "Salangen kommune, innsynsportal: Kontrollutvalg",
+      "url": "https://innsynpluss.onacos.no/salangen/utvalg/#/details/u-d64a4353__2689__4b94__806f__09e6a7c4c9be-11!u3VqtN",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-salangen-levekarsutvalg",
+      "navn": "Salangen kommune, innsynsportal: Levekårsutvalg",
+      "url": "https://innsynpluss.onacos.no/salangen/utvalg/#/details/u-d64a4353__2689__4b94__806f__09e6a7c4c9be-3!rri5QO",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-salangen-naeringsutvalg",
+      "navn": "Salangen kommune, innsynsportal: Næringsutvalg",
+      "url": "https://innsynpluss.onacos.no/salangen/utvalg/#/details/u-d64a4353__2689__4b94__806f__09e6a7c4c9be-6!3qKR0o",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-salangen-ressursutvalg",
+      "navn": "Salangen kommune, innsynsportal: Ressursutvalg",
+      "url": "https://innsynpluss.onacos.no/salangen/utvalg/#/details/u-d64a4353__2689__4b94__806f__09e6a7c4c9be-2!A7Pf09",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "salangen-kommune-no-2025-08-29-mandag-1-september-tiltradte-bente-j-karlsen-stillingen-som-kommunedirektor-i-salangen",
+      "navn": "Salangen kommune: Mandag 1. september tiltrådte Bente J. Karlsen stillingen som kommunedirektør i Salangen",
+      "url": "https://www.salangen.kommune.no/artikler/2025/q3/2025-08-29-mandag-1.-september-tiltradte-bente-j.-karlsen-stillingen-som-kommunedirektor-i-salangen",
+      "type": "offisiell"
+    },
+    {
+      "key": "salangen-kommune-no-politisk-ledelse",
+      "navn": "Salangen kommune: Politisk ledelse",
+      "url": "https://www.salangen.kommune.no/tjenester/politikk-og-administrasjon/politisk-ledelse",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+      "navn": "Midtre Hålogaland tingrett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/midtre-halogaland-tingrett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+      "navn": "Ofoten og Sør-Troms jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/ofoten-og-sor-troms-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no",
+      "navn": "Politiet (politiet.no)",
+      "url": "https://www.politiet.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "tromsfylke-no",
+      "navn": "Troms fylkeskommune (tromsfylke.no)",
+      "url": "https://www.tromsfylke.no",
+      "type": "offisiell"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "salangen-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Salangen",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "salangen-kommunestyre",
+      "kommunenr": "5522",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 6,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg med folkevalgte og representanter for de ansatte, for saker om forholdet mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-administrasjonsutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "salangen-formannskap",
+      "navn": "Formannskapet i Salangen",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "salangen-kommunestyre",
+      "kommunenr": "5522",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 6,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ valgt av kommunestyret blant sine medlemmer. Det innstiller blant annet til økonomiplan og årsbudsjett.",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-formannskap",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Portalen fører fortsatt den valgte ordføreren i formannskapet; permisjonen er ikke speilet der."
+      }
+    },
+    {
+      "key": "salangen-kommune",
+      "orgnr": "961416388",
+      "navn": "Salangen kommune",
+      "kortnavn": "Salangen kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5522",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «SALANGEN KOMMUNE». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "salangen-kommune-administrasjonen",
+      "navn": "Administrasjonen i Salangen kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "salangen-kommune",
+      "kommunenr": "5522",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "salangen-kommune-no-2025-08-29-mandag-1-september-tiltradte-bente-j-karlsen-stillingen-som-kommunedirektor-i-salangen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra salangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "salangen-kontrollutvalget",
+      "navn": "Kontrollutvalget i Salangen",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "salangen-kommunestyre",
+      "kommunenr": "5522",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-kontrollutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "key": "salangen-levekarsutvalget",
+      "navn": "Levekårsutvalget i Salangen",
+      "kortnavn": "Levekårsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "salangen-kommunestyre",
+      "kommunenr": "5522",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-levekarsutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "salangen-naeringsutvalget",
+      "navn": "Næringsutvalget i Salangen",
+      "kortnavn": "Næringsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "salangen-kommunestyre",
+      "kommunenr": "5522",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 8,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-naeringsutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "salangen-ressursutvalget",
+      "navn": "Ressursutvalget i Salangen",
+      "kortnavn": "Ressursutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "salangen-kommunestyre",
+      "kommunenr": "5522",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-ressursutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "salangen-kommunestyre",
+      "navn": "Kommunestyret i Salangen",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "salangen-kommune",
+      "kommunenr": "5522",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 19,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "midtre-halogaland-tingrett",
+      "orgnr": "926723073",
+      "navn": "Midtre Hålogaland tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "55",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for Narvik, Evenes, Lødingen, Andøy, Bø, Hadsel, Sortland og Øksnes i Nordland og sju kommuner i Troms, med rettssteder i Harstad, Narvik og Sortland.",
+      "belegg": {
+        "kilde": "domstol-no-midtre-halogaland-tingrett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Hovedsete i Harstad (Troms) ifølge Enhetsregisteret."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "ofoten-og-sor-troms-jordskifterett",
+      "orgnr": "926726579",
+      "navn": "Ofoten og Sør-Troms jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "55",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i Narvik og Evenes i Nordland og ni kommuner i Troms.",
+      "belegg": {
+        "kilde": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Hovedsete i Harstad (Troms) ifølge Enhetsregisteret."
+      }
+    },
+    {
+      "key": "stortinget-troms-valgkrets",
+      "navn": "Stortinget, Troms valgkrets",
+      "kortnavn": "Troms valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "55",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene fra Troms i perioden 2025–2029, som vedtar lover og budsjett.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune",
+      "orgnr": "930068128",
+      "navn": "Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt. Styres etter formannskapsmodellen: fylkesordføreren leder fylkestinget og fylkesutvalget.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»). Styringsmodellen er bekreftet på tromsfylke.no/politikk/fylkesordforer/ 25.09.2026: «Troms fylkeskommune styres etter formannskapsmodellen, hvor fylkesordføreren er den valgte lederen av fylkestinget.» Fylkesutvalgssiden sier at fylkesordføreren leder fylkesutvalget. Medieomtale ved konstitueringen i 2023 omtalte et fylkesråd og en fylkesrådsleder; fylkeskommunens egne sider har verken fylkesråd eller fylkesrådsleder."
+      }
+    },
+    {
+      "key": "troms-fylkesting",
+      "navn": "Fylkestinget i Troms",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "troms-fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte organ, ledet av fylkesordføreren.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-politidistrikt",
+      "orgnr": "974769425",
+      "navn": "Troms politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Politi og påtale i 20 kommuner, pluss forvaltningsoppgaver som våpen- og utlendingssaker.",
+      "belegg": {
+        "kilde": "politiet-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "barne-ungdoms-og-familiedirektoratet",
+      "orgnr": "986128433",
+      "navn": "Barne-, Ungdoms- og Familiedirektoratet",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "bufetat-nord-lamo-ungdomssenter",
+      "orgnr": "974056909",
+      "navn": "Bufetat Nord Lamo Ungdomssenter",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "barne-ungdoms-og-familiedirektoratet",
+      "kommunenr": "5522",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Salangen for Barne-, Ungdoms- og Familiedirektoratet, med næringskode 87.991 «Tjenester i barneverninstitusjoner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "coop-nord",
+      "orgnr": "938497257",
+      "navn": "Coop Nord SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "1926-11-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "extra-sjovegan-1980",
+      "orgnr": "973188771",
+      "navn": "Extra Sjøvegan 1980",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "overordnet": "coop-nord",
+      "kommunenr": "5522",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "1965-12-31",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Salangen for Coop Nord SA, med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "hero-norge",
+      "orgnr": "876785722",
+      "navn": "Hero Norge AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1103",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1996-07-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 87.992 «Asylmottakstjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "perpetuum",
+      "orgnr": "984464045",
+      "navn": "Perpetuum AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [
+        "avfall-miljo"
+      ],
+      "gyldig_fra": "2002-04-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 38.120 «Innsamling av farlig avfall».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "perpetuum-as-avd-salangen",
+      "orgnr": "984136935",
+      "navn": "Perpetuum AS Avd Salangen",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "perpetuum",
+      "kommunenr": "5522",
+      "myndighet": [],
+      "segmenter": [
+        "avfall-miljo"
+      ],
+      "gyldig_fra": "2002-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Salangen for Perpetuum AS, med næringskode 38.120 «Innsamling av farlig avfall».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "presis-vegdrift",
+      "orgnr": "914888794",
+      "navn": "Presis Vegdrift AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "4601",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2015-01-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 42.110 «Bygging av veier og motorveier».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "presis-vegdrift-as-avd-sjovegan",
+      "orgnr": "932124653",
+      "navn": "Presis Vegdrift AS Avd Sjøvegan",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "presis-vegdrift",
+      "kommunenr": "5522",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-09-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Salangen for Presis Vegdrift AS, med næringskode 42.110 «Bygging av veier og motorveier».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "salaks-produksjon",
+      "orgnr": "816157382",
+      "navn": "Salaks Produksjon AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5522",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2015-10-14",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "salaks-settefisk",
+      "orgnr": "916157509",
+      "navn": "Salaks Settefisk AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5522",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2015-10-14",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.212 «Produksjon av yngel og settefisk i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "salaks-slakteri",
+      "orgnr": "921896417",
+      "navn": "Salaks Slakteri AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5522",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2018-10-19",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "sjovegan-mottakssenter",
+      "orgnr": "929344332",
+      "navn": "Sjøvegan Mottakssenter",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "hero-norge",
+      "kommunenr": "5522",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2022-06-13",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Salangen for Hero Norge AS, med næringskode 87.992 «Asylmottakstjenester».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "sjovegan-videregaende-skole",
+      "orgnr": "974546809",
+      "navn": "Sjøvegan Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "troms-fylkeskommune-kompetanse",
+      "kommunenr": "5522",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Salangen for Troms Fylkeskommune Kompetanse, med næringskode 85.310 «Videregående opplæring innenfor studieforberedende utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "troms-fylkeskommune-kompetanse",
+      "orgnr": "974793741",
+      "navn": "Troms Fylkeskommune Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "bente-johnsen-karlsen",
+      "navn": "Bente Johnsen Karlsen"
+    },
+    {
+      "key": "agnar-magne-fossbakk",
+      "navn": "Agnar Magne Fossbakk"
+    },
+    {
+      "key": "andreas-nilsen-salangen",
+      "navn": "Andreas Nilsen"
+    },
+    {
+      "key": "anita-helen-lovhaug",
+      "navn": "Anita Helén Løvhaug"
+    },
+    {
+      "key": "ann-kristin-bakkemo",
+      "navn": "Ann Kristin Bakkemo"
+    },
+    {
+      "key": "anne-lokse-berthinussen",
+      "navn": "Anne Løkse Berthinussen"
+    },
+    {
+      "key": "ellen-jerman-bertheussen",
+      "navn": "Ellen Jerman Bertheussen"
+    },
+    {
+      "key": "geir-bjorn-vadstein",
+      "navn": "Geir Bjørn Vadstein"
+    },
+    {
+      "key": "ingeborg-nina-nygaard",
+      "navn": "Ingeborg Nina Nygaard"
+    },
+    {
+      "key": "ivar-buhring-prestbakmo",
+      "navn": "Ivar Bühring Prestbakmo"
+    },
+    {
+      "key": "jimmy-treland",
+      "navn": "Jimmy Treland"
+    },
+    {
+      "key": "kim-hakon-pedersen",
+      "navn": "Kim Håkon Pedersen"
+    },
+    {
+      "key": "kjersti-tverseth",
+      "navn": "Kjersti Tverseth"
+    },
+    {
+      "key": "malin-tverseth",
+      "navn": "Malin Tverseth"
+    },
+    {
+      "key": "mathias-andre-jenssen",
+      "navn": "Mathias André Jenssen"
+    },
+    {
+      "key": "mona-christine-henneman",
+      "navn": "Mona Christine Henneman"
+    },
+    {
+      "key": "odd-egil-antonsen",
+      "navn": "Odd Egil Antonsen"
+    },
+    {
+      "key": "simon-lovhaug",
+      "navn": "Simon Løvhaug"
+    },
+    {
+      "key": "sindre-myrland",
+      "navn": "Sindre Myrland"
+    },
+    {
+      "key": "stine-blegeberg",
+      "navn": "Stine Blegeberg"
+    },
+    {
+      "key": "terje-bertheussen",
+      "navn": "Terje Bertheussen"
+    },
+    {
+      "key": "elsa-marie-bekkeli",
+      "navn": "Elsa Marie Bekkeli"
+    },
+    {
+      "key": "john-tore-berntsen",
+      "navn": "John Tore Berntsen"
+    },
+    {
+      "key": "karl-erik-bekkeli",
+      "navn": "Karl Erik Bekkeli"
+    },
+    {
+      "key": "ken-rune-bekkeli",
+      "navn": "Ken Rune Bekkeli"
+    },
+    {
+      "key": "kine-beate-heggelund",
+      "navn": "Kine Beate Heggelund"
+    },
+    {
+      "key": "kristin-bekkeli",
+      "navn": "Kristin Bekkeli"
+    },
+    {
+      "key": "odd-geir-bekkeli",
+      "navn": "Odd Geir Bekkeli"
+    }
+  ],
+  "roller": [
+    {
+      "org": "salangen-formannskap",
+      "person": "simon-lovhaug",
+      "tittel": "Ordfører",
+      "rolletype": "utvalgsleder",
+      "status": "permisjon",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-formannskap",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Ordføreren er møteleder i formannskapet (kommuneloven § 6-1). Kommunens side om politisk ledelse oppgir at ordføreren har permisjon 01.07.2026–31.12.2026; portalen speiler ikke dette."
+      }
+    },
+    {
+      "org": "salangen-kommune-administrasjonen",
+      "person": "bente-johnsen-karlsen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "fra": "2025-09-01",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Salangen kommune: Mandag 1. september tiltrådte Bente J. Karlsen stillingen som kommunedirektør i Salangen, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i SALANGEN KOMMUNE (orgnr 961416388). Sidens merknad: Nyhetssaken oppgir at hun tiltrådte som kommunedirektør 1. september 2025."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "mathias-andre-jenssen",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "salangen-kommune-no-politisk-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra salangen.kommune.no 25.09.2026. Valgt varaordfører; fungerer som ordfører mens ordføreren har permisjon. Siden skriver navnet «Mathias A. Jenssen»; valgoppgjøret har «Mathias André Jenssen»."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "stine-blegeberg",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fungerende",
+      "parti": "SV",
+      "fra": "2026-07-01",
+      "til_forventet": "2026-12-31",
+      "belegg": {
+        "kilde": "salangen-kommune-no-politisk-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra salangen.kommune.no 25.09.2026. Siden oppgir at hun er varaordfører i perioden 01.07.2026–31.12.2026."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "mathias-andre-jenssen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fungerende",
+      "parti": "H",
+      "fra": "2026-07-01",
+      "til_forventet": "2026-12-31",
+      "belegg": {
+        "kilde": "salangen-kommune-no-politisk-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra salangen.kommune.no 25.09.2026. Siden oppgir at han er ordfører i perioden 01.07.2026–31.12.2026, mens ordføreren har permisjon."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "simon-lovhaug",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "permisjon",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "salangen-kommune-no-politisk-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra salangen.kommune.no 25.09.2026. Siden oppgir at han er i permisjon fra ordførervervet 01.07.2026–31.12.2026, vedtatt i kommunestyret 09.06.2026."
+      }
+    },
+    {
+      "org": "salangen-kontrollutvalget",
+      "person": "anne-lokse-berthinussen",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-kontrollutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "salangen-levekarsutvalget",
+      "person": "ann-kristin-bakkemo",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-levekarsutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "salangen-ressursutvalget",
+      "person": "terje-bertheussen",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-ressursutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "kim-hakon-pedersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "andreas-nilsen-salangen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "malin-tverseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "ingeborg-nina-nygaard",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "agnar-magne-fossbakk",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "odd-egil-antonsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "kjersti-tverseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "terje-bertheussen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "mathias-andre-jenssen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "mona-christine-henneman",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "geir-bjorn-vadstein",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "stine-blegeberg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "ellen-jerman-bertheussen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "simon-lovhaug",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "ivar-buhring-prestbakmo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "ann-kristin-bakkemo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "jimmy-treland",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "anita-helen-lovhaug",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salangen-kommunestyre",
+      "person": "sindre-myrland",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "salaks-produksjon",
+      "person": "elsa-marie-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-produksjon",
+      "person": "john-tore-berntsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-produksjon",
+      "person": "karl-erik-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-produksjon",
+      "person": "ken-rune-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-produksjon",
+      "person": "kine-beate-heggelund",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-produksjon",
+      "person": "kristin-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-produksjon",
+      "person": "odd-geir-bekkeli",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-produksjon",
+      "person": "odd-geir-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "person": "elsa-marie-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "person": "john-tore-berntsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "person": "karl-erik-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "person": "ken-rune-bekkeli",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "person": "ken-rune-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "person": "kine-beate-heggelund",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "person": "kristin-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "person": "odd-geir-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "person": "elsa-marie-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "person": "john-tore-berntsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "person": "karl-erik-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "person": "ken-rune-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "person": "kine-beate-heggelund",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "person": "kristin-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "person": "odd-geir-bekkeli",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "person": "odd-geir-bekkeli",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "salangen-administrasjonsutvalget",
+      "til": "salangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-administrasjonsutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "salangen-formannskap",
+      "til": "salangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-formannskap",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Portalen fører fortsatt den valgte ordføreren i formannskapet; permisjonen er ikke speilet der."
+      }
+    },
+    {
+      "fra": "salangen-kommune-administrasjonen",
+      "til": "salangen-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "salangen-kommune-no-2025-08-29-mandag-1-september-tiltradte-bente-j-karlsen-stillingen-som-kommunedirektor-i-salangen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra salangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "salangen-kontrollutvalget",
+      "til": "salangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-kontrollutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "salangen-levekarsutvalget",
+      "til": "salangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-levekarsutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "salangen-naeringsutvalget",
+      "til": "salangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-naeringsutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "salangen-ressursutvalget",
+      "til": "salangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-salangen-ressursutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "salangen-kommunestyre",
+      "til": "salangen-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "troms-fylkesting",
+      "til": "troms-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "bufetat-nord-lamo-ungdomssenter",
+      "til": "barne-ungdoms-og-familiedirektoratet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "extra-sjovegan-1980",
+      "til": "coop-nord",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "perpetuum-as-avd-salangen",
+      "til": "perpetuum",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "presis-vegdrift-as-avd-sjovegan",
+      "til": "presis-vegdrift",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "sjovegan-mottakssenter",
+      "til": "hero-norge",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "sjovegan-videregaende-skole",
+      "til": "troms-fylkeskommune-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "salaks-produksjon",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 41708109,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "salaks-produksjon",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 132965884,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "salaks-produksjon",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 711223709,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "salaks-produksjon",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 975847542,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 29693454,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 40857664,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 405994977,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "salaks-settefisk",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 182903349,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 11104273,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 14650321,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 44172748,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "salaks-slakteri",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 81480722,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Salangen?",
+      "steg": [
+        {
+          "org": "salangen-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "salangen-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (innsynpluss-salangen-formannskap); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "salangen-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Salangen kommune?",
+      "steg": [
+        {
+          "org": "salangen-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "salangen-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (innsynpluss-salangen-formannskap)."
+          }
+        },
+        {
+          "org": "salangen-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "coop-nord",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "extra-sjovegan-1980",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "perpetuum-as-avd-salangen",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "perpetuum",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "salaks-produksjon",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "salaks-slakteri",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "salangen-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "salangen-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

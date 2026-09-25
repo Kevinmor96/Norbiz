@@ -1,0 +1,1119 @@
+{
+  "meta": {
+    "kommunenr": "1816",
+    "kommune": "Vevelstad",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "vevelstad-kommune-no",
+      "navn": "Vevelstad kommune (www.vevelstad.kommune.no)",
+      "url": "https://www.vevelstad.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "vevelstad-moteportal",
+      "navn": "Vevelstad kommunes møteportal (Elements Publikum, prod01.elementscloud.no)",
+      "url": "https://prod01.elementscloud.no/publikum/940651034_PROD-940651034/Dmb",
+      "type": "offisiell"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-helgeland-jordskifterett-rettskrets",
+      "navn": "Helgeland jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/helgeland-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-helgeland-tingrett-om",
+      "navn": "Helgeland tingrett: Om Helgeland tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/helgeland-tingrett/om-helgeland-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "vevelstad-formannskap",
+      "navn": "Formannskapet i Vevelstad",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "vevelstad-kommunestyre",
+      "kommunenr": "1816",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "vevelstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/940651034_PROD-940651034/DmbBoard/6) 2026-09-25."
+      }
+    },
+    {
+      "key": "vevelstad-kommune",
+      "orgnr": "940651034",
+      "navn": "Vevelstad kommune",
+      "kortnavn": "Vevelstad kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1816",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «VEVELSTAD KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1816."
+      }
+    },
+    {
+      "key": "vevelstad-kommune-administrasjonen",
+      "navn": "Administrasjonen i Vevelstad kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "vevelstad-kommune",
+      "kommunenr": "1816",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "vevelstad-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vevelstad.kommune.no/kontakt-oss 2026-09-25."
+      }
+    },
+    {
+      "key": "vevelstad-kontrollutvalget",
+      "navn": "Kontrollutvalget i Vevelstad",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "vevelstad-kommunestyre",
+      "kommunenr": "1816",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "vevelstad-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vevelstad.kommune.no/tjenester/politikk-valg/styre-rad-og-utvalg/kontrollutvalget 2026-09-25."
+      }
+    },
+    {
+      "key": "vevelstad-partssammensatt-utvalg",
+      "navn": "Partssammensatt utvalg i Vevelstad",
+      "kortnavn": "Partssammensatt utvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "vevelstad-kommunestyre",
+      "kommunenr": "1816",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg for saker mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "vevelstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/940651034_PROD-940651034/DmbBoard/13) 2026-09-25."
+      }
+    },
+    {
+      "key": "vevelstad-rad-for-eldre-og-personer-med-funksjonsnedsettelse",
+      "navn": "Råd for eldre og personer med funksjonsnedsettelse i Vevelstad",
+      "kortnavn": "Råd for eldre og personer med funksjonsnedsettelse",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "vevelstad-kommunestyre",
+      "kommunenr": "1816",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "vevelstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/940651034_PROD-940651034/DmbBoard/10) 2026-09-25."
+      }
+    },
+    {
+      "key": "vevelstad-ungdomsradet",
+      "navn": "Ungdomsrådet i Vevelstad",
+      "kortnavn": "Ungdomsrådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "vevelstad-kommunestyre",
+      "kommunenr": "1816",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "vevelstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/940651034_PROD-940651034/DmbBoard/11) 2026-09-25."
+      }
+    },
+    {
+      "key": "vevelstad-kommunestyre",
+      "navn": "Kommunestyret i Vevelstad",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "vevelstad-kommune",
+      "kommunenr": "1816",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 13,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "helgeland-jordskifterett",
+      "orgnr": "926726722",
+      "navn": "Helgeland jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i de 17 kommunene på Helgeland.",
+      "belegg": {
+        "kilde": "domstol-no-helgeland-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "helgeland-tingrett",
+      "orgnr": "926723162",
+      "navn": "Helgeland tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for de 17 kommunene på Helgeland, med bemannede rettssteder i Brønnøysund, Mo i Rana og Sandnessjøen.",
+      "belegg": {
+        "kilde": "domstol-no-helgeland-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "renate-mathisen",
+      "navn": "Renate Mathisen"
+    },
+    {
+      "key": "bjorg-ireen-fonnebo",
+      "navn": "Bjørg Ireen Fønnebø"
+    },
+    {
+      "key": "elisabeth-treines",
+      "navn": "Elisabeth Treines"
+    },
+    {
+      "key": "harald-jorgen-axelsen",
+      "navn": "Harald Jørgen Axelsen"
+    },
+    {
+      "key": "ivar-elling-vevelstad",
+      "navn": "Ivar Elling Vevelstad"
+    },
+    {
+      "key": "jens-martin-johansen",
+      "navn": "Jens-Martin Johansen"
+    },
+    {
+      "key": "kari-anne-bokestad-andreassen",
+      "navn": "Kari Anne Bøkestad Andreassen"
+    },
+    {
+      "key": "ken-richard-hansen",
+      "navn": "Ken Richard Hansen"
+    },
+    {
+      "key": "morten-a-karlsen",
+      "navn": "Morten A. Karlsen"
+    },
+    {
+      "key": "rune-ingebrigtsen",
+      "navn": "Rune Ingebrigtsen"
+    },
+    {
+      "key": "sivert-vevelstad",
+      "navn": "Sivert Vevelstad"
+    },
+    {
+      "key": "siw-kristin-gronbech-solli",
+      "navn": "Siw-Kristin Grønbech Solli"
+    },
+    {
+      "key": "snorre-ingvar-logan",
+      "navn": "Snorre Ingvar Logan"
+    },
+    {
+      "key": "sverre-j-larsen",
+      "navn": "Sverre J. Larsen"
+    },
+    {
+      "key": "torhild-haugann",
+      "navn": "Torhild Haugann"
+    },
+    {
+      "key": "vegard-fonnebo-strand",
+      "navn": "Vegard Fønnebø Strand"
+    }
+  ],
+  "roller": [
+    {
+      "org": "vevelstad-formannskap",
+      "person": "bjorg-ireen-fonnebo",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "vevelstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/940651034_PROD-940651034/DmbBoard/6) 2026-09-25. Møteportalen fører ordføreren i formannskapet med funksjonen «ordfører»."
+      }
+    },
+    {
+      "org": "vevelstad-kommune-administrasjonen",
+      "person": "morten-a-karlsen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "konstituert",
+      "belegg": {
+        "kilde": "vevelstad-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vevelstad.kommune.no/kontakt-oss 2026-09-25. Kontaktsiden fører ham som konstituert kommunedirektør, samtidig som en annen person står som kommunedirektør."
+      }
+    },
+    {
+      "org": "vevelstad-kommune-administrasjonen",
+      "person": "renate-mathisen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Vevelstad kommune (www.vevelstad.kommune.no), per 2026-09-25). Grunnlagets merknad: Hentet fra vevelstad.kommune.no/kontakt-oss 2026-09-25. Kontaktsiden fører både en kommunedirektør og en konstituert kommunedirektør, uten forklaring."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "kari-anne-bokestad-andreassen",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Samarbeidslisten",
+      "belegg": {
+        "kilde": "vevelstad-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vevelstad.kommune.no/kontakt-oss 2026-09-25. Kilden skriver «Kari Anne Andreassen». Partiet er hentet fra valgoppgjøret 2023 (Valgdirektoratet), ikke fra denne kilden."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "bjorg-ireen-fonnebo",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "vevelstad-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vevelstad.kommune.no/tjenester/politikk-valg/kontakt-ordforer 2026-09-25."
+      }
+    },
+    {
+      "org": "vevelstad-kontrollutvalget",
+      "person": "sverre-j-larsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "vevelstad-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vevelstad.kommune.no/tjenester/politikk-valg/styre-rad-og-utvalg/kontrollutvalget 2026-09-25."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "bjorg-ireen-fonnebo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "elisabeth-treines",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kommunelista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "harald-jorgen-axelsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "ivar-elling-vevelstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "jens-martin-johansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Samarbeidslisten",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "kari-anne-bokestad-andreassen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Samarbeidslisten",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "ken-richard-hansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Samarbeidslisten",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "rune-ingebrigtsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kommunelista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "sivert-vevelstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "siw-kristin-gronbech-solli",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kommunelista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "snorre-ingvar-logan",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Samarbeidslisten",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "torhild-haugann",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Samarbeidslisten",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "vevelstad-kommunestyre",
+      "person": "vegard-fonnebo-strand",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kommunelista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "vevelstad-formannskap",
+      "til": "vevelstad-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vevelstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/940651034_PROD-940651034/DmbBoard/6) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vevelstad-kommune-administrasjonen",
+      "til": "vevelstad-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vevelstad-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vevelstad.kommune.no/kontakt-oss 2026-09-25."
+      }
+    },
+    {
+      "fra": "vevelstad-kontrollutvalget",
+      "til": "vevelstad-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vevelstad-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vevelstad.kommune.no/tjenester/politikk-valg/styre-rad-og-utvalg/kontrollutvalget 2026-09-25."
+      }
+    },
+    {
+      "fra": "vevelstad-partssammensatt-utvalg",
+      "til": "vevelstad-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vevelstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/940651034_PROD-940651034/DmbBoard/13) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vevelstad-rad-for-eldre-og-personer-med-funksjonsnedsettelse",
+      "til": "vevelstad-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vevelstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/940651034_PROD-940651034/DmbBoard/10) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vevelstad-ungdomsradet",
+      "til": "vevelstad-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vevelstad-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/940651034_PROD-940651034/DmbBoard/11) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vevelstad-kommunestyre",
+      "til": "vevelstad-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
+      }
+    }
+  ],
+  "nokkeltall": [],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Vevelstad?",
+      "steg": [
+        {
+          "org": "vevelstad-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "vevelstad-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (vevelstad-moteportal); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "vevelstad-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Vevelstad kommune?",
+      "steg": [
+        {
+          "org": "vevelstad-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "vevelstad-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (vevelstad-moteportal)."
+          }
+        },
+        {
+          "org": "vevelstad-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "vevelstad-partssammensatt-utvalg",
+      "hva": "Leder av partssammensatt utvalg i Vevelstad er ikke oppgitt.",
+      "hvorfor": "Møteportalen (Elements Publikum) fører ingen med funksjonen «Leder» i organet; ordføreren står oppført med funksjonen «Ordfører», men portalen sier ikke at ordføreren leder det (prod01.elementscloud.no/publikum/940651034_PROD-940651034/DmbBoard/13)."
+    },
+    {
+      "gjelder": "vevelstad-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "vevelstad-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

@@ -1,0 +1,2249 @@
+{
+  "meta": {
+    "kommunenr": "1828",
+    "kommune": "Nesna",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "nesna-kommune-no",
+      "navn": "Nesna kommune (www.nesna.kommune.no)",
+      "url": "https://www.nesna.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nesna-moteportal",
+      "navn": "Nesna kommunes møteportal (Elements Publikum, prod01.elementscloud.no)",
+      "url": "https://prod01.elementscloud.no/publikum/939600515_PROD-939600515/Dmb",
+      "type": "offisiell"
+    },
+    {
+      "key": "nord-no-universitetsledelsen",
+      "navn": "Nord universitet: Universitetsledelsen",
+      "url": "https://www.nord.no/om/organisasjonen/universitetsledelsen",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-helgeland-jordskifterett-rettskrets",
+      "navn": "Helgeland jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/helgeland-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-helgeland-tingrett-om",
+      "navn": "Helgeland tingrett: Om Helgeland tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/helgeland-tingrett/om-helgeland-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "nesna-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Nesna",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "nesna-kommunestyre",
+      "kommunenr": "1828",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg for saker mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/19) 2026-09-25."
+      }
+    },
+    {
+      "key": "nesna-eldreradet",
+      "navn": "Eldrerådet i Nesna",
+      "kortnavn": "Eldrerådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "nesna-kommunestyre",
+      "kommunenr": "1828",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/9) 2026-09-25."
+      }
+    },
+    {
+      "key": "nesna-formannskap",
+      "navn": "Formannskapet i Nesna",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nesna-kommunestyre",
+      "kommunenr": "1828",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/5) 2026-09-25."
+      }
+    },
+    {
+      "key": "nesna-kommune",
+      "orgnr": "939600515",
+      "navn": "Nesna kommune",
+      "kortnavn": "Nesna kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1828",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «NESNA KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1828."
+      }
+    },
+    {
+      "key": "nesna-kommune-administrasjonen",
+      "navn": "Administrasjonen i Nesna kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "nesna-kommune",
+      "kommunenr": "1828",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "nesna-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nesna.kommune.no/tjenester/politikk-organisasjon-og-innsyn/kunngjoringer-og-horinger/offentlig-horing-forslag-til-endringer-i-renovasjonsforskriften.5408.aspx 2026-09-25. Nevnt som kommunedirektør i en høring publisert 07.05.2026."
+      }
+    },
+    {
+      "key": "nesna-kontrollutvalget",
+      "navn": "Kontrollutvalget i Nesna",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "nesna-kommunestyre",
+      "kommunenr": "1828",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/12) 2026-09-25."
+      }
+    },
+    {
+      "key": "nesna-oppvekst-kultur-og-helseutvalget",
+      "navn": "Oppvekst-, kultur- og helseutvalget i Nesna",
+      "kortnavn": "Oppvekst-, kultur- og helseutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "nesna-kommunestyre",
+      "kommunenr": "1828",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/17) 2026-09-25."
+      }
+    },
+    {
+      "key": "nesna-rad-for-personer-med-funksjonsnedsettelse",
+      "navn": "Råd for personer med funksjonsnedsettelse i Nesna",
+      "kortnavn": "Råd for personer med funksjonsnedsettelse",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "nesna-kommunestyre",
+      "kommunenr": "1828",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/10) 2026-09-25."
+      }
+    },
+    {
+      "key": "nesna-ungdomsradet",
+      "navn": "Ungdomsrådet i Nesna",
+      "kortnavn": "Ungdomsrådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "nesna-kommunestyre",
+      "kommunenr": "1828",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/11) 2026-09-25."
+      }
+    },
+    {
+      "key": "nesna-kommunestyre",
+      "navn": "Kommunestyret i Nesna",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nesna-kommune",
+      "kommunenr": "1828",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 17,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "helgeland-jordskifterett",
+      "orgnr": "926726722",
+      "navn": "Helgeland jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i de 17 kommunene på Helgeland.",
+      "belegg": {
+        "kilde": "domstol-no-helgeland-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "helgeland-tingrett",
+      "orgnr": "926723162",
+      "navn": "Helgeland tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for de 17 kommunene på Helgeland, med bemannede rettssteder i Brønnøysund, Mo i Rana og Sandnessjøen.",
+      "belegg": {
+        "kilde": "domstol-no-helgeland-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "myndighet": [
+        "innkjop"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nord-universitet",
+      "orgnr": "970940243",
+      "navn": "Nord universitet",
+      "nivaa": "stat",
+      "organtype": "universitet",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Statlig universitet med hovedsete i Bodø, ledet av et styre og en rektor.",
+      "belegg": {
+        "kilde": "nord-no-universitetsledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 970940243, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Organisasjonsledd under Kunnskapsdepartementet (872417842). Antall ansatte i registeret: 1871."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
+      }
+    },
+    {
+      "key": "bupa",
+      "orgnr": "912402223",
+      "navn": "Bupa AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1828",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2013-07-24",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 87.201 «Omsorgstjenester i botilbud for personer med psykiske helseproblemer og/eller rusmiddelproblemer».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "gabbro-nor",
+      "orgnr": "874227862",
+      "navn": "Gabbro Nor AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1828",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 08.120 «Utvinning fra grus- og sandtak, og utvinning av leire og kaolin».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kristen-videregaende-skole-nordland-sti",
+      "orgnr": "971541210",
+      "navn": "Kristen Videregående Skole Nordland STI",
+      "nivaa": "privat",
+      "organtype": "stiftelse",
+      "kommunenr": "1828",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1991-07-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stiftelse registrert i Enhetsregisteret med næringskode 85.310 «Videregående opplæring innenfor studieforberedende utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "nesna-kommune-helse-og-sosial",
+      "orgnr": "874791342",
+      "navn": "Nesna Kommune Helse og Sosial",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1828",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nesna-kommune-oppvekst-og-kultur",
+      "orgnr": "974790327",
+      "navn": "Nesna Kommune Oppvekst og Kultur",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1828",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nesna-kommune-sentraladministrasjon",
+      "orgnr": "974794225",
+      "navn": "Nesna Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1828",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nord-universitet-nesna",
+      "orgnr": "974800047",
+      "navn": "Nord Universitet Nesna",
+      "nivaa": "stat",
+      "organtype": "universitet",
+      "overordnet": "nord-universitet",
+      "kommunenr": "1828",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "gyldig_fra": "1994-08-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nesna for Nord universitet, med næringskode 85.401 «Undervisning ved universiteter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "pharmaq-fishteq",
+      "orgnr": "975353346",
+      "navn": "Pharmaq Fishteq AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1828",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1995-09-05",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.300 «Tjenester tilknyttet fiske, fangst og akvakultur».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "westcon-helgeland",
+      "orgnr": "942313365",
+      "navn": "Westcon Helgeland AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1828",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1987-02-07",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 33.150 «Reparasjon og vedlikehold av sivile skip og båter».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "odd-steinar-afar-viseth",
+      "navn": "Odd Steinar Åfar Viseth"
+    },
+    {
+      "key": "anne-mette-bjornvik-roso",
+      "navn": "Anne Mette Bjørnvik Rosø"
+    },
+    {
+      "key": "anne-sofie-moe",
+      "navn": "Anne Sofie Moe"
+    },
+    {
+      "key": "arnold-einar-sjoteig",
+      "navn": "Arnold Einar Sjøteig"
+    },
+    {
+      "key": "dan-harald-danielsen",
+      "navn": "Dan Harald Danielsen"
+    },
+    {
+      "key": "hallvard-andre-kjelen",
+      "navn": "Hallvard Andre Kjelen"
+    },
+    {
+      "key": "hanne-davidsen",
+      "navn": "Hanne Davidsen"
+    },
+    {
+      "key": "heidi-hvidsten",
+      "navn": "Heidi Hvidsten"
+    },
+    {
+      "key": "jan-erik-paulsen",
+      "navn": "Jan-Erik Paulsen"
+    },
+    {
+      "key": "jenny-myklebust",
+      "navn": "Jenny Myklebust"
+    },
+    {
+      "key": "john-harald-svaleng-bustnes",
+      "navn": "John Harald Svaleng Bustnes"
+    },
+    {
+      "key": "kristian-sivertsen",
+      "navn": "Kristian Sivertsen"
+    },
+    {
+      "key": "marius-meisfjord-josevold",
+      "navn": "Marius Meisfjord Jøsevold"
+    },
+    {
+      "key": "oddbjorn-paulsen",
+      "navn": "Oddbjørn Paulsen"
+    },
+    {
+      "key": "rebekka-bruin-odegaard",
+      "navn": "Rebekka Bruin Ødegaard"
+    },
+    {
+      "key": "sandra-elisabeth-hammer-bjorge",
+      "navn": "Sandra Elisabeth Hammer Bjørge"
+    },
+    {
+      "key": "sindre-remman",
+      "navn": "Sindre Remman"
+    },
+    {
+      "key": "tom-storro",
+      "navn": "Tom Storrø"
+    },
+    {
+      "key": "trond-ivar-rasmussen",
+      "navn": "Trond-Ivar Rasmussen"
+    },
+    {
+      "key": "arnt-jonny-skogsoy",
+      "navn": "Arnt Jonny Skogsøy"
+    },
+    {
+      "key": "bengt-walnum",
+      "navn": "Bengt Walnum"
+    },
+    {
+      "key": "bernt-eilif-bendiksen",
+      "navn": "Bernt Eilif Bendiksen"
+    },
+    {
+      "key": "bernt-martinsen",
+      "navn": "Bernt Martinsen"
+    },
+    {
+      "key": "endre-matre",
+      "navn": "Endre Matre"
+    },
+    {
+      "key": "espen-storholm-df12ed",
+      "navn": "Espen Storholm"
+    },
+    {
+      "key": "finn-olav-konow",
+      "navn": "Finn Olav Konow"
+    },
+    {
+      "key": "georg-matre",
+      "navn": "Georg Matre"
+    },
+    {
+      "key": "hans-brunstad",
+      "navn": "Hans Brunstad"
+    },
+    {
+      "key": "hilde-boe",
+      "navn": "Hilde Bøe"
+    },
+    {
+      "key": "jan-arne-skar",
+      "navn": "Jan Arne Skår"
+    },
+    {
+      "key": "karianne-knutsen",
+      "navn": "Karianne Knutsen"
+    },
+    {
+      "key": "kjell-arne-grontjernet",
+      "navn": "Kjell Arne Grøntjernet"
+    },
+    {
+      "key": "knut-egil-lokling",
+      "navn": "Knut-Egil Løkling"
+    },
+    {
+      "key": "lillian-remmen-lie",
+      "navn": "Lillian Remmen Lie"
+    },
+    {
+      "key": "oystein-matre",
+      "navn": "Øystein Matre"
+    },
+    {
+      "key": "redvald-hjulstad",
+      "navn": "Redvald Hjulstad"
+    },
+    {
+      "key": "silja-ildgruben",
+      "navn": "Silja Ildgruben"
+    },
+    {
+      "key": "stian-fuglstad",
+      "navn": "Stian Fuglstad"
+    },
+    {
+      "key": "stig-harald-monsen",
+      "navn": "Stig-Harald Monsen"
+    },
+    {
+      "key": "terje-tingbo",
+      "navn": "Terje Tingbø"
+    },
+    {
+      "key": "tomas-nyrud",
+      "navn": "Tomas Nyrud"
+    },
+    {
+      "key": "trine-astrid-vatle",
+      "navn": "Trine Astrid Vatle"
+    },
+    {
+      "key": "webe-helen-buschmann",
+      "navn": "Webe Helen Buschmann"
+    }
+  ],
+  "roller": [
+    {
+      "org": "nesna-administrasjonsutvalget",
+      "person": "hanne-davidsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/19) 2026-09-25."
+      }
+    },
+    {
+      "org": "nesna-formannskap",
+      "person": "hanne-davidsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/5) 2026-09-25. Møteportalen fører ordføreren i formannskapet med funksjonen «ordfører»."
+      }
+    },
+    {
+      "org": "nesna-kommune-administrasjonen",
+      "person": "odd-steinar-afar-viseth",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Nesna kommune (www.nesna.kommune.no), per 2026-09-25). Grunnlagets merknad: Hentet fra nesna.kommune.no/tjenester/politikk-organisasjon-og-innsyn/kunngjoringer-og-horinger/offentlig-horing-forslag-til-endringer-i-renovasjonsforskriften.5408.aspx 2026-09-25. Nevnt som kommunedirektør i en høring publisert 07.05.2026."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "rebekka-bruin-odegaard",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/Dmb) 2026-09-25. Møteportalen fører henne med partikode H i kommunestyret og formannskapet, men SP i administrasjonsutvalget. I valgoppgjøret 2023 ble hun valgt for Sp."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "hanne-davidsen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "nesna-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nesna.kommune.no/tjenester/politikk-organisasjon-og-innsyn/ordforerens-side 2026-09-25."
+      }
+    },
+    {
+      "org": "nesna-kontrollutvalget",
+      "person": "trond-ivar-rasmussen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Borgerlig Fellesliste",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/12) 2026-09-25."
+      }
+    },
+    {
+      "org": "nesna-oppvekst-kultur-og-helseutvalget",
+      "person": "anne-mette-bjornvik-roso",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/17) 2026-09-25."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "anne-mette-bjornvik-roso",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "anne-sofie-moe",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Borgerlig fellesliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "arnold-einar-sjoteig",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Borgerlig fellesliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "dan-harald-danielsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "hallvard-andre-kjelen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "hanne-davidsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "heidi-hvidsten",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "jan-erik-paulsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "jenny-myklebust",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "john-harald-svaleng-bustnes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "kristian-sivertsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "marius-meisfjord-josevold",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "oddbjorn-paulsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "rebekka-bruin-odegaard",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "sandra-elisabeth-hammer-bjorge",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "sindre-remman",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "nesna-kommunestyre",
+      "person": "tom-storro",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Borgerlig fellesliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "bupa",
+      "person": "bengt-walnum",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bupa",
+      "person": "hans-brunstad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bupa",
+      "person": "kjell-arne-grontjernet",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gabbro-nor",
+      "person": "espen-storholm-df12ed",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gabbro-nor",
+      "person": "jan-arne-skar",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gabbro-nor",
+      "person": "stian-fuglstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gabbro-nor",
+      "person": "stian-fuglstad",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "gabbro-nor",
+      "person": "tomas-nyrud",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "person": "bernt-eilif-bendiksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "person": "finn-olav-konow",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "person": "hilde-boe",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "person": "karianne-knutsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "person": "lillian-remmen-lie",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "person": "redvald-hjulstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "person": "silja-ildgruben",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "person": "stig-harald-monsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nesna-kommune-helse-og-sosial",
+      "person": "odd-steinar-afar-viseth",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nesna-kommune-oppvekst-og-kultur",
+      "person": "odd-steinar-afar-viseth",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nesna-kommune-sentraladministrasjon",
+      "person": "odd-steinar-afar-viseth",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "pharmaq-fishteq",
+      "person": "bernt-martinsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "pharmaq-fishteq",
+      "person": "knut-egil-lokling",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "pharmaq-fishteq",
+      "person": "terje-tingbo",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "pharmaq-fishteq",
+      "person": "trine-astrid-vatle",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "westcon-helgeland",
+      "person": "arnt-jonny-skogsoy",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "westcon-helgeland",
+      "person": "arnt-jonny-skogsoy",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "westcon-helgeland",
+      "person": "endre-matre",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "westcon-helgeland",
+      "person": "georg-matre",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "westcon-helgeland",
+      "person": "oystein-matre",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "westcon-helgeland",
+      "person": "webe-helen-buschmann",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "nesna-administrasjonsutvalget",
+      "til": "nesna-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/19) 2026-09-25."
+      }
+    },
+    {
+      "fra": "nesna-eldreradet",
+      "til": "nesna-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/9) 2026-09-25."
+      }
+    },
+    {
+      "fra": "nesna-formannskap",
+      "til": "nesna-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/5) 2026-09-25."
+      }
+    },
+    {
+      "fra": "nesna-kommune-administrasjonen",
+      "til": "nesna-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nesna-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nesna.kommune.no/tjenester/politikk-organisasjon-og-innsyn/kunngjoringer-og-horinger/offentlig-horing-forslag-til-endringer-i-renovasjonsforskriften.5408.aspx 2026-09-25. Nevnt som kommunedirektør i en høring publisert 07.05.2026."
+      }
+    },
+    {
+      "fra": "nesna-kontrollutvalget",
+      "til": "nesna-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/12) 2026-09-25."
+      }
+    },
+    {
+      "fra": "nesna-oppvekst-kultur-og-helseutvalget",
+      "til": "nesna-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/17) 2026-09-25."
+      }
+    },
+    {
+      "fra": "nesna-rad-for-personer-med-funksjonsnedsettelse",
+      "til": "nesna-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/10) 2026-09-25."
+      }
+    },
+    {
+      "fra": "nesna-ungdomsradet",
+      "til": "nesna-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nesna-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra Elements Publikum (prod01.elementscloud.no/publikum/939600515_PROD-939600515/DmbBoard/11) 2026-09-25."
+      }
+    },
+    {
+      "fra": "nesna-kommunestyre",
+      "til": "nesna-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
+      }
+    },
+    {
+      "fra": "nord-universitet-nesna",
+      "til": "nord-universitet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "bupa",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -273336,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bupa",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -619628,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bupa",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 14955459,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bupa",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 114254652,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gabbro-nor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 6331408,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gabbro-nor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 10162740,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gabbro-nor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 59559270,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "gabbro-nor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 162305899,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3285085,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3338240,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 5279935,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kristen-videregaende-skole-nordland-sti",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 26940497,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "pharmaq-fishteq",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 8050943,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "pharmaq-fishteq",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 11401918,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "pharmaq-fishteq",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 36942916,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "pharmaq-fishteq",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 73431558,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "westcon-helgeland",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 20542799,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "westcon-helgeland",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 36771663,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "westcon-helgeland",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 91036721,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "westcon-helgeland",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 223480793,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Nesna?",
+      "steg": [
+        {
+          "org": "nesna-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "nesna-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (nesna-moteportal); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "nesna-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Nesna kommune?",
+      "steg": [
+        {
+          "org": "nesna-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "nesna-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (nesna-moteportal)."
+          }
+        },
+        {
+          "org": "nesna-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
+    },
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nord-universitet",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "nord-universitet-nesna",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "pharmaq-fishteq",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "nesna-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "nesna-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

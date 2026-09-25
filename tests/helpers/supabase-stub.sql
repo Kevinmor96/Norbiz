@@ -1,18 +1,21 @@
--- Simulerer den delen av Supabase-miljøet migrasjonene lener seg på.
--- Kjøres kun i tester. På ekte Supabase finnes alt dette fra før.
-create schema if not exists auth;
-create table if not exists auth.users (id uuid primary key);
-create or replace function auth.uid() returns uuid language sql stable as $$
-  select nullif(current_setting('request.jwt.claim.sub', true), '')::uuid
-$$;
+-- Den delen av Supabase-miljøet migrasjonene lener seg på. Kjøres bare i
+-- tester. På ekte Supabase finnes alt dette fra før.
+
 do $$ begin
-  if not exists (select 1 from pg_roles where rolname='anon') then create role anon; end if;
-  if not exists (select 1 from pg_roles where rolname='authenticated') then create role authenticated; end if;
+  if not exists (select 1 from pg_roles where rolname = 'anon') then create role anon nologin; end if;
+  if not exists (select 1 from pg_roles where rolname = 'authenticated') then create role authenticated nologin; end if;
+  if not exists (select 1 from pg_roles where rolname = 'service_role') then create role service_role nologin bypassrls; end if;
 end $$;
 
--- Ekte Supabase gir disse rollene tilgang til auth-schemaet. Uten dem virker
--- RLS-policyene likevel — policy-uttrykk evalueres med tabelleierens
--- rettigheter — men et direkte kall på auth.uid() fra en test som har byttet
--- rolle feiler med "permission denied for schema auth". Verifisert i PGlite.
-grant usage on schema auth to anon, authenticated;
-grant execute on function auth.uid() to anon, authenticated;
+-- Supabase legger utvidelser her.
+create schema if not exists extensions;
+
+grant usage on schema public to anon, authenticated, service_role;
+
+-- Supabase gir anon og authenticated alle rettigheter på nye tabeller,
+-- sekvenser og funksjoner i public (default privileges). Stubben gjør det
+-- samme, så testene beviser at migrasjonene faktisk tar rettighetene tilbake,
+-- og ikke bare at PGlite var strengere enn Supabase i utgangspunktet.
+alter default privileges in schema public grant all on tables to anon, authenticated, service_role;
+alter default privileges in schema public grant all on sequences to anon, authenticated, service_role;
+alter default privileges in schema public grant all on functions to anon, authenticated, service_role;

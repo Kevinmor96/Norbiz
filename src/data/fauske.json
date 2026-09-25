@@ -1,0 +1,3271 @@
+{
+  "meta": {
+    "kommunenr": "1841",
+    "kommune": "Fauske - Fuossko",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "fauske-kommune-no",
+      "navn": "Fauske kommune (www.fauske.kommune.no)",
+      "url": "https://www.fauske.kommune.no/",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "nordlandssykehuset-no-ledelsen",
+      "navn": "Nordlandssykehuset: Ledelsen (sist oppdatert 11.08.2026)",
+      "url": "https://www.nordlandssykehuset.no/om-oss/ledelsen-i-nordlandssykehuset/",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-salten-jordskifterett-rettskrets",
+      "navn": "Salten jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/salten-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-salten-og-lofoten-tingrett-om",
+      "navn": "Salten og Lofoten tingrett: Om Salten og Lofoten tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/salten-og-lofoten-tingrett/om-salten-og-lofoten-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "fauske-eldreradet",
+      "navn": "Eldrerådet i Fauske - Fuossko",
+      "kortnavn": "Eldrerådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "fauske-kommunestyre",
+      "kommunenr": "1841",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "key": "fauske-formannskap",
+      "navn": "Formannskapet i Fauske - Fuossko",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "fauske-kommunestyre",
+      "kommunenr": "1841",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "key": "fauske-kommunalt-rad-for-personer-med-funksjonsnedsettelse",
+      "navn": "Kommunalt råd for personer med funksjonsnedsettelse i Fauske - Fuossko",
+      "kortnavn": "Kommunalt råd for personer med funksjonsnedsettelse",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "fauske-kommunestyre",
+      "kommunenr": "1841",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "key": "fauske-kommune",
+      "orgnr": "972418021",
+      "navn": "Fauske - Fuossko kommune",
+      "kortnavn": "Fauske kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1841",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ. Offisielt navn hos SSB: «Fauske - Fuossko».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «FAUSKE KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1841."
+      }
+    },
+    {
+      "key": "fauske-kommune-administrasjonen",
+      "navn": "Administrasjonen i Fauske - Fuossko kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "fauske-kommune",
+      "kommunenr": "1841",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no 2026-09-25."
+      }
+    },
+    {
+      "key": "fauske-kontrollutvalget",
+      "navn": "Kontrollutvalget i Fauske - Fuossko",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "fauske-kommunestyre",
+      "kommunenr": "1841",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "key": "fauske-plan-utvikling-og-klimautvalget",
+      "navn": "Plan-, utvikling og klimautvalget i Fauske - Fuossko",
+      "kortnavn": "Plan-, utvikling og klimautvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "fauske-kommunestyre",
+      "kommunenr": "1841",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "key": "fauske-ungdomsradet",
+      "navn": "Ungdomsrådet i Fauske - Fuossko",
+      "kortnavn": "Ungdomsrådet",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "fauske-kommunestyre",
+      "kommunenr": "1841",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "key": "fauske-velferdsutvalget",
+      "navn": "Velferdsutvalget i Fauske - Fuossko",
+      "kortnavn": "Velferdsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "fauske-kommunestyre",
+      "kommunenr": "1841",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "key": "fauske-kommunestyre",
+      "navn": "Kommunestyret i Fauske - Fuossko",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "fauske-kommune",
+      "kommunenr": "1841",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 27,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "segmenter": [
+        "helse"
+      ],
+      "myndighet": [
+        "innkjop"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordlandssykehuset",
+      "orgnr": "983974910",
+      "navn": "Nordlandssykehuset HF",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Helseforetak med hovedsete i Bodø, eid av Helse Nord RHF.",
+      "belegg": {
+        "kilde": "nordlandssykehuset-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 983974910, organisasjonsform SÆR, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Antall ansatte i registeret: 6861."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-jordskifterett",
+      "orgnr": "926726684",
+      "navn": "Salten jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i 12 kommuner fra Rødøy til Hamarøy, inkludert Røst og Værøy.",
+      "belegg": {
+        "kilde": "domstol-no-salten-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-og-lofoten-tingrett",
+      "orgnr": "826723122",
+      "navn": "Salten og Lofoten tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for 16 kommuner i Salten og Lofoten, med bemannede rettssteder i Bodø og Svolvær.",
+      "belegg": {
+        "kilde": "domstol-no-salten-og-lofoten-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Domstolen har ifølge siden full fagkrets og dermed også enkelte forvaltningsoppgaver."
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
+      }
+    },
+    {
+      "key": "barne-ungdoms-og-familiedirektoratet",
+      "orgnr": "986128433",
+      "navn": "Barne-, Ungdoms- og Familiedirektoratet",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "bufetat-nord-rovika-ungdomssenter-akutt",
+      "orgnr": "931256300",
+      "navn": "Bufetat Nord Røvika Ungdomssenter Akutt",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "barne-ungdoms-og-familiedirektoratet",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2023-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Fauske - Fuossko for Barne-, Ungdoms- og Familiedirektoratet, med næringskode 87.991 «Tjenester i barneverninstitusjoner».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "fauske-hotell",
+      "orgnr": "915662471",
+      "navn": "Fauske Hotell AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2015-06-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50."
+      }
+    },
+    {
+      "key": "fauske-videregaende-skole",
+      "orgnr": "974621290",
+      "navn": "Fauske Videregående Skole",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Fauske - Fuossko for Nordland Fylkeskommune Utdanning og Kompetanse, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "fauskebygg",
+      "orgnr": "935122511",
+      "navn": "Fauskebygg AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "gyldig_fra": "1984-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 41.000 «Oppføring av bygninger».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "finneid-sveiseverksted",
+      "orgnr": "986446230",
+      "navn": "Finneid Sveiseverksted AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2003-12-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 25.110 «Produksjon av metallkonstruksjoner og deler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "garstad-mat",
+      "orgnr": "933500136",
+      "navn": "Garstad Mat AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "2024-05-03",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 47.110 «Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "infra-anlegg",
+      "orgnr": "990549931",
+      "navn": "Infra Anlegg AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2006-10-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "ise-entreprenor",
+      "orgnr": "914385342",
+      "navn": "Ise Entreprenør AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "2014-10-16",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 35.121 «Produksjon av elektrisitet fra vannkraft».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "nav-arbeid-og-ytelser",
+      "orgnr": "999263550",
+      "navn": "Nav Arbeid og Ytelser",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "0301",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-06-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.300 «Administrasjon av trygdeordninger underlagt offentlig forvaltning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "nav-arbeid-og-ytelser-avd-fauske",
+      "orgnr": "992260998",
+      "navn": "Nav Arbeid og Ytelser Avd Fauske",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "overordnet": "nav-arbeid-og-ytelser",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2008-02-26",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Fauske - Fuossko for Nav Arbeid og Ytelser, med næringskode 84.300 «Administrasjon av trygdeordninger underlagt offentlig forvaltning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordasfalt",
+      "orgnr": "950501480",
+      "navn": "Nordasfalt AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-12-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 42.110 «Bygging av veier og motorveier».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "nordasfalt-as-avd-fauske",
+      "orgnr": "990663858",
+      "navn": "Nordasfalt AS Avd Fauske",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "nordasfalt",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2006-12-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Fauske - Fuossko for Nordasfalt AS, med næringskode 42.110 «Bygging av veier og motorveier».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "orgnr": "974793725",
+      "navn": "Nordland Fylkeskommune Utdanning og Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandsbuss",
+      "orgnr": "979910231",
+      "navn": "Nordlandsbuss AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1804",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1998-05-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
+      }
+    },
+    {
+      "key": "nordlandsbuss-as-avd-fauske",
+      "orgnr": "984573839",
+      "navn": "Nordlandsbuss AS Avd Fauske",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "nordlandsbuss",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2002-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Fauske - Fuossko for Nordlandsbuss AS, med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordlandssykehuset-hf-ambulanse-fauske",
+      "orgnr": "993562343",
+      "navn": "Nordlandssykehuset HF Ambulanse Fauske",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "nordlandssykehuset",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2009-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Fauske - Fuossko for Nordlandssykehuset HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sks-produksjon",
+      "orgnr": "915637353",
+      "navn": "SKS Produksjon AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "1975-07-09",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 35.121 «Produksjon av elektrisitet fra vannkraft».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "valnesfjord-helsesportssenter-sti",
+      "orgnr": "976516745",
+      "navn": "Valnesfjord Helsesportssenter STI",
+      "nivaa": "privat",
+      "organtype": "stiftelse",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [
+        "handel"
+      ],
+      "gyldig_fra": "1972-09-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stiftelse registrert i Enhetsregisteret med næringskode 87.101 «Tjenester i spesialinstitusjon innenfor helse- og omsorg».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "wenberg-fiskeoppdrett",
+      "orgnr": "937504446",
+      "navn": "Wenberg Fiskeoppdrett AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1841",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1985-05-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "gisela-hansen-gulstad",
+      "navn": "Gisela Hansen Gulstad"
+    },
+    {
+      "key": "per-kristen-lokas",
+      "navn": "Per Kristen Løkås"
+    },
+    {
+      "key": "truls-martin-aanstad",
+      "navn": "Truls Martin Aanstad"
+    },
+    {
+      "key": "anne-helene-godding",
+      "navn": "Anne Helene Godding"
+    },
+    {
+      "key": "dina-ferstad-skoglund",
+      "navn": "Dina Ferstad Skoglund"
+    },
+    {
+      "key": "elisabeth-sollihaug",
+      "navn": "Elisabeth Sollihaug"
+    },
+    {
+      "key": "embla-sofie-sorensen",
+      "navn": "Embla Sofie Sørensen"
+    },
+    {
+      "key": "karl-gunnar-strom",
+      "navn": "Karl Gunnar Strøm"
+    },
+    {
+      "key": "kassandra-eleni-bredrup-petsa",
+      "navn": "Kassandra Eleni Bredrup Petsa"
+    },
+    {
+      "key": "kenneth-svendsen",
+      "navn": "Kenneth Svendsen"
+    },
+    {
+      "key": "ketil-hugo-skar",
+      "navn": "Ketil Hugo Skår"
+    },
+    {
+      "key": "leif-bjornar-alpoy",
+      "navn": "Leif Bjørnar Alpøy"
+    },
+    {
+      "key": "maria-helena-torkilseng",
+      "navn": "Maria Helena Torkilseng"
+    },
+    {
+      "key": "maria-piel",
+      "navn": "Maria Piel"
+    },
+    {
+      "key": "marianne-tvera",
+      "navn": "Marianne Tverå"
+    },
+    {
+      "key": "marlen-rendall-berg",
+      "navn": "Marlen Rendall Berg"
+    },
+    {
+      "key": "michael-sagnes",
+      "navn": "Michael Sagnes"
+    },
+    {
+      "key": "mona-iren-wiik",
+      "navn": "Mona Iren Wiik"
+    },
+    {
+      "key": "nils-christian-steinbakk",
+      "navn": "Nils-Christian Steinbakk"
+    },
+    {
+      "key": "ole-tobias-orvin",
+      "navn": "Ole Tobias Orvin"
+    },
+    {
+      "key": "oystein-gangsto",
+      "navn": "Øystein Gangstø"
+    },
+    {
+      "key": "remi-andre-pedersen",
+      "navn": "Remi Andre Pedersen"
+    },
+    {
+      "key": "richard-furnes-skagen",
+      "navn": "Richard Furnes Skagen"
+    },
+    {
+      "key": "siv-anita-johnsen-brekke",
+      "navn": "Siv Anita Johnsen Brekke"
+    },
+    {
+      "key": "sophia-marie-toresen-stemland",
+      "navn": "Sophia Marie Toresen Stemland"
+    },
+    {
+      "key": "tom-erik-holteng",
+      "navn": "Tom Erik Holteng"
+    },
+    {
+      "key": "tore-eivind-rornes",
+      "navn": "Tore Eivind Rørnes"
+    },
+    {
+      "key": "turid-johansen-willumstad",
+      "navn": "Turid Johansen Willumstad"
+    },
+    {
+      "key": "vegard-setsa",
+      "navn": "Vegard Setså"
+    },
+    {
+      "key": "ailin-stover",
+      "navn": "Ailin Støver"
+    },
+    {
+      "key": "anna-marine-hagerup",
+      "navn": "Anna Marine Hagerup"
+    },
+    {
+      "key": "anne-margareth-fagertun-stenhammer",
+      "navn": "Anne Margareth Fagertun Stenhammer"
+    },
+    {
+      "key": "barbro-therese-holmstad",
+      "navn": "Barbro Therese Holmstad"
+    },
+    {
+      "key": "berit-ingebrigtsen-valla",
+      "navn": "Berit Ingebrigtsen Valla"
+    },
+    {
+      "key": "bjornar-arntsen",
+      "navn": "Bjørnar Arntsen"
+    },
+    {
+      "key": "cecilie-anette-risvoll-amundsen",
+      "navn": "Cecilie Anette Risvoll Amundsen"
+    },
+    {
+      "key": "christoffer-andreas-aalerud",
+      "navn": "Christoffer Andreas Aalerud"
+    },
+    {
+      "key": "dag-egil-rugas",
+      "navn": "Dag Egil Rugås"
+    },
+    {
+      "key": "dalibor-moravac",
+      "navn": "Dalibor Moravac"
+    },
+    {
+      "key": "daniel-arntzen-nordqvist",
+      "navn": "Daniel Arntzen-Nordqvist"
+    },
+    {
+      "key": "diana-johnsen",
+      "navn": "Diana Johnsen"
+    },
+    {
+      "key": "emma-heimgard-larsen",
+      "navn": "Emma Heimgard Larsen"
+    },
+    {
+      "key": "erlend-ranes",
+      "navn": "Erlend Rånes"
+    },
+    {
+      "key": "gry-janne-rugas",
+      "navn": "Gry Janne Rugås"
+    },
+    {
+      "key": "hanne-kristin-pettersen-bjornstad",
+      "navn": "Hanne Kristin Pettersen Bjørnstad"
+    },
+    {
+      "key": "hans-orjan-wenberg",
+      "navn": "Hans Ørjan Wenberg"
+    },
+    {
+      "key": "ketil-bjornstad",
+      "navn": "Ketil Bjørnstad"
+    },
+    {
+      "key": "kjell-jacobsen",
+      "navn": "Kjell Jacobsen"
+    },
+    {
+      "key": "kristian-baadsto",
+      "navn": "Kristian Baadstø"
+    },
+    {
+      "key": "kristian-fanghol",
+      "navn": "Kristian Fanghol"
+    },
+    {
+      "key": "liina-veerme",
+      "navn": "Liina Veerme"
+    },
+    {
+      "key": "line-kristiansen",
+      "navn": "Line Kristiansen"
+    },
+    {
+      "key": "ole-martin-fridtjofsen-hansen",
+      "navn": "Ole-Martin Fridtjofsen Hansen"
+    },
+    {
+      "key": "orjan-grotnes-valla",
+      "navn": "Ørjan Grotnes Valla"
+    },
+    {
+      "key": "oystein-andreas-skaland",
+      "navn": "Øystein Andreas Skaland"
+    },
+    {
+      "key": "paul-christian-hjemas",
+      "navn": "Paul Christian Hjemås"
+    },
+    {
+      "key": "rainer-hansen",
+      "navn": "Rainer Hansen"
+    },
+    {
+      "key": "robert-anders-hagen",
+      "navn": "Robert Anders Hagen"
+    },
+    {
+      "key": "sten-arild-antonsen",
+      "navn": "Sten Arild Antonsen"
+    },
+    {
+      "key": "sten-rune-brekke",
+      "navn": "Sten-Rune Brekke"
+    },
+    {
+      "key": "stig-otto-nilsen",
+      "navn": "Stig Otto Nilsen"
+    },
+    {
+      "key": "storker-bjornstad",
+      "navn": "Størker Bjørnstad"
+    },
+    {
+      "key": "terje-ryeng",
+      "navn": "Terje Ryeng"
+    },
+    {
+      "key": "thomas-garstad",
+      "navn": "Thomas Garstad"
+    },
+    {
+      "key": "thomas-glott",
+      "navn": "Thomas Glott"
+    },
+    {
+      "key": "tom-erik-forsa-70595c",
+      "navn": "Tom Erik Forså"
+    },
+    {
+      "key": "tor-kato-rugas",
+      "navn": "Tor Kato Rugås"
+    },
+    {
+      "key": "tore-bjornadal-storli",
+      "navn": "Tore Bjørnådal Storli"
+    },
+    {
+      "key": "trine-novik",
+      "navn": "Trine Nøvik"
+    },
+    {
+      "key": "viggo-normann",
+      "navn": "Viggo Normann"
+    }
+  ],
+  "roller": [
+    {
+      "org": "fauske-kommune-administrasjonen",
+      "person": "tom-erik-holteng",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Fauske kommune (www.fauske.kommune.no), per 2026-09-25). Grunnlagets merknad: Hentet fra fauske.kommune.no 2026-09-25. Oppgitt i bunnteksten på nettstedet."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "nils-christian-steinbakk",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/ordforer-og-politisk-ledelse 2026-09-25."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "marlen-rendall-berg",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/ordforer-og-politisk-ledelse 2026-09-25."
+      }
+    },
+    {
+      "org": "fauske-kontrollutvalget",
+      "person": "per-kristen-lokas",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "org": "fauske-plan-utvikling-og-klimautvalget",
+      "person": "vegard-setsa",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "org": "fauske-velferdsutvalget",
+      "person": "ole-tobias-orvin",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "anne-helene-godding",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "dina-ferstad-skoglund",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "elisabeth-sollihaug",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "embla-sofie-sorensen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "gisela-hansen-gulstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "karl-gunnar-strom",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "kassandra-eleni-bredrup-petsa",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "kenneth-svendsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "ketil-hugo-skar",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "leif-bjornar-alpoy",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "maria-helena-torkilseng",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "maria-piel",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "marianne-tvera",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "marlen-rendall-berg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "michael-sagnes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "mona-iren-wiik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "nils-christian-steinbakk",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "ole-tobias-orvin",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "oystein-gangsto",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "remi-andre-pedersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "richard-furnes-skagen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "siv-anita-johnsen-brekke",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "sophia-marie-toresen-stemland",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "tore-eivind-rornes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "truls-martin-aanstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "turid-johansen-willumstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-kommunestyre",
+      "person": "vegard-setsa",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (protokollens tekstlag)."
+      }
+    },
+    {
+      "org": "fauske-hotell",
+      "person": "stig-otto-nilsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fauske-hotell",
+      "person": "trine-novik",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fauske-hotell",
+      "person": "viggo-normann",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fauskebygg",
+      "person": "berit-ingebrigtsen-valla",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fauskebygg",
+      "person": "hanne-kristin-pettersen-bjornstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fauskebygg",
+      "person": "ketil-bjornstad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fauskebygg",
+      "person": "orjan-grotnes-valla",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fauskebygg",
+      "person": "orjan-grotnes-valla",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fauskebygg",
+      "person": "rainer-hansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "fauskebygg",
+      "person": "storker-bjornstad",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finneid-sveiseverksted",
+      "person": "dag-egil-rugas",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finneid-sveiseverksted",
+      "person": "gry-janne-rugas",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finneid-sveiseverksted",
+      "person": "tor-kato-rugas",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "finneid-sveiseverksted",
+      "person": "tor-kato-rugas",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "garstad-mat",
+      "person": "thomas-garstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "garstad-mat",
+      "person": "thomas-garstad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "infra-anlegg",
+      "person": "kristian-baadsto",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "infra-anlegg",
+      "person": "ole-martin-fridtjofsen-hansen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "infra-anlegg",
+      "person": "sten-arild-antonsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ise-entreprenor",
+      "person": "bjornar-arntsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ise-entreprenor",
+      "person": "cecilie-anette-risvoll-amundsen",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ise-entreprenor",
+      "person": "oystein-andreas-skaland",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "ise-entreprenor",
+      "person": "tore-bjornadal-storli",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sks-produksjon",
+      "person": "christoffer-andreas-aalerud",
+      "tittel": "Varamedlem (valgt av de ansatte)",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sks-produksjon",
+      "person": "erlend-ranes",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sks-produksjon",
+      "person": "liina-veerme",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sks-produksjon",
+      "person": "paul-christian-hjemas",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sks-produksjon",
+      "person": "robert-anders-hagen",
+      "tittel": "Styremedlem (valgt av de ansatte)",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sks-produksjon",
+      "person": "sten-rune-brekke",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "ailin-stover",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "anna-marine-hagerup",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "anne-margareth-fagertun-stenhammer",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "barbro-therese-holmstad",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "dalibor-moravac",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "diana-johnsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "emma-heimgard-larsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "kjell-jacobsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "kristian-fanghol",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "line-kristiansen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "terje-ryeng",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "thomas-glott",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "person": "tom-erik-forsa-70595c",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "wenberg-fiskeoppdrett",
+      "person": "daniel-arntzen-nordqvist",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "wenberg-fiskeoppdrett",
+      "person": "hans-orjan-wenberg",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "wenberg-fiskeoppdrett",
+      "person": "hans-orjan-wenberg",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "fauske-eldreradet",
+      "til": "fauske-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "fra": "fauske-formannskap",
+      "til": "fauske-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "fra": "fauske-kommunalt-rad-for-personer-med-funksjonsnedsettelse",
+      "til": "fauske-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "fra": "fauske-kommune-administrasjonen",
+      "til": "fauske-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no 2026-09-25."
+      }
+    },
+    {
+      "fra": "fauske-kontrollutvalget",
+      "til": "fauske-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "fra": "fauske-plan-utvikling-og-klimautvalget",
+      "til": "fauske-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "fra": "fauske-ungdomsradet",
+      "til": "fauske-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "fra": "fauske-velferdsutvalget",
+      "til": "fauske-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "fauske-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene 2026-09-25."
+      }
+    },
+    {
+      "fra": "fauske-kommunestyre",
+      "til": "fauske-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
+      }
+    },
+    {
+      "fra": "bufetat-nord-rovika-ungdomssenter-akutt",
+      "til": "barne-ungdoms-og-familiedirektoratet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "fauske-videregaende-skole",
+      "til": "nordland-fylkeskommune-utdanning-og-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nav-arbeid-og-ytelser-avd-fauske",
+      "til": "nav-arbeid-og-ytelser",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordasfalt-as-avd-fauske",
+      "til": "nordasfalt",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordlandsbuss-as-avd-fauske",
+      "til": "nordlandsbuss",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nordlandssykehuset-hf-ambulanse-fauske",
+      "til": "nordlandssykehuset",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "fauske-hotell",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4989892,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fauske-hotell",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 5782268,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fauske-hotell",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2699737,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fauske-hotell",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 37093041,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fauskebygg",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 17076893,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fauskebygg",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 17401319,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fauskebygg",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 83741133,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "fauskebygg",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 245436635,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finneid-sveiseverksted",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 1945931,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finneid-sveiseverksted",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1763912,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finneid-sveiseverksted",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 20869322,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "finneid-sveiseverksted",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 126129489,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "garstad-mat",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2104736,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "garstad-mat",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 2529626,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "garstad-mat",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 4938746,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "garstad-mat",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 146163805,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "infra-anlegg",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 14971226,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "infra-anlegg",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 17717941,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "infra-anlegg",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 8963924,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "infra-anlegg",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 166570950,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "ise-entreprenor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 5151063,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "ise-entreprenor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 6954008,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "ise-entreprenor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 30742912,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "ise-entreprenor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 115904071,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sks-produksjon",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 74402000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sks-produksjon",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 215757000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sks-produksjon",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1950094000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "sks-produksjon",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 569102000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 24629081,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 24715244,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 125303697,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 118477919,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "wenberg-fiskeoppdrett",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 49729822,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "wenberg-fiskeoppdrett",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 33518540,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "wenberg-fiskeoppdrett",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 112457777,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "wenberg-fiskeoppdrett",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 311637915,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Fauske?",
+      "steg": [
+        {
+          "org": "fauske-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "fauske-plan-utvikling-og-klimautvalget",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (fauske-kommune-no)."
+          }
+        },
+        {
+          "org": "fauske-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Fauske kommune?",
+      "steg": [
+        {
+          "org": "fauske-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "fauske-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (fauske-kommune-no)."
+          }
+        },
+        {
+          "org": "fauske-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "handel",
+      "navn": "Handel"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    },
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "fauske-hotell",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "fauskebygg",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "garstad-mat",
+      "segment": "handel",
+      "styrke": 3
+    },
+    {
+      "org": "ise-entreprenor",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandsbuss-as-avd-fauske",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandsbuss",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "nordlandssykehuset-hf-ambulanse-fauske",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "sks-produksjon",
+      "segment": "energi",
+      "styrke": 3
+    },
+    {
+      "org": "valnesfjord-helsesportssenter-sti",
+      "segment": "handel",
+      "styrke": 2
+    },
+    {
+      "org": "wenberg-fiskeoppdrett",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "fauske-formannskap",
+      "hva": "Leder av formannskapet i Fauske er ikke oppgitt.",
+      "hvorfor": "Kommunens side nevner organet, men ikke hvem som leder det (fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene)."
+    },
+    {
+      "gjelder": "fauske-kommune",
+      "hva": "Partssammensatt utvalg (administrasjonsutvalg) er ikke funnet på kommunens sider for inneværende periode.",
+      "hvorfor": "Siden «Hvem sitter i de ulike utvalgene?» (fauske.kommune.no/politikk/hvem-sitter-i-de-ulike-utvalgene) nevner det ikke. Det eneste treffet er et møte 26.03.2019 i vedtaksarkivet (fauske.kommune.no/politikk/hva-ble-vedtaket). Møteportalen (ACOS Møteportal+) krever innlogging."
+    },
+    {
+      "gjelder": "fauske-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "fauske-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

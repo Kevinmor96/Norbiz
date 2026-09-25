@@ -1,106 +1,123 @@
-import { PGlite } from '@electric-sql/pglite';
-import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { PGlite } from "@electric-sql/pglite";
+import { btree_gist } from "@electric-sql/pglite/contrib/btree_gist";
+import { readdir, readFile } from "node:fs/promises";
+import { join } from "node:path";
 
-const MIGRATIONS_DIR = join(process.cwd(), 'supabase', 'migrations');
-const STUB = join(process.cwd(), 'tests', 'helpers', 'supabase-stub.sql');
+const ROT = process.cwd();
+export const MIGRASJONER = join(ROT, "supabase", "migrations");
+export const SEED = join(ROT, "supabase", "seed", "seed.sql");
+const STUB = join(ROT, "tests", "helpers", "supabase-stub.sql");
 
-/** Fersk in-memory Postgres med Supabase-stub og alle migrasjoner applisert. */
-export async function freshDb(): Promise<PGlite> {
-  const db = await PGlite.create();
-  await db.exec(await readFile(STUB, 'utf8'));
-  const files = (await readdir(MIGRATIONS_DIR)).filter((f) => f.endsWith('.sql')).sort();
-  for (const file of files) {
-    const sql = await readFile(join(MIGRATIONS_DIR, file), 'utf8');
+export async function migrasjonsfiler(): Promise<string[]> {
+  return (await readdir(MIGRASJONER)).filter((f) => f.endsWith(".sql")).sort();
+}
+
+/** Fersk Postgres i minnet med Supabase-stubben og alle migrasjonene. */
+export async function nyDb(): Promise<PGlite> {
+  const db = await PGlite.create({ extensions: { btree_gist } });
+  await db.exec(await readFile(STUB, "utf8"));
+  for (const fil of await migrasjonsfiler()) {
     try {
-      await db.exec(sql);
+      await db.exec(await readFile(join(MIGRASJONER, fil), "utf8"));
     } catch (err) {
-      throw new Error(`Migrasjon ${file} feilet: ${(err as Error).message}`);
+      throw new Error(`Migrasjon ${fil} feilet: ${(err as Error).message}`);
     }
   }
   return db;
 }
 
 /**
- * Kjører SQL og returnerer true hvis den feilet med nøyaktig dette
- * constraint-navnet. Postgres legger navnet i et eget felt på feilen; å lete
- * i feilmeldingsteksten i stedet ville matchet omtrentlig, og navnene her
- * ligner hverandre nok til at det er verdt å være presis.
+ * Som nyDb(), med seed-en regnet fra dagens datasett og regionregister, ikke
+ * lest fra fila. Kontrakttesten bruker denne, så den sammenligner basen og
+ * lokal.ts over de samme dataene også når supabase/seed/seed.sql venter på å
+ * bli bygget på nytt. At fila er oppdatert, er en egen test.
  */
-export async function rejects(db: PGlite, sql: string, constraint: string): Promise<boolean> {
+export async function ferskDb(): Promise<PGlite> {
+  const { byggSeed, lesDatasett, lesRegion } = await import("../../scripts/seed-build");
+  const { samle } = await import("../../src/lib/data/samle");
+  const db = await nyDb();
+  await db.exec(byggSeed(samle(lesDatasett()), lesRegion()));
+  return db;
+}
+
+/** Som nyDb(), med seed-en fra supabase/seed/seed.sql lastet. */
+export async function seedetDb(): Promise<PGlite> {
+  const db = await nyDb();
+  await db.exec(await readFile(SEED, "utf8"));
+  return db;
+}
+
+/**
+ * Kjører `fn` som `rolle` i en transaksjon som alltid rulles tilbake.
+ *
+ * `set local` i en transaksjon nullstilles av rollback, også når en
+ * assertion i `fn` feiler. Da kan ikke rollen lekke inn i neste test.
+ */
+export async function som<T>(
+  db: PGlite,
+  rolle: "anon" | "authenticated" | "service_role",
+  fn: () => Promise<T>,
+): Promise<T> {
+  await db.exec(`begin; set local role ${rolle};`);
   try {
-    await db.exec(sql);
-    return false;
-  } catch (err) {
-    const e = err as { constraint?: string; message?: string };
-    if (typeof e.constraint === 'string') return e.constraint === constraint;
-    // Enkelte feiltyper bærer ikke feltet; da er teksten det eneste vi har.
-    return (e.message ?? '').includes(constraint);
+    return await fn();
+  } finally {
+    await db.exec("rollback;");
   }
 }
 
-let cached: Promise<PGlite> | null = null;
-
-/**
- * Én migrert database per testfil. Vitest kjører hver fil i sin egen worker,
- * så modulnivå-memoisering gir isolasjon mellom filer og gjenbruk innenfor.
- *
- * PGlite.create() tar 2-5 sekunder. Med freshDb() i hver enkelt test ville
- * suiten brukt flere minutter bare på oppstart. Bruk denne når testen kun
- * trenger et rent skjema, og freshDb() når den trenger en urørt instans.
- */
-export function sharedDb(): Promise<PGlite> {
-  cached ??= freshDb();
-  return cached;
+/** Kaller en RPC og returnerer jsonb-svaret. */
+export async function rpc<T = unknown>(db: PGlite, fn: string, args: unknown[] = []): Promise<T> {
+  const plasser = args.map((_, i) => `$${i + 1}`).join(", ");
+  const r = await db.query<{ svar: T }>(`select public.${fn}(${plasser}) as svar`, args);
+  return r.rows[0]!.svar;
 }
 
 /**
- * Tømmer data, beholder skjema og konfigurasjon.
- *
- * score_weights og score_config settes inn av migrasjonene og er
- * skjemastandarder, ikke testdata. Å tømme dem ville etterlatt scoringen uten
- * vekter for hver test etter den første.
+ * En supabase-js-lignende klient over PGlite, som anon. `lagSupabaseDatalag`
+ * bruker den som om det var Supabase: navngitte `p_`-argumenter inn, `data`
+ * ut. Argumentene sendes med navn (`p_x => $1`), slik PostgREST gjør, så feil
+ * parameternavn feiler her også.
  */
-const CONFIG_TABLES = ['score_weights', 'score_config'];
-
-export async function resetData(db: PGlite): Promise<void> {
-  await db.exec(`
-    do $$
-    declare t text;
-    begin
-      for t in
-        select tablename from pg_tables
-        where schemaname = 'public'
-          and tablename not in (${CONFIG_TABLES.map((n) => `'${n}'`).join(', ')})
-      loop
-        execute format('truncate table %I restart identity cascade', t);
-      end loop;
-    end $$;
-  `);
+export function anonKlient(db: PGlite) {
+  return {
+    async rpc(fn: string, args: Record<string, unknown> = {}) {
+      const navn = Object.keys(args);
+      const plasser = navn.map((n, i) => `${n} => $${i + 1}`).join(", ");
+      try {
+        const data = await som(db, "anon", async () => {
+          const r = await db.query<{ svar: unknown }>(
+            `select public.${fn}(${plasser}) as svar`,
+            navn.map((n) => args[n]),
+          );
+          return r.rows[0]!.svar;
+        });
+        return { data, error: null };
+      } catch (err) {
+        return { data: null, error: { message: (err as Error).message } };
+      }
+    },
+  };
 }
 
 /**
- * Rollebytte er transaksjonsavgrenset. Grunnen er at Postgres ikke lar seg
- * nullstille i ett grep: `reset role` rører ikke `request.jwt.claim.sub`, og
- * `reset all` rører ikke `role`. En håndskrevet opprydding må derfor huske
- * begge, og hoppes uansett over hvis en assertion feiler først.
- *
- * `set local` inne i en transaksjon reverserer begge deler automatisk ved
- * rollback, og `endAct` i en `afterEach` kjører uansett om testen feilet.
+ * Kjører SQL i en transaksjon som rulles tilbake, og returnerer navnet på
+ * constrainten som stoppet den, eller null hvis den gikk gjennom. Postgres
+ * legger navnet i et eget felt; å lete i feilteksten ville matchet omtrentlig.
  */
-export async function actAs(db: PGlite, userId: string): Promise<void> {
-  await db.exec(`
-    begin;
-    set local role authenticated;
-    set local request.jwt.claim.sub = '${userId}';
-  `);
-}
-
-export async function actAsAnon(db: PGlite): Promise<void> {
-  await db.exec(`begin; set local role anon;`);
-}
-
-/** Avslutter rollebyttet. Skal kalles fra afterEach, ikke fra testen selv. */
-export async function endAct(db: PGlite): Promise<void> {
-  await db.exec(`rollback;`);
+export async function stoppetAv(
+  db: PGlite,
+  sql: string,
+  rolle?: "anon" | "authenticated",
+): Promise<string | null> {
+  await db.exec(rolle ? `begin; set local role ${rolle};` : "begin;");
+  try {
+    await db.exec(sql);
+    return null;
+  } catch (err) {
+    const e = err as { constraint?: string; message?: string };
+    return e.constraint ?? `(uten constraint) ${e.message ?? ""}`;
+  } finally {
+    await db.exec("rollback;");
+  }
 }

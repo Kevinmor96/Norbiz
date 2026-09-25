@@ -1,0 +1,6 @@
+Retning C, Kartografisk. Fil: design/c-kartografisk/index.html (bygget fra work/index.src.html via work/bygg.mjs).
+Designplan: papir #EFF3F2, trykk #15202A, kote #A36F3E, vann #2B6A99, signal #D5421A; mørk: nattkart #0D161C. Én familie: Archivo (variabel bredde) som kartskrift. 12-kolonners grid, kartblad-topp med ekte høydekurver for Tromsøya (Mapzen Terrain Tiles, AWS Open Data), sticky tegnforklaring (bunnark på mobil), ni seksjoner med hver sin kartkonvensjon.
+Signatur: kildemerke + tegnforklaring. verifisert = fylt skive, oppgitt = ring med senterprikk, må verifiseres = stiplet ring. Tegnforklaringen er også filter. Nivåsymboler ▲◆■□.
+Bevegelse: kartet "trykkes" ved lasting; beslutningskjeden som orienteringsløype som tegnes ved scroll; grafen legger seg; utbytteelva flyter; tall settes. Alt lesbart i ro; redusert bevegelse = statisk.
+Egen selvkritikk: mange stiplede merker i nettverket (sant, men mindre overbevisende); mørk hero-kontur litt travel; to etiketter krysses av kanter i grafen, grafoppsett håndplassert (skalerer ikke); tidslinjekolonner smale; noen bransjekoblinger er designerens skjønn (merket); tegnforklaring scroller internt på lave skjermer; skjemaer sender ingenting (sagt på siden).
+Skjermbilder: shots/final-redusert/ (alle fire moduser + slices), shots/final-samspill/ (skuff, kildelapp, filter, budsjett, søk, mobil).

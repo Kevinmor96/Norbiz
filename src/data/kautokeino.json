@@ -1,0 +1,1867 @@
+{
+  "meta": {
+    "kommunenr": "5612",
+    "kommune": "Guovdageaidnu - Kautokeino",
+    "fylkesnr": "56",
+    "fylke": "Finnmark",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "guovdageainnu-suohkan-no-satnejodiheaddji",
+      "navn": "Kautokeino kommune: Sátnejođiheaddji",
+      "url": "https://www.guovdageainnu.suohkan.no/politihkka-ja-halddahus/politihkka/satnejodiheaddji/",
+      "type": "offisiell"
+    },
+    {
+      "key": "kusek-no-kautokeino",
+      "navn": "Kontrollutvalgssekretariatet Vest-Finnmark IKS: kontrollutvalget i Kautokeino",
+      "url": "https://kusek.no/kontrollutvalg/kautokeino/",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "brreg-eierroller",
+      "navn": "Enhetsregisteret: eierkommune (EIKM) og helseforetak (HLSE) i rollelisten, hentet med skript",
+      "url": "https://data.brreg.no/enhetsregisteret/api/enheter",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-finnmark-jordskifterett-rettskrets",
+      "navn": "Finnmark jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/finnmark-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-indre-og-ostre-finnmark-tingrett-om",
+      "navn": "Indre og Østre Finnmark tingrett: Om tingretten",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/sis--ja-nuorta-finnmarkku-diggegoddi--indre-og-ostre-finnmark-tingrett/om-indre-og-ostre-finnmark-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-utmarksdomstolen-saksbehandling",
+      "navn": "Utmarksdomstolen for Finnmark: Saksbehandling",
+      "url": "https://www.domstol.no/no/domstoler/annen/utmarksdomstolen-for-finnmark/saksbehandling/",
+      "type": "offisiell"
+    },
+    {
+      "key": "ffk-no-administrativ-ledelse",
+      "navn": "Finnmark fylkeskommune: Administrativ ledelse",
+      "url": "https://www.ffk.no/om-oss/administrativ-ledelse/",
+      "type": "offisiell"
+    },
+    {
+      "key": "finnmarkssykehuset-no-foretaksledelsen",
+      "navn": "Finnmarkssykehuset: Foretaksledelsen",
+      "url": "https://www.finnmarkssykehuset.no/kontakt-oss/foretaksledelsen",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-finnmark",
+      "navn": "Politiet: Finnmark politidistrikt",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/finnmark/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "sametinget-no",
+      "navn": "Sametinget (sametinget.no)",
+      "url": "https://www.sametinget.no",
+      "type": "offisiell"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "kautokeino-kommune",
+      "orgnr": "945475056",
+      "navn": "Guovdageaidnu - Kautokeino kommune",
+      "kortnavn": "Kautokeino kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5612",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «GUOVDAGEAINNU SUOHKAN / KAUTOKEINO KOMMUNE». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "kautokeino-kommune-administrasjonen",
+      "navn": "Administrasjonen i Guovdageaidnu - Kautokeino kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "kautokeino-kommune",
+      "kommunenr": "5612",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Enhetsregisteret fører en daglig leder for kommunen; administrasjonen er ikke eget rettssubjekt."
+      }
+    },
+    {
+      "key": "kautokeino-kontrollutvalget",
+      "navn": "Kontrollutvalget i Guovdageaidnu - Kautokeino",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kautokeino-kommunestyre",
+      "kommunenr": "5612",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "kusek-no-kautokeino",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kusek.no 25.09.2026."
+      }
+    },
+    {
+      "key": "kautokeino-kommunestyre",
+      "navn": "Kommunestyret i Guovdageaidnu - Kautokeino",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "kautokeino-kommune",
+      "kommunenr": "5612",
+      "fylkesnr": "56",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 19,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "finnmark-fylkeskommune",
+      "orgnr": "830090282",
+      "navn": "Finnmark fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "finansiering"
+      ],
+      "beskrivelse": "Fylkeskommunen for Finnmark, med ansvar for samferdsel, videregående opplæring, tannhelse, kultur og miljø og næringsutvikling.",
+      "belegg": {
+        "kilde": "ffk-no-administrativ-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ffk.no (administrativ ledelse) 25.09.2026. Organisasjonsnummer og organisasjonsform (FYLK, forretningsadresse i Vadsø) fra Enhetsregisteret. Erstatter grunnlagets rad, som ikke oppga kilde."
+      },
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "gyldig_fra": "2024-01-01"
+    },
+    {
+      "key": "finnmark-fylkesting",
+      "navn": "Fylkestinget i Finnmark - Finnmárku - Finmarkku",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "finnmark-fylkeskommune",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 35,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "finnmark-jordskifterett",
+      "orgnr": "926726463",
+      "navn": "Finnmark jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Særdomstol for saker om fast eiendom i alle 18 kommunene i Finnmark, med sete i Vadsø.",
+      "belegg": {
+        "kilde": "domstol-no-finnmark-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Orgnr fra Enhetsregisteret."
+      },
+      "status": "aktiv"
+    },
+    {
+      "key": "finnmark-politidistrikt",
+      "orgnr": "984000049",
+      "navn": "Finnmark politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Politidistriktet for hele Finnmark, med administrasjon i Kirkenes.",
+      "belegg": {
+        "kilde": "politiet-no-finnmark",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026: politidistriktet for hele Finnmark, med administrasjon i Kirkenes. Orgnr og forretningsadresse (Sør-Varanger) fra Enhetsregisteret."
+      },
+      "segmenter": [],
+      "status": "aktiv"
+    },
+    {
+      "key": "finnmarkssykehuset",
+      "orgnr": "983974880",
+      "navn": "Finnmarkssykehuset HF",
+      "kortnavn": "Finnmarkssykehuset",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "helse-nord-rhf",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "innkjop"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "beskrivelse": "Helseforetaket for spesialisthelsetjenesten i Finnmark, med sykehus i Hammerfest og Kirkenes og hovedkontor i Hammerfest.",
+      "belegg": {
+        "kilde": "finnmarkssykehuset-no-foretaksledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra finnmarkssykehuset.no (foretaksledelsen) 25.09.2026: sykehusene og hovedkontoret. Orgnr fra Enhetsregisteret."
+      },
+      "status": "aktiv",
+      "sensitiv": false
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "indre-og-ostre-finnmark-tingrett",
+      "orgnr": "926722840",
+      "navn": "Sis- ja Nuorta-Finnmárkku diggegoddi - Indre og Østre Finnmark tingrett",
+      "kortnavn": "Indre og Østre Finnmark tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "sensitiv": true,
+      "gyldig_fra": "2021-04-26",
+      "beskrivelse": "Tingrett for Berlevåg, Båtsfjord, Gamvik, Karasjok, Kautokeino, Lebesby, Nesseby, Sør-Varanger, Tana, Vadsø og Vardø, med rettssteder i Vadsø og Tana og et særlig ansvar for den samiske dimensjonen i rettsvesenet.",
+      "belegg": {
+        "kilde": "domstol-no-indre-og-ostre-finnmark-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Opprettet 26.04.2021 ved sammenslåing av Øst-Finnmark og Indre Finnmark tingrett. Orgnr fra Enhetsregisteret."
+      },
+      "segmenter": [],
+      "status": "aktiv"
+    },
+    {
+      "key": "sametinget",
+      "orgnr": "974760347",
+      "navn": "Sametinget",
+      "nivaa": "samisk",
+      "organtype": "folkevalgt_organ",
+      "myndighet": [
+        "raadgivning",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samisk folkevalgt organ med konsultasjonsrett i arealsaker og adgang til innsigelse i samiske områder.",
+      "belegg": {
+        "kilde": "sametinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "stortinget-finnmark-valgkrets",
+      "navn": "Stortinget, Finnmark valgkrets",
+      "kortnavn": "Finnmark valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "56",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 4,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Finnmark for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
+      }
+    },
+    {
+      "key": "utmarksdomstolen-for-finnmark",
+      "orgnr": "926721682",
+      "navn": "Utmarksdomstolen for Finnmark",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [
+        "eiendom-bygg"
+      ],
+      "sensitiv": true,
+      "beskrivelse": "Særdomstol som avgjør tvister om rettigheter til grunn i Finnmark etter at Finnmarkskommisjonen har utredet et felt. Slike saker kan ikke bringes inn for tingretten eller jordskifteretten.",
+      "belegg": {
+        "kilde": "domstol-no-utmarksdomstolen-saksbehandling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Forretningsadressen i Tromsø og orgnr er fra Enhetsregisteret."
+      },
+      "status": "aktiv"
+    },
+    {
+      "key": "arctic-drilling",
+      "orgnr": "883950232",
+      "navn": "Arctic Drilling AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2001-11-14",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 09.900 «Tjenester tilknyttet annen bergverksdrift».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "de-samiske-videregaende-skoler-karasjok-og-kautokeino",
+      "orgnr": "971578807",
+      "navn": "De Samiske Videregående Skoler, Karasjok og Kautokeino",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 85.310 «Videregående opplæring innenfor studieforberedende utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "juhls-silver-gallery",
+      "orgnr": "959250073",
+      "navn": "Juhls Silver Gallery AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1990-06-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 32.120 «Produksjon av smykker og lignende artikler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "kautokeino-kommune-helse-og-omsorgsenhet",
+      "orgnr": "913759613",
+      "navn": "Kautokeino Kommune Helse- og Omsorgsenhet",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kautokeino-kommune-kultur-og-oppvekstenhet",
+      "orgnr": "913759214",
+      "navn": "Kautokeino Kommune Kultur- og Oppvekstenhet",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kautokeino-kommune-radmannens-stab",
+      "orgnr": "913759540",
+      "navn": "Kautokeino Kommune Rådmannens Stab",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kautokeino-kommune-teknisk-enhet",
+      "orgnr": "913759672",
+      "navn": "Kautokeino Kommune Teknisk Enhet",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2014-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "niilas",
+      "orgnr": "826847972",
+      "navn": "Niilas AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [
+        "reiseliv"
+      ],
+      "gyldig_fra": "2021-03-08",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 55.100 «Drift av hoteller».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "sami-allaskuvla-samisk-hogskole",
+      "orgnr": "971519363",
+      "navn": "Sámi Allaskuvla Samisk Høgskole",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "kommunenr": "5612",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 85.403 «Undervisning ved andre høgskoler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "nils-arne-haetta",
+      "navn": "Nils Arne Hætta"
+    },
+    {
+      "key": "anders-ante-bals",
+      "navn": "Anders 'Ánte' Bals"
+    },
+    {
+      "key": "anders-s-buljo",
+      "navn": "Anders S. Buljo"
+    },
+    {
+      "key": "ann-britt-eira-sara",
+      "navn": "Ann-Britt Eira Sara"
+    },
+    {
+      "key": "berit-marie-p-e-eira",
+      "navn": "Berit Marie P. E. Eira"
+    },
+    {
+      "key": "elle-mari-dunfjell-oskal",
+      "navn": "Elle Mári Dunfjell Oskal"
+    },
+    {
+      "key": "ellen-inga-kristine-haetta",
+      "navn": "Ellen Inga Kristine Hætta"
+    },
+    {
+      "key": "ellen-kari-anti-sara",
+      "navn": "Ellen Kari Anti Sara"
+    },
+    {
+      "key": "ellen-sara-m-pulk",
+      "navn": "Ellen Sara M. Pulk"
+    },
+    {
+      "key": "inger-marit-bongo",
+      "navn": "Inger Marit Bongo"
+    },
+    {
+      "key": "isak-ole-j-haetta",
+      "navn": "Isak Ole J. Hætta"
+    },
+    {
+      "key": "johan-vasara",
+      "navn": "Johan Vasara"
+    },
+    {
+      "key": "jon-evald-haetta",
+      "navn": "Jon Evald Hætta"
+    },
+    {
+      "key": "klemet-erland-haetta",
+      "navn": "Klemet Erland Hætta"
+    },
+    {
+      "key": "laila-susanne-vars",
+      "navn": "Laila Susanne Vars"
+    },
+    {
+      "key": "mai-lis-eira",
+      "navn": "Mai-Lis Eira"
+    },
+    {
+      "key": "marja-elise-m-h-eira",
+      "navn": "Marja Elise M. H. Eira"
+    },
+    {
+      "key": "nils-johan-heatta",
+      "navn": "Nils Johan Heatta"
+    },
+    {
+      "key": "nils-ole-n-skum",
+      "navn": "Nils Ole N. Skum"
+    },
+    {
+      "key": "ole-anders-turi",
+      "navn": "Ole-Anders Turi"
+    },
+    {
+      "key": "andreas-ausland",
+      "navn": "Andreas Ausland"
+    },
+    {
+      "key": "anne-marie-johansdatter-gaino",
+      "navn": "Anne-Marie Johansdatter Gaino"
+    },
+    {
+      "key": "beathe-pettersen",
+      "navn": "Beathe Pettersen"
+    },
+    {
+      "key": "johan-anders-klemetsen",
+      "navn": "Johan Anders Klemetsen"
+    },
+    {
+      "key": "jorgen-johnsen",
+      "navn": "Jørgen Johnsen"
+    },
+    {
+      "key": "karin-haetta",
+      "navn": "Karin Hætta"
+    },
+    {
+      "key": "lars-petter-mathisen",
+      "navn": "Lars Petter Mathisen"
+    },
+    {
+      "key": "matthias-benjamin-tanski",
+      "navn": "Matthias Benjamin Tanski"
+    },
+    {
+      "key": "odd-arne-haetta",
+      "navn": "Odd Arne Hætta"
+    },
+    {
+      "key": "outi-anna-maria-piira",
+      "navn": "Outi Anna-Maria Piira"
+    },
+    {
+      "key": "rauna-juhls-tveitnes",
+      "navn": "Rauna Juhls Tveitnes"
+    },
+    {
+      "key": "reidar-tveitnes",
+      "navn": "Reidar Tveitnes"
+    },
+    {
+      "key": "roy-anders-karlsen",
+      "navn": "Roy Anders Karlsen"
+    },
+    {
+      "key": "sunniva-juhls",
+      "navn": "Sunniva Juhls"
+    }
+  ],
+  "roller": [
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "anders-s-buljo",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Kautokeino Flyttsameliste",
+      "belegg": {
+        "kilde": "guovdageainnu-suohkan-no-satnejodiheaddji",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra guovdageainnu.suohkan.no 25.09.2026. Siden er på nordsamisk («Sátnejođiheaddji»), publisert 27.10.2023 og merket som over ett år gammel. Den oppgir listen Guovdageainnu Johttisápmelaččaid listu. Siden skriver navnet «Anders Samuelsen Buljo»; valgoppgjøret har «Anders S. Buljo»."
+      }
+    },
+    {
+      "org": "kautokeino-kontrollutvalget",
+      "person": "ann-britt-eira-sara",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "kusek-no-kautokeino",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kusek.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "johan-vasara",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "marja-elise-m-h-eira",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "inger-marit-bongo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "nils-arne-haetta",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "ellen-inga-kristine-haetta",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "elle-mari-dunfjell-oskal",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Guovdageainnu Sámilistu",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "nils-johan-heatta",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Guovdageainnu Sámilistu",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "ellen-kari-anti-sara",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Guovdageainnu Sámilistu",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "anders-ante-bals",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "klemet-erland-haetta",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kautokeino Fastboendes liste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "anders-s-buljo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kautokeino Flyttsameliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "ole-anders-turi",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kautokeino Flyttsameliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "berit-marie-p-e-eira",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kautokeino Flyttsameliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "ellen-sara-m-pulk",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kautokeino Flyttsameliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "mai-lis-eira",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kautokeino Flyttsameliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "jon-evald-haetta",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "isak-ole-j-haetta",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "laila-susanne-vars",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Árja",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "kautokeino-kommunestyre",
+      "person": "nils-ole-n-skum",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Árja",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Valgstyrets protokoll kunne ikke leses maskinelt."
+      }
+    },
+    {
+      "org": "arctic-drilling",
+      "person": "jorgen-johnsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arctic-drilling",
+      "person": "roy-anders-karlsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "arctic-drilling",
+      "person": "roy-anders-karlsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "de-samiske-videregaende-skoler-karasjok-og-kautokeino",
+      "person": "johan-anders-klemetsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "andreas-ausland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "beathe-pettersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "outi-anna-maria-piira",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "rauna-juhls-tveitnes",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "reidar-tveitnes",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "sunniva-juhls",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "person": "sunniva-juhls",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kautokeino-kommune-helse-og-omsorgsenhet",
+      "person": "karin-haetta",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kautokeino-kommune-kultur-og-oppvekstenhet",
+      "person": "karin-haetta",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kautokeino-kommune-radmannens-stab",
+      "person": "karin-haetta",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kautokeino-kommune-teknisk-enhet",
+      "person": "karin-haetta",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kautokeino-kommune",
+      "person": "karin-haetta",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "niilas",
+      "person": "lars-petter-mathisen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "niilas",
+      "person": "matthias-benjamin-tanski",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "niilas",
+      "person": "matthias-benjamin-tanski",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "niilas",
+      "person": "odd-arne-haetta",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "sami-allaskuvla-samisk-hogskole",
+      "person": "anne-marie-johansdatter-gaino",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "kautokeino-kommune-administrasjonen",
+      "til": "kautokeino-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Enhetsregisteret fører en daglig leder for kommunen; administrasjonen er ikke eget rettssubjekt."
+      }
+    },
+    {
+      "fra": "kautokeino-kontrollutvalget",
+      "til": "kautokeino-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kusek-no-kautokeino",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kusek.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "kautokeino-kommunestyre",
+      "til": "kautokeino-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "finnmark-fylkesting",
+      "til": "finnmark-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
+      }
+    },
+    {
+      "fra": "finnmarkssykehuset",
+      "til": "helse-nord-rhf",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "brreg-eierroller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Helse Nord RHF (883658752) står som helseforetak (HLSE) for Finnmarkssykehuset HF i rollelisten i Enhetsregisteret."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "arctic-drilling",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 947047,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-drilling",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1398898,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-drilling",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 13018354,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "arctic-drilling",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 28253043,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1551359,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -1775778,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 12401316,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "juhls-silver-gallery",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 16133705,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "niilas",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 3247435,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "niilas",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4177233,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "niilas",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 1024432,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "niilas",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 27950090,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Kautokeino?",
+      "steg": [
+        {
+          "org": "kautokeino-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "kautokeino-kommune",
+          "myndighet": "innstilling",
+          "hva": "Ikke kartlagt: hvilket folkevalgt organ som behandler planforslaget før kommunestyret, er ikke hentet fra kommunens sider.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er ikke kartlagt."
+          }
+        },
+        {
+          "org": "kautokeino-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Kautokeino kommune?",
+      "steg": [
+        {
+          "org": "kautokeino-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "kautokeino-kommune",
+          "myndighet": "innstilling",
+          "hva": "Ikke kartlagt: hvilket folkevalgt organ som behandler budsjettforslaget før kommunestyret, er ikke hentet fra kommunens sider.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er ikke kartlagt."
+          }
+        },
+        {
+          "org": "kautokeino-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "finnmark-jordskifterett",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "finnmarkssykehuset",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "utmarksdomstolen-for-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "niilas",
+      "segment": "reiseliv",
+      "styrke": 3
+    },
+    {
+      "org": "sami-allaskuvla-samisk-hogskole",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "kautokeino-kommune-administrasjonen",
+      "hva": "Kommunedirektøren i Kautokeino er ikke navngitt på kommunens nettsider.",
+      "hvorfor": "Sidene som ble lest på guovdageainnu.suohkan.no oppgir ikke kommunedirektøren (sjekket 25.09.2026). Daglig leder i Enhetsregisteret er tatt inn."
+    },
+    {
+      "gjelder": "kautokeino-kommunestyre",
+      "hva": "Varaordføreren i Kautokeino er ikke navngitt på kommunens nettsider.",
+      "hvorfor": "Politikksidene på guovdageainnu.suohkan.no er i hovedsak på nordsamisk og oppgir ikke varaordfører; utvalgene ligger i møteportalen (Elements), som ikke kunne leses maskinelt (sjekket 25.09.2026)."
+    },
+    {
+      "gjelder": "kautokeino-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "kautokeino-kommunestyre",
+      "hva": "Navnekontroll av de valgte mot valgstyrets protokoll.",
+      "hvorfor": "Den publiserte protokollen har overskriftene for valgoppgjøret (E1 og E2), men ingen tabeller med mandatfordeling eller navn. Protokollen ligger på https://valgresultat.no/meeting-book/5612_ko_2023."
+    },
+    {
+      "gjelder": "kautokeino-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

@@ -1,0 +1,1863 @@
+{
+  "meta": {
+    "kommunenr": "5540",
+    "kommune": "Gáivuotna - Kåfjord - Kaivuono",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "innsynpluss-kafjord-administrasjonsutvalget",
+      "navn": "Kåfjord kommune, innsynsportal: Administrasjonsutvalget",
+      "url": "https://innsynpluss.onacos.no/kafjord/utvalg/#/details/u-084e0747__69df__45ac__bc47__df64cee5aa6d-5!g6sG0Z",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-kafjord-kvenpolitisk-utvalg",
+      "navn": "Kåfjord kommune, innsynsportal: Kvenpolitisk utvalg",
+      "url": "https://innsynpluss.onacos.no/kafjord/utvalg/#/details/u-084e0747__69df__45ac__bc47__df64cee5aa6d-16!Jng60q",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-kafjord-samepolitisk-utvalg",
+      "navn": "Kåfjord kommune, innsynsportal: Samepolitisk utvalg",
+      "url": "https://innsynpluss.onacos.no/kafjord/utvalg/#/details/u-084e0747__69df__45ac__bc47__df64cee5aa6d-10!e6rtfc",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-kafjord-utvalg-for-helse-og-omsorg",
+      "navn": "Kåfjord kommune, innsynsportal: Utvalg for helse og omsorg",
+      "url": "https://innsynpluss.onacos.no/kafjord/utvalg/#/details/u-084e0747__69df__45ac__bc47__df64cee5aa6d-18!Fxyhpa",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-kafjord-utvalg-for-miljo-drift-og-utvikling",
+      "navn": "Kåfjord kommune, innsynsportal: Utvalg for miljø, drift og utvikling",
+      "url": "https://innsynpluss.onacos.no/kafjord/utvalg/#/details/u-084e0747__69df__45ac__bc47__df64cee5aa6d-9!6V4GgG",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-kafjord-utvalg-for-oppvekst",
+      "navn": "Kåfjord kommune, innsynsportal: Utvalg for oppvekst",
+      "url": "https://innsynpluss.onacos.no/kafjord/utvalg/#/details/u-084e0747__69df__45ac__bc47__df64cee5aa6d-17!R2YDSL",
+      "type": "offisiell"
+    },
+    {
+      "key": "kafjord-kommune-no-2017-11-01-administrativ-leder-kommunedirektoren-i-kafjord",
+      "navn": "Kåfjord kommune: Administrativ leder",
+      "url": "https://www.kafjord.kommune.no/artikler/2017/q4/2017-11-01-administrativ-leder---kommunedirektoren-i-kafjord",
+      "type": "offisiell"
+    },
+    {
+      "key": "kafjord-kommune-no-formannskap",
+      "navn": "Kåfjord kommune: Formannskap",
+      "url": "https://www.kafjord.kommune.no/toppmeny/tjenester/politikk-og-demokrati/politisk-ledelse/formannskap",
+      "type": "offisiell"
+    },
+    {
+      "key": "kafjord-kommune-no-kontrollutvalg",
+      "navn": "Kåfjord kommune: Kontrollutvalg",
+      "url": "https://www.kafjord.kommune.no/toppmeny/tjenester/politikk-og-demokrati/kontrollutvalg",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "politiet-no",
+      "navn": "Politiet (politiet.no)",
+      "url": "https://www.politiet.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "sametinget-no",
+      "navn": "Sametinget (sametinget.no)",
+      "url": "https://www.sametinget.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no",
+      "navn": "Troms fylkeskommune (tromsfylke.no)",
+      "url": "https://www.tromsfylke.no",
+      "type": "offisiell"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "kafjord-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Gáivuotna - Kåfjord - Kaivuono",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kafjord-kommunestyre",
+      "kommunenr": "5540",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg med folkevalgte og representanter for de ansatte, for saker om forholdet mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "kafjord-formannskap",
+      "navn": "Formannskapet i Gáivuotna - Kåfjord - Kaivuono",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "kafjord-kommunestyre",
+      "kommunenr": "5540",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ valgt av kommunestyret blant sine medlemmer. Det innstiller blant annet til økonomiplan og årsbudsjett.",
+      "belegg": {
+        "kilde": "kafjord-kommune-no-formannskap",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kafjord.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "kafjord-kommune",
+      "orgnr": "940363586",
+      "navn": "Gáivuotna - Kåfjord - Kaivuono kommune",
+      "kortnavn": "Kåfjord kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5540",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «GAIVUONA SUOHKAN KÅFJORD KOMMUNE KAIVUONON KOMUUNI». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "kafjord-kommune-administrasjonen",
+      "navn": "Administrasjonen i Gáivuotna - Kåfjord - Kaivuono kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "kafjord-kommune",
+      "kommunenr": "5540",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "kafjord-kommune-no-2017-11-01-administrativ-leder-kommunedirektoren-i-kafjord",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kafjord.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "kafjord-kontrollutvalget",
+      "navn": "Kontrollutvalget i Gáivuotna - Kåfjord - Kaivuono",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kafjord-kommunestyre",
+      "kommunenr": "5540",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "kafjord-kommune-no-kontrollutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kafjord.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "kafjord-kvenpolitisk-utvalg",
+      "navn": "Kvenpolitisk utvalg i Gáivuotna - Kåfjord - Kaivuono",
+      "kortnavn": "Kvenpolitisk utvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kafjord-kommunestyre",
+      "kommunenr": "5540",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-kvenpolitisk-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "key": "kafjord-samepolitisk-utvalg",
+      "navn": "Samepolitisk utvalg i Gáivuotna - Kåfjord - Kaivuono",
+      "kortnavn": "Samepolitisk utvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kafjord-kommunestyre",
+      "kommunenr": "5540",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 5,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-samepolitisk-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "kafjord-utvalg-for-helse-og-omsorg",
+      "navn": "Utvalg for helse og omsorg i Gáivuotna - Kåfjord - Kaivuono",
+      "kortnavn": "Utvalg for helse og omsorg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kafjord-kommunestyre",
+      "kommunenr": "5540",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 6,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-utvalg-for-helse-og-omsorg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "kafjord-utvalg-for-miljo-drift-og-utvikling",
+      "navn": "Utvalg for miljø, drift og utvikling i Gáivuotna - Kåfjord - Kaivuono",
+      "kortnavn": "Utvalg for miljø, drift og utvikling",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kafjord-kommunestyre",
+      "kommunenr": "5540",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 5,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-utvalg-for-miljo-drift-og-utvikling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "kafjord-utvalg-for-oppvekst",
+      "navn": "Utvalg for oppvekst i Gáivuotna - Kåfjord - Kaivuono",
+      "kortnavn": "Utvalg for oppvekst",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kafjord-kommunestyre",
+      "kommunenr": "5540",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 6,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-utvalg-for-oppvekst",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "kafjord-kommunestyre",
+      "navn": "Kommunestyret i Gáivuotna - Kåfjord - Kaivuono",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "kafjord-kommune",
+      "kommunenr": "5540",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 17,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "sametinget",
+      "orgnr": "974760347",
+      "navn": "Sametinget",
+      "nivaa": "samisk",
+      "organtype": "folkevalgt_organ",
+      "myndighet": [
+        "raadgivning",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samisk folkevalgt organ med konsultasjonsrett i arealsaker og adgang til innsigelse i samiske områder.",
+      "belegg": {
+        "kilde": "sametinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "stortinget-troms-valgkrets",
+      "navn": "Stortinget, Troms valgkrets",
+      "kortnavn": "Troms valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "55",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene fra Troms i perioden 2025–2029, som vedtar lover og budsjett.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune",
+      "orgnr": "930068128",
+      "navn": "Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt. Styres etter formannskapsmodellen: fylkesordføreren leder fylkestinget og fylkesutvalget.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»). Styringsmodellen er bekreftet på tromsfylke.no/politikk/fylkesordforer/ 25.09.2026: «Troms fylkeskommune styres etter formannskapsmodellen, hvor fylkesordføreren er den valgte lederen av fylkestinget.» Fylkesutvalgssiden sier at fylkesordføreren leder fylkesutvalget. Medieomtale ved konstitueringen i 2023 omtalte et fylkesråd og en fylkesrådsleder; fylkeskommunens egne sider har verken fylkesråd eller fylkesrådsleder."
+      }
+    },
+    {
+      "key": "troms-fylkesting",
+      "navn": "Fylkestinget i Troms",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "troms-fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte organ, ledet av fylkesordføreren.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-politidistrikt",
+      "orgnr": "974769425",
+      "navn": "Troms politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Politi og påtale i 20 kommuner, pluss forvaltningsoppgaver som våpen- og utlendingssaker.",
+      "belegg": {
+        "kilde": "politiet-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "unn",
+      "orgnr": "983974899",
+      "navn": "Universitetssykehuset Nord-Norge HF",
+      "kortnavn": "UNN",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [
+        "helse",
+        "utdanning-forskning",
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Driver sykehus i Tromsø, Harstad og Narvik og er en stor arbeidsgiver og byggherre.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "kafjord-kommune-drift",
+      "orgnr": "974792923",
+      "navn": "Kåfjord Kommune Drift",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kafjord-kommune-omsorg",
+      "orgnr": "974789817",
+      "navn": "Kåfjord Kommune Omsorg",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kafjord-kommune-oppvekst",
+      "orgnr": "933398099",
+      "navn": "Kåfjord Kommune Oppvekst",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 85.201 «Ordinær grunnskoleundervisning».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kafjord-kommune-sentraladministrasjon",
+      "orgnr": "974794721",
+      "navn": "Kåfjord Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "kafjord-vekst",
+      "orgnr": "967448028",
+      "navn": "Kåfjord Vekst AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1993-04-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 88.993 «Arbeidstrening og varig tilrettelagt arbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "manndalen-maskin",
+      "orgnr": "897935082",
+      "navn": "Manndalen Maskin AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 43.120 «Grunnarbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "universitetssykehuset-nord-norge-hf-ambulansetjenesten-kafjord",
+      "orgnr": "875936182",
+      "navn": "Universitetssykehuset Nord-Norge HF Ambulansetjenesten Kåfjord",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "unn",
+      "kommunenr": "5540",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "1995-12-11",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Gáivuotna - Kåfjord - Kaivuono for Universitetssykehuset Nord-Norge HF, med næringskode 86.921 «Ambulansetransport unntatt luftambulanse».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "einar-eriksen",
+      "navn": "Einar Eriksen"
+    },
+    {
+      "key": "gunn-andersen",
+      "navn": "Gunn Andersen"
+    },
+    {
+      "key": "liv-vigdis-solvang",
+      "navn": "Liv Vigdis Solvang"
+    },
+    {
+      "key": "arthur-kjelstrup-olsen",
+      "navn": "Arthur Kjelstrup-Olsen"
+    },
+    {
+      "key": "bernt-eirik-isaksen-lyngstad",
+      "navn": "Bernt Eirik Isaksen Lyngstad"
+    },
+    {
+      "key": "bjornar-mandal",
+      "navn": "Bjørnar Mandal"
+    },
+    {
+      "key": "britt-margrethe-pedersen",
+      "navn": "Britt-Margrethe Pedersen"
+    },
+    {
+      "key": "dag-runar-wollvik",
+      "navn": "Dag Runar Wollvik"
+    },
+    {
+      "key": "dagfinn-lyngstad",
+      "navn": "Dagfinn Lyngstad"
+    },
+    {
+      "key": "frode-haugstvedt-henriksen",
+      "navn": "Frode Haugstvedt Henriksen"
+    },
+    {
+      "key": "hans-oyvind-jenssen",
+      "navn": "Hans Øyvind Jenssen"
+    },
+    {
+      "key": "harry-nilsen",
+      "navn": "Harry Nilsen"
+    },
+    {
+      "key": "idar-m-pedersen",
+      "navn": "Idar M. Pedersen"
+    },
+    {
+      "key": "jens-a-butter-simonsen",
+      "navn": "Jens-A. Butter Simonsen"
+    },
+    {
+      "key": "lisa-katrine-mo",
+      "navn": "Lisa Katrine Mo"
+    },
+    {
+      "key": "mariell-karlsen-myrseth",
+      "navn": "Mariell Karlsen Myrseth"
+    },
+    {
+      "key": "ninni-provlien",
+      "navn": "Ninni Prøvlien"
+    },
+    {
+      "key": "olaug-anne-ronsen",
+      "navn": "Olaug Anne Rønsen"
+    },
+    {
+      "key": "svein-oddvar-leiros",
+      "navn": "Svein Oddvar Leiros"
+    },
+    {
+      "key": "tor-mikalsen",
+      "navn": "Tor Mikalsen"
+    },
+    {
+      "key": "inger-lise-pedersen",
+      "navn": "Inger Lise Pedersen"
+    },
+    {
+      "key": "inghild-isaksen-blomstereng",
+      "navn": "Inghild Isaksen Blomstereng"
+    },
+    {
+      "key": "jarle-pedersen",
+      "navn": "Jarle Pedersen"
+    },
+    {
+      "key": "johnny-olsen",
+      "navn": "Johnny Olsen"
+    },
+    {
+      "key": "karin-anbjorg-karlsen",
+      "navn": "Karin Anbjørg Karlsen"
+    },
+    {
+      "key": "kristoffer-pedersen",
+      "navn": "Kristoffer Pedersen"
+    },
+    {
+      "key": "lisa-marie-pedersen-solbakken",
+      "navn": "Lisa Marie Pedersen Solbakken"
+    },
+    {
+      "key": "torstein-jenssen",
+      "navn": "Torstein Jenssen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "kafjord-administrasjonsutvalget",
+      "person": "bernt-eirik-isaksen-lyngstad",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kafjord-formannskap",
+      "person": "bernt-eirik-isaksen-lyngstad",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "kafjord-kommune-no-formannskap",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kafjord.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kafjord-kommune-administrasjonen",
+      "person": "gunn-andersen",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Kåfjord kommune: Administrativ leder, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i GAIVUONA SUOHKAN KÅFJORD KOMMUNE KAIVUONON KOMUUNI (orgnr 940363586). Sidens merknad: Siden er en fast side om administrativ ledelse, sist oppdatert 6. mars 2026."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "svein-oddvar-leiros",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "kafjord-kommune-no-formannskap",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kafjord.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "bernt-eirik-isaksen-lyngstad",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "kafjord-kommune-no-formannskap",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kafjord.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kafjord-kontrollutvalget",
+      "person": "ninni-provlien",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "kafjord-kommune-no-kontrollutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kafjord.kommune.no 25.09.2026. Valgt fra listen FRP/MDG."
+      }
+    },
+    {
+      "org": "kafjord-samepolitisk-utvalg",
+      "person": "idar-m-pedersen",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-samepolitisk-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kafjord-utvalg-for-miljo-drift-og-utvikling",
+      "person": "dagfinn-lyngstad",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-utvalg-for-miljo-drift-og-utvikling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kafjord-utvalg-for-oppvekst",
+      "person": "lisa-katrine-mo",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-utvalg-for-oppvekst",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Kilden skriver navnet «Lisa K. Mo»; valgoppgjøret har «Lisa Katrine Mo»."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "bernt-eirik-isaksen-lyngstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "britt-margrethe-pedersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "lisa-katrine-mo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "arthur-kjelstrup-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "mariell-karlsen-myrseth",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "dagfinn-lyngstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "liv-vigdis-solvang",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "harry-nilsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "jens-a-butter-simonsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "einar-eriksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "hans-oyvind-jenssen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "olaug-anne-ronsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "tor-mikalsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "MDG",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "bjornar-mandal",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "frode-haugstvedt-henriksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "svein-oddvar-leiros",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommunestyre",
+      "person": "dag-runar-wollvik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kafjord-kommune-drift",
+      "person": "gunn-andersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-kommune-omsorg",
+      "person": "gunn-andersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-kommune-oppvekst",
+      "person": "gunn-andersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-kommune-sentraladministrasjon",
+      "person": "gunn-andersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "person": "inghild-isaksen-blomstereng",
+      "tittel": "Varamedlem",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "person": "johnny-olsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "person": "karin-anbjorg-karlsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "person": "torstein-jenssen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "person": "inger-lise-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "person": "jarle-pedersen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "person": "jarle-pedersen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "person": "kristoffer-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "person": "lisa-marie-pedersen-solbakken",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "kafjord-administrasjonsutvalget",
+      "til": "kafjord-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "kafjord-formannskap",
+      "til": "kafjord-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kafjord-kommune-no-formannskap",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kafjord.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "kafjord-kommune-administrasjonen",
+      "til": "kafjord-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kafjord-kommune-no-2017-11-01-administrativ-leder-kommunedirektoren-i-kafjord",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kafjord.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "kafjord-kontrollutvalget",
+      "til": "kafjord-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kafjord-kommune-no-kontrollutvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kafjord.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "kafjord-kvenpolitisk-utvalg",
+      "til": "kafjord-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-kvenpolitisk-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "kafjord-samepolitisk-utvalg",
+      "til": "kafjord-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-samepolitisk-utvalg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "kafjord-utvalg-for-helse-og-omsorg",
+      "til": "kafjord-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-utvalg-for-helse-og-omsorg",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "kafjord-utvalg-for-miljo-drift-og-utvikling",
+      "til": "kafjord-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-utvalg-for-miljo-drift-og-utvikling",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "kafjord-utvalg-for-oppvekst",
+      "til": "kafjord-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-kafjord-utvalg-for-oppvekst",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "kafjord-kommunestyre",
+      "til": "kafjord-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "troms-fylkesting",
+      "til": "troms-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "universitetssykehuset-nord-norge-hf-ambulansetjenesten-kafjord",
+      "til": "unn",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "kafjord-vekst",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 733157,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 439248,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 7835961,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kafjord-vekst",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 6007632,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4722569,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 6259227,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 31066086,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "manndalen-maskin",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 71856469,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Kåfjord?",
+      "steg": [
+        {
+          "org": "kafjord-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "kafjord-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (kafjord-kommune-no-formannskap); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "kafjord-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Kåfjord kommune?",
+      "steg": [
+        {
+          "org": "kafjord-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "kafjord-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (kafjord-kommune-no-formannskap)."
+          }
+        },
+        {
+          "org": "kafjord-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "unn",
+      "segment": "eiendom-bygg",
+      "styrke": 2
+    },
+    {
+      "org": "unn",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "unn",
+      "segment": "utdanning-forskning",
+      "styrke": 2
+    },
+    {
+      "org": "universitetssykehuset-nord-norge-hf-ambulansetjenesten-kafjord",
+      "segment": "helse",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "kafjord-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "kafjord-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

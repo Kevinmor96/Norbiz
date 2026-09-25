@@ -1,417 +1,197 @@
-# Bransjesjekk
+# Maktkart
 
-Svarer på ett spørsmål, stilt slik folk faktisk stiller det: **hva tjener de
-som driver med dette — og kan jeg gjøre det alene?**
+Svarer på ett spørsmål, stilt slik folk faktisk stiller det: **hvem bestemmer
+her?** Organene, rollene og pengene i en kommune, og hvordan de henger sammen,
+med kilde og dato på hver påstand. Tromsø først, bygget som én mal for alle
+kommuner i landet.
 
-Rammen ble snudd 2026-09-08 (`docs/superpowers/specs/2026-09-08-pivot-starte-for-deg-selv.md`).
-Den gamle inngangen — «er denne typen virksomhet verdt å drive, her?» — er et
-presist spørsmål og feil sted å møte folk: den forutsetter at leseren allerede
-har en forretningsidé og allerede vet hva bransjen heter. Dataene er de samme,
-snudd mot leseren. Eldre spec-er bruker den gamle rammen; de skal ikke skrives
-om, men ny copy og UI stiller det nye spørsmålet.
+Repoet heter `Norbiz` av historiske grunner. Det bar Bransjesjekk fram til
+2026-09-24, da Maktkart overtok. Bransjesjekk ligger urørt i `arkiv/bransjesjekk/`
+med egen `CLAUDE.md`. Ikke endre noe der. Brreg-lærdommene derfra er løftet inn
+nedenfor, fordi de gjelder like mye her.
 
-Repoet heter `Norbiz` av historiske grunner. Produktet heter **Bransjesjekk**
-og bor på `bransjesjekk.no` (kjøpt 2026-08-05). Det het Bransjeindeks fram til
-da, så eldre spec-er og dokumenter bruker det navnet — de skal ikke skrives om,
-men ny tekst, copy og UI skal si Bransjesjekk. Hva navnebyttet gjør med tonen
-står i `DESIGN.md` under «Navnet».
+«Maktkart» er arbeidsnavn. Navn og domene er ikke bestemt (se spec §8).
 
 ## Hvor ting står
 
 | Hva | Hvor |
 |---|---|
-| Pivoten: ny inngangsport, og hva som bevisst ikke bygges | `docs/superpowers/specs/2026-09-08-pivot-starte-for-deg-selv.md` |
-| Designbeslutninger med begrunnelse | `docs/superpowers/specs/2026-08-02-norbiz-design.md` |
-| Copy og posisjonering | `docs/superpowers/specs/2026-08-04-copy-og-posisjonering.md` |
-| Folkelig kategorilag og topplister | `docs/superpowers/specs/2026-08-04-folkelig-kategorilag-design.md` |
-| SSB- og Brreg-API verifisert | `docs/superpowers/specs/2026-08-04-ssb-api-verifisert.md` |
-| Implementasjonsplan, 15 tasks | `docs/superpowers/plans/2026-08-02-norbiz-data-layer.md` |
-| Skjema | `supabase/migrations/0001`–`0018` |
-| Seed-generator | `seed/` — deterministisk, skriver `supabase/seed/seed.sql` |
-| Kategorilaget (redaksjon, håndskrevet) | `supabase/seed/kategorier.sql` — kjøres etter seed.sql |
-| Seed for miljø uten psql | `supabase/seed/indb/` — se README-en der |
-| Edge functions | `supabase/functions/` — `import-ssb`, `import-brreg`, `import-demografi` og `brreg-sonde` er implementert og kjørt |
-| Frontend-overlevering | `lovable/knowledge.md` + `lovable/messages/` |
+| Produkt- og designkrav, hva vi bevisst ikke bygger, Lovable-vurdering | `docs/spec/2026-09-24-maktkart-mvp.md` |
+| Researchgrunnlaget, den eneste faktakilden i MVP | `docs/research/2026-09-24-maktkart-researchgrunnlag.md` |
+| Designsystem | `DESIGN.md` |
+| Datakontrakten (typer) | `src/data/types.ts` |
+| Kanonisk datasett per kommune | `src/data/<kommune>.json` |
+| Lese-API: typer, lokal implementasjon | `src/lib/data/` |
+| Skjema, RLS, RPC-er | `supabase/migrations/` |
+| Seed-generator (JSON → SQL, deterministisk) | `scripts/seed-build.ts` → `supabase/seed/seed.sql` |
+| Tester (PGlite, ingen databaseserver) | `tests/` |
+| Delte komponenter (kildemerke, tegnforklaring, kartblad) | `src/components/maktkart/` |
+| Kommunesidens seksjoner | `src/components/kommune/` |
+| Terreng per kommune (byggesteg) | `scripts/terreng.ts` → `src/data/terreng/` |
+| De tre designretningene og dommernes vurderinger | `docs/design/` |
+| Flytting til Lovable, og prosjektkunnskapen dit | `docs/lovable-overforing.md`, `lovable/knowledge.md` |
+| Bransjesjekk, arkivert | `arkiv/bransjesjekk/` |
 
-**Les spec-en før du endrer datamodellen.** Beslutningene i seksjon 2 har
-begrunnelser som ikke er åpenbare fra skjemaet alene, og flere av dem er tatt
-etter at det motsatte ble prøvd og forkastet.
+**Les spec-en før du endrer datamodellen eller en seksjon på kommunesiden.**
+Flere krav der har en begrunnelse som ikke er åpenbar fra koden.
 
 ## Kommandoer
 
 ```bash
-npm test              # 135 tester mot PGlite, ingen databaseserver nødvendig
-npx tsc --noEmit      # skal gå rent
-npm run seed:build    # regenererer supabase/seed/seed.sql (deterministisk)
-npm run seed:apply    # krever DATABASE_URL
+npm run dev           # utviklingsserver
+npm run build         # produksjonsbygg (Lovables standard, Cloudflare-mål)
+npm run build:node    # produksjonsbygg for lokal kjøring, så: HOST=127.0.0.1 PORT=3000 npm start
+npm run build:statisk # forhåndsrendret statisk eksport til .output/public
+npm run typecheck     # tsc --noEmit, skal gå rent
+npm test              # PGlite-tester: skjema, personvern, kontrakt, datasett, mal
+npm run seed:build    # regenererer supabase/seed/seed.sql fra src/data/*.json (byte-identisk)
+npm run terreng       # henter høydedata og skriver src/data/terreng/<kommunenr>.json
+npm run brreg -- 5501 # virksomheter, roller og regnskap fra Brreg (krever MAKTKART_PERSON_SALT)
+npm run sjekk:graf    # determinisme og etikettkollisjoner i nettverksoppsettet
+npm run data:indeks   # regenererer src/lib/data/indeks.json etter endringer i datasettene
 ```
+
+`npm run preview` virker ikke med Lovables konfigurasjon. Bruk `build:node` og
+`start`.
 
 ## Arkitektur
 
-Datalaget er ferdig og lever her. Frontend bygges av Lovables agent mot samme
-Supabase-base — connectoren tar naturlig språk, ikke kode, så skjemaet i basen
-er kontrakten mellom de to.
+Appen har samme stack som Lovable genererer: TanStack Start (SSR), React 19,
+Vite, Tailwind 4, shadcn/ui og Supabase, speilet fra Lovables eget oppsett
+(`@lovable.dev/vite-tanstack-config`). Den skal kunne flyttes til Lovable som en
+kopi, ikke en omskriving.
 
-Testene kjører mot **PGlite**, Postgres kompilert til WASM. Det finnes ingen
-Docker-daemon og ingen Postgres-server i utviklingsmiljøet. `tests/helpers/db.ts`
-applikerer en Supabase-stub og alle migrasjonene i filnavnrekkefølge.
+**Datasettet er én kilde.** `src/data/<kommune>.json` leses av UI-et via
+`src/lib/data/lokal.ts` og blir til seed-SQL via `scripts/seed-build.ts`.
+Supabase-RPC-ene returnerer de samme formene som `lokal.ts`. Det håndheves av
+`tests/kontrakt.test.ts`, som laster seed-en i PGlite, kaller hver RPC og
+sammenligner med `lokal.ts`. Byttet til Supabase er derfor bare et bytte av
+implementasjon i `src/lib/data/index.ts`.
+
+**Datasettene lastes per kommune, på serveren.** Med 80 kommuner kan ikke en
+side laste alle filene. `src/lib/data/indeks.json` sier hvilke filer hvert svar
+trenger, fordi samlingen er en union: rollene i et organ kan stå i en annen
+kommunes fil. `tests/lat.test.ts` beviser at svaret over de filene er likt
+svaret over alle, og at den innsjekkede indeksen er oppdatert. Kjør derfor
+`npm run data:indeks` etter hver endring i `src/data/`, som `seed:build`.
+Byggene stopper ellers (`prebuild`), fordi en gammel indeks kan gi feil svar
+uten feilmelding.
+Nettleseren får aldri datalaget. HTML-en har en lett nyttelast
+(`src/lib/lettside.ts`), og resten hentes etter visning via serverfunksjoner i
+`src/lib/data/hent.ts`. I den statiske eksporten er det filer under `/data/`.
+Terrenget serveres som SVG fra `/kart/terreng/<kommunenr>.svg`.
 
 ## Invarianter som ikke skal brytes
 
-**Regionale rader finnes kun på NACE 2–3.** SSB publiserer ikke femsifrede
-næringstall per fylke. Databasen håndhever det med
-`industry_stats_regional_grain`. Ikke fjern constrainten for å få rutenettet
-til å gå opp.
+**Institusjon først.** En person finnes bare gjennom en rolle i en organisasjon.
+`Person` har bare `key` og `navn` i datasettet. Siden har ingen personbilder,
+ingen personprofiler og ingen topplister over mennesker. I nettverksgrafen er
+organet noden og personen kanten.
 
-**NULL er fem forskjellige svar.** SSB bruker standardtegn: `.` ikke relevant,
-`..` oppgave mangler, `:` kommer senere, `-` et *ekte* null. I tillegg
-undertrykkes celler av konfidensialitetshensyn. Kolonnen `merknader` kartlegger
-felt til `mangel_arsak`. Leser man tegnene som manglende data, forsvinner ekte
-nulltall og undertrykte celler ser ut som hull.
+**Personvernet håndheves i basen.** Det gjøres med RLS og kolonnerettigheter på
+basistabellene, ikke med views som filtrerer. Et view hjelper ikke når
+basistabellen er åpen. Filteret er da en anbefaling, ikke en regel. Ingen
+funksjon er `security definer`, og alle views kjører med `security_invoker`.
+Testene håndhever det.
 
-**Anslag deler aldri kolonne med målte tall, og går aldri inn i
-`score_total`.** `industry_estimates` er egen tabell nettopp fordi
-`industry_stats` skal kunne reimporteres idempotent uten at importen stryker
-anslagene.
+**Hver påstand har belegg.** Belegget er en kilde og en verifiseringsgrad:
+`verifisert`, `oppgitt` eller `maa_verifiseres`. Et tall uten kilde vises ikke.
+Gradene skiller seg i form, ikke bare i farge. Kildemerket er produktets signatur.
 
-**Foretak og virksomhet er ikke det samme.** `unit_type` skiller dem. En
-frisørkjede er ett foretak og ti virksomheter. Regionale rader finnes kun for
-`virksomhet`. Ikke summer på tvers.
+**Ingenting er `verifisert` før pipelinen har hentet det.** `verifisert` betyr
+at et skript har hentet påstanden fra et register (Brreg, Regnskapsregisteret,
+SSB, Valgdirektoratet, data.stortinget.no), og at raden har hentedato i `per`.
+Tekst lest av en nettside er `oppgitt`, også når det er organets egen side.
+Forhåndsversjonsmerket regnes fra gradene i datasettet. Det sier aldri
+«ikke etterprøvd» om noe som er etterprøvd, eller omvendt. Tall fra Proff eller
+Purehelp er alltid `maa_verifiseres`: grunnlaget sier selv at de skal sjekkes
+mot Regnskapsregisteret.
 
-**Vekstpiller bare der det finnes tidsserie.** Næringer og fylker har
-2017–2023. Selskaper har ett regnskapsår fra Brreg, så de får årstempel. Ikke
-lån næringens vekst og la den se ut som selskapets.
+**Registeret vinner over grunnlaget på registrerte roller.** Når Brreg sier
+noe annet enn researchgrunnlaget om daglig leder, styreleder, nestleder eller
+styremedlem, gjelder Brreg. Grunnlagets påstand merkes som motsagt og beholdes i
+historikken. Den slettes aldri stille. Avvikene listes i `docs/avvik/`. Roller
+som ikke registreres i Brreg, som statsforvalter og ordfører, er ikke
+motsigelser selv om Brregs «daglig leder» er en annen person.
 
-**Ingen ferskhetspåstander.** SSB publiserer årlig med ett til to års
-etterslep. «LIVE», «sanntid» og «oppdatert daglig» er løgn her.
+**Ingen ferskhetspåstander.** «LIVE», «sanntid» og «oppdateres daglig» brukes
+ikke før pipelinen faktisk gjør det. Skriv «sammenstilt 24.09.2026».
 
-**Lønnsspennet er målt, ikke gjettet — og det er kvartiler, ikke desiler.**
-Skjemaet antok desiler; tabell 11419 måler Gjennomsnitt, Median, Nedre og Øvre
-kvartil (migrasjon 0033 byttet kolonnenavn — kvartiler i desilkolonner ville
-vært etikettløgn). 11419 publiserer per **lønnsgruppe** («56.1_56.3»,
-«41-43»), ikke frie NACE-koder: import-lonn ekspanderer gruppene til
-enkeltkoder, mest spesifikke gruppe vinner per kode, og gruppens navn følger
-raden i `merknader`. `kategori_lonn()` velger nyeste rad som dekker flest av
-kategoriens koder — UI-et skal vise gruppenavnet der lønnsflaten er bredere
-enn kategorien (frisør får «Annen personlig tjenesteyting»). Månedslønn er
-per heltidsekvivalent.
+**Ingen sammensatt maktscore på den offentlige siden.** Scoren i grunnlaget har
+sju vektede ledd, og minst tre av dem mangler data for Tromsø. En score på
+delvise data er et tall leseren tror på uten grunn. Vi viser myndighetsprofil,
+eierskap og beslutningskjeder, som er fakta.
 
-**Støy i seed må såes på naturlige nøkler.** `_noise('...' || st.id)` ser
-harmløst ut, men `id` er `gen_random_uuid()`, så seed-en slutter å være
-deterministisk. Det traff demografien, og siden demografien mater
-risikodelscoren flyttet hele `industry_scores` seg mellom kjøringer mens
-statistikken var byte-identisk.
+**Et tall har år.** Et nøkkeltall uten regnskapsår tas ikke inn. Det føres i
+`hull`. Morselskap og konsern merkes der kilden skiller dem.
 
-**Aggregater hører i basen, ikke i frontend.** PostgREST avviser aggregater i
-spørrestrengen, så `percentile_cont` og gruppering må gå gjennom funksjonene i
-migrasjon 0010 (`industry_medians`, `industry_margin_histogram`,
-`kommune_aggregat`) og 0015/0017 (`kategori_oversikt`, `topp_selskaper`,
-`kategori_rangering`, `brand_liste`). Viktigst er `kommune_aggregat`: terskelen
-`min_enheter_aggregat` er håndhevet der, fordi et filter som bare finnes i UI-et
-ikke er en terskel — det er en anbefaling. Ingen av funksjonene er
-`security definer`, alle views kjører med `security_invoker`, og tester
-håndhever at det forblir slik.
+**Planlagt er ikke skjedd.** Valget i 2027, byrådsdebatten og «fungerende til
+januar 2027» er hendelser med egen type og egen stil.
 
-**Folketall har én kilde.** I seed-en er det `REGION_POPULATION` i
-`seed/config.ts`, som former både de regionale cellestørrelsene og
-`region_population` — to kilder der betyr at konkurransedelscoren regnes mot
-et annet folketall enn det som bestemte hvor mange enheter det ble. I
-livebasen er kilden `ssb:07459` via import-befolkning: fylkestall summeres
-fra kommunene per tosifret prefiks per år, slik at fylkesårgangene følger
-kommunenumrene av seg selv (16/17→50 og 19/20→54 aliasmappes for 2017–2019).
-Etter hver befolknings- eller statistikkimport reberegnes `industry_scores`
-fra viewet `industry_scores_computed`.
+**Malen vet ikke at den handler om Tromsø.** Ingen komponent hardkoder kommunen.
+Tomme og manglende tilstander er designet, fordi neste kommune har færre data.
 
-**Kategorimedlemmer overlapper aldri hierarkisk innen kategori og kilde.**
-`kilde='ssb'` er SN2007-koder for statistikk, `kilde='brreg'` er
-SN2025-prefikser for selskapsmatching — de to standardene er ikke samme
-kodeverk, og companies bærer Brregs kode slik den kom. Både overlappsregelen
-(56.1 sammen med 56.101 dobbelteller hele restaurantnæringen) og at
-ssb-kodene faktisk finnes, håndheves av `tests/categories.test.ts`.
+**Aggregater hører i basen.** PostgREST avviser aggregater i spørrestrengen og
+kapper ved 1 000 rader. En median eller sum regnet i klienten over en kappet
+liste blir feil uten feilmelding. Dette skjedde i Bransjesjekk, der «siste år»
+ble 2018. RPC-ene gjør aggregeringen.
 
-**En kategorisum er bare sammenlignbar over år hvis alle medlemskodene har
-tallet.** 69.201 mangler omsetning for 2024; uten regelen i migrasjon 0016
-falt Regnskap & revisjon fra 42,1 til 23,1 mrd og ble vist som −6 % vekst i
-en næring som vokser. Samme mekanisme som undertrykte celler: et hull som ser
-ut som et tall.
+**Seed-en er deterministisk.** ID-er avledes av naturlige nøkler (`key`), aldri
+av `gen_random_uuid()`. En ikke-deterministisk ID flyttet i Bransjesjekk alle
+avledede tall mellom kjøringer mens kildedataene var byte-identiske.
 
-**Driftsmargin er ikke sammenlignbar mellom eierdrift og lønnsdrift.**
-Fysioterapi har 56 % margin og 148 000 kr lønnskostnad per sysselsatt;
-regnskap har 14 % og 820 000. Forskjellen er at eierens eget arbeid ikke er
-lønnskostnad. Flagget `eierlonn_i_resultat` merker det, slik at en marginliste
-ikke rangerer eierdrift øverst av en teknisk grunn. Tallet skal merkes, ikke
-skjules.
+## Brreg — lærdommer fra Bransjesjekk
 
-**Et regnestykke er ikke et anslag — men bare hvis det aldri påstår at noen
-kjøper.** `hva_ma_du_omsette()` (migrasjon 0036) inverterer bransjens målte
-driftsmargin: for 10 000 kr i månedlig driftsresultat som frisør må du fakturere
-58 997 kr. Det bærer det samme løftet som en mulighetsindeks — *hva kan dette bli
-for meg* — men det kan ikke lyve, fordi etterspørselen er leserens vurdering og
-marginen er vår måling. Skillet mot `industry_estimates`, som er tom med vilje,
-er nettopp dette. To regler bærer det: **ikke-positiv margin gir ingen rad**
-(Blomster & hage har −0,61 % i 2024, og en invertert negativ margin er tull med
-to desimaler), og **`eierlonn_i_resultat` følger raden ut** fordi målbeløpet
-betyr to helt ulike ting i eierdrift og lønnsdrift. Begge reglene ligger i basen,
-ikke i UI-et: et filter som bare finnes der er en anbefaling.
+Maktkart henter fra de samme registrene. Disse ble lært på den harde måten:
 
-**`soloklasse` er en merking av et målt tall, ikke et nytt tall.** Samme
-konstruksjon som `eierlonn_i_resultat`, og med samme felle: merkingen regnes på
-den avrundede verdien UI-et viser, slik at «typisk én person» aldri kan stå ved
-siden av 1,5 ansatte. Grunnlaget — ansatte per foretak — har ligget i
-`kategori_oversikt()` siden 0015 og aldri stått på en side. Det er den mest
-leservendte kolonnen basen eier: et foretak med 0,9 ansatte er ikke en bedrift i
-dagligtale, det er én person, og det finnes 5 224 av dem i fysioterapi alene.
+- **`sort` bryter filteret i Enhetsregisterets søk.** Antallet i `page` er
+  filtrert, men radene er det ikke. Filtrer og ranger heller i basen.
+- **`fraAntallAnsatte` har et udokumentert gulv på 5.** Verdien `=4` gir HTTP 400,
+  og feilen kommer som en tom liste.
+- **Et kommunenummer er ikke en konstant.** 3801 og 1507 ble 3905 og 1508 i 2024.
+  Troms fikk 55-numre da fylket ble gjenopprettet 1.1.2024. Brreg bruker 2100 for
+  Svalbard, som ikke finnes i SSBs klassifikasjon 131.
+- **SN2025 er ikke SN2007.** Brreg fører SN2025. Samme kode kan bety forskjellige
+  ting: 47.762 er blomster i SN2007 og kjæledyr i SN2025. Les hva koden HETER,
+  ikke bare hvor mange treff den gir.
+- **Navn kan ha aksenter.** Selskapet heter `HERMÈS NORWAY AS`, og et navnesøk
+  på «HERMES» finner det ikke. Navnematching på personer må tåle det samme.
+- **Valuta.** Noen konsern fører regnskap i USD eller EUR. Tallene blandes aldri
+  i en NOK-sum uten omregning, og omregningen merkes.
+- **Enhet og underenhet er ikke det samme.** En kjede er ett foretak og mange
+  virksomheter. Ikke summer på tvers.
+- **Hent ved kilden.** Proff og Purehelp videreselger Brreg med databasevern og
+  avtalevilkår. Vi henter fra registrene.
 
-Flagget krever **begge** forhold: under 450 000 kr per sysselsatt *og* under
-tre ansatte per bedrift (migrasjon 0020). Lønn per sysselsatt alene fanget 18
-av 30 kategorier, fordi lav lønn per hode har to helt ulike årsaker — ulønnet
-eierarbeid, og deltid. Dagligvare har 374 000 kr per sysselsatt, men 23 ansatte
-per butikk: der er stillingene små, eieren er ikke arbeidskraften. Påstanden
-«eieren tar ikke ut lønn» var dermed usann for dagligvare, klesbutikk,
-skobutikk, restaurant, bakeri og sportsbutikk — og den sto på forsiden. Med
-begge vilkårene står fem kategorier igjen, og alle har 0,9–2,3 ansatte.
+Importørene i `arkiv/bransjesjekk/supabase/functions/` (`import-brreg` og
+`brreg-sonde`) kjører allerede mot Brreg fra Supabase. De er startpunktet for
+Maktkarts verifiseringspipeline.
 
-**Å telle treff er ikke å verifisere en næringskode. Les hva den HETER.**
-Sportsbutikk sto på brreg-prefiks 47.64 fordi 47.641 er sportsutstyr i SN2007.
-I SN2025 er 47.64 «Detaljhandel med spill og leker», og topplisten fyltes med
-Lekekassen og Extra Leker. 820 treff, ingen alarm. Fire flere kategorier hadde
-samme feil, og de ble først synlige da `nace_sn2025` lå i basen: optiker på en
-samlekode, maler på all ferdiggjøring (8 av 15 var snekkere), blomster med
-kjæledyrbutikker, opplevelser dominert av bussturer. `tests/categories.test.ts`
-holder nå hvert prefiks mot sin offisielle SN2025-tittel.
+## Nettverket i utviklingsmiljøet
 
-**`topp_selskaper` matcher brreg-koder ALENE.** `companies.nace_code` kommer
-alltid fra Brreg, altså SN2025. Funksjonen matchet en stund mot begge
-kodespråk for å gi treff i testbasen, og det kan ikke bli riktig: 47.762 betyr
-«blomster» i SN2007 og «kjæledyr» i SN2025, så Musti Norge og PetXL havnet i
-blomstertopplisten. Testene setter inn selskaper med SN2025-koder framfor at
-funksjonen strekker seg etter seed-formatet.
+Nettverket styres av miljøets innstillinger. Fra 2026-09-25 er det åpnet for
+Brreg, SSB, Geonorge, Valgdirektoratet, data.stortinget.no og offentlige
+nettsider. Får du 403 fra proxyen, er verten sperret. Da skal du be brukeren
+åpne den i miljøinnstillingene. Du skal aldri rute rundt sperren via en
+mellomtjeneste som Jina Reader eller agent-reach. curl går gjennom proxyen.
+Nodes `fetch` gjør det ikke, så skriptene bruker curl.
 
-**Aggregater regnet i TypeScript blir feil av PostgREST-taket.**
-`generate-insights` hentet alle driftsmarginer med `limit=20000` og tok medianen
-selv. PostgREST kapper ved 1 000 rader uansett; av 4 325 kom bare 2017–2018 med,
-«siste år» ble 2018, og alle 62 mediansammenligningene fikk feil årstall.
-Medianen kommer nå fra `industry_medians()` per år. Invarianten over om
-aggregater gjelder edge functions, ikke bare frontend.
+Headless Chromium stoler ikke på proxyens CA. Fonter selvhostes derfor via
+`@fontsource`, noe et personvernprodukt uansett bør gjøre.
 
-**`inngar_i_regnskapssnitt` krever positiv omsetning.** Kolonnen sjekket bare
-selskapsform og at det finnes et regnskapsår, så 88 selskaper med omsetning = 0
-og to med negativ omsetning telte som «har regnskapstall». Marginen var aldri
-gal — `case when omsetning > 0` skjermet den — det var tellingen.
+Brreg-importøren trenger `MAKTKART_PERSON_SALT`. Saltet brukes bare til å skille
+navnebrødre, og det skal aldri committes. I skyøktene ligger det i
+scratchpad-mappen. I produksjon hører det hjemme blant miljøets hemmeligheter.
+Se `docs/brreg-import.md`.
 
-**`sort` bryter næringsfilteret hos Brreg. Bruk `fraAntallAnsatte`.**
-`sort=antallAnsatte,desc` ser ut som det riktige verktøyet og ga tilsynelatende
-perfekte lister — 93.13 ga SATS Norway først — men `47.11` med sortering
-returnerer «HELSE MØRE OG ROMSDAL HF» som treff nummer én. Antallet i `page` er
-riktig filtrert; radene er ikke. Feilen er usynlig i de kategoriene der den
-største aktøren tilfeldigvis er riktig, og den ble bare oppdaget fordi fire
-nye kategorier plutselig sto uten selskaper. `fraAntallAnsatte` respekterer
-filteret; terskelen — ikke sorteringen — er det som gjør listene store nok.
-Rangeringen skjer på omsetning i basen uansett.
-
-**SN2025 har oppløst divisjon 45.** Hele «45» gir 0 treff hos Brreg. Bilsalg er
-47.81, verksted 95.31, deler 47.82, motorsykkel 47.83/95.32 — mens SSB fortsatt
-har 45.112/45.200/45.320/45.40x. Det er det største spranget mellom de to
-standardene i kodesettet vårt, og hadde vi gjettet prefikset ut fra SSB-koden,
-ville alle fire bil-topplistene vært tomme uten en eneste feilmelding.
-
-**`fraAntallAnsatte` har gulv på 5, og det gir en skjevhet som må stå i UI-et.**
-`fraAntallAnsatte=4` svarer HTTP 400 fra Brreg, `=5` svarer 200. Grensa er
-udokumentert og feilen kommer som en tom liste, ikke som en melding. I næringer
-der snittbedriften har 1–2 ansatte — frisør, fysioterapi, hudpleie — kan
-selskapslistene derfor bare nå den øvre halen. Det er ikke et utvalg av
-bransjen, det er de største i den.
-
-**Kandidater til kjedelista finnes bedre i basen enn i gjetting.** Hermès har en
-norsk enhet, men navnesøket «HERMES» ga bare et forsikringsselskap og et
-reisebyrå: selskapet heter `HERMÈS NORWAY AS`, med aksent. Det dukket opp av seg
-selv i skobutikk-topplisten da selskapsutvalget ble utvidet. Søk i `companies`
-etter navn vi allerede har hentet, framfor å gjette skrivemåten.
-
-**Et kommunenummer er ikke en konstant.** Seed-lista bar 3801 og 1507, som hører
-til årgangen 2020–2023; fra 2024 er de 3905 Tønsberg og 1508 Ålesund.
-`kommuner`-tabellen er 2024-årgangen fordi det er den Brreg registrerer
-adresser mot. Brreg bruker i tillegg 2100 for Svalbard, som ikke finnes i SSBs
-klassifikasjon 131 — raden er lagt inn manuelt med `source='manuell:brreg-avvik'`.
-
-**Luksus er en merking av aktøren, ikke en bransje.** SSB har ingen luksuskode,
-så en luksuskategori med margin og vekst måtte lånt tallene fra klesbutikk og
-gullsmed eller diktet dem. `brands.segment` bærer merkingen, og
-`topp_selskaper` returnerer `merke` og `segment` slik at Louis Vuitton kan stå
-i skobutikk-topplisten med en forklaring i stedet for å bli filtrert bort —
-selskapet ER registrert på 47.720 hos Brreg, og å fjerne det ville vært å
-redigere Enhetsregisteret. Samme kobling gjør at «REITAN CONVENIENCE NORWAY AS»
-kan vises som «Narvesen».
-
-**Foretak er ikke bedrifter, og etiketten må si hvilket tall det er.**
-Skobutikk har 205 foretak og 565 virksomheter. I SSBs terminologi ER en bedrift
-virksomheten, så et foretakstall under etiketten «bedrifter» leses som feil av
-alle som kjenner bransjen. `kategori_oversikt` returnerer derfor `n_foretak` og
-`n_virksomheter` hver for seg (migrasjon 0023), og avviket er størst i nettopp
-de kategoriene der folk har best magefølelse: butikk og servering.
-
-## Tidligere uverifisert — nå avklart mot kilden
-
-De tre spørsmålene som sto åpne da skjemaet ble tegnet, er besvart (detaljer og
-etterprøvbare spørringer i `docs/superpowers/specs/2026-08-04-ssb-api-verifisert.md`):
-
-1. Regionaltabellen er **12937** (12936 har ingen regionsdimensjon), og den har
-   kun Omsetning, Lønn, Bedrifter og Sysselsatte — driftsresultat og
-   bruttoinvestering finnes ikke regionalt. Kolonnene er NULL der.
-2. Region-dimensjonen bærer **alle fylkesårganger samtidig**; radene mapper til
-   riktig vintage via `valid_from_year`/`valid_to_year`.
-3. `Arsverk` finnes i 12910 (nasjonalt), ikke i 12937.
-
-## Status
-
-Datalaget: ferdig, 150 tester grønne, 36 migrasjoner.
-
-**Tre ting fra sidegesjeft-forslaget er bevisst avvist, og begrunnelsen hører
-her så neste runde ikke tar dem opp på nytt.** *Ingen mulighetsindeks*:
-`Etterspørsel × Pris × Frekvens ÷ Konkurranse × Oppstartskostnad` har fem ledd
-uten fasit og ett svar med to gjeldende siffer — det er etableringskapital om
-igjen, som ga riktig tall for restaurant og fem ganger for lavt for frisør uten
-at systemet kunne se hvilket som var hvilket. `hva_ma_du_omsette()` gir samme
-følelse med etterprøvbar aritmetikk. *Ingen skraping av etterspørsel*:
-småjobb-plattformer og FINN har annonsene sine som selve produktet,
-Facebook-grupper er lukket, og Google Trends er relative indekser uten volum som
-ikke kan ganges med en pris — vi henter Brreg ved kilden framfor å skrape
-videreselgere, og den regelen gjelder også her. *Ingen skattekalkulator*: grensa
-mellom hobby og næringsvirksomhet er en skjønnsvurdering med etterberegning i
-den andre enden, og `/vilkar` sier at vi ikke gir økonomisk eller juridisk
-rådgivning. Vi gjengir Skatteetatens terskler som fakta med kilde og lenker dit.
-
-**Bloggen skriver seg selv, med samme forankring som innsiktene.** `articles`
-(migrasjon 0032) fylles av `generate-artikkel`: målte tall inn i prompten,
-hvert år og felt modellen viser til valideres mot nyttelasten, og under to
-gyldige referanser betyr at artikkelen ikke publiseres. `kilder` utledes av de
-validerte referansene — ikke av modellens tekst — så kildeboksen i UI-et kan
-ikke liste en kilde artikkelen ikke brukte. En pg_cron-jobb
-(`ukentlig-artikkel`, mandag 06:00 UTC, via `net.http_get`) genererer én
-artikkel i uka; funksjonen velger selv kategorien som har ventet lengst.
-Cron-oppsettet er kjørt manuelt i livebasen og dokumentert i funksjonens
-header — pg_cron/pg_net finnes ikke i PGlite, så det kan ikke ligge i en
-migrasjon.
-
-**Supabase-prosjektet `jcpuhhrqhgrnihiacosy` har ekte data.** Tre importører er
-deployet og kjørt 2026-08-04:
-
-- `industry_stats`: 51 468 rader `data_quality='ssb'`, 2017–2024, nivå 2/3/5
-  nasjonalt og nivå 2/3 per fylke. All mock-statistikk ble erstattet av
-  upsertene.
-- `industry_demography`: 9 500 rader `ssb` fra 08076 (nye foretak) og 07165
-  (konkurser), per fylke og tosifret næring, 2017–2025. Mock-radene er
-  slettet. Overlevelseskolonnene er null — 13701 har ingen næringsdimensjon.
-- `companies`: 5 805 selskaper fra Brreg, 4 946 med regnskapstall, fordelt på
-  309 av 358 kommuner. Hentet med `fraAntallAnsatte` per kategoriprefiks i flere
-  passeringer med synkende terskel (150 → 40 → 8 → 5), og `?hopp=1` sørger for
-  at budsjettet går til nye selskaper framfor å lese de gamle om igjen. Hver
-  kategori har minst 32 selskaper med tall. Mock-selskapene er slettet.
-- `brands`: 49 kuraterte kjeder, 40 med org_nr og tall (Coop Extra 66,8 mrd,
-  Elkjøp 13,9 mrd, IKEA 8,9 mrd, Scandic 6,7 mrd, SATS 1,6 mrd), pluss ni
-  merket `segment='luksus'` (Urmaker Bjerke 743 mill., Hermès 332 mill. med
-  20,6 % margin, Louis Vuitton 330 mill. med 25,3 %).
-- `industry_scores`: 28 377 scorer, 26 770 med `score_total`.
-- `industries`: 1 058 koder fra SSBs kodeliste; de 117 kuraterte beholder
-  navn/slug fra seed (importen er insert-only, se headeren i import-ssb).
-- `categories` / `category_members`: 46 folkelige kategorier i 11 verdener
-  (Hav & sjømat kom 2026-08-06 med sjømatindustri, skipsverft og rederi —
-  fiske/akvakultur (03) er bevisst utelatt til en egen import finnes, for
-  strukturstatistikken dekker ikke SSB-seksjon A; Olje & energi og telekom kom
-  samme dag — bank og finans (64–66) venter av samme grunn som akvakultur:
-  seksjon K har egen regnskapsstatistikk som krever egen import), 121
-  medlemskoder. Equinor, Aker BP og Vår Energi står i companies uten tall:
-  de fører regnskap i USD/EUR, og valutaregelen i import-brreg nekter å blande
-  valutaer i en NOK-rangering. Veien til tallene er omregning med Norges Banks
-  årskurs, merket i UI-et — en egen utvidelse, ikke et unntak i regelen. Alle 40 har tall i `kategori_oversikt()`, og alle har en
-  selskapsliste.
-- `kommuner`: 358 rader fra SSBs klassifikasjon 131 (2024-årgangen) pluss
-  Svalbard og Jan Mayen manuelt. Ingen selskaper står med ukjent kommunekode.
-
-**`probe-brreg` er utdatert og bør slettes fra Supabase-dashbordet.** Den ble
-deployet ad hoc under kategoriarbeidet, uten fil i repoet — og ble derfor
-duplisert som `brreg-sonde`, som gjør det samme men er sporbar her. To sonder
-med samme jobb betyr at neste person retter feil i den ene.
-
-**`generate-insights` er implementert, deployet og kjørt.** `ai_insights` har
-314 rader mot de 63 næringene kategorilaget dekker, `prompt_version='v4'`,
-`model='claude-sonnet-5'`. Alle seed-rader er slettet. Hver medianpåstand er
-kontrollert mot `industry_medians()`: 101 medianverdier nevnt, ingen oppdiktet.
-
-**`industry_estimates` er tom, med vilje.** Seed-en hadde tre anslagsmetrikker
-og ingen av dem kan begrunnes i kildene. `sesongvariasjon` krever kvartalstall
-vi ikke har. `tid_til_lonnsomhet` har ikke noe felt bak seg. `etableringskapital`
-ble prøvd i to runder: først ga modellen 5,7–9,5 mill. for restaurant, som er
-omsetning per foretak med en annen etikett; etter at omsetning ble forbudt som
-grunnlag ga den 750 000–1,5 mill. for restaurant (riktig) og 40 000–90 000 for
-frisør (fem ganger for lavt). Ankeret bærer ikke signalet, og «lav konfidens»
-redder ikke et tall leseren tror på. Veien til et ekte tall går gjennom Brreg:
-selskaper registrert ett til to år tilbake, og deres FØRSTE årsregnskap.
-
-**Forankring håndheves to steder, og bare det andre er verdt noe.** Databasens
-check-constraint krever at `referanser` og `basert_pa` er ikke-tomme — men en
-modell kan fylle dem med noe som *ser ut som* en referanse. Derfor validerer
-`generate-insights` hver referanse mot nyttelasten den faktisk sendte:
-næringskoden må være næringens egen, årstallene må være år vi sendte,
-feltnavnene må være felt vi sendte. Rader som viser til noe modellen ikke fikk,
-forkastes og telles i `forkastet` i svaret. En prompt som begynner å hallusinere
-blir da et tall i loggen, ikke feil tekst i UI-et.
-
-**Lønnstall går ikke inn i promptene ennå.** Regelen som holdt dem ute var at
-`industry_wages` var mock; siden 2026-08-05 er lønnen ekte (`ssb:11419`), så
-generate-insights og generate-artikkel KAN få lønn i nyttelasten — men det er
-en bevisst utvidelse med egen validering, ikke noe som skjer av seg selv.
-Fortsatt gjelder: bare `data_quality='ssb'` sendes inn.
-
-**Ingenting i basen er syntetisk lenger (2026-08-05).** `industry_wages` er
-`ssb:11419` (1 100 rader, 2015–2025), `region_population` er `ssb:07459`
-(150 rader, 2017–2026, verifisert mot offisielle folketall), og alle 28 377
-scorene er reberegnet mot ekte folketall — alle har nå `score_total`.
-`ai_insights`/`articles` er `ai_anslag`, merket som det. `industry_estimates`
-er tom med vilje.
-
-Frontend bygges i Lovable-prosjektet `5bab9b75-aa19-4f9b-b7db-1472ffd79523` mot
-den basen.
-
-### Nettverket i utviklingsmiljøet
-
-Containeren har **ingen rute til Supabase-basen**: HTTPS til `supabase.co` gir
-403 på CONNECT fra proxyen, og utgående 5432 timer ut mot både direkte host og
-begge poolerne — direktetilkobling er IPv6-only. Eneste vei inn er
-Supabase-MCP-serveren, som kjører utenfor containeren.
-
-Derfor finnes `supabase/seed/indb/`: `seed.sql` er for stor for en
-verktøyparameter, så basen bygger datasettet selv fra fem små filer.
-
-Når du sammenligner data mellom to baser: `string_agg(x order by x)` sorterer
-etter kollasjon, så identiske data gir ulik sum. Bruk `order by x collate "C"`.
+Supabase-MCP-en i skyøktene ser per 2026-09-24 bare prosjektet «ScripturePath».
+Bransjesjekk-basen (`jcpuhhrqhgrnihiacosy`) er ikke tilgjengelig derfra.
+Maktkart skal ha sitt eget Supabase-prosjekt, fordi personopplysninger gir en
+annen personvernprofil enn bransjetall.
 
 ## Oppsett i nye økter
 
-Containeren er efemer: alt utenfor git forsvinner mellom økter. `.claude/hooks/session-start.sh`
-gjenoppretter derfor arbeidsmiljøet automatisk ved hver ny sky-økt — npm-avhengighetene
-testene trenger, og agent-skillene låst i `skills-lock.json` (de tre designskillene,
-agent-reach og resten fra samme pakker), pluss claude-mem som best effort.
-
-Skillet mellom hva som committes og hva som ikke gjør det er poenget: **oppskriften
-hører i repoet, artefaktene ikke.** `skills-lock.json` og hooken er versjonert;
-`.claude/skills/` og `.agents/` er ignorert. Skal en ny skill inn permanent, installer
-den med `npx skills add <repo>` og commit den oppdaterte lockfila — da får alle
-framtidige økter den av seg selv.
-
-Hooken kjører bare når `CLAUDE_CODE_REMOTE=true`. Lokalt gjelder dine egne globale
-skills i `~/.claude/`, og hooken skal ikke overskrive dem.
-
-## Graphify
-
-`graphify-out/graph.json` er en kunnskapsgraf over koden, spørrbar via
-graphify-MCP-serveren i `.mcp.json`.
-
-Den dekker **bare kode**. Dokumentene i `docs/` og `lovable/` krever semantisk
-ekstraksjon med en LLM-nøkkel, og det finnes ingen i dette miljøet — så
-grafen kjenner strukturen, ikke begrunnelsene. Regenerer med:
-
-```bash
-graphify extract . --code-only     # uten nøkkel
-graphify extract .                 # med ANTHROPIC_API_KEY, tar også docs
-```
+`.claude/hooks/session-start.sh` kjører `npm install` og gjenoppretter
+agent-skillene fra `skills-lock.json` når `CLAUDE_CODE_REMOTE=true`.
+Designskillene ligger da i `.agents/skills/`: impeccable, design-taste-frontend,
+emil-design-eng og de andre.

@@ -1,0 +1,1522 @@
+{
+  "meta": {
+    "kommunenr": "5528",
+    "kommune": "Dyrøy",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "dyroy-kommune-no-formannskapet-og-administrasjonsutvalget",
+      "navn": "Dyrøy kommune: Formannskapet og administrasjonsutvalget",
+      "url": "https://www.dyroy.kommune.no/politikk/styrer-rad-og-utvalg/formannskapet-og-administrasjonsutvalget",
+      "type": "offisiell"
+    },
+    {
+      "key": "dyroy-kommune-no-kommunestyret",
+      "navn": "Dyrøy kommune: Kommunestyret",
+      "url": "https://www.dyroy.kommune.no/politikk/styrer-rad-og-utvalg/kommunestyret",
+      "type": "offisiell"
+    },
+    {
+      "key": "dyroy-kommune-no-kontakt-oss",
+      "navn": "Dyrøy kommune: Kontakt oss",
+      "url": "https://www.dyroy.kommune.no/kontakt-oss",
+      "type": "offisiell"
+    },
+    {
+      "key": "dyroy-kommune-no-kontrollutvalget",
+      "navn": "Dyrøy kommune: Kontrollutvalget",
+      "url": "https://www.dyroy.kommune.no/politikk/styrer-rad-og-utvalg/kontrollutvalget",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+      "navn": "Ofoten og Sør-Troms jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/ofoten-og-sor-troms-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no",
+      "navn": "Politiet (politiet.no)",
+      "url": "https://www.politiet.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "tromsfylke-no",
+      "navn": "Troms fylkeskommune (tromsfylke.no)",
+      "url": "https://www.tromsfylke.no",
+      "type": "offisiell"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "dyroy-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Dyrøy",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "dyroy-kommunestyre",
+      "kommunenr": "5528",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg med folkevalgte og representanter for de ansatte, for saker om forholdet mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-formannskapet-og-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "dyroy-formannskap",
+      "navn": "Formannskapet i Dyrøy",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "dyroy-kommunestyre",
+      "kommunenr": "5528",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ valgt av kommunestyret blant sine medlemmer. Det innstiller blant annet til økonomiplan og årsbudsjett.",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-formannskapet-og-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "dyroy-kommune",
+      "orgnr": "864994032",
+      "navn": "Dyrøy kommune",
+      "kortnavn": "Dyrøy kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5528",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «DYRØY KOMMUNE». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "dyroy-kommune-administrasjonen",
+      "navn": "Administrasjonen i Dyrøy kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "dyroy-kommune",
+      "kommunenr": "5528",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-kontakt-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "dyroy-kontrollutvalget",
+      "navn": "Kontrollutvalget i Dyrøy",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "dyroy-kommunestyre",
+      "kommunenr": "5528",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "dyroy-kommunestyre",
+      "navn": "Kommunestyret i Dyrøy",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "dyroy-kommune",
+      "kommunenr": "5528",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 15,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "ofoten-og-sor-troms-jordskifterett",
+      "orgnr": "926726579",
+      "navn": "Ofoten og Sør-Troms jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "55",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i Narvik og Evenes i Nordland og ni kommuner i Troms.",
+      "belegg": {
+        "kilde": "domstol-no-ofoten-og-sor-troms-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Hovedsete i Harstad (Troms) ifølge Enhetsregisteret."
+      }
+    },
+    {
+      "key": "stortinget-troms-valgkrets",
+      "navn": "Stortinget, Troms valgkrets",
+      "kortnavn": "Troms valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "55",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene fra Troms i perioden 2025–2029, som vedtar lover og budsjett.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune",
+      "orgnr": "930068128",
+      "navn": "Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt. Styres etter formannskapsmodellen: fylkesordføreren leder fylkestinget og fylkesutvalget.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»). Styringsmodellen er bekreftet på tromsfylke.no/politikk/fylkesordforer/ 25.09.2026: «Troms fylkeskommune styres etter formannskapsmodellen, hvor fylkesordføreren er den valgte lederen av fylkestinget.» Fylkesutvalgssiden sier at fylkesordføreren leder fylkesutvalget. Medieomtale ved konstitueringen i 2023 omtalte et fylkesråd og en fylkesrådsleder; fylkeskommunens egne sider har verken fylkesråd eller fylkesrådsleder."
+      }
+    },
+    {
+      "key": "troms-fylkesting",
+      "navn": "Fylkestinget i Troms",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "troms-fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte organ, ledet av fylkesordføreren.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-politidistrikt",
+      "orgnr": "974769425",
+      "navn": "Troms politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Politi og påtale i 20 kommuner, pluss forvaltningsoppgaver som våpen- og utlendingssaker.",
+      "belegg": {
+        "kilde": "politiet-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "demas",
+      "orgnr": "951320552",
+      "navn": "Demas AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5528",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1989-03-12",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 27.120 «Produksjon av elektriske fordelings- og kontrolltavler og paneler».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "dyroy-kommune-helse-og-sosialadministrasjon",
+      "orgnr": "874792632",
+      "navn": "Dyrøy Kommune Helse- og Sosialadministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5528",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "dyroy-kommune-skole-og-kulturadministrasjon",
+      "orgnr": "974789906",
+      "navn": "Dyrøy Kommune Skole- og Kulturadministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5528",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "dyroy-kommune-teknisk-enhet",
+      "orgnr": "974792656",
+      "navn": "Dyrøy Kommune Teknisk Enhet",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5528",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "marman-nor",
+      "orgnr": "926694006",
+      "navn": "Marman Nor AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5528",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2021-01-14",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 50.202 «Innenriks sjøfart med gods».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "mellem-bo-og-omsorg",
+      "orgnr": "921510519",
+      "navn": "Mellem Bo og Omsorg AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5528",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2018-09-24",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 87.999 «Andre botilbud innenfor sosiale tjenester ikke nevnt annet sted».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "borre-ertzaas",
+      "navn": "Børre Ertzaas"
+    },
+    {
+      "key": "rakel-jensen",
+      "navn": "Rakel Jensen"
+    },
+    {
+      "key": "tore-uthaug",
+      "navn": "Tore Uthaug"
+    },
+    {
+      "key": "arne-svendsen",
+      "navn": "Arne Svendsen"
+    },
+    {
+      "key": "dag-agnar-solbakk",
+      "navn": "Dag Agnar Solbakk"
+    },
+    {
+      "key": "ellen-mari-saebbe",
+      "navn": "Ellen Mari Sæbbe"
+    },
+    {
+      "key": "erling-bratsberg",
+      "navn": "Erling Bratsberg"
+    },
+    {
+      "key": "gunnar-bertheussen",
+      "navn": "Gunnar Bertheussen"
+    },
+    {
+      "key": "irene-krogh-pettersen",
+      "navn": "Irene Krogh Pettersen"
+    },
+    {
+      "key": "johanne-t-bolle-gabrielsen",
+      "navn": "Johanne T. Bolle Gabrielsen"
+    },
+    {
+      "key": "jonas-hind",
+      "navn": "Jonas Hind"
+    },
+    {
+      "key": "kine-mari-hanssen-bertheussen",
+      "navn": "Kine Mari Hanssen Bertheussen"
+    },
+    {
+      "key": "kjell-sverre-myrvoll",
+      "navn": "Kjell-Sverre Myrvoll"
+    },
+    {
+      "key": "marit-alvig-espenes",
+      "navn": "Marit Alvig Espenes"
+    },
+    {
+      "key": "richard-felix-bertheussen",
+      "navn": "Richard Felix Bertheussen"
+    },
+    {
+      "key": "tone-sorensen",
+      "navn": "Tone Sørensen"
+    },
+    {
+      "key": "tor-inge-berg",
+      "navn": "Tor-Inge Berg"
+    },
+    {
+      "key": "ann-britt-jensen",
+      "navn": "Ann-Britt Jensen"
+    },
+    {
+      "key": "bard-helge-thingstad",
+      "navn": "Bård Helge Thingstad"
+    },
+    {
+      "key": "erik-hatland",
+      "navn": "Erik Hatland"
+    },
+    {
+      "key": "geir-nilsen",
+      "navn": "Geir Nilsen"
+    },
+    {
+      "key": "levi-jensen",
+      "navn": "Levi Jensen"
+    },
+    {
+      "key": "paul-havard-sorensen",
+      "navn": "Paul-Håvard Sørensen"
+    },
+    {
+      "key": "per-konrad-jensen",
+      "navn": "Per Konrad Jensen"
+    },
+    {
+      "key": "tone-merete-pettersen",
+      "navn": "Tone Merete Pettersen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "dyroy-formannskap",
+      "person": "marit-alvig-espenes",
+      "tittel": "Ordfører",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-formannskapet-og-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026. Ordføreren er møteleder i formannskapet (kommuneloven § 6-1)."
+      }
+    },
+    {
+      "org": "dyroy-kommune-administrasjonen",
+      "person": "tore-uthaug",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "konstituert",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Dyrøy kommune: Kontakt oss, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i DYRØY KOMMUNE (orgnr 864994032). Sidens merknad: Kontaktsiden fører ham som konstituert kommunedirektør."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "rakel-jensen",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-kommunestyret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "marit-alvig-espenes",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2024-08-22",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-kommunestyret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026. Siden oppgir at hun er valgt til ordfører ut valgperioden 2023–2027, vedtatt i kommunestyret 22.08.2024. Ordførersiden på samme nettsted omtaler fortsatt forgjengeren."
+      }
+    },
+    {
+      "org": "dyroy-kontrollutvalget",
+      "person": "jonas-hind",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026. Valgt fra listen FRP/H/SP."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "marit-alvig-espenes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "erling-bratsberg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "tone-sorensen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "dag-agnar-solbakk",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "johanne-t-bolle-gabrielsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "gunnar-bertheussen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "richard-felix-bertheussen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "rakel-jensen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "arne-svendsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "tor-inge-berg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "ellen-mari-saebbe",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "irene-krogh-pettersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "kjell-sverre-myrvoll",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "kine-mari-hanssen-bertheussen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "dyroy-kommunestyre",
+      "person": "borre-ertzaas",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "demas",
+      "person": "ann-britt-jensen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "demas",
+      "person": "geir-nilsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "demas",
+      "person": "levi-jensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "demas",
+      "person": "per-konrad-jensen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dyroy-kommune-helse-og-sosialadministrasjon",
+      "person": "tore-uthaug",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dyroy-kommune-skole-og-kulturadministrasjon",
+      "person": "tore-uthaug",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "dyroy-kommune-teknisk-enhet",
+      "person": "tore-uthaug",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "marman-nor",
+      "person": "bard-helge-thingstad",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "marman-nor",
+      "person": "erik-hatland",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "marman-nor",
+      "person": "paul-havard-sorensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "mellem-bo-og-omsorg",
+      "person": "tone-merete-pettersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "dyroy-administrasjonsutvalget",
+      "til": "dyroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-formannskapet-og-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "dyroy-formannskap",
+      "til": "dyroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-formannskapet-og-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "dyroy-kommune-administrasjonen",
+      "til": "dyroy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-kontakt-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "dyroy-kontrollutvalget",
+      "til": "dyroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "dyroy-kommune-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra dyroy.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "dyroy-kommunestyre",
+      "til": "dyroy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "troms-fylkesting",
+      "til": "troms-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "demas",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 139991,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "demas",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 1113937,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "demas",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 13707737,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "demas",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 78167455,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "marman-nor",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": -1876,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "marman-nor",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": -14037,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "marman-nor",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 78998,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "marman-nor",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 0,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "mellem-bo-og-omsorg",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 2151116,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "mellem-bo-og-omsorg",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 3027475,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "mellem-bo-og-omsorg",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 3805508,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "mellem-bo-og-omsorg",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 13552464,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Dyrøy?",
+      "steg": [
+        {
+          "org": "dyroy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "dyroy-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (dyroy-kommune-no-formannskapet-og-administrasjonsutvalget); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "dyroy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Dyrøy kommune?",
+      "steg": [
+        {
+          "org": "dyroy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "dyroy-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (dyroy-kommune-no-formannskapet-og-administrasjonsutvalget)."
+          }
+        },
+        {
+          "org": "dyroy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "marman-nor",
+      "segment": "transport",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "dyroy-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "dyroy-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

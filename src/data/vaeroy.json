@@ -1,0 +1,1726 @@
+{
+  "meta": {
+    "kommunenr": "1857",
+    "kommune": "Værøy",
+    "fylkesnr": "18",
+    "fylke": "Nordland",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "statsforvalteren-no-nordland-om-oss",
+      "navn": "Statsforvalteren i Nordland: Om Statsforvalteren",
+      "url": "https://www.statsforvalteren.no/nb/nordland/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "vaeroy-moteportal",
+      "navn": "Værøy kommunes møteportal (ACOS Innsyn, varoy.kommune.no)",
+      "url": "https://varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-salten-jordskifterett-rettskrets",
+      "navn": "Salten jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/salten-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-salten-og-lofoten-tingrett-om",
+      "navn": "Salten og Lofoten tingrett: Om Salten og Lofoten tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/salten-og-lofoten-tingrett/om-salten-og-lofoten-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "nfk-no-organisasjonskart",
+      "navn": "Nordland fylkeskommune: Organisasjonskart",
+      "url": "https://www.nfk.no/om-fylkeskommunen/organisasjon/organisasjonskart/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-nordland",
+      "navn": "Nordland politidistrikt: Politistasjoner og dekningsområde",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/nordland/",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "vaeroy-administrasjonsutvalg",
+      "navn": "Administrasjonsutvalg i Værøy",
+      "kortnavn": "Administrasjonsutvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "vaeroy-kommunestyre",
+      "kommunenr": "1857",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg for saker mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=6) 2026-09-25."
+      }
+    },
+    {
+      "key": "vaeroy-eldrerad-rad-for-mennesker-med-nedsatt-funksjonsevne",
+      "navn": "Eldreråd/Råd for mennesker med nedsatt funksjonsevne i Værøy",
+      "kortnavn": "Eldreråd/Råd for mennesker med nedsatt funksjonsevne",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "vaeroy-kommunestyre",
+      "kommunenr": "1857",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=20) 2026-09-25."
+      }
+    },
+    {
+      "key": "vaeroy-formannskap",
+      "navn": "Formannskapet i Værøy",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "vaeroy-kommunestyre",
+      "kommunenr": "1857",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens nest øverste folkevalgte organ, valgt av og blant kommunestyrets medlemmer.",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=2) 2026-09-25."
+      }
+    },
+    {
+      "key": "vaeroy-hovedutvalg-for-helse-og-sosial",
+      "navn": "Hovedutvalg for helse og sosial i Værøy",
+      "kortnavn": "Hovedutvalg for helse og sosial",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "vaeroy-kommunestyre",
+      "kommunenr": "1857",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=10) 2026-09-25."
+      }
+    },
+    {
+      "key": "vaeroy-hovedutvalg-for-naeringssaker",
+      "navn": "Hovedutvalg for næringssaker i Værøy",
+      "kortnavn": "Hovedutvalg for næringssaker",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "vaeroy-kommunestyre",
+      "kommunenr": "1857",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=24) 2026-09-25."
+      }
+    },
+    {
+      "key": "vaeroy-kommune",
+      "orgnr": "964994307",
+      "navn": "Værøy kommune",
+      "kortnavn": "Værøy kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "1857",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet",
+        "eierskap",
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt, med kommunestyret som øverste organ.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Registrert som «VÆRØY KOMMUNE», organisasjonsform KOMM, forretningsadresse i kommune 1857."
+      }
+    },
+    {
+      "key": "vaeroy-kommune-administrasjonen",
+      "navn": "Administrasjonen i Værøy kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "vaeroy-kommune",
+      "kommunenr": "1857",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Administrasjonen er ikke beskrevet på sidene som ble hentet; organet er tatt med fordi kommunen har en registrert daglig leder."
+      }
+    },
+    {
+      "key": "vaeroy-kontrollutvalget",
+      "navn": "Kontrollutvalget i Værøy",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "vaeroy-kommunestyre",
+      "kommunenr": "1857",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn og kontroll med kommunens forvaltning på vegne av kommunestyret.",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=25) 2026-09-25."
+      }
+    },
+    {
+      "key": "vaeroy-teknisk-utvalg",
+      "navn": "Teknisk utvalg i Værøy",
+      "kortnavn": "Teknisk utvalg",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "vaeroy-kommunestyre",
+      "kommunenr": "1857",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Politisk utvalg valgt av kommunestyret for et fagområde.",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=26) 2026-09-25."
+      }
+    },
+    {
+      "key": "vaeroy-ungdomsrad",
+      "navn": "Ungdomsråd i Værøy",
+      "kortnavn": "Ungdomsråd",
+      "nivaa": "kommune",
+      "organtype": "raad",
+      "overordnet": "vaeroy-kommunestyre",
+      "kommunenr": "1857",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "raadgivning"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Rådgivende organ som uttaler seg i saker som gjelder gruppen det representerer.",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=27) 2026-09-25."
+      }
+    },
+    {
+      "key": "vaeroy-kommunestyre",
+      "navn": "Kommunestyret i Værøy",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "vaeroy-kommune",
+      "kommunenr": "1857",
+      "fylkesnr": "18",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 13,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [
+        "landbruk",
+        "avfall-miljo"
+      ],
+      "myndighet": [
+        "tilsyn",
+        "klage",
+        "finansiering"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "statsforvalteren-nordland",
+      "orgnr": "974764687",
+      "navn": "Statsforvalteren i Nordland",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Statens representant i Nordland: fører tilsyn med kommunene, er klageinstans for kommunale vedtak og forvalter tilskudd, blant annet innen landbruk, reindrift, klima og miljø.",
+      "belegg": {
+        "kilde": "statsforvalteren-no-nordland-om-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Avdelingene (bl.a. Landbruk og reindrift, Klima og miljø) er lest av organisasjonskartet."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "eierskap",
+        "planmyndighet",
+        "finansiering",
+        "konsesjon"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "nordland-fylkeskommune",
+      "orgnr": "964982953",
+      "navn": "Nordland fylkeskommune",
+      "kortnavn": "Nordland fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "beskrivelse": "Fylkeskommunen for Nordland, med parlamentarisk styreform: fylkestinget er øverste organ, og fylkesrådet er fylkets «regjering».",
+      "belegg": {
+        "kilde": "nfk-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 964982953, organisasjonsform FYLK, sektor 6500 (Kommuneforvaltningen), forretningsadresse i Bodø (1804). Styringsmodellen er beskrevet på nfk.no (fylkesvaraordfører-siden og organisasjonskartet) 25.09.2026."
+      }
+    },
+    {
+      "key": "nordland-fylkesting",
+      "navn": "Fylkestinget i Nordland - Nordlánnda",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordland-fylkeskommune",
+      "fylkesnr": "18",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 45,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte forsamling, valgt ved fylkestingsvalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "nordland-politidistrikt",
+      "orgnr": "983999999",
+      "navn": "Nordland politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Politi og påtale i alle kommuner i Nordland unntatt Bindal, og i Gratangen i Troms.",
+      "belegg": {
+        "kilde": "politiet-no-nordland",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra politiet.no 25.09.2026. Siden sier: «Nordland politidistriktet dekker Gratangen kommune i Troms, samt alle kommuner i Nordland, med unntak av Bindal kommune (som dekkes av Trøndelag politidistrikt).»"
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-jordskifterett",
+      "orgnr": "926726684",
+      "navn": "Salten jordskifterett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Særdomstol for spørsmål om fast eiendom i 12 kommuner fra Rødøy til Hamarøy, inkludert Røst og Værøy.",
+      "belegg": {
+        "kilde": "domstol-no-salten-jordskifterett-rettskrets",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "vedtak"
+      ],
+      "status": "aktiv",
+      "sensitiv": true,
+      "key": "salten-og-lofoten-tingrett",
+      "orgnr": "826723122",
+      "navn": "Salten og Lofoten tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "18",
+      "rekkevidde": "region",
+      "beskrivelse": "Førsteinstansdomstol for 16 kommuner i Salten og Lofoten, med bemannede rettssteder i Bodø og Svolvær.",
+      "belegg": {
+        "kilde": "domstol-no-salten-og-lofoten-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Domstolen har ifølge siden full fagkrets og dermed også enkelte forvaltningsoppgaver."
+      }
+    },
+    {
+      "key": "stortinget-nordland-valgkrets",
+      "navn": "Stortinget, Nordland valgkrets",
+      "kortnavn": "Nordland valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "18",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 9,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene valgt fra Nordland for perioden 2025–2029.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Faste representanter for stortingsperioden 2025–2029 etter data.stortinget.no/eksport/representanter."
+      }
+    },
+    {
+      "key": "astrup-lofoten",
+      "orgnr": "946366056",
+      "navn": "Astrup Lofoten AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1857",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1988-01-04",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.201 «Produksjon av saltfisk, tørrfisk og klippfisk».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "brodrene-berg",
+      "orgnr": "976483006",
+      "navn": "Brødrene Berg AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1857",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1996-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.201 «Produksjon av saltfisk, tørrfisk og klippfisk».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "lofoten-viking",
+      "orgnr": "957067492",
+      "navn": "Lofoten Viking AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "1857",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1990-01-02",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 10.201 «Produksjon av saltfisk, tørrfisk og klippfisk».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vaeroy-kommune-helse-og-sosialadministrasjon",
+      "orgnr": "974791978",
+      "navn": "Værøy Kommune Helse- og Sosialadministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1857",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "vaeroy-kommune-sentraladministrasjon",
+      "orgnr": "974794438",
+      "navn": "Værøy Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1857",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "vaeroy-kommune-skoleadministrasjon",
+      "orgnr": "974790599",
+      "navn": "Værøy Kommune Skoleadministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1857",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "vaeroy-kommune-teknisk-etat",
+      "orgnr": "974791994",
+      "navn": "Værøy Kommune Teknisk Etat",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "1857",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "bertrand-oluf-kenneth-hardie",
+      "navn": "Bertrand Oluf Kenneth Hardie"
+    },
+    {
+      "key": "dagfinn-kristian-arntsen",
+      "navn": "Dagfinn Kristian Arntsen"
+    },
+    {
+      "key": "elisabeth-fagertun-berg",
+      "navn": "Elisabeth Fagertun Berg"
+    },
+    {
+      "key": "frode-hardy",
+      "navn": "Frode Hardy"
+    },
+    {
+      "key": "havard-bjerkeli",
+      "navn": "Håvard Bjerkeli"
+    },
+    {
+      "key": "jill-chanett-arntsen",
+      "navn": "Jill Chanett Arntsen"
+    },
+    {
+      "key": "kent-arne-bensvik",
+      "navn": "Kent-Arne Bensvik"
+    },
+    {
+      "key": "leif-roger-rostgard",
+      "navn": "Leif-Roger Røstgård"
+    },
+    {
+      "key": "ole-martin-kjellbakk",
+      "navn": "Ole-Martin Kjellbakk"
+    },
+    {
+      "key": "rita-adolfsen",
+      "navn": "Rita Adolfsen"
+    },
+    {
+      "key": "rune-eliassen",
+      "navn": "Rune Eliassen"
+    },
+    {
+      "key": "siw-elisabeth-eriksen",
+      "navn": "Siw Elisabeth Eriksen"
+    },
+    {
+      "key": "susan-berg-kristiansen",
+      "navn": "Susan Berg Kristiansen"
+    },
+    {
+      "key": "arne-norval-mathisen",
+      "navn": "Arne Norval Mathisen"
+    },
+    {
+      "key": "helle-norunn-henriksen-tenningas",
+      "navn": "Helle Norunn Henriksen-Tenningås"
+    },
+    {
+      "key": "jarle-ottar-andreassen",
+      "navn": "Jarle Ottar Andreassen"
+    },
+    {
+      "key": "lisbeth-torstensen",
+      "navn": "Lisbeth Torstensen"
+    },
+    {
+      "key": "lorentz-hugo-hardy",
+      "navn": "Lorentz Hugo Hardy"
+    },
+    {
+      "key": "roger-jakobsen",
+      "navn": "Roger Jakobsen"
+    },
+    {
+      "key": "tommy-andreassen-bensvik",
+      "navn": "Tommy Andreassen Bensvik"
+    },
+    {
+      "key": "tommy-torvanger",
+      "navn": "Tommy Torvanger"
+    },
+    {
+      "key": "trond-berg",
+      "navn": "Trond Berg"
+    }
+  ],
+  "roller": [
+    {
+      "org": "vaeroy-formannskap",
+      "person": "susan-berg-kristiansen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Værøylista",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=2) 2026-09-25. Møteportalen fører ordføreren i formannskapet med funksjonen «ordfører»."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "susan-berg-kristiansen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Værøylista",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx) 2026-09-25."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "bertrand-oluf-kenneth-hardie",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Værøylista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "dagfinn-kristian-arntsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "elisabeth-fagertun-berg",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Værøylista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "frode-hardy",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Felleslista for Værøy",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "havard-bjerkeli",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Værøylista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "jill-chanett-arntsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "kent-arne-bensvik",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Felleslista for Værøy",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "leif-roger-rostgard",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Værøylista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "ole-martin-kjellbakk",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Felleslista for Værøy",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "rita-adolfsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Felleslista for Værøy",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "rune-eliassen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Værøylista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "siw-elisabeth-eriksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Værøylista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "vaeroy-kommunestyre",
+      "person": "susan-berg-kristiansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Værøylista",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no. Ikke kontrollert mot valgstyrets protokoll; se rapporten."
+      }
+    },
+    {
+      "org": "astrup-lofoten",
+      "person": "jarle-ottar-andreassen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astrup-lofoten",
+      "person": "jarle-ottar-andreassen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "astrup-lofoten",
+      "person": "tommy-andreassen-bensvik",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "brodrene-berg",
+      "person": "roger-jakobsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "brodrene-berg",
+      "person": "roger-jakobsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "brodrene-berg",
+      "person": "trond-berg",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-viking",
+      "person": "arne-norval-mathisen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-viking",
+      "person": "lorentz-hugo-hardy",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "lofoten-viking",
+      "person": "tommy-torvanger",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vaeroy-kommune-helse-og-sosialadministrasjon",
+      "person": "helle-norunn-henriksen-tenningas",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vaeroy-kommune-sentraladministrasjon",
+      "person": "helle-norunn-henriksen-tenningas",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vaeroy-kommune-skoleadministrasjon",
+      "person": "helle-norunn-henriksen-tenningas",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vaeroy-kommune-teknisk-etat",
+      "person": "lisbeth-torstensen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vaeroy-kommune",
+      "person": "helle-norunn-henriksen-tenningas",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "vaeroy-administrasjonsutvalg",
+      "til": "vaeroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=6) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vaeroy-eldrerad-rad-for-mennesker-med-nedsatt-funksjonsevne",
+      "til": "vaeroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=20) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vaeroy-formannskap",
+      "til": "vaeroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=2) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vaeroy-hovedutvalg-for-helse-og-sosial",
+      "til": "vaeroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=10) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vaeroy-hovedutvalg-for-naeringssaker",
+      "til": "vaeroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=24) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vaeroy-kommune-administrasjonen",
+      "til": "vaeroy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Administrasjonen er ikke beskrevet på sidene som ble hentet; organet er tatt med fordi kommunen har en registrert daglig leder."
+      }
+    },
+    {
+      "fra": "vaeroy-kontrollutvalget",
+      "til": "vaeroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=25) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vaeroy-teknisk-utvalg",
+      "til": "vaeroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=26) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vaeroy-ungdomsrad",
+      "til": "vaeroy-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "vaeroy-moteportal",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra ACOS Innsyn (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=27) 2026-09-25."
+      }
+    },
+    {
+      "fra": "vaeroy-kommunestyre",
+      "til": "vaeroy-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-nordland",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 974764687, organisasjonsform ORGL, sektor 6100 (Statsforvaltningen), forretningsadresse i Bodø (1804). Enhetsregisteret fører embetet som organisasjonsledd i DFD; statsforvalteren.no sier det samme."
+      }
+    },
+    {
+      "fra": "nordland-fylkesting",
+      "til": "nordland-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Fylkestinget er valgt for fylkeskommunen ved fylkestingsvalget 2023."
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "astrup-lofoten",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 4881175,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astrup-lofoten",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 8061086,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astrup-lofoten",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 32722865,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "astrup-lofoten",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 57666865,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "brodrene-berg",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 9090785,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "brodrene-berg",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 14445181,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "brodrene-berg",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 52041429,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "brodrene-berg",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 138767656,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "lofoten-viking",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 57047031,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lofoten-viking",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 39722606,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lofoten-viking",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 805828912,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    },
+    {
+      "org": "lofoten-viking",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 875916213,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Morselskapets eget regnskap, ikke konsern."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Værøy?",
+      "steg": [
+        {
+          "org": "vaeroy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "vaeroy-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (vaeroy-moteportal); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "vaeroy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-nordland",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Værøy kommune?",
+      "steg": [
+        {
+          "org": "vaeroy-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "vaeroy-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (vaeroy-moteportal)."
+          }
+        },
+        {
+          "org": "vaeroy-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "avfall-miljo",
+      "navn": "Avfall og miljø"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-nordland",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "astrup-lofoten",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "brodrene-berg",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "lofoten-viking",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "vaeroy-administrasjonsutvalg",
+      "hva": "Leder av administrasjonsutvalg i Værøy er ikke oppgitt.",
+      "hvorfor": "Møteportalen (ACOS Innsyn) fører ingen med funksjonen «Leder» i organet; ordføreren står oppført med funksjonen «Ordfører», men portalen sier ikke at ordføreren leder det (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=6)."
+    },
+    {
+      "gjelder": "vaeroy-hovedutvalg-for-helse-og-sosial",
+      "hva": "Leder av hovedutvalg for helse og sosial i Værøy er ikke oppgitt.",
+      "hvorfor": "Møteportalen (ACOS Innsyn) oppgir ingen leder for organet (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=10)."
+    },
+    {
+      "gjelder": "vaeroy-hovedutvalg-for-naeringssaker",
+      "hva": "Leder av hovedutvalg for næringssaker i Værøy er ikke oppgitt.",
+      "hvorfor": "Møteportalen (ACOS Innsyn) oppgir ingen leder for organet (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=24)."
+    },
+    {
+      "gjelder": "vaeroy-kommune-administrasjonen",
+      "hva": "Kommunens nettsted navngir ikke kommunedirektøren på sidene som ble hentet.",
+      "hvorfor": "Bunnteksten sier bare «Ansvarlig redaktør: Kommunedirektør». Enhetsregisterets daglig leder er brukt."
+    },
+    {
+      "gjelder": "vaeroy-kommunestyre",
+      "hva": "Varaordføreren er ikke navngitt i innsynsportalen eller på sidene som ble hentet.",
+      "hvorfor": "Innsynsportalen merker bare ordføreren."
+    },
+    {
+      "gjelder": "vaeroy-kontrollutvalget",
+      "hva": "Leder av kontrollutvalget i Værøy er ikke oppgitt.",
+      "hvorfor": "Møteportalen (ACOS Innsyn) oppgir ingen leder for organet (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=25)."
+    },
+    {
+      "gjelder": "vaeroy-teknisk-utvalg",
+      "hva": "Leder av teknisk utvalg i Værøy er ikke oppgitt.",
+      "hvorfor": "Møteportalen (ACOS Innsyn) oppgir ingen leder for organet (varoy.kommune.no/innsyn.aspx?response=utvalg&MId1=195&scripturi=/innsyn.aspx&&utvalg_selected=26)."
+    },
+    {
+      "gjelder": "vaeroy-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "vaeroy-kommunestyre",
+      "hva": "Navnekontroll av de valgte mot valgstyrets protokoll.",
+      "hvorfor": "Dokumentet som er publisert som valgstyrets protokoll for kommunestyrevalget i Værøy, er valgstyrets protokoll for fylkestingsvalget. Protokollen ligger på https://valgresultat.no/meeting-book/1857_ko_2023."
+    },
+    {
+      "gjelder": "vaeroy-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

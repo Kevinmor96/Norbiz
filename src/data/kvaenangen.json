@@ -1,0 +1,1462 @@
+{
+  "meta": {
+    "kommunenr": "5546",
+    "kommune": "Kvænangen",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+      "navn": "Kvænangen kommune: Utvalg og verv for kommunestyreperioden 2023–2027",
+      "url": "https://www.kvanangen.kommune.no/download/18.6557886219a0f4388132f155/1762268595365/23-27,%20oversikt%20utvalg%20mm.docx",
+      "type": "offisiell"
+    },
+    {
+      "key": "kvanangen-kommune-no-kontakt-oss",
+      "navn": "Kvænangen kommune: Kontakt oss",
+      "url": "https://www.kvanangen.kommune.no/kontakt-oss",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-vestre-finnmark-tingrett-om",
+      "navn": "Vestre Finnmark tingrett: Om Vestre Finnmark tingrett",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/vestre-finnmark-tingrett/om-vestre-finnmark-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no",
+      "navn": "Politiet (politiet.no)",
+      "url": "https://www.politiet.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "tromsfylke-no",
+      "navn": "Troms fylkeskommune (tromsfylke.no)",
+      "url": "https://www.tromsfylke.no",
+      "type": "offisiell"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "kvaenangen-formannskap",
+      "navn": "Formannskapet i Kvænangen",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "kvaenangen-kommunestyre",
+      "kommunenr": "5546",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ valgt av kommunestyret blant sine medlemmer. Det innstiller blant annet til økonomiplan og årsbudsjett.",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "kvaenangen-klagenemnda",
+      "navn": "Klagenemnda i Kvænangen",
+      "kortnavn": "Klagenemnda",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kvaenangen-kommunestyre",
+      "kommunenr": "5546",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "klage"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Behandler klager på enkeltvedtak der kommunen selv er klageinstans.",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "kvaenangen-kommune",
+      "orgnr": "940331102",
+      "navn": "Kvænangen kommune",
+      "kortnavn": "Kvænangen kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5546",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «KVÆNANGEN KOMMUNE». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "kvaenangen-kommune-administrasjonen",
+      "navn": "Administrasjonen i Kvænangen kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "kvaenangen-kommune",
+      "kommunenr": "5546",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-kontakt-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "kvaenangen-kontrollutvalget",
+      "navn": "Kontrollutvalget i Kvænangen",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kvaenangen-kommunestyre",
+      "kommunenr": "5546",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "kvaenangen-utvalg-for-oppvekst-omsorg-og-kultur",
+      "navn": "Utvalg for oppvekst, omsorg og kultur i Kvænangen",
+      "kortnavn": "Utvalg for oppvekst, omsorg og kultur",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kvaenangen-kommunestyre",
+      "kommunenr": "5546",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "kvaenangen-utvalg-for-plan-utvikling-og-teknisk",
+      "navn": "Utvalg for plan, utvikling og teknisk i Kvænangen",
+      "kortnavn": "Utvalg for plan, utvikling og teknisk",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "kvaenangen-kommunestyre",
+      "kommunenr": "5546",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "kvaenangen-kommunestyre",
+      "navn": "Kommunestyret i Kvænangen",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "kvaenangen-kommune",
+      "kommunenr": "5546",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 15,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "stortinget-troms-valgkrets",
+      "navn": "Stortinget, Troms valgkrets",
+      "kortnavn": "Troms valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "55",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene fra Troms i perioden 2025–2029, som vedtar lover og budsjett.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune",
+      "orgnr": "930068128",
+      "navn": "Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt. Styres etter formannskapsmodellen: fylkesordføreren leder fylkestinget og fylkesutvalget.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»). Styringsmodellen er bekreftet på tromsfylke.no/politikk/fylkesordforer/ 25.09.2026: «Troms fylkeskommune styres etter formannskapsmodellen, hvor fylkesordføreren er den valgte lederen av fylkestinget.» Fylkesutvalgssiden sier at fylkesordføreren leder fylkesutvalget. Medieomtale ved konstitueringen i 2023 omtalte et fylkesråd og en fylkesrådsleder; fylkeskommunens egne sider har verken fylkesråd eller fylkesrådsleder."
+      }
+    },
+    {
+      "key": "troms-fylkesting",
+      "navn": "Fylkestinget i Troms",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "troms-fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte organ, ledet av fylkesordføreren.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-politidistrikt",
+      "orgnr": "974769425",
+      "navn": "Troms politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Politi og påtale i 20 kommuner, pluss forvaltningsoppgaver som våpen- og utlendingssaker.",
+      "belegg": {
+        "kilde": "politiet-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "vestre-finnmark-tingrett",
+      "orgnr": "926722956",
+      "navn": "Vestre Finnmark tingrett",
+      "nivaa": "stat",
+      "organtype": "domstol",
+      "fylkesnr": "56",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "sensitiv": true,
+      "gyldig_fra": "2021-04-26",
+      "beskrivelse": "Tingrett for Alta, Hammerfest, Hasvik, Måsøy, Nordkapp, Porsanger og Loppa i Finnmark og Kvænangen i Troms, med rettssteder i Alta og Hammerfest.",
+      "belegg": {
+        "kilde": "domstol-no-vestre-finnmark-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Opprettet 26.04.2021 ved sammenslåing av Alta og Hammerfest tingrett. Orgnr fra Enhetsregisteret."
+      },
+      "segmenter": [],
+      "status": "aktiv"
+    },
+    {
+      "key": "kvaenangen-kommune-etat-for-helse-og-omsorg",
+      "orgnr": "987522267",
+      "navn": "Kvænangen Kommune Etat for Helse og Omsorg",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5546",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2004-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kvaenangen-kommune-etat-for-naering-utvikling-og-teknisk",
+      "orgnr": "974793016",
+      "navn": "Kvænangen Kommune Etat for Næring, Utvikling og Teknisk",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5546",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kvaenangen-kommune-etat-for-oppvekst-og-kultur",
+      "orgnr": "974789787",
+      "navn": "Kvænangen Kommune Etat for Oppvekst og Kultur",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5546",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "kvaenangen-kommune-sentraladministrasjon",
+      "orgnr": "974794756",
+      "navn": "Kvænangen Kommune Sentraladministrasjon",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5546",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1995-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "kvaenangen-produkter",
+      "orgnr": "985687749",
+      "navn": "Kvænangen Produkter AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5546",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2003-02-28",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 88.993 «Arbeidstrening og varig tilrettelagt arbeid».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "mowi",
+      "orgnr": "964118191",
+      "navn": "Mowi ASA",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "kommunenr": "4601",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "1992-05-18",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Allmennaksjeselskap registrert i Enhetsregisteret med næringskode 03.211 «Produksjon av fisk, bløtdyr, krepsdyr og pigghuder i sjø og brakkvann».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "mowi-avd-jokelfjord",
+      "orgnr": "913715268",
+      "navn": "Mowi Avd Jøkelfjord",
+      "nivaa": "privat",
+      "organtype": "ASA",
+      "overordnet": "mowi",
+      "kommunenr": "5546",
+      "myndighet": [],
+      "segmenter": [
+        "sjomat"
+      ],
+      "gyldig_fra": "2014-06-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Kvænangen for Mowi ASA, med næringskode 10.202 «Slakting av fisk, skalldyr og bløtdyr».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "aud-tove-haaland-tommerbukt",
+      "navn": "Aud Tove Haaland Tømmerbukt"
+    },
+    {
+      "key": "stian-lindgard",
+      "navn": "Stian Lindgård"
+    },
+    {
+      "key": "valter-hermod-johan-olsen",
+      "navn": "Valter Hermod Johan Olsen"
+    },
+    {
+      "key": "carl-a-lovvik",
+      "navn": "Carl A Løvvik"
+    },
+    {
+      "key": "geir-morten-olsen",
+      "navn": "Geir Morten Olsen"
+    },
+    {
+      "key": "guri-ellen-isaksen",
+      "navn": "Guri Ellen Isaksen"
+    },
+    {
+      "key": "hanne-ingeborg-wiesener",
+      "navn": "Hanne Ingeborg Wiesener"
+    },
+    {
+      "key": "jan-helge-jensen",
+      "navn": "Jan Helge Jensen"
+    },
+    {
+      "key": "johanne-oxlund-gjerstad",
+      "navn": "Johanne Oxlund Gjerstad"
+    },
+    {
+      "key": "kai-petter-johansen",
+      "navn": "Kai Petter Johansen"
+    },
+    {
+      "key": "kristin-anita-hansen",
+      "navn": "Kristin Anita Hansen"
+    },
+    {
+      "key": "lars-helge-beldo",
+      "navn": "Lars Helge Beldo"
+    },
+    {
+      "key": "ole-johannes-engebretsen",
+      "navn": "Ole Johannes Engebretsen"
+    },
+    {
+      "key": "ronald-jenssen",
+      "navn": "Ronald Jenssen"
+    },
+    {
+      "key": "tove-beate-folstad",
+      "navn": "Tove Beate Følstad"
+    },
+    {
+      "key": "tryggve-enoksen",
+      "navn": "Tryggve Enoksen"
+    },
+    {
+      "key": "vera-marie-eilertsen-wassnes",
+      "navn": "Vera Marie Eilertsen-Wassnes"
+    },
+    {
+      "key": "anne-sofie-pedersen",
+      "navn": "Anne-Sofie Pedersen"
+    },
+    {
+      "key": "kurt-arne-solheim",
+      "navn": "Kurt Arne Solheim"
+    },
+    {
+      "key": "steinar-karlstrom-4856d0",
+      "navn": "Steinar Karlstrøm"
+    },
+    {
+      "key": "veronica-maria-garcia-navarro",
+      "navn": "Veronica Maria Garcia Navarro"
+    }
+  ],
+  "roller": [
+    {
+      "org": "kvaenangen-kommune-administrasjonen",
+      "person": "stian-lindgard",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Kvænangen kommune: Kontakt oss, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i KVÆNANGEN KOMMUNE (orgnr 940331102)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "jan-helge-jensen",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026. Kilden er kommunens dokument «Utvalg og verv for kommunestyreperioden 2023–2027», sist oppdatert 29.08.2025. Partiet er hentet fra valgoppgjøret 2023 (Valgdirektoratet), ikke fra siden."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "kai-petter-johansen",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026. Kilden er kommunens dokument «Utvalg og verv for kommunestyreperioden 2023–2027», sist oppdatert 29.08.2025. Partiet er hentet fra valgoppgjøret 2023 (Valgdirektoratet), ikke fra siden."
+      }
+    },
+    {
+      "org": "kvaenangen-kontrollutvalget",
+      "person": "carl-a-lovvik",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026. Valgt fra listen Ap/KB."
+      }
+    },
+    {
+      "org": "kvaenangen-utvalg-for-oppvekst-omsorg-og-kultur",
+      "person": "valter-hermod-johan-olsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026. Kilden skriver navnet «Valter Olsen»; valgoppgjøret har «Valter Hermod Johan Olsen». Partiet er hentet fra valgoppgjøret 2023 (Valgdirektoratet), ikke fra siden."
+      }
+    },
+    {
+      "org": "kvaenangen-utvalg-for-plan-utvikling-og-teknisk",
+      "person": "tryggve-enoksen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026. Partiet er hentet fra valgoppgjøret 2023 (Valgdirektoratet), ikke fra siden."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "vera-marie-eilertsen-wassnes",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "ole-johannes-engebretsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "kristin-anita-hansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "aud-tove-haaland-tommerbukt",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "geir-morten-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "ronald-jenssen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "hanne-ingeborg-wiesener",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kvænangen Bygdeliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "guri-ellen-isaksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kvænangen Bygdeliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "lars-helge-beldo",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Kvænangen Bygdeliste",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "kai-petter-johansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "tove-beate-folstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "tryggve-enoksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "johanne-oxlund-gjerstad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "jan-helge-jensen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommunestyre",
+      "person": "valter-hermod-johan-olsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (OCR av skannet protokoll)."
+      }
+    },
+    {
+      "org": "kvaenangen-kommune-etat-for-helse-og-omsorg",
+      "person": "stian-lindgard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaenangen-kommune-etat-for-naering-utvikling-og-teknisk",
+      "person": "stian-lindgard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaenangen-kommune-etat-for-oppvekst-og-kultur",
+      "person": "stian-lindgard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaenangen-kommune-sentraladministrasjon",
+      "person": "stian-lindgard",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaenangen-produkter",
+      "person": "anne-sofie-pedersen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaenangen-produkter",
+      "person": "kurt-arne-solheim",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaenangen-produkter",
+      "person": "steinar-karlstrom-4856d0",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "kvaenangen-produkter",
+      "person": "veronica-maria-garcia-navarro",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "kvaenangen-formannskap",
+      "til": "kvaenangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "kvaenangen-klagenemnda",
+      "til": "kvaenangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "kvaenangen-kommune-administrasjonen",
+      "til": "kvaenangen-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-kontakt-oss",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "kvaenangen-kontrollutvalget",
+      "til": "kvaenangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "kvaenangen-utvalg-for-oppvekst-omsorg-og-kultur",
+      "til": "kvaenangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "kvaenangen-utvalg-for-plan-utvikling-og-teknisk",
+      "til": "kvaenangen-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kvanangen.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "kvaenangen-kommunestyre",
+      "til": "kvaenangen-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "troms-fylkesting",
+      "til": "troms-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "mowi-avd-jokelfjord",
+      "til": "mowi",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "kvaenangen-produkter",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 70478,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvaenangen-produkter",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 105372,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvaenangen-produkter",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 2716854,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "kvaenangen-produkter",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 4811497,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Kvænangen?",
+      "steg": [
+        {
+          "org": "kvaenangen-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "kvaenangen-utvalg-for-plan-utvikling-og-teknisk",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx)."
+          }
+        },
+        {
+          "org": "kvaenangen-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Kvænangen kommune?",
+      "steg": [
+        {
+          "org": "kvaenangen-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "kvaenangen-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (kvanangen-kommune-no-23-27-20oversikt-20utvalg-20mm-docx)."
+          }
+        },
+        {
+          "org": "kvaenangen-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "mowi-avd-jokelfjord",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
+      "org": "mowi",
+      "segment": "sjomat",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "kvaenangen-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "kvaenangen-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}

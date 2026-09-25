@@ -1,0 +1,1938 @@
+{
+  "meta": {
+    "kommunenr": "5544",
+    "kommune": "Nordreisa - Ráisa - Raisi",
+    "fylkesnr": "55",
+    "fylke": "Troms",
+    "sammenstilt": "2026-09-25",
+    "grunnlag": "docs/avvik/flett-region-2026-09-25.md",
+    "merknad": "Sammenstilt 25.09.2026 fra Brønnøysundregistrene (scripts/brreg.ts), valgoppgjøret 2023 (Valgdirektoratet), kommunens egne sider og innsynsportaler, og de regionale organenes egne sider. Kommunestyret er valgoppgjøret fra 2023, ikke senere endringer. Beslutningskjedene mangler lovhjemmel: Lovdata svarte ikke 25.09.2026. Se docs/avvik/flett-region-2026-09-25.md."
+  },
+  "kilder": [
+    {
+      "key": "enhetsregisteret",
+      "navn": "Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "brreg-roller",
+      "navn": "Roller i Enhetsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "regnskapsregisteret",
+      "navn": "Regnskapsregisteret (Brønnøysundregistrene)",
+      "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "innsynpluss-nordreisa-administrasjonsutvalget",
+      "navn": "Nordreisa kommune, innsynsportal: Administrasjonsutvalget",
+      "url": "https://innsynpluss.onacos.no/nordreisa/utvalg/#/details/u-9a1e9dfc__3f01__4df5__a599__d213d4fbfca2-5!0vX6ao",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-nordreisa-driftsutvalget",
+      "navn": "Nordreisa kommune, innsynsportal: Driftsutvalget",
+      "url": "https://innsynpluss.onacos.no/nordreisa/utvalg/#/details/u-9a1e9dfc__3f01__4df5__a599__d213d4fbfca2-9!1XSX3Y",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-nordreisa-formannskapet",
+      "navn": "Nordreisa kommune, innsynsportal: Formannskapet",
+      "url": "https://innsynpluss.onacos.no/nordreisa/utvalg/#/details/u-9a1e9dfc__3f01__4df5__a599__d213d4fbfca2-4!jrmPUF",
+      "type": "offisiell"
+    },
+    {
+      "key": "innsynpluss-nordreisa-levekarsutvalget",
+      "navn": "Nordreisa kommune, innsynsportal: Levekårsutvalget",
+      "url": "https://innsynpluss.onacos.no/nordreisa/utvalg/#/details/u-9a1e9dfc__3f01__4df5__a599__d213d4fbfca2-36!b3R7oS",
+      "type": "offisiell"
+    },
+    {
+      "key": "lovdata-gjeldende-lover",
+      "navn": "Lovdata, åpne data (NLOD): datasettet gjeldende-lover",
+      "url": "https://api.lovdata.no/v1/publicData/list",
+      "type": "register",
+      "lisens": "NLOD"
+    },
+    {
+      "key": "nordreisa-kommune-no-318",
+      "navn": "Nordreisa kommune: Organisasjonskart | Nordreisa Kommune",
+      "url": "https://www.nordreisa.kommune.no/node/318",
+      "type": "offisiell"
+    },
+    {
+      "key": "nordreisa-kommune-no-kontrollutvalget",
+      "navn": "Nordreisa kommune: Kontrollutvalget | Nordreisa Kommune",
+      "url": "https://www.nordreisa.kommune.no/kontrollutvalget",
+      "type": "offisiell"
+    },
+    {
+      "key": "nordreisa-kommune-no-ordforer",
+      "navn": "Nordreisa kommune: Ordfører | Nordreisa Kommune",
+      "url": "https://www.nordreisa.kommune.no/ordforer",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "valgdirektoratet-valgte-ko-2023",
+      "navn": "Valgte kandidater ved kommunestyrevalget 2023 (Valgdirektoratet)",
+      "url": "https://www.valg.no/globalassets/dokumenter-2023/om-valg/valgdata/valgte-kandidater/valgte_kandidater_kommunestyre_2023---med-forbehold-om-endringer-3.xlsx",
+      "type": "register"
+    },
+    {
+      "key": "valgresultat-no",
+      "navn": "Valgresultat.no, Valgdirektoratets resultattjeneste (mandatfordeling)",
+      "url": "https://valgresultat.no/api/2023/ko",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no",
+      "navn": "Stortingets data (data.stortinget.no)",
+      "url": "https://data.stortinget.no",
+      "type": "register"
+    },
+    {
+      "key": "politiet-no",
+      "navn": "Politiet (politiet.no)",
+      "url": "https://www.politiet.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no",
+      "navn": "Troms fylkeskommune (tromsfylke.no)",
+      "url": "https://www.tromsfylke.no",
+      "type": "offisiell"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "nordreisa-administrasjonsutvalget",
+      "navn": "Administrasjonsutvalget i Nordreisa - Ráisa - Raisi",
+      "kortnavn": "Administrasjonsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "nordreisa-kommunestyre",
+      "kommunenr": "5544",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Partssammensatt utvalg med folkevalgte og representanter for de ansatte, for saker om forholdet mellom kommunen som arbeidsgiver og de ansatte.",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "nordreisa-driftsutvalget",
+      "navn": "Driftsutvalget i Nordreisa - Ráisa - Raisi",
+      "kortnavn": "Driftsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "nordreisa-kommunestyre",
+      "kommunenr": "5544",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-driftsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "nordreisa-formannskap",
+      "navn": "Formannskapet i Nordreisa - Ráisa - Raisi",
+      "kortnavn": "Formannskapet",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordreisa-kommunestyre",
+      "kommunenr": "5544",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Folkevalgt organ valgt av kommunestyret blant sine medlemmer. Det innstiller blant annet til økonomiplan og årsbudsjett.",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "nordreisa-kommune",
+      "orgnr": "943350833",
+      "navn": "Nordreisa - Ráisa - Raisi kommune",
+      "kortnavn": "Nordreisa kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "5544",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "planmyndighet"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunen som rettssubjekt. Kommunestyret er det øverste organet, og kommunedirektøren leder administrasjonen.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer og organisasjonsform (KOMM) fra Enhetsregisteret, der enheten er registrert som «NORDREISA KOMMUNE». Navnet her følger SSBs offisielle kommunenavn."
+      }
+    },
+    {
+      "key": "nordreisa-kommune-administrasjonen",
+      "navn": "Administrasjonen i Nordreisa - Ráisa - Raisi kommune",
+      "kortnavn": "Administrasjonen",
+      "nivaa": "kommune",
+      "organtype": "administrasjon",
+      "overordnet": "nordreisa-kommune",
+      "kommunenr": "5544",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "innstilling",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Ledes av kommunedirektøren, forbereder saker for de folkevalgte og fatter vedtak etter delegert myndighet.",
+      "belegg": {
+        "kilde": "nordreisa-kommune-no-318",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nordreisa.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "nordreisa-kontrollutvalget",
+      "navn": "Kontrollutvalget i Nordreisa - Ráisa - Raisi",
+      "kortnavn": "Kontrollutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "nordreisa-kommunestyre",
+      "kommunenr": "5544",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "tilsyn"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører løpende tilsyn med forvaltningen på vegne av kommunestyret og påser at kommunen blir revidert.",
+      "belegg": {
+        "kilde": "nordreisa-kommune-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nordreisa.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "key": "nordreisa-levekarsutvalget",
+      "navn": "Levekårsutvalget i Nordreisa - Ráisa - Raisi",
+      "kortnavn": "Levekårsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "nordreisa-kommunestyre",
+      "kommunenr": "5544",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fast politisk utvalg under kommunestyret.",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-levekarsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "key": "nordreisa-kommunestyre",
+      "navn": "Kommunestyret i Nordreisa - Ráisa - Raisi",
+      "kortnavn": "Kommunestyret",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "nordreisa-kommune",
+      "kommunenr": "5544",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "antall_medlemmer": 21,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Kommunens folkevalgte forsamling, valgt ved kommunestyrevalget 2023 for perioden 2023–2027.",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Antall medlemmer er mandattallet fra valgoppgjøret 2023 (rapport generert 2023-11-27)."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "orgnr": "967311014",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "digitaliserings-og-forvaltningsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppga Kommunal- og distriktsdepartementet som overordnet. Enhetsregisteret fører Digitaliserings- og forvaltningsdepartementet (932384469) som overordnet enhet, og statsforvalteren.no sier det samme (sjekket 25.09.2026)."
+      }
+    },
+    {
+      "segmenter": [],
+      "myndighet": [
+        "regelverk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "key": "digitaliserings-og-forvaltningsdepartementet",
+      "orgnr": "932384469",
+      "navn": "Digitaliserings- og forvaltningsdepartementet",
+      "kortnavn": "DFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "beskrivelse": "Departementet statsforvalterembetene er administrativt underlagt.",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Organisasjonsnummer 932384469, organisasjonsform STAT, sektor 6100 (Statsforvaltningen), forretningsadresse i Oslo (0301)."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "orgnr": "883658752",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "stortinget-troms-valgkrets",
+      "navn": "Stortinget, Troms valgkrets",
+      "kortnavn": "Troms valgkrets",
+      "nivaa": "stat",
+      "organtype": "lovgivende",
+      "fylkesnr": "55",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk",
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Stortingsrepresentantene fra Troms i perioden 2025–2029, som vedtar lover og budsjett.",
+      "belegg": {
+        "kilde": "data-stortinget-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-fylkeskommune",
+      "orgnr": "930068128",
+      "navn": "Troms fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt. Styres etter formannskapsmodellen: fylkesordføreren leder fylkestinget og fylkesutvalget.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»). Styringsmodellen er bekreftet på tromsfylke.no/politikk/fylkesordforer/ 25.09.2026: «Troms fylkeskommune styres etter formannskapsmodellen, hvor fylkesordføreren er den valgte lederen av fylkestinget.» Fylkesutvalgssiden sier at fylkesordføreren leder fylkesutvalget. Medieomtale ved konstitueringen i 2023 omtalte et fylkesråd og en fylkesrådsleder; fylkeskommunens egne sider har verken fylkesråd eller fylkesrådsleder."
+      }
+    },
+    {
+      "key": "troms-fylkesting",
+      "navn": "Fylkestinget i Troms",
+      "kortnavn": "Fylkestinget",
+      "nivaa": "fylke",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "troms-fylkeskommune",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunens folkevalgte organ, ledet av fylkesordføreren.",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-politidistrikt",
+      "orgnr": "974769425",
+      "navn": "Troms politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Politi og påtale i 20 kommuner, pluss forvaltningsoppgaver som våpen- og utlendingssaker.",
+      "belegg": {
+        "kilde": "politiet-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "unn",
+      "orgnr": "983974899",
+      "navn": "Universitetssykehuset Nord-Norge HF",
+      "kortnavn": "UNN",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [
+        "helse",
+        "utdanning-forskning",
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Driver sykehus i Tromsø, Harstad og Narvik og er en stor arbeidsgiver og byggherre.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "bussring",
+      "orgnr": "986519807",
+      "navn": "Bussring AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2004-01-10",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.320 «Passasjertransport utenom rutetabell».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
+      }
+    },
+    {
+      "key": "connect-bus-norge",
+      "orgnr": "971654007",
+      "navn": "Connect Bus Norge AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "3207",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "1995-01-06",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: overordnet."
+      }
+    },
+    {
+      "key": "connect-bus-norge-as-avd-storslett",
+      "orgnr": "932537079",
+      "navn": "Connect Bus Norge AS Avd Storslett",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "overordnet": "connect-bus-norge",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "gyldig_fra": "2023-10-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nordreisa - Ráisa - Raisi for Connect Bus Norge AS, med næringskode 49.310 «Passasjertransport med rutebil».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "landbruk-nord",
+      "orgnr": "871404062",
+      "navn": "Landbruk Nord SA",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "kommunenr": "5532",
+      "myndighet": [],
+      "segmenter": [
+        "landbruk"
+      ],
+      "gyldig_fra": "1995-02-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Samvirkeforetak registrert i Enhetsregisteret med næringskode 01.620 «Tjenester tilknyttet husdyrhold».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "landbruk-nord-sa-avd-nordreisa",
+      "orgnr": "913672402",
+      "navn": "Landbruk Nord SA Avd Nordreisa",
+      "nivaa": "privat",
+      "organtype": "SA",
+      "overordnet": "landbruk-nord",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [
+        "landbruk"
+      ],
+      "gyldig_fra": "2014-01-20",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nordreisa - Ráisa - Raisi for Landbruk Nord SA, med næringskode 01.620 «Tjenester tilknyttet husdyrhold».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "nord-troms-videregaende-skole-avd-nordreisa",
+      "orgnr": "974546957",
+      "navn": "Nord-Troms Videregående Skole Avd Nordreisa",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "overordnet": "troms-fylkeskommune-kompetanse",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nordreisa - Ráisa - Raisi for Troms Fylkeskommune Kompetanse, med næringskode 85.320 «Videregående opplæring innenfor yrkesfaglige utdanningsprogram».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordreisa-kommune-drift-og-utvikling",
+      "orgnr": "974792982",
+      "navn": "Nordreisa Kommune Drift og Utvikling",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordreisa-kommune-oppvekst-og-kultur",
+      "orgnr": "974789795",
+      "navn": "Nordreisa Kommune Oppvekst og Kultur",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1969-02-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "nordreisa-kommune-sektor-for-helse-og-omsorg",
+      "orgnr": "999186831",
+      "navn": "Nordreisa Kommune Sektor for Helse og Omsorg",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2012-11-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "troms-fylkeskommune-kompetanse",
+      "orgnr": "974793741",
+      "navn": "Troms Fylkeskommune Kompetanse",
+      "nivaa": "kommune",
+      "organtype": "etat",
+      "kommunenr": "5501",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "1988-04-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
+      }
+    },
+    {
+      "key": "universitetssykehuset-nord-norge-hf-voksenpsykiatrisk-polikl-storslett",
+      "orgnr": "874547042",
+      "navn": "Universitetssykehuset Nord-Norge HF Voksenpsykiatrisk Polikl Storslett",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "overordnet": "unn",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidssted i Nordreisa - Ráisa - Raisi for Universitetssykehuset Nord-Norge HF, med næringskode 86.102 «Psykiatriske sykehustjenester for voksne».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: topp10-ansatte."
+      }
+    },
+    {
+      "key": "vissi",
+      "orgnr": "921683057",
+      "navn": "Vissi AS",
+      "nivaa": "privat",
+      "organtype": "AS",
+      "kommunenr": "5544",
+      "myndighet": [],
+      "segmenter": [
+        "energi"
+      ],
+      "gyldig_fra": "2018-10-17",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 35.140 «Distribusjon av elektrisitet».",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Utvalg: omsetning>=100000000:2025, topp10-ansatte."
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "siri-ytterstad",
+      "navn": "Siri Ytterstad"
+    },
+    {
+      "key": "anne-kirstin-korsfur",
+      "navn": "Anne Kirstin Korsfur"
+    },
+    {
+      "key": "arthur-torfoss",
+      "navn": "Arthur Tørfoss"
+    },
+    {
+      "key": "bjarne-josefsen",
+      "navn": "Bjarne Josefsen"
+    },
+    {
+      "key": "cathrine-jensen",
+      "navn": "Cathrine Jensen"
+    },
+    {
+      "key": "fred-erlend-nordgard-rundhaug",
+      "navn": "Fred Erlend Nordgård Rundhaug"
+    },
+    {
+      "key": "gunbjorg-n-melkiorsen",
+      "navn": "Gunbjørg N. Melkiorsen"
+    },
+    {
+      "key": "hermann-olaussen-hermansen",
+      "navn": "Hermann Olaussen Hermansen"
+    },
+    {
+      "key": "hilde-anita-nyvoll",
+      "navn": "Hilde Anita Nyvoll"
+    },
+    {
+      "key": "jan-harald-torfoss",
+      "navn": "Jan Harald Tørfoss"
+    },
+    {
+      "key": "johanne-elvestad",
+      "navn": "Johanne Elvestad"
+    },
+    {
+      "key": "john-roald-karlsen",
+      "navn": "John Roald Karlsen"
+    },
+    {
+      "key": "karl-gunnar-skjonsfjell",
+      "navn": "Karl-Gunnar Skjønsfjell"
+    },
+    {
+      "key": "morten-fredriksen",
+      "navn": "Morten Fredriksen"
+    },
+    {
+      "key": "olaug-bergset",
+      "navn": "Olaug Bergset"
+    },
+    {
+      "key": "per-olav-bless-agledahl",
+      "navn": "Per Olav Bless Agledahl"
+    },
+    {
+      "key": "ragnhild-elvestad",
+      "navn": "Ragnhild Elvestad"
+    },
+    {
+      "key": "rakel-lund-heggelund",
+      "navn": "Rakel Lund Heggelund"
+    },
+    {
+      "key": "rune-benonisen",
+      "navn": "Rune Benonisen"
+    },
+    {
+      "key": "sigbjorn-hansen",
+      "navn": "Sigbjørn Hansen"
+    },
+    {
+      "key": "sigleif-pedersen",
+      "navn": "Sigleif Pedersen"
+    },
+    {
+      "key": "sigrund-hestdal",
+      "navn": "Sigrund Hestdal"
+    },
+    {
+      "key": "tom-vegar-kiil-nordreisa",
+      "navn": "Tom Vegar Kiil"
+    },
+    {
+      "key": "tore-yttregaard",
+      "navn": "Tore Yttregaard"
+    },
+    {
+      "key": "anders-sorensen-hoifodt",
+      "navn": "Anders Sørensen Høifødt"
+    },
+    {
+      "key": "bente-nyvoll",
+      "navn": "Bente Nyvoll"
+    },
+    {
+      "key": "erling-stene-martinsen",
+      "navn": "Erling Stene Martinsen"
+    },
+    {
+      "key": "finn-paulsen",
+      "navn": "Finn Paulsen"
+    },
+    {
+      "key": "henry-nyvoll",
+      "navn": "Henry Nyvoll"
+    },
+    {
+      "key": "may-britt-paulsen",
+      "navn": "May Britt Paulsen"
+    },
+    {
+      "key": "ole-henning-fredriksen",
+      "navn": "Ole Henning Fredriksen"
+    },
+    {
+      "key": "torbjorn-johansen",
+      "navn": "Torbjørn Johansen"
+    }
+  ],
+  "roller": [
+    {
+      "org": "nordreisa-administrasjonsutvalget",
+      "person": "hilde-anita-nyvoll",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nordreisa-driftsutvalget",
+      "person": "jan-harald-torfoss",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-driftsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nordreisa-formannskap",
+      "person": "hilde-anita-nyvoll",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nordreisa-kommune-administrasjonen",
+      "person": "siri-ytterstad",
+      "tittel": "Kommunedirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Nordreisa kommune: Organisasjonskart | Nordreisa Kommune, per 2026-09-25). Enhetsregisteret fører personen som daglig leder i NORDREISA KOMMUNE (orgnr 943350833)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "hilde-anita-nyvoll",
+      "tittel": "Ordfører",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023-10-23",
+      "belegg": {
+        "kilde": "nordreisa-kommune-no-ordforer",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nordreisa.kommune.no 25.09.2026. Siden oppgir at hun ble valgt første gang i 2019 og gjenvalgt i kommunestyrets konstituerende møte 23. oktober 2023."
+      }
+    },
+    {
+      "org": "nordreisa-kontrollutvalget",
+      "person": "bjarne-josefsen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "nordreisa-kommune-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nordreisa.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nordreisa-levekarsutvalget",
+      "person": "fred-erlend-nordgard-rundhaug",
+      "tittel": "Utvalgsleder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-levekarsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Kilden skriver navnet «Fred E. N. Rundhaug»; valgoppgjøret har «Fred Erlend Nordgård Rundhaug»."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "hilde-anita-nyvoll",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "sigleif-pedersen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "rune-benonisen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "johanne-elvestad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "sigrund-hestdal",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "john-roald-karlsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "arthur-torfoss",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "anne-kirstin-korsfur",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "cathrine-jensen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "karl-gunnar-skjonsfjell",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "hermann-olaussen-hermansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "tore-yttregaard",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "gunbjorg-n-melkiorsen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "per-olav-bless-agledahl",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "sigbjorn-hansen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "fred-erlend-nordgard-rundhaug",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "tom-vegar-kiil-nordreisa",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "rakel-lund-heggelund",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "olaug-bergset",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "morten-fredriksen",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "nordreisa-kommunestyre",
+      "person": "ragnhild-elvestad",
+      "tittel": "Kommunestyremedlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "fra": "2023",
+      "til_forventet": "2027",
+      "belegg": {
+        "kilde": "valgdirektoratet-valgte-ko-2023",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Valgoppgjøret etter kommunestyrevalget 2023, slik Valgdirektoratet publiserte det. Viser ikke senere endringer som fritak, permisjon eller opprykk av vara. Kontrollert mot mandattallet i valgresultat.no og mot navnelisten i valgstyrets protokoll (tekstlag i protokollen)."
+      }
+    },
+    {
+      "org": "bussring",
+      "person": "anders-sorensen-hoifodt",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bussring",
+      "person": "bente-nyvoll",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bussring",
+      "person": "henry-nyvoll",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bussring",
+      "person": "may-britt-paulsen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bussring",
+      "person": "ole-henning-fredriksen",
+      "tittel": "Styremedlem",
+      "rolletype": "styremedlem",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "bussring",
+      "person": "torbjorn-johansen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordreisa-kommune-drift-og-utvikling",
+      "person": "siri-ytterstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordreisa-kommune-oppvekst-og-kultur",
+      "person": "siri-ytterstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "nordreisa-kommune-sektor-for-helse-og-omsorg",
+      "person": "siri-ytterstad",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vissi",
+      "person": "erling-stene-martinsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "org": "vissi",
+      "person": "finn-paulsen",
+      "tittel": "Daglig leder",
+      "rolletype": "daglig_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "nordreisa-administrasjonsutvalget",
+      "til": "nordreisa-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-administrasjonsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "nordreisa-driftsutvalget",
+      "til": "nordreisa-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-driftsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "nordreisa-formannskap",
+      "til": "nordreisa-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-formannskapet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "nordreisa-kommune-administrasjonen",
+      "til": "nordreisa-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nordreisa-kommune-no-318",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nordreisa.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "nordreisa-kontrollutvalget",
+      "til": "nordreisa-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "nordreisa-kommune-no-kontrollutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra nordreisa.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "nordreisa-levekarsutvalget",
+      "til": "nordreisa-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "innsynpluss-nordreisa-levekarsutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra innsynpluss.onacos.no 25.09.2026. Antall medlemmer er de faste medlemmene slik portalen lister dem."
+      }
+    },
+    {
+      "fra": "nordreisa-kommunestyre",
+      "til": "nordreisa-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "valgresultat-no",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Kommunestyret er valgt for kommunen ved kommunestyrevalget 2023."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "digitaliserings-og-forvaltningsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Overordnet enhet i Enhetsregisteret: Digitaliserings- og forvaltningsdepartementet (932384469)."
+      }
+    },
+    {
+      "fra": "troms-fylkesting",
+      "til": "troms-fylkeskommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "connect-bus-norge-as-avd-storslett",
+      "til": "connect-bus-norge",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "landbruk-nord-sa-avd-nordreisa",
+      "til": "landbruk-nord",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "nord-troms-videregaende-skole-avd-nordreisa",
+      "til": "troms-fylkeskommune-kompetanse",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    },
+    {
+      "fra": "universitetssykehuset-nord-norge-hf-voksenpsykiatrisk-polikl-storslett",
+      "til": "unn",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "enhetsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25"
+      }
+    }
+  ],
+  "nokkeltall": [
+    {
+      "org": "bussring",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 212659,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bussring",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 4296952,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bussring",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 13770242,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "bussring",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 154872814,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vissi",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 18552141,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vissi",
+      "aar": 2025,
+      "type": "driftsresultat",
+      "verdi": 35296820,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vissi",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 137326125,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    },
+    {
+      "org": "vissi",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 126658357,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": {
+        "kilde": "regnskapsregisteret",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Selskapsregnskap."
+      }
+    }
+  ],
+  "hendelser": [],
+  "prosesser": [
+    {
+      "key": "reguleringsplan",
+      "tittel": "Reguleringsplan",
+      "sporsmal": "Hvem bestemmer en reguleringsplan i Nordreisa?",
+      "steg": [
+        {
+          "org": "nordreisa-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder saken for politisk behandling.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "nordreisa-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Behandler planforslaget før kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (innsynpluss-nordreisa-formannskapet); et eget planutvalg er ikke funnet."
+          }
+        },
+        {
+          "org": "nordreisa-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar reguleringsplanen.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "statsforvalteren-troms-og-finnmark",
+          "myndighet": "klage",
+          "hva": "Er klageinstans for planvedtaket.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budsjett",
+      "tittel": "Budsjett",
+      "sporsmal": "Hvem bestemmer budsjettet i Nordreisa kommune?",
+      "steg": [
+        {
+          "org": "nordreisa-kommune-administrasjonen",
+          "myndighet": "innstilling",
+          "hva": "Forbereder forslaget til budsjett.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        },
+        {
+          "org": "nordreisa-formannskap",
+          "myndighet": "innstilling",
+          "hva": "Innstiller til kommunestyret.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata. Organet er identifisert fra kommunens egne sider (innsynpluss-nordreisa-formannskapet)."
+          }
+        },
+        {
+          "org": "nordreisa-kommunestyre",
+          "myndighet": "vedtak",
+          "hva": "Vedtar budsjettet.",
+          "belegg": {
+            "kilde": "lovdata-gjeldende-lover",
+            "verifisering": "maa_verifiseres",
+            "per": "2026-09-25",
+            "merknad": "Hjemmel: ikke hentet fra Lovdata."
+          }
+        }
+      ]
+    }
+  ],
+  "segmenter": [
+    {
+      "kode": "energi",
+      "navn": "Energi"
+    },
+    {
+      "kode": "helse",
+      "navn": "Helse"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "reiseliv",
+      "navn": "Reiseliv"
+    },
+    {
+      "kode": "transport",
+      "navn": "Transport"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
+    }
+  ],
+  "org_segment": [
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "unn",
+      "segment": "eiendom-bygg",
+      "styrke": 2
+    },
+    {
+      "org": "unn",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "unn",
+      "segment": "utdanning-forskning",
+      "styrke": 2
+    },
+    {
+      "org": "bussring",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "connect-bus-norge-as-avd-storslett",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "connect-bus-norge",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "landbruk-nord-sa-avd-nordreisa",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "landbruk-nord",
+      "segment": "landbruk",
+      "styrke": 3
+    },
+    {
+      "org": "universitetssykehuset-nord-norge-hf-voksenpsykiatrisk-polikl-storslett",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "vissi",
+      "segment": "energi",
+      "styrke": 3
+    }
+  ],
+  "hull": [
+    {
+      "gjelder": "nordreisa-kommunestyre",
+      "hva": "Varaordføreren i Nordreisa er ikke navngitt på kommunens nettsider.",
+      "hvorfor": "Sidene om ordfører, kommunestyre og formannskap på nordreisa.kommune.no oppgir ikke varaordfører ved navn (sjekket 25.09.2026). Reglementet sier at varaordføreren er nestleder i administrasjonsutvalget, men det er ikke brukt til å utlede navnet."
+    },
+    {
+      "gjelder": "nordreisa-kommunestyre",
+      "hva": "Endringer i kommunestyret etter valgoppgjøret 2023: fritak, permisjon, opprykk av vara og partibytte.",
+      "hvorfor": "Valgdirektoratet publiserer bare valgoppgjøret. Senere endringer står i kommunens møtebøker og politiske oversikter, som ikke er hentet."
+    },
+    {
+      "gjelder": "nordreisa-kommune",
+      "hva": "Lovhjemmelen for stegene i beslutningskjedene er ikke hentet: reguleringsplan (steg 1–4) og budsjett (steg 1–3).",
+      "hvorfor": "Lovdatas åpne API (api.lovdata.no) svarte HTTP 405 («Request stopped by Varnish IPS») 25.09.2026. Paragrafene skal hentes fra datasettet gjeldende-lover (NLOD), ikke skrives etter hukommelsen. Hvert steg har «Hjemmel: ikke hentet fra Lovdata.» først i merknaden, der paragrafen skal inn."
+    }
+  ]
+}
