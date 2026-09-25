@@ -165,8 +165,9 @@ describe("sensitive organer", () => {
     await iTransaksjon(async () => {
       await leggTilTingrettsroller();
       await db.exec("set local role anon;");
+      // Bare radene testen la inn: tingretten kan ha sin egen leder fra Brreg.
       const roller = await db.query<{ tittel: string }>(
-        `select tittel from rolleinnehav where org_id = intern.nokkel_id('organisasjon', '${TINGRETT}')`,
+        `select tittel from rolleinnehav where org_id = intern.nokkel_id('organisasjon', '${TINGRETT}') and key in ('t1', 't2')`,
       );
       expect(roller.rows.map((r) => r.tittel)).toEqual(["Sorenskriver"]);
       const alt = await alleSvar();
@@ -181,7 +182,7 @@ describe("sensitive organer", () => {
       await leggTilTingrettsroller();
       await db.exec("set local role service_role;");
       const r = await db.query(
-        `select 1 from rolleinnehav where org_id = intern.nokkel_id('organisasjon', '${TINGRETT}')`,
+        `select 1 from rolleinnehav where org_id = intern.nokkel_id('organisasjon', '${TINGRETT}') and key in ('t1', 't2')`,
       );
       expect(r.rows.length).toBe(2);
     });
@@ -237,8 +238,17 @@ describe("en sperret person forsvinner", () => {
     });
   }
 
-  it("hver person i datasettet: fra kommunesvarene og profilene til organene hun er knyttet til", async () => {
-    for (const p of tromso.personer) {
+  // Personene grunnlaget viser til (roller fra andre kilder enn Brreg-importen,
+  // hendelser og hull), én og én. Personene som bare finnes gjennom roller
+  // hentet fra Brreg, er mange og går gjennom den samme RLS-regelen på
+  // rolleinnehav; de sperres samlet.
+  const fraBrreg = (key: string) =>
+    tromso.roller.filter((r) => r.person === key).every((r) => r.belegg.kilde === "brreg-roller") &&
+    !tromso.hendelser.some((h) => h.personer?.includes(key)) &&
+    !tromso.hull.some((h) => h.personer?.includes(key));
+
+  it("hver person i grunnlaget: fra kommunesvarene og profilene til organene hun er knyttet til", async () => {
+    for (const p of tromso.personer.filter((x) => !fraBrreg(x.key))) {
       await iTransaksjon(async () => {
         await sperr(p.key);
         await db.exec("set local role anon;");
@@ -247,7 +257,19 @@ describe("en sperret person forsvinner", () => {
         expect(etter.includes(`"${p.key}"`), p.key).toBe(false);
       });
     }
-  });
+  }, 120_000);
+
+  it("hver person fra Brreg-importen: sperret samlet, borte fra hvert svar", async () => {
+    const personer = tromso.personer.filter((x) => fraBrreg(x.key));
+    const organer = [...new Set(personer.flatMap((p) => organerFor(p.key)))];
+    await iTransaksjon(async () => {
+      for (const p of personer) await sperr(p.key);
+      await db.exec("set local role anon;");
+      const etter = await alleSvar(organer);
+      expect(personer.filter((p) => etter.includes(p.navn)).map((p) => p.key)).toEqual([]);
+      expect(personer.filter((p) => etter.includes(`"${p.key}"`)).map((p) => p.key)).toEqual([]);
+    });
+  }, 120_000);
 
   it("fra tabellene direkte: person, rolleinnehav, hendelse og hull", async () => {
     const key = "stig-tore-johnsen";

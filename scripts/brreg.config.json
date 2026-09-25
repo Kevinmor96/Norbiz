@@ -3,16 +3,44 @@
     "sidestorrelse": 200,
     "min_intervall_ms": 220,
     "regnskap_orgformer": ["AS", "ASA", "SA", "SPA", "STI", "IKS", "SF", "SÆR"],
+    "utvalg": {
+      "ansatte": 50,
+      "omsetning_nok": 100000000,
+      "topp_ansatte": 10
+    },
     "sensitiv_navn": [
-      { "monster": "(^|[^a-zæøå])politi(?!sk)", "organtype": "politi" },
-      { "monster": "tingrett|lagmannsrett|jordskifterett|høyesterett|domstol|arbeidsretten|trygderetten", "organtype": "domstol" },
-      { "monster": "statsadvokat|riksadvokat|påtalemyndighet|økokrim", "organtype": "paatale" },
-      { "monster": "(^|[^a-zæøå])forsvaret|forsvarets", "organtype": "etat" },
-      { "monster": "barnevern", "organtype": "etat" }
+      {
+        "monster": "(^|[^a-zæøå])politi(?!sk)",
+        "organtype": "politi"
+      },
+      {
+        "monster": "tingrett|lagmannsrett|jordskifterett|høyesterett|domstol|arbeidsretten|trygderetten",
+        "organtype": "domstol"
+      },
+      {
+        "monster": "statsadvokat|riksadvokat|påtalemyndighet|økokrim",
+        "organtype": "paatale"
+      },
+      {
+        "monster": "(^|[^a-zæøå])forsvaret|forsvarets",
+        "organtype": "etat"
+      },
+      {
+        "monster": "barnevern",
+        "organtype": "etat"
+      }
     ],
     "sensitiv_naering": [
-      { "prefiks": "84.22", "krav": "forsvar", "organtype": "etat" },
-      { "prefiks": "84.24", "krav": "politi|påtale", "organtype": "politi" }
+      {
+        "prefiks": "84.22",
+        "krav": "forsvar",
+        "organtype": "etat"
+      },
+      {
+        "prefiks": "84.24",
+        "krav": "politi|påtale",
+        "organtype": "politi"
+      }
     ],
     "navneformer": {
       "UIT": "UiT",
@@ -28,6 +56,11 @@
       "OG": "og",
       "AV": "av",
       "FOR": "for"
+    },
+    "fylker": {
+      "18": "Nordland",
+      "55": "Troms",
+      "56": "Finnmark"
     }
   },
   "kommuner": {
@@ -40,17 +73,34 @@
         "fra_datasett": true,
         "orgnr": [],
         "navn": [
-          { "navn": "Troms fylkeskommune", "organisasjonsform": "FYLK" },
-          { "navn": "Statsforvalteren i Troms og Finnmark" },
-          { "navn": "Universitetssykehuset Nord-Norge HF" },
-          { "navn": "Helse Nord RHF" },
-          { "navn": "UiT Norges arktiske universitet" },
-          { "navn": "Troms politidistrikt" },
-          { "navn": "Nord-Troms og Senja tingrett" },
-          { "navn": "Hålogaland lagmannsrett" }
+          {
+            "navn": "Troms fylkeskommune",
+            "organisasjonsform": "FYLK"
+          },
+          {
+            "navn": "Statsforvalteren i Troms og Finnmark"
+          },
+          {
+            "navn": "Universitetssykehuset Nord-Norge HF"
+          },
+          {
+            "navn": "Helse Nord RHF"
+          },
+          {
+            "navn": "Troms politidistrikt"
+          },
+          {
+            "navn": "Nord-Troms og Senja tingrett"
+          },
+          {
+            "navn": "Hålogaland lagmannsrett"
+          }
         ]
       },
-      "koblinger": {},
+      "koblinger": {
+        "uit": "970422528",
+        "tolletaten": "974761343"
+      },
       "samme_person": {}
     }
   }

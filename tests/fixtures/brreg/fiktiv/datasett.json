@@ -5,12 +5,16 @@
     "fylkesnr": "99",
     "fylke": "Fiktivfylket",
     "sammenstilt": "2026-09-24",
-    "grunnlag": "tests/fixtures/brreg/fiskvik/datasett.json",
+    "grunnlag": "tests/fixtures/brreg/fiktiv/datasett.json",
     "merknad": "Oppdiktet grunnlag for testene av Brreg-importen. Ingenting her er fakta."
   },
   "kilder": [
     { "key": "testgrunnlag", "navn": "Fiktivt researchgrunnlag", "type": "sekundaer" },
-    { "key": "fiskvik-kommune-no", "navn": "Fiskvik kommune (fiktiv nettside)", "type": "offisiell" },
+    {
+      "key": "fiskvik-kommune-no",
+      "navn": "Fiskvik kommune (fiktiv nettside)",
+      "type": "offisiell"
+    },
     { "key": "purehelp", "navn": "Purehelp", "url": "https://www.purehelp.no", "type": "sekundaer" }
   ],
   "organisasjoner": [
@@ -147,7 +151,12 @@
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
-      "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2026-09", "merknad": "Grunnlaget oppgir ikke kilde for dette." }
+      "belegg": {
+        "kilde": "testgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
     },
     {
       "org": "fiskvik-havfiske",
@@ -185,16 +194,73 @@
     }
   ],
   "relasjoner": [
-    { "fra": "fiskvik-kommunestyre", "til": "fiskvik-kommune", "type": "overordnet", "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" } },
-    { "fra": "fiskvik-administrasjonen", "til": "fiskvik-kommune", "type": "overordnet", "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" } },
-    { "fra": "fiskvik-havn-kf", "til": "fiskvik-kommune", "type": "overordnet", "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" } },
-    { "fra": "fiskvik-kommune", "til": "fiskvik-havfiske", "type": "eier", "andel": 30, "belegg": { "kilde": "purehelp", "verifisering": "maa_verifiseres", "per": "2025" } }
+    {
+      "fra": "fiskvik-kommunestyre",
+      "til": "fiskvik-kommune",
+      "type": "overordnet",
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" }
+    },
+    {
+      "fra": "fiskvik-administrasjonen",
+      "til": "fiskvik-kommune",
+      "type": "overordnet",
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" }
+    },
+    {
+      "fra": "fiskvik-havn-kf",
+      "til": "fiskvik-kommune",
+      "type": "overordnet",
+      "belegg": { "kilde": "fiskvik-kommune-no", "verifisering": "oppgitt", "per": "2026-09" }
+    },
+    {
+      "fra": "fiskvik-kommune",
+      "til": "fiskvik-havfiske",
+      "type": "eier",
+      "andel": 30,
+      "belegg": { "kilde": "purehelp", "verifisering": "maa_verifiseres", "per": "2025" }
+    }
   ],
   "nokkeltall": [
-    { "org": "fiskvik-havfiske", "aar": 2025, "type": "omsetning", "verdi": 412000000, "enhet": "NOK", "belegg": { "kilde": "purehelp", "verifisering": "maa_verifiseres", "per": "2025", "merknad": "Må verifiseres mot Regnskapsregisteret." } },
-    { "org": "fiskvik-havfiske", "aar": 2025, "type": "egenkapital", "verdi": 90000000, "enhet": "NOK", "konsern": false, "belegg": { "kilde": "purehelp", "verifisering": "maa_verifiseres", "per": "2025" } },
-    { "org": "nordvik-kraft", "aar": 2025, "type": "aarsresultat", "verdi": 55000000, "enhet": "NOK", "konsern": true, "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2025" } },
-    { "org": "nordvik-kraft", "aar": 2024, "type": "omsetning", "verdi": 700000000, "enhet": "NOK", "konsern": true, "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2024" } }
+    {
+      "org": "fiskvik-havfiske",
+      "aar": 2025,
+      "type": "omsetning",
+      "verdi": 412000000,
+      "enhet": "NOK",
+      "belegg": {
+        "kilde": "purehelp",
+        "verifisering": "maa_verifiseres",
+        "per": "2025",
+        "merknad": "Må verifiseres mot Regnskapsregisteret."
+      }
+    },
+    {
+      "org": "fiskvik-havfiske",
+      "aar": 2025,
+      "type": "egenkapital",
+      "verdi": 90000000,
+      "enhet": "NOK",
+      "konsern": false,
+      "belegg": { "kilde": "purehelp", "verifisering": "maa_verifiseres", "per": "2025" }
+    },
+    {
+      "org": "nordvik-kraft",
+      "aar": 2025,
+      "type": "aarsresultat",
+      "verdi": 55000000,
+      "enhet": "NOK",
+      "konsern": true,
+      "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2025" }
+    },
+    {
+      "org": "nordvik-kraft",
+      "aar": 2024,
+      "type": "omsetning",
+      "verdi": 700000000,
+      "enhet": "NOK",
+      "konsern": true,
+      "belegg": { "kilde": "testgrunnlag", "verifisering": "maa_verifiseres", "per": "2024" }
+    }
   ],
   "hendelser": [
     {
@@ -216,5 +282,11 @@
     { "org": "fiskvik-havfiske", "segment": "sjomat", "styrke": 3 },
     { "org": "fiskvik-sparebank", "segment": "finans", "styrke": 3 }
   ],
-  "hull": []
+  "hull": [
+    {
+      "gjelder": "fiskvik-kommune",
+      "hva": "Grunnlaget nevner at Reidun Reise skal ha ledet et reiselivsprosjekt for kommunen.",
+      "hvorfor": "Ingen kilde er oppgitt, og personen er ikke ført opp."
+    }
+  ]
 }

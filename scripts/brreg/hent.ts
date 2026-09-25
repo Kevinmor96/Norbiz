@@ -130,6 +130,11 @@ export interface Oyeblikksbilde {
   ikkeFunnet: { orgnr: string; status: number }[];
   /** Regnskap Brreg ikke kunne levere (5xx etter nye forsøk). */
   regnskapUtilgjengelig: string[];
+  /**
+   * Hvem som er med, og hvorfor, per orgnr: kandidatene som oppfyller
+   * utvalgsregelen (se `velgUtvalg`) og de som alltid er med («alltid-med»).
+   */
+  utvalg: Record<string, string[]>;
   /** Navneoppslag uten entydig treff. `grunnlag` er true for grunnlagets egne organer. */
   navneoppslag: { navn: string; treff: number; grunnlag: boolean }[];
   forkastet: {
@@ -204,11 +209,7 @@ export function lesUnderenhet(u: J): Underenhet {
  * Har personen ingen fødselsdato, får hun en pid som er unik for rollen, så
  * to navnebrødre uten dato aldri slås sammen.
  */
-export function lesRoller(
-  j: J,
-  orgnr: string,
-  salt: string,
-): { roller: Rolle[]; andre: number } {
+export function lesRoller(j: J, orgnr: string, salt: string): { roller: Rolle[]; andre: number } {
   const ut: Rolle[] = [];
   let andre = 0;
   for (const gruppe of liste(j["rollegrupper"])) {
@@ -237,7 +238,11 @@ export function lesRoller(
         // Et mellomlagret svar har allerede pid i stedet for fødselsdato.
         const pid =
           tekst(p["pid"]) ??
-          personHash(salt, navn, fodt ?? `ukjent|${orgnr}|${kode}|${i}|${navneord(navn).join(" ")}`);
+          personHash(
+            salt,
+            navn,
+            fodt ?? `ukjent|${orgnr}|${kode}|${i}|${navneord(navn).join(" ")}`,
+          );
         person = { pid, navn, doed: p["erDoed"] === true };
       }
       let enhet: Rolle["enhet"] = null;
@@ -245,7 +250,9 @@ export function lesRoller(
         const n = e["navn"];
         enhet = {
           orgnr: String(e["organisasjonsnummer"] ?? ""),
-          navn: Array.isArray(n) ? n.filter((x) => typeof x === "string").join(" ") : (tekst(n) ?? ""),
+          navn: Array.isArray(n)
+            ? n.filter((x) => typeof x === "string").join(" ")
+            : (tekst(n) ?? ""),
           slettet: e["erSlettet"] === true,
         };
       }
@@ -427,7 +434,11 @@ export function curlHttp(valg: { minIntervallMs?: number; forsok?: number } = {}
   };
   return async (url) => {
     let svar = await ett(url);
-    for (let f = 1; f <= forsok && (svar.status === 0 || svar.status === 429 || svar.status >= 500); f++) {
+    for (
+      let f = 1;
+      f <= forsok && (svar.status === 0 || svar.status === 429 || svar.status >= 500);
+      f++
+    ) {
       await vent(Math.min(1000 * 2 ** (f - 1), 20_000));
       svar = await ett(url);
     }
@@ -483,6 +494,94 @@ export function tomMellomlager(mappe: string): void {
 }
 
 // ---------------------------------------------------------------------------
+// Utvalget
+// ---------------------------------------------------------------------------
+
+export interface Utvalgsregel {
+  /** Med når antall ansatte er minst dette. */
+  ansatte: number;
+  /** Med når siste omsetning i kroner er minst dette. Bare NOK. */
+  omsetning_nok: number;
+  /** Med når organet er blant de N største i kommunen etter ansatte. */
+  topp_ansatte: number;
+}
+
+/** Siste omsetning i kroner: siste regnskapsår, selskapstallet før konserntallet. */
+export function sisteOmsetning(
+  regnskap: Regnskap[] | undefined,
+): { verdi: number; aar: number } | null {
+  if (!regnskap || regnskap.length === 0) return null;
+  const aar = Math.max(...regnskap.map((r) => Number(r.til.slice(0, 4))));
+  const iAar = regnskap.filter((r) => Number(r.til.slice(0, 4)) === aar);
+  const r = iAar.find((x) => x.type === "SELSKAP") ?? iAar.find((x) => x.type === "KONSERN");
+  if (!r || r.valuta !== "NOK" || r.omsetning === null) return null;
+  return { verdi: r.omsetning, aar };
+}
+
+/**
+ * Hvem av kandidatene som kommer med. Kandidatene er enhetene i kommunen med
+ * minst `terskel` ansatte og underenhetene i kommunen med minst
+ * `terskelUnderenheter` ansatte og overordnet enhet utenfor kommunen.
+ *
+ * En kandidat er med når minst ett av disse holder, og grunnene står på
+ * organet:
+ *
+ * - `ansatte>=50`: minst så mange ansatte.
+ * - `omsetning>=100000000:2025`: siste omsetning i kroner minst så stor, med
+ *   regnskapsåret. Bare enheter; en underenhet har ikke eget regnskap, og
+ *   forelderens tall summeres aldri inn på et lokalt kontor.
+ * - `topp10-ansatte`: blant de N største kandidatene etter ansatte, likt
+ *   brutt på orgnr. Slik får en liten kommune med seg sine største arbeidsgivere.
+ * - `kommunen`: kommunens egen enhet (organisasjonsform KOMM) er alltid med.
+ */
+export function velgUtvalg(
+  bilde: Pick<Oyeblikksbilde, "kommunenr" | "enheter" | "iKommunen" | "underenheter" | "regnskap">,
+  regel: Utvalgsregel,
+  hoppOrgformer: string[] = [],
+): Record<string, string[]> {
+  const kandidater: {
+    orgnr: string;
+    ansatte: number;
+    omsetning: { verdi: number; aar: number } | null;
+    kommunen: boolean;
+  }[] = [];
+  for (const orgnr of bilde.iKommunen) {
+    const e = bilde.enheter[orgnr];
+    if (!e || hoppOrgformer.includes(e.orgform)) continue;
+    kandidater.push({
+      orgnr,
+      ansatte: e.ansatte ?? 0,
+      omsetning: sisteOmsetning(bilde.regnskap[orgnr]),
+      kommunen: e.orgform === "KOMM" && e.kommunenr === bilde.kommunenr,
+    });
+  }
+  for (const u of bilde.underenheter) {
+    const f = u.overordnet ? bilde.enheter[u.overordnet] : undefined;
+    if (!f || f.slettet || f.kommunenr === bilde.kommunenr || u.nedlagt) continue;
+    kandidater.push({ orgnr: u.orgnr, ansatte: u.ansatte ?? 0, omsetning: null, kommunen: false });
+  }
+  const topp = new Set(
+    [...kandidater]
+      .sort((a, b) => b.ansatte - a.ansatte || (a.orgnr < b.orgnr ? -1 : a.orgnr > b.orgnr ? 1 : 0))
+      .slice(0, regel.topp_ansatte)
+      .map((k) => k.orgnr),
+  );
+  const ut: Record<string, string[]> = {};
+  for (const k of kandidater) {
+    const grunner = [
+      k.kommunen ? "kommunen" : "",
+      k.ansatte >= regel.ansatte ? `ansatte>=${regel.ansatte}` : "",
+      k.omsetning && k.omsetning.verdi >= regel.omsetning_nok
+        ? `omsetning>=${regel.omsetning_nok}:${k.omsetning.aar}`
+        : "",
+      topp.has(k.orgnr) ? `topp${regel.topp_ansatte}-ansatte` : "",
+    ].filter(Boolean);
+    if (grunner.length > 0) ut[k.orgnr] = grunner;
+  }
+  return ut;
+}
+
+// ---------------------------------------------------------------------------
 // Henting for én kommune
 // ---------------------------------------------------------------------------
 
@@ -521,7 +620,9 @@ async function sokAlle(
     const totalt = tall(side0?.["totalElements"]) ?? 0;
     const sider = tall(side0?.["totalPages"]) ?? 0;
     if (totalt > MAKS_DYBDE) {
-      throw new Error(`Søket ${grunnUrl} gir ${totalt} treff, over Brregs dybdegrense. Hev terskelen.`);
+      throw new Error(
+        `Søket ${grunnUrl} gir ${totalt} treff, over Brregs dybdegrense. Hev terskelen.`,
+      );
     }
     if (side + 1 >= sider || rader.length === 0) break;
   }
@@ -541,6 +642,7 @@ export interface HenteValg {
   /** Former som ikke tas inn (enkeltpersonforetak o.l.). Roller og regnskap hentes ikke for dem. */
   hoppOrgformer: string[];
   rollerForOverordnede: boolean;
+  utvalg: Utvalgsregel;
   /** Sensitive enheter får bare daglig leder med seg allerede her. */
   erSensitiv: (navn: string, naering: Naering[]) => boolean;
   salt: string;
@@ -565,6 +667,7 @@ export async function hentKommune(http: Http, v: HenteValg): Promise<Oyeblikksbi
     ikkeFunnet: [],
     regnskapUtilgjengelig: [],
     navneoppslag: [],
+    utvalg: {},
     forkastet: {
       feilKommune: 0,
       underTerskel: 0,
@@ -616,14 +719,17 @@ export async function hentKommune(http: Http, v: HenteValg): Promise<Oyeblikksbi
     }
     bilde.underenheter.push(u);
   }
-  logg(`  ${bilde.underenheter.length} underenheter i kommunen med minst ${v.terskelUnderenheter} ansatte`);
+  logg(
+    `  ${bilde.underenheter.length} underenheter i kommunen med minst ${v.terskelUnderenheter} ansatte`,
+  );
 
   const hentEnhet = async (orgnr: string): Promise<Enhet | null> => {
     const kjent = bilde.enheter[orgnr];
     if (kjent) return kjent;
     const { status, json } = await hentJson(http, `${BRREG.enheter}/${orgnr}`);
     if (status === 404 || status === 410) {
-      if (!bilde.ikkeFunnet.some((x) => x.orgnr === orgnr)) bilde.ikkeFunnet.push({ orgnr, status });
+      if (!bilde.ikkeFunnet.some((x) => x.orgnr === orgnr))
+        bilde.ikkeFunnet.push({ orgnr, status });
       return null;
     }
     if (status !== 200 || !obj(json)) throw new Error(`Brreg svarte ${status} på enhet ${orgnr}`);
@@ -655,51 +761,21 @@ export async function hentKommune(http: Http, v: HenteValg): Promise<Oyeblikksbi
       bilde.navneoppslag.push({ navn: n.navn, treff: treff.length, grunnlag: n.grunnlag });
     }
   }
-  bilde.alltid = [...alltid].filter((o) => !bilde.iKommunen.includes(o)).sort();
+  // Alltid med vinner over utvalgsregelen, også når enheten er kandidat.
+  bilde.alltid = [...alltid].sort();
   logg(`  ${bilde.alltid.length} enheter tatt med uansett størrelse`);
 
-  // 4. Overordnede til underenhetene.
-  const foreldre = [...new Set(bilde.underenheter.flatMap((u) => (u.overordnet ? [u.overordnet] : [])))].sort();
+  // 4. Overordnede til underenhetene. Trengs for å vite om forelderen ligger
+  //    utenfor kommunen, og da er underenheten kandidat.
+  const foreldre = [
+    ...new Set(bilde.underenheter.flatMap((u) => (u.overordnet ? [u.overordnet] : []))),
+  ].sort();
   for (const orgnr of foreldre) await hentEnhet(orgnr);
 
-  // 5. Roller for enhetene i kommunen og de som alltid er med.
-  const medRoller = [...bilde.iKommunen, ...bilde.alltid];
-  if (v.rollerForOverordnede) {
-    for (const u of bilde.underenheter) {
-      const f = u.overordnet ? bilde.enheter[u.overordnet] : undefined;
-      if (f && f.kommunenr !== v.kommunenr && !medRoller.includes(f.orgnr)) medRoller.push(f.orgnr);
-    }
-  }
-  for (const orgnr of medRoller.sort()) {
-    const e = bilde.enheter[orgnr];
-    if (e && v.hoppOrgformer.includes(e.orgform)) continue;
-    const { status, json } = await hentJson(http, `${BRREG.enheter}/${orgnr}/roller`);
-    if (status === 404 || status === 410) {
-      bilde.roller[orgnr] = [];
-      continue;
-    }
-    if (status !== 200 || !obj(json)) throw new Error(`Brreg svarte ${status} på roller for ${orgnr}`);
-    const { roller, andre } = lesRoller(obj(json)!, orgnr, v.salt);
-    bilde.forkastet.andreRoller += andre;
-    // Sensitive organer: bare daglig leder, så resten ikke engang ligger i minnet lenger enn nødvendig.
-    bilde.roller[orgnr] =
-      e && v.erSensitiv(e.navn, e.naering) ? roller.filter((r) => r.kode === "DAGL") : roller;
-  }
-  logg(`  roller for ${medRoller.length} enheter`);
-
-  // 6. Enheter som har styreplasser.
-  const styreeiere = new Set<string>();
-  for (const roller of Object.values(bilde.roller)) {
-    for (const r of roller) {
-      if (r.enhet && !r.enhet.slettet && r.kode !== "DAGL" && r.kode !== "VARA")
-        styreeiere.add(r.enhet.orgnr);
-    }
-  }
-  for (const orgnr of [...styreeiere].sort()) await hentEnhet(orgnr);
-
-  // 7. Regnskap.
+  // 5. Regnskap for kandidatene og de som alltid er med. Omsetningen er ett av
+  //    kriteriene i utvalget, så regnskapet hentes før rollene.
   let antallRegnskap = 0;
-  for (const orgnr of [...bilde.iKommunen, ...bilde.alltid].sort()) {
+  for (const orgnr of [...new Set([...bilde.iKommunen, ...bilde.alltid])].sort()) {
     const e = bilde.enheter[orgnr];
     if (!e || !v.regnskapOrgformer.includes(e.orgform)) continue;
     const { status, json } = await hentJson(http, `${BRREG.regnskap}/${orgnr}`);
@@ -712,6 +788,54 @@ export async function hentKommune(http: Http, v: HenteValg): Promise<Oyeblikksbi
     antallRegnskap++;
   }
   logg(`  regnskap for ${antallRegnskap} enheter`);
+
+  // 6. Utvalget: hvem av kandidatene som kommer med, og hvorfor.
+  bilde.utvalg = velgUtvalg(bilde, v.utvalg, v.hoppOrgformer);
+  for (const orgnr of bilde.alltid)
+    bilde.utvalg[orgnr] = [...(bilde.utvalg[orgnr] ?? []), "alltid-med"];
+  const valgte = Object.keys(bilde.utvalg).length;
+  logg(
+    `  ${valgte} organer i utvalget (${Object.values(bilde.utvalg).filter((g) => !g.includes("alltid-med")).length} av kandidatene)`,
+  );
+
+  // 7. Roller for enhetene i utvalget.
+  const medRoller = [...new Set([...bilde.iKommunen, ...bilde.alltid])].filter(
+    (o) => bilde.utvalg[o] !== undefined,
+  );
+  if (v.rollerForOverordnede) {
+    for (const u of bilde.underenheter) {
+      if (!bilde.utvalg[u.orgnr]) continue;
+      const f = u.overordnet ? bilde.enheter[u.overordnet] : undefined;
+      if (f && f.kommunenr !== v.kommunenr && !medRoller.includes(f.orgnr)) medRoller.push(f.orgnr);
+    }
+  }
+  for (const orgnr of medRoller.sort()) {
+    const e = bilde.enheter[orgnr];
+    if (e && v.hoppOrgformer.includes(e.orgform)) continue;
+    const { status, json } = await hentJson(http, `${BRREG.enheter}/${orgnr}/roller`);
+    if (status === 404 || status === 410) {
+      bilde.roller[orgnr] = [];
+      continue;
+    }
+    if (status !== 200 || !obj(json))
+      throw new Error(`Brreg svarte ${status} på roller for ${orgnr}`);
+    const { roller, andre } = lesRoller(obj(json)!, orgnr, v.salt);
+    bilde.forkastet.andreRoller += andre;
+    // Sensitive organer: bare daglig leder, så resten ikke engang ligger i minnet lenger enn nødvendig.
+    bilde.roller[orgnr] =
+      e && v.erSensitiv(e.navn, e.naering) ? roller.filter((r) => r.kode === "DAGL") : roller;
+  }
+  logg(`  roller for ${medRoller.length} enheter`);
+
+  // 8. Enheter som har styreplasser.
+  const styreeiere = new Set<string>();
+  for (const roller of Object.values(bilde.roller)) {
+    for (const r of roller) {
+      if (r.enhet && !r.enhet.slettet && r.kode !== "DAGL" && r.kode !== "VARA")
+        styreeiere.add(r.enhet.orgnr);
+    }
+  }
+  for (const orgnr of [...styreeiere].sort()) await hentEnhet(orgnr);
 
   return bilde;
 }

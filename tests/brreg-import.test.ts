@@ -37,7 +37,7 @@ import {
 import { lagLokal } from "@/lib/data/lokal";
 import { nokkel, samle, valider } from "@/lib/data/samle";
 import { kjor, serialiser, type KjorResultat } from "../scripts/brreg";
-import { lesRoller, vaskSvar, type Http } from "../scripts/brreg/hent";
+import { lesRoller, vaskSvar, velgUtvalg, type Enhet, type Http } from "../scripts/brreg/hent";
 import { BEKREFTER, navneBrudd, sammeTall, VALUTA_HVORFOR } from "../scripts/brreg/importer";
 import {
   lesKonfig,
@@ -109,19 +109,38 @@ function regelbrudd(d: Kommunedatasett): string[] {
       sett.add(x);
     }
   };
-  unike(d.kilder.map((x) => x.key), "kilde");
-  unike(d.organisasjoner.map((x) => x.key), "organisasjon");
-  unike(d.personer.map((x) => x.key), "person");
-  unike(d.segmenter.map((x) => x.kode), "segment");
+  unike(
+    d.kilder.map((x) => x.key),
+    "kilde",
+  );
+  unike(
+    d.organisasjoner.map((x) => x.key),
+    "organisasjon",
+  );
+  unike(
+    d.personer.map((x) => x.key),
+    "person",
+  );
+  unike(
+    d.segmenter.map((x) => x.kode),
+    "segment",
+  );
   unike(d.roller.map(nokkel.rolle), "rolle");
   unike(d.relasjoner.map(nokkel.relasjon), "relasjon");
   unike(d.nokkeltall.map(nokkel.nokkeltall), "nøkkeltall");
-  unike(d.hendelser.map((h) => nokkel.hendelse(h)), "hendelse");
+  unike(
+    d.hendelser.map((h) => nokkel.hendelse(h)),
+    "hendelse",
+  );
   unike(d.org_segment.map(nokkel.orgSegment), "org_segment");
   unike(d.hull.map(nokkel.hull), "hull");
-  unike(d.organisasjoner.flatMap((o) => (o.orgnr ? [o.orgnr] : [])), "orgnr");
+  unike(
+    d.organisasjoner.flatMap((o) => (o.orgnr ? [o.orgnr] : [])),
+    "orgnr",
+  );
 
-  const i = (liste: readonly string[], v: string, hva: string) => krev(liste.includes(v), `${hva}: ${v}`);
+  const i = (liste: readonly string[], v: string, hva: string) =>
+    krev(liste.includes(v), `${hva}: ${v}`);
   const belegg: { hvor: string; b: Belegg }[] = [
     ...d.organisasjoner.map((o) => ({ hvor: o.key, b: o.belegg })),
     ...d.roller.map((r) => ({ hvor: nokkel.rolle(r), b: r.belegg })),
@@ -148,14 +167,18 @@ function regelbrudd(d: Kommunedatasett): string[] {
   for (const n of d.nokkeltall) {
     i(NOKKELTALLTYPER, n.type, nokkel.nokkeltall(n));
     i(ENHETER, n.enhet, nokkel.nokkeltall(n));
-    krev(Number.isInteger(n.aar) && n.aar <= Number(d.meta.sammenstilt.slice(0, 4)), `år ${nokkel.nokkeltall(n)}`);
+    krev(
+      Number.isInteger(n.aar) && n.aar <= Number(d.meta.sammenstilt.slice(0, 4)),
+      `år ${nokkel.nokkeltall(n)}`,
+    );
     krev((n.enhet === "aarsverk") === (n.type === "aarsverk"), `enhet ${nokkel.nokkeltall(n)}`);
   }
   for (const { hvor, b } of belegg) {
     i(VERIFISERINGER, b.verifisering, hvor);
     krev(kildetype.has(b.kilde), `ukjent kilde ${b.kilde} (${hvor})`);
     if (b.per) krev(ISO.test(b.per), `per ${hvor}`);
-    if (kildetype.get(b.kilde) === "sekundaer") krev(b.verifisering === "maa_verifiseres", `sekundær ${hvor}`);
+    if (kildetype.get(b.kilde) === "sekundaer")
+      krev(b.verifisering === "maa_verifiseres", `sekundær ${hvor}`);
     if (b.verifisering === "verifisert") {
       krev(kildetype.get(b.kilde) === "register", `verifisert uten registerkilde (${hvor})`);
       krev(/^\d{4}-\d{2}-\d{2}$/.test(b.per ?? ""), `verifisert uten hentedato (${hvor})`);
@@ -192,19 +215,39 @@ function regelbrudd(d: Kommunedatasett): string[] {
   const type = new Map(d.organisasjoner.map((o) => [o.key, o.organtype]));
   for (const r of d.roller)
     if (r.parti !== undefined)
-      krev((POLITISKE_ORGANTYPER as readonly string[]).includes(type.get(r.org) ?? ""), `parti ${nokkel.rolle(r)}`);
+      krev(
+        (POLITISKE_ORGANTYPER as readonly string[]).includes(type.get(r.org) ?? ""),
+        `parti ${nokkel.rolle(r)}`,
+      );
   const sensitiv = new Set(d.organisasjoner.filter((o) => o.sensitiv).map((o) => o.key));
   for (const r of d.roller)
     if (sensitiv.has(r.org))
-      krev((SENSITIV_SYNLIGE_ROLLETYPER as readonly string[]).includes(r.rolletype), `sensitiv ${nokkel.rolle(r)}`);
+      krev(
+        (SENSITIV_SYNLIGE_ROLLETYPER as readonly string[]).includes(r.rolletype),
+        `sensitiv ${nokkel.rolle(r)}`,
+      );
   for (const o of d.organisasjoner) {
-    const fraTabell = d.org_segment.filter((x) => x.org === o.key && x.styrke >= 2).map((x) => x.segment);
-    krev(JSON.stringify([...o.segmenter].sort()) === JSON.stringify(fraTabell.sort()), `segmenter ${o.key}`);
+    const fraTabell = d.org_segment
+      .filter((x) => x.org === o.key && x.styrke >= 2)
+      .map((x) => x.segment);
+    krev(
+      JSON.stringify([...o.segmenter].sort()) === JSON.stringify(fraTabell.sort()),
+      `segmenter ${o.key}`,
+    );
   }
-  const fraFelt = d.organisasjoner.flatMap((o) => (o.overordnet ? [`${o.key}>${o.overordnet}`] : [])).sort();
-  const fraRel = d.relasjoner.filter((r) => r.type === "overordnet").map((r) => `${r.fra}>${r.til}`).sort();
-  krev(JSON.stringify(fraFelt) === JSON.stringify(fraRel), "overordnet-felt og -relasjoner er ulike");
-  for (const r of d.roller) krev(!(r.til && r.til_forventet), `til og til_forventet ${nokkel.rolle(r)}`);
+  const fraFelt = d.organisasjoner
+    .flatMap((o) => (o.overordnet ? [`${o.key}>${o.overordnet}`] : []))
+    .sort();
+  const fraRel = d.relasjoner
+    .filter((r) => r.type === "overordnet")
+    .map((r) => `${r.fra}>${r.til}`)
+    .sort();
+  krev(
+    JSON.stringify(fraFelt) === JSON.stringify(fraRel),
+    "overordnet-felt og -relasjoner er ulike",
+  );
+  for (const r of d.roller)
+    krev(!(r.til && r.til_forventet), `til og til_forventet ${nokkel.rolle(r)}`);
   return feil;
 }
 
@@ -252,7 +295,9 @@ describe("konfigurasjonen og tabellene", () => {
   });
 
   it("har en næringstabell der hver regel passer sin egen SN2025-tittel og segmentene er Tromsøs", () => {
-    const tromso = JSON.parse(readFileSync(join(__dirname, "..", "src", "data", "tromso.json"), "utf8")) as Kommunedatasett;
+    const tromso = JSON.parse(
+      readFileSync(join(__dirname, "..", "src", "data", "tromso.json"), "utf8"),
+    ) as Kommunedatasett;
     for (const r of tabeller.naering.koder)
       expect(new RegExp(r.krav, "i").test(r.tittel.toLocaleLowerCase("nb")), r.prefiks).toBe(true);
     for (const s of tabeller.naering.segmenter)
@@ -271,7 +316,15 @@ describe("konfigurasjonen og tabellene", () => {
     const sport: NaeringTabell = {
       standard: "SN2025",
       segmenter: [{ kode: "handel", navn: "Handel" }],
-      koder: [{ prefiks: "47.64", tittel: "Sportsutstyr (SN2007)", kontrollert: false, krav: "sport", segment: "handel" }],
+      koder: [
+        {
+          prefiks: "47.64",
+          tittel: "Sportsutstyr (SN2007)",
+          kontrollert: false,
+          krav: "sport",
+          segment: "handel",
+        },
+      ],
     };
     const r = segmentFor("47.640", "Detaljhandel med spill og leker", sport);
     expect(r.segment).toBeNull();
@@ -281,11 +334,15 @@ describe("konfigurasjonen og tabellene", () => {
 
 describe("hente-laget", () => {
   it("bytter fødselsdato mot en hash og kaster adresser og andre roller før noe lagres", () => {
-    const roller = readFileSync(join(FIKSTUR, "fiskvik", "roller-999100001.json"), "utf8");
-    const vasket = vaskSvar("https://data.brreg.no/enhetsregisteret/api/enheter/999100001/roller", roller, SALT);
+    const roller = readFileSync(join(FIKSTUR, "fiktiv", "roller-999100001.json"), "utf8");
+    const vasket = vaskSvar(
+      "https://data.brreg.no/enhetsregisteret/api/enheter/999100001/roller",
+      roller,
+      SALT,
+    );
     expect(vasket).not.toMatch(/fodselsdato|1902-02-12/);
     expect(vasket).not.toContain("Konrad"); // kontaktperson, ikke en rolle Maktkart bruker
-    const enhet = readFileSync(join(FIKSTUR, "fiskvik", "enhet-999100007.json"), "utf8");
+    const enhet = readFileSync(join(FIKSTUR, "fiktiv", "enhet-999100007.json"), "utf8");
     const e = vaskSvar("https://data.brreg.no/enhetsregisteret/api/enheter/999100007", enhet, SALT);
     expect(e).not.toMatch(/Kaigata|Postboks|9990|12 34 56 78/);
     expect(e).toContain('"kommunenummer":"9998"');
@@ -296,9 +353,21 @@ describe("hente-laget", () => {
   });
 
   it("skiller navnebrødre på fødselsdato og kjenner igjen samme person", () => {
-    const a = lesRoller(JSON.parse(readFileSync(join(FIKSTUR, "fiskvik", "roller-999100001.json"), "utf8")), "999100001", SALT).roller;
-    const b = lesRoller(JSON.parse(readFileSync(join(FIKSTUR, "fiskvik", "roller-999100002.json"), "utf8")), "999100002", SALT).roller;
-    const c = lesRoller(JSON.parse(readFileSync(join(FIKSTUR, "fiskvik", "roller-999100003.json"), "utf8")), "999100003", SALT).roller;
+    const a = lesRoller(
+      JSON.parse(readFileSync(join(FIKSTUR, "fiktiv", "roller-999100001.json"), "utf8")),
+      "999100001",
+      SALT,
+    ).roller;
+    const b = lesRoller(
+      JSON.parse(readFileSync(join(FIKSTUR, "fiktiv", "roller-999100002.json"), "utf8")),
+      "999100002",
+      SALT,
+    ).roller;
+    const c = lesRoller(
+      JSON.parse(readFileSync(join(FIKSTUR, "fiktiv", "roller-999100003.json"), "utf8")),
+      "999100003",
+      SALT,
+    ).roller;
     const ola = (rs: typeof a) => rs.find((r) => r.person?.navn === "Ola Nordmann")!.person!.pid;
     expect(ola(a)).not.toBe(ola(b));
     expect(ola(a)).toBe(ola(c));
@@ -307,18 +376,115 @@ describe("hente-laget", () => {
   });
 });
 
+describe("utvalget", () => {
+  const e = (orgnr: string, ansatte: number, orgform = "AS", kommunenr = "9998"): Enhet => ({
+    orgnr,
+    navn: `TEST ${orgnr}`,
+    orgform,
+    orgformNavn: null,
+    naering: [],
+    ansatte,
+    kommunenr,
+    overordnet: null,
+    sektor: null,
+    stiftet: null,
+    slettet: null,
+    konkurs: false,
+    underAvvikling: false,
+  });
+  const regel = { ansatte: 50, omsetning_nok: 100_000_000, topp_ansatte: 3 };
+  const regnskap = (verdi: number, valuta = "NOK") => [
+    {
+      type: "SELSKAP" as const,
+      fra: "2025-01-01",
+      til: "2025-12-31",
+      valuta,
+      morselskap: null,
+      omsetning: verdi,
+      driftsresultat: null,
+      aarsresultat: null,
+      egenkapital: null,
+    },
+  ];
+  const enheter = [
+    e("1", 900, "KOMM"),
+    e("2", 60),
+    e("3", 25),
+    e("4", 25),
+    e("5", 22),
+    e("6", 21),
+    e("7", 30, "ENK"),
+    e("8", 20),
+  ];
+  const utvalg = velgUtvalg(
+    {
+      kommunenr: "9998",
+      enheter: {
+        ...Object.fromEntries(enheter.map((x) => [x.orgnr, x])),
+        f: e("f", 5000, "ORGL", "0301"),
+      },
+      iKommunen: enheter.map((x) => x.orgnr),
+      underenheter: [
+        {
+          orgnr: "u1",
+          navn: "U1",
+          naering: [],
+          ansatte: 40,
+          kommunenr: "9998",
+          overordnet: "f",
+          oppstart: null,
+          nedlagt: null,
+        },
+        {
+          orgnr: "u2",
+          navn: "U2",
+          naering: [],
+          ansatte: 55,
+          kommunenr: "9998",
+          overordnet: "1",
+          oppstart: null,
+          nedlagt: null,
+        },
+      ],
+      regnskap: { "5": regnskap(150_000_000), "6": regnskap(150_000_000, "USD") },
+    },
+    regel,
+    ["ENK"],
+  );
+
+  it("tar med store arbeidsgivere, store omsetninger og de største i kommunen, og sier hvorfor", () => {
+    expect(utvalg["1"]).toEqual(["kommunen", "ansatte>=50", "topp3-ansatte"]);
+    expect(utvalg["2"]).toEqual(["ansatte>=50", "topp3-ansatte"]);
+    // Topp tre: 900, 60 og underenheten med 40. Likhet brytes på orgnr, ikke tilfeldig.
+    expect(utvalg["u1"]).toEqual(["topp3-ansatte"]);
+    expect(utvalg["3"]).toBeUndefined();
+    expect(utvalg["5"]).toEqual(["omsetning>=100000000:2025"]);
+  });
+
+  it("regner bare kroner, hopper over enkeltpersonforetak og tar ikke underenheter med forelder i kommunen", () => {
+    expect(utvalg["6"]).toBeUndefined(); // omsetningen er i USD
+    expect(utvalg["7"]).toBeUndefined(); // enkeltpersonforetak
+    expect(utvalg["u2"]).toBeUndefined(); // forelderen ligger i kommunen
+    expect(utvalg["8"]).toBeUndefined();
+  });
+});
+
 // ---------------------------------------------------------------------------
 // Fiskvik: hele løypa, to ganger
 // ---------------------------------------------------------------------------
 
 describe("Fiskvik (oppdiktet kommune)", () => {
-  const mappe = join(FIKSTUR, "fiskvik");
+  const mappe = join(FIKSTUR, "fiktiv");
   const konfig: Konfig = tolkKonfig({
     felles: { ...felles, sidestorrelse: 3 },
     kommuner: {
       "9998": {
         terskel_ansatte: 20,
-        alltid: { fra_datasett: true, orgnr: [], navn: [{ navn: "Fiskvik fylkesting", organisasjonsform: "FYLK" }] },
+        alltid: {
+          fra_datasett: true,
+          orgnr: [],
+          navn: [{ navn: "Fiskvik fylkesting", organisasjonsform: "FYLK" }],
+        },
       },
     },
   });
@@ -409,7 +575,9 @@ describe("Fiskvik (oppdiktet kommune)", () => {
     expect(u.overordnet).toBe(f.key);
     expect(u.navn).toBe("Statens Testverk Avd Fiskvik");
     expect(f.nivaa).toBe("stat");
-    expect(d.relasjoner).toContainEqual(expect.objectContaining({ fra: u.key, til: f.key, type: "overordnet" }));
+    expect(d.relasjoner).toContainEqual(
+      expect.objectContaining({ fra: u.key, til: f.key, type: "overordnet" }),
+    );
     expect(orgNr("999200002")).toBeUndefined(); // forelderen er i kommunen
     // Politiet: sensitivt, uten roller og utenfor nettverket.
     expect(orgNr("999200003")?.sensitiv).toBe(true);
@@ -424,7 +592,11 @@ describe("Fiskvik (oppdiktet kommune)", () => {
     expect(navn).not.toContain("Konrad Kontakt");
     expect(d.organisasjoner.map((o) => o.orgnr)).not.toContain("999600002");
     // Revisor, regnskapsfører og kontaktperson (4) kastes allerede i hente-laget.
-    expect(forste.resultat.oppsummering.hoppetOver).toMatchObject({ fratradt: 1, doed: 1, andreRoller: 4 });
+    expect(forste.resultat.oppsummering.hoppetOver).toMatchObject({
+      fratradt: 1,
+      doed: 1,
+      andreRoller: 4,
+    });
   });
 
   it("fører en styreplass eid av en enhet som relasjon mellom organer", () => {
@@ -440,8 +612,12 @@ describe("Fiskvik (oppdiktet kommune)", () => {
     const olaer = d.personer.filter((p) => p.navn === "Ola Nordmann");
     expect(olaer).toHaveLength(2);
     for (const p of olaer) expect(p.key).toMatch(/^ola-nordmann-[0-9a-f]{6}$/);
-    const iHavfiske = roller("fiskvik-havfiske").find((r) => r.person.startsWith("ola-nordmann"))!.person;
-    const iReiser = roller(orgNr("999100003")!.key).find((r) => r.person.startsWith("ola-nordmann"))!.person;
+    const iHavfiske = roller("fiskvik-havfiske").find((r) =>
+      r.person.startsWith("ola-nordmann"),
+    )!.person;
+    const iReiser = roller(orgNr("999100003")!.key).find((r) =>
+      r.person.startsWith("ola-nordmann"),
+    )!.person;
     expect(iReiser).toBe(iHavfiske);
     // Uten navnekollisjon: ingen suffiks.
     expect(d.personer.find((p) => p.navn === "Siri Sparer")?.key).toBe("siri-sparer");
@@ -449,7 +625,11 @@ describe("Fiskvik (oppdiktet kommune)", () => {
 
   it("bekrefter grunnlagets påstander og oppgraderer dem til verifisert med hentedatoen", () => {
     const dl = roller("fiskvik-havfiske").find((r) => r.person === "per-fisker")!;
-    expect(dl.belegg).toMatchObject({ kilde: "brreg-roller", verifisering: "verifisert", per: IDAG });
+    expect(dl.belegg).toMatchObject({
+      kilde: "brreg-roller",
+      verifisering: "verifisert",
+      per: IDAG,
+    });
     expect(dl.belegg.merknad).toMatch(new RegExp(`^${BEKREFTER}`));
     // Kommunedirektøren står under administrasjonen i grunnlaget og som daglig
     // leder i kommunen i registeret, med et mellomnavn grunnlaget ikke har.
@@ -460,9 +640,14 @@ describe("Fiskvik (oppdiktet kommune)", () => {
     expect(dommer).toHaveLength(1);
     expect(dommer[0]!.belegg.verifisering).toBe("verifisert");
     const oms = d.nokkeltall.find((n) => n.org === "fiskvik-havfiske" && n.type === "omsetning")!;
-    expect(oms).toMatchObject({ verdi: 411_873_000, belegg: { kilde: "regnskapsregisteret", verifisering: "verifisert" } });
+    expect(oms).toMatchObject({
+      verdi: 411_873_000,
+      belegg: { kilde: "regnskapsregisteret", verifisering: "verifisert" },
+    });
     expect(oms.belegg.merknad).toContain("412 000 000");
-    const konsern = d.nokkeltall.find((n) => n.org === "nordvik-kraft" && n.type === "aarsresultat" && n.konsern)!;
+    const konsern = d.nokkeltall.find(
+      (n) => n.org === "nordvik-kraft" && n.type === "aarsresultat" && n.konsern,
+    )!;
     expect(konsern.belegg.verifisering).toBe("verifisert");
     // Et år registeret ikke viser, blir stående urørt.
     const eldre = d.nokkeltall.find((n) => n.org === "nordvik-kraft" && n.aar === 2024)!;
@@ -481,7 +666,9 @@ describe("Fiskvik (oppdiktet kommune)", () => {
     expect(styreledere.map((r) => r.person).sort()).toEqual(["line-lederberg", "olga-styrmann"]);
     const olga = styreledere.find((r) => r.person === "olga-styrmann")!;
     expect(olga.belegg.verifisering).toBe("maa_verifiseres");
-    expect(rapport).toMatch(/fiskvik-havfiske: styreleder \| Olga Styrmann[^|]*\| Styreleder: Line Lederberg/);
+    expect(rapport).toMatch(
+      /fiskvik-havfiske: styreleder \| Olga Styrmann[^|]*\| Styreleder: Line Lederberg/,
+    );
     const ek = d.nokkeltall.filter((n) => n.org === "fiskvik-havfiske" && n.type === "egenkapital");
     expect(ek).toHaveLength(1);
     expect(ek[0]!.verdi).toBe(90_000_000);
@@ -489,16 +676,71 @@ describe("Fiskvik (oppdiktet kommune)", () => {
     expect(rapport).toContain("120 345 000 kr");
   });
 
-  it("slår aldri sammen en person i grunnlaget med en navnebror uten felles organ", () => {
-    const jon = d.personer.filter((p) => p.navn === "Jon Hansen").map((p) => p.key);
-    expect(jon).toHaveLength(2);
-    expect(jon).toContain("jon-hansen");
-    expect(rapport).toMatch(/jon-hansen-[0-9a-f]{6} \| Jon Hansen \(jon-hansen\)/);
-    // Tore Tekst nevnes i en hendelse som lenker til grunnlagets Tore Tekst.
-    // En navnebror fra registeret ville brutt navneregelen, så rollen hans er ikke tatt inn.
-    expect(d.personer.filter((p) => p.navn === "Tore Tekst")).toHaveLength(1);
+  it("slår aldri sammen en person i grunnlaget med en navnebror uten felles organ, og holder navnebroren tilbake", () => {
+    // To poster med samme navn ville gjort en innsigelse halv. Navnebroren
+    // venter på en menneskelig vurdering (samme_person eller ulik_person).
+    expect(d.personer.filter((p) => p.navn === "Jon Hansen").map((p) => p.key)).toEqual([
+      "jon-hansen",
+    ]);
+    expect(d.personer.filter((p) => p.navn === "Tore Tekst").map((p) => p.key)).toEqual([
+      "tore-tekst",
+    ]);
     expect(roller(orgNr("999100005")!.key)).toEqual([]);
-    expect(rapport).toMatch(/tore-tekst-[0-9a-f]{6} \| Teksten i hendelse/);
+    expect(rapport).toMatch(
+      /jon-hansen-[0-9a-f]{6} \| Jon Hansen \(jon-hansen\) \|.*Ikke tatt inn.*ulik_person/,
+    );
+    expect(rapport).toMatch(/tore-tekst-[0-9a-f]{6} \| Tore Tekst \(tore-tekst\)/);
+    expect(forste.resultat.oppsummering.hoppetOver.navnebror).toBe(2);
+  });
+
+  it("tar ikke inn en person som grunnlagets tekst nevner uten lenke (navneregelen)", () => {
+    expect(d.personer.map((p) => p.navn)).not.toContain("Reidun Reise");
+    expect(rapport).toMatch(/reidun-reise \| Teksten i hull fiskvik-kommune/);
+  });
+
+  it("tar inn navnebroren som egen person når et menneske har sagt at det er en annen", async () => {
+    const key = /(jon-hansen-[0-9a-f]{6})/.exec(rapport)![1]!;
+    const tmp2 = mkdtempSync(join(tmpdir(), "maktkart-brreg-ulik-"));
+    try {
+      cpSync(join(mappe, "datasett.json"), join(tmp2, "data", "fiskvik.json"));
+      const k2 = tolkKonfig({
+        felles: { ...felles, sidestorrelse: 3 },
+        kommuner: {
+          "9998": {
+            terskel_ansatte: 20,
+            ulik_person: [key],
+            alltid: {
+              fra_datasett: true,
+              orgnr: [],
+              navn: [{ navn: "Fiskvik fylkesting", organisasjonsform: "FYLK" }],
+            },
+          },
+        },
+      });
+      const [r] = await kjor({
+        kommunenr: ["9998"],
+        dataMappe: join(tmp2, "data"),
+        avvikMappe: join(tmp2, "avvik"),
+        http: fiksturHttp(mappe).http,
+        mellomlager: null,
+        salt: SALT,
+        idag: IDAG,
+        konfig: k2,
+        tabeller,
+        skriv: true,
+        logg: () => {},
+      });
+      const d2 = JSON.parse(readFileSync(r!.datasettfil, "utf8")) as Kommunedatasett;
+      expect(
+        d2.personer
+          .filter((p) => p.navn === "Jon Hansen")
+          .map((p) => p.key)
+          .sort(),
+      ).toEqual(["jon-hansen", key]);
+      expect(regelbrudd(d2)).toEqual([]);
+    } finally {
+      rmSync(tmp2, { recursive: true, force: true });
+    }
   });
 
   it("fører regnskap i annen valuta som hull, aldri som kroner", () => {
@@ -513,13 +755,28 @@ describe("Fiskvik (oppdiktet kommune)", () => {
 
   it("merker konsern, morselskap og avvikende regnskapsår", () => {
     const nk = d.nokkeltall.filter((n) => n.org === "nordvik-kraft" && n.aar === 2025);
-    expect(nk.find((n) => n.type === "omsetning" && n.konsern === true)?.belegg.merknad).toBe("Konsernregnskap.");
+    expect(nk.find((n) => n.type === "omsetning" && n.konsern === true)?.belegg.merknad).toBe(
+      "Konsernregnskap.",
+    );
     expect(nk.find((n) => n.type === "omsetning" && n.konsern === false)?.belegg.merknad).toBe(
       "Morselskapets eget regnskap, ikke konsern.",
     );
-    const salg = d.nokkeltall.find((n) => n.org === orgNr("999100008")!.key && n.type === "omsetning")!;
+    const salg = d.nokkeltall.find(
+      (n) => n.org === orgNr("999100008")!.key && n.type === "omsetning",
+    )!;
     expect(salg.aar).toBe(2025);
     expect(salg.belegg.merknad).toContain("2024-07-01–2025-06-30");
+  });
+
+  it("skriver hvorfor hvert importert organ er med, maskinlesbart først i merknaden", () => {
+    expect(orgNr("999100005")?.belegg.merknad).toBe("Utvalg: ansatte>=50, topp10-ansatte.");
+    expect(orgNr("999100003")?.belegg.merknad).toBe("Utvalg: topp10-ansatte.");
+    expect(orgNr("999400001")?.belegg.merknad).toBe("Utvalg: overordnet.");
+    expect(orgNr("999300001")?.belegg.merknad).toBe("Utvalg: styreplass.");
+    const utenGrunn = d.organisasjoner.filter(
+      (o) => o.belegg.kilde === "enhetsregisteret" && !o.belegg.merknad?.startsWith("Utvalg: "),
+    );
+    expect(utenGrunn.map((o) => o.key)).toEqual([]);
   });
 
   it("gir segment etter SN2025-tittelen og legger til segmentet i lista", () => {
@@ -531,9 +788,13 @@ describe("Fiskvik (oppdiktet kommune)", () => {
   it("kobler grunnlagets organer uten orgnr på eksakt navn, og sier fra om det", () => {
     expect(orgNr("999100002")).toBeUndefined(); // sparebanken er grunnlagets
     expect(roller("fiskvik-sparebank").length).toBeGreaterThan(0);
-    expect(rapport).toMatch(/fiskvik-sparebank \| Fiskvik Sparebank \| FISKVIK SPAREBANK \(999100002\)/);
+    expect(rapport).toMatch(
+      /fiskvik-sparebank \| Fiskvik Sparebank \| FISKVIK SPAREBANK \(999100002\)/,
+    );
     expect(rapport).toMatch(/Fiskvik fylkesting \| Navn i scripts\/brreg.config.json/);
-    expect(rapport).toMatch(/fiskvik-havn-kf \| Fiskvik Havn KF, orgnr 999100099 \| Finnes ikke \(404\)/);
+    expect(rapport).toMatch(
+      /fiskvik-havn-kf \| Fiskvik Havn KF, orgnr 999100099 \| Finnes ikke \(404\)/,
+    );
     expect(rapport).toMatch(/fiskvik-sparebank \| – \| Regnskapsregisteret svarte med feil/);
   });
 
@@ -545,13 +806,20 @@ describe("Fiskvik (oppdiktet kommune)", () => {
   it("fører varamedlemmer med egen status og merker ansattvalgte", () => {
     const vara = roller("fiskvik-havfiske").find((r) => r.rolletype === "varamedlem")!;
     expect(vara.status).toBe("vara");
-    expect(roller("fiskvik-sparebank").some((r) => r.tittel === "Styremedlem (valgt av de ansatte)")).toBe(true);
+    expect(
+      roller("fiskvik-sparebank").some((r) => r.tittel === "Styremedlem (valgt av de ansatte)"),
+    ).toBe(true);
   });
 
   it("skriver aldri fødselsdato, alder eller adresse, verken i datasett, rapport, mellomlager eller logg", () => {
     const datoer = fodselsdatoer(mappe);
     expect(datoer.length).toBeGreaterThan(10);
-    const tekster = [filer["datasett"]!, filer["avvik"]!, logg.join("\n"), ...alleFiler(lager).map((f) => readFileSync(f, "utf8"))];
+    const tekster = [
+      filer["datasett"]!,
+      filer["avvik"]!,
+      logg.join("\n"),
+      ...alleFiler(lager).map((f) => readFileSync(f, "utf8")),
+    ];
     for (const t of tekster) {
       for (const dato of datoer) expect(t).not.toContain(dato);
       expect(t).not.toMatch(/"fodselsdato"|Kaigata|Postboks/);
@@ -581,16 +849,176 @@ describe("Fiskvik (oppdiktet kommune)", () => {
   });
 
   it("står urørt når det ikke er noe å importere, bortsett fra kildene", async () => {
-    const grunnlag = JSON.parse(readFileSync(join(mappe, "datasett.json"), "utf8")) as Kommunedatasett;
+    const grunnlag = JSON.parse(
+      readFileSync(join(mappe, "datasett.json"), "utf8"),
+    ) as Kommunedatasett;
     const ut = JSON.parse(filer["datasett"]!) as Kommunedatasett;
     // Hver grunnlagsrad som ikke ble bekreftet, står byte-lik og i samme rekkefølge.
     const urort = (xs: unknown[]) => xs.map((x) => JSON.stringify(x));
     const inn = urort(grunnlag.hendelser);
     expect(urort(ut.hendelser)).toEqual(inn);
-    expect(ut.organisasjoner.slice(0, grunnlag.organisasjoner.length)).toEqual(grunnlag.organisasjoner);
+    expect(ut.organisasjoner.slice(0, grunnlag.organisasjoner.length)).toEqual(
+      grunnlag.organisasjoner,
+    );
     expect(ut.relasjoner.slice(0, grunnlag.relasjoner.length)).toEqual(grunnlag.relasjoner);
     writeFileSync(join(tmp, "x.json"), serialiser(ut));
     expect(readFileSync(join(tmp, "x.json"), "utf8")).toBe(filer["datasett"]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Flere kommuner: felles organer, felles personer og en ny kommune
+// ---------------------------------------------------------------------------
+
+describe("flere kommuner (Fiskvik og Testnes)", () => {
+  const mappe = join(FIKSTUR, "fiktiv");
+  const konfig: Konfig = tolkKonfig({
+    felles: { ...felles, sidestorrelse: 3 },
+    kommuner: {
+      "9998": {
+        terskel_ansatte: 20,
+        alltid: {
+          fra_datasett: true,
+          orgnr: [],
+          navn: [{ navn: "Fiskvik fylkesting", organisasjonsform: "FYLK" }],
+        },
+      },
+    },
+  });
+  const kjorI = async (tmp: string, kommunenr: string[]) =>
+    kjor({
+      kommunenr,
+      dataMappe: join(tmp, "data"),
+      avvikMappe: join(tmp, "avvik"),
+      http: fiksturHttp(mappe).http,
+      mellomlager: join(tmp, "lager"),
+      regionfil: join(mappe, "region.json"),
+      salt: SALT,
+      idag: IDAG,
+      konfig,
+      tabeller,
+      skriv: true,
+      logg: () => {},
+    });
+  const les = (tmp: string, slug: string) =>
+    JSON.parse(readFileSync(join(tmp, "data", `${slug}.json`), "utf8")) as Kommunedatasett;
+  const ny = () => {
+    const tmp = mkdtempSync(join(tmpdir(), "maktkart-brreg-flere-"));
+    cpSync(join(mappe, "datasett.json"), join(tmp, "data", "fiskvik.json"));
+    return tmp;
+  };
+  const tmper: string[] = [];
+  afterAll(() => {
+    for (const t of tmper) rmSync(t, { recursive: true, force: true });
+  });
+
+  it("lager et nytt datasett med slug og navn fra regionregisteret, kommunen og kommunestyret", async () => {
+    const tmp = ny();
+    tmper.push(tmp);
+    await kjorI(tmp, ["9998", "9997"]);
+    const t = les(tmp, "testnes");
+    expect(t.meta).toMatchObject({
+      kommunenr: "9997",
+      kommune: "Testnes - Deatnu",
+      fylkesnr: "99",
+      fylke: "Fiktivfylket",
+    });
+    const kommune = t.organisasjoner.find((o) => o.organtype === "kommune")!;
+    expect(kommune).toMatchObject({ orgnr: "999700001", kommunenr: "9997" });
+    expect(t.organisasjoner.find((o) => o.key === "testnes-kommunestyre")?.overordnet).toBe(
+      kommune.key,
+    );
+    expect(regelbrudd(t)).toEqual([]);
+    const lokal = lagLokal(
+      samle([
+        { slug: "fiskvik", data: les(tmp, "fiskvik") },
+        { slug: "testnes", data: t },
+      ]),
+    );
+    const o = await lokal.kommune_oversikt("9997");
+    expect(o?.kommuneorgan).not.toBeNull();
+    expect(o?.kommunestyre).not.toBeNull();
+  });
+
+  it("gir felles organer én kanonisk rad og roller bare hos kommunen organet ligger i", async () => {
+    const tmp = ny();
+    tmper.push(tmp);
+    await kjorI(tmp, ["9998", "9997"]);
+    const f = les(tmp, "fiskvik");
+    const t = les(tmp, "testnes");
+    expect(
+      valider(
+        samle([
+          { slug: "fiskvik", data: f },
+          { slug: "testnes", data: t },
+        ]),
+      ),
+    ).toEqual([]);
+    expect(regelbrudd(f)).toEqual([]);
+    for (const orgnr of ["999400002", "999400001"]) {
+      const a = f.organisasjoner.find((o) => o.orgnr === orgnr);
+      const b = t.organisasjoner.find((o) => o.orgnr === orgnr);
+      expect(a, orgnr).toBeDefined();
+      expect(a).toEqual(b);
+    }
+    const politi = t.organisasjoner.find((o) => o.orgnr === "999400002")!;
+    expect(politi.belegg.merknad).toBe("Utvalg: ansatte>=50, topp10-ansatte.");
+    expect(t.roller.filter((r) => r.org === politi.key).map((r) => r.rolletype)).toEqual([
+      "toppleder",
+    ]);
+    expect(f.roller.filter((r) => r.org === politi.key)).toEqual([]);
+    // Samme person i begge kommunene: samme nøkkel og samme rad.
+    expect(t.roller.find((r) => r.person === "per-fisker")?.rolletype).toBe("styremedlem");
+    expect(t.personer.find((p) => p.key === "per-fisker")).toEqual(
+      f.personer.find((p) => p.key === "per-fisker"),
+    );
+  });
+
+  it("holder felles organer like når kommunene kjøres hver for seg, i hvilken som helst rekkefølge", async () => {
+    const tmp = ny();
+    tmper.push(tmp);
+    await kjorI(tmp, ["9998"]);
+    const forst = les(tmp, "fiskvik").organisasjoner.find((o) => o.orgnr === "999400002")!;
+    expect(forst.belegg.merknad).toBe("Utvalg: overordnet.");
+    await kjorI(tmp, ["9997"]);
+    const f = les(tmp, "fiskvik");
+    const t = les(tmp, "testnes");
+    expect(
+      valider(
+        samle([
+          { slug: "fiskvik", data: f },
+          { slug: "testnes", data: t },
+        ]),
+      ),
+    ).toEqual([]);
+    // Testnes eier politidistriktet og har skrevet den kanoniske raden inn i Fiskvik.
+    expect(f.organisasjoner.find((o) => o.orgnr === "999400002")).toEqual(
+      t.organisasjoner.find((o) => o.orgnr === "999400002"),
+    );
+    const fFor = readFileSync(join(tmp, "data", "fiskvik.json"), "utf8");
+    await kjorI(tmp, ["9998"]);
+    expect(readFileSync(join(tmp, "data", "fiskvik.json"), "utf8")).toBe(fFor);
+  });
+
+  it("gir byte-like filer når flere kommuner kjøres igjen på de samme svarene", async () => {
+    const tmp = ny();
+    tmper.push(tmp);
+    await kjorI(tmp, ["9998", "9997"]);
+    const filer = ["fiskvik", "testnes"].map((s) =>
+      readFileSync(join(tmp, "data", `${s}.json`), "utf8"),
+    );
+    const avvik = readdirSync(join(tmp, "avvik")).map((f) =>
+      readFileSync(join(tmp, "avvik", f), "utf8"),
+    );
+    await kjorI(tmp, ["9997", "9998"]);
+    expect(
+      ["fiskvik", "testnes"].map((s) => readFileSync(join(tmp, "data", `${s}.json`), "utf8")),
+    ).toEqual(filer);
+    expect(
+      readdirSync(join(tmp, "avvik")).map((f) => readFileSync(join(tmp, "avvik", f), "utf8")),
+    ).toEqual(avvik);
+    for (const dato of fodselsdatoer(mappe))
+      for (const t of [...filer, ...avvik]) expect(t).not.toContain(dato);
   });
 });
 
@@ -637,7 +1065,8 @@ describe("Tromsø (ekte grunnlag, syntetiske svar)", () => {
   });
   afterAll(() => rmSync(tmp, { recursive: true, force: true }));
 
-  const rolle = (org: string, person: string) => d.roller.find((r) => r.org === org && r.person === person);
+  const rolle = (org: string, person: string) =>
+    d.roller.find((r) => r.org === org && r.person === person);
 
   it("bekrefter daglig leder og styreleder i Troms Kraft og kommunedirektøren", () => {
     for (const [org, person] of [
@@ -652,29 +1081,44 @@ describe("Tromsø (ekte grunnlag, syntetiske svar)", () => {
       });
     }
     // Rollen som er avsluttet i grunnlaget, røres ikke.
-    const avsluttet = d.roller.find((r) => r.org === "troms-kraft" && r.person === "inge-k-hansen")!;
-    expect(avsluttet).toEqual(foer.roller.find((r) => r.org === "troms-kraft" && r.person === "inge-k-hansen"));
+    const avsluttet = d.roller.find(
+      (r) => r.org === "troms-kraft" && r.person === "inge-k-hansen",
+    )!;
+    expect(avsluttet).toEqual(
+      foer.roller.find((r) => r.org === "troms-kraft" && r.person === "inge-k-hansen"),
+    );
   });
 
   it("melder nestlederen som avvik når registeret har henne som styremedlem", () => {
     expect(rolle("troms-kraft", "kathrine-tveiteras")?.belegg.verifisering).not.toBe("verifisert");
-    expect(rapport).toMatch(/troms-kraft: nestleder \| Kathrine Tveiterås .*Ingen nestleder registrert\. Kathrine Tveiterås står som styremedlem/);
+    expect(rapport).toMatch(
+      /troms-kraft: nestleder \| Kathrine Tveiterås .*Ingen nestleder registrert\. Kathrine Tveiterås står som styremedlem/,
+    );
     // Og styremedlemsrollen fra registeret er lagt til på samme person.
     expect(d.roller).toContainEqual(
-      expect.objectContaining({ org: "troms-kraft", person: "kathrine-tveiteras", rolletype: "styremedlem" }),
+      expect.objectContaining({
+        org: "troms-kraft",
+        person: "kathrine-tveiteras",
+        rolletype: "styremedlem",
+      }),
     );
   });
 
   it("bekrefter egenkapitalen og lar konserntallet stå", () => {
-    const ek = d.nokkeltall.find((n) => n.org === "troms-kraft" && n.type === "egenkapital" && n.aar === 2025)!;
+    const ek = d.nokkeltall.find(
+      (n) => n.org === "troms-kraft" && n.type === "egenkapital" && n.aar === 2025,
+    )!;
     expect(ek.belegg.verifisering).toBe("verifisert");
-    const konsern = d.nokkeltall.find((n) => n.org === "troms-kraft" && n.type === "aarsresultat" && n.konsern === true)!;
+    const konsern = d.nokkeltall.find(
+      (n) => n.org === "troms-kraft" && n.type === "aarsresultat" && n.konsern === true,
+    )!;
     expect(konsern.belegg.verifisering).toBe("maa_verifiseres");
   });
 
   it("er fortsatt gyldig etter samle.ts og datasett-reglene", () => {
     expect(valider(samle([{ slug: "tromso", data: d }]))).toEqual([]);
     expect(regelbrudd(d)).toEqual([]);
-    for (const dato of fodselsdatoer(mappe)) expect(JSON.stringify(d) + rapport).not.toContain(dato);
+    for (const dato of fodselsdatoer(mappe))
+      expect(JSON.stringify(d) + rapport).not.toContain(dato);
   });
 });

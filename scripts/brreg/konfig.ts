@@ -12,6 +12,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import type { Nivaa, Organtype, Segment } from "../../src/data/types";
+import type { Utvalgsregel } from "./hent";
 import { NIVAAER, ORGANTYPER } from "../../src/lib/data/kontrakt";
 
 export const ROT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -32,11 +33,15 @@ export interface Felleskonfig {
   sensitiv_naering: { prefiks: string; krav: string; organtype: Organtype }[];
   /** Ord i organnavn som skal skrives slik, ikke med stor forbokstav. */
   navneformer: Record<string, string>;
+  /** Utvalgsregelen for kommuner som ikke overstyrer den. Se `velgUtvalg`. */
+  utvalg: Utvalgsregel;
+  /** Fylkesnavn når regionregisteret ikke har fylket. */
+  fylker: Record<string, string>;
 }
 
 export interface Kommunekonfig {
   kommunenr: string;
-  /** `fraAntallAnsatte` for enheter. Minst 5, se MIN_TERSKEL. */
+  /** Kandidater: `fraAntallAnsatte` for enheter. Minst 5, se MIN_TERSKEL. */
   terskel_ansatte: number;
   terskel_underenheter: number;
   /** Hent roller også for overordnede enheter utenfor kommunen (nasjonale styrer). */
@@ -53,6 +58,13 @@ export interface Kommunekonfig {
   koblinger: Record<string, string>;
   /** Importert personnøkkel → personnøkkel i grunnlaget, etter menneskelig vurdering. */
   samme_person: Record<string, string>;
+  /**
+   * Importerte personnøkler et menneske har sett er en annen person enn
+   * navnebroren i grunnlaget. Uten dette holdes en navnebror tilbake.
+   */
+  ulik_person: string[];
+  /** Hvem av kandidatene som kommer med. */
+  utvalg: Utvalgsregel;
 }
 
 export interface Konfig {
@@ -95,7 +107,7 @@ const feil = (hvor: string, hva: string): never => {
   throw new Error(`${hvor}: ${hva}`);
 };
 
-function kommune(nr: string, k: Partial<Kommunekonfig>): Kommunekonfig {
+function kommune(nr: string, k: Partial<Kommunekonfig>, standard: Utvalgsregel): Kommunekonfig {
   const hvor = `brreg.config.json kommuner.${nr}`;
   if (!/^\d{4}$/.test(nr)) feil(hvor, "kommunenummeret må ha fire siffer");
   const terskel = k.terskel_ansatte ?? 20;
@@ -128,6 +140,8 @@ function kommune(nr: string, k: Partial<Kommunekonfig>): Kommunekonfig {
     },
     koblinger: { ...(k.koblinger ?? {}) },
     samme_person: { ...(k.samme_person ?? {}) },
+    ulik_person: [...(k.ulik_person ?? [])],
+    utvalg: { ...standard, ...(k.utvalg ?? {}) },
   };
 }
 
@@ -142,6 +156,8 @@ export function tolkKonfig(json: unknown): Konfig {
     sensitiv_navn: f.sensitiv_navn ?? [],
     sensitiv_naering: f.sensitiv_naering ?? [],
     navneformer: f.navneformer ?? {},
+    utvalg: { ansatte: 50, omsetning_nok: 100_000_000, topp_ansatte: 10, ...(f.utvalg ?? {}) },
+    fylker: f.fylker ?? {},
   };
   if (felles.sidestorrelse < 1 || felles.sidestorrelse > 10_000)
     feil("brreg.config.json felles", "sidestorrelse må være 1–10 000");
@@ -151,8 +167,13 @@ export function tolkKonfig(json: unknown): Konfig {
   }
   const kommuner: Record<string, Kommunekonfig> = {};
   for (const [nr, k] of Object.entries(o.kommuner ?? {}))
-    kommuner[nr] = kommune(nr, k as Partial<Kommunekonfig>);
+    kommuner[nr] = kommune(nr, k as Partial<Kommunekonfig>, felles.utvalg);
   return { felles, kommuner };
+}
+
+/** Konfigurasjonen for en kommune, eller standardverdiene når den ikke står i fila. */
+export function kommunekonfig(k: Konfig, nr: string): Kommunekonfig {
+  return k.kommuner[nr] ?? kommune(nr, {}, k.felles.utvalg);
 }
 
 export function tolkTabeller(naering: unknown, orgform: unknown): Tabeller {

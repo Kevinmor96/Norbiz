@@ -36,7 +36,13 @@ import type {
 } from "../../src/data/types";
 import { nokkel } from "../../src/lib/data/samle";
 import type { Enhet, Naering, Oyeblikksbilde, Rolle, Rollekode, Underenhet } from "./hent";
-import { segmentFor, type Felleskonfig, type Kommunekonfig, type OrgformRegel, type Tabeller } from "./konfig";
+import {
+  segmentFor,
+  type Felleskonfig,
+  type Kommunekonfig,
+  type OrgformRegel,
+  type Tabeller,
+} from "./konfig";
 import { fold, navnKanVaereSamme, orgNavnNokkel, pentOrgNavn, sammeNavn, slug } from "./tekst";
 
 // ---------------------------------------------------------------------------
@@ -121,12 +127,22 @@ const TALLTYPER = ["omsetning", "driftsresultat", "aarsresultat", "egenkapital"]
 
 export interface ImportInn {
   datasett: Kommunedatasett;
+  /** Filnavnet uten .json. */
+  slug: string;
   bilde: Oyeblikksbilde;
   konfig: Kommunekonfig;
   felles: Felleskonfig;
   tabeller: Tabeller;
-  /** De andre kommunedatasettene, for nøkler som må være unike på tvers. */
-  andre: Kommunedatasett[];
+  /** De andre kommunedatasettene, med slug. Felles organer må være like i alle. */
+  andre: { slug: string; data: Kommunedatasett }[];
+  /** Slugene til kommunene i denne kjøringen. Deres importerte personer regnes ut på nytt. */
+  kjoringen?: Set<string>;
+  /**
+   * Personnøkler per pid fra kommunene som allerede er importert i denne
+   * kjøringen, og grunnlagskoblingene fra alle. Samme person får samme nøkkel
+   * i hver kommune.
+   */
+  personregister?: Map<string, Person>;
 }
 
 export type Avvikskategori =
@@ -155,6 +171,7 @@ export interface Oppsummering {
     enheterIKommunen: number;
     underenheterMedForelderUtenfor: number;
     alltidMed: number;
+    iUtvalget: number;
     rollelister: number;
     regnskap: number;
     ikkeFunnet: number;
@@ -177,6 +194,8 @@ export interface Oppsummering {
     enhetsroller: number;
     sensitive: number;
     orgform: number;
+    /** Registerpersoner med samme navn som en person i grunnlaget, uten felles organ. */
+    navnebror: number;
     navnITekst: number;
   };
   avvik: number;
@@ -186,6 +205,12 @@ export interface ImportUt {
   datasett: Kommunedatasett;
   avvik: Avvik[];
   oppsummering: Oppsummering;
+  /** Andre kommunedatasett som måtte endres: felles organer fikk den kanoniske raden. */
+  andreOppdatert: Map<string, Kommunedatasett>;
+  /** pid → grunnlagets person, for pidene som ble koblet til grunnlaget her. */
+  personlenker: Map<string, Person>;
+  /** pid → person for hver registerperson datasettet viser til. */
+  personnokler: Map<string, Person>;
 }
 
 // ---------------------------------------------------------------------------
@@ -202,7 +227,10 @@ export function sensitivType(navn: string, naering: Naering[], f: Felleskonfig):
   for (const r of f.sensitiv_navn) if (new RegExp(r.monster).test(n)) return r.organtype;
   for (const r of f.sensitiv_naering) {
     for (const k of naering) {
-      if (k.kode.startsWith(r.prefiks) && new RegExp(r.krav, "i").test(k.tittel.toLocaleLowerCase("nb")))
+      if (
+        k.kode.startsWith(r.prefiks) &&
+        new RegExp(r.krav, "i").test(k.tittel.toLocaleLowerCase("nb"))
+      )
         return r.organtype;
     }
   }
@@ -230,16 +258,21 @@ function nuller(v: number): number {
 export function sammeTall(grunnlag: number, register: number): boolean {
   if (grunnlag === register) return true;
   if (Math.sign(grunnlag) !== Math.sign(register)) return false;
-  const toleranse = Math.max(0.5, Math.min(0.5 * 10 ** nuller(grunnlag), 0.005 * Math.abs(grunnlag)));
+  const toleranse = Math.max(
+    0.5,
+    Math.min(0.5 * 10 ** nuller(grunnlag), 0.005 * Math.abs(grunnlag)),
+  );
   return Math.abs(grunnlag - register) <= toleranse;
 }
 
 const kr = (v: number) => `${new Intl.NumberFormat("nb-NO").format(v).replace(/ /g, " ")} kr`;
 
 /** Samme sjekk som «lenker hver tekst som nevner en person ved navn» i datasett-testen. */
-export function navneBrudd(
-  d: Kommunedatasett,
-): { eier: "organisasjon" | "rolle" | "relasjon" | "nokkeltall" | "hendelse" | "prosess" | "hull"; nokkel: string; person: string }[] {
+export function navneBrudd(d: Kommunedatasett): {
+  eier: "organisasjon" | "rolle" | "relasjon" | "nokkeltall" | "hendelse" | "prosess" | "hull";
+  nokkel: string;
+  person: string;
+}[] {
   const personer = d.personer.map((p) => ({ key: p.key, navn: fold(p.navn) }));
   const ut: ReturnType<typeof navneBrudd> = [];
   const sjekk = (
@@ -250,10 +283,13 @@ export function navneBrudd(
   ) => {
     const t = fold(tekster.filter(Boolean).join(" "));
     for (const p of personer)
-      if (t.includes(p.navn) && !lenket.includes(p.key)) ut.push({ eier, nokkel: nok, person: p.key });
+      if (t.includes(p.navn) && !lenket.includes(p.key))
+        ut.push({ eier, nokkel: nok, person: p.key });
   };
-  for (const o of d.organisasjoner) sjekk("organisasjon", o.key, [o.navn, o.beskrivelse, o.belegg.merknad], []);
-  for (const r of d.roller) sjekk("rolle", nokkel.rolle(r), [r.tittel, r.belegg.merknad], [r.person]);
+  for (const o of d.organisasjoner)
+    sjekk("organisasjon", o.key, [o.navn, o.beskrivelse, o.belegg.merknad], []);
+  for (const r of d.roller)
+    sjekk("rolle", nokkel.rolle(r), [r.tittel, r.belegg.merknad], [r.person]);
   for (const r of d.relasjoner) sjekk("relasjon", nokkel.relasjon(r), [r.belegg.merknad], []);
   for (const n of d.nokkeltall) sjekk("nokkeltall", nokkel.nokkeltall(n), [n.belegg.merknad], []);
   for (const h of d.hendelser)
@@ -274,9 +310,6 @@ interface Ledd {
   orgnr: string;
   navn: string;
   type: "enhet" | "underenhet";
-  enhet?: Enhet;
-  underenhet?: Underenhet;
-  forelder?: Enhet;
 }
 
 interface Figur {
@@ -287,7 +320,6 @@ interface Figur {
   verdi: number;
   merknad: string;
   matchet: boolean;
-  sperret: boolean;
 }
 
 interface Rolleorgan {
@@ -295,67 +327,125 @@ interface Rolleorgan {
   enhet: Enhet;
   sensitiv: boolean;
   organtype: Organtype;
+  /** Datasettet eier organet: bare da lages roller, regnskap og styreplasser. */
+  eier: boolean;
   personroller: Rolle[];
   styreplasser: Rolle[];
+}
+
+const json = (x: unknown) => JSON.stringify(x);
+
+/**
+ * Organnøklene et datasett viser til fra andre rader enn organraden,
+ * segmentene og overordnet-relasjonene. Med `bareGrunnlag` telles bare
+ * grunnlagets rader, ikke importørens.
+ */
+function henvisninger(d: Kommunedatasett, bareGrunnlag = false): Set<string> {
+  const ok = (b: Belegg) =>
+    !bareGrunnlag ||
+    !(
+      b.verifisering === "verifisert" &&
+      BRREG_KILDER.has(b.kilde) &&
+      !(b.merknad ?? "").startsWith(BEKREFTER)
+    );
+  return new Set([
+    ...d.roller.filter((r) => ok(r.belegg)).map((r) => r.org),
+    ...d.relasjoner
+      .filter((r) => r.type !== "overordnet" && ok(r.belegg))
+      .flatMap((r) => [r.fra, r.til]),
+    ...d.nokkeltall.filter((n) => ok(n.belegg)).map((n) => n.org),
+    ...d.hendelser.flatMap((h) => (h.org ? [h.org] : [])),
+    ...d.prosesser.flatMap((p) => p.steg.map((s) => s.org)),
+    ...d.hull.filter((h) => !bareGrunnlag || h.hvorfor !== VALUTA_HVORFOR).map((h) => h.gjelder),
+  ]);
 }
 
 export function importer(inn: ImportInn): ImportUt {
   const { bilde: S, konfig: K, felles: F, tabeller: T } = inn;
   const D: Kommunedatasett = structuredClone(inn.datasett);
+  const andre = [...inn.andre].sort((a, b) => cmp(a.slug, b.slug));
+  const kjoringen = inn.kjoringen ?? new Set<string>();
+  const register = inn.personregister ?? new Map<string, Person>();
   const dato = S.hentet;
   const sammenstiltAar = Number(D.meta.sammenstilt.slice(0, 4));
   const avvik: Avvik[] = [];
   const nyttAvvik = (a: Avvik) => avvik.push(a);
-  const kildenavn = (key: string) => D.kilder.find((k) => k.key === key)?.navn ?? key;
+  const alleKilder = new Map<string, Kilde>();
+  for (const a of andre)
+    for (const k of a.data.kilder) if (!alleKilder.has(k.key)) alleKilder.set(k.key, k);
+  for (const k of D.kilder) alleKilder.set(k.key, k);
+  const kildenavn = (key: string) => alleKilder.get(key)?.navn ?? key;
   const hopp = {
     fratradt: 0,
     doed: 0,
-    andreRoller: inn.bilde.forkastet.andreRoller,
+    andreRoller: S.forkastet.andreRoller,
     enhetsroller: 0,
     sensitive: 0,
     orgform: 0,
+    navnebror: 0,
     navnITekst: 0,
   };
   const blokkert = new Set<string>();
 
-  // --- 1. Del datasettet i grunnlag og importørens egne rader -------------
+  // --- 1. Del datasettet i grunnlag, importørens rader og kopier ----------
 
   const erEid = (b: Belegg) => b.verifisering === "verifisert" && BRREG_KILDER.has(b.kilde);
   const erOppgradert = (b: Belegg) => erEid(b) && (b.merknad ?? "").startsWith(BEKREFTER);
   const erGenerert = (b: Belegg) => erEid(b) && !erOppgradert(b);
   const erGenerertHull = (h: Hull) => h.hvorfor === VALUTA_HVORFOR;
 
+  // Grunnlagsrader fra et annet datasett, kopiert hit fordi et organ her viser
+  // til dem (en underenhet her med forelder i grunnlaget der). En kopi er lik
+  // raden i originalen, og datasettet her har ingen egne rader om den. Kopier
+  // hentes på nytt fra originalen ved hver kjøring.
+  const originaler = new Map<string, { slug: string; org: Organisasjon }>(); // key → original
+  for (const a of andre) {
+    const ref = henvisninger(a.data);
+    for (const o of a.data.organisasjoner) {
+      if (erGenerert(o.belegg) || originaler.has(o.key)) continue;
+      if (ref.has(o.key) || (o.kommunenr !== undefined && o.kommunenr === a.data.meta.kommunenr))
+        originaler.set(o.key, { slug: a.slug, org: o });
+    }
+  }
+  const egneRef = henvisninger(D, true);
+  const kopier = new Set(
+    D.organisasjoner
+      .filter((o) => !erGenerert(o.belegg) && !egneRef.has(o.key))
+      .filter((o) => {
+        const orig = originaler.get(o.key);
+        return orig !== undefined && json(orig.org) === json(o);
+      })
+      .map((o) => o.key),
+  );
+  // En kopi som et eget organ viser til som overordnet, er ikke en kopi.
+  for (let endret = true; endret;) {
+    endret = false;
+    for (const o of D.organisasjoner) {
+      if (o.overordnet && kopier.has(o.overordnet) && !kopier.has(o.key) && !erGenerert(o.belegg)) {
+        kopier.delete(o.overordnet);
+        endret = true;
+      }
+    }
+  }
+
   const gamleOrg = D.organisasjoner.filter((o) => erGenerert(o.belegg));
   const gamleOrgKeys = new Set(gamleOrg.map((o) => o.key));
-  const tidligereKey = new Map(gamleOrg.flatMap((o) => (o.orgnr ? [[o.orgnr, o.key] as const] : [])));
+  const tidligereKey = new Map(
+    gamleOrg.flatMap((o) => (o.orgnr ? [[o.orgnr, o.key] as const] : [])),
+  );
+  const utenfor = (key: string) => gamleOrgKeys.has(key) || kopier.has(key);
 
-  const gOrg = D.organisasjoner.filter((o) => !erGenerert(o.belegg));
+  const gOrg = D.organisasjoner.filter((o) => !utenfor(o.key));
   const gOrgKeys = new Set(gOrg.map((o) => o.key));
   let gRoller = D.roller.filter((r) => !erGenerert(r.belegg));
-  const gRel = D.relasjoner.filter((r) => !erGenerert(r.belegg));
+  const gRel = D.relasjoner.filter(
+    (r) => !erGenerert(r.belegg) && !(r.type === "overordnet" && kopier.has(r.fra)),
+  );
   let gTall = D.nokkeltall.filter((n) => !erGenerert(n.belegg));
-  const gSeg = D.org_segment.filter((s) => !gamleOrgKeys.has(s.org));
+  const gSeg = D.org_segment.filter((s) => !utenfor(s.org));
   const gHull = D.hull.filter((h) => !erGenerertHull(h));
   const gamleTall = D.nokkeltall.filter((n) => erGenerert(n.belegg));
   const gamleHull = D.hull.filter(erGenerertHull);
-
-  const viserTil = [
-    ...gRoller.map((r) => r.org),
-    ...gRel.flatMap((r) => [r.fra, r.til]),
-    ...gTall.map((n) => n.org),
-    ...D.hendelser.flatMap((h) => (h.org ? [h.org] : [])),
-    ...D.prosesser.flatMap((p) => p.steg.map((s) => s.org)),
-    ...gSeg.map((s) => s.org),
-    ...gHull.map((h) => h.gjelder),
-    ...gOrg.flatMap((o) => (o.overordnet ? [o.overordnet] : [])),
-  ];
-  const ulovlig = [...new Set(viserTil.filter((k) => gamleOrgKeys.has(k)))].sort();
-  if (ulovlig.length > 0) {
-    throw new Error(
-      `Grunnlaget viser til organer importøren eier: ${ulovlig.join(", ")}. ` +
-        "Gjør organet til en grunnlagsrad (bytt belegg) før du viser til det, ellers kan det forsvinne ved neste kjøring.",
-    );
-  }
 
   const gPersonKeys = new Set([
     ...gRoller.map((r) => r.person),
@@ -365,29 +455,56 @@ export function importer(inn: ImportInn): ImportUt {
   const gPersoner = D.personer.filter((p) => gPersonKeys.has(p.key));
   const personnavn = new Map(gPersoner.map((p) => [p.key, p.navn]));
 
-  const andreOrgKey = new Map<string, string>();
+  // De andre datasettene: organer per orgnr, og personnøkler som er tatt.
   const andreOrgKeys = new Set<string>();
-  const andrePersonKeys = new Set<string>();
-  for (const a of inn.andre) {
-    for (const o of a.organisasjoner) {
+  const andreGrunn = new Map<string, { slug: string; org: Organisasjon }>(); // orgnr → grunnlagsrad
+  const andreGenerert = new Map<string, { slug: string; org: Organisasjon; seg: OrgSegment[] }>();
+  const tattePersoner = new Set<string>();
+  for (const a of andre) {
+    for (const o of a.data.organisasjoner) {
       andreOrgKeys.add(o.key);
-      if (o.orgnr) andreOrgKey.set(o.orgnr, o.key);
+      if (!o.orgnr) continue;
+      if (erGenerert(o.belegg)) {
+        if (!andreGenerert.has(o.orgnr))
+          andreGenerert.set(o.orgnr, {
+            slug: a.slug,
+            org: o,
+            seg: a.data.org_segment.filter((s) => s.org === o.key),
+          });
+      } else {
+        const orig = originaler.get(o.key);
+        if (!andreGrunn.has(o.orgnr) || orig?.slug === a.slug)
+          andreGrunn.set(o.orgnr, { slug: a.slug, org: o });
+      }
     }
-    for (const p of a.personer) andrePersonKeys.add(p.key);
+    // Personer i en kommune i samme kjøring regnes ut på nytt, bortsett fra grunnlagets.
+    const grunnPers = new Set([
+      ...a.data.roller.filter((r) => !erGenerert(r.belegg)).map((r) => r.person),
+      ...a.data.hendelser.flatMap((h) => h.personer ?? []),
+      ...a.data.hull.flatMap((h) => h.personer ?? []),
+    ]);
+    for (const p of a.data.personer)
+      if (!kjoringen.has(a.slug) || grunnPers.has(p.key)) tattePersoner.add(p.key);
   }
+  const slugForKommune = new Map<string, string>([
+    ...andre.map((a) => [a.data.meta.kommunenr, a.slug] as const),
+    [K.kommunenr, inn.slug],
+  ]);
 
-  // --- 2. Enhetene i utvalget ---------------------------------------------
+  // --- 2. Utvalget -----------------------------------------------------------
 
   const enhet = (orgnr: string | null | undefined): Enhet | undefined =>
     orgnr ? S.enheter[orgnr] : undefined;
+  const grunner = (orgnr: string) => S.utvalg[orgnr] ?? [];
   const e1 = [...new Set([...S.iKommunen, ...S.alltid])]
+    .filter((o) => S.utvalg[o] !== undefined)
     .sort()
     .flatMap((o) => (enhet(o) ? [enhet(o)!] : []));
   const e1Orgnr = new Set(e1.map((e) => e.orgnr));
 
   const ue: { u: Underenhet; forelder: Enhet }[] = [];
   for (const u of sortert(S.underenheter, (x) => x.orgnr)) {
-    if (u.nedlagt) continue;
+    if (u.nedlagt || S.utvalg[u.orgnr] === undefined) continue;
     const f = enhet(u.overordnet);
     if (!f) {
       nyttAvvik({
@@ -402,6 +519,7 @@ export function importer(inn: ImportInn): ImportUt {
     if (f.kommunenr === K.kommunenr || f.slettet) continue;
     ue.push({ u, forelder: f });
   }
+  const ueOrgnr = new Set(ue.map((x) => x.u.orgnr));
 
   // --- 3. Kobling til grunnlagets organer ----------------------------------
 
@@ -421,21 +539,25 @@ export function importer(inn: ImportInn): ImportUt {
   const styreeiere = new Set<string>();
   for (const e of e1) {
     for (const r of S.roller[e.orgnr] ?? []) {
-      if (r.enhet && !r.enhet.slettet && (r.kode === "LEDE" || r.kode === "NEST" || r.kode === "MEDL"))
+      if (
+        r.enhet &&
+        !r.enhet.slettet &&
+        (r.kode === "LEDE" || r.kode === "NEST" || r.kode === "MEDL")
+      )
         styreeiere.add(r.enhet.orgnr);
     }
   }
 
   const ledd = new Map<string, Ledd>();
-  for (const e of e1) ledd.set(e.orgnr, { orgnr: e.orgnr, navn: e.navn, type: "enhet", enhet: e });
+  for (const e of e1) ledd.set(e.orgnr, { orgnr: e.orgnr, navn: e.navn, type: "enhet" });
   for (const { u, forelder } of ue) {
-    ledd.set(u.orgnr, { orgnr: u.orgnr, navn: u.navn, type: "underenhet", underenhet: u, forelder });
+    ledd.set(u.orgnr, { orgnr: u.orgnr, navn: u.navn, type: "underenhet" });
     if (!ledd.has(forelder.orgnr))
-      ledd.set(forelder.orgnr, { orgnr: forelder.orgnr, navn: forelder.navn, type: "enhet", enhet: forelder });
+      ledd.set(forelder.orgnr, { orgnr: forelder.orgnr, navn: forelder.navn, type: "enhet" });
   }
   for (const orgnr of styreeiere) {
     const e = enhet(orgnr);
-    if (e && !ledd.has(orgnr)) ledd.set(orgnr, { orgnr, navn: e.navn, type: "enhet", enhet: e });
+    if (e && !ledd.has(orgnr)) ledd.set(orgnr, { orgnr, navn: e.navn, type: "enhet" });
   }
 
   // Navnekobling: grunnlagets organer uten orgnr, eksakt likt navn, ett treff.
@@ -453,10 +575,22 @@ export function importer(inn: ImportInn): ImportUt {
     koblingsgrupper.set(n, [...(koblingsgrupper.get(n) ?? []), l]);
   }
   const kobletPaaNavn = new Set<string>();
+  const heltNavn = (t: string) =>
+    fold(t)
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim();
   for (const [n, gruppe] of sortert([...koblingsgrupper], ([n]) => n)) {
-    const kandidater = navnIndeks.get(n) ?? [];
+    let kandidater = navnIndeks.get(n) ?? [];
     const enh = gruppe.filter((l) => l.type === "enhet");
-    const valgt = enh.length === 1 ? enh[0] : enh.length === 0 && gruppe.length === 1 ? gruppe[0] : undefined;
+    const valgt =
+      enh.length === 1 ? enh[0] : enh.length === 0 && gruppe.length === 1 ? gruppe[0] : undefined;
+    // «Tromsøbadet AS» og «Tromsøbadet KF» har samme stamme; da avgjør selskapsformen.
+    if (kandidater.length > 1 && valgt) {
+      const presis = kandidater.filter(
+        (k) => heltNavn(gOrg.find((o) => o.key === k)?.navn ?? "") === heltNavn(valgt.navn),
+      );
+      if (presis.length === 1) kandidater = presis;
+    }
     const [grunnKey] = kandidater;
     if (kandidater.length !== 1 || !valgt || !grunnKey) {
       nyttAvvik({
@@ -480,7 +614,7 @@ export function importer(inn: ImportInn): ImportUt {
     });
   }
 
-  // --- 4. Hvilke enheter tas med, og med hvilken nøkkel --------------------
+  // --- 4. Hvilke enheter tas med, med hvilken nøkkel, og hvem eier dem ------
 
   const formRegel = (e: Enhet): OrgformRegel | "hopp" | null =>
     T.orgform.hoppes_over[e.orgform] !== undefined ? "hopp" : (T.orgform.former[e.orgform] ?? null);
@@ -495,7 +629,9 @@ export function importer(inn: ImportInn): ImportUt {
     if (r === null) {
       umappet.set(
         e.orgform,
-        (umappet.get(e.orgform) ?? new Set()).add(`${pentOrgNavn(e.navn, F.navneformer)} (${e.orgnr})`),
+        (umappet.get(e.orgform) ?? new Set()).add(
+          `${pentOrgNavn(e.navn, F.navneformer)} (${e.orgnr})`,
+        ),
       );
       return false;
     }
@@ -504,52 +640,81 @@ export function importer(inn: ImportInn): ImportUt {
 
   const grunnOrg = (key: string) => gOrg.find((o) => o.key === key);
   const nokkelFor = new Map<string, string>(); // orgnr → key, for alt som er med
+  /** Grunnlagsrader fra et annet datasett som kopieres hit. orgnr → original. */
+  const kopiPaaOrgnr = new Map<string, { slug: string; org: Organisasjon }>();
   const nyeEnheter: Enhet[] = [];
   const nyeUnderenheter: { u: Underenhet; forelder: Enhet }[] = [];
+  const kontekst = new Map<string, Set<string>>(); // orgnr → «overordnet», «styreplass»
 
-  for (const e of e1) {
+  /** Et organ som ikke er grunnlagets her: grunnlagsrad i et annet datasett, eller ny. */
+  const taMed = (e: Enhet, hvorfor?: string): boolean => {
+    if (hvorfor) kontekst.set(e.orgnr, (kontekst.get(e.orgnr) ?? new Set()).add(hvorfor));
     const g = grunnPaaOrgnr.get(e.orgnr);
-    if (g) nokkelFor.set(e.orgnr, g);
-    else if (!e.slettet && kanLages(e)) nyeEnheter.push(e);
-  }
-  const trengerForelder = new Set<string>();
+    if (g) {
+      nokkelFor.set(e.orgnr, g);
+      return true;
+    }
+    const annet = andreGrunn.get(e.orgnr);
+    if (annet) {
+      nokkelFor.set(e.orgnr, annet.org.key);
+      kopiPaaOrgnr.set(e.orgnr, annet);
+      return true;
+    }
+    if (nyeEnheter.some((x) => x.orgnr === e.orgnr)) return true;
+    if (e.slettet || !kanLages(e)) return false;
+    nyeEnheter.push(e);
+    return true;
+  };
+
+  for (const e of e1) taMed(e);
   for (const x of ue) {
     if (grunnPaaOrgnr.has(x.u.orgnr)) {
       nokkelFor.set(x.u.orgnr, grunnPaaOrgnr.get(x.u.orgnr)!);
       continue;
     }
-    const f = x.forelder.orgnr;
-    const forelderMed =
-      grunnPaaOrgnr.has(f) ||
-      nyeEnheter.some((e) => e.orgnr === f) ||
-      (!e1Orgnr.has(f) && kanLages(x.forelder));
-    if (forelderMed) {
-      nyeUnderenheter.push(x);
-      trengerForelder.add(x.forelder.orgnr);
-    }
-  }
-  for (const orgnr of [...trengerForelder].sort()) {
-    const g = grunnPaaOrgnr.get(orgnr);
-    if (g) nokkelFor.set(orgnr, g);
-    else if (!nyeEnheter.some((e) => e.orgnr === orgnr)) nyeEnheter.push(enhet(orgnr)!);
+    const f = x.forelder;
+    const forelderMed = e1Orgnr.has(f.orgnr)
+      ? nokkelFor.has(f.orgnr) || nyeEnheter.includes(f)
+      : taMed(f, "overordnet");
+    if (forelderMed) nyeUnderenheter.push(x);
   }
 
-  // Sensitivitet og rolleorganer, før styreeierne tas med.
   const erSensitiv = (orgnr: string, e: Enhet): boolean => {
     const g = grunnPaaOrgnr.get(orgnr);
-    return (g !== undefined && grunnOrg(g)?.sensitiv === true) || sensitivType(e.navn, e.naering, F) !== null;
+    const k = kopiPaaOrgnr.get(orgnr);
+    return (
+      (g !== undefined && grunnOrg(g)?.sensitiv === true) ||
+      k?.org.sensitiv === true ||
+      sensitivType(e.navn, e.naering, F) !== null
+    );
   };
-  const medRoller = e1.filter((e) => grunnPaaOrgnr.has(e.orgnr) || nyeEnheter.includes(e));
+  const lokasjon = (orgnr: string): string | null =>
+    ueOrgnr.has(orgnr) ? K.kommunenr : (enhet(orgnr)?.kommunenr ?? null);
+  /**
+   * Datasettet som eier organet, og som alene fører rollene, regnskapet og
+   * styreplassene: kommunen organet ligger i, når den har et datasett. Ellers
+   * datasettet der organet er grunnlag. Ellers ingen.
+   */
+  const eier = (orgnr: string): string | null => {
+    const lok = lokasjon(orgnr);
+    const hjem = lok ? slugForKommune.get(lok) : undefined;
+    if (hjem) return hjem;
+    if (grunnPaaOrgnr.has(orgnr)) return inn.slug;
+    const k = kopiPaaOrgnr.get(orgnr) ?? andreGrunn.get(orgnr);
+    if (k) return k.slug;
+    if (K.roller_for_overordnede && kontekst.get(orgnr)?.has("overordnet")) return inn.slug;
+    return null;
+  };
+  const eierHer = (orgnr: string) => eier(orgnr) === inn.slug;
+
+  const medRoller = e1.filter((e) => nokkelFor.has(e.orgnr) || nyeEnheter.includes(e));
   for (const e of medRoller) {
-    if (erSensitiv(e.orgnr, e)) continue;
+    if (erSensitiv(e.orgnr, e) || !eierHer(e.orgnr)) continue;
     for (const r of S.roller[e.orgnr] ?? []) {
       if (!r.enhet || r.enhet.slettet || r.fratradt || r.avregistrert) continue;
       if (r.kode !== "LEDE" && r.kode !== "NEST" && r.kode !== "MEDL") continue;
       const h = enhet(r.enhet.orgnr);
-      if (!h || h.slettet) continue;
-      const g = grunnPaaOrgnr.get(h.orgnr);
-      if (g) nokkelFor.set(h.orgnr, g);
-      else if (!nyeEnheter.some((x) => x.orgnr === h.orgnr) && kanLages(h)) nyeEnheter.push(h);
+      if (h && !h.slettet) taMed(h, "styreplass");
     }
   }
 
@@ -562,7 +727,7 @@ export function importer(inn: ImportInn): ImportUt {
   ].sort((a, b) => cmp(a.orgnr, b.orgnr));
   const tildelt = new Set<string>();
   for (const n of nye) {
-    const k = tidligereKey.get(n.orgnr) ?? andreOrgKey.get(n.orgnr);
+    const k = andreGenerert.get(n.orgnr)?.org.key ?? tidligereKey.get(n.orgnr);
     if (k && !gOrgKeys.has(k) && !tildelt.has(k)) {
       nokkelFor.set(n.orgnr, k);
       tildelt.add(k);
@@ -600,7 +765,8 @@ export function importer(inn: ImportInn): ImportUt {
           gjelder: `${n.kode} (${pentOrgNavn(navn, F.navneformer)}, ${orgnr})`,
           grunnlaget: `Tabellen venter «${a.tittel}» for ${a.prefiks} → ${a.segment}`,
           registeret: `«${n.tittel}»`,
-          tiltak: "Ikke gitt segment. Les hva koden heter i SN2025 og rett src/data/brreg/nace-segment.json.",
+          tiltak:
+            "Ikke gitt segment. Les hva koden heter i SN2025 og rett src/data/brreg/nace-segment.json.",
         });
       }
       if (segment) {
@@ -611,10 +777,27 @@ export function importer(inn: ImportInn): ImportUt {
     return [...ut].map(([segment, styrke]) => ({ segment, styrke }));
   };
 
+  /**
+   * Hvorfor organet er med, maskinlesbart først i merknaden: «Utvalg:
+   * ansatte>=50, omsetning>=100000000:2025.» For et organ i kommunen er det
+   * utvalgsregelen; for et organ utenfor er det sammenhengen (overordnet til en
+   * underenhet her, styreplass i et organ her, alltid med).
+   */
+  const utvalgsmerknad = (orgnr: string, status: string[]): string =>
+    [
+      `Utvalg: ${[...new Set([...grunner(orgnr), ...(kontekst.get(orgnr) ?? [])])].join(", ") || "–"}.`,
+      ...status,
+    ].join(" ");
+
   const nyeOrg: Organisasjon[] = [];
   const nyeSeg: OrgSegment[] = [];
   const nyeRel: Relasjon[] = [];
+  const kopiOrg: Organisasjon[] = [];
+  const kopiSeg: OrgSegment[] = [];
+  const kopiRel: Relasjon[] = [];
+  const kopiKilder = new Set<string>();
   const typeFor = new Map<string, Organtype>();
+  const kanoniske = new Map<string, { org: Organisasjon; seg: OrgSegment[] }>(); // key → rad dette datasettet eier
 
   const nivaaOgType = (e: Enhet) => {
     const r = formRegel(e) as OrgformRegel;
@@ -630,29 +813,56 @@ export function importer(inn: ImportInn): ImportUt {
     return { nivaa, organtype };
   };
 
+  // Grunnlagsrader fra andre datasett: raden, segmentene, kjeden av
+  // overordnede med relasjonene, og kildene, nøyaktig som i originalen.
+  const kopier_ = (slugA: string, org: Organisasjon) => {
+    const a = andre.find((x) => x.slug === slugA)!.data;
+    let o: Organisasjon | undefined = org;
+    while (o && !kopiOrg.some((x) => x.key === o!.key) && !gOrgKeys.has(o.key)) {
+      kopiOrg.push(o);
+      kopiKilder.add(o.belegg.kilde);
+      kopiSeg.push(...a.org_segment.filter((s) => s.org === o!.key));
+      if (!o.overordnet) break;
+      const rel = a.relasjoner.find(
+        (r) => r.type === "overordnet" && r.fra === o!.key && r.til === o!.overordnet,
+      );
+      if (rel) {
+        kopiRel.push(rel);
+        kopiKilder.add(rel.belegg.kilde);
+      }
+      o = a.organisasjoner.find((x) => x.key === o!.overordnet);
+    }
+  };
+  for (const [, k] of sortert([...kopiPaaOrgnr], ([o]) => o)) kopier_(k.slug, k.org);
+
   for (const e of sortert(nyeEnheter, (x) => x.orgnr)) {
     const key = nokkelFor.get(e.orgnr)!;
+    const hjemme = lokasjon(e.orgnr) === K.kommunenr;
+    const kjent = andreGenerert.get(e.orgnr);
+    // Et organ i en annen kommune tas med som den kanoniske raden derfra når den finnes.
+    if (!hjemme && kjent && kjent.org.key === key) {
+      nyeOrg.push(kjent.org);
+      nyeSeg.push(...kjent.seg);
+      typeFor.set(key, kjent.org.organtype);
+      continue;
+    }
     const { nivaa, organtype: grunntype } = nivaaOgType(e);
     const sens = sensitivType(e.navn, e.naering, F);
     const organtype = sens ?? grunntype;
     typeFor.set(key, organtype);
     const segmenter = sens ? [] : segmenterFor(e.naering, e.navn, e.orgnr);
-    const overordnet = e.overordnet ? nokkelFor.get(e.overordnet) : undefined;
     const nk = e.naering[0];
-    const merknad = [
+    const status = [
       e.slettet ? `Slettet i Enhetsregisteret ${e.slettet}.` : "",
       e.konkurs ? "Konkurs er registrert i Enhetsregisteret." : "",
       e.underAvvikling ? "Under avvikling ifølge Enhetsregisteret." : "",
-    ]
-      .filter(Boolean)
-      .join(" ");
+    ].filter(Boolean);
     const o: Organisasjon = {
       key,
       orgnr: e.orgnr,
       navn: pentOrgNavn(e.navn, F.navneformer),
       nivaa,
       organtype,
-      ...(overordnet && overordnet !== key ? { overordnet } : {}),
       ...(e.kommunenr ? { kommunenr: e.kommunenr } : {}),
       myndighet: [],
       segmenter: segmenter.map((s) => s.segment),
@@ -663,17 +873,22 @@ export function importer(inn: ImportInn): ImportUt {
       beskrivelse:
         `${e.orgformNavn ?? e.orgform} registrert i Enhetsregisteret` +
         (nk ? ` med næringskode ${nk.kode} «${nk.tittel}».` : "."),
-      belegg: beleggEnhet(merknad || undefined),
+      belegg: beleggEnhet(utvalgsmerknad(e.orgnr, status)),
     };
+    const seg = segmenter.map((s): OrgSegment => ({
+      org: key,
+      segment: s.segment,
+      styrke: s.styrke,
+    }));
     nyeOrg.push(o);
-    for (const s of segmenter) nyeSeg.push({ org: key, segment: s.segment, styrke: s.styrke });
-    if (o.overordnet) nyeRel.push({ fra: key, til: o.overordnet, type: "overordnet", belegg: beleggEnhet() });
+    nyeSeg.push(...seg);
+    if (hjemme) kanoniske.set(key, { org: o, seg });
   }
 
   for (const { u, forelder } of sortert(nyeUnderenheter, (x) => x.u.orgnr)) {
     const key = nokkelFor.get(u.orgnr)!;
     const fKey = nokkelFor.get(forelder.orgnr)!;
-    const fGrunn = grunnOrg(fKey);
+    const fGrunn = grunnOrg(fKey) ?? kopiOrg.find((o) => o.key === fKey);
     const fNy = nyeOrg.find((o) => o.key === fKey);
     const nivaa = fGrunn?.nivaa ?? fNy?.nivaa ?? "privat";
     const sens =
@@ -682,7 +897,7 @@ export function importer(inn: ImportInn): ImportUt {
     const organtype = sens ?? fGrunn?.organtype ?? fNy?.organtype ?? "AS";
     const segmenter = sens ? [] : segmenterFor(u.naering, u.navn, u.orgnr);
     const nk = u.naering[0];
-    nyeOrg.push({
+    const o: Organisasjon = {
       key,
       orgnr: u.orgnr,
       navn: pentOrgNavn(u.navn, F.navneformer),
@@ -698,9 +913,16 @@ export function importer(inn: ImportInn): ImportUt {
       beskrivelse:
         `Arbeidssted i ${D.meta.kommune} for ${fGrunn?.navn ?? fNy?.navn ?? pentOrgNavn(forelder.navn, F.navneformer)}` +
         (nk ? `, med næringskode ${nk.kode} «${nk.tittel}».` : "."),
-      belegg: beleggEnhet(),
-    });
-    for (const s of segmenter) nyeSeg.push({ org: key, segment: s.segment, styrke: s.styrke });
+      belegg: beleggEnhet(utvalgsmerknad(u.orgnr, [])),
+    };
+    const seg = segmenter.map((s): OrgSegment => ({
+      org: key,
+      segment: s.segment,
+      styrke: s.styrke,
+    }));
+    nyeOrg.push(o);
+    nyeSeg.push(...seg);
+    kanoniske.set(key, { org: o, seg });
     nyeRel.push({ fra: key, til: fKey, type: "overordnet", belegg: beleggEnhet() });
   }
 
@@ -788,7 +1010,8 @@ export function importer(inn: ImportInn): ImportUt {
     if (!key || !roller) continue;
     const g = grunnOrg(key);
     const sensitiv = erSensitiv(e.orgnr, e);
-    const organtype = g?.organtype ?? typeFor.get(key) ?? "AS";
+    const organtype =
+      g?.organtype ?? kopiPaaOrgnr.get(e.orgnr)?.org.organtype ?? typeFor.get(key) ?? "AS";
     const personroller: Rolle[] = [];
     const styreplasser: Rolle[] = [];
     for (const r of roller) {
@@ -801,7 +1024,8 @@ export function importer(inn: ImportInn): ImportUt {
         continue;
       }
       if (r.enhet) {
-        if (!sensitiv && (r.kode === "LEDE" || r.kode === "NEST" || r.kode === "MEDL")) styreplasser.push(r);
+        if (!sensitiv && (r.kode === "LEDE" || r.kode === "NEST" || r.kode === "MEDL"))
+          styreplasser.push(r);
         else hopp.enhetsroller++;
         continue;
       }
@@ -811,7 +1035,15 @@ export function importer(inn: ImportInn): ImportUt {
       }
       personroller.push(r);
     }
-    rolleorganer.push({ key, enhet: e, sensitiv, organtype, personroller, styreplasser });
+    rolleorganer.push({
+      key,
+      enhet: e,
+      sensitiv,
+      organtype,
+      eier: eierHer(e.orgnr),
+      personroller,
+      styreplasser,
+    });
   }
   const rolleorganPaaKey = new Map(rolleorganer.map((r) => [r.key, r]));
 
@@ -840,7 +1072,21 @@ export function importer(inn: ImportInn): ImportUt {
 
   gRoller.forEach((r, i) => {
     const kode = kodeFor(r.rolletype);
-    if (!kode) return;
+    if (!kode) {
+      // En rolle Brreg ikke fører (administrasjonsdirektør, prorektor): ikke noe å
+      // bekrefte, men samme navn i samme organ er samme person.
+      const ro = r.til === undefined ? rolleorganPaaKey.get(r.org) : undefined;
+      const navn = personnavn.get(r.person) ?? r.person;
+      const pids = [
+        ...new Set(
+          (ro?.personroller ?? [])
+            .filter((b) => navnKanVaereSamme(navn, b.person!.navn))
+            .map((b) => b.person!.pid),
+        ),
+      ];
+      if (pids.length === 1 && pids[0]) kandidater.push({ i, pid: pids[0], b: null });
+      return;
+    }
     const ro = organFor(r, kode);
     if (!ro) return;
     const navn = personnavn.get(r.person) ?? r.person;
@@ -879,7 +1125,9 @@ export function importer(inn: ImportInn): ImportUt {
       return;
     }
     // Samme navn i en annen rolle i samme organ: samme person, annen rolle.
-    const annen = ro.personroller.filter((b) => b.kode !== kode && navnKanVaereSamme(navn, b.person!.navn));
+    const annen = ro.personroller.filter(
+      (b) => b.kode !== kode && navnKanVaereSamme(navn, b.person!.navn),
+    );
     const annenPids = [...new Set(annen.map((b) => b.person!.pid))];
     const [annenPid] = annenPids;
     if (annenPids.length === 1 && annenPid) kandidater.push({ i, pid: annenPid, b: null });
@@ -912,7 +1160,8 @@ export function importer(inn: ImportInn): ImportUt {
         kategori: "personer",
         gjelder: key,
         grunnlaget: personnavn.get(key) ?? key,
-        registeret: "Navnet passer på flere personer i registeret, eller flere personer i grunnlaget passer på én i registeret",
+        registeret:
+          "Navnet passer på flere personer i registeret, eller flere personer i grunnlaget passer på én i registeret",
         tiltak: "Ikke koblet. Avgjør hvem som er hvem.",
       });
     }
@@ -925,14 +1174,17 @@ export function importer(inn: ImportInn): ImportUt {
       kilde,
       verifisering: "verifisert",
       per: dato,
-      merknad: [opphav, ekstra, b.merknad ? `Grunnlagets merknad: ${b.merknad}` : ""].filter(Boolean).join(" "),
+      merknad: [opphav, ekstra, b.merknad ? `Grunnlagets merknad: ${b.merknad}` : ""]
+        .filter(Boolean)
+        .join(" "),
     };
   };
   const nedgrader = (b: Belegg): Belegg => ({
     kilde: b.kilde,
     verifisering: "maa_verifiseres",
     ...(b.per ? { per: b.per } : {}),
-    merknad: `Registeret bekreftet dette per ${b.per ?? "?"}, men viser det ikke per ${dato}. ${b.merknad ?? ""}`.trim(),
+    merknad:
+      `Registeret bekreftet dette per ${b.per ?? "?"}, men viser det ikke per ${dato}. ${b.merknad ?? ""}`.trim(),
   });
 
   let bekreftedeRoller = 0;
@@ -949,7 +1201,9 @@ export function importer(inn: ImportInn): ImportUt {
     const r = gRoller[i]!;
     const navn = personnavn.get(r.person) ?? r.person;
     const kompatible = ro.personroller.filter((b) => b.kode === kode);
-    const annen = ro.personroller.filter((b) => b.kode !== kode && navnKanVaereSamme(navn, b.person!.navn));
+    const annen = ro.personroller.filter(
+      (b) => b.kode !== kode && navnKanVaereSamme(navn, b.person!.navn),
+    );
     const somAnnen = annen.length
       ? ` ${navn} står som ${[...new Set(annen.map((b) => TITTEL[b.kode].toLowerCase()))].join(" og ")}.`
       : "";
@@ -967,24 +1221,43 @@ export function importer(inn: ImportInn): ImportUt {
           ? `${TITTEL[kode]}: ${kompatible.map((b) => b.person!.navn).join(", ")}.`
           : `Ingen ${TITTEL[kode].toLowerCase()} registrert.`) + somAnnen,
       tiltak:
-        kompatible.length > 0
+        kompatible.length > 0 && ro.eier
           ? "Grunnlagets påstand står. Registerets er lagt til ved siden av, merket verifisert."
           : "Grunnlagets påstand står.",
     });
   }
 
-  // Personnøkler for registerpersonene.
+  // Personnøkler for registerpersonene i organene datasettet eier.
   const pidNavn = new Map<string, string>();
-  for (const ro of rolleorganer)
-    for (const b of ro.personroller) if (!pidNavn.has(b.person!.pid)) pidNavn.set(b.person!.pid, b.person!.navn);
+  for (const ro of rolleorganer) {
+    if (!ro.eier) continue;
+    for (const b of ro.personroller)
+      if (!pidNavn.has(b.person!.pid)) pidNavn.set(b.person!.pid, b.person!.navn);
+  }
+  const personlenker = new Map<string, Person>();
+  for (const [pid, key] of pidLenke)
+    personlenker.set(pid, { key, navn: personnavn.get(key) ?? key });
   const pidKey = new Map<string, string>();
+  const personrader = new Map<string, Person>(); // key → rad for personer som ikke er grunnlagets her
   for (const [pid, key] of pidLenke) pidKey.set(pid, key);
+  for (const [pid] of pidNavn) {
+    if (pidKey.has(pid)) continue;
+    const kjent = register.get(pid);
+    if (kjent) {
+      pidKey.set(pid, kjent.key);
+      if (!gPersonKeys.has(kjent.key)) personrader.set(kjent.key, kjent);
+    }
+  }
   const grunnSlugs = new Map<string, string>();
   for (const p of gPersoner) {
     grunnSlugs.set(slug(p.navn), p.key);
     grunnSlugs.set(p.key, p.key);
   }
-  const brukte = new Set([...gPersonKeys, ...andrePersonKeys]);
+  const brukte = new Set([
+    ...gPersonKeys,
+    ...tattePersoner,
+    ...[...register.values()].map((p) => p.key),
+  ]);
   const grupper = new Map<string, string[]>();
   for (const [pid, navn] of sortert([...pidNavn], ([p]) => p)) {
     if (pidKey.has(pid)) continue;
@@ -992,12 +1265,13 @@ export function importer(inn: ImportInn): ImportUt {
     grupper.set(base, [...(grupper.get(base) ?? []), pid]);
   }
   const nyePersoner: Person[] = [];
+  const holdtTilbake = new Set<string>();
   for (const [base, pids] of sortert([...grupper], ([b]) => b)) {
     const kollisjon = pids.length > 1 || brukte.has(base) || grunnSlugs.has(base);
     let lengde = 6;
     while (new Set(pids.map((p) => p.slice(0, lengde))).size < pids.length) lengde += 2;
     for (const pid of pids) {
-      let key = kollisjon ? `${base}-${pid.slice(0, lengde)}` : base;
+      const key = kollisjon ? `${base}-${pid.slice(0, lengde)}` : base;
       const maal = K.samme_person[key];
       if (maal !== undefined) {
         if (!gPersonKeys.has(maal))
@@ -1005,35 +1279,52 @@ export function importer(inn: ImportInn): ImportUt {
         pidKey.set(pid, maal);
         continue;
       }
-      if (gPersonKeys.has(key)) throw new Error(`Personnøkkelen ${key} er allerede i bruk i grunnlaget.`);
+      if (gPersonKeys.has(key))
+        throw new Error(`Personnøkkelen ${key} er allerede i bruk i grunnlaget.`);
+      // En navnebror av en person i grunnlaget holdes tilbake til et menneske
+      // har avgjort det. To poster med samme navn ville gjort en innsigelse
+      // halv: sperres den ene, står navnet fortsatt i den andre.
       const lik = grunnSlugs.get(base);
-      if (lik) {
+      if (lik && !K.ulik_person.includes(key)) {
+        holdtTilbake.add(pid);
+        hopp.navnebror++;
         nyttAvvik({
           kategori: "personer",
           gjelder: key,
           grunnlaget: `${personnavn.get(lik) ?? lik} (${lik})`,
           registeret: `${pidNavn.get(pid)} har roller i registeret, men deler ikke organ med personen i grunnlaget`,
-          tiltak: `Lagt inn som egen person. Er det samme person, legg "${key}": "${lik}" i samme_person.`,
+          tiltak:
+            `Ikke tatt inn. Er det samme person, legg "${key}": "${lik}" i samme_person; ` +
+            `er det en annen, legg "${key}" i ulik_person.`,
         });
+        continue;
       }
       pidKey.set(pid, key);
       nyePersoner.push({ key, navn: pidNavn.get(pid)! });
     }
   }
+  for (const p of personrader.values()) nyePersoner.push(p);
 
-  // Rolleradene fra registeret.
+  // Rolleradene fra registeret, bare for organer datasettet eier.
   const rolletypeFor = (kode: Rollekode, ro: Rolleorgan): Rolletype => {
     if (kode === "DAGL") {
       if (!ro.sensitiv) return "daglig_leder";
-      return ro.organtype === "domstol" ? "dommer_leder" : ro.organtype === "paatale" ? "paatale_leder" : "toppleder";
+      return ro.organtype === "domstol"
+        ? "dommer_leder"
+        : ro.organtype === "paatale"
+          ? "paatale_leder"
+          : "toppleder";
     }
-    return ({ LEDE: "styreleder", NEST: "nestleder", MEDL: "styremedlem", VARA: "varamedlem" } as const)[kode];
+    return (
+      { LEDE: "styreleder", NEST: "nestleder", MEDL: "styremedlem", VARA: "varamedlem" } as const
+    )[kode];
   };
   const grunnRolleNokler = new Set(gRoller.map(nokkel.rolle));
   const nyeRoller = new Map<string, Rolleinnehav>();
   for (const ro of sortert(rolleorganer, (x) => x.key)) {
+    if (!ro.eier) continue;
     for (const b of ro.personroller) {
-      if (brukteRoller.has(b)) continue;
+      if (brukteRoller.has(b) || holdtTilbake.has(b.person!.pid)) continue;
       const person = pidKey.get(b.person!.pid)!;
       const rad: Rolleinnehav = {
         org: ro.key,
@@ -1071,7 +1362,10 @@ export function importer(inn: ImportInn): ImportUt {
         },
       };
       const n = nokkel.relasjon(rel);
-      if (!gRel.some((x) => nokkel.relasjon(x) === n) && !nyeRel.some((x) => nokkel.relasjon(x) === n))
+      if (
+        !gRel.some((x) => nokkel.relasjon(x) === n) &&
+        !nyeRel.some((x) => nokkel.relasjon(x) === n)
+      )
         nyeRel.push(rel);
     }
   }
@@ -1081,11 +1375,16 @@ export function importer(inn: ImportInn): ImportUt {
   const figurer: Figur[] = [];
   const nyeHull: Hull[] = [];
   const regnskapsaar = new Map<string, Set<number>>();
-  const iUtvalget = new Set([...grunnPaaOrgnr.values(), ...nyeOrg.map((o) => o.key)]);
+  const eide = new Set(rolleorganer.filter((r) => r.eier).map((r) => r.key));
+  for (const e of e1) {
+    const key = nokkelFor.get(e.orgnr);
+    if (key && eierHer(e.orgnr)) eide.add(key);
+  }
   for (const e of e1) {
     const key = nokkelFor.get(e.orgnr);
     const liste = S.regnskap[e.orgnr];
     if (!key || !liste) continue;
+    const eierDette = eierHer(e.orgnr);
     const siste = new Map<string, (typeof liste)[number]>();
     for (const r of liste) {
       const k = `${r.til.slice(0, 4)}|${r.type}`;
@@ -1097,11 +1396,12 @@ export function importer(inn: ImportInn): ImportUt {
       const konsern = r.type === "KONSERN";
       regnskapsaar.set(key, (regnskapsaar.get(key) ?? new Set()).add(aar));
       if (r.valuta !== "NOK") {
-        nyeHull.push({
-          gjelder: key,
-          hva: `Regnskapstallene for ${aar}${konsern ? " (konsern)" : ""} er ført i ${r.valuta}.`,
-          hvorfor: VALUTA_HVORFOR,
-        });
+        if (eierDette)
+          nyeHull.push({
+            gjelder: key,
+            hva: `Regnskapstallene for ${aar}${konsern ? " (konsern)" : ""} er ført i ${r.valuta}.`,
+            hvorfor: VALUTA_HVORFOR,
+          });
         continue;
       }
       if (aar > sammenstiltAar) {
@@ -1128,12 +1428,15 @@ export function importer(inn: ImportInn): ImportUt {
       for (const type of TALLTYPER) {
         const verdi = r[type];
         if (verdi === null) continue;
-        figurer.push({ org: key, aar, type, konsern, verdi, merknad, matchet: false, sperret: false });
+        figurer.push({ org: key, aar, type, konsern, verdi, merknad, matchet: false });
       }
     }
   }
   figurer.sort((a, b) =>
-    cmp(`${a.org}|${a.aar}|${a.type}|${Number(a.konsern)}`, `${b.org}|${b.aar}|${b.type}|${Number(b.konsern)}`),
+    cmp(
+      `${a.org}|${a.aar}|${a.type}|${Number(a.konsern)}`,
+      `${b.org}|${b.aar}|${b.type}|${Number(b.konsern)}`,
+    ),
   );
 
   const likt = (n: Nokkeltall, f: Figur) =>
@@ -1141,23 +1444,26 @@ export function importer(inn: ImportInn): ImportUt {
   const brukteTall = new Set<number>();
   const bekreftetTall = new Map<number, Figur>();
   let motsagteTall = 0;
-  const konsernTekst = (k: boolean | undefined) => (k === undefined ? "" : k ? " (konsern)" : " (selskap)");
+  const konsernTekst = (k: boolean | undefined) =>
+    k === undefined ? "" : k ? " (konsern)" : " (selskap)";
   for (const f of figurer) {
-    const i = gTall.findIndex((n, j) => !brukteTall.has(j) && likt(n, f) && n.konsern === f.konsern);
+    const i = gTall.findIndex(
+      (n, j) => !brukteTall.has(j) && likt(n, f) && n.konsern === f.konsern,
+    );
     if (i < 0) continue;
     brukteTall.add(i);
     f.matchet = true;
     const n = gTall[i]!;
     if (sammeTall(n.verdi, f.verdi)) bekreftetTall.set(i, f);
     else {
-      f.sperret = true;
       motsagteTall++;
       nyttAvvik({
         kategori: "nokkeltall",
         gjelder: `${f.org}: ${f.type} ${f.aar}${konsernTekst(f.konsern)}`,
         grunnlaget: `${kr(n.verdi)} (${kildenavn(n.belegg.kilde)})`,
         registeret: `${kr(f.verdi)} per ${dato}`,
-        tiltak: "Grunnlagets tall står. Registertallet er ikke lagt til fordi det ville fått samme nøkkel; rett grunnlaget.",
+        tiltak:
+          "Grunnlagets tall står. Registertallet er ikke lagt til fordi det ville fått samme nøkkel; rett grunnlaget.",
       });
       if (erOppgradert(n.belegg)) gTall[i] = { ...n, belegg: nedgrader(n.belegg) };
     }
@@ -1165,7 +1471,8 @@ export function importer(inn: ImportInn): ImportUt {
   for (const f of figurer) {
     if (f.matchet) continue;
     const i = gTall.findIndex(
-      (n, j) => !brukteTall.has(j) && likt(n, f) && n.konsern === undefined && sammeTall(n.verdi, f.verdi),
+      (n, j) =>
+        !brukteTall.has(j) && likt(n, f) && n.konsern === undefined && sammeTall(n.verdi, f.verdi),
     );
     if (i < 0) continue;
     brukteTall.add(i);
@@ -1190,8 +1497,11 @@ export function importer(inn: ImportInn): ImportUt {
       kategori: "nokkeltall",
       gjelder: `${n.org}: ${n.type} ${n.aar}${konsernTekst(n.konsern)}`,
       grunnlaget: `${kr(n.verdi)} (${kildenavn(n.belegg.kilde)})`,
-      registeret: fra.map((f) => `${kr(f.verdi)}${konsernTekst(f.konsern)}`).join(", ") + ` per ${dato}`,
-      tiltak: "Grunnlagets tall står. Registertallet er lagt til ved siden av, merket verifisert.",
+      registeret:
+        fra.map((f) => `${kr(f.verdi)}${konsernTekst(f.konsern)}`).join(", ") + ` per ${dato}`,
+      tiltak: eide.has(n.org)
+        ? "Grunnlagets tall står. Registertallet er lagt til ved siden av, merket verifisert."
+        : "Grunnlagets tall står.",
     });
   });
   let bekreftedeTall = 0;
@@ -1215,7 +1525,7 @@ export function importer(inn: ImportInn): ImportUt {
   const grunnTallNokler = new Set(gTall.map(nokkel.nokkeltall));
   const nyeTall = new Map<string, Nokkeltall>();
   for (const f of figurer) {
-    if (f.matchet) continue;
+    if (f.matchet || !eide.has(f.org)) continue;
     const rad: Nokkeltall = {
       org: f.org,
       aar: f.aar,
@@ -1223,21 +1533,26 @@ export function importer(inn: ImportInn): ImportUt {
       verdi: f.verdi,
       enhet: "NOK",
       konsern: f.konsern,
-      belegg: { kilde: KILDER.regnskap.key, verifisering: "verifisert", per: dato, merknad: f.merknad },
+      belegg: {
+        kilde: KILDER.regnskap.key,
+        verifisering: "verifisert",
+        per: dato,
+        merknad: f.merknad,
+      },
     };
     const n = nokkel.nokkeltall(rad);
     if (!grunnTallNokler.has(n)) nyeTall.set(n, rad);
   }
   // Historikk: Regnskapsregisteret gir bare siste år. Tall fra år registeret
-  // ikke lenger viser, blir stående så lenge organet er med.
+  // ikke lenger viser, blir stående så lenge datasettet eier organet.
   for (const n of gamleTall) {
-    if (!iUtvalget.has(n.org) || regnskapsaar.get(n.org)?.has(n.aar)) continue;
+    if (!eide.has(n.org) || regnskapsaar.get(n.org)?.has(n.aar)) continue;
     const k = nokkel.nokkeltall(n);
     if (!nyeTall.has(k) && !grunnTallNokler.has(k)) nyeTall.set(k, n);
   }
   for (const h of gamleHull) {
     const aar = Number(/(\d{4})/.exec(h.hva)?.[1] ?? 0);
-    if (!iUtvalget.has(h.gjelder) || regnskapsaar.get(h.gjelder)?.has(aar)) continue;
+    if (!eide.has(h.gjelder) || regnskapsaar.get(h.gjelder)?.has(aar)) continue;
     if (!nyeHull.some((x) => nokkel.hull(x) === nokkel.hull(h))) nyeHull.push(h);
   }
 
@@ -1252,12 +1567,19 @@ export function importer(inn: ImportInn): ImportUt {
       tiltak: "Ingen regnskapstall denne gangen. Kjør på nytt senere.",
     });
   }
+  const kobledeNavn = new Set(
+    [...orgnrForGrunn.keys()].map((k) => orgNavnNokkel(grunnOrg(k)?.navn ?? "")),
+  );
   for (const n of S.navneoppslag) {
+    if (n.grunnlag && kobledeNavn.has(orgNavnNokkel(n.navn))) continue;
     nyttAvvik({
       kategori: "koblinger",
       gjelder: n.navn,
       grunnlaget: n.grunnlag ? "Organ i grunnlaget" : "Navn i scripts/brreg.config.json",
-      registeret: n.treff === 0 ? "Ingen enhet med eksakt dette navnet" : `${n.treff} enheter med eksakt dette navnet`,
+      registeret:
+        n.treff === 0
+          ? "Ingen enhet med eksakt dette navnet"
+          : `${n.treff} enheter med eksakt dette navnet`,
       tiltak: "Ikke tatt med. Oppgi orgnr i konfigurasjonen i stedet.",
     });
   }
@@ -1271,13 +1593,26 @@ export function importer(inn: ImportInn): ImportUt {
   let segUt = sortert(nyeSeg, nokkel.orgSegment);
   let hullUt = sortert(nyeHull, nokkel.hull);
   let personerUt = sortert(nyePersoner, (p) => p.key);
+  const kopiUt = sortert(kopiOrg, (o) => o.key);
+  const kopiSegUt = sortert(kopiSeg, nokkel.orgSegment);
+  const kopiRelUt = sortert(kopiRel, nokkel.relasjon);
 
   const bygg = (): Kommunedatasett => {
-    const brukteSeg = new Set(segUt.map((s) => s.segment));
+    const brukteSeg = new Set([...segUt, ...kopiSegUt].map((s) => s.segment));
     const segmenter = [
       ...D.segmenter,
       ...sortert(
-        T.naering.segmenter.filter((s) => brukteSeg.has(s.kode) && !D.segmenter.some((x) => x.kode === s.kode)),
+        [
+          ...T.naering.segmenter,
+          ...andre
+            .flatMap((a) => a.data.segmenter)
+            .filter((s) => !T.naering.segmenter.some((x) => x.kode === s.kode)),
+        ].filter(
+          (s, i, xs) =>
+            brukteSeg.has(s.kode) &&
+            !D.segmenter.some((x) => x.kode === s.kode) &&
+            xs.findIndex((y) => y.kode === s.kode) === i,
+        ),
         (s) => s.kode,
       ),
     ];
@@ -1285,20 +1620,26 @@ export function importer(inn: ImportInn): ImportUt {
     const kilder = [
       ...D.kilder.map((k) => kanon.find((x) => x.key === k.key) ?? k),
       ...kanon.filter((k) => !D.kilder.some((x) => x.key === k.key)),
+      ...sortert(
+        [...kopiKilder]
+          .filter((k) => !D.kilder.some((x) => x.key === k) && !kanon.some((x) => x.key === k))
+          .flatMap((k) => (alleKilder.has(k) ? [alleKilder.get(k)!] : [])),
+        (k) => k.key,
+      ),
     ];
     const refererte = new Set(rollerUt.map((r) => r.person));
     return {
       meta: D.meta,
       kilder,
-      organisasjoner: [...gOrg, ...orgUt],
+      organisasjoner: [...gOrg, ...kopiUt, ...orgUt],
       personer: [...gPersoner, ...personerUt.filter((p) => refererte.has(p.key))],
       roller: [...gRoller, ...rollerUt],
-      relasjoner: [...gRel, ...relUt],
+      relasjoner: [...gRel, ...kopiRelUt, ...relUt],
       nokkeltall: [...gTall, ...tallUt],
       hendelser: D.hendelser,
       prosesser: D.prosesser,
       segmenter,
-      org_segment: [...gSeg, ...segUt],
+      org_segment: [...gSeg, ...kopiSegUt, ...segUt],
       hull: [...gHull, ...hullUt],
     };
   };
@@ -1321,6 +1662,7 @@ export function importer(inn: ImportInn): ImportUt {
     tallUt = tallUt.filter((n) => !borte.has(n.org));
     segUt = segUt.filter((s) => !borte.has(s.org));
     hullUt = hullUt.filter((h) => !borte.has(h.gjelder));
+    for (const k of borte) kanoniske.delete(k);
     return borte;
   };
 
@@ -1341,7 +1683,8 @@ export function importer(inn: ImportInn): ImportUt {
           gjelder: b.person,
           grunnlaget: `Teksten i ${b.eier} ${b.nokkel} nevner ${navn} uten å lenke til denne personen`,
           registeret: `${navn} har roller i registeret`,
-          tiltak: "Rollene er ikke tatt inn. Lenk teksten til riktig person, eller bruk samme_person.",
+          tiltak:
+            "Rollene er ikke tatt inn. Lenk teksten til riktig person, eller bruk samme_person.",
         });
       } else if (b.eier === "organisasjon" && nyeOrg.some((o) => o.key === b.nokkel)) {
         const o = orgUt.find((x) => x.key === b.nokkel);
@@ -1353,27 +1696,103 @@ export function importer(inn: ImportInn): ImportUt {
           gjelder: `${o.navn} (${o.orgnr ?? "–"})`,
           grunnlaget: `Navnet eller beskrivelsen inneholder navnet til ${b.person}`,
           registeret: `Organet${borte.size > 1 ? ` og ${borte.size - 1} underordnede` : ""} er ikke tatt inn`,
-          tiltak: "Et organ som bærer et personnavn, kan ikke lenkes til personen. Vurder for hånd.",
+          tiltak:
+            "Et organ som bærer et personnavn, kan ikke lenkes til personen. Vurder for hånd.",
         });
       } else {
         throw new Error(
-          `Navneregelen er brutt i grunnlaget: ${b.eier} ${b.nokkel} nevner ${b.person} uten lenke. Rett datasettet.`,
+          `Navneregelen er brutt: ${b.eier} ${b.nokkel} nevner ${b.person} uten lenke. Rett datasettet.`,
         );
       }
     }
     ut = bygg();
   }
 
+  // --- 9. Felles organer i de andre datasettene ------------------------------
+  //
+  // Et organ som står i flere kommuner, må stå likt i alle, ellers stopper
+  // samle.ts. Datasettet som eier organet, skriver den kanoniske raden inn i
+  // de andre, og tar bort importerte roller, regnskap og styreplasser for
+  // organet der: de føres bare hos eieren.
+  const andreOppdatert = new Map<string, Kommunedatasett>();
+  const eideNokler = new Set([...eide].filter((k) => ut.organisasjoner.some((o) => o.key === k)));
+  for (const a of andre) {
+    const d = a.data;
+    let endret = false;
+    const gen = new Set(d.organisasjoner.filter((o) => erGenerert(o.belegg)).map((o) => o.key));
+    const organisasjoner = d.organisasjoner.map((o) => {
+      const k = gen.has(o.key) ? kanoniske.get(o.key) : undefined;
+      if (k && json(k.org) !== json(o)) {
+        endret = true;
+        return k.org;
+      }
+      return o;
+    });
+    let org_segment = d.org_segment;
+    const berorte = [...kanoniske.keys()].filter((k) => gen.has(k));
+    if (berorte.length > 0) {
+      const foran = d.org_segment.filter((s) => !gen.has(s.org));
+      const bak = [
+        ...d.org_segment.filter((s) => gen.has(s.org) && !kanoniske.has(s.org)),
+        ...berorte.flatMap((k) => kanoniske.get(k)!.seg),
+      ];
+      const ny = [...foran, ...sortert(bak, nokkel.orgSegment)];
+      if (json(ny) !== json(d.org_segment)) {
+        org_segment = ny;
+        endret = true;
+      }
+    }
+    const fjern = <X>(xs: X[], treff: (x: X) => boolean) => {
+      const ut = xs.filter((x) => !treff(x));
+      if (ut.length !== xs.length) endret = true;
+      return ut;
+    };
+    const roller = fjern(d.roller, (r) => erGenerert(r.belegg) && eideNokler.has(r.org));
+    const nokkeltall = fjern(d.nokkeltall, (n) => erGenerert(n.belegg) && eideNokler.has(n.org));
+    const hull = fjern(d.hull, (h) => erGenerertHull(h) && eideNokler.has(h.gjelder));
+    const relasjoner = fjern(
+      d.relasjoner,
+      (r) => erGenerert(r.belegg) && r.type === "medlem_av" && eideNokler.has(r.til),
+    );
+    if (!endret) continue;
+    const brukt = new Set([
+      ...roller.map((r) => r.person),
+      ...d.hendelser.flatMap((h) => h.personer ?? []),
+      ...hull.flatMap((h) => h.personer ?? []),
+    ]);
+    andreOppdatert.set(a.slug, {
+      ...d,
+      organisasjoner,
+      org_segment,
+      roller,
+      nokkeltall,
+      hull,
+      relasjoner,
+      personer: d.personer.filter((p) => brukt.has(p.key)),
+    });
+  }
+
   // Tellinger.
-  const antallGenerert = <T>(xs: T[], belegg: (x: T) => Belegg) => xs.filter((x) => erGenerert(belegg(x))).length;
+  const antallGenerert = <X>(xs: X[], belegg: (x: X) => Belegg) =>
+    xs.filter((x) => erGenerert(belegg(x))).length;
+  const personnokler = new Map<string, Person>();
+  const iUt = new Map(ut.personer.map((p) => [p.key, p]));
+  for (const [pid, key] of pidKey) {
+    const p = iUt.get(key);
+    if (p) personnokler.set(pid, p);
+  }
   const oppsummering: Oppsummering = {
     kommunenr: D.meta.kommunenr,
     kommune: D.meta.kommune,
     hentet: dato,
     hentetFra: {
       enheterIKommunen: S.iKommunen.length,
-      underenheterMedForelderUtenfor: ue.length,
+      underenheterMedForelderUtenfor: S.underenheter.filter((u) => {
+        const f = enhet(u.overordnet);
+        return f !== undefined && f.kommunenr !== K.kommunenr;
+      }).length,
       alltidMed: S.alltid.length,
+      iUtvalget: Object.keys(S.utvalg).length,
       rollelister: Object.keys(S.roller).length,
       regnskap: Object.keys(S.regnskap).length,
       ikkeFunnet: S.ikkeFunnet.length,
@@ -1393,7 +1812,7 @@ export function importer(inn: ImportInn): ImportUt {
       organer: avvik.filter((a) => a.kategori === "organer").length,
     },
     hoppetOver: hopp,
-    avvik: avvik.length,
+    avvik: 0,
   };
 
   const rekkefolge: Avvikskategori[] = [
@@ -1408,12 +1827,20 @@ export function importer(inn: ImportInn): ImportUt {
   const avvikSortert = avvik
     .filter((a) => !(a.kategori === "personer" && blokkert.has(a.gjelder)))
     .sort(
-    (a, b) =>
-      rekkefolge.indexOf(a.kategori) - rekkefolge.indexOf(b.kategori) ||
-      cmp(a.gjelder, b.gjelder) ||
-      cmp(a.grunnlaget, b.grunnlaget) ||
-      cmp(a.registeret, b.registeret),
-  );
+      (a, b) =>
+        rekkefolge.indexOf(a.kategori) - rekkefolge.indexOf(b.kategori) ||
+        cmp(a.gjelder, b.gjelder) ||
+        cmp(a.grunnlaget, b.grunnlaget) ||
+        cmp(a.registeret, b.registeret),
+    );
+  oppsummering.avvik = avvikSortert.length;
 
-  return { datasett: ut, avvik: avvikSortert, oppsummering };
+  return {
+    datasett: ut,
+    avvik: avvikSortert,
+    oppsummering,
+    andreOppdatert,
+    personlenker,
+    personnokler,
+  };
 }

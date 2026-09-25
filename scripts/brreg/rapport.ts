@@ -20,7 +20,8 @@ const OVERSKRIFT: Record<Avvikskategori, { tittel: string; forklaring: string }>
   },
   organer: {
     tittel: "Organer: orgnr, navn og status",
-    forklaring: "Orgnr som ikke finnes, organer som er slettet eller konkurs, og navn som ikke stemmer.",
+    forklaring:
+      "Orgnr som ikke finnes, organer som er slettet eller konkurs, og navn som ikke stemmer.",
   },
   personer: {
     tittel: "Personer som kan være den samme",
@@ -52,9 +53,10 @@ export function oppsummeringslinjer(o: Oppsummering): string[] {
   const h = o.hentetFra;
   const l = o.lagtTil;
   return [
-    `Hentet ${o.hentet}: ${tall(h.enheterIKommunen)} enheter i kommunen over terskelen, ` +
-      `${tall(h.underenheterMedForelderUtenfor)} underenheter med overordnet utenfor kommunen, ` +
-      `${tall(h.alltidMed)} tatt med uansett størrelse, rollene til ${tall(h.rollelister)} og regnskapet til ${tall(h.regnskap)}.` +
+    `Hentet ${o.hentet}: ${tall(h.enheterIKommunen)} enheter og ` +
+      `${tall(h.underenheterMedForelderUtenfor)} underenheter med overordnet utenfor kommunen er kandidater; ` +
+      `${tall(h.iUtvalget)} er i utvalget, medregnet ${tall(h.alltidMed)} som alltid er med. ` +
+      `Rollene til ${tall(h.rollelister)} og regnskapet til ${tall(h.regnskap)} er hentet.` +
       (h.ikkeFunnet ? ` ${tall(h.ikkeFunnet)} orgnr finnes ikke.` : ""),
     `Lagt til: ${tall(l.organer)} organer, ${tall(l.personer)} personer, ${tall(l.roller)} roller, ` +
       `${tall(l.relasjoner)} relasjoner, ${tall(l.nokkeltall)} nøkkeltall og ${tall(l.hull)} hull.`,
@@ -65,6 +67,7 @@ export function oppsummeringslinjer(o: Oppsummering): string[] {
       `${tall(o.hoppetOver.enhetsroller)} andre roller holdt av enheter, ` +
       `${tall(o.hoppetOver.sensitive)} roller under toppleder i sensitive organer, ` +
       `${tall(o.hoppetOver.orgform)} enheter med en form som ikke tas inn, ` +
+      `${tall(o.hoppetOver.navnebror)} navnebrødre av personer i grunnlaget (venter på vurdering), ` +
       `${tall(o.hoppetOver.navnITekst)} for navneregelen.`,
     `Avvik til menneskelig vurdering: ${tall(o.avvik)}.`,
   ];
@@ -95,7 +98,9 @@ export function avviksrapport(ut: ImportUt, kommando: string): string {
     }
     deler.push("| Gjelder | Grunnlaget | Registeret | Tiltak |", "|---|---|---|---|");
     for (const a of rader)
-      deler.push(`| ${celle(a.gjelder)} | ${celle(a.grunnlaget)} | ${celle(a.registeret)} | ${celle(a.tiltak)} |`);
+      deler.push(
+        `| ${celle(a.gjelder)} | ${celle(a.grunnlaget)} | ${celle(a.registeret)} | ${celle(a.tiltak)} |`,
+      );
     deler.push("");
   }
   return deler.join("\n");

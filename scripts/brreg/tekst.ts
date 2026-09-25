@@ -114,7 +114,9 @@ export const sammeNavn = (a: string, b: string): boolean =>
  * Fødselsdatoen forlater aldri hente-laget: den hashes der og kastes.
  */
 export function personHash(salt: string, navn: string, fodselsdato: string): string {
-  return createHmac("sha256", salt).update(`${navneord(navn).join(" ")}|${fodselsdato}`).digest("hex");
+  return createHmac("sha256", salt)
+    .update(`${navneord(navn).join(" ")}|${fodselsdato}`)
+    .digest("hex");
 }
 
 const juridiskeFormer = new Set([
