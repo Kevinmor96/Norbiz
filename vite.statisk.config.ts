@@ -27,6 +27,9 @@ export default defineConfig({
       { path: "/pro" },
       // Forsiden lenker ikke til kommunesiden ennå. Fjernes når den gjør det.
       { path: "/kommune/tromso" },
+      // Serverrutene, som filer. Innholdet følger VITE_NETTSTED_URL ved bygging.
+      { path: "/sitemap.xml" },
+      { path: "/robots.txt" },
     ],
   },
 });

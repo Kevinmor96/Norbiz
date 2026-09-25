@@ -6,7 +6,8 @@
 // Siden gjelder alle kommuner. Tellingene kommer fra datasettene, og står det
 // flere, gjelder merketellingene det største.
 //
-// Ankere andre sider lenker til: #kilder, #personvern og #retting.
+// Ankere andre sider lenker til: #merkene (kildelappen), #kilder, #personvern
+// og #retting.
 
 import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
@@ -18,12 +19,13 @@ import { Kildeliste } from "@/components/kommune/metode-pro/kildeliste";
 import { Personvern } from "@/components/kommune/metode-pro/personvern";
 import { Verifisering } from "@/components/kommune/metode-pro/verifisering";
 import { ForhandsversjonBunn } from "@/components/maktkart/forhandsversjon";
+import { MERKENE_ANKER } from "@/components/maktkart/kildelapp";
 import { KommuneKontekst } from "@/components/maktkart/kommune-kontekst";
 import { MargIndeks } from "@/components/maktkart/marg-indeks";
 import { Sidefot } from "@/components/maktkart/sidefot";
 import { Tegnforklaring } from "@/components/maktkart/tegnforklaring";
 import { Topplinje } from "@/components/maktkart/topplinje";
-import { datoKort, tall } from "@/lib/format";
+import { datoKort, lesbarDypt, tall } from "@/lib/format";
 import { nettstedUrl } from "@/lib/nettsted";
 
 const TITTEL = "Metode og personvern | Maktkart";
@@ -33,7 +35,8 @@ const BESKRIVELSE =
 const DELER = [
   { id: "sammenstilling", navn: "Sammenstillingen" },
   { id: "forhandsversjon", navn: "Forhåndsversjonen" },
-  { id: "merkene", navn: "Merkene" },
+  // Kildelappens «Om kildemerkene» lenker hit (MERKENE_ANKER i kildelapp.tsx).
+  { id: MERKENE_ANKER, navn: "Merkene" },
   { id: "verifisering", navn: "Verifiseringen" },
   { id: "kilder", navn: "Kildene" },
   { id: "personvern", navn: "Personvern" },
@@ -67,7 +70,8 @@ export const Route = createFileRoute("/metode")({
     )
       .filter((d): d is NonNullable<typeof d> => d !== null)
       .sort((a, b) => b.oversikt.dekning.organer - a.oversikt.dekning.organer);
-    return { datasett };
+    // Svaret serialiseres inn i HTML-en. «[verifiser]» skal ikke stå der heller.
+    return lesbarDypt({ datasett });
   },
   head: () => {
     const url = nettstedUrl("/metode");
@@ -224,7 +228,7 @@ function Metode() {
           </Sidedel>
 
           <Sidedel
-            id="merkene"
+            id={MERKENE_ANKER}
             smal
             tittel="Hva merkene betyr"
             ingress={
@@ -300,7 +304,7 @@ function Metode() {
   );
 
   return forst ? (
-    <KommuneKontekst oversikt={forst.oversikt} metodeHref="#merkene">
+    <KommuneKontekst oversikt={forst.oversikt} metodeHref={`#${MERKENE_ANKER}`}>
       {side}
     </KommuneKontekst>
   ) : (

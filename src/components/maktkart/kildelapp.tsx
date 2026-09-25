@@ -60,11 +60,18 @@ export function useKildelapp(): LappApi | null {
 
 const LAPP_ID = "kildelapp";
 
-/** Metoden er en seksjon på kommunesiden og en egen side ellers. */
+/**
+ * «Om kildemerkene» peker dit merkene forklares: seksjonen #metode på
+ * kommunesiden, delen #merkene på metodesiden, og /metode#merkene ellers.
+ * Ankeret er `MERKENE_ANKER`, og metodesiden bruker samme konstant som id.
+ */
+export const MERKENE_ANKER = "merkene";
+
 function metodeLenke(): string {
-  return typeof document !== "undefined" && document.getElementById("metode")
-    ? "#metode"
-    : "/metode";
+  if (typeof document === "undefined") return `/metode#${MERKENE_ANKER}`;
+  if (document.getElementById("metode")) return "#metode";
+  if (document.getElementById(MERKENE_ANKER)) return `#${MERKENE_ANKER}`;
+  return `/metode#${MERKENE_ANKER}`;
 }
 
 export function KildelappVert({ children }: { children: ReactNode }) {
@@ -243,7 +250,7 @@ function KildeNavn({ kilde }: { kilde: KildeUt }) {
 export function KildelappInnhold({
   belegg,
   pastand,
-  metodeHref = "/metode",
+  metodeHref = `/metode#${MERKENE_ANKER}`,
 }: Lappinnhold & { metodeHref?: string }) {
   const g = belegg.verifisering;
   const merknad = belegg.merknad ? lesbar(belegg.merknad) : null;

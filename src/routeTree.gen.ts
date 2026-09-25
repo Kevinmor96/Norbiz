@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MetodeRouteImport } from './routes/metode'
 import { Route as ProRouteImport } from './routes/pro'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as KommuneSlugRouteImport } from './routes/kommune.$slug'
 import { Route as OrganKeyRouteImport } from './routes/organ.$key'
 
@@ -30,6 +32,16 @@ const ProRoute = ProRouteImport.update({
   path: '/pro',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KommuneSlugRoute = KommuneSlugRouteImport.update({
   id: '/kommune/$slug',
   path: '/kommune/$slug',
@@ -45,6 +57,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/metode': typeof MetodeRoute
   '/pro': typeof ProRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/kommune/$slug': typeof KommuneSlugRoute
   '/organ/$key': typeof OrganKeyRoute
 }
@@ -52,6 +66,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/metode': typeof MetodeRoute
   '/pro': typeof ProRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/kommune/$slug': typeof KommuneSlugRoute
   '/organ/$key': typeof OrganKeyRoute
 }
@@ -60,21 +76,47 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/metode': typeof MetodeRoute
   '/pro': typeof ProRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/kommune/$slug': typeof KommuneSlugRoute
   '/organ/$key': typeof OrganKeyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/metode' | '/pro' | '/kommune/$slug' | '/organ/$key'
+  fullPaths:
+    | '/'
+    | '/metode'
+    | '/pro'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/kommune/$slug'
+    | '/organ/$key'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/metode' | '/pro' | '/kommune/$slug' | '/organ/$key'
-  id: '__root__' | '/' | '/metode' | '/pro' | '/kommune/$slug' | '/organ/$key'
+  to:
+    | '/'
+    | '/metode'
+    | '/pro'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/kommune/$slug'
+    | '/organ/$key'
+  id:
+    | '__root__'
+    | '/'
+    | '/metode'
+    | '/pro'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/kommune/$slug'
+    | '/organ/$key'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   MetodeRoute: typeof MetodeRoute
   ProRoute: typeof ProRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   KommuneSlugRoute: typeof KommuneSlugRoute
   OrganKeyRoute: typeof OrganKeyRoute
 }
@@ -102,6 +144,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kommune/$slug': {
       id: '/kommune/$slug'
       path: '/kommune/$slug'
@@ -123,6 +179,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   MetodeRoute: MetodeRoute,
   ProRoute: ProRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   KommuneSlugRoute: KommuneSlugRoute,
   OrganKeyRoute: OrganKeyRoute,
 }

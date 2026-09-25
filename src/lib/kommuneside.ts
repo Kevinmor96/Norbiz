@@ -5,7 +5,9 @@
 //
 // Alt hentes gjennom lese-API-et i src/lib/data (samme former som
 // Supabase-RPC-ene). Denne fila regner ingenting selv utover å finne kommunen
-// fra sluggen og å sette sammen svarene.
+// fra sluggen og å sette sammen svarene. Til slutt går all fritekst gjennom
+// `lesbarDypt`: svaret serialiseres inn i HTML-en, og «[verifiser]» fra
+// grunnlaget skal heller ikke stå der (DESIGN.md §3).
 //
 // Datalaget lastes med dynamisk import. Loadere deles ikke opp av
 // TanStack Router, så en vanlig import ville lagt hele datasettet i
@@ -23,6 +25,7 @@ import type {
   OrganProfil,
   SegmentOrganer,
 } from "@/lib/data";
+import { lesbarDypt } from "@/lib/format";
 import { hentTerreng, type Terreng } from "@/lib/terreng";
 
 export interface Kommuneside {
@@ -92,7 +95,7 @@ export async function lastKommuneside(slug: string): Promise<Kommuneside | null>
     hentTerreng(nr),
   ]);
 
-  return {
+  return lesbarDypt({
     kommune: oversikt.kommune,
     oversikt,
     kommuneprofil,
@@ -105,5 +108,5 @@ export async function lastKommuneside(slug: string): Promise<Kommuneside | null>
     hull: hull ?? [],
     kommuner,
     terreng,
-  };
+  });
 }

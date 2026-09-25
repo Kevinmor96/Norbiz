@@ -1,16 +1,17 @@
 // Hull i datasettet, gjort om til tekst leseren kan bruke.
 //
 // Et hull (`HullPunkt`) er noe grunnlaget nevner, men som ikke kan vises som
-// fakta. Teksten kommer rett fra researchgrunnlaget og bærer merket
-// «[verifiser via X]». Det merket skal aldri nå leseren (DESIGN.md §3). Vi
-// leser det i stedet som en adresse: X er stedet navnet skal hentes fra, og
-// leseren får «Hentes fra X.».
+// fakta. Teksten kommer fra researchgrunnlaget og kan bære merket
+// «[verifiser via X]». Det merket skal aldri nå leseren (DESIGN.md §3).
+// `lesbar` skriver det om til «Hentes fra X.», og `hentesFra` leser X ut, så
+// leseren får adressen som egen opplysning. Begge står i src/lib/format.ts og
+// virker på både råtekst og tekst som alt er skrevet om.
 //
 // Brukes av beslutningskjeden («Leder ikke kartlagt. Hentes fra …») og av
 // tidslinjen (gruppen «Uten dato»).
 
 import type { HullPunkt } from "@/lib/data";
-import { lesbar } from "@/lib/format";
+import { hentesFra as hentested, lesbar } from "@/lib/format";
 
 export interface Hullhint {
   /** Hva som mangler, lesbart: «Leder og medlemmer er ikke navngitt.» */
@@ -21,14 +22,12 @@ export interface Hullhint {
   hentesFra: string | null;
 }
 
-/** «[verifiser via innsyn.tromso.kommune.no]» og «[verifiser i Brreg]». */
-const ADRESSE = /\[verifiser\s+(?:via|i)\s+([^\]]+)\]/i;
-
 /**
  * Setninger som bare gjentar at noe mangler i grunnlaget. De sier ingenting
  * leseren ikke allerede ser av merket, så de utelates.
  */
-const TOMGANG = /^(merket\b[^.]*\bi grunnlaget\.?|ikke oppgitt i grunnlaget\.?)$/i;
+const TOMGANG =
+  /^(merket\b[^.]*\bi grunnlaget\.?|ikke oppgitt i grunnlaget\.?|grunnlaget merker opplysningen som usikker\.?)$/i;
 
 function setninger(tekst: string): string[] {
   // Del etter punktum fulgt av mellomrom. «innsyn.tromso.kommune.no» og
@@ -41,16 +40,15 @@ function setninger(tekst: string): string[] {
 }
 
 export function hullhint(h: HullPunkt): Hullhint {
-  const treff = ADRESSE.exec(h.hvorfor) ?? ADRESSE.exec(h.hva);
-  const hentesFra = treff?.[1]?.trim().replace(/\.$/, "") ?? null;
+  const hentesFra = hentested(h.hvorfor) ?? hentested(h.hva);
   // Når adressen er lest ut, er setningen den stod i overflødig.
-  const rest = setninger(h.hvorfor).filter(
-    (s) => !TOMGANG.test(s) && !(hentesFra && ADRESSE.test(s)),
+  const rest = setninger(lesbar(h.hvorfor)).filter(
+    (s) => !TOMGANG.test(s) && !(hentesFra && hentested(s)),
   );
   return {
     hva: lesbar(h.hva),
-    forklaring: rest.length ? lesbar(rest.join(" ")) : null,
-    hentesFra,
+    forklaring: rest.length ? rest.join(" ") : null,
+    hentesFra: hentesFra?.replace(/\.$/, "") ?? null,
   };
 }
 

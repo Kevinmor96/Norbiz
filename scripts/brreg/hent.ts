@@ -91,6 +91,8 @@ export interface Rolle {
   enhet: { orgnr: string; navn: string; slettet: boolean } | null;
   fratradt: boolean;
   avregistrert: boolean;
+  /** `valgtAv.kode`, f.eks. AREP for styremedlemmer valgt av de ansatte. */
+  valgtAv: string | null;
 }
 
 export interface Regnskap {
@@ -251,6 +253,7 @@ export function lesRoller(
         enhet,
         fratradt: r["fratraadt"] === true,
         avregistrert: r["avregistrert"] === true,
+        valgtAv: tekst(obj(r["valgtAv"])?.["kode"]),
       });
     });
   }

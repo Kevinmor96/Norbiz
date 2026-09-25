@@ -23,6 +23,7 @@ import {
   profilbeskrivelse,
 } from "@/components/organ/organ-profil";
 import type { OrganProfil, Verifiseringstelling } from "@/lib/data";
+import { lesbarDypt } from "@/lib/format";
 import { nettstedUrl } from "@/lib/nettsted";
 
 export const Route = createFileRoute("/organ/$key")({
@@ -31,7 +32,8 @@ export const Route = createFileRoute("/organ/$key")({
     const { data } = await import("@/lib/data");
     const profil = await data.organ_profil(params.key);
     if (!profil) throw notFound();
-    return profil;
+    // Profilen serialiseres inn i HTML-en. «[verifiser]» skal ikke stå der heller.
+    return lesbarDypt(profil);
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) {
