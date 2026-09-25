@@ -13,6 +13,7 @@ import { prosent } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 import { Blokktittel, IkkeKartlagt, Nokkeltall, OrganLenke } from "./felles";
+import { VisAlle } from "./vis-alle";
 import type { Eierrad } from "./utregning";
 
 function Stolpe({ andel }: { andel: number | null }) {
@@ -74,6 +75,51 @@ function AndreEiere({ andre, selskap }: { andre: Eierandel[]; selskap: OrganRef 
   );
 }
 
+/** Radene som vises før «Vis alle». Resten står i HTML-en, bak en <details>. */
+export const TOPP = 10;
+
+function Rad({ r, eier }: { r: Eierrad; eier: OrganRef }) {
+  return (
+    <li className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 gap-y-2 border-t border-linje py-3.5">
+      <p className="min-w-0 font-semibold text-pretty">
+        <OrganLenke org={r.org} />
+      </p>
+      <p className="justify-self-end text-right">
+        {r.andel !== null ? (
+          <MedMerke
+            belegg={r.belegg}
+            pastand={`${eier.navn} eier ${prosent(r.andel)} av ${r.org.navn}`}
+            className="text-[1.0625rem] font-bold [font-stretch:104%]"
+          >
+            {prosent(r.andel)}
+          </MedMerke>
+        ) : (
+          <span className="inline-flex items-center whitespace-nowrap">
+            <IkkeKartlagt>Andel ikke oppgitt</IkkeKartlagt>
+            <Kildemerke
+              belegg={r.belegg}
+              pastand={`${eier.navn} er eier i ${r.org.navn}. Andelen er ikke oppgitt`}
+            />
+          </span>
+        )}
+      </p>
+      <Stolpe andel={r.andel} />
+      <AndreEiere andre={r.andre} selskap={r.org} />
+      {r.tall.length > 0 ? (
+        <dl className="col-span-2 flex flex-wrap gap-x-5 gap-y-1 text-[0.8125rem] leading-[1.45]">
+          {r.tall.map((t) => (
+            <Nokkeltall key={`${t.aar}-${t.type}-${String(t.konsern)}`} t={t} organ={r.org} />
+          ))}
+        </dl>
+      ) : (
+        <p className={cn("col-span-2 text-[0.8125rem] text-dempet")}>
+          Ingen regnskapstall med år i datasettet.
+        </p>
+      )}
+    </li>
+  );
+}
+
 export function Eierstolper({
   rader,
   eier,
@@ -84,6 +130,8 @@ export function Eierstolper({
   tittelId: string;
 }) {
   const utenAndel = rader.filter((r) => r.andel === null).length;
+  const forste = rader.slice(0, TOPP);
+  const resten = rader.slice(TOPP);
   return (
     <div className="flex flex-col gap-3">
       <Blokktittel id={tittelId}>Eierandeler</Blokktittel>
@@ -92,50 +140,27 @@ export function Eierstolper({
         {utenAndel > 0 ? `. ${utenAndel} av dem uten oppgitt andel står sist` : ""}. Stolpen er
         hele selskapet, og den fylte delen er kommunens andel.
       </p>
-      <ul aria-labelledby={tittelId} className="mt-2 border-b border-linje">
-        {rader.map((r) => (
-          <li
-            key={r.org.key}
-            className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 gap-y-2 border-t border-linje py-3.5"
-          >
-            <p className="min-w-0 font-semibold text-pretty">
-              <OrganLenke org={r.org} />
-            </p>
-            <p className="justify-self-end text-right">
-              {r.andel !== null ? (
-                <MedMerke
-                  belegg={r.belegg}
-                  pastand={`${eier.navn} eier ${prosent(r.andel)} av ${r.org.navn}`}
-                  className="text-[1.0625rem] font-bold [font-stretch:104%]"
-                >
-                  {prosent(r.andel)}
-                </MedMerke>
-              ) : (
-                <span className="inline-flex items-center whitespace-nowrap">
-                  <IkkeKartlagt>Andel ikke oppgitt</IkkeKartlagt>
-                  <Kildemerke
-                    belegg={r.belegg}
-                    pastand={`${eier.navn} er eier i ${r.org.navn}. Andelen er ikke oppgitt`}
-                  />
-                </span>
-              )}
-            </p>
-            <Stolpe andel={r.andel} />
-            <AndreEiere andre={r.andre} selskap={r.org} />
-            {r.tall.length > 0 ? (
-              <dl className="col-span-2 flex flex-wrap gap-x-5 gap-y-1 text-[0.8125rem] leading-[1.45]">
-                {r.tall.map((t) => (
-                  <Nokkeltall key={`${t.aar}-${t.type}-${String(t.konsern)}`} t={t} organ={r.org} />
-                ))}
-              </dl>
-            ) : (
-              <p className={cn("col-span-2 text-[0.8125rem] text-dempet")}>
-                Ingen regnskapstall med år i datasettet.
-              </p>
-            )}
-          </li>
-        ))}
-      </ul>
+      <VisAlle
+        className="mt-2"
+        antall={rader.length}
+        hva="eierandeler"
+        forste={
+          <ul aria-labelledby={tittelId} className="border-b border-linje">
+            {forste.map((r) => (
+              <Rad key={r.org.key} r={r} eier={eier} />
+            ))}
+          </ul>
+        }
+        resten={
+          resten.length > 0 && (
+            <ul aria-label="Resten av eierandelene" className="mt-3 border-b border-linje">
+              {resten.map((r) => (
+                <Rad key={r.org.key} r={r} eier={eier} />
+              ))}
+            </ul>
+          )
+        }
+      />
     </div>
   );
 }

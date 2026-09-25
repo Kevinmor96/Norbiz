@@ -91,6 +91,7 @@ try {
     console.log(`  deterministisk: ${likt ? "ja" : "NEI"}`);
     console.log(`  etikettkollisjoner: ${kollisjoner.length}`);
     for (const c of kollisjoner) console.log(`    ${c.lag}: ${c.hva}: ${c.a} ${c.b}`);
+    console.log(`  skjulte etiketter og skilt: ${a.personer.skjulte} uten eierskap, ${a.medEierskap.skjulte} med`);
     console.log(`  nodene står stille når eierskapet slås på: ${stille ? "ja" : "NEI"}`);
     console.log(`  kanter mellom et organ og organet rett under: ${brudd.length}`);
     if (!likt || !stille || kollisjoner.length > 0 || brudd.length > 0) feil += 1;
@@ -135,7 +136,60 @@ try {
   console.log(`  deterministisk: ${sLikt ? "ja" : "NEI"}`);
   console.log(`  etikettkollisjoner: ${sk.length}`);
   for (const c of sk) console.log(`    ${c.hva}: ${c.a} ${c.b}`);
+  console.log(`  skjulte etiketter og skilt: ${s1.personer.skjulte} uten eierskap, ${s1.medEierskap.skjulte} med`);
   if (!sLikt || sk.length > 0) feil += 1;
+
+  // Skala: 400 organer og 480 personkoblinger, laget med en fast slumpkilde.
+  // Kravet er under 200 ms på serveren, deterministisk, og ingen kollisjoner
+  // blant det som vises. Det som ikke får plass, skjules i stedet for å
+  // legges oppå noe annet.
+  let frø = 7;
+  const slump = () => ((frø = (Math.imul(frø, 1664525) + 1013904223) >>> 0) / 4294967296);
+  const stor = { noder: [], kanter: [], knuter: [] };
+  for (let i = 0; i < 400; i++) {
+    const n = `Organ nummer ${i} AS`;
+    stor.noder.push({ key: `s${String(i).padStart(3, "0")}`, etikett: { bredde: tekstbredde(n, 13), hoyde: 18 } });
+  }
+  for (let i = 0; i < 480; i++) {
+    // Mange koblinger til noen få store organer, og ellers klynger: et styre
+    // henger sammen med selskapene rundt seg, som i virkeligheten. Hver
+    // femte kobling går hvor som helst.
+    const a = Math.floor(Math.pow(slump(), 1.6) * 400);
+    let b = i % 5 === 0 ? Math.floor(slump() * 400) : (a + 1 + Math.floor(slump() * 12)) % 400;
+    if (b === a) b = (b + 1) % 400;
+    const p = `Person Personsen ${i}`;
+    stor.kanter.push({ id: `p${i}`, fra: stor.noder[a].key, til: stor.noder[b].key, lag: "person", skilt: skilt(p) });
+  }
+  for (let i = 0; i < 20; i++) {
+    const o = [0, 1, 2].map(() => stor.noder[Math.floor(slump() * 400)].key);
+    stor.knuter.push({ id: `sk${i}`, organer: [...new Set(o)], skilt: skilt(`Knute Knutsen ${i}`) });
+  }
+  // Første kjøring inkluderer JIT-kompilering. Serveren er varm, så kravet
+  // måles på andre kjøring. Begge tider skrives ut.
+  const t0 = performance.now();
+  const g1 = regnOppsett(stor, lerretFor(stor.noder.length));
+  const kald = performance.now() - t0;
+  const t1 = performance.now();
+  const g2 = regnOppsett(stor, lerretFor(stor.noder.length));
+  const ms = performance.now() - t1;
+  // I en stor graf er kravet at ingen etiketter overlapper hverandre eller en
+  // node. Kanter som krysser et navn, telles for seg: i et tett nett står
+  // navnet på papir over streken.
+  const alleK = [...finnKollisjoner(g1.personer), ...finnKollisjoner(g1.medEierskap)];
+  const gk = alleK.filter((c) => c.hva !== "kant går gjennom node" && c.hva !== "kant krysser etikett");
+  const krysser = alleK.filter((c) => c.hva === "kant krysser etikett").length;
+  const gjennom = alleK.filter((c) => c.hva === "kant går gjennom node").length;
+  const gLikt = JSON.stringify(g1) === JSON.stringify(g2);
+  console.log(`\nSkala (${stor.noder.length} noder, ${stor.kanter.length} kanter, ${stor.knuter.length} knuter)`);
+  console.log(`  tid: ${Math.round(ms)} ms varm, ${Math.round(kald)} ms kald (krav: under 200 ms)`);
+  console.log(`  deterministisk: ${gLikt ? "ja" : "NEI"}`);
+  console.log(`  etikettkollisjoner blant det som vises: ${gk.length}`);
+  console.log(`  skjulte etiketter og skilt: ${g1.personer.skjulte} av ${stor.noder.length + stor.kanter.length + stor.knuter.length}`);
+  console.log(`  kanter som krysser et synlig navn: ${krysser}, kanter gjennom en node: ${gjennom} (egne tall, se over)`);
+  const typer = {};
+  for (const c of gk) typer[c.hva] = (typer[c.hva] ?? 0) + 1;
+  if (gk.length) console.log(`  fordelt: ${JSON.stringify(typer)}`);
+  if (!gLikt || gk.length > 0 || ms > 200) feil += 1;
 } finally {
   await server.close();
 }

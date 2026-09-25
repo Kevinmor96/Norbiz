@@ -129,7 +129,7 @@ export function Nettverksgraf({
       ref={ref}
       role="group"
       aria-label="Nettverksgraf. Punktene er organer, og strekene er personer med rolle i begge. Samme innhold står i lista under grafen."
-      className="relative w-full bg-flate"
+      className="relative w-full bg-papir"
       style={{ aspectRatio: `${B} / ${H}` }}
       onPointerLeave={() => settAktiv(null)}
     >
@@ -196,6 +196,8 @@ export function Nettverksgraf({
         const juster = side.startsWith("v") ? "slutt" : side === "u" || side === "o" ? "midt" : "start";
         const dx = juster === "slutt" ? b.x + b.b - n.x : juster === "midt" ? b.x + b.b / 2 - n.x : b.x - n.x;
         const av = aktiv !== null && !aktiveOrganer.has(n.key);
+        // Et navn som ikke fikk plass, vises når personen er pekt på, eller ved fokus.
+        const skjult = n.etikett.skjult && !(aktiv !== null && aktiveOrganer.has(n.key));
         const stil: CSSProperties = {
           left: `calc(${px(n.x)} + ${dx.toFixed(1)}px)`,
           top: `calc(${py(n.y)} + ${(b.y - n.y).toFixed(1)}px)`,
@@ -208,7 +210,7 @@ export function Nettverksgraf({
             <span
               aria-hidden="true"
               className={cn(
-                "absolute size-[11px] -translate-1/2 border-2 border-flate bg-trykk transition-opacity duration-200 box-content",
+                "absolute size-[11px] -translate-1/2 border-2 border-papir bg-trykk transition-opacity duration-200 box-content",
                 node.bareEierskap && "bg-vann",
                 av && "opacity-35",
               )}
@@ -216,9 +218,10 @@ export function Nettverksgraf({
             />
             <p
               className={cn(
-                "etikett absolute font-semibold whitespace-nowrap transition-opacity duration-200",
+                "etikett utsparing absolute font-semibold whitespace-nowrap transition-opacity duration-200",
                 juster === "slutt" ? "text-right" : juster === "midt" ? "text-center" : "text-left",
                 av && "opacity-35",
+                skjult && "opacity-0 focus-within:z-10 focus-within:opacity-100",
               )}
               style={stil}
             >
@@ -247,8 +250,9 @@ export function Nettverksgraf({
             <span
               key={e.id}
               className={cn(
-                "etikett absolute inline-flex h-5 -translate-1/2 items-center border border-vann bg-flate px-1.5 text-[12px] font-semibold whitespace-nowrap transition-opacity duration-200",
+                "etikett absolute inline-flex h-5 -translate-1/2 items-center border border-vann bg-papir px-1.5 text-[12px] font-semibold whitespace-nowrap transition-opacity duration-200",
                 aktiv && "opacity-25",
+                e.skilt.skjult && "pointer-events-none opacity-0 focus-within:pointer-events-auto focus-within:z-10 focus-within:opacity-100",
               )}
               style={{ left: px(e.skilt.x), top: py(e.skilt.y) }}
             >
@@ -273,6 +277,7 @@ export function Nettverksgraf({
             x={px(e.skilt.x)}
             y={py(e.skilt.y)}
             dempet={dempet(p.person.key)}
+            skjult={e.skilt.skjult && aktiv !== p.person.key}
             onAktiv={(pa) => settAktiv(pa ? p.person.key : null)}
           >
             <Kildemerke belegg={p.belegg} pastand={p.pastand} />
@@ -289,6 +294,7 @@ export function Nettverksgraf({
             x={px(kn.x)}
             y={py(kn.y)}
             dempet={dempet(p.person.key)}
+            skjult={kn.skjult && aktiv !== p.person.key}
             onAktiv={(pa) => settAktiv(pa ? p.person.key : null)}
           >
             <Kildemerke belegg={p.belegg} pastand={p.pastand} />
@@ -304,6 +310,7 @@ function Skilt({
   x,
   y,
   dempet,
+  skjult,
   onAktiv,
   children,
 }: {
@@ -311,14 +318,18 @@ function Skilt({
   x: string;
   y: string;
   dempet: boolean;
+  /** Fikk ikke plass. Vises ved pek på personen og ved tastaturfokus. */
+  skjult: boolean;
   onAktiv: (pa: boolean) => void;
   children: ReactNode;
 }) {
   return (
     <span
       className={cn(
-        "etikett absolute inline-flex h-6 -translate-1/2 items-center border border-trykk bg-flate pr-1.5 pl-2 font-semibold whitespace-nowrap transition-opacity duration-200",
+        "etikett absolute inline-flex h-6 -translate-1/2 items-center border border-trykk bg-papir pr-1.5 pl-2 font-semibold whitespace-nowrap transition-opacity duration-200",
         dempet && "opacity-25",
+        skjult && "pointer-events-none opacity-0 focus-within:pointer-events-auto focus-within:z-10 focus-within:opacity-100",
+        !skjult && "z-[1]",
       )}
       style={{ left: x, top: y, fontSize: `${GRAFSKRIFT.skilt}px` }}
       onPointerEnter={() => onAktiv(true)}

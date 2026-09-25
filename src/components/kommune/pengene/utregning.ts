@@ -81,11 +81,16 @@ export function eierandeler(side: Kommuneside, elvSelskap: string | null) {
       indirekte.push({ org: s.org, eiere: s.eiere, tall });
     }
   }
-  // Størst andel først. Ukjent andel sist, fordi den ikke kan rangeres.
+  // Størst andel først. Ved lik andel kommer det største selskapet først, målt
+  // i siste omsetning eller egenkapital. Ukjent andel sist, fordi den ikke kan
+  // rangeres. Da står de viktigste øverst også når lista er lang.
+  const storrelse = (r: Eierrad) =>
+    Math.max(0, ...r.tall.filter((t) => t.type === "omsetning" || t.type === "egenkapital").map((t) => t.verdi));
   direkte.sort(
     (a, b) =>
       (a.andel === null ? 1 : 0) - (b.andel === null ? 1 : 0) ||
       (b.andel ?? 0) - (a.andel ?? 0) ||
+      storrelse(b) - storrelse(a) ||
       etterNavn(a.org, b.org),
   );
   foretak.sort((a, b) => etterNavn(a.org, b.org));

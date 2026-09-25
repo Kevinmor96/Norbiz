@@ -11,6 +11,10 @@ import { lesbar, prosent } from "@/lib/format";
 
 import { Blokktittel, Nokkeltall, OrganLenke } from "./felles";
 import type { Foretaksrad, Indirekterad } from "./utregning";
+import { VisAlle } from "./vis-alle";
+
+/** Radene som vises før «Vis alle» i de to kortere listene. */
+const TOPP = 8;
 
 export function Foretak({
   rader,
@@ -33,7 +37,36 @@ export function Foretak({
         Foretakene er en del av {eier.navn}. De har ingen eierandel, og derfor står de ikke blant
         stolpene.
       </p>
-      <ul aria-labelledby={tittelId} className="mt-1 border-b border-linje">
+      <VisAlle
+        className="mt-1"
+        antall={rader.length}
+        hva="foretak"
+        forste={<ForetakListe rader={rader.slice(0, TOPP)} eier={eier} fylke={fylke} tittelId={tittelId} />}
+        resten={
+          rader.length > TOPP && (
+            <div className="mt-3">
+              <ForetakListe rader={rader.slice(TOPP)} eier={eier} fylke={fylke} />
+            </div>
+          )
+        }
+      />
+    </div>
+  );
+}
+
+function ForetakListe({
+  rader,
+  eier,
+  fylke,
+  tittelId,
+}: {
+  rader: Foretaksrad[];
+  eier: OrganRef;
+  fylke: boolean;
+  tittelId?: string;
+}) {
+  return (
+      <ul aria-labelledby={tittelId} className="border-b border-linje">
         {rader.map((r) => (
           <li key={r.org.key} className="flex flex-col gap-1 border-t border-linje py-2.5">
             <p className="font-semibold text-pretty">
@@ -55,7 +88,6 @@ export function Foretak({
           </li>
         ))}
       </ul>
-    </div>
   );
 }
 
@@ -67,7 +99,26 @@ export function Eierkjede({ rader, tittelId }: { rader: Indirekterad[]; tittelId
       <p className="brodtekst text-[0.9375rem] text-dempet">
         Selskaper kommunen eier gjennom selskapene eller foretakene sine.
       </p>
-      <ul aria-labelledby={tittelId} className="mt-1 border-b border-linje">
+      <VisAlle
+        className="mt-1"
+        antall={rader.length}
+        hva="selskaper"
+        forste={<KjedeListe rader={rader.slice(0, TOPP)} tittelId={tittelId} />}
+        resten={
+          rader.length > TOPP && (
+            <div className="mt-3">
+              <KjedeListe rader={rader.slice(TOPP)} />
+            </div>
+          )
+        }
+      />
+    </div>
+  );
+}
+
+function KjedeListe({ rader, tittelId }: { rader: Indirekterad[]; tittelId?: string }) {
+  return (
+      <ul aria-labelledby={tittelId} className="border-b border-linje">
         {rader.map((r) => (
           <li key={r.org.key} className="flex flex-col gap-1 border-t border-linje py-2.5">
             <p className="font-semibold text-pretty">
@@ -109,7 +160,6 @@ export function Eierkjede({ rader, tittelId }: { rader: Indirekterad[]; tittelId
           </li>
         ))}
       </ul>
-    </div>
   );
 }
 
