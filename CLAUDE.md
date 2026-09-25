@@ -46,6 +46,8 @@ npm run typecheck     # tsc --noEmit, skal gå rent
 npm test              # PGlite-tester: skjema, personvern, kontrakt, datasett, mal
 npm run seed:build    # regenererer supabase/seed/seed.sql fra src/data/*.json (byte-identisk)
 npm run terreng       # henter høydedata og skriver src/data/terreng/<kommunenr>.json
+npm run brreg -- 5501 # virksomheter, roller og regnskap fra Brreg (krever MAKTKART_PERSON_SALT)
+npm run sjekk:graf    # determinisme og etikettkollisjoner i nettverksoppsettet
 ```
 
 `npm run preview` virker ikke med Lovables konfigurasjon. Bruk `build:node` og
@@ -82,12 +84,21 @@ Testene håndhever det.
 `verifisert`, `oppgitt` eller `maa_verifiseres`. Et tall uten kilde vises ikke.
 Gradene skiller seg i form, ikke bare i farge. Kildemerket er produktets signatur.
 
-**Ingenting er `verifisert` før pipelinen har hentet det.** MVP-datasettet er
-sammenstilt fra researchgrunnlaget. Utviklingsmiljøet får 403 mot
-`data.brreg.no`, så ingen rad er etterprøvd. Siden sier det rolig og vedvarende,
-og ikke bare i en fotnote. Tall fra Proff eller Purehelp er alltid
-`maa_verifiseres`: grunnlaget sier selv at de skal sjekkes mot
-Regnskapsregisteret.
+**Ingenting er `verifisert` før pipelinen har hentet det.** `verifisert` betyr
+at et skript har hentet påstanden fra et register (Brreg, Regnskapsregisteret,
+SSB, Valgdirektoratet, data.stortinget.no), og at raden har hentedato i `per`.
+Tekst lest av en nettside er `oppgitt`, også når det er organets egen side.
+Forhåndsversjonsmerket regnes fra gradene i datasettet. Det sier aldri
+«ikke etterprøvd» om noe som er etterprøvd, eller omvendt. Tall fra Proff eller
+Purehelp er alltid `maa_verifiseres`: grunnlaget sier selv at de skal sjekkes
+mot Regnskapsregisteret.
+
+**Registeret vinner over grunnlaget på registrerte roller.** Når Brreg sier
+noe annet enn researchgrunnlaget om daglig leder, styreleder, nestleder eller
+styremedlem, gjelder Brreg. Grunnlagets påstand merkes som motsagt og beholdes i
+historikken. Den slettes aldri stille. Avvikene listes i `docs/avvik/`. Roller
+som ikke registreres i Brreg, som statsforvalter og ordfører, er ikke
+motsigelser selv om Brregs «daglig leder» er en annen person.
 
 **Ingen ferskhetspåstander.** «LIVE», «sanntid» og «oppdateres daglig» brukes
 ikke før pipelinen faktisk gjør det. Skriv «sammenstilt 24.09.2026».
@@ -144,10 +155,20 @@ Maktkarts verifiseringspipeline.
 
 ## Nettverket i utviklingsmiljøet
 
-Containeren får 403 mot `data.brreg.no`, `lovable.dev`, `cdn.jsdelivr.net` og
-`cdnjs.cloudflare.com`. npm-registeret virker. Google Fonts nås med curl, men
-headless Chromium stoler ikke på proxyens CA. Fonter selvhostes derfor via
+Nettverket styres av miljøets innstillinger. Fra 2026-09-25 er det åpnet for
+Brreg, SSB, Geonorge, Valgdirektoratet, data.stortinget.no og offentlige
+nettsider. Får du 403 fra proxyen, er verten sperret. Da skal du be brukeren
+åpne den i miljøinnstillingene. Du skal aldri rute rundt sperren via en
+mellomtjeneste som Jina Reader eller agent-reach. curl går gjennom proxyen.
+Nodes `fetch` gjør det ikke, så skriptene bruker curl.
+
+Headless Chromium stoler ikke på proxyens CA. Fonter selvhostes derfor via
 `@fontsource`, noe et personvernprodukt uansett bør gjøre.
+
+Brreg-importøren trenger `MAKTKART_PERSON_SALT`. Saltet brukes bare til å skille
+navnebrødre, og det skal aldri committes. I skyøktene ligger det i
+scratchpad-mappen. I produksjon hører det hjemme blant miljøets hemmeligheter.
+Se `docs/brreg-import.md`.
 
 Supabase-MCP-en i skyøktene ser per 2026-09-24 bare prosjektet «ScripturePath».
 Bransjesjekk-basen (`jcpuhhrqhgrnihiacosy`) er ikke tilgjengelig derfra.
