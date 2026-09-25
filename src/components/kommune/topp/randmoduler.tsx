@@ -56,24 +56,50 @@ const Enhet = ({ children }: { children: ReactNode }) => (
   <span className="text-[0.9375rem] font-semibold">{children}</span>
 );
 
-/** Halvsirkel med ett sete per medlem, i tre rader som i en sal. */
+const YTRE = 32;
+/** Ønsket avstand mellom setene, langs buen og mellom radene. */
+const AVSTAND = 7;
+
+/**
+ * Radene i salen. Tre faste rader ga 3, 5 og 7 seter for et kommunestyre på
+ * 15, og da sto setene i stråler, ikke i buer. Her velges antall rader så
+ * avstanden mellom setene blir omtrent den samme langs buen og mellom radene:
+ * med k rader og avstand s rommer rad i omtrent π·rᵢ/s + 1 seter, og s løses
+ * for hver k. Små styrer får én bue, store får flere.
+ */
+function salen(antall: number): { radius: number; seter: number }[] {
+  let best: { radius: number; seter: number }[] = [{ radius: YTRE, seter: antall }];
+  let avvik = Infinity;
+  for (let k = 1; k <= 6; k++) {
+    const s = (Math.PI * YTRE * k) / (antall - k + (Math.PI * k * (k - 1)) / 2);
+    if (!(s > 0) || s < 5.2 || YTRE - (k - 1) * s < 8) continue;
+    if (Math.abs(s - AVSTAND) >= avvik) continue;
+    avvik = Math.abs(s - AVSTAND);
+    const radier = Array.from({ length: k }, (_, i) => YTRE - i * s);
+    const sum = radier.reduce((a, b) => a + b, 0);
+    // Største rest: setene fordeles etter radius og summerer alltid til antall.
+    const andel = radier.map((r) => (antall * r) / sum);
+    const seter = andel.map(Math.floor);
+    const igjen = antall - seter.reduce((a, b) => a + b, 0);
+    andel
+      .map((a, i) => ({ i, rest: a - Math.floor(a) }))
+      .sort((a, b) => b.rest - a.rest || a.i - b.i)
+      .slice(0, igjen)
+      .forEach(({ i }) => (seter[i] = (seter[i] ?? 0) + 1));
+    best = radier.map((radius, i) => ({ radius, seter: seter[i] ?? 0 }));
+  }
+  return best;
+}
+
+/** Halvsirkel med ett sete per medlem, i buer som i en sal. */
 function Halvsirkel({ antall }: { antall: number }) {
-  const radier = [16, 24, 32];
-  const sum = radier.reduce((a, b) => a + b, 0);
-  let rest = antall;
-  const perRad = radier.map((r, i) => {
-    const k = i < radier.length - 1 ? Math.round((antall * r) / sum) : rest;
-    rest -= k;
-    return k;
-  });
-  const seter: { x: number; y: number; v: number }[] = [];
-  radier.forEach((r, i) => {
-    const k = perRad[i] ?? 0;
+  const seter: { x: number; y: number }[] = [];
+  for (const { radius: r, seter: k } of salen(antall)) {
     for (let j = 0; j < k; j++) {
       const v = k === 1 ? Math.PI / 2 : Math.PI - (j * Math.PI) / (k - 1);
-      seter.push({ x: 36 + r * Math.cos(v), y: 36 - r * Math.sin(v), v });
+      seter.push({ x: 36 + r * Math.cos(v), y: 36 - r * Math.sin(v) });
     }
-  });
+  }
   return (
     <svg
       viewBox="0 0 72 40"
