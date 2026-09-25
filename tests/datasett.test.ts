@@ -332,6 +332,18 @@ for (const { slug, data: d } of filer) {
       }
     });
 
+    it("merker motsagte roller bare med true, uten sluttdato, og sier hva registeret har", () => {
+      // En motsagt rolle er ikke aktiv, men står i historikken. Sluttdatoen er
+      // ukjent, så `til` settes ikke; merknaden sier hva registeret har.
+      for (const r of d.roller) {
+        if (r.motsagt === undefined) continue;
+        expect(r.motsagt, nokkel.rolle(r)).toBe(true);
+        expect(r.til, nokkel.rolle(r)).toBeUndefined();
+        expect(r.til_forventet, nokkel.rolle(r)).toBeUndefined();
+        expect(r.belegg.merknad ?? "", nokkel.rolle(r)).toMatch(/^Motsagt av /);
+      }
+    });
+
     it("har ingen rolle som både er avsluttet og har forventet slutt", () => {
       expect(
         d.roller

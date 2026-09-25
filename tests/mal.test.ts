@@ -140,6 +140,31 @@ describe("kantene ble truffet", () => {
     expect(n?.personer.map((p) => p.person.key)).toEqual(["kari-fiktiv", "per-fiktiv"]);
   });
 
+  it("en motsagt rolle er ikke aktiv: den står under tidligere, uten sluttdato, og ikke i nettverket", async () => {
+    const p = await lik("organ_profil", "testvik-energi");
+    expect(p?.roller.naa.map((r) => r.person.key)).not.toContain("mette-motsagt");
+    expect(p?.roller.tidligere).toContainEqual(
+      expect.objectContaining({
+        person: { key: "mette-motsagt", navn: "Mette Motsagt" },
+        rolletype: "daglig_leder",
+        motsagt: true,
+        til: null,
+      }),
+    );
+    // Den aktive rollen i nettselskapet står, og den er ikke motsagt.
+    const nett = await lik("organ_profil", "testvik-nett");
+    expect(nett?.roller.naa).toContainEqual(
+      expect.objectContaining({
+        person: { key: "mette-motsagt", navn: "Mette Motsagt" },
+        motsagt: false,
+      }),
+    );
+    // Ikke leder noe sted, og ikke i nettverket: bare én aktiv rolle.
+    expect(JSON.stringify(await lik("organkart", "9901"))).not.toContain("Mette Motsagt");
+    const n = await lik("nettverk", "9901");
+    expect(n?.personer.map((x) => x.person.key)).not.toContain("mette-motsagt");
+  });
+
   it("en ikke-leder i en domstol finnes ikke i noe svar", async () => {
     const svar = JSON.stringify([
       await lik("organ_profil", "testvik-tingrett"),

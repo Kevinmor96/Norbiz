@@ -6,7 +6,7 @@
     "fylke": "Troms",
     "sammenstilt": "2026-09-24",
     "grunnlag": "docs/research/2026-09-24-maktkart-researchgrunnlag.md",
-    "merknad": "Datasettet er sammenstilt fra researchgrunnlaget 24.09.2026 og utvidet med Brønnøysundregistrene 25.09.2026. Påstander hentet fra registrene er merket verifisert med hentedatoen. Resten er ikke etterprøvd."
+    "merknad": "Datasettet er sammenstilt fra researchgrunnlaget 24.09.2026 og utvidet 25.09.2026 med Brønnøysundregistrene og med organenes egne sider. Verifisert er bare det pipelinen har hentet fra registrene, med hentedatoen: 1 005 av 1 180 roller (31 av dem bekrefter en rad fra grunnlaget eller fra en offisiell side), 219 av 344 organer og 519 av 534 nøkkeltall. 167 roller og 11 organer er hentet fra organenes egne sider og fra data.stortinget.no 25.09.2026. De er oppgitt av kilden, ikke etterprøvd av pipelinen. 8 roller, 114 organer og 15 nøkkeltall bygger fortsatt på researchgrunnlaget, og 5 av de 8 rollene er motsagt av registeret."
   },
   "kilder": [
     {
@@ -224,6 +224,252 @@
       "url": "https://data.brreg.no/enhetsregisteret/api/roller/rolletyper",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "arbeidstilsynet-no-organisering",
+      "navn": "Arbeidstilsynet: Organisering",
+      "url": "https://www.arbeidstilsynet.no/om-oss/organisering/",
+      "type": "offisiell"
+    },
+    {
+      "key": "data-stortinget-no-dagensrepresentanter",
+      "navn": "Stortingets data: Dagens representanter",
+      "url": "https://data.stortinget.no/eksport/dagensrepresentanter",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no-regjering",
+      "navn": "Stortingets data: Regjeringsmedlemmer",
+      "url": "https://data.stortinget.no/eksport/regjering",
+      "type": "register"
+    },
+    {
+      "key": "data-stortinget-no-representanter-2025-2029",
+      "navn": "Stortingets data: Representanter 2025–2029",
+      "url": "https://data.stortinget.no/eksport/representanter?stortingsperiodeid=2025-2029",
+      "type": "register"
+    },
+    {
+      "key": "domstol-no-halogaland-lagmannsrett-ansatte",
+      "navn": "Hålogaland lagmannsrett: Ansatte",
+      "url": "https://www.domstol.no/no/domstoler/lagmannsrett/halogaland-lagmannsrett/om-halogaland-lagmannsrett/ansatte/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-nord-troms-jordskifterett-medarbeidere",
+      "navn": "Nord-Troms jordskifterett: Medarbeidere",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/nord-troms-jordskifterett/medarbeidere/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-nord-troms-jordskifterett-rettskrets",
+      "navn": "Nord-Troms jordskifterett: Vår rettskrets",
+      "url": "https://www.domstol.no/no/domstoler/jordskifterett/nord-troms-jordskifterett/var-rettskrets/",
+      "type": "offisiell"
+    },
+    {
+      "key": "domstol-no-nord-troms-og-senja-tingrett-om",
+      "navn": "Nord-Troms og Senja tingrett: Om oss",
+      "url": "https://www.domstol.no/no/domstoler/tingrett/nord-troms-og-senja/om-nord-troms-og-senja-tingrett/",
+      "type": "offisiell"
+    },
+    {
+      "key": "fiskeridir-no-organisering",
+      "navn": "Fiskeridirektoratet: Organisering",
+      "url": "https://www.fiskeridir.no/om-oss/organisering",
+      "type": "offisiell"
+    },
+    {
+      "key": "forsvaret-no-haerens-avdelinger",
+      "navn": "Forsvaret: Hærens avdelinger",
+      "url": "https://www.forsvaret.no/om-forsvaret/organisasjon/haeren/haerens-avdelinger",
+      "type": "offisiell"
+    },
+    {
+      "key": "forsvaret-no-organisasjonskart",
+      "navn": "Forsvaret: Organisasjonskart og ledelse (oppdatert 24.09.2026)",
+      "url": "https://www.forsvaret.no/om-forsvaret/organisasjon/organisasjonskart",
+      "type": "offisiell"
+    },
+    {
+      "key": "helse-nord-no-ledelsen",
+      "navn": "Helse Nord RHF: Ledelsen i Helse Nord RHF",
+      "url": "https://www.helse-nord.no/om-oss/ledelsen-i-helse-nord-rhf/",
+      "type": "offisiell"
+    },
+    {
+      "key": "helse-nord-no-organisasjonskart",
+      "navn": "Helse Nord: Organisasjonskart",
+      "url": "https://www.helse-nord.no/om-oss/organisasjonskart-helse-nord/",
+      "type": "offisiell"
+    },
+    {
+      "key": "helse-nord-no-styret",
+      "navn": "Helse Nord RHF: Styret i Helse Nord RHF",
+      "url": "https://www.helse-nord.no/om-oss/styret-i-helse-nord-rhf/",
+      "type": "offisiell"
+    },
+    {
+      "key": "helsenordikt-no-ledelsen",
+      "navn": "Helse Nord IKT: Ledelsen",
+      "url": "https://www.helsenordikt.no/om-oss/ledelsen/",
+      "type": "offisiell"
+    },
+    {
+      "key": "hi-no-organisasjonen",
+      "navn": "Havforskningsinstituttet: Organisasjonen",
+      "url": "https://www.hi.no/hi/om-oss/organisasjonen",
+      "type": "offisiell"
+    },
+    {
+      "key": "kartverket-no-troms-og-finnmark-kontakt",
+      "navn": "Kartverket Troms og Finnmark: Kontakt",
+      "url": "https://www.kartverket.no/om-kartverket/fylkeskartkontorene/kartverket-troms-og-finnmark/kontakt-kartverket-troms-og-finnmark",
+      "type": "offisiell"
+    },
+    {
+      "key": "kystverket-no-organisering",
+      "navn": "Kystverket: Organisering og leiing",
+      "url": "https://www.kystverket.no/om-kystverket/organisering/",
+      "type": "offisiell"
+    },
+    {
+      "key": "mattilsynet-no-organiseringen",
+      "navn": "Mattilsynet: Organiseringen av Mattilsynet",
+      "url": "https://www.mattilsynet.no/om-mattilsynet/organiseringen-av-mattilsynet",
+      "type": "offisiell"
+    },
+    {
+      "key": "mattilsynet-no-organiseringen-av-hovedkontoret",
+      "navn": "Mattilsynet: Organiseringen av hovedkontoret",
+      "url": "https://www.mattilsynet.no/om-mattilsynet/organiseringen-av-mattilsynet/organiseringen-av-hovedkontoret-i-mattilsynet",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no-troms-organisering-og-ledelse",
+      "navn": "Troms politidistrikt: Organisering og ledelse",
+      "url": "https://www.politiet.no/om-politiet/organisasjonen/politidistrikter/troms/om-troms/organisering-og-ledelse",
+      "type": "offisiell"
+    },
+    {
+      "key": "riksadvokaten-no-statsadvokatembeter",
+      "navn": "Riksadvokaten: Oversikt over statsadvokater og embeter",
+      "url": "https://www.riksadvokaten.no/oversikt-over-statsadvokater-og-embeter/",
+      "type": "offisiell"
+    },
+    {
+      "key": "sametinget-no-sametingsradet",
+      "navn": "Sametinget: Sametingsrådet",
+      "url": "https://sametinget.no/politikk/politisk-organisering-og-ledelse/sametingsradet/",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-tf-organisasjonskart",
+      "navn": "Statsforvalteren i Troms og Finnmark: Om oss, organisasjonskart datert 29.05.2026",
+      "url": "https://www.statsforvalteren.no/nb/troms-og-finnmark/om-oss/",
+      "type": "offisiell"
+    },
+    {
+      "key": "statsforvalteren-no-tf-var-statsforvalter",
+      "navn": "Statsforvalteren i Troms og Finnmark: Vår statsforvalter",
+      "url": "https://www.statsforvalteren.no/nb/troms-og-finnmark/om-oss/var-statsforvalter/",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no-administrativ-ledelse",
+      "navn": "Troms fylkeskommune: Administrativ ledelse",
+      "url": "https://www.tromsfylke.no/om-oss/administrativ-ledelse/",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no-fylkesordforer",
+      "navn": "Troms fylkeskommune: Fylkesordfører",
+      "url": "https://www.tromsfylke.no/politikk/fylkesordforer/",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no-fylkesutvalget",
+      "navn": "Troms fylkeskommune: Fylkesutvalget",
+      "url": "https://www.tromsfylke.no/politikk/fylkesutvalget/",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no-hovedutvalg-kompetanse",
+      "navn": "Troms fylkeskommune: Hovedutvalg for kompetanse",
+      "url": "https://www.tromsfylke.no/politikk/hovedutvalg/hovedutvalg-for-kompetanse/",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no-hovedutvalg-kultur-og-helse",
+      "navn": "Troms fylkeskommune: Hovedutvalg for kultur og helse",
+      "url": "https://www.tromsfylke.no/politikk/hovedutvalg/hovedutvalg-for-kultur-og-helse/",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no-hovedutvalg-naering-klima-og-miljo",
+      "navn": "Troms fylkeskommune: Hovedutvalg for næring, klima og miljø",
+      "url": "https://www.tromsfylke.no/politikk/hovedutvalg/hovedutvalg-for-naring-klima-og-miljo/",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromsfylke-no-hovedutvalg-samferdsel",
+      "navn": "Troms fylkeskommune: Hovedutvalg for samferdsel",
+      "url": "https://www.tromsfylke.no/politikk/hovedutvalg/hovedutvalg-for-samferdsel/",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromso-digdem-no-sru",
+      "navn": "Tromsø kommune: styrer, råd og utvalg (tromso.digdem.no/sru)",
+      "url": "https://tromso.digdem.no/sru",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromso-kommune-no-formannskapet-og-hovedutvalgene",
+      "navn": "Tromsø kommune: Formannskapet og hovedutvalgene",
+      "url": "https://www.tromso.kommune.no/politikk/politisk-organisering/formannskapet-og-hovedutvalgene",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromso-kommune-no-kommunedirektor",
+      "navn": "Tromsø kommune: Kommunedirektør",
+      "url": "https://www.tromso.kommune.no/tema/politikk-og-administrasjon/administrasjonen/kommunedirektor",
+      "type": "offisiell"
+    },
+    {
+      "key": "tromso-kommune-no-ordforer",
+      "navn": "Tromsø kommune: Ordfører",
+      "url": "https://www.tromso.kommune.no/politikk/politisk-organisering/ordforer",
+      "type": "offisiell"
+    },
+    {
+      "key": "uit-no-universitetsledelsen",
+      "navn": "UiT: Universitetsledelsen",
+      "url": "https://uit.no/enhet/universitetsledelsen",
+      "type": "offisiell"
+    },
+    {
+      "key": "uit-no-universitetsstyret",
+      "navn": "UiT: Universitetsstyret",
+      "url": "https://uit.no/om/universitetsstyret",
+      "type": "offisiell"
+    },
+    {
+      "key": "unn-no-ledelsen",
+      "navn": "UNN: Ledelsen i Universitetssykehuset Nord-Norge",
+      "url": "https://www.unn.no/om-oss/ledelsen-i-universitetssykehuset-nord-norge/",
+      "type": "offisiell"
+    },
+    {
+      "key": "unn-no-styret",
+      "navn": "UNN: Styret for UNN",
+      "url": "https://www.unn.no/om-oss/styret-for-unn/",
+      "type": "offisiell"
+    },
+    {
+      "key": "vegvesen-no-organisasjonskart",
+      "navn": "Statens vegvesen: Organisasjonskart (rotsiden og enhetene CAA00, CLA00, BHA00, DGA00)",
+      "url": "https://www.vegvesen.no/om-oss/om-organisasjonen/organisasjonskart/",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
@@ -284,13 +530,34 @@
         "vedtak"
       ],
       "segmenter": [],
-      "status": "aktiv",
+      "status": "nedlagt",
       "sensitiv": true,
       "beskrivelse": "Påtalemyndighet i alvorlige straffesaker i Troms og Finnmark.",
       "belegg": {
         "kilde": "riksadvokaten-no",
         "verifisering": "oppgitt",
-        "per": "2026-09"
+        "per": "2026-09",
+        "merknad": "Satt til nedlagt 25.09.2026: riksadvokatens oversikt over statsadvokatembeter har ikke et eget embete for Troms og Finnmark, og Troms hører under Nord statsadvokatembete (se relasjonen). Når endringen skjedde, står ikke i oversikten, så gyldig_til er ikke satt."
+      }
+    },
+    {
+      "key": "nord-statsadvokatembete",
+      "navn": "Nord statsadvokatembete",
+      "nivaa": "stat",
+      "organtype": "paatale",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Statsadvokatembete for Trøndelag, Nordland, Troms og Finnmark med kontorsted i Tromsø, blant annet for Troms politidistrikt.",
+      "belegg": {
+        "kilde": "riksadvokaten-no-statsadvokatembeter",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra riksadvokaten.no 25.09.2026."
       }
     },
     {
@@ -332,8 +599,8 @@
       }
     },
     {
-      "key": "halogaland-jordskifterett",
-      "navn": "Hålogaland jordskifterett",
+      "key": "nord-troms-jordskifterett",
+      "navn": "Nord-Troms jordskifterett",
       "nivaa": "stat",
       "organtype": "domstol",
       "rekkevidde": "region",
@@ -345,11 +612,12 @@
       ],
       "status": "aktiv",
       "sensitiv": true,
-      "beskrivelse": "Avgjør jordskiftesaker og eiendomsgrenser, med kontor i Tromsø.",
+      "beskrivelse": "Jordskifterett i Tromsø med tolv kommuner i rettskretsen, blant dem Tromsø.",
       "belegg": {
-        "kilde": "domstol-no",
+        "kilde": "domstol-no-nord-troms-jordskifterett-rettskrets",
         "verifisering": "oppgitt",
-        "per": "2026-09"
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026. Grunnlaget kalte retten «Hålogaland jordskifterett». domstol.no har ingen domstol med det navnet, og Tromsø ligger i rettskretsen til Nord-Troms jordskifterett. Navnet i grunnlaget var feil; det er ikke en nedlagt domstol."
       }
     },
     {
@@ -403,11 +671,12 @@
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Skatt og merverdiavgift; grunnlaget viser til region Nord.",
+      "beskrivelse": "Skatt og merverdiavgift. Etaten består av et direktorat og fem divisjoner med landsdekkende ansvar; den har ingen region Nord.",
       "belegg": {
         "kilde": "skatteetaten-no",
         "verifisering": "oppgitt",
-        "per": "2026-09"
+        "per": "2026-09",
+        "merknad": "Beskrivelsen er rettet 25.09.2026 etter skatteetaten.no (om-skatteetaten/om-oss/organisasjon-og-ledelse). Grunnlaget viste til en region Nord."
       }
     },
     {
@@ -443,11 +712,12 @@
       ],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Gir kvoter, tillatelser og akvakulturtillatelser og driver kontroll langs kysten; grunnlaget viser til region Nord.",
+      "beskrivelse": "Gir kvoter, tillatelser og akvakulturtillatelser og driver kontroll langs kysten. Organisert i divisjoner med landsdekkende ansvar og 19 kontorer; direktoratet har ingen region Nord.",
       "belegg": {
         "kilde": "fiskeridir-no",
         "verifisering": "oppgitt",
-        "per": "2026-09"
+        "per": "2026-09",
+        "merknad": "Beskrivelsen er rettet 25.09.2026 etter fiskeridir.no (om-oss/organisering). Grunnlaget viste til en region Nord."
       }
     },
     {
@@ -463,11 +733,12 @@
       ],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Fører tilsyn med sjømat, oppdrett og næringsmidler; grunnlaget viser til region Nord.",
+      "beskrivelse": "Fører tilsyn med sjømat, oppdrett og næringsmidler. Organisert i fire nasjonale tilsynsdivisjoner siden 1. mai 2025, da de fem geografiske regionene ble lagt ned.",
       "belegg": {
         "kilde": "mattilsynet-no",
         "verifisering": "oppgitt",
-        "per": "2026-09"
+        "per": "2026-09",
+        "merknad": "Beskrivelsen er rettet 25.09.2026 etter mattilsynet.no (Organiseringen av Mattilsynet): «1. mai 2025 gikk vi fra fem geografiske regioner til fire nasjonale tilsynsdivisjoner.» Grunnlaget viste til region Nord."
       }
     },
     {
@@ -481,13 +752,36 @@
       "segmenter": [
         "transport"
       ],
-      "status": "aktiv",
+      "status": "nedlagt",
       "sensitiv": false,
       "beskrivelse": "Har ansvar for farleder, havnetillatelser og los.",
       "belegg": {
         "kilde": "kystverket-no",
         "verifisering": "oppgitt",
-        "per": "2026-09"
+        "per": "2026-09",
+        "merknad": "Satt til nedlagt 25.09.2026: Kystverkets organisasjonskart for 2026 har ingen region Troms og Finnmark. Kystverket er organisert i fire landsdekkende virksomhetsområder (se relasjonen til Kystverket). Når regionen ble lagt ned, står ikke på kystverket.no, så gyldig_til er ikke satt."
+      }
+    },
+    {
+      "key": "kystverket",
+      "navn": "Kystverket",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "konsesjon"
+      ],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Statlig etat for sjøveien, organisert i fire landsdekkende virksomhetsområder under kystdirektøren.",
+      "belegg": {
+        "kilde": "kystverket-no-organisering",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kystverket.no 25.09.2026."
       }
     },
     {
@@ -585,6 +879,25 @@
         "kilde": "forsvaret-no",
         "verifisering": "oppgitt",
         "per": "2026-09"
+      }
+    },
+    {
+      "key": "haeren",
+      "navn": "Hæren",
+      "overordnet": "forsvaret",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "rekkevidde": "nasjonal",
+      "myndighet": [],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Forsvarets landstyrker; Hærstaben har hovedkvarter i Rusta leir på Bardufoss.",
+      "belegg": {
+        "kilde": "forsvaret-no-haerens-avdelinger",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra forsvaret.no 25.09.2026."
       }
     },
     {
@@ -850,6 +1163,29 @@
       }
     },
     {
+      "key": "helse-nord-ikt",
+      "orgnr": "918177833",
+      "navn": "Helse Nord IKT",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "kommunenr": "5501",
+      "rekkevidde": "region",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "gyldig_fra": "2016-11-23",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Helseforetak for IKT, ett av seks helseforetak som Helse Nord RHF eier.",
+      "belegg": {
+        "kilde": "helse-nord-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra helse-nord.no 25.09.2026. Orgnr, kommunenummer og stiftelsesdato er fra Enhetsregisteret, der foretaket heter «Helse Nord IKT HF»."
+      }
+    },
+    {
       "key": "uit",
       "navn": "UiT Norges arktiske universitet",
       "kortnavn": "UiT",
@@ -1019,12 +1355,12 @@
       "gyldig_fra": "2024-01-01",
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt.",
+      "beskrivelse": "Fylkeskommunen for Troms, gjenopprettet 1.1.2024 da Troms og Finnmark fylkeskommune ble delt. Styres etter formannskapsmodellen: fylkesordføreren leder fylkestinget og fylkesutvalget.",
       "belegg": {
         "kilde": "tromsfylke-no",
         "verifisering": "oppgitt",
         "per": "2026-09",
-        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»)."
+        "merknad": "Politisk samarbeid 2023–2027: H, Ap, KrF, V og MDG (plattformen «Et kraftfullt Troms»). Styringsmodellen er bekreftet på tromsfylke.no/politikk/fylkesordforer/ 25.09.2026: «Troms fylkeskommune styres etter formannskapsmodellen, hvor fylkesordføreren er den valgte lederen av fylkestinget.» Fylkesutvalgssiden sier at fylkesordføreren leder fylkesutvalget. Medieomtale ved konstitueringen i 2023 omtalte et fylkesråd og en fylkesrådsleder; fylkeskommunens egne sider har verken fylkesråd eller fylkesrådsleder."
       }
     },
     {
@@ -1067,6 +1403,96 @@
         "kilde": "tromsfylke-no",
         "verifisering": "oppgitt",
         "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-hovedutvalg-kultur-og-helse",
+      "navn": "Hovedutvalg for kultur og helse",
+      "nivaa": "fylke",
+      "organtype": "utvalg",
+      "overordnet": "troms-fylkesting",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [],
+      "segmenter": [
+        "helse"
+      ],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Hovedutvalg i Troms fylkeskommune for kultur og helse.",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-kultur-og-helse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "key": "troms-hovedutvalg-kompetanse",
+      "navn": "Hovedutvalg for kompetanse",
+      "nivaa": "fylke",
+      "organtype": "utvalg",
+      "overordnet": "troms-fylkesting",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [],
+      "segmenter": [
+        "utdanning-forskning"
+      ],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Hovedutvalg i Troms fylkeskommune for kompetanse.",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-kompetanse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "key": "troms-hovedutvalg-samferdsel",
+      "navn": "Hovedutvalg for samferdsel",
+      "nivaa": "fylke",
+      "organtype": "utvalg",
+      "overordnet": "troms-fylkesting",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Hovedutvalg i Troms fylkeskommune for samferdsel.",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-samferdsel",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "key": "troms-hovedutvalg-naering-klima-og-miljo",
+      "navn": "Hovedutvalg for næring, klima og miljø",
+      "nivaa": "fylke",
+      "organtype": "utvalg",
+      "overordnet": "troms-fylkesting",
+      "fylkesnr": "55",
+      "rekkevidde": "fylke",
+      "myndighet": [],
+      "segmenter": [],
+      "antall_medlemmer": 7,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Hovedutvalg i Troms fylkeskommune for næring, klima og miljø.",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-naering-klima-og-miljo",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
       }
     },
     {
@@ -1429,6 +1855,36 @@
         "kilde": "tromso-kommune-no",
         "verifisering": "oppgitt",
         "per": "2026-09"
+      }
+    },
+    {
+      "key": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "navn": "Miljø-, idrett-, kultur- og samfunnsutviklingsutvalget",
+      "nivaa": "kommune",
+      "organtype": "utvalg",
+      "overordnet": "tromso-kommunestyre",
+      "kommunenr": "5501",
+      "fylkesnr": "55",
+      "rekkevidde": "kommune",
+      "myndighet": [
+        "vedtak",
+        "innstilling"
+      ],
+      "segmenter": [
+        "avfall-miljo",
+        "energi",
+        "transport",
+        "landbruk"
+      ],
+      "antall_medlemmer": 11,
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Hovedutvalg som behandler saker om næring, miljø og klima, samferdsel, kultur, idrett og friluftsliv, avfall, energi og landbruk.",
+      "belegg": {
+        "kilde": "tromso-kommune-no-formannskapet-og-hovedutvalgene",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.kommune.no 25.09.2026."
       }
     },
     {
@@ -2228,6 +2684,29 @@
         "verifisering": "maa_verifiseres",
         "per": "2026-09",
         "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "naerings-og-fiskeridepartementet",
+      "navn": "Nærings- og fiskeridepartementet",
+      "kortnavn": "NFD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk"
+      ],
+      "segmenter": [
+        "sjomat"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Departementet med ansvar for næringspolitikk og fiskeri.",
+      "belegg": {
+        "kilde": "data-stortinget-no-regjering",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra data.stortinget.no 25.09.2026."
       }
     },
     {
@@ -4214,28 +4693,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: ansatte>=50."
-      }
-    },
-    {
-      "key": "helse-nord-ikt",
-      "orgnr": "918177833",
-      "navn": "Helse Nord Ikt HF",
-      "nivaa": "stat",
-      "organtype": "HF",
-      "kommunenr": "5501",
-      "myndighet": [],
-      "segmenter": [
-        "helse"
-      ],
-      "gyldig_fra": "2016-11-23",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
       }
     },
     {
@@ -7176,7 +7633,7 @@
     },
     {
       "key": "sigrid-hammer",
-      "navn": "Sigrid Hammer"
+      "navn": "Sigrid Bjørnhaug Hammer"
     },
     {
       "key": "ellen-beate-lundberg",
@@ -7337,6 +7794,418 @@
     {
       "key": "harald-bredrup",
       "navn": "Harald Bredrup"
+    },
+    {
+      "key": "abdalla-ali-mohammed",
+      "navn": "Abdalla Ali Mohammed"
+    },
+    {
+      "key": "andrine-hanssen-seppola",
+      "navn": "Andrine Hanssen-Seppola"
+    },
+    {
+      "key": "ann-sissel-enoksen",
+      "navn": "Ann Sissel Enoksen"
+    },
+    {
+      "key": "anne-grethe-olsen",
+      "navn": "Anne Grethe Olsen"
+    },
+    {
+      "key": "anne-hjortdahl",
+      "navn": "Anne Hjortdahl"
+    },
+    {
+      "key": "anni-skogman",
+      "navn": "Anni Skogman"
+    },
+    {
+      "key": "arnulf-kristian-kaspersen",
+      "navn": "Arnulf Kristian Kaspersen"
+    },
+    {
+      "key": "barbara-vogele",
+      "navn": "Barbara Vögele"
+    },
+    {
+      "key": "bjorn-gunnar-jorgensen",
+      "navn": "Bjørn-Gunnar Jørgensen"
+    },
+    {
+      "key": "bjorn-kavli",
+      "navn": "Bjørn Kavli"
+    },
+    {
+      "key": "bjorn-laksforsmo",
+      "navn": "Bjørn Laksforsmo"
+    },
+    {
+      "key": "cecilie-mathisen",
+      "navn": "Cecilie Mathisen"
+    },
+    {
+      "key": "charlotte-larsen",
+      "navn": "Charlotte Larsen"
+    },
+    {
+      "key": "einar-vik-arset",
+      "navn": "Einar Vik Arset"
+    },
+    {
+      "key": "eirik-johansen",
+      "navn": "Eirik Johansen"
+    },
+    {
+      "key": "eirik-stellander",
+      "navn": "Eirik Stellander"
+    },
+    {
+      "key": "eirin-sundby",
+      "navn": "Eirin Sundby"
+    },
+    {
+      "key": "elin-gullhav",
+      "navn": "Elin Gullhav"
+    },
+    {
+      "key": "eva-hanne-hansen",
+      "navn": "Eva-Hanne Hansen"
+    },
+    {
+      "key": "fartun-hussein",
+      "navn": "Fartun Hussein"
+    },
+    {
+      "key": "felix-lempp",
+      "navn": "Felix Lempp"
+    },
+    {
+      "key": "fredrik-sund",
+      "navn": "Fredrik Sund"
+    },
+    {
+      "key": "gina-johansen",
+      "navn": "Gina Johansen"
+    },
+    {
+      "key": "grete-asvang",
+      "navn": "Grete Åsvang"
+    },
+    {
+      "key": "grethe-andersen",
+      "navn": "Grethe Andersen"
+    },
+    {
+      "key": "guro-tjosaas-mortensen",
+      "navn": "Guro Tjosaas Mortensen"
+    },
+    {
+      "key": "hans-petter-kvaal",
+      "navn": "Hans Petter Kvaal"
+    },
+    {
+      "key": "hugo-henstein",
+      "navn": "Hugo Henstein"
+    },
+    {
+      "key": "ida-garseth-hov",
+      "navn": "Ida Gårseth Hov"
+    },
+    {
+      "key": "inge-takoy",
+      "navn": "Inge Takøy"
+    },
+    {
+      "key": "ingvild-austgulen",
+      "navn": "Ingvild Austgulen"
+    },
+    {
+      "key": "irene-dahl",
+      "navn": "Irene Dahl"
+    },
+    {
+      "key": "jan-blomseth",
+      "navn": "Jan Blomseth"
+    },
+    {
+      "key": "jens-arne-hafeld",
+      "navn": "Jens Arne Hafeld"
+    },
+    {
+      "key": "joakim-with",
+      "navn": "Joakim With"
+    },
+    {
+      "key": "john-rainer-lovli",
+      "navn": "John Rainer Løvli"
+    },
+    {
+      "key": "june-pettersen",
+      "navn": "June Pettersen"
+    },
+    {
+      "key": "kasandra-hunstad",
+      "navn": "Kasandra Hunstad"
+    },
+    {
+      "key": "kathrine-strandli",
+      "navn": "Kathrine Strandli"
+    },
+    {
+      "key": "kristian-wilsgard",
+      "navn": "Kristian Wilsgård"
+    },
+    {
+      "key": "kristoffer-kanestrom",
+      "navn": "Kristoffer Kanestrøm"
+    },
+    {
+      "key": "lars-eirik-dahlberg-grotdal",
+      "navn": "Lars Eirik Dahlberg Grotdal"
+    },
+    {
+      "key": "line-elisabeth-solbakken",
+      "navn": "Line Elisabeth Solbakken"
+    },
+    {
+      "key": "line-fusdahl",
+      "navn": "Line Fusdahl"
+    },
+    {
+      "key": "magnus-fridtjof-johannessen",
+      "navn": "Magnus Fridtjof Johannessen"
+    },
+    {
+      "key": "marit-sollie-aukland",
+      "navn": "Marit Sollie Aukland"
+    },
+    {
+      "key": "markus-halftan-akselbo",
+      "navn": "Markus Halftan Akselbo"
+    },
+    {
+      "key": "markus-rumpsfeld",
+      "navn": "Markus Rumpsfeld"
+    },
+    {
+      "key": "marlene-berntsen-brathen",
+      "navn": "Marlene Berntsen Bråthen"
+    },
+    {
+      "key": "marta-hofsoy",
+      "navn": "Marta Hofsøy"
+    },
+    {
+      "key": "marte-lodemel-henriksen",
+      "navn": "Marte Lødemel Henriksen"
+    },
+    {
+      "key": "mette-mohag",
+      "navn": "Mette Mohåg"
+    },
+    {
+      "key": "mona-woll",
+      "navn": "Mona Woll"
+    },
+    {
+      "key": "monica-hansen-nylund",
+      "navn": "Monica Hansen Nylund"
+    },
+    {
+      "key": "nikolai-skogan",
+      "navn": "Nikolai Skogan"
+    },
+    {
+      "key": "oddbjorg-mikkelsen",
+      "navn": "Oddbjørg Mikkelsen"
+    },
+    {
+      "key": "ole-andreas-myhrer-smith",
+      "navn": "Ole Andreas Myhrer Smith"
+    },
+    {
+      "key": "orjan-olsvik",
+      "navn": "Ørjan Olsvik"
+    },
+    {
+      "key": "orjan-sandberg",
+      "navn": "Ørjan Sandberg"
+    },
+    {
+      "key": "oystein-nilsen",
+      "navn": "Øystein Nilsen"
+    },
+    {
+      "key": "pal-julius-skogholt",
+      "navn": "Pål Julius Skogholt"
+    },
+    {
+      "key": "peder-gunnar-moe-joakimsen",
+      "navn": "Peder Gunnar Moe Joakimsen"
+    },
+    {
+      "key": "per-angermo",
+      "navn": "Per Angermo"
+    },
+    {
+      "key": "regine-rovik",
+      "navn": "Regine Røvik"
+    },
+    {
+      "key": "rolf-oistein-barman-jenssen",
+      "navn": "Rolf Øistein Barman Jenssen"
+    },
+    {
+      "key": "rolleiv-lind",
+      "navn": "Rolleiv Lind"
+    },
+    {
+      "key": "sara-haugan-jacobsen",
+      "navn": "Sara Haugan Jacobsen"
+    },
+    {
+      "key": "silje-karine-muotka",
+      "navn": "Silje Karine Muotka"
+    },
+    {
+      "key": "snorre-manskow-sollid",
+      "navn": "Snorre Manskow Sollid"
+    },
+    {
+      "key": "svein-arne-monsen",
+      "navn": "Svein Arne Monsen"
+    },
+    {
+      "key": "thomas-birkeland",
+      "navn": "Thomas Birkeland"
+    },
+    {
+      "key": "tom-einar-karlsen",
+      "navn": "Tom Einar Karlsen"
+    },
+    {
+      "key": "tonje-schjolberg",
+      "navn": "Tonje Schjølberg"
+    },
+    {
+      "key": "torgeir-moholt",
+      "navn": "Torgeir Moholt"
+    },
+    {
+      "key": "tormod-ingebrigtsen",
+      "navn": "Tormod Ingebrigtsen"
+    },
+    {
+      "key": "tove-skjelbakken",
+      "navn": "Tove Skjelbakken"
+    },
+    {
+      "key": "trond-nilsen",
+      "navn": "Trond Nilsen"
+    },
+    {
+      "key": "unni-sandbukt",
+      "navn": "Unni Sandbukt"
+    },
+    {
+      "key": "vanja-terentieff",
+      "navn": "Vanja Terentieff"
+    },
+    {
+      "key": "vibeke-skinstad",
+      "navn": "Vibeke Skinstad"
+    },
+    {
+      "key": "viljar-hanssen",
+      "navn": "Viljar Hanssen"
+    },
+    {
+      "key": "yngve-evjenth",
+      "navn": "Yngve Evjenth"
+    },
+    {
+      "key": "borre-krudta",
+      "navn": "Børre Krudtå"
+    },
+    {
+      "key": "brage-larsen-sollund",
+      "navn": "Brage Larsen Sollund"
+    },
+    {
+      "key": "frank-bakke-jensen",
+      "navn": "Frank Bakke-Jensen"
+    },
+    {
+      "key": "gunnar-alskog",
+      "navn": "Gunnar Alskog"
+    },
+    {
+      "key": "hakon-ronning-vahl",
+      "navn": "Håkon Rønning Vahl"
+    },
+    {
+      "key": "ingrid-dahl-hovland",
+      "navn": "Ingrid Dahl Hovland"
+    },
+    {
+      "key": "ingunn-midttun-godal",
+      "navn": "Ingunn Midttun Godal"
+    },
+    {
+      "key": "ingvill-kvernmo",
+      "navn": "Ingvill Kvernmo"
+    },
+    {
+      "key": "irene-vanja-dahl",
+      "navn": "Irene Vanja Dahl"
+    },
+    {
+      "key": "john-roald-karlsen",
+      "navn": "John Roald Karlsen"
+    },
+    {
+      "key": "magnar-andreas-nilssen",
+      "navn": "Magnar Andreas Nilssen"
+    },
+    {
+      "key": "maja-sandvik-lockert",
+      "navn": "Maja Sandvik Lockert"
+    },
+    {
+      "key": "marianne-elisabeth-johnsen",
+      "navn": "Marianne Elisabeth Johnsen"
+    },
+    {
+      "key": "marit-lind",
+      "navn": "Marit Lind"
+    },
+    {
+      "key": "matias-hogne-kjerstad",
+      "navn": "Matias Hogne Kjerstad"
+    },
+    {
+      "key": "nils-gunnar-kvamsto",
+      "navn": "Nils Gunnar Kvamstø"
+    },
+    {
+      "key": "per-ove-uglehus",
+      "navn": "Per Ove Uglehus"
+    },
+    {
+      "key": "sebastian-hansen-henriksen",
+      "navn": "Sebastian Hansen Henriksen"
+    },
+    {
+      "key": "sigurd-salberg-pedersen",
+      "navn": "Sigurd Salberg Pedersen"
+    },
+    {
+      "key": "tom-robert-lilletun-elvebu",
+      "navn": "Tom Robert Lilletun Elvebu"
+    },
+    {
+      "key": "toril-feldt",
+      "navn": "Toril Feldt"
     },
     {
       "key": "aapo-juhani-syvaoja",
@@ -7815,16 +8684,8 @@
       "navn": "Børre Johan Johannessen"
     },
     {
-      "key": "borre-krudta",
-      "navn": "Børre Krudtå"
-    },
-    {
       "key": "brage-bolstad-andreassen",
       "navn": "Brage Bolstad-Andreassen"
-    },
-    {
-      "key": "brage-larsen-sollund",
-      "navn": "Brage Larsen Sollund"
     },
     {
       "key": "bragi-thor-marinosson",
@@ -8139,10 +9000,6 @@
       "navn": "Even-Rikard Pettersen"
     },
     {
-      "key": "frank-bakke-jensen",
-      "navn": "Frank Bakke-Jensen"
-    },
-    {
       "key": "frank-harry-pettersen",
       "navn": "Frank Harry Pettersen"
     },
@@ -8279,10 +9136,6 @@
       "navn": "Gunn Fredriksen"
     },
     {
-      "key": "gunnar-alskog",
-      "navn": "Gunnar Alskog"
-    },
-    {
       "key": "gunnar-kalstad",
       "navn": "Gunnar Kalstad"
     },
@@ -8325,10 +9178,6 @@
     {
       "key": "hakon-lobach-willumsen",
       "navn": "Håkon Løbach Willumsen"
-    },
-    {
-      "key": "hakon-ronning-vahl",
-      "navn": "Håkon Rønning Vahl"
     },
     {
       "key": "hakon-valvag-olufsen",
@@ -8543,10 +9392,6 @@
       "navn": "Ingrid Asta Opheim"
     },
     {
-      "key": "ingrid-dahl-hovland",
-      "navn": "Ingrid Dahl Hovland"
-    },
-    {
       "key": "ingrid-hestvik-dahl",
       "navn": "Ingrid Hestvik Dahl"
     },
@@ -8567,24 +9412,12 @@
       "navn": "Ingunn Andersen Randa"
     },
     {
-      "key": "ingunn-midttun-godal",
-      "navn": "Ingunn Midttun Godal"
-    },
-    {
       "key": "ingvild-dahlen",
       "navn": "Ingvild Dahlen"
     },
     {
-      "key": "ingvill-kvernmo",
-      "navn": "Ingvill Kvernmo"
-    },
-    {
       "key": "irene-lange-nordahl",
       "navn": "Irene Lange Nordahl"
-    },
-    {
-      "key": "irene-vanja-dahl",
-      "navn": "Irene Vanja Dahl"
     },
     {
       "key": "isabelle-vangen",
@@ -8741,10 +9574,6 @@
     {
       "key": "john-oskar-nyvoll",
       "navn": "John-Oskar Nyvoll"
-    },
-    {
-      "key": "john-roald-karlsen",
-      "navn": "John Roald Karlsen"
     },
     {
       "key": "johnny-caspersen",
@@ -9267,10 +10096,6 @@
       "navn": "Mads Magnussen"
     },
     {
-      "key": "magnar-andreas-nilssen",
-      "navn": "Magnar Andreas Nilssen"
-    },
-    {
       "key": "magnus-bjertnes",
       "navn": "Magnus Bjertnes"
     },
@@ -9297,10 +10122,6 @@
     {
       "key": "maiken-richardsen-nordeng",
       "navn": "Maiken Richardsen-Nordeng"
-    },
-    {
-      "key": "maja-sandvik-lockert",
-      "navn": "Maja Sandvik Lockert"
     },
     {
       "key": "malin-josefine-ytreberg-eide",
@@ -9343,10 +10164,6 @@
       "navn": "Marianne Abeler"
     },
     {
-      "key": "marianne-elisabeth-johnsen",
-      "navn": "Marianne Elisabeth Johnsen"
-    },
-    {
       "key": "marianne-halse",
       "navn": "Marianne Halse"
     },
@@ -9381,10 +10198,6 @@
     {
       "key": "marit-jakobsen-leganger",
       "navn": "Marit Jakobsen Leganger"
-    },
-    {
-      "key": "marit-lind",
-      "navn": "Marit Lind"
     },
     {
       "key": "marit-mikkelsdatter-kemi",
@@ -9457,10 +10270,6 @@
     {
       "key": "mathias-andre-gabrielsen",
       "navn": "Mathias Andre Gabrielsen"
-    },
-    {
-      "key": "matias-hogne-kjerstad",
-      "navn": "Matias Hogne Kjerstad"
     },
     {
       "key": "mats-hegg-jacobsen",
@@ -9577,10 +10386,6 @@
     {
       "key": "morten-veipe",
       "navn": "Morten Veipe"
-    },
-    {
-      "key": "nils-gunnar-kvamsto",
-      "navn": "Nils Gunnar Kvamstø"
     },
     {
       "key": "nina-einevoll-strom",
@@ -9815,10 +10620,6 @@
       "navn": "Per Mathis Kongsrud"
     },
     {
-      "key": "per-ove-uglehus",
-      "navn": "Per Ove Uglehus"
-    },
-    {
       "key": "per-trygve-kongsnes",
       "navn": "Per Trygve Kongsnes"
     },
@@ -10047,10 +10848,6 @@
       "navn": "Sara Holthe Jaklin"
     },
     {
-      "key": "sebastian-hansen-henriksen",
-      "navn": "Sebastian Hansen Henriksen"
-    },
-    {
       "key": "selina-charlotte-iversen-lovik",
       "navn": "Selina Charlotte Iversen Løvik"
     },
@@ -10073,10 +10870,6 @@
     {
       "key": "sigurd-sagen-vildasen",
       "navn": "Sigurd Sagen Vildåsen"
-    },
-    {
-      "key": "sigurd-salberg-pedersen",
-      "navn": "Sigurd Salberg Pedersen"
     },
     {
       "key": "sigve-alteren-schwenke",
@@ -10375,10 +11168,6 @@
       "navn": "Tom Høgli"
     },
     {
-      "key": "tom-robert-lilletun-elvebu",
-      "navn": "Tom Robert Lilletun Elvebu"
-    },
-    {
       "key": "tom-vegar-kiil",
       "navn": "Tom Vegar Kiil"
     },
@@ -10489,10 +11278,6 @@
     {
       "key": "torgrim-rortveit",
       "navn": "Torgrim Rørtveit"
-    },
-    {
-      "key": "toril-feldt",
-      "navn": "Toril Feldt"
     },
     {
       "key": "torje-aleksander-sulland",
@@ -10691,12 +11476,12 @@
       "rolletype": "politisk_leder",
       "status": "fast",
       "parti": "Ap",
-      "fra": "2023-10-11",
+      "fra": "2019-10-16",
       "belegg": {
-        "kilde": "tromso-kommune-no",
+        "kilde": "tromso-kommune-no-ordforer",
         "verifisering": "oppgitt",
-        "per": "2026-09",
-        "merknad": "Gjenvalgt 11.10.2023. Fra-datoen gjelder inneværende valgperiode."
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av tromso.kommune.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Ordførersiden oppgir at han har vært ordfører siden 16. oktober 2019. Grunnlaget hadde 11.10.2023, datoen for gjenvalget; fra-datoen er rettet etter siden."
       }
     },
     {
@@ -10707,10 +11492,10 @@
       "status": "fast",
       "parti": "Ap",
       "belegg": {
-        "kilde": "tromso-kommune-no",
+        "kilde": "tromso-digdem-no-sru",
         "verifisering": "oppgitt",
-        "per": "2026-09",
-        "merknad": "Formannskapet ledes av ordføreren."
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av tromso.digdem.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Grunnlagets merknad: Formannskapet ledes av ordføreren."
       }
     },
     {
@@ -10722,9 +11507,10 @@
       "parti": "SV",
       "fra": "2023-10-11",
       "belegg": {
-        "kilde": "tromso-kommune-no",
+        "kilde": "tromso-kommune-no-ordforer",
         "verifisering": "oppgitt",
-        "per": "2026-09"
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av tromso.kommune.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Siden oppgir ingen startdato; fra-datoen 11.10.2023 er fra grunnlaget."
       }
     },
     {
@@ -10737,7 +11523,7 @@
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
         "per": "2026-09-25",
-        "merknad": "Bekrefter grunnlaget (Tromsø kommune (tromso.kommune.no), per 2026-09). Grunnlagets merknad: Startdatoen er merket [verifiser] i grunnlaget."
+        "merknad": "Bekrefter grunnlaget (Tromsø kommune (tromso.kommune.no), per 2026-09). Grunnlagets merknad: Startdatoen er merket [verifiser] i grunnlaget. Også oppført på tromso.kommune.no 25.09.2026."
       }
     },
     {
@@ -10778,10 +11564,10 @@
       "parti": "H",
       "til_forventet": "2027-01",
       "belegg": {
-        "kilde": "tromsfylke-no",
+        "kilde": "tromsfylke-no-fylkesordforer",
         "verifisering": "oppgitt",
-        "per": "2026-09",
-        "merknad": "Fram til midten av januar 2027."
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av tromsfylke.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Siden skriver «fungerende fylkesordfører fram til midten av januar 2027»."
       }
     },
     {
@@ -10792,9 +11578,10 @@
       "status": "fast",
       "parti": "Ap",
       "belegg": {
-        "kilde": "tromsfylke-no",
+        "kilde": "tromsfylke-no-fylkesordforer",
         "verifisering": "oppgitt",
-        "per": "2026-09"
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av tromsfylke.no 25.09.2026. Opprinnelig fra researchgrunnlaget."
       }
     },
     {
@@ -10807,7 +11594,7 @@
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
         "per": "2026-09-25",
-        "merknad": "Bekrefter grunnlaget (Troms fylkeskommune (tromsfylke.no), per 2026-09)."
+        "merknad": "Bekrefter grunnlaget (Troms fylkeskommune (tromsfylke.no), per 2026-09). Også oppført på tromsfylke.no 25.09.2026."
       }
     },
     {
@@ -10831,10 +11618,10 @@
       "status": "fast",
       "fra": "2025-08",
       "belegg": {
-        "kilde": "statsforvalteren-no",
+        "kilde": "statsforvalteren-no-tf-var-statsforvalter",
         "verifisering": "oppgitt",
-        "per": "2026-09",
-        "merknad": "Utnevnt for seks år."
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av statsforvalteren.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Grunnlagets merknad: Utnevnt for seks år."
       }
     },
     {
@@ -10845,10 +11632,10 @@
       "status": "fast",
       "fra": "2025-04",
       "belegg": {
-        "kilde": "statsforvalteren-no",
+        "kilde": "statsforvalteren-no-tf-organisasjonskart",
         "verifisering": "oppgitt",
-        "per": "2026-09",
-        "merknad": "Tilsatt april 2025."
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av statsforvalteren.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Organisasjonskartet oppgir ingen startdato; fra-datoen 2025-04 er fra grunnlaget. Grunnlagets merknad: Tilsatt april 2025."
       }
     },
     {
@@ -10861,7 +11648,7 @@
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
         "per": "2026-09-25",
-        "merknad": "Bekrefter grunnlaget (Regjeringen (regjeringen.no), per 2026-09). Grunnlagets merknad: Konstituert siden november 2019 og senere åremålsutnevnt for seks år. Utnevnelsesdatoen er merket [verifiser]."
+        "merknad": "Bekrefter grunnlaget (Regjeringen (regjeringen.no), per 2026-09). Grunnlagets merknad: Konstituert siden november 2019 og senere åremålsutnevnt for seks år. Utnevnelsesdatoen er merket [verifiser]. Også oppført på politiet.no 25.09.2026."
       }
     },
     {
@@ -10869,15 +11656,15 @@
       "person": "cecilie-myrseth",
       "tittel": "Stortingsrepresentant",
       "rolletype": "folkevalgt",
-      "status": "fast",
+      "status": "permisjon",
       "parti": "Ap",
       "fra": "2025",
       "til_forventet": "2029",
       "belegg": {
-        "kilde": "data-stortinget-no",
+        "kilde": "data-stortinget-no-representanter-2025-2029",
         "verifisering": "oppgitt",
-        "per": "2026-09",
-        "merknad": "Valgperioden 2025–2029."
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av data.stortinget.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Valgt for 2025–2029, men står ikke blant dagens representanter. Er næringsminister ifølge regjeringslisten. Grunnlagets merknad: Valgperioden 2025–2029."
       }
     },
     {
@@ -10890,10 +11677,10 @@
       "fra": "2025",
       "til_forventet": "2029",
       "belegg": {
-        "kilde": "data-stortinget-no",
+        "kilde": "data-stortinget-no-dagensrepresentanter",
         "verifisering": "oppgitt",
-        "per": "2026-09",
-        "merknad": "Valgperioden 2025–2029."
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av data.stortinget.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Valgperioden 2025–2029. Komité: Kontroll- og konstitusjonskomiteen. Grunnlagets merknad: Valgperioden 2025–2029."
       }
     },
     {
@@ -10906,10 +11693,10 @@
       "fra": "2025",
       "til_forventet": "2029",
       "belegg": {
-        "kilde": "data-stortinget-no",
+        "kilde": "data-stortinget-no-dagensrepresentanter",
         "verifisering": "oppgitt",
-        "per": "2026-09",
-        "merknad": "Valgperioden 2025–2029."
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av data.stortinget.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Valgperioden 2025–2029. Komité: Utenriks- og forsvarskomiteen. Grunnlagets merknad: Valgperioden 2025–2029."
       }
     },
     {
@@ -10922,10 +11709,10 @@
       "fra": "2025",
       "til_forventet": "2029",
       "belegg": {
-        "kilde": "data-stortinget-no",
+        "kilde": "data-stortinget-no-dagensrepresentanter",
         "verifisering": "oppgitt",
-        "per": "2026-09",
-        "merknad": "Valgperioden 2025–2029."
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av data.stortinget.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Valgperioden 2025–2029. Komité: Helse- og omsorgskomiteen. Grunnlagets merknad: Valgperioden 2025–2029."
       }
     },
     {
@@ -10938,10 +11725,10 @@
       "fra": "2025",
       "til_forventet": "2029",
       "belegg": {
-        "kilde": "data-stortinget-no",
+        "kilde": "data-stortinget-no-dagensrepresentanter",
         "verifisering": "oppgitt",
-        "per": "2026-09",
-        "merknad": "Valgperioden 2025–2029."
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av data.stortinget.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Valgperioden 2025–2029. Komité: Helse- og omsorgskomiteen. Grunnlagets merknad: Valgperioden 2025–2029."
       }
     },
     {
@@ -10954,16 +11741,16 @@
       "fra": "2025",
       "til_forventet": "2029",
       "belegg": {
-        "kilde": "data-stortinget-no",
+        "kilde": "data-stortinget-no-dagensrepresentanter",
         "verifisering": "oppgitt",
-        "per": "2026-09",
-        "merknad": "Valgperioden 2025–2029."
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av data.stortinget.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Valgperioden 2025–2029. Komité: Kommunal- og forvaltningskomiteen. Grunnlagets merknad: Valgperioden 2025–2029."
       }
     },
     {
       "org": "unn",
       "person": "david-johansen",
-      "tittel": "Adm. dir.",
+      "tittel": "Administrerende direktør",
       "rolletype": "toppleder",
       "status": "fast",
       "fra": "2024-05-06",
@@ -10971,20 +11758,20 @@
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
         "per": "2026-09-25",
-        "merknad": "Bekrefter grunnlaget (Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026), per 2026-09). Grunnlagets merknad: Grunnlaget oppgir ikke kilde for dette."
+        "merknad": "Bekrefter grunnlaget (Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026), per 2026-09). Grunnlagets merknad: Grunnlaget oppgir ikke kilde for dette. Også oppført på unn.no 25.09.2026 med tittelen «Administrerende direktør»."
       }
     },
     {
       "org": "unn",
       "person": "einar-bugge",
-      "tittel": "Viseadm. dir.",
+      "tittel": "Viseadministrerende direktør",
       "rolletype": "nestleder_adm",
       "status": "fast",
       "belegg": {
-        "kilde": "researchgrunnlag",
-        "verifisering": "maa_verifiseres",
-        "per": "2026-09",
-        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av unn.no 25.09.2026. Opprinnelig fra researchgrunnlaget."
       }
     },
     {
@@ -10997,7 +11784,7 @@
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
         "per": "2026-09-25",
-        "merknad": "Bekrefter grunnlaget (Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026), per 2024). Grunnlagets merknad: Per 2024, merket [verifiser] i grunnlaget."
+        "merknad": "Bekrefter grunnlaget (Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026), per 2024). Grunnlagets merknad: Per 2024, merket [verifiser] i grunnlaget. Også oppført på unn.no 25.09.2026. Styret er oppnevnt for perioden 2026–28."
       }
     },
     {
@@ -11008,36 +11795,36 @@
       "status": "fast",
       "fra": "2021",
       "belegg": {
-        "kilde": "researchgrunnlag",
-        "verifisering": "maa_verifiseres",
-        "per": "2026-09",
-        "merknad": "Ansatt 2021. Grunnlaget oppgir ikke kilde for dette."
+        "kilde": "uit-no-universitetsledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av uit.no 25.09.2026. Opprinnelig fra researchgrunnlaget. Siden oppgir ingen startdato; fra-datoen 2021 er fra grunnlaget, som ikke oppgir kilde for den."
       }
     },
     {
       "org": "uit",
       "person": "rikke-gurgens-gjaerum",
-      "tittel": "Prorektor utdanning",
+      "tittel": "Prorektor for utdanning (rektors stedfortreder)",
       "rolletype": "nestleder_adm",
       "status": "fast",
       "belegg": {
-        "kilde": "researchgrunnlag",
-        "verifisering": "maa_verifiseres",
-        "per": "2026-09",
-        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+        "kilde": "uit-no-universitetsledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av uit.no 25.09.2026. Opprinnelig fra researchgrunnlaget."
       }
     },
     {
       "org": "uit",
       "person": "jorgen-berge",
-      "tittel": "Prorektor forskning",
+      "tittel": "Prorektor for forskning og utvikling",
       "rolletype": "nestleder_adm",
       "status": "fast",
       "belegg": {
-        "kilde": "researchgrunnlag",
-        "verifisering": "maa_verifiseres",
-        "per": "2026-09",
-        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+        "kilde": "uit-no-universitetsledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av uit.no 25.09.2026. Opprinnelig fra researchgrunnlaget."
       }
     },
     {
@@ -11047,10 +11834,10 @@
       "rolletype": "nestleder_adm",
       "status": "fast",
       "belegg": {
-        "kilde": "researchgrunnlag",
-        "verifisering": "maa_verifiseres",
-        "per": "2026-09",
-        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+        "kilde": "uit-no-universitetsledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Bekreftet av uit.no 25.09.2026. Opprinnelig fra researchgrunnlaget."
       }
     },
     {
@@ -11104,8 +11891,9 @@
         "kilde": "researchgrunnlag",
         "verifisering": "maa_verifiseres",
         "per": "2026-09",
-        "merknad": "Grunnlaget oppgir ikke kilde for dette."
-      }
+        "merknad": "Motsagt av Brreg 25.09.2026: registeret har ingen nestleder, og Kathrine Tveiterås står som styremedlem. Grunnlagets merknad: Grunnlaget oppgir ikke kilde for dette."
+      },
+      "motsagt": true
     },
     {
       "org": "tromso-havn-kf",
@@ -11130,8 +11918,9 @@
         "kilde": "researchgrunnlag",
         "verifisering": "maa_verifiseres",
         "per": "2026-09",
-        "merknad": "Grunnlaget oppgir ikke kilde for dette."
-      }
+        "merknad": "Motsagt av Brreg 25.09.2026: registeret har ham som styreleder, ikke styremedlem. Grunnlagets merknad: Grunnlaget oppgir ikke kilde for dette."
+      },
+      "motsagt": true
     },
     {
       "org": "tg-naeringseiendom-as",
@@ -11182,8 +11971,9 @@
         "kilde": "researchgrunnlag",
         "verifisering": "maa_verifiseres",
         "per": "2026-09",
-        "merknad": "Merket «sekundær» i grunnlaget."
-      }
+        "merknad": "Motsagt av Brreg 25.09.2026: registeret har en annen person som styreleder. Grunnlagets merknad: Merket «sekundær» i grunnlaget."
+      },
+      "motsagt": true
     },
     {
       "org": "tromso-parkering",
@@ -11249,8 +12039,9 @@
         "kilde": "researchgrunnlag",
         "verifisering": "maa_verifiseres",
         "per": "2026-09",
-        "merknad": "Grunnlaget oppgir ikke kilde for dette."
-      }
+        "merknad": "Motsagt av Brreg 25.09.2026: registeret har ingen nestleder, og Kathrine Tveiterås står som styremedlem. Grunnlagets merknad: Grunnlaget oppgir ikke kilde for dette."
+      },
+      "motsagt": true
     },
     {
       "org": "sparebank-1-gruppen",
@@ -11340,8 +12131,9 @@
         "kilde": "godt-drikke",
         "verifisering": "maa_verifiseres",
         "per": "2026-09",
-        "merknad": "Ifølge Godt Drikke. Nåværende adm. dir. er merket [verifiser i Brreg]."
-      }
+        "merknad": "Motsagt av Brreg 25.09.2026: registeret har en annen person som daglig leder. Grunnlagets merknad: Ifølge Godt Drikke. Nåværende adm. dir. er merket [verifiser i Brreg]."
+      },
+      "motsagt": true
     },
     {
       "org": "ludwig-mack-as",
@@ -11354,6 +12146,2166 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Bekrefter grunnlaget (Godt Drikke, per 2026-09). Grunnlagets merknad: Ifølge Godt Drikke fortsetter han som daglig leder i morselskapet."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "marta-hofsoy",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "viljar-hanssen",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "regine-rovik",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "joakim-with",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "brage-larsen-sollund",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "inge-takoy",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "fartun-hussein",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "orjan-olsvik",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "orjan-sandberg",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "sebastian-hansen-henriksen",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "markus-halftan-akselbo",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "line-fusdahl",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "rolleiv-lind",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "guro-tjosaas-mortensen",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "kasandra-hunstad",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "tormod-ingebrigtsen",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "bjorn-gunnar-jorgensen",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "kristoffer-kanestrom",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "anni-skogman",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "ida-garseth-hov",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "kristian-wilsgard",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "eirik-johansen",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "sara-haugan-jacobsen",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "pal-julius-skogholt",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "maja-sandvik-lockert",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "line-elisabeth-solbakken",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "abdalla-ali-mohammed",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "matias-hogne-kjerstad",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "peder-gunnar-moe-joakimsen",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "ingvild-austgulen",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "R",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "barbara-vogele",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "MDG",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "sigurd-salberg-pedersen",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "MDG",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "john-rainer-lovli",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "mona-woll",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "INP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "irene-dahl",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "V",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "ann-sissel-enoksen",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "ByLa",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "jan-blomseth",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "NBT",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "kathrine-strandli",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "nikolai-skogan",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "KrF",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "hans-petter-kvaal",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommunestyre",
+      "person": "thomas-birkeland",
+      "tittel": "Medlem",
+      "rolletype": "folkevalgt",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "sigrid-hammer",
+      "tittel": "Varaordfører",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "marta-hofsoy",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "pal-julius-skogholt",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "peder-gunnar-moe-joakimsen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "R",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "barbara-vogele",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "MDG",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "kathrine-strandli",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "guro-tjosaas-mortensen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "markus-halftan-akselbo",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "rolleiv-lind",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "bjorn-gunnar-jorgensen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "kristoffer-kanestrom",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-formannskap",
+      "person": "mona-woll",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "INP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "person": "marta-hofsoy",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "person": "joakim-with",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "person": "line-elisabeth-solbakken",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "person": "felix-lempp",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "MDG",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "person": "peder-gunnar-moe-joakimsen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "R",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "person": "sebastian-hansen-henriksen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "person": "kasandra-hunstad",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "person": "mona-woll",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "INP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "person": "magnus-fridtjof-johannessen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "person": "ida-garseth-hov",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-og-velferdsutvalget",
+      "person": "andrine-hanssen-seppola",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "person": "viljar-hanssen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "person": "matias-hogne-kjerstad",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "person": "regine-rovik",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "person": "marit-sollie-aukland",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "person": "sigurd-salberg-pedersen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "MDG",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "person": "eirin-sundby",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "R",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "person": "markus-halftan-akselbo",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "person": "guro-tjosaas-mortensen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "person": "irene-dahl",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "V",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "person": "arnulf-kristian-kaspersen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kommune-og-byutviklingsutvalget",
+      "person": "eirik-johansen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "person": "vanja-terentieff",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "person": "thomas-birkeland",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "person": "anni-skogman",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "person": "rolleiv-lind",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "person": "abdalla-ali-mohammed",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "person": "barbara-vogele",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "MDG",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "person": "ingvild-austgulen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "R",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "person": "jens-arne-hafeld",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "person": "john-rainer-lovli",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "INP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "person": "maja-sandvik-lockert",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "person": "orjan-sandberg",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "person": "pal-julius-skogholt",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "person": "charlotte-larsen",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "person": "sigrid-hammer",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "person": "fartun-hussein",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "person": "brage-larsen-sollund",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "person": "inge-takoy",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "person": "ole-andreas-myhrer-smith",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "R",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "person": "nikolai-skogan",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "KrF",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "person": "ann-sissel-enoksen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "ByLa",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "person": "tonje-schjolberg",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "NBT",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "oppvekst-og-utdanningsutvalget",
+      "person": "tormod-ingebrigtsen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kontrollutvalget",
+      "person": "line-fusdahl",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-klageutvalget",
+      "person": "viljar-hanssen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromso-digdem-no-sru",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.digdem.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tromso-kommune-administrasjonen",
+      "person": "mari-enoksen-hult",
+      "tittel": "Direktør organisasjon",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "tromso-kommune-no-kommunedirektor",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.kommune.no 25.09.2026. Medlem av kommunedirektørens ledergruppe."
+      }
+    },
+    {
+      "org": "tromso-kommune-administrasjonen",
+      "person": "mette-mohag",
+      "tittel": "Direktør bymiljø",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "tromso-kommune-no-kommunedirektor",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.kommune.no 25.09.2026. Medlem av kommunedirektørens ledergruppe."
+      }
+    },
+    {
+      "org": "tromso-kommune-administrasjonen",
+      "person": "per-angermo",
+      "tittel": "Direktør helse og omsorg",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "tromso-kommune-no-kommunedirektor",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.kommune.no 25.09.2026. Medlem av kommunedirektørens ledergruppe."
+      }
+    },
+    {
+      "org": "tromso-kommune-administrasjonen",
+      "person": "rolf-oistein-barman-jenssen",
+      "tittel": "Direktør oppvekst, utdanning og kultur",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "tromso-kommune-no-kommunedirektor",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.kommune.no 25.09.2026. Medlem av kommunedirektørens ledergruppe."
+      }
+    },
+    {
+      "org": "troms-fylkesutvalg",
+      "person": "benjamin-nordberg-furuly",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fungerende",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromsfylke-no-fylkesutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026. Fylkesordføreren leder fylkesutvalget, og han er fungerende fylkesordfører til midten av januar 2027 ifølge fylkesordførersiden."
+      }
+    },
+    {
+      "org": "troms-fylkesutvalg",
+      "person": "eirik-losnegaard-mevik",
+      "tittel": "Nestleder",
+      "rolletype": "nestleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromsfylke-no-fylkesutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-fylkesutvalg",
+      "person": "magnar-andreas-nilssen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromsfylke-no-fylkesutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026. Fylkesutvalgssiden skriver «Magnar Nilssen»; fullt navn fra representantlisten."
+      }
+    },
+    {
+      "org": "troms-fylkesutvalg",
+      "person": "vanja-terentieff",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromsfylke-no-fylkesutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-fylkesutvalg",
+      "person": "irene-vanja-dahl",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "V",
+      "belegg": {
+        "kilde": "tromsfylke-no-fylkesutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-fylkesutvalg",
+      "person": "john-roald-karlsen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromsfylke-no-fylkesutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026. Fylkesutvalgssiden skriver «John Karlsen»; fullt navn fra representantlisten."
+      }
+    },
+    {
+      "org": "troms-fylkesutvalg",
+      "person": "ida-garseth-hov",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "FrP",
+      "belegg": {
+        "kilde": "tromsfylke-no-fylkesutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-fylkesutvalg",
+      "person": "lars-eirik-dahlberg-grotdal",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "SV",
+      "belegg": {
+        "kilde": "tromsfylke-no-fylkesutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026. Fylkesutvalgssiden skriver «Lars Eirik Grotdal»; fullt navn fra representantlisten."
+      }
+    },
+    {
+      "org": "troms-fylkesutvalg",
+      "person": "marlene-berntsen-brathen",
+      "tittel": "Medlem",
+      "rolletype": "utvalgsmedlem",
+      "status": "fast",
+      "parti": "Sp",
+      "belegg": {
+        "kilde": "tromsfylke-no-fylkesutvalget",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-hovedutvalg-kultur-og-helse",
+      "person": "magnar-andreas-nilssen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-kultur-og-helse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026. Utvalgssiden skriver «Magnar Nilssen»; fullt navn fra representantlisten, som også oppgir vervet."
+      }
+    },
+    {
+      "org": "troms-hovedutvalg-kompetanse",
+      "person": "cecilie-mathisen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-kompetanse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-hovedutvalg-samferdsel",
+      "person": "june-pettersen",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-samferdsel",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-hovedutvalg-naering-klima-og-miljo",
+      "person": "hakon-ronning-vahl",
+      "tittel": "Leder",
+      "rolletype": "utvalgsleder",
+      "status": "fast",
+      "parti": "H",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-naering-klima-og-miljo",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026. Utvalgssiden skriver «Håkon Vahl»; fullt navn fra representantlisten, som også oppgir vervet."
+      }
+    },
+    {
+      "org": "troms-fylkeskommune-administrasjonen",
+      "person": "vibeke-skinstad",
+      "tittel": "Assisterende fylkeskommunedirektør",
+      "rolletype": "nestleder_adm",
+      "status": "fast",
+      "belegg": {
+        "kilde": "tromsfylke-no-administrativ-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-fylkeskommune-administrasjonen",
+      "person": "bjorn-kavli",
+      "tittel": "Etatssjef samferdsel",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "tromsfylke-no-administrativ-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-fylkeskommune-administrasjonen",
+      "person": "borre-krudta",
+      "tittel": "Etatssjef kompetanse",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "tromsfylke-no-administrativ-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "troms-fylkeskommune-administrasjonen",
+      "person": "anne-hjortdahl",
+      "tittel": "Etatssjef samfunn, næring og kultur",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "tromsfylke-no-administrativ-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "tannhelsetjenesten-troms",
+      "person": "per-ove-uglehus",
+      "tittel": "Etatssjef",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "tromsfylke-no-administrativ-ledelse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "person": "toril-feldt",
+      "tittel": "Assisterende statsforvalter",
+      "rolletype": "nestleder_adm",
+      "status": "fast",
+      "belegg": {
+        "kilde": "statsforvalteren-no-tf-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra statsforvalteren.no 25.09.2026. Fra organisasjonskartet datert 29.05.2026."
+      }
+    },
+    {
+      "org": "nord-statsadvokatembete",
+      "person": "hugo-henstein",
+      "tittel": "Førstestatsadvokat/embetsleiar",
+      "rolletype": "paatale_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "riksadvokaten-no-statsadvokatembeter",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra riksadvokaten.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nord-troms-og-senja-tingrett",
+      "person": "unni-sandbukt",
+      "tittel": "Sorenskriver",
+      "rolletype": "dommer_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "domstol-no-nord-troms-og-senja-tingrett-om",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "org": "halogaland-lagmannsrett",
+      "person": "monica-hansen-nylund",
+      "tittel": "Førstelagmann",
+      "rolletype": "dommer_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "domstol-no-halogaland-lagmannsrett-ansatte",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "org": "nord-troms-jordskifterett",
+      "person": "oystein-nilsen",
+      "tittel": "Jordskifterettsleder",
+      "rolletype": "dommer_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "domstol-no-nord-troms-jordskifterett-medarbeidere",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra domstol.no 25.09.2026."
+      }
+    },
+    {
+      "org": "fiskeridirektoratet",
+      "person": "frank-bakke-jensen",
+      "tittel": "Fiskeridirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "fra": "2021-12-01",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Fiskeridirektoratet: Organisering, per 2026-09-25). Grunnlagets merknad: Hentet fra fiskeridir.no 25.09.2026."
+      }
+    },
+    {
+      "org": "mattilsynet",
+      "person": "ingunn-midttun-godal",
+      "tittel": "Administrerende direktør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Mattilsynet: Organiseringen av hovedkontoret, per 2026-09-25). Grunnlagets merknad: Hentet fra mattilsynet.no 25.09.2026."
+      }
+    },
+    {
+      "org": "arbeidstilsynet",
+      "person": "ingvill-kvernmo",
+      "tittel": "Direktør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Arbeidstilsynet: Organisering, per 2026-09-25). Grunnlagets merknad: Hentet fra arbeidstilsynet.no 25.09.2026."
+      }
+    },
+    {
+      "org": "arbeidstilsynet",
+      "person": "torgeir-moholt",
+      "tittel": "Avdelingsdirektør, avdeling tilsyn nord",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "arbeidstilsynet-no-organisering",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra arbeidstilsynet.no 25.09.2026."
+      }
+    },
+    {
+      "org": "statens-vegvesen",
+      "person": "ingrid-dahl-hovland",
+      "tittel": "Vegdirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Statens vegvesen: Organisasjonskart (rotsiden og enhetene CAA00, CLA00, BHA00, DGA00), per 2026-09-25). Grunnlagets merknad: Hentet fra vegvesen.no 25.09.2026."
+      }
+    },
+    {
+      "org": "statens-vegvesen",
+      "person": "bjorn-laksforsmo",
+      "tittel": "Direktør drift og vedlikehold",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "vegvesen-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vegvesen.no 25.09.2026. Leder divisjon Drift og vedlikehold, med kontor i Tromsø."
+      }
+    },
+    {
+      "org": "statens-vegvesen",
+      "person": "oddbjorg-mikkelsen",
+      "tittel": "Avdelingsdirektør, Drift og vedlikehold nord",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "vegvesen-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vegvesen.no 25.09.2026."
+      }
+    },
+    {
+      "org": "statens-vegvesen",
+      "person": "anne-grethe-olsen",
+      "tittel": "Avdelingsdirektør, Utbyggingsområde nord",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "vegvesen-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra vegvesen.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kystverket",
+      "person": "einar-vik-arset",
+      "tittel": "Kystdirektør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "kystverket-no-organisering",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kystverket.no 25.09.2026."
+      }
+    },
+    {
+      "org": "havforskningsinstituttet",
+      "person": "nils-gunnar-kvamsto",
+      "tittel": "Direktør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Havforskningsinstituttet: Organisasjonen, per 2026-09-25). Grunnlagets merknad: Hentet fra hi.no 25.09.2026."
+      }
+    },
+    {
+      "org": "kartverket",
+      "person": "yngve-evjenth",
+      "tittel": "Fylkeskartsjef, Kartverket Troms og Finnmark",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "kartverket-no-troms-og-finnmark-kontakt",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kartverket.no 25.09.2026."
+      }
+    },
+    {
+      "org": "sametinget",
+      "person": "silje-karine-muotka",
+      "tittel": "Sametingspresident",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "parti": "NSR",
+      "fra": "2025",
+      "til_forventet": "2029",
+      "belegg": {
+        "kilde": "sametinget-no-sametingsradet",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra sametinget.no 25.09.2026. Valgt for perioden 2025–2029."
+      }
+    },
+    {
+      "org": "haeren",
+      "person": "trond-nilsen",
+      "tittel": "Fungerende sjef Hæren",
+      "rolletype": "toppleder",
+      "status": "fungerende",
+      "belegg": {
+        "kilde": "forsvaret-no-organisasjonskart",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra forsvaret.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "elin-gullhav",
+      "tittel": "Klinikkleder, Barne- og ungdomsklinikk",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "grete-asvang",
+      "tittel": "Klinikkleder, Diagnostisk klinikk",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "snorre-manskow-sollid",
+      "tittel": "Klinikkleder, Kirurgisk klinikk Tromsø",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "eva-hanne-hansen",
+      "tittel": "Klinikkleder, Klinikk Harstad",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "tove-skjelbakken",
+      "tittel": "Klinikkleder, Klinikk Narvik",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "fredrik-sund",
+      "tittel": "Klinikkleder, Medisinsk klinikk Tromsø",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "svein-arne-monsen",
+      "tittel": "Klinikkleder, Prehospital klinikk",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "eirik-stellander",
+      "tittel": "Klinikkleder, Psykisk helse- og rusklinikken",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "gina-johansen",
+      "tittel": "Senterleder, Drift- og eiendomssenteret",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "marte-lodemel-henriksen",
+      "tittel": "Senterleder, Fag-, analyse- og styringssenteret",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "markus-rumpsfeld",
+      "tittel": "Senterleder, Digitaliserings-, utviklings- og samhandlingssenteret",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "unn",
+      "person": "grethe-andersen",
+      "tittel": "Senterleder, Personal, økonomi- og kommunikasjonssenteret",
+      "rolletype": "seksjonsleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "unn-no-ledelsen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra unn.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-nord-rhf",
+      "person": "marit-lind",
+      "tittel": "Administrerende direktør",
+      "rolletype": "toppleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Helse Nord RHF: Ledelsen i Helse Nord RHF, per 2026-09-25). Grunnlagets merknad: Hentet fra helse-nord.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-nord-rhf",
+      "person": "gunnar-alskog",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "fra": "2026",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Helse Nord RHF: Styret i Helse Nord RHF, per 2026-09-25). Grunnlagets merknad: Hentet fra helse-nord.no 25.09.2026."
+      }
+    },
+    {
+      "org": "helse-nord-ikt",
+      "person": "tom-robert-lilletun-elvebu",
+      "tittel": "Administrerende direktør",
+      "rolletype": "toppleder",
+      "status": "konstituert",
+      "belegg": {
+        "kilde": "brreg-roller",
+        "verifisering": "verifisert",
+        "per": "2026-09-25",
+        "merknad": "Bekrefter grunnlaget (Helse Nord IKT: Ledelsen, per 2026-09-25). Grunnlagets merknad: Hentet fra helsenordikt.no 25.09.2026."
+      }
+    },
+    {
+      "org": "uit",
+      "person": "marianne-elisabeth-johnsen",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "fra": "2021",
+      "belegg": {
+        "kilde": "uit-no-universitetsstyret",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra uit.no 25.09.2026. Utnevnt for 2021–2025 og gjenvalgt i 2025."
+      }
+    },
+    {
+      "org": "stortinget-troms-valgkrets",
+      "person": "tom-einar-karlsen",
+      "tittel": "Vararepresentant",
+      "rolletype": "varamedlem",
+      "status": "vara",
+      "parti": "Ap",
+      "belegg": {
+        "kilde": "data-stortinget-no-dagensrepresentanter",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra data.stortinget.no 25.09.2026. Står blant dagens representanter som møtende vararepresentant. Komité: Transport- og kommunikasjonskomiteen."
+      }
+    },
+    {
+      "org": "naerings-og-fiskeridepartementet",
+      "person": "cecilie-myrseth",
+      "tittel": "Næringsminister",
+      "rolletype": "politisk_leder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "data-stortinget-no-regjering",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra data.stortinget.no 25.09.2026."
       }
     },
     {
@@ -11685,18 +14637,6 @@
       "person": "ole-vidar-furnes",
       "tittel": "Styreleder",
       "rolletype": "styreleder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "arbeidstilsynet",
-      "person": "ingvill-kvernmo",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -12091,30 +15031,6 @@
     {
       "org": "aurora-kino",
       "person": "lisa-marie-moller",
-      "tittel": "Varamedlem",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "aurora-kino",
-      "person": "maja-sandvik-lockert",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "aurora-kino",
-      "person": "matias-hogne-kjerstad",
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
@@ -14058,18 +16974,6 @@
     },
     {
       "org": "fagskolen-i-nord",
-      "person": "magnar-andreas-nilssen",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "fagskolen-i-nord",
       "person": "magnus-juan-belles",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
@@ -14263,18 +17167,6 @@
     {
       "org": "fiskeri-og-havbruksnaeringens-forskningsfinansiering",
       "person": "stale-walderhaug",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "fiskeridirektoratet",
-      "person": "frank-bakke-jensen",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
@@ -14621,18 +17513,6 @@
       }
     },
     {
-      "org": "grotsund-industripark",
-      "person": "marianne-elisabeth-johnsen",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
       "org": "h-mydland",
       "person": "erik-mydland",
       "tittel": "Styremedlem",
@@ -14837,32 +17717,8 @@
       }
     },
     {
-      "org": "halogaland-teater",
-      "person": "sebastian-hansen-henriksen",
-      "tittel": "Varamedlem",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
       "org": "havforskningsinstituttet",
       "person": "kathrin-gjerdevik",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "havforskningsinstituttet",
-      "person": "nils-gunnar-kvamsto",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
@@ -15030,18 +17886,6 @@
     },
     {
       "org": "helse-nord-ikt",
-      "person": "tom-robert-lilletun-elvebu",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord-ikt",
       "person": "trude-slettli",
       "tittel": "Nestleder",
       "rolletype": "nestleder",
@@ -15114,18 +17958,6 @@
     },
     {
       "org": "helse-nord-rhf",
-      "person": "gunnar-alskog",
-      "tittel": "Styreleder",
-      "rolletype": "styreleder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord-rhf",
       "person": "hanne-elise-skare",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
@@ -15141,18 +17973,6 @@
       "person": "harald-larssen",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord-rhf",
-      "person": "marit-lind",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -16797,18 +19617,6 @@
       "person": "trude-slettli",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "mattilsynet",
-      "person": "ingunn-midttun-godal",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -19133,18 +21941,6 @@
       }
     },
     {
-      "org": "remiks-husholdning",
-      "person": "sigurd-salberg-pedersen",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
       "org": "remiks-miljopark",
       "person": "adrianne-maria-naesvold-ubeda",
       "tittel": "Styremedlem",
@@ -19329,18 +22125,6 @@
       "person": "birte-hansen-nordgard",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "ressurs-tromso",
-      "person": "brage-larsen-sollund",
-      "tittel": "Styreleder",
-      "rolletype": "styreleder",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -20249,18 +23033,6 @@
       }
     },
     {
-      "org": "statens-vegvesen",
-      "person": "ingrid-dahl-hovland",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
       "org": "statsbygg",
       "person": "oystein-bormer",
       "tittel": "Daglig leder",
@@ -21005,18 +23777,6 @@
       }
     },
     {
-      "org": "troms-fylkeskommune-kompetanse",
-      "person": "borre-krudta",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
       "org": "troms-fylkeskommune-samferdsel",
       "person": "bjorn-henrik-kavli",
       "tittel": "Daglig leder",
@@ -21031,18 +23791,6 @@
     {
       "org": "troms-fylkeskommune-samfunn-naering-og-kultur",
       "person": "anne-merete-hjortdahl",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "troms-fylkeskommune-tannhelse",
-      "person": "per-ove-uglehus",
       "tittel": "Daglig leder",
       "rolletype": "daglig_leder",
       "status": "fast",
@@ -21078,43 +23826,7 @@
     },
     {
       "org": "troms-holding",
-      "person": "hakon-ronning-vahl",
-      "tittel": "Varamedlem",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "troms-holding",
       "person": "irene-lange-nordahl",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "troms-holding",
-      "person": "irene-vanja-dahl",
-      "tittel": "Varamedlem",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "troms-holding",
-      "person": "john-roald-karlsen",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -21706,18 +24418,6 @@
       "tittel": "Varamedlem",
       "rolletype": "varamedlem",
       "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "tromso-havn-kf",
-      "person": "magnar-andreas-nilssen",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -22365,18 +25065,6 @@
       "person": "marianne-abeler",
       "tittel": "Nestleder",
       "rolletype": "nestleder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "tromsobadet-kf",
-      "person": "sebastian-hansen-henriksen",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -24046,6 +26734,94 @@
       }
     },
     {
+      "fra": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "til": "tromso-kommunestyre",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromso-kommune-no-formannskapet-og-hovedutvalgene",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromso.kommune.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "troms-hovedutvalg-naering-klima-og-miljo",
+      "til": "troms-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-naering-klima-og-miljo",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "troms-hovedutvalg-samferdsel",
+      "til": "troms-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-samferdsel",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "troms-hovedutvalg-kompetanse",
+      "til": "troms-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-kompetanse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "troms-hovedutvalg-kultur-og-helse",
+      "til": "troms-fylkesting",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "tromsfylke-no-hovedutvalg-kultur-og-helse",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra tromsfylke.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "haeren",
+      "til": "forsvaret",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "forsvaret-no-haerens-avdelinger",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra forsvaret.no 25.09.2026."
+      }
+    },
+    {
+      "fra": "statsadvokatene-troms-og-finnmark",
+      "til": "nord-statsadvokatembete",
+      "type": "erstattet_av",
+      "belegg": {
+        "kilde": "riksadvokaten-no-statsadvokatembeter",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra riksadvokaten.no 25.09.2026. Oversikten har ikke et eget embete for Troms og Finnmark; Nord statsadvokatembete dekker Trøndelag, Nordland, Troms og Finnmark og har kontorsted i Tromsø. Datoen står ikke i oversikten."
+      }
+    },
+    {
+      "fra": "kystverket-troms-og-finnmark",
+      "til": "kystverket",
+      "type": "erstattet_av",
+      "belegg": {
+        "kilde": "kystverket-no-organisering",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kystverket.no 25.09.2026. Kystverket er organisert i fire landsdekkende virksomhetsområder, med ledergruppen i Ålesund. Bare losoldermannskapet har en enhet for Troms og Finnmark. Datoen står ikke på siden."
+      }
+    },
+    {
       "fra": "4service-eir-renhold-as-avd-tromso",
       "til": "4service-eir-renhold",
       "type": "overordnet",
@@ -24724,11 +27500,12 @@
       "type": "omsetning",
       "verdi": 375900000,
       "enhet": "NOK",
+      "konsern": true,
       "belegg": {
         "kilde": "purehelp",
         "verifisering": "maa_verifiseres",
         "per": "2025",
-        "merknad": "Trolig konserntall ifølge grunnlaget. Kilde i grunnlaget: Purehelp. Må verifiseres mot Regnskapsregisteret."
+        "merknad": "Trolig konserntall ifølge grunnlaget, som ikke sier det sikkert. Kilde i grunnlaget: Purehelp. Registerets tall for 2025 er morselskapets eget regnskap og måler noe annet; de to er ikke en motsigelse. Må verifiseres mot konsernregnskapet i Regnskapsregisteret."
       }
     },
     {
@@ -24737,11 +27514,12 @@
       "type": "egenkapital",
       "verdi": 208600000,
       "enhet": "NOK",
+      "konsern": true,
       "belegg": {
         "kilde": "purehelp",
         "verifisering": "maa_verifiseres",
         "per": "2025",
-        "merknad": "Trolig konserntall ifølge grunnlaget. Kilde i grunnlaget: Purehelp. Må verifiseres mot Regnskapsregisteret."
+        "merknad": "Trolig konserntall ifølge grunnlaget, som ikke sier det sikkert. Kilde i grunnlaget: Purehelp. Registerets tall for 2025 er morselskapets eget regnskap og måler noe annet; de to er ikke en motsigelse. Må verifiseres mot konsernregnskapet i Regnskapsregisteret."
       }
     },
     {
@@ -32262,7 +35040,7 @@
       "presisjon": "dag",
       "type": "valg",
       "tittel": "Gunnar Wilhelmsen gjenvalgt som ordfører",
-      "tekst": "Kommunestyret for valgperioden 2023–2027 konstituert, med Sigrid Hammer (SV) som varaordfører.",
+      "tekst": "Kommunestyret for valgperioden 2023–2027 konstituert, med Sigrid Bjørnhaug Hammer (SV) som varaordfører.",
       "org": "tromso-kommunestyre",
       "personer": [
         "gunnar-wilhelmsen",
@@ -32359,6 +35137,20 @@
         "kilde": "statsforvalteren-no",
         "verifisering": "oppgitt",
         "per": "2025-04"
+      }
+    },
+    {
+      "dato": "2025-05-01",
+      "presisjon": "dag",
+      "type": "nedlagt",
+      "tittel": "Mattilsynet legger ned de fem geografiske regionene",
+      "tekst": "Mattilsynet gikk fra fem geografiske regioner til fire nasjonale tilsynsdivisjoner. Region Nord, som grunnlaget viste til, finnes ikke lenger.",
+      "org": "mattilsynet",
+      "belegg": {
+        "kilde": "mattilsynet-no-organiseringen",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra mattilsynet.no 25.09.2026. Siden er publisert 16.09.2025."
       }
     },
     {
@@ -32628,7 +35420,7 @@
       "styrke": 2
     },
     {
-      "org": "halogaland-jordskifterett",
+      "org": "nord-troms-jordskifterett",
       "segment": "eiendom-bygg",
       "styrke": 3
     },
@@ -33028,6 +35820,56 @@
       "styrke": 3
     },
     {
+      "org": "helse-nord-ikt",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "segment": "avfall-miljo",
+      "styrke": 3
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "segment": "transport",
+      "styrke": 2
+    },
+    {
+      "org": "miljo-idrett-kultur-og-samfunnsutviklingsutvalget",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "troms-hovedutvalg-samferdsel",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "troms-hovedutvalg-kompetanse",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "troms-hovedutvalg-kultur-og-helse",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "kystverket",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "naerings-og-fiskeridepartementet",
+      "segment": "sjomat",
+      "styrke": 3
+    },
+    {
       "org": "aleris-helse",
       "segment": "helse",
       "styrke": 3
@@ -33180,11 +36022,6 @@
     {
       "org": "havforskningsinstituttet-avd-tromso",
       "segment": "utdanning-forskning",
-      "styrke": 3
-    },
-    {
-      "org": "helse-nord-ikt",
-      "segment": "helse",
       "styrke": 3
     },
     {
@@ -33409,34 +36246,14 @@
       "hvorfor": "Merket [verifiser via kommunens ansattsøk] i grunnlaget. Dette er laget som forbereder plan- og byggesakene."
     },
     {
-      "gjelder": "tromso-kommunestyre",
-      "hva": "Det fjerde hovedutvalget, for klima, miljø, næring, kultur, idrett og friluft, mangler sikkert navn og er ikke tatt med som organ.",
-      "hvorfor": "Navnet er merket [verifiser] i grunnlaget."
-    },
-    {
-      "gjelder": "kommune-og-byutviklingsutvalget",
-      "hva": "Leder og medlemmer er ikke navngitt.",
-      "hvorfor": "Merket [verifiser via innsyn.tromso.kommune.no] i grunnlaget."
-    },
-    {
-      "gjelder": "helse-og-velferdsutvalget",
-      "hva": "Leder og medlemmer er ikke navngitt.",
-      "hvorfor": "Merket [verifiser via innsyn.tromso.kommune.no] i grunnlaget."
-    },
-    {
-      "gjelder": "oppvekst-og-utdanningsutvalget",
-      "hva": "Leder og medlemmer er ikke navngitt.",
-      "hvorfor": "Merket [verifiser via innsyn.tromso.kommune.no] i grunnlaget."
-    },
-    {
       "gjelder": "tromso-klageutvalget",
-      "hva": "Leder og medlemmer er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Kommunens side sier at klageutvalget har fem faste medlemmer fra formannskapet, men tre av de fem faste medlemmene i utvalgsportalen sitter ikke fast i formannskapet.",
+      "hvorfor": "De to kildene fra kommunen er i konflikt. Bare lederen er tatt med."
     },
     {
       "gjelder": "tromso-kontrollutvalget",
-      "hva": "Leder og medlemmer er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Medlemmene av kontrollutvalget er ikke tatt med, bare lederen.",
+      "hvorfor": "Lederen er hentet fra utvalgsportalen tromso.digdem.no 25.09.2026. Kommunens egen side om kontrollutvalget sier at det er valgt for perioden 2019–2022, og er utdatert."
     },
     {
       "gjelder": "tromso-kommune",
@@ -33550,19 +36367,6 @@
     },
     {
       "gjelder": "troms-fylkeskommune",
-      "hva": "Styringsmodellen er uavklart. tromsfylke.no (sist endret 12.6.2026) sier formannskapsmodell, mens medieomtale ved konstitueringen i 2023 sa at Ap skulle «lede fylkesrådet» og omtalte Kristina Torbergsen som «fylkesrådsleder».",
-      "hvorfor": "Kildene er i konflikt. Gjeldende reglement må sjekkes, og datamodellen må kunne vise begge modellene.",
-      "personer": [
-        "kristina-torbergsen"
-      ]
-    },
-    {
-      "gjelder": "troms-fylkeskommune",
-      "hva": "Navnene på fylkeskommunens hovedutvalg og komiteer er ikke oppgitt.",
-      "hvorfor": "Merket [verifiser navn] i grunnlaget."
-    },
-    {
-      "gjelder": "troms-fylkeskommune",
       "hva": "Svipper og kollektivtrafikken er oppført under fylkeskommunens eierskap, men er ikke tatt med som organ.",
       "hvorfor": "Organisasjonsformen er merket [verifiser org.form] i grunnlaget."
     },
@@ -33595,39 +36399,19 @@
       "hvorfor": "Utelatt med vilje. For politi og påtale viser MVP bare toppleder."
     },
     {
-      "gjelder": "statsadvokatene-troms-og-finnmark",
-      "hva": "Førstestatsadvokaten er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
-    },
-    {
-      "gjelder": "nord-troms-og-senja-tingrett",
-      "hva": "Sorenskriveren er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
-    },
-    {
-      "gjelder": "halogaland-lagmannsrett",
-      "hva": "Lagmannen er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
-    },
-    {
-      "gjelder": "halogaland-jordskifterett",
-      "hva": "Jordskifterettslederen er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
-    },
-    {
       "gjelder": "nav-troms-og-finnmark",
-      "hva": "Fylkesdirektøren er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Fylkesdirektøren i Nav Troms og Finnmark er ikke navngitt på nav.no.",
+      "hvorfor": "Verken fylkessiden, presse- og statistikksiden eller søket på nav.no oppgir navnet (sjekket 25.09.2026)."
     },
     {
       "gjelder": "nav-tromso",
-      "hva": "NAV-lederen i Tromsø er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Lederen for Nav Tromsø er ikke navngitt.",
+      "hvorfor": "Kontorsiden på nav.no oppgir adresse, organisasjonsnummer og tjenester, men ingen leder (sjekket 25.09.2026)."
     },
     {
       "gjelder": "skatteetaten",
-      "hva": "Regionlederen er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Skatteetaten har ingen region Nord med egen leder.",
+      "hvorfor": "Ifølge skatteetaten.no består etaten av et direktorat og fem divisjoner med landsdekkende ansvar (sjekket 25.09.2026). Grunnlaget viste til en region Nord."
     },
     {
       "gjelder": "tolletaten",
@@ -33636,43 +36420,33 @@
     },
     {
       "gjelder": "fiskeridirektoratet",
-      "hva": "Regiondirektøren er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Fiskeridirektoratet har ingen region Nord med egen regiondirektør.",
+      "hvorfor": "Organisasjonssiden på fiskeridir.no viser divisjoner og avdelinger med landsdekkende ansvar og 19 kontorer langs kysten, ikke regioner (sjekket 25.09.2026)."
     },
     {
       "gjelder": "mattilsynet",
-      "hva": "Regiondirektøren er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Mattilsynet har ikke lenger en region Nord med egen regiondirektør.",
+      "hvorfor": "Ifølge mattilsynet.no gikk tilsynet 1. mai 2025 fra fem geografiske regioner til fire nasjonale tilsynsdivisjoner. De nordlige avdelingene ledes av mellomledere, som ikke er tatt med."
     },
     {
       "gjelder": "kystverket-troms-og-finnmark",
-      "hva": "Regiondirektøren er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
-    },
-    {
-      "gjelder": "statens-vegvesen",
-      "hva": "Avdelingsdirektøren er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Når Kystverket Troms og Finnmark ble lagt ned som region, er ikke oppgitt.",
+      "hvorfor": "Kystverkets organisasjonskart for 2026 har ingen region Troms og Finnmark; Kystverket er funksjonsorganisert i fire virksomhetsområder, og bare losoldermannskapet har en enhet for Troms og Finnmark (sjekket 25.09.2026). Kystdirektøren står på organet Kystverket."
     },
     {
       "gjelder": "avinor",
-      "hva": "Lufthavnsdirektøren i Tromsø er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Lufthavnsdirektøren på Tromsø lufthavn er ikke navngitt.",
+      "hvorfor": "Lufthavnens kontaktside på avinor.no oppgir ingen leder, og om-siden er fjernet (HTTP 410) (sjekket 25.09.2026)."
     },
     {
       "gjelder": "statsbygg",
-      "hva": "Regiondirektøren er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Regiondirektøren for Statsbygg i nord er ikke navngitt.",
+      "hvorfor": "statsbygg.no har ingen side om organisasjon eller ledelse i nettstedskartet (sjekket 25.09.2026)."
     },
     {
       "gjelder": "forsvaret",
-      "hva": "Sjefene er ikke navngitt. Bare offisielle toppledere skal vises.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
-    },
-    {
-      "gjelder": "arbeidstilsynet",
-      "hva": "Regionlederen er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Sjefen for Brigade Nord er ikke navngitt.",
+      "hvorfor": "Forsvarets organisasjonskart navngir sjefene for driftsenhetene, men ikke for Brigade Nord (sjekket 25.09.2026). Bare fungerende sjef Hæren, med hovedkvarter på Bardufoss, er tatt med."
     },
     {
       "gjelder": "husbanken",
@@ -33696,38 +36470,23 @@
     },
     {
       "gjelder": "innovasjon-norge-arktis",
-      "hva": "Regiondirektøren er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
-    },
-    {
-      "gjelder": "havforskningsinstituttet",
-      "hva": "Direktøren er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Regiondirektøren i Innovasjon Norge Arktis er ikke hentet.",
+      "hvorfor": "innovasjonnorge.no svarte med en sikkerhetssjekk (HTTP 403) på alle forespørsler 25.09.2026."
     },
     {
       "gjelder": "norsk-polarinstitutt",
-      "hva": "Direktøren er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Hvem som er direktør, er ikke bekreftet.",
+      "hvorfor": "Registeret hadde 25.09.2026 to daglige ledere for instituttet (se rollene), og instituttets egen side kunne ikke sjekkes: npolar.no svarte med en sikkerhetssjekk (HTTP 403) 25.09.2026. Grunnlaget merket direktøren [verifiser]."
     },
     {
       "gjelder": "kartverket",
-      "hva": "Direktøren er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
-    },
-    {
-      "gjelder": "sametinget",
-      "hva": "Sametingspresidenten er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
+      "hva": "Kartverkets øverste leder er ikke navngitt. Bare fylkeskartsjefen for Kartverket Troms og Finnmark, med kontor i Tromsø, er tatt med.",
+      "hvorfor": "Kontaktsiden for Kartverket Troms og Finnmark på kartverket.no navngir fylkeskartsjefen (sjekket 25.09.2026). Ledelsen for hele etaten er ikke hentet."
     },
     {
       "gjelder": "nye-veier",
       "hva": "Grunnlaget antar at Nye Veier ikke er aktivt i Troms per 2026.",
       "hvorfor": "Antakelse i grunnlaget, ikke fakta."
-    },
-    {
-      "gjelder": "helse-nord-rhf",
-      "hva": "Adm. dir. og styreleder er ikke navngitt.",
-      "hvorfor": "Merket [verifiser] i grunnlaget."
     },
     {
       "gjelder": "nofima",
@@ -33817,6 +36576,27 @@
       "personer": [
         "harald-bredrup",
         "roger-karlsen"
+      ]
+    },
+    {
+      "gjelder": "statsadvokatene-troms-og-finnmark",
+      "hva": "Når embetet for Troms og Finnmark ble lagt ned eller slått sammen med Nord statsadvokatembete, er ikke oppgitt.",
+      "hvorfor": "Riksadvokatens oversikt over statsadvokater og embeter har ikke et eget embete for Troms og Finnmark, men sier ikke når endringen skjedde (sjekket 25.09.2026)."
+    },
+    {
+      "gjelder": "troms-fylkesting",
+      "hva": "Fylkestingets representantliste oppfører Kristina Torbergsen som «I permisjon». Fylkesordførersiden nevner henne ikke.",
+      "hvorfor": "Ingen av sidene sier at hun er fylkesordfører i permisjon. Rollen i datasettet bygger fortsatt på grunnlaget.",
+      "personer": [
+        "kristina-torbergsen"
+      ]
+    },
+    {
+      "gjelder": "troms-fylkeskommune-kontrollutvalg",
+      "hva": "Lederen av kontrollutvalget er holdt tilbake til et menneske har avgjort hvem det er.",
+      "hvorfor": "Kontrollutvalgets side på tromsfylke.no (25.09.2026) oppgir en leder fra FrP med et navn som nesten er likt navnet på et medlem av Tromsø kommunestyre fra samme parti, og fylkets representantliste skriver navnet på en tredje måte. To poster for det som kan være samme person, ville gjort en innsigelse halv.",
+      "personer": [
+        "anni-skogman"
       ]
     }
   ]

@@ -20,6 +20,14 @@ relasjoner og 516 nøkkeltall. 23 roller og 3 nøkkeltall i grunnlaget ble
 bekreftet; 7 roller og 2 nøkkeltall sier registeret noe annet om. Se
 `docs/avvik/brreg-5501-2026-09-25.md`.
 
+Samme dag ble ledere fra organenes egne sider flettet inn
+(`docs/avvik/flett-offentlig-5501-2026-09-25.md`), og importen ble kjørt på
+nytt mot mellomlageret. Da var 31 roller bekreftet, 5 grunnlagsroller motsagt
+av registeret og merket `motsagt`, og 5 roller er roller registeret ikke fører.
+Ingen nøkkeltall er motsagt lenger: grunnlagets «trolig konsern»-tall for
+Remiks Miljøpark er merket som konserntall, og et konserntall sammenlignes
+aldri med registerets selskapstall.
+
 Uten `MAKTKART_PERSON_SALT` (minst 16 tegn) nekter skriptet å kjøre. Saltet
 ligger utenfor repoet. Byttes det, får personene med hashsuffiks nye nøkler,
 og mellomlageret må tømmes (`--oppfrisk`).
@@ -150,6 +158,29 @@ rolle legges til ved siden av, og begge går til avviksrapporten. En rad som
 ble bekreftet før, men som registeret ikke lenger viser, settes tilbake til
 `maa_verifiseres` med en merknad, og meldes.
 
+**Motsagt.** Registeret har forrang for rollene det selv fører: daglig leder,
+styreleder, nestleder, styremedlem og varamedlem. Når et menneske har vurdert
+et avvik, merkes grunnlagets rad `"motsagt": true`, og merknaden begynner med
+«Motsagt av Brreg <dato>:» og sier hva registeret har. Raden får ikke `til`:
+vi vet ikke når rollen eventuelt sluttet, og hentedatoen ville vært en
+oppdiktet sluttdato. En motsagt rolle er ikke aktiv (`erAktiv` i
+`src/lib/data/lokal.ts`, `intern.er_aktiv` i basen), men står i historikken.
+Importøren lar merket stå og sier det i rapporten; bekrefter registeret raden
+senere, tar importøren merket bort.
+
+**Roller registeret ikke fører.** I statlige forvaltningsorganer
+(organisasjonsform ORGL eller STAT) er toppleder, sorenskriver, lagmann og
+embetsleder ikke roller i Enhetsregisteret. Registerets daglig leder kan
+bekrefte dem, men er daglig leder en annen (assisterende statsforvalter,
+administrasjonsdirektøren ved UiT, en administrasjonssjef i en domstol), er
+det ikke et avvik. I foretak (AS, ASA, KF, IKS, sparebanker, HF og RHF, som
+er registrert som SÆR), kommuner og fylkeskommuner er topplederen registerets
+daglig leder etter loven, så der er en annen daglig leder et avvik som alle
+andre. Et styreverv i et organ som ikke har styret sitt i registeret, som et
+statlig universitet, er heller ikke et avvik. Begge rollene står, og
+rapporten melder dem under «Roller registeret ikke fører (ikke avvik)», uten å
+telle dem som motsagt eller som avvik til menneskelig vurdering.
+
 **Nøkkeltall.** Omsetning (sum driftsinntekter), driftsresultat, årsresultat
 og egenkapital, med regnskapsår fra `regnskapsperiode.tilDato`. Et tall i
 grunnlaget er bekreftet når år, type og konsern/selskap er like og
@@ -265,6 +296,13 @@ Verifiserte rader i JSON krevde tre små endringer i datalaget:
   en som er hentet samme dag eller senere.
 - `src/lib/data/lokal.ts`: `hentet` i belegget er hentedatoen for verifiserte
   rader, i samme form som basen gir den.
+
+Motsagte roller krevde det samme gjennom hele datalaget: feltet `motsagt` i
+`Rolleinnehav` (`src/data/types.ts`) og `Rolle` (`kontrakt.ts`), `erAktiv` i
+`lokal.ts`, kolonnen og `intern.er_aktiv` i
+`supabase/migrations/0016_motsagt_rolle.sql` (som bytter ut RPC-ene som skiller
+aktive roller fra tidligere), kolonnen i seed-byggeren og «motsagt av
+registeret» i stedet for en dato på organsiden.
 
 `tests/personvern.test.ts` sperrer grunnlagets personer én og én og Brreg-personene
 samlet; én og én tok 355 sekunder med 881 personer.

@@ -303,6 +303,7 @@ export function byggSeed(s: Samling): string {
         "fra",
         "til",
         "til_forventet",
+        "motsagt",
         ...BELEGG_KOLONNER,
       ],
       sortertPaa(s.roller).map(([key, r]) => [
@@ -317,6 +318,7 @@ export function byggSeed(s: Samling): string {
         tekst(r.fra),
         tekst(r.til),
         tekst(r.til_forventet),
+        lit(r.motsagt === true),
         ...belegg(r.belegg),
       ]),
       ["key"],

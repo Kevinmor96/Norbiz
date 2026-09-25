@@ -11,7 +11,19 @@
 // når registeret bekrefter en påstand, oppgraderes belegget til `verifisert`
 // med hentedatoen, og merknaden begynner med «Bekrefter grunnlaget». Sier
 // registeret noe annet, står grunnlagets påstand urørt, registerets påstand
-// legges til ved siden av, og begge går til avviksrapporten.
+// legges til ved siden av, og begge går til avviksrapporten. En grunnlagsrad
+// et menneske har merket `motsagt`, står også; bekrefter registeret den
+// senere, tas merket bort.
+//
+// ROLLER REGISTERET IKKE FØRER. I statlige forvaltningsorganer
+// (organisasjonsledd) er toppleder, sorenskriver og embetsleder ikke roller i
+// Enhetsregisteret. Registerets daglig leder kan bekrefte dem, men er
+// registerets daglig leder en annen (en assisterende statsforvalter, en
+// administrasjonsdirektør), er det ikke en motsigelse. I foretak, kommuner og
+// fylkeskommuner er topplederen registerets daglig leder etter loven, og der er
+// en annen daglig leder et avvik. Et styreverv i et organ som ikke har styret
+// sitt i registeret (et statlig universitet), er heller ikke en motsigelse.
+// Begge står, og rapporten melder det under en egen overskrift.
 //
 // PERSONER. Bare `key` og `navn`. To registerpersoner er samme person når
 // navn og fødselsdato gir samme hash (`pid`). En registerperson er samme som
@@ -113,6 +125,16 @@ const REGISTERTYPER = new Set<Rolletype>([
   "varamedlem",
 ]);
 
+/**
+ * Organisasjonsformer for statlige forvaltningsorganer. Der kan registerets
+ * daglig leder være en annen enn topplederen: statsforvalteren registrerer den
+ * assisterende, UiT administrasjonsdirektøren og en domstol
+ * administrasjonssjefen. I foretak (AS, KF, IKS, HF og RHF som SÆR, sparebanker),
+ * kommuner og fylkeskommuner er topplederen registerets daglig leder etter
+ * loven, så en annen daglig leder der er et avvik.
+ */
+const FORVALTNINGSFORMER = new Set(["ORGL", "STAT"]);
+
 const kodeFor = (t: Rolletype): Rollekode | null => {
   for (const [kode, typer] of Object.entries(TYPER_FOR_KODE))
     if (typer.includes(t)) return kode as Rollekode;
@@ -147,6 +169,7 @@ export interface ImportInn {
 
 export type Avvikskategori =
   | "roller"
+  | "ikke_registerrolle"
   | "nokkeltall"
   | "organer"
   | "personer"
@@ -1192,7 +1215,10 @@ export function importer(inn: ImportInn): ImportUt {
   gRoller = gRoller.map((r, i) => {
     if (bekreftetRad.has(i)) {
       bekreftedeRoller++;
-      return { ...r, belegg: oppgrader(r.belegg, KILDER.roller.key) };
+      // Bekrefter registeret en rad som var merket motsagt, er den ikke det lenger.
+      const { motsagt, ...rad } = r;
+      const ekstra = motsagt ? "Var merket motsagt; registeret viser den nå." : "";
+      return { ...rad, belegg: oppgrader(r.belegg, KILDER.roller.key, ekstra) };
     }
     return r;
   });
@@ -1211,19 +1237,45 @@ export function importer(inn: ImportInn): ImportUt {
       gRoller[i] = { ...r, belegg: nedgrader(r.belegg) };
     }
     if (kompatible.length === 0 && !REGISTERTYPER.has(r.rolletype) && !somAnnen) continue;
+    const grunnlaget = `${navn} (${r.person}), «${r.tittel}» (${kildenavn(r.belegg.kilde)}${r.belegg.per ? `, per ${r.belegg.per}` : ""})`;
+    const registeret =
+      (kompatible.length > 0
+        ? `${TITTEL[kode]}: ${kompatible.map((b) => b.person!.navn).join(", ")}.`
+        : `Ingen ${TITTEL[kode].toLowerCase()} registrert.`) + somAnnen;
+    const vedSiden =
+      kompatible.length > 0 && ro.eier
+        ? " Registerets er lagt til ved siden av, merket verifisert."
+        : "";
+    // Et organ uten ett eneste styreverv i registeret (et statlig universitet,
+    // et forvaltningsorgan) har ikke styret sitt der. Registeret motsier da
+    // ikke en styreleder; det fører bare ikke rollen.
+    const harStyre = [...ro.personroller, ...ro.styreplasser].some((b) => b.kode !== "DAGL");
+    const ikkeRegisterrolle =
+      !REGISTERTYPER.has(r.rolletype) && FORVALTNINGSFORMER.has(ro.enhet.orgform);
+    if (ikkeRegisterrolle || (kode !== "DAGL" && !harStyre)) {
+      // Toppleder, sorenskriver og embetsleder i et statlig forvaltningsorgan er
+      // ikke registerroller. En annen daglig leder i registeret motsier dem ikke.
+      nyttAvvik({
+        kategori: "ikke_registerrolle",
+        gjelder: `${r.org}: ${r.tittel.toLowerCase()}`,
+        grunnlaget,
+        registeret,
+        tiltak: ikkeRegisterrolle
+          ? `Ikke et avvik: «${r.tittel}» er ikke en rolle i Enhetsregisteret. ` +
+            (kompatible.length > 0 ? `Begge står.${vedSiden}` : "Grunnlagets rolle står.")
+          : "Ikke et avvik: registeret fører ikke styret for dette organet. Grunnlagets rolle står.",
+      });
+      continue;
+    }
     motsagteRoller++;
     nyttAvvik({
       kategori: "roller",
       gjelder: `${ro.key}: ${TITTEL[kode].toLowerCase()}`,
-      grunnlaget: `${navn} (${r.person}), «${r.tittel}» (${kildenavn(r.belegg.kilde)}${r.belegg.per ? `, per ${r.belegg.per}` : ""})`,
-      registeret:
-        (kompatible.length > 0
-          ? `${TITTEL[kode]}: ${kompatible.map((b) => b.person!.navn).join(", ")}.`
-          : `Ingen ${TITTEL[kode].toLowerCase()} registrert.`) + somAnnen,
-      tiltak:
-        kompatible.length > 0 && ro.eier
-          ? "Grunnlagets påstand står. Registerets er lagt til ved siden av, merket verifisert."
-          : "Grunnlagets påstand står.",
+      grunnlaget,
+      registeret,
+      tiltak: r.motsagt
+        ? `Merket motsagt i datasettet: grunnlagets rad vises bare i historikken.${vedSiden}`
+        : `Grunnlagets påstand står.${vedSiden}`,
     });
   }
 
@@ -1817,6 +1869,7 @@ export function importer(inn: ImportInn): ImportUt {
 
   const rekkefolge: Avvikskategori[] = [
     "roller",
+    "ikke_registerrolle",
     "nokkeltall",
     "organer",
     "personer",
@@ -1833,7 +1886,8 @@ export function importer(inn: ImportInn): ImportUt {
         cmp(a.grunnlaget, b.grunnlaget) ||
         cmp(a.registeret, b.registeret),
     );
-  oppsummering.avvik = avvikSortert.length;
+  // Roller registeret ikke fører, er ikke avvik: de står i rapporten til orientering.
+  oppsummering.avvik = avvikSortert.filter((a) => a.kategori !== "ikke_registerrolle").length;
 
   return {
     datasett: ut,

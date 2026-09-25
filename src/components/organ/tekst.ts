@@ -149,6 +149,13 @@ export function rollePastand(r: Rolle, organnavn: string): string {
  */
 export function rolleTid(r: Rolle): { tekst: string | null; planlagt: string | null } {
   const fra = r.fra ? dato(r.fra) : null;
+  // Motsagt av registeret: vi vet ikke når rollen eventuelt sluttet, så det
+  // står ingen sluttdato. Merknaden i kildemerket sier hva registeret har.
+  if (r.motsagt)
+    return {
+      tekst: fra ? `fra ${fra}, motsagt av registeret` : "motsagt av registeret",
+      planlagt: null,
+    };
   if (r.til)
     return { tekst: fra ? `${fra} til ${dato(r.til)}` : `til ${dato(r.til)}`, planlagt: null };
   return {

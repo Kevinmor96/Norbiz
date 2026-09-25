@@ -14,7 +14,15 @@
 // Resultatet valideres med samle.ts og med reglene fra datasett-testen, og en
 // ny kjøring på de samme svarene må gi byte-like filer.
 
-import { cpSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import {
+  cpSync,
+  mkdirSync,
+  mkdtempSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
@@ -869,6 +877,157 @@ describe("Fiskvik (oppdiktet kommune)", () => {
 // ---------------------------------------------------------------------------
 // Flere kommuner: felles organer, felles personer og en ny kommune
 // ---------------------------------------------------------------------------
+
+describe("motsagte roller og ledere som ikke er registerroller (Fiskvik)", () => {
+  // Grunnlaget endret slik et menneske ville gjort det etter første kjøring:
+  // styrelederen registeret motsier, er merket motsagt; daglig leder var merket
+  // motsagt, men registeret bekrefter henne nå. Tre ledere er en annen enn
+  // registerets daglig leder: sorenskriveren i en domstol (organisasjonsledd,
+  // ikke et avvik), kommunedirektøren (kommunens daglig leder etter loven, et
+  // avvik) og en administrerende direktør i et AS (et avvik). Og en styreleder i
+  // et organ som ikke har styret sitt i registeret.
+  const mappe = join(FIKSTUR, "fiktiv");
+  const konfig: Konfig = tolkKonfig({
+    felles: { ...felles, sidestorrelse: 3 },
+    kommuner: {
+      "9998": {
+        terskel_ansatte: 20,
+        alltid: {
+          fra_datasett: true,
+          orgnr: [],
+          navn: [{ navn: "Fiskvik fylkesting", organisasjonsform: "FYLK" }],
+        },
+      },
+    },
+  });
+  let tmp: string;
+  let r: KjorResultat;
+  let d: Kommunedatasett;
+  let rapport: string;
+
+  beforeAll(async () => {
+    tmp = mkdtempSync(join(tmpdir(), "maktkart-brreg-motsagt-"));
+    const g = JSON.parse(readFileSync(join(mappe, "datasett.json"), "utf8")) as Kommunedatasett;
+    const merk = (x: Kommunedatasett["roller"][number], hva: string) => ({
+      ...x,
+      motsagt: true,
+      belegg: { ...x.belegg, merknad: `Motsagt av Brreg 24.09.2026: ${hva}` },
+    });
+    g.roller = g.roller.map((x) =>
+      x.person === "olga-styrmann"
+        ? merk(x, "registeret har en annen styreleder.")
+        : x.person === "per-fisker"
+          ? merk(x, "registeret hadde en annen daglig leder.")
+          : x,
+    );
+    g.personer = g.personer.map((p) =>
+      p.key === "kari-kommunesen"
+        ? { ...p, navn: "Kari Annensen" }
+        : p.key === "dina-dommer"
+          ? { ...p, navn: "Dina Annen" }
+          : p,
+    );
+    // En toppleder i et AS er registerets daglig leder etter aksjeloven.
+    g.personer.push({ key: "tone-toppsen", navn: "Tone Toppsen" });
+    g.roller.push({
+      org: "fiskvik-havfiske",
+      person: "tone-toppsen",
+      tittel: "Administrerende direktør",
+      rolletype: "toppleder",
+      status: "fast",
+      belegg: { kilde: "fiskvik-kommune-no", verifisering: "oppgitt", per: "2026-09" },
+    });
+    // Nordvik Kraft har bare daglig leder i registeret, ikke noe styre.
+    g.personer.push({ key: "siv-styre", navn: "Siv Styre" });
+    g.roller.push({
+      org: "nordvik-kraft",
+      person: "siv-styre",
+      tittel: "Styreleder",
+      rolletype: "styreleder",
+      status: "fast",
+      belegg: { kilde: "testgrunnlag", verifisering: "maa_verifiseres", per: "2026-09" },
+    });
+    mkdirSync(join(tmp, "data"), { recursive: true });
+    writeFileSync(join(tmp, "data", "fiskvik.json"), serialiser(g));
+    [r] = (await kjor({
+      kommunenr: ["9998"],
+      dataMappe: join(tmp, "data"),
+      avvikMappe: join(tmp, "avvik"),
+      http: fiksturHttp(mappe).http,
+      mellomlager: null,
+      salt: SALT,
+      idag: IDAG,
+      konfig,
+      tabeller,
+      skriv: true,
+      logg: () => {},
+    })) as [KjorResultat];
+    d = JSON.parse(readFileSync(r.datasettfil, "utf8")) as Kommunedatasett;
+    rapport = readFileSync(r.avviksfil, "utf8");
+  });
+  afterAll(() => rmSync(tmp, { recursive: true, force: true }));
+
+  const rad = (org: string, person: string) =>
+    d.roller.find((x) => x.org === org && x.person === person)!;
+
+  it("lar en motsagt rad stå som motsagt, og sier det i rapporten", () => {
+    const olga = rad("fiskvik-havfiske", "olga-styrmann");
+    expect(olga.motsagt).toBe(true);
+    expect(olga.belegg.verifisering).toBe("maa_verifiseres");
+    expect(rapport).toMatch(
+      /fiskvik-havfiske: styreleder \| Olga Styrmann[^|]*\| Styreleder: Line Lederberg\.[^|]*\| Merket motsagt i datasettet/,
+    );
+  });
+
+  it("tar bort merket når registeret bekrefter en rad som var motsagt", () => {
+    const per = rad("fiskvik-havfiske", "per-fisker");
+    expect(per).not.toHaveProperty("motsagt");
+    expect(per.belegg).toMatchObject({ kilde: "brreg-roller", verifisering: "verifisert" });
+    expect(per.belegg.merknad).toMatch(new RegExp(`^${BEKREFTER}.*Var merket motsagt`));
+  });
+
+  it("kaller ikke en rolle registeret ikke fører for et avvik", () => {
+    // Sorenskriveren i en domstol (organisasjonsledd) er ikke en registerrolle:
+    // en annen daglig leder motsier henne ikke.
+    const dina = rad("fiskvik-tingrett", "dina-dommer");
+    expect(dina.belegg.verifisering).toBe("oppgitt");
+    expect(dina).not.toHaveProperty("motsagt");
+    // Et organ uten styre i registeret motsier ikke en styreleder.
+    expect(rad("nordvik-kraft", "siv-styre").belegg.verifisering).toBe("maa_verifiseres");
+    const del = (tittel: string) => rapport.split(`## ${tittel}`)[1]!.split("\n## ")[0]!;
+    const ikke = del("Roller registeret ikke fører (ikke avvik) (2)");
+    expect(ikke).toMatch(
+      /fiskvik-tingrett: sorenskriver \| Dina Annen \(dina-dommer\).*Ikke et avvik.*Begge står/,
+    );
+    expect(ikke).toMatch(/nordvik-kraft: styreleder \| Siv Styre.*registeret fører ikke styret/);
+    expect(ikke).not.toContain("fiskvik-administrasjonen");
+    expect(ikke).not.toContain("Tone Toppsen");
+    const motsagt = del("Roller der registeret sier noe annet");
+    expect(motsagt).not.toContain("fiskvik-tingrett");
+    expect(motsagt).not.toContain("nordvik-kraft");
+    // I en kommune og i et AS er topplederen registerets daglig leder etter
+    // loven. En annen daglig leder der er et avvik, ikke en rolle registeret
+    // ikke fører.
+    expect(motsagt).toMatch(
+      /fiskvik-kommune: daglig leder \| Kari Annensen \(kari-kommunesen\), «Kommunedirektør»[^|]*\| Daglig leder: Kari Anne Kommunesen\./,
+    );
+    expect(motsagt).toMatch(
+      /fiskvik-havfiske: daglig leder \| Tone Toppsen \(tone-toppsen\), «Administrerende direktør»[^|]*\| Daglig leder: Per Fisker\./,
+    );
+    expect(rad("fiskvik-administrasjonen", "kari-kommunesen").belegg.verifisering).toBe("oppgitt");
+    expect(rad("fiskvik-havfiske", "tone-toppsen").belegg.verifisering).toBe("oppgitt");
+    const o = r.resultat.oppsummering;
+    expect(o.motsagt.roller).toBe(r.resultat.avvik.filter((a) => a.kategori === "roller").length);
+    expect(o.avvik).toBe(
+      r.resultat.avvik.filter((a) => a.kategori !== "ikke_registerrolle").length,
+    );
+  });
+
+  it("gir et gyldig datasett", () => {
+    expect(valider(samle([{ slug: "fiskvik", data: d }]))).toEqual([]);
+    expect(regelbrudd(d)).toEqual([]);
+  });
+});
 
 describe("flere kommuner (Fiskvik og Testnes)", () => {
   const mappe = join(FIKSTUR, "fiktiv");

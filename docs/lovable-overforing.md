@@ -25,7 +25,7 @@ omskriving. Dette dokumentet er rekkefølgen.
 
 1. **Opprett et eget Supabase-prosjekt for Maktkart** i EU-region. Bruk ikke
    Bransjesjekk-basen, fordi personopplysninger gir en annen personvernprofil.
-2. **Kjør migrasjonene** `0001`–`0015` i rekkefølge med `supabase db push`, eller
+2. **Kjør migrasjonene** `0001`–`0016` i rekkefølge med `supabase db push`, eller
    med `apply_migration` via MCP. Kjør deretter `supabase/seed/seed.sql`.
    Kontroller i SQL-editoren at `select public.kommuner();` returnerer Tromsø.
 3. **Bytt datakilde.** I `src/lib/data/index.ts` byttes `data = lokal` med

@@ -190,6 +190,15 @@ export interface Rolleinnehav {
   til?: string;
   /** Satt når slutten er kjent, men ikke inntruffet (fungerende til …). */
   til_forventet?: string;
+  /**
+   * Registeret sier noe annet om en rolle det selv fører (daglig leder,
+   * styreleder, nestleder, styremedlem, varamedlem), og registeret har
+   * forrang. Rollen er ikke aktiv, men står i historikken. `til` settes ikke:
+   * vi vet ikke når rollen eventuelt sluttet. Merknaden i belegget begynner
+   * med «Motsagt av …» og sier hva registeret har. Utelates ellers; datasettet
+   * skriver aldri `false`.
+   */
+  motsagt?: boolean;
   belegg: Belegg;
 }
 

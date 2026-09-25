@@ -141,6 +141,12 @@ const ikkeSkjeddSortering: Cmp<SamletHendelse> = etter(
 // ---------------------------------------------------------------------------
 
 const erLeder = (t: string) => (LEDERTYPER as readonly string[]).includes(t);
+/**
+ * En rolle er aktiv når den ikke er avsluttet og registeret ikke har motsagt
+ * den. En motsagt rolle står i historikken, uten `til`: vi vet ikke når den
+ * eventuelt sluttet. Samme regel som `intern.er_aktiv` i basen.
+ */
+const erAktiv = (r: Rolleinnehav) => r.til === undefined && r.motsagt !== true;
 const erSkjedd = (t: string) => !(IKKE_SKJEDD_TYPER as readonly string[]).includes(t);
 
 /** Lager datalaget over en samling. Eksportert for tester. */
@@ -228,6 +234,7 @@ export function lagLokal(s: Samling): Datalag {
     fra: r.fra ?? null,
     til: r.til ?? null,
     til_forventet: r.til_forventet ?? null,
+    motsagt: r.motsagt === true,
     belegg: beleggUt(r.belegg),
   });
   const rolleIOrgan = (r: Rolleinnehav): RolleIOrgan => ({ ...rolle(r), org: organRef(r.org) });
@@ -280,7 +287,7 @@ export function lagLokal(s: Samling): Datalag {
   });
   const ledere = (orgKey: string): Rolle[] =>
     sortert(
-      synligeRoller.filter((r) => r.org === orgKey && r.til === undefined && erLeder(r.rolletype)),
+      synligeRoller.filter((r) => r.org === orgKey && erAktiv(r) && erLeder(r.rolletype)),
       rolleSortering,
     ).map(rolle);
 
@@ -375,7 +382,7 @@ export function lagLokal(s: Samling): Datalag {
       ledere: sortert(
         km.roller.filter(
           (r) =>
-            r.til === undefined &&
+            erAktiv(r) &&
             (r.rolletype === "politisk_leder" || r.rolletype === "toppleder") &&
             org(r.org).kommunenr === kommunenr,
         ),
@@ -529,12 +536,9 @@ export function lagLokal(s: Samling): Datalag {
         tekst,
       ).map(organRef),
       roller: {
-        naa: sortert(
-          roller.filter((r) => r.til === undefined),
-          rolleSortering,
-        ).map(rolle),
+        naa: sortert(roller.filter(erAktiv), rolleSortering).map(rolle),
         tidligere: sortert(
-          roller.filter((r) => r.til !== undefined),
+          roller.filter((r) => !erAktiv(r)),
           tidligereRolleSortering,
         ).map(rolle),
       },
@@ -648,7 +652,7 @@ export function lagLokal(s: Samling): Datalag {
     // med en synlig rolle i et sensitivt organ er ikke med i det hele tatt.
     const utelatt = new Set(synligeRoller.filter((r) => org(r.org).sensitiv).map((r) => r.person));
     const aktuelle = km.roller.filter(
-      (r) => r.til === undefined && !org(r.org).sensitiv && !utelatt.has(r.person),
+      (r) => erAktiv(r) && !org(r.org).sensitiv && !utelatt.has(r.person),
     );
     const perPerson = new Map<string, Rolleinnehav[]>();
     for (const r of aktuelle) perPerson.set(r.person, [...(perPerson.get(r.person) ?? []), r]);

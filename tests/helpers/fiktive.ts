@@ -4,7 +4,8 @@
 // Datasettene er laget for å treffe kantene Tromsø ikke treffer: et organ
 // som deles med en annen kommune, en hendelse uten organ, en eiersykel, et
 // avsluttet eierskap, like sorteringsnøkler, en skjult rolle i en domstol,
-// en prosess uten steg, og to nesten tomme kommuner.
+// en prosess uten steg, en rolle registeret har motsagt, og to nesten tomme
+// kommuner.
 
 import type { Belegg, Kommunedatasett, Organisasjon, Rolleinnehav } from "@/data/types";
 
@@ -159,6 +160,7 @@ export function fiktiveDatasett(
       { key: "bjorn-fiktiv", navn: "Bjørn Fiktiv" },
       { key: "gammel-leder", navn: "Gammel Leder" },
       { key: "mona-fiktiv", navn: "Mona Fiktiv" },
+      { key: "mette-motsagt", navn: "Mette Motsagt" },
     ],
     roller: [
       rolle("testvik-kommunestyre", "kari-fiktiv", "politisk_leder", {
@@ -195,6 +197,15 @@ export function fiktiveDatasett(
       }),
       rolle("testvik-tingrett", "ola-fiktiv", "dommer_leder", { tittel: "Sorenskriver" }),
       rolle("testvik-tingrett", "lise-fiktiv", "seksjonsleder", { tittel: "Avdelingsleder" }),
+      // Motsagt av registeret: ikke aktiv, bare i historikken. Uten merket
+      // ville hun vært leder i energiselskapet og stått i nettverket, fordi
+      // hun også sitter i nettselskapet.
+      rolle("testvik-energi", "mette-motsagt", "daglig_leder", {
+        tittel: "Daglig leder",
+        motsagt: true,
+        belegg: b("Motsagt av Brreg 25.09.2026: registeret har en annen daglig leder."),
+      }),
+      rolle("testvik-nett", "mette-motsagt", "styremedlem"),
     ],
     relasjoner: [
       { fra: "testvik-kommunestyre", til: "testvik-kommune", type: "overordnet", belegg: b() },

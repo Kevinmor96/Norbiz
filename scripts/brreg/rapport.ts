@@ -11,7 +11,12 @@ const OVERSKRIFT: Record<Avvikskategori, { tittel: string; forklaring: string }>
   roller: {
     tittel: "Roller der registeret sier noe annet",
     forklaring:
-      "Grunnlagets rolle står. Har registeret en annen person i rollen, er den lagt til ved siden av, merket verifisert.",
+      "Bare roller Enhetsregisteret selv fører: daglig leder, styreleder, nestleder, styremedlem og varamedlem, og topplederen i foretak, kommuner og fylkeskommuner, som er registerets daglig leder etter loven. Grunnlagets rolle står. Har registeret en annen person i rollen, er den lagt til ved siden av, merket verifisert. Er grunnlagets rad merket motsagt, vises den bare i historikken.",
+  },
+  ikke_registerrolle: {
+    tittel: "Roller registeret ikke fører (ikke avvik)",
+    forklaring:
+      "I statlige forvaltningsorganer (organisasjonsledd) er toppleder, sorenskriver, lagmann og embetsleder ikke roller i Enhetsregisteret, og registerets daglig leder kan være en annen person, for eksempel en assisterende direktør eller en administrasjonsdirektør. Noen organer, som statlige universiteter, har heller ikke styret sitt i registeret. Grunnlagets rolle står, og det registeret har, står ved siden av.",
   },
   nokkeltall: {
     tittel: "Nøkkeltall der registeret sier noe annet",

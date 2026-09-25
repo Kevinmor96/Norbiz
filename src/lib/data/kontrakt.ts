@@ -311,6 +311,8 @@ export interface Rolle {
   fra: string | null;
   til: string | null;
   til_forventet: string | null;
+  /** Motsagt av registeret: ikke aktiv, bare i historikken (se `Rolleinnehav.motsagt`). */
+  motsagt: boolean;
   belegg: BeleggUt;
 }
 
