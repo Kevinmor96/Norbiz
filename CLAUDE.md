@@ -48,6 +48,7 @@ npm run seed:build    # regenererer supabase/seed/seed.sql fra src/data/*.json (
 npm run terreng       # henter høydedata og skriver src/data/terreng/<kommunenr>.json
 npm run brreg -- 5501 # virksomheter, roller og regnskap fra Brreg (krever MAKTKART_PERSON_SALT)
 npm run sjekk:graf    # determinisme og etikettkollisjoner i nettverksoppsettet
+npm run data:indeks   # regenererer src/lib/data/indeks.json etter endringer i datasettene
 ```
 
 `npm run preview` virker ikke med Lovables konfigurasjon. Bruk `build:node` og
@@ -60,12 +61,23 @@ Vite, Tailwind 4, shadcn/ui og Supabase, speilet fra Lovables eget oppsett
 (`@lovable.dev/vite-tanstack-config`). Den skal kunne flyttes til Lovable som en
 kopi, ikke en omskriving.
 
-**Datasettet er én kilde.** `src/data/tromso.json` leses av UI-et via
+**Datasettet er én kilde.** `src/data/<kommune>.json` leses av UI-et via
 `src/lib/data/lokal.ts` og blir til seed-SQL via `scripts/seed-build.ts`.
 Supabase-RPC-ene returnerer de samme formene som `lokal.ts`. Det håndheves av
 `tests/kontrakt.test.ts`, som laster seed-en i PGlite, kaller hver RPC og
 sammenligner med `lokal.ts`. Byttet til Supabase er derfor bare et bytte av
 implementasjon i `src/lib/data/index.ts`.
+
+**Datasettene lastes per kommune, på serveren.** Med 80 kommuner kan ikke en
+side laste alle filene. `src/lib/data/indeks.json` sier hvilke filer hvert svar
+trenger, fordi samlingen er en union: rollene i et organ kan stå i en annen
+kommunes fil. `tests/lat.test.ts` beviser at svaret over de filene er likt
+svaret over alle, og at den innsjekkede indeksen er oppdatert. Kjør derfor
+`npm run data:indeks` etter hver endring i `src/data/`, som `seed:build`.
+Nettleseren får aldri datalaget. HTML-en har en lett nyttelast
+(`src/lib/lettside.ts`), og resten hentes etter visning via serverfunksjoner i
+`src/lib/data/hent.ts`. I den statiske eksporten er det filer under `/data/`.
+Terrenget serveres som SVG fra `/kart/terreng/<kommunenr>.svg`.
 
 ## Invarianter som ikke skal brytes
 

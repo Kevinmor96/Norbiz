@@ -45,8 +45,12 @@ export const organprofilFn = createServerFn({ method: "GET" })
     return p ? tilSiden(p) : null;
   });
 
-/** Settes når en serverfunksjon har feilet i nettleseren: da er dette den statiske eksporten. */
-let utenServer = false;
+/**
+ * Sant i den statiske eksporten (satt av vite.statisk.config.ts), og når en
+ * serverfunksjon har feilet i nettleseren på en måte som bare filen kunne
+ * redde. Da går hentingen rett til filene.
+ */
+let utenServer = import.meta.env["VITE_STATISK"] === "1";
 
 async function statisk<T>(sti: string): Promise<T | null> {
   const svar = await fetch(sti, { headers: { accept: "application/json" } });

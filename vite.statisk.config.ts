@@ -33,6 +33,11 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// Nettleseren skal vite at det ikke finnes noen server, og hente dataene som
+// filer med én gang i stedet for å prøve en serverfunksjon først
+// (src/lib/data/hent.ts). Vite gir VITE_-variablene i miljøet til koden.
+process.env["VITE_STATISK"] = "1";
+
 /** Forhåndsrender organsidene. Se over. */
 const ORGANSIDER = true;
 
