@@ -8,7 +8,8 @@ import { MedMerke } from "@/components/maktkart/kildemerke";
 import type { Nokkeltalltype, OrganRef } from "@/lib/data";
 import { NOKKELTALLNAVN } from "@/lib/navn";
 
-import { Blokktittel, IkkeKartlagt, aarOgOmfang, verdiTekst } from "./felles";
+import { Blokktittel, IkkeKartlagt } from "./felles";
+import { aarOgOmfang, verdiTekst } from "./tekst";
 import { kildeKort, type kommuneregnskap } from "./utregning";
 
 type Grupper = ReturnType<typeof kommuneregnskap>;

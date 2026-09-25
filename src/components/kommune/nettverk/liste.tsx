@@ -23,10 +23,10 @@ const STATUS: Record<Rollestatus, string | null> = {
 };
 
 /** Hvor mange personer lista viser om gangen. */
-export const SIDE = 24;
+const SIDE = 24;
 
 /** «Styreleder i Grøtsund Industripark AS», «Fylkesordfører i Fylkestinget, Ap, i permisjon». */
-export function rolletekst(r: RolleIOrgan): string {
+function rolletekst(r: RolleIOrgan): string {
   const tillegg = [r.parti, STATUS[r.status]].filter(Boolean).join(", ");
   return `${r.tittel} i ${r.org.navn}${tillegg ? `, ${tillegg}` : ""}`;
 }
