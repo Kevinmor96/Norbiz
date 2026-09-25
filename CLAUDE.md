@@ -25,6 +25,11 @@ nedenfor, fordi de gjelder like mye her.
 | Skjema, RLS, RPC-er | `supabase/migrations/` |
 | Seed-generator (JSON → SQL, deterministisk) | `scripts/seed-build.ts` → `supabase/seed/seed.sql` |
 | Tester (PGlite, ingen databaseserver) | `tests/` |
+| Delte komponenter (kildemerke, tegnforklaring, kartblad) | `src/components/maktkart/` |
+| Kommunesidens seksjoner | `src/components/kommune/` |
+| Terreng per kommune (byggesteg) | `scripts/terreng.ts` → `src/data/terreng/` |
+| De tre designretningene og dommernes vurderinger | `docs/design/` |
+| Flytting til Lovable, og prosjektkunnskapen dit | `docs/lovable-overforing.md`, `lovable/knowledge.md` |
 | Bransjesjekk, arkivert | `arkiv/bransjesjekk/` |
 
 **Les spec-en før du endrer datamodellen eller en seksjon på kommunesiden.**
@@ -34,11 +39,17 @@ Flere krav der har en begrunnelse som ikke er åpenbar fra koden.
 
 ```bash
 npm run dev           # utviklingsserver
-npm run build         # produksjonsbygg (TanStack Start, SSR)
+npm run build         # produksjonsbygg (Lovables standard, Cloudflare-mål)
+npm run build:node    # produksjonsbygg for lokal kjøring, så: HOST=127.0.0.1 PORT=3000 npm start
+npm run build:statisk # forhåndsrendret statisk eksport til .output/public
 npm run typecheck     # tsc --noEmit, skal gå rent
-npm test              # PGlite-tester: skjema, personvern, kontrakt, datasett
-npm run seed:build    # regenererer supabase/seed/seed.sql fra src/data/*.json
+npm test              # PGlite-tester: skjema, personvern, kontrakt, datasett, mal
+npm run seed:build    # regenererer supabase/seed/seed.sql fra src/data/*.json (byte-identisk)
+npm run terreng       # henter høydedata og skriver src/data/terreng/<kommunenr>.json
 ```
+
+`npm run preview` virker ikke med Lovables konfigurasjon. Bruk `build:node` og
+`start`.
 
 ## Arkitektur
 
