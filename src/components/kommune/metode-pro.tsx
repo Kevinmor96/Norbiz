@@ -8,7 +8,7 @@
 //   side.oversikt.verifisering      status for verifiseringen (hvor mange som er verifisert).
 //   side.oversikt.kilder            kildelisten med antall påstander per kilde.
 //   side.hull                       «Hull i datasettet (N)», kan foldes ut. Fritekst går
-//                                   gjennom rens() i ./metode-pro/hull-liste.tsx.
+//                                   gjennom rens() i ./metode-pro/rens.ts.
 //   side.kommune, side.kommuner     sammenstilt-dato, og kommunene Pro-påmeldingen kan gjelde.
 //
 // Ankere som MÅ finnes i denne seksjonen, fordi topplinjen, bunnlinjen og
