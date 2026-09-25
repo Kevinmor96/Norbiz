@@ -91,14 +91,9 @@ export function TomKommune({
   } | null;
 }) {
   return (
-    <div
-      className="flex flex-col gap-4 border border-dashed border-kote bg-papir p-4 sm:p-5"
-    >
+    <div className="flex flex-col gap-4 border border-dashed border-kote bg-papir p-4 sm:p-5">
       <div className="flex flex-col gap-1.5">
-        <h3
-          aria-live="polite"
-          className="text-[1.0625rem] leading-[1.25] font-bold text-balance"
-        >
+        <h3 aria-live="polite" className="text-[1.0625rem] leading-[1.25] font-bold text-balance">
           {valgt ? `Slik ser ${valgt.navn} ut før den er kartlagt` : "Slik ser en tom kommune ut"}
         </h3>
         <p className="text-[0.875rem] leading-[1.45] text-dempet text-pretty">

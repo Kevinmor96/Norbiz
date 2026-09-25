@@ -52,7 +52,10 @@ type Overskrift = "h2" | "h3";
 
 /** «Kommune · Utvalg». Linjen over navnet i skuffen og på organsiden. */
 export function nivaalinje(o: Pick<OrganRef, "nivaa" | "organtype">): string {
-  return `${NIVAANAVN[o.nivaa]} · ${ORGANTYPENAVN[o.organtype]}`;
+  const nivaa = NIVAANAVN[o.nivaa];
+  const type = ORGANTYPENAVN[o.organtype];
+  // «Kommune · Kommune» sier det samme to ganger.
+  return nivaa === type ? nivaa : `${nivaa} · ${type}`;
 }
 
 /** Den ene setningen organsiden og delingskortet bruker om organet. */

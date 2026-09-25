@@ -56,7 +56,9 @@ export function Verifisering({
                 <ArrowRight className="size-4 text-dempet max-md:rotate-90" aria-hidden="true" />
               )}
             </span>
-            <span className="text-[0.875rem] leading-[1.45] text-dempet text-pretty">{s.tekst}</span>
+            <span className="text-[0.875rem] leading-[1.45] text-dempet text-pretty">
+              {s.tekst}
+            </span>
           </li>
         ))}
       </ol>

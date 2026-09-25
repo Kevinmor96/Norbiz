@@ -78,9 +78,16 @@ export const FORHAND_SKRIVEBORD = 8;
  * 3. Flere medlemmer før færre. Ukjent regnes som null.
  * 4. Selskaper kommunen eier direkte, før dem den eier gjennom andre, før resten.
  * 5. Rekkefølgen fra datalaget: organtype, så nøkkel.
+ *
+ * Før alt dette: andre kommuner og fylkeskommuner i datasettet (medeiere,
+ * forgjengere) kommer sist i båndet. De står der fordi de er koblet til
+ * kommunen, ikke fordi de har makt i den.
  */
+const erAnnenEnhet = (k: OrganKort) => k.organtype === "kommune" || k.organtype === "fylkeskommune";
+
 function viktighet(eierledd: Map<string, number>) {
   return (a: { kort: OrganKort; i: number }, b: { kort: OrganKort; i: number }) =>
+    Number(erAnnenEnhet(a.kort)) - Number(erAnnenEnhet(b.kort)) ||
     myndighetslag(a.kort.myndighet) - myndighetslag(b.kort.myndighet) ||
     b.kort.myndighet.length - a.kort.myndighet.length ||
     (b.kort.antall_medlemmer ?? 0) - (a.kort.antall_medlemmer ?? 0) ||
@@ -218,9 +225,7 @@ export function lagBaand(side: Kommuneside): Baand[] {
     const folkevalgte = organer.filter((o) => FOLKEVALGTE.includes(o.kort.organtype));
     const foretak = organer.filter((o) => erForetak(o.kort.organtype));
     // Paraplyen er alt tatt ut. Andre kommuner og fylkeskommuner står for seg.
-    const andre = organer.filter(
-      (o) => o.kort.organtype === "kommune" || o.kort.organtype === "fylkeskommune",
-    );
+    const andre = organer.filter((o) => erAnnenEnhet(o.kort));
     const interkommunale = organer.filter((o) => o.kort.nivaa === "interkommunal" && !andre.includes(o));
     const brukt = new Set([...folkevalgte, ...foretak, ...andre, ...interkommunale]);
     const adm = organer.filter((o) => !brukt.has(o));

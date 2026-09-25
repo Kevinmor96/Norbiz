@@ -53,17 +53,26 @@ try {
       },
       lerret,
     );
-    const koordinater = (g) =>
-      JSON.stringify({
+    const koordinater = (o) =>
+      JSON.stringify([o.personer, o.medEierskap].map((g) => ({
         hoyde: g.hoyde,
         noder: g.noder.map((n) => [n.key, n.x, n.y, n.etikett.side]),
         knuter: g.knuter.map((n) => [n.id, n.x, n.y]),
         kanter: [...g.kanter]
           .sort((x, y) => (x.id < y.id ? -1 : 1))
           .map((e) => [e.id, e.sti, e.skilt && [e.skilt.x, e.skilt.y]]),
-      });
+      })));
     const likt = koordinater(a) === koordinater(b) && koordinater(a) === koordinater(omvendt);
-    const kollisjoner = finnKollisjoner(a);
+    // Begge lagene sjekkes: grafen slik den står først, og med eierskapet slått på.
+    const kollisjoner = [
+      ...finnKollisjoner(a.personer).map((c) => ({ ...c, lag: "personer" })),
+      ...finnKollisjoner(a.medEierskap).map((c) => ({ ...c, lag: "med eierskap" })),
+    ];
+    // Nodene skal stå stille når eierskapslaget slås på.
+    const stille = a.personer.noder.every((n) => {
+      const m = a.medEierskap.noder.find((x) => x.key === n.key);
+      return m && m.x === n.x && m.y === n.y;
+    });
 
     const overordnet = new Map();
     for (const g of organkart.grupper) for (const o of g.organer) overordnet.set(o.key, o.overordnet);
@@ -77,14 +86,56 @@ try {
         `${modell.eierkanter.length} eierkanter, ${modell.struktur.length} strukturkoblinger utelatt`,
     );
     console.log(
-      `  ${modell.knuter.length} knuter (personer i tre eller flere organer), lerret ${a.bredde} × ${a.hoyde} px`,
+      `  ${modell.knuter.length} knuter (personer i tre eller flere organer), lerret ${a.personer.bredde} × ${a.personer.hoyde} px`,
     );
     console.log(`  deterministisk: ${likt ? "ja" : "NEI"}`);
     console.log(`  etikettkollisjoner: ${kollisjoner.length}`);
-    for (const c of kollisjoner) console.log(`    ${c.hva}: ${c.a} ${c.b}`);
+    for (const c of kollisjoner) console.log(`    ${c.lag}: ${c.hva}: ${c.a} ${c.b}`);
+    console.log(`  nodene står stille når eierskapet slås på: ${stille ? "ja" : "NEI"}`);
     console.log(`  kanter mellom et organ og organet rett under: ${brudd.length}`);
-    if (!likt || kollisjoner.length > 0 || brudd.length > 0) feil += 1;
+    if (!likt || !stille || kollisjoner.length > 0 || brudd.length > 0) feil += 1;
   }
+  // En tett, laget graf som prøver etikettplasseringen hardere enn Tromsø:
+  // et nav med mange kanter, parallelle kanter mellom samme par, to knuter og
+  // lange navn. Den skal også gå uten kollisjoner.
+  const { tekstbredde } = await server.ssrLoadModule("/src/lib/graf/layout.ts");
+  const navn = [
+    "Kommunestyret",
+    "Formannskapet",
+    "Havnestyret KF",
+    "Energiselskapet Nord AS",
+    "Sparebanken Midt-Nord",
+    "Industriparken Vest AS",
+    "Eiendomsselskapet Sentrum AS",
+    "Fylkestinget",
+    "Holdingselskapet AS",
+  ];
+  const organ = (i) => `o${i}`;
+  const skilt = (t) => ({ bredde: tekstbredde(t, 12.5) + 32, hoyde: 24 });
+  const syntetisk = {
+    noder: navn.map((n, i) => ({ key: organ(i), etikett: { bredde: tekstbredde(n, 13), hoyde: 18 } })),
+    kanter: [
+      ...[1, 2, 3, 4, 5].map((j) => ({ id: `nav-${j}`, fra: organ(3), til: organ(j === 3 ? 0 : j), lag: "person", skilt: skilt(`Person Navnesen ${j}`) })),
+      { id: "par-a", fra: organ(4), til: organ(5), lag: "person", skilt: skilt("Anne Marie Parallell") },
+      { id: "par-b", fra: organ(4), til: organ(5), lag: "person", skilt: skilt("Bjørn Olav Parallell") },
+      { id: "par-e", fra: organ(4), til: organ(5), lag: "eier", skilt: { bredde: tekstbredde("100 %", 12) + 26, hoyde: 20 } },
+      { id: "lang", fra: organ(7), til: organ(8), lag: "person", skilt: skilt("Karoline Kristiansen-Aakre") },
+      { id: "eier-1", fra: organ(8), til: organ(3), lag: "eier", skilt: { bredde: tekstbredde("60 %", 12) + 26, hoyde: 20 } },
+    ],
+    knuter: [
+      { id: "k1", organer: [organ(2), organ(5), organ(6)], skilt: skilt("Kjell Tre Organer") },
+      { id: "k2", organer: [organ(0), organ(1), organ(6), organ(7)], skilt: skilt("Fire Organer Hansen") },
+    ],
+  };
+  const s1 = regnOppsett(syntetisk, lerretFor(syntetisk.noder.length));
+  const s2 = regnOppsett(syntetisk, lerretFor(syntetisk.noder.length));
+  const sk = [...finnKollisjoner(s1.personer), ...finnKollisjoner(s1.medEierskap)];
+  const sLikt = JSON.stringify(s1) === JSON.stringify(s2);
+  console.log(`\nLaget testgraf (${syntetisk.noder.length} noder, ${syntetisk.kanter.length} kanter, 2 knuter)`);
+  console.log(`  deterministisk: ${sLikt ? "ja" : "NEI"}`);
+  console.log(`  etikettkollisjoner: ${sk.length}`);
+  for (const c of sk) console.log(`    ${c.hva}: ${c.a} ${c.b}`);
+  if (!sLikt || sk.length > 0) feil += 1;
 } finally {
   await server.close();
 }

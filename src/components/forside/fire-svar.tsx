@@ -31,7 +31,11 @@ function Tegn({ hva }: { hva: "kjeden" | "organer" | "pengene" | "nettverket" })
           <rect x="3" y="15" width="42" height="8" />
           <rect x="3" y="25" width="42" height="8" />
           <rect x="3" y="35" width="42" height="8" />
-          <path d="M3 14h42M3 24h42M3 34h42" strokeDasharray="4 2 1 2" className="stroke-linje-sterk" />
+          <path
+            d="M3 14h42M3 24h42M3 34h42"
+            strokeDasharray="4 2 1 2"
+            className="stroke-linje-sterk"
+          />
         </g>
       )}
       {hva === "pengene" && (
@@ -54,7 +58,15 @@ function Tegn({ hva }: { hva: "kjeden" | "organer" | "pengene" | "nettverket" })
   );
 }
 
-function Bevis({ svar, tekst, pastand }: { svar: Tallsvar | null; tekst: string; pastand: string }) {
+function Bevis({
+  svar,
+  tekst,
+  pastand,
+}: {
+  svar: Tallsvar | null;
+  tekst: string;
+  pastand: string;
+}) {
   if (!svar) {
     return (
       <span className="self-start border border-dashed border-kote px-2 py-0.5 text-[0.8125rem] text-kote-tekst">
@@ -98,13 +110,16 @@ export function FireSvar({ utvalgt }: { utvalgt: Utvalgt }) {
       tegn: "organer" as const,
       navn: "Organene",
       sporsmal: "Hvem sitter hvor?",
-      tekst: "Stat, fylke, kommune og selskaper i hvert sitt bånd, med leder og myndighet for hvert organ.",
+      tekst:
+        "Stat, fylke, kommune og selskaper i hvert sitt bånd, med leder og myndighet for hvert organ.",
       bevis: (
         <Bevis
           svar={svar.organer}
           pastand={`Organkartet for ${navn} har ${svar.organer?.antall ?? 0} aktive organer`}
           tekst={
-            svar.organer ? `${antall(svar.organer.antall, "aktivt organ", "aktive organer")} i ${navn}` : ""
+            svar.organer
+              ? `${antall(svar.organer.antall, "aktivt organ", "aktive organer")} i ${navn}`
+              : ""
           }
         />
       ),
@@ -114,7 +129,8 @@ export function FireSvar({ utvalgt }: { utvalgt: Utvalgt }) {
       tegn: "pengene" as const,
       navn: "Pengene",
       sporsmal: "Hva eier kommunen, og hvor går utbyttet?",
-      tekst: "Eierandelene med siste regnskapstall og år, og utbyttet som en elv fra selskapet til eierne.",
+      tekst:
+        "Eierandelene med siste regnskapstall og år, og utbyttet som en elv fra selskapet til eierne.",
       bevis: (
         <Bevis
           svar={svar.eierandeler}
@@ -163,7 +179,9 @@ export function FireSvar({ utvalgt }: { utvalgt: Utvalgt }) {
               {r.navn}
             </h3>
             <p className="text-[1rem] font-semibold">{r.sporsmal}</p>
-            <p className="max-w-[46ch] text-[0.9375rem] leading-[1.5] text-dempet text-pretty">{r.tekst}</p>
+            <p className="max-w-[46ch] text-[0.9375rem] leading-[1.5] text-dempet text-pretty">
+              {r.tekst}
+            </p>
             {r.bevis}
             <Link
               to="/kommune/$slug"
@@ -180,4 +198,3 @@ export function FireSvar({ utvalgt }: { utvalgt: Utvalgt }) {
     </ul>
   );
 }
-

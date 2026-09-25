@@ -101,7 +101,9 @@ export function Kildeliste({
             )}
           >
             <span className="group-open:hidden">Vis de {tall(resten.length)} andre kildene</span>
-            <span className="hidden group-open:inline">Skjul de {tall(resten.length)} andre kildene</span>
+            <span className="hidden group-open:inline">
+              Skjul de {tall(resten.length)} andre kildene
+            </span>
             <ChevronDown
               className="size-4 transition-transform duration-200 ease-(--ease-ut) group-open:rotate-180"
               aria-hidden="true"

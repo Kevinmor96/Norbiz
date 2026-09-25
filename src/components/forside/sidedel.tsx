@@ -33,7 +33,12 @@ export function Sidedel({
         className,
       )}
     >
-      <header className={cn("flex max-w-[62ch] flex-col gap-3", smal ? "mb-7" : "mb-[clamp(28px,4vw,44px)]")}>
+      <header
+        className={cn(
+          "flex max-w-[62ch] flex-col gap-3",
+          smal ? "mb-7" : "mb-[clamp(28px,4vw,44px)]",
+        )}
+      >
         <h2
           id={tittelId}
           className={cn(
@@ -46,7 +51,9 @@ export function Sidedel({
           {tittel}
         </h2>
         {ingress && (
-          <p className="ingress text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] text-dempet">{ingress}</p>
+          <p className="ingress text-[clamp(1rem,0.95rem+0.25vw,1.125rem)] text-dempet">
+            {ingress}
+          </p>
         )}
       </header>
       {children}

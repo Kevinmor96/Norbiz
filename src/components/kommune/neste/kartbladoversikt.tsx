@@ -114,7 +114,8 @@ export function Kartbladoversikt({
             >
               {valgkrets.navn} har {tall(valgkrets.kommuner.length)} kommuner
             </MedMerke>
-            . Rutene står alfabetisk, så plasseringen sier ingenting om hvor kommunen ligger. Tallet i ruta er{" "}
+            . Rutene står alfabetisk, så plasseringen sier ingenting om hvor kommunen ligger. Tallet
+            i ruta er{" "}
             <span className="whitespace-nowrap">
               kommunenummeret
               <Kildemerke

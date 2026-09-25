@@ -101,8 +101,9 @@ function Metode() {
   const forst = datasett[0];
   const sammenstilt = forst?.oversikt.kommune.sammenstilt ?? null;
   // Alle organer fra alle datasett, én gang hver.
-  const organer = [...new Map(datasett.flatMap((d) => d.organer).map((o) => [o.key, o])).values()]
-    .sort((a, b) => a.navn.localeCompare(b.navn, "nb"));
+  const organer = [
+    ...new Map(datasett.flatMap((d) => d.organer).map((o) => [o.key, o])).values(),
+  ].sort((a, b) => a.navn.localeCompare(b.navn, "nb"));
 
   const side = (
     <>
@@ -162,7 +163,10 @@ function Metode() {
                   </thead>
                   <tbody>
                     {datasett.map(({ oversikt: o }) => (
-                      <tr key={o.kommune.kommunenr} className="border-t border-linje align-baseline">
+                      <tr
+                        key={o.kommune.kommunenr}
+                        className="border-t border-linje align-baseline"
+                      >
                         <th scope="row" className="py-2.5 pr-3 font-normal">
                           <Link
                             to="/kommune/$slug"
@@ -175,14 +179,22 @@ function Metode() {
                             Sammenstilt {datoKort(o.kommune.sammenstilt)}
                           </span>
                         </th>
-                        <td className="py-2.5 pl-3 text-right tabular-nums">{tall(o.dekning.organer)}</td>
+                        <td className="py-2.5 pl-3 text-right tabular-nums">
+                          {tall(o.dekning.organer)}
+                        </td>
                         <td className="py-2.5 pl-3 text-right tabular-nums max-sm:hidden">
                           {tall(o.dekning.roller)}
                         </td>
                         <td className="py-2.5 pl-3 text-right tabular-nums">
-                          {tall(o.verifisering.verifisert + o.verifisering.oppgitt + o.verifisering.maa_verifiseres)}
+                          {tall(
+                            o.verifisering.verifisert +
+                              o.verifisering.oppgitt +
+                              o.verifisering.maa_verifiseres,
+                          )}
                         </td>
-                        <td className="py-2.5 pl-3 text-right tabular-nums">{tall(o.dekning.hull)}</td>
+                        <td className="py-2.5 pl-3 text-right tabular-nums">
+                          {tall(o.dekning.hull)}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -205,8 +217,8 @@ function Metode() {
               </Avsnitt>
               <Avsnitt>
                 Vi skriver datoen datasettet ble sammenstilt
-                {sammenstilt ? `, ${datoKort(sammenstilt)}` : ""}. Ord som «sanntid» og «oppdateres
-                daglig» bruker vi ikke før innhentingen faktisk gjør det.
+                {sammenstilt ? `, ${datoKort(sammenstilt)}` : ""}. Vi kaller ingenting ferskt før
+                innhentingen faktisk holder det oppdatert.
               </Avsnitt>
             </div>
           </Sidedel>
@@ -226,7 +238,10 @@ function Metode() {
 
           <Sidedel id="verifisering" tittel="Slik blir en påstand verifisert" smal>
             {forst ? (
-              <Verifisering telling={forst.oversikt.verifisering} sammenstilt={forst.oversikt.kommune.sammenstilt} />
+              <Verifisering
+                telling={forst.oversikt.verifisering}
+                sammenstilt={forst.oversikt.kommune.sammenstilt}
+              />
             ) : null}
           </Sidedel>
 

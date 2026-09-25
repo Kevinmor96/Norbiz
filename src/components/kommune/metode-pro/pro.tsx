@@ -11,12 +11,7 @@ import { gyldigEpost, harLagring, meldPaa, type Mottak } from "@/lib/venteliste"
 
 import { Felt, FELTFLATE, Hovedknapp, Kvittering, Nedtrekk } from "../neste/skjema";
 import type { KjentKommune } from "../neste/valgkretser";
-import {
-  PRISHYPOTESER,
-  PRISMERKNAD,
-  PRO_FUNKSJONER,
-  type ProFunksjon,
-} from "./prishypoteser";
+import { PRISHYPOTESER, PRISMERKNAD, PRO_FUNKSJONER, type ProFunksjon } from "./prishypoteser";
 
 const IKON: Record<ProFunksjon["key"], LucideIcon> = {
   varsler: Bell,
@@ -58,7 +53,11 @@ export function ProFunksjoner({
         const Ikon = IKON[f.key];
         return (
           <li key={f.key} className="grid grid-cols-[20px_minmax(0,1fr)] gap-x-3">
-            <Ikon className="mt-[3px] size-[18px] text-trykk" strokeWidth={1.6} aria-hidden="true" />
+            <Ikon
+              className="mt-[3px] size-[18px] text-trykk"
+              strokeWidth={1.6}
+              aria-hidden="true"
+            />
             <span className={cn("leading-[1.45]", lang ? "text-[1rem]" : "text-[0.9375rem]")}>
               <b className={cn("font-semibold", lang && "block text-[1.0625rem]")}>{f.navn}</b>
               {lang ? (

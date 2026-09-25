@@ -389,7 +389,20 @@ function etikettBoks(x: number, y: number, s: Storrelse, side: Side, ekstra = 0)
 }
 
 /** Skilt langs kanten: midt på først, så gradvis mot endene. */
-const SKILT_T = [0.5, 0.42, 0.58, 0.34, 0.66, 0.27, 0.73, 0.2, 0.8];
+const SKILT_T = [0.5, 0.44, 0.56, 0.38, 0.62, 0.32, 0.68, 0.26, 0.74, 0.2, 0.8, 0.15, 0.85];
+
+/**
+ * Kandidatene for skiltet på en kant. Ved en node med mange kanter møtes
+ * kantene, så skiltet foretrekker den andre enden.
+ */
+function skiltT(gradFra: number, gradTil: number): number[] {
+  if (gradFra === gradTil) return SKILT_T;
+  const motTil = gradFra > gradTil;
+  const ut = [0.5];
+  for (let d = 0.06; d < 0.37; d += 0.06) ut.push(motTil ? 0.5 + d : 0.5 - d);
+  for (let d = 0.06; d < 0.37; d += 0.06) ut.push(motTil ? 0.5 - d : 0.5 + d);
+  return ut.map((t) => Math.round(t * 100) / 100);
+}
 
 // ---------------------------------------------------------------------------
 // Simuleringen
@@ -403,10 +416,11 @@ interface SimNode extends SimulationNodeDatum {
 interface Variant {
   avstand: number;
   frastoting: number;
+  /** Salt i hashen for startposisjonene. Samme salt gir samme start. */
+  salt: string;
 }
 
-/** Variantene som prøves i rekkefølge. Den første uten kollisjoner vinner. */
-const VARIANTER: Variant[] = [
+const PARAMETRE = [
   { avstand: 150, frastoting: -900 },
   { avstand: 175, frastoting: -1100 },
   { avstand: 135, frastoting: -800 },
@@ -414,6 +428,13 @@ const VARIANTER: Variant[] = [
   { avstand: 165, frastoting: -1500 },
   { avstand: 220, frastoting: -1700 },
 ];
+
+/**
+ * Variantene som prøves i rekkefølge. Den første uten kollisjoner vinner.
+ * Først avstandene med startposisjonene fra nøkkelen alene, så de samme
+ * avstandene fra to andre, like faste startoppsett.
+ */
+const VARIANTER: Variant[] = ["", "b", "c"].flatMap((salt) => PARAMETRE.map((p) => ({ ...p, salt })));
 
 const STEG = 320;
 const knuteNokkel = (id: string) => `knute:${id}`;
@@ -441,8 +462,8 @@ function simuler(
   }
   const start = (key: string) => ({
     // Startposisjonen er en funksjon av nøkkelen alene.
-    x: bredde * (0.15 + 0.7 * enhet(`${key}:x`)),
-    y: midtY * 2 * (0.15 + 0.7 * enhet(`${key}:y`)),
+    x: bredde * (0.15 + 0.7 * enhet(`${key}:x${v.salt}`)),
+    y: midtY * 2 * (0.15 + 0.7 * enhet(`${key}:y${v.salt}`)),
   });
   const noder: SimNode[] = [
     ...[...inn.noder]
@@ -700,7 +721,7 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
     const b = punkt(k.til);
     const kp = kontroll(a, b, k.bue);
     let best: { x: number; y: number; boks: Boks; poeng: number } | null = null;
-    for (const [i, t] of SKILT_T.entries()) {
+    for (const [i, t] of skiltT(grad.get(k.fra) ?? 0, grad.get(k.til) ?? 0).entries()) {
       const [x, y] =
         k.bue === 0 ? [a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t] : bezier([a.x, a.y], kp, [b.x, b.y], t);
       const boks = { x: x - s.bredde / 2, y: y - s.hoyde / 2, b: s.bredde, h: s.hoyde };
@@ -761,12 +782,12 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
       const a = punkt(k.fra);
       const b = punkt(k.til);
       let best: { bue: number; c: number; skilt: KantUt["skilt"]; punkter: [number, number][]; sti: string } | null = null;
-      for (const bue of [k.bue + 28, k.bue - 28, k.bue + 56, k.bue - 56, k.bue + 84, k.bue - 84]) {
+      for (const bue of [k.bue + 20, k.bue - 20, k.bue + 40, k.bue - 40, k.bue + 64, k.bue - 64]) {
         const kv = kurve(a, b, bue);
         let skilt: KantUt["skilt"] = null;
         let c = Infinity;
         if (s) {
-          for (const t of SKILT_T) {
+          for (const t of skiltT(grad.get(k.fra) ?? 0, grad.get(k.til) ?? 0)) {
             const [x, y] = bezier([a.x, a.y], kv.k, [b.x, b.y], t);
             const boks = { x: x - s.bredde / 2, y: y - s.hoyde / 2, b: s.bredde, h: s.hoyde };
             const ct = kost(kv.punkter, boks);
@@ -853,19 +874,45 @@ export function finnKollisjoner(g: GrafUt): Kollisjon[] {
   return ut;
 }
 
+/** Oppsettet med og uten eierskapslaget. Nodene står på samme sted i begge. */
+export interface Oppsett {
+  /** Bare personkantene. Det leseren ser først. */
+  personer: GrafUt;
+  /** Med eierkantene og nodene som bare er med i eierskapslaget. */
+  medEierskap: GrafUt;
+}
+
+/** Inndataene uten eierskapslaget: bare personkanter, knuter og organene de berører. */
+function utenEierskap(inn: GrafInn): GrafInn {
+  const kanter = inn.kanter.filter((k) => k.lag === "person");
+  const brukt = new Set<string>();
+  for (const k of kanter) {
+    brukt.add(k.fra);
+    brukt.add(k.til);
+  }
+  for (const k of inn.knuter ?? []) for (const o of k.organer) brukt.add(o);
+  return { noder: inn.noder.filter((n) => brukt.has(n.key)), kanter, knuter: inn.knuter ?? [] };
+}
+
 /**
- * Regner oppsettet. Prøver variantene i fast rekkefølge og tar den første
- * uten kollisjoner, ellers den med færrest.
+ * Regner oppsettet. Nodene plasseres én gang, med alle kantene, så de står
+ * stille når leseren slår eierskapslaget av og på. Kantene, etikettene og
+ * skiltene settes for hvert lag, så en eierkant som er skjult, ikke bøyer en
+ * personkant. Variantene prøves i fast rekkefølge. Den første der begge
+ * lagene er uten kollisjoner, vinner. Ellers vinner den med færrest.
  */
-export function regnOppsett(inn: GrafInn, lerret: Lerret): GrafUt {
-  let best: GrafUt | null = null;
+export function regnOppsett(inn: GrafInn, lerret: Lerret): Oppsett {
+  const tom: GrafUt = { bredde: lerret.bredde, hoyde: lerret.hoyde, noder: [], kanter: [], knuter: [], kollisjoner: [] };
+  let best: { o: Oppsett; n: number } | null = null;
   for (const v of VARIANTER) {
     const { pos, hoyde } = simuler(inn, lerret, v);
-    const g = sett(inn, { bredde: lerret.bredde, hoyde }, pos);
-    if (g.kollisjoner.length === 0) return g;
-    if (!best || g.kollisjoner.length < best.kollisjoner.length) best = g;
+    const l = { bredde: lerret.bredde, hoyde };
+    const o = { personer: sett(utenEierskap(inn), l, pos), medEierskap: sett(inn, l, pos) };
+    const n = o.personer.kollisjoner.length + o.medEierskap.kollisjoner.length;
+    if (n === 0) return o;
+    if (!best || n < best.n) best = { o, n };
   }
-  return best ?? { bredde: lerret.bredde, hoyde: lerret.hoyde, noder: [], kanter: [], knuter: [], kollisjoner: [] };
+  return best?.o ?? { personer: tom, medEierskap: tom };
 }
 
 /**

@@ -61,11 +61,7 @@ export function Felt({
 }
 
 /** Nedtrekk med egen pil. Den innebygde pila følger ikke fargene i nattkartet. */
-export function Nedtrekk({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<"select">) {
+export function Nedtrekk({ className, children, ...props }: React.ComponentProps<"select">) {
   return (
     <div className="relative min-w-0">
       <select {...props} className={cn(FELTFLATE, "cursor-pointer pr-10", className)}>
@@ -166,16 +162,11 @@ export function Kvittering({
           )}
           <p className="text-[0.9375rem] leading-[1.45] text-pretty">
             <b
-              className={cn(
-                "block font-semibold",
-                mottak.status === "feil" && "text-signal-tekst",
-              )}
+              className={cn("block font-semibold", mottak.status === "feil" && "text-signal-tekst")}
             >
               {tittel}
             </b>
-            {detalj && (
-              <span className="mt-1 block text-[0.8125rem] text-dempet">{detalj}</span>
-            )}
+            {detalj && <span className="mt-1 block text-[0.8125rem] text-dempet">{detalj}</span>}
           </p>
         </div>
       )}

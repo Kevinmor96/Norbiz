@@ -81,9 +81,11 @@ function Gruppefelt({
               />
             ) : (
               gruppe.tittel
-            )}
+            )}{" "}
+            <span className="ml-1 text-[0.75rem] font-normal tabular-nums">
+              {tall(gruppe.organer.length)}
+            </span>
           </span>
-          <span className="text-[0.75rem] font-normal tabular-nums">{tall(gruppe.organer.length)}</span>
           <span aria-hidden="true" className="h-px flex-1 bg-linje" />
         </H>
       )}

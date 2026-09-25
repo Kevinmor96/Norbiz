@@ -14,7 +14,12 @@ import { FireSvar } from "@/components/forside/fire-svar";
 import { Kommunesok } from "@/components/forside/kommunesok";
 import { Sidedel } from "@/components/forside/sidedel";
 import { Smakebit } from "@/components/forside/smakebit";
-import { Pristabell, ProFunksjoner, ProSkjema, Planlagt } from "@/components/kommune/metode-pro/pro";
+import {
+  Pristabell,
+  ProFunksjoner,
+  ProSkjema,
+  Planlagt,
+} from "@/components/kommune/metode-pro/pro";
 import { NesteKommune } from "@/components/kommune/neste/neste-kommune";
 import { kjenteKommuner } from "@/components/kommune/neste/valgkretser";
 import { ForhandsversjonBunn } from "@/components/maktkart/forhandsversjon";
@@ -73,14 +78,21 @@ function Forside() {
       block: "start",
     });
     // Fokus til e-postfeltet: kommunen er valgt, og det neste leseren gjør, er å skrive adressen.
-    window.setTimeout(() => del?.querySelector<HTMLInputElement>("input[type=email]")?.focus({ preventScroll: true }), 400);
+    window.setTimeout(
+      () =>
+        del?.querySelector<HTMLInputElement>("input[type=email]")?.focus({ preventScroll: true }),
+      400,
+    );
   };
 
   const innhold = (
     <>
       <Topplinje sammenstilt={utvalgt?.kommune.sammenstilt ?? null} proHref="#pro" />
       <main id="innhold">
-        <section aria-labelledby="forside-tittel" className="ramme pt-[clamp(28px,5vw,64px)] pb-[clamp(48px,7vw,96px)]">
+        <section
+          aria-labelledby="forside-tittel"
+          className="ramme pt-[clamp(28px,5vw,64px)] pb-[clamp(48px,7vw,96px)]"
+        >
           <div className="grid gap-x-6 gap-y-12 lg:grid-cols-12">
             <div className="flex min-w-0 flex-col gap-7 lg:col-span-5 lg:pt-3">
               <h1
@@ -118,7 +130,10 @@ function Forside() {
                 {apne > 0 && (
                   <>
                     {antall(apne, "kommune til", "kommuner til")} kan{" "}
-                    <a href="#neste" className="text-trykk underline decoration-linje-sterk underline-offset-[0.2em] hover:decoration-signal">
+                    <a
+                      href="#neste"
+                      className="text-trykk underline decoration-linje-sterk underline-offset-[0.2em] hover:decoration-signal"
+                    >
                       stemmes fram
                     </a>
                     .
@@ -173,9 +188,9 @@ function Forside() {
                   </Avsnitt>
                   <Avsnitt tittel="Forhåndsversjon">
                     Alt er sammenstilt {datoKort(utvalgt.kommune.sammenstilt)} fra et
-                    researchgrunnlag med kilder. Ingen påstand er etterprøvd mot Brønnøysundregistrene
-                    ennå, og derfor har ingen merker graden verifisert. Det står på hver side til det
-                    er gjort.
+                    researchgrunnlag med kilder. Ingen påstand er etterprøvd mot
+                    Brønnøysundregistrene ennå, og derfor har ingen merker graden verifisert. Det
+                    står på hver side til det er gjort.
                   </Avsnitt>
                   <Avsnitt tittel="Institusjon først">
                     Personer vises bare gjennom en rolle i et organ. Ingen bilder, ingen

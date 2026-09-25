@@ -18,7 +18,15 @@ import type { Forsidedata } from "./last";
 
 type Utvalgt = NonNullable<Forsidedata["utvalgt"]>;
 
-function Modul({ tall: verdi, etikett, className }: { tall: ReactNode; etikett: ReactNode; className?: string }) {
+function Modul({
+  tall: verdi,
+  etikett,
+  className,
+}: {
+  tall: ReactNode;
+  etikett: ReactNode;
+  className?: string;
+}) {
   return (
     <div className={cn("flex min-w-0 flex-col gap-1.5 border-t border-trykk pt-3", className)}>
       <p className="flex flex-wrap items-baseline gap-x-1.5 leading-none">{verdi}</p>
@@ -55,7 +63,10 @@ function Rand({ u }: { u: Utvalgt }) {
       {seter ? (
         <Modul
           tall={
-            <MedMerke belegg={seter.belegg} pastand={`${seter.organ} har ${seter.antall} medlemmer`}>
+            <MedMerke
+              belegg={seter.belegg}
+              pastand={`${seter.organ} har ${seter.antall} medlemmer`}
+            >
               <Stort>{tall(seter.antall)}</Stort>
             </MedMerke>
           }
@@ -71,7 +82,7 @@ function Rand({ u }: { u: Utvalgt }) {
               <Stort className="text-vann">{millioner(utbytte.belop)}</Stort>
               <span className="text-[0.9375rem] font-semibold">
                 <Pastand
-                  tekst={`av ${millioner(utbytte.total)} mill. kr${utbytte.forslag ? ", foreslått" : ""}`}
+                  tekst={`av ${millioner(utbytte.total)}\u00a0mill.\u00a0kr${utbytte.forslag ? ", foreslått" : ""}`}
                   belegg={utbytte.belegg}
                   pastand={`${utbytte.forslag ? "Foreslått utbytte" : "Utbytte"} fra ${utbytte.selskap} til kommunen: ${millioner(utbytte.belop)} av ${millioner(utbytte.total)} mill. kr`}
                 />

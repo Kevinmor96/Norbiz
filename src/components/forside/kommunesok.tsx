@@ -110,8 +110,8 @@ export function Kommunesok({
         >
           {aapen && (
             <CommandPrimitive.Empty className="px-4 py-3.5 text-[0.875rem] leading-[1.45] text-dempet">
-              Ingen kommune heter «{q.trim()}» i lista. Lista har kommunene i{" "}
-              {grupper.join(" og ")} så langt.
+              Ingen kommune heter «{q.trim()}» i lista. Lista har kommunene i {grupper.join(" og ")}{" "}
+              så langt.
             </CommandPrimitive.Empty>
           )}
           {aapen &&

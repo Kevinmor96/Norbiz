@@ -34,7 +34,8 @@ import { Verifisering } from "./metode-pro/verifisering";
 import { kjenteKommuner } from "./neste/valgkretser";
 import { seksjonsnavn, type SeksjonProps } from "./seksjoner";
 
-const underTittel = "text-[1.25rem] leading-[1.15] font-bold tracking-[-0.01em] [font-stretch:105%]";
+const underTittel =
+  "text-[1.25rem] leading-[1.15] font-bold tracking-[-0.01em] [font-stretch:105%]";
 
 export function MetodeProSeksjon({ side }: SeksjonProps) {
   const { kommune, oversikt } = side;

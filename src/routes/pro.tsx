@@ -52,9 +52,15 @@ const IKON: Record<ProFunksjon["key"], LucideIcon> = {
 
 /** Hvem Pro er for, fra spec §1. Betalingsviljen er et estimat og vises ikke. */
 const FOR_HVEM = [
-  { hvem: "PR, samfunnskontakt og lobbyister", trenger: "Hvem forbereder og hvem vedtar, og når de byttes ut." },
+  {
+    hvem: "PR, samfunnskontakt og lobbyister",
+    trenger: "Hvem forbereder og hvem vedtar, og når de byttes ut.",
+  },
   { hvem: "Eiendomsutviklere og meglere", trenger: "Planprosessen og hvem som sitter i den." },
-  { hvem: "Salg til offentlig sektor", trenger: "Beslutningstakerne og hvem som har innkjøpsmakt." },
+  {
+    hvem: "Salg til offentlig sektor",
+    trenger: "Beslutningstakerne og hvem som har innkjøpsmakt.",
+  },
   { hvem: "Journalister og redaksjoner", trenger: "Koblinger, historikk og kilder." },
   { hvem: "Næringsforeninger og arbeidslivet", trenger: "Oversikt over regionen." },
 ];
@@ -84,8 +90,8 @@ function Pro() {
             </h1>
             <p className="ingress max-w-[46ch] text-[clamp(1.0625rem,1rem+0.35vw,1.25rem)] text-dempet">
               Maktkart Pro skal si fra når makten flytter seg i kommunene du følger: nye ledere, nye
-              styrer og nye eiere, med kilde på hver endring. Pro finnes ikke ennå. Ventelisten viser
-              oss om det er verdt å bygge.
+              styrer og nye eiere, med kilde på hver endring. Pro finnes ikke ennå. Ventelisten
+              viser oss om det er verdt å bygge.
             </p>
             <p className="max-w-[46ch] text-[0.9375rem] leading-[1.5] text-pretty">
               Kommunesiden er gratis og åpen.{" "}
@@ -159,7 +165,9 @@ function Pro() {
           <dl className="grid max-w-[56rem] border-t border-linje sm:grid-cols-[minmax(0,18rem)_minmax(0,1fr)]">
             {FOR_HVEM.map((r) => (
               <div key={r.hvem} className="contents">
-                <dt className="pt-3 font-semibold sm:border-b sm:border-linje sm:py-3 sm:pr-6">{r.hvem}</dt>
+                <dt className="pt-3 font-semibold sm:border-b sm:border-linje sm:py-3 sm:pr-6">
+                  {r.hvem}
+                </dt>
                 <dd className="border-b border-linje pb-3 text-dempet sm:py-3">{r.trenger}</dd>
               </div>
             ))}

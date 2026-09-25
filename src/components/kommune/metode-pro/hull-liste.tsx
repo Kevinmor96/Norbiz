@@ -12,19 +12,11 @@ import { ChevronDown } from "lucide-react";
 
 import type { HullPunkt, Nivaa, OrganRef } from "@/lib/data";
 import { NIVAAER } from "@/lib/data/kontrakt";
-import { antall, lesbar, tall } from "@/lib/format";
+import { antall, tall } from "@/lib/format";
 import { NIVAANAVN } from "@/lib/navn";
 import { cn } from "@/lib/utils";
 
-/**
- * `lesbar` skriver om «[verifiser]», «[verifiser via …]» og «[verifiser i …]».
- * Grunnlaget har også former som «[verifiser navn]» og «[verifiser org.form]»,
- * og de skal heller ikke vises. Det som er igjen i hakeparentes, blir
- * «må verifiseres».
- */
-export function rens(tekst: string): string {
-  return lesbar(tekst).replace(/\[\s*verifiser[^\]]*\]/gi, "«må verifiseres»");
-}
+import { rens } from "./rens";
 
 const samlet = new Intl.Collator("nb");
 
@@ -43,12 +35,16 @@ function grupper(hull: HullPunkt[]): Gruppe[] {
     nivaa.set(h.gjelder.key, organ);
     perNivaa.set(h.gjelder.nivaa, nivaa);
   }
-  return NIVAAER.filter((n) => perNivaa.has(n)).map((n) => {
-    const organer = [...(perNivaa.get(n)?.values() ?? [])].sort((a, b) =>
-      samlet.compare(a.org.navn, b.org.navn),
-    );
-    return { nivaa: n, organer, antall: organer.reduce((s, o) => s + o.hull.length, 0) };
-  });
+  // Kommunens egne hull først: det er dem leseren på en kommuneside leter etter.
+  const rekkefolge: Nivaa[] = ["kommune", ...NIVAAER.filter((n) => n !== "kommune")];
+  return rekkefolge
+    .filter((n) => perNivaa.has(n))
+    .map((n) => {
+      const organer = [...(perNivaa.get(n)?.values() ?? [])].sort((a, b) =>
+        samlet.compare(a.org.navn, b.org.navn),
+      );
+      return { nivaa: n, organer, antall: organer.reduce((s, o) => s + o.hull.length, 0) };
+    });
 }
 
 export function HullListe({ hull, className }: { hull: HullPunkt[]; className?: string }) {
@@ -69,7 +65,9 @@ export function HullListe({ hull, className }: { hull: HullPunkt[]; className?: 
         )}
       >
         <span className="flex flex-col gap-0.5">
-          <span className="text-[1.0625rem] font-bold">Hull i datasettet ({tall(hull.length)})</span>
+          <span className="text-[1.0625rem] font-bold">
+            Hull i datasettet ({tall(hull.length)})
+          </span>
           <span className="text-[0.8125rem] text-dempet">
             Det grunnlaget nevner, men som ikke kan vises som fakta ennå.
           </span>
@@ -89,7 +87,10 @@ export function HullListe({ hull, className }: { hull: HullPunkt[]; className?: 
             <p className="region text-[0.6875rem] text-dempet">
               {NIVAANAVN[gruppe.nivaa]} · {antall(gruppe.antall, "hull", "hull")}
             </p>
-            <ul className="flex flex-col" aria-label={`Hull, ${NIVAANAVN[gruppe.nivaa].toLowerCase()}`}>
+            <ul
+              className="flex flex-col"
+              aria-label={`Hull, ${NIVAANAVN[gruppe.nivaa].toLowerCase()}`}
+            >
               {gruppe.organer.map(({ org, hull: liste }) => (
                 <li key={org.key} className="border-t border-linje py-2.5">
                   <Link
@@ -111,8 +112,7 @@ export function HullListe({ hull, className }: { hull: HullPunkt[]; className?: 
                           aria-hidden="true"
                         />
                         <span className="text-pretty">
-                          {rens(h.hva)}{" "}
-                          <span className="text-dempet">{rens(h.hvorfor)}</span>
+                          {rens(h.hva)} <span className="text-dempet">{rens(h.hvorfor)}</span>
                         </span>
                       </li>
                     ))}

@@ -16,7 +16,7 @@
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 
 import { Kildemerke } from "@/components/maktkart/kildemerke";
-import { NODE_RADIUS, type GrafUt, type KantUt } from "@/lib/graf/layout";
+import { NODE_RADIUS, type KantUt, type Oppsett } from "@/lib/graf/layout";
 import { andelTekst, GRAFSKRIFT, type Grafmodell } from "@/lib/graf/modell";
 import { prosent } from "@/lib/format";
 import { cn } from "@/lib/utils";
@@ -72,19 +72,21 @@ function pil(k: KantUt): string | null {
 
 export function Nettverksgraf({
   modell,
-  oppsett,
+  oppsett: begge,
   visEierskap,
   aktiv,
   settAktiv,
 }: {
   modell: Grafmodell;
-  oppsett: GrafUt;
+  oppsett: Oppsett;
   visEierskap: boolean;
   aktiv: string | null;
   settAktiv: (person: string | null) => void;
 }) {
   const [ref, fase] = useSpillEnGang<HTMLDivElement>();
   const k = useLegg(fase);
+  // Nodene står likt i begge lagene. Kantene og skiltene er satt for laget som vises.
+  const oppsett = visEierskap ? begge.medEierskap : begge.personer;
   const { bredde: B, hoyde: H } = oppsett;
   const cx = B / 2;
   const cy = H / 2;

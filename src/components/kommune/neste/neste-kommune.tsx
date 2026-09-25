@@ -80,7 +80,9 @@ export function NesteKommune({
       {/* Etter skjemaet i kildekoden, så valget og stemmen står tett på mobil. */}
       <div className="min-w-0 lg:col-span-5 lg:col-start-8 lg:row-span-2 lg:row-start-1">
         <TomKommune
-          valgt={valgtKommune ? { navn: valgtKommune.navn, kommunenr: valgtKommune.kommunenr } : null}
+          valgt={
+            valgtKommune ? { navn: valgtKommune.navn, kommunenr: valgtKommune.kommunenr } : null
+          }
           sammenligning={sammenligning ?? null}
         />
       </div>

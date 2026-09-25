@@ -144,7 +144,9 @@ export async function lastForside(): Promise<Forsidedata> {
           ? {
               antall: direkte.length,
               belegg: avledBelegg(
-                direkte.flatMap((x) => x.eiere.filter((e) => e.org.key === eier).map((e) => e.belegg)),
+                direkte.flatMap((x) =>
+                  x.eiere.filter((e) => e.org.key === eier).map((e) => e.belegg),
+                ),
                 {
                   per,
                   merknad:

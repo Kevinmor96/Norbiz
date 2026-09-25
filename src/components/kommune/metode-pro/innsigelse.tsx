@@ -74,9 +74,11 @@ export function Innsigelsesskjema({ organer }: { organer: OrganValg[] }) {
   const [navn, settNavn] = useState("");
   const [tekst, settTekst] = useState("");
   const [epost, settEpost] = useState("");
-  const [feil, settFeil] = useState<{ org: string | null; tekst: string | null; epost: string | null }>(
-    { org: null, tekst: null, epost: null },
-  );
+  const [feil, settFeil] = useState<{
+    org: string | null;
+    tekst: string | null;
+    epost: string | null;
+  }>({ org: null, tekst: null, epost: null });
   const [sender, settSender] = useState(false);
   const [svar, settSvar] = useState<Mottak | null>(null);
 
@@ -108,8 +110,15 @@ export function Innsigelsesskjema({ organer }: { organer: OrganValg[] }) {
       return;
     }
     settSender(true);
-    const helTekst = navn.trim() ? `Navn i kartet: ${navn.trim()}\n\n${tekst.trim()}` : tekst.trim();
-    const mottak = await sendInnsigelse({ type, org_key: org, tekst: helTekst.slice(0, 4000), epost });
+    const helTekst = navn.trim()
+      ? `Navn i kartet: ${navn.trim()}\n\n${tekst.trim()}`
+      : tekst.trim();
+    const mottak = await sendInnsigelse({
+      type,
+      org_key: org,
+      tekst: helTekst.slice(0, 4000),
+      epost,
+    });
     settSender(false);
     settSvar(mottak);
   }
@@ -163,7 +172,10 @@ export function Innsigelsesskjema({ organer }: { organer: OrganValg[] }) {
         )}
       </Felt>
 
-      <Felt etikett="Navnet ditt slik det står i kartet (valgfritt)" hjelp="Så vi finner riktig rolle.">
+      <Felt
+        etikett="Navnet ditt slik det står i kartet (valgfritt)"
+        hjelp="Så vi finner riktig rolle."
+      >
         {(a) => (
           <input
             {...a}

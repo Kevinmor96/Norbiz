@@ -29,7 +29,10 @@ function kvitteringstekst(mottak: Mottak, navn: string): { tittel: string; detal
         detalj: "Vi bruker adressen bare til å si fra når kommunen er kartlagt.",
       };
     case "feil":
-      return { tittel: "Stemmen ble ikke lagret.", detalj: `${mottak.melding} Prøv igjen om litt.` };
+      return {
+        tittel: "Stemmen ble ikke lagret.",
+        detalj: `${mottak.melding} Prøv igjen om litt.`,
+      };
   }
 }
 
