@@ -42,6 +42,34 @@
       "navn": "Helse Nord: Organisasjonskart",
       "url": "https://www.helse-nord.no/om-oss/organisasjonskart-helse-nord/",
       "type": "offisiell"
+    },
+    {
+      "key": "nav-no",
+      "navn": "NAV (nav.no)",
+      "url": "https://www.nav.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "politiet-no",
+      "navn": "Politiet (politiet.no)",
+      "url": "https://www.politiet.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "snl",
+      "navn": "Store norske leksikon (SNL)",
+      "type": "oppslagsverk"
+    },
+    {
+      "key": "vegvesen-no",
+      "navn": "Statens vegvesen (vegvesen.no)",
+      "url": "https://www.vegvesen.no",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
@@ -87,6 +115,113 @@
         "verifisering": "oppgitt",
         "per": "2026-09-25",
         "merknad": "Hentet fra helse-nord.no 25.09.2026. Orgnr, kommunenummer og stiftelsesdato er fra Enhetsregisteret, der foretaket heter «Helse Nord IKT HF»."
+      }
+    },
+    {
+      "key": "nav-troms-og-finnmark",
+      "navn": "NAV Troms og Finnmark",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "rekkevidde": "region",
+      "myndighet": [
+        "finansiering"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Arbeidsmarkedstiltak, lønnstilskudd og inkluderende arbeidsliv i Troms og Finnmark.",
+      "belegg": {
+        "kilde": "nav-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "statens-vegvesen",
+      "navn": "Statens vegvesen",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "rekkevidde": "region",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Har ansvar for riksveg, planlegging og trafikksikkerhet; grunnlaget viser til divisjon eller avdeling nord.",
+      "belegg": {
+        "kilde": "vegvesen-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "troms-politidistrikt",
+      "navn": "Troms politidistrikt",
+      "nivaa": "stat",
+      "organtype": "politi",
+      "rekkevidde": "region",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": true,
+      "beskrivelse": "Politi og påtale i 20 kommuner, pluss forvaltningsoppgaver som våpen- og utlendingssaker.",
+      "belegg": {
+        "kilde": "politiet-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "uit",
+      "navn": "UiT Norges arktiske universitet",
+      "kortnavn": "UiT",
+      "nivaa": "stat",
+      "organtype": "universitet",
+      "myndighet": [
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [
+        "utdanning-forskning",
+        "helse",
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Statlig universitet for utdanning og forskning, eid av staten ved KD.",
+      "belegg": {
+        "kilde": "snl",
+        "verifisering": "oppgitt",
+        "per": "2026"
+      }
+    },
+    {
+      "key": "unn",
+      "navn": "Universitetssykehuset Nord-Norge HF",
+      "kortnavn": "UNN",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [
+        "helse",
+        "utdanning-forskning",
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Driver sykehus i Tromsø, Harstad og Narvik og er en stor arbeidsgiver og byggherre.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
       }
     },
     {
@@ -573,13 +708,13 @@
       "navn": "Harstad Politihus",
       "nivaa": "stat",
       "organtype": "politi",
-      "overordnet": "troms-politidistrikt-974769425",
+      "overordnet": "troms-politidistrikt",
       "kommunenr": "5503",
       "myndighet": [],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": true,
-      "beskrivelse": "Arbeidssted i Harstad - Hárstták for Troms Politidistrikt, med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
+      "beskrivelse": "Arbeidssted i Harstad - Hárstták for Troms politidistrikt, med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
       "belegg": {
         "kilde": "enhetsregisteret",
         "verifisering": "verifisert",
@@ -949,38 +1084,19 @@
       "navn": "Nav Sør-Troms",
       "nivaa": "stat",
       "organtype": "etat",
-      "overordnet": "nav-troms-og-finnmark-974652293",
+      "overordnet": "nav-troms-og-finnmark",
       "kommunenr": "5503",
       "myndighet": [],
       "segmenter": [],
       "gyldig_fra": "2007-06-25",
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Arbeidssted i Harstad - Hárstták for Nav Troms og Finnmark, med næringskode 84.300 «Administrasjon av trygdeordninger underlagt offentlig forvaltning».",
+      "beskrivelse": "Arbeidssted i Harstad - Hárstták for NAV Troms og Finnmark, med næringskode 84.300 «Administrasjon av trygdeordninger underlagt offentlig forvaltning».",
       "belegg": {
         "kilde": "enhetsregisteret",
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: ansatte>=50."
-      }
-    },
-    {
-      "key": "nav-troms-og-finnmark-974652293",
-      "orgnr": "974652293",
-      "navn": "Nav Troms og Finnmark",
-      "nivaa": "stat",
-      "organtype": "etat",
-      "kommunenr": "5501",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.300 «Administrasjon av trygdeordninger underlagt offentlig forvaltning».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
       }
     },
     {
@@ -1133,38 +1249,19 @@
       }
     },
     {
-      "key": "statens-vegvesen-971032081",
-      "orgnr": "971032081",
-      "navn": "Statens Vegvesen",
-      "nivaa": "stat",
-      "organtype": "etat",
-      "kommunenr": "0301",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
       "key": "statens-vegvesen-harstad-kontorsted",
       "orgnr": "885423752",
       "navn": "Statens Vegvesen Harstad Kontorsted",
       "nivaa": "stat",
       "organtype": "etat",
-      "overordnet": "statens-vegvesen-971032081",
+      "overordnet": "statens-vegvesen",
       "kommunenr": "5503",
       "myndighet": [],
       "segmenter": [],
       "gyldig_fra": "2003-01-01",
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Arbeidssted i Harstad - Hárstták for Statens Vegvesen, med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "beskrivelse": "Arbeidssted i Harstad - Hárstták for Statens vegvesen, med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
       "belegg": {
         "kilde": "enhetsregisteret",
         "verifisering": "verifisert",
@@ -1443,52 +1540,12 @@
       }
     },
     {
-      "key": "troms-politidistrikt-974769425",
-      "orgnr": "974769425",
-      "navn": "Troms Politidistrikt",
-      "nivaa": "stat",
-      "organtype": "politi",
-      "kommunenr": "5501",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": true,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.240 «Aktiviteter utført av politi- og påtalemyndighet».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
-      "key": "universitetet-i-tromso-norges-arktiske-universitet",
-      "orgnr": "970422528",
-      "navn": "Universitetet i Tromsø - Norges Arktiske Universitet",
-      "nivaa": "stat",
-      "organtype": "etat",
-      "kommunenr": "5501",
-      "myndighet": [],
-      "segmenter": [
-        "utdanning-forskning"
-      ],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 85.401 «Undervisning ved universiteter».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
       "key": "universitetet-i-tromso-norges-arktiske-universitet-uit-campus-harstad",
       "orgnr": "974796007",
       "navn": "Universitetet i Tromsø - Norges Arktiske Universitet UiT Campus Harstad",
       "nivaa": "stat",
-      "organtype": "etat",
-      "overordnet": "universitetet-i-tromso-norges-arktiske-universitet",
+      "organtype": "universitet",
+      "overordnet": "uit",
       "kommunenr": "5503",
       "myndighet": [],
       "segmenter": [
@@ -1497,7 +1554,7 @@
       "gyldig_fra": "1994-08-01",
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Arbeidssted i Harstad - Hárstták for Universitetet i Tromsø - Norges Arktiske Universitet, med næringskode 85.401 «Undervisning ved universiteter».",
+      "beskrivelse": "Arbeidssted i Harstad - Hárstták for UiT Norges arktiske universitet, med næringskode 85.401 «Undervisning ved universiteter».",
       "belegg": {
         "kilde": "enhetsregisteret",
         "verifisering": "verifisert",
@@ -1506,35 +1563,12 @@
       }
     },
     {
-      "key": "universitetssykehuset-nord-norge",
-      "orgnr": "983974899",
-      "navn": "Universitetssykehuset Nord-Norge HF",
-      "nivaa": "stat",
-      "organtype": "HF",
-      "kommunenr": "5501",
-      "myndighet": [],
-      "segmenter": [
-        "helse",
-        "reiseliv"
-      ],
-      "gyldig_fra": "2001-12-18",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
       "key": "universitetssykehuset-nord-norge-hf-harstad-adm-stottefunksjoner",
       "orgnr": "988746533",
       "navn": "Universitetssykehuset Nord-Norge HF Harstad - Adm/Støttefunksjoner",
       "nivaa": "stat",
       "organtype": "HF",
-      "overordnet": "universitetssykehuset-nord-norge",
+      "overordnet": "unn",
       "kommunenr": "5503",
       "myndighet": [],
       "segmenter": [
@@ -1557,7 +1591,7 @@
       "navn": "Universitetssykehuset Nord-Norge HF Harstad - Somatikk",
       "nivaa": "stat",
       "organtype": "HF",
-      "overordnet": "universitetssykehuset-nord-norge",
+      "overordnet": "unn",
       "kommunenr": "5503",
       "myndighet": [],
       "segmenter": [
@@ -1580,7 +1614,7 @@
       "navn": "Universitetssykehuset Nord-Norge HF Rehabilitering/Habilitering Harstad",
       "nivaa": "stat",
       "organtype": "HF",
-      "overordnet": "universitetssykehuset-nord-norge",
+      "overordnet": "unn",
       "kommunenr": "5503",
       "myndighet": [],
       "segmenter": [
@@ -1603,7 +1637,7 @@
       "navn": "Universitetssykehuset Nord-Norge HF Røntgen og Lab Harstad",
       "nivaa": "stat",
       "organtype": "HF",
-      "overordnet": "universitetssykehuset-nord-norge",
+      "overordnet": "unn",
       "kommunenr": "5503",
       "myndighet": [],
       "segmenter": [],
@@ -1624,7 +1658,7 @@
       "navn": "Universitetssykehuset Nord-Norge HF Voksenpsykiatrisk Polikl Harstad",
       "nivaa": "stat",
       "organtype": "HF",
-      "overordnet": "universitetssykehuset-nord-norge",
+      "overordnet": "unn",
       "kommunenr": "5503",
       "myndighet": [],
       "segmenter": [
@@ -4954,7 +4988,7 @@
     },
     {
       "fra": "harstad-politihus",
-      "til": "troms-politidistrikt-974769425",
+      "til": "troms-politidistrikt",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -5014,7 +5048,7 @@
     },
     {
       "fra": "nav-sor-troms",
-      "til": "nav-troms-og-finnmark-974652293",
+      "til": "nav-troms-og-finnmark",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -5044,7 +5078,7 @@
     },
     {
       "fra": "statens-vegvesen-harstad-kontorsted",
-      "til": "statens-vegvesen-971032081",
+      "til": "statens-vegvesen",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -5084,7 +5118,7 @@
     },
     {
       "fra": "universitetet-i-tromso-norges-arktiske-universitet-uit-campus-harstad",
-      "til": "universitetet-i-tromso-norges-arktiske-universitet",
+      "til": "uit",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -5094,7 +5128,7 @@
     },
     {
       "fra": "universitetssykehuset-nord-norge-hf-harstad-adm-stottefunksjoner",
-      "til": "universitetssykehuset-nord-norge",
+      "til": "unn",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -5104,7 +5138,7 @@
     },
     {
       "fra": "universitetssykehuset-nord-norge-hf-harstad-somatikk",
-      "til": "universitetssykehuset-nord-norge",
+      "til": "unn",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -5114,7 +5148,7 @@
     },
     {
       "fra": "universitetssykehuset-nord-norge-hf-rehabilitering-habilitering-harstad",
-      "til": "universitetssykehuset-nord-norge",
+      "til": "unn",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -5124,7 +5158,7 @@
     },
     {
       "fra": "universitetssykehuset-nord-norge-hf-rontgen-og-lab-harstad",
-      "til": "universitetssykehuset-nord-norge",
+      "til": "unn",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -5134,7 +5168,7 @@
     },
     {
       "fra": "universitetssykehuset-nord-norge-hf-voksenpsykiatrisk-polikl-harstad",
-      "til": "universitetssykehuset-nord-norge",
+      "til": "unn",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -7148,6 +7182,41 @@
       "styrke": 3
     },
     {
+      "org": "statens-vegvesen",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
+      "org": "uit",
+      "segment": "eiendom-bygg",
+      "styrke": 2
+    },
+    {
+      "org": "uit",
+      "segment": "helse",
+      "styrke": 2
+    },
+    {
+      "org": "uit",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
+      "org": "unn",
+      "segment": "eiendom-bygg",
+      "styrke": 2
+    },
+    {
+      "org": "unn",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "unn",
+      "segment": "utdanning-forskning",
+      "styrke": 2
+    },
+    {
       "org": "barents",
       "segment": "transport",
       "styrke": 3
@@ -7263,11 +7332,6 @@
       "styrke": 3
     },
     {
-      "org": "universitetet-i-tromso-norges-arktiske-universitet",
-      "segment": "utdanning-forskning",
-      "styrke": 3
-    },
-    {
       "org": "universitetssykehuset-nord-norge-hf-harstad-adm-stottefunksjoner",
       "segment": "helse",
       "styrke": 3
@@ -7286,16 +7350,6 @@
       "org": "universitetssykehuset-nord-norge-hf-voksenpsykiatrisk-polikl-harstad",
       "segment": "helse",
       "styrke": 3
-    },
-    {
-      "org": "universitetssykehuset-nord-norge",
-      "segment": "helse",
-      "styrke": 3
-    },
-    {
-      "org": "universitetssykehuset-nord-norge",
-      "segment": "reiseliv",
-      "styrke": 2
     },
     {
       "org": "vidda",

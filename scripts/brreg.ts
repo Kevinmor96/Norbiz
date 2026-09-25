@@ -17,7 +17,9 @@
 //   og navn fra src/data/region/nord-norge.json. Avvik mot grunnlaget skrives
 //   til docs/avvik/brreg-<kommunenr>-<dato>.md.
 // - Et organ som står i flere kommuner, får én kanonisk rad, skrevet av
-//   kommunen det ligger i, og kopiert likt til de andre.
+//   kommunen det ligger i (eller grunnlagets rad), og kopiert likt til de
+//   andre. Rollene og regnskapet føres i ett datasett; hvilket, avgjøres én
+//   gang for hele kjøringen (`fordelEierskap` i scripts/brreg/importer.ts).
 // - Svarene mellomlagres (vasket for fødselsdato og adresser) i ett felles
 //   mellomlager under node_modules/.cache/maktkart-brreg/. Hentedatoen er den
 //   samme for alle kommunene i lageret, og en ny kjøring gir byte-like filer.
@@ -43,7 +45,18 @@ import {
   type Http,
   type Oyeblikksbilde,
 } from "./brreg/hent";
-import { importer, KILDER, navneBrudd, sensitivType, type ImportUt } from "./brreg/importer";
+import {
+  erImportert,
+  forerRegisterrader,
+  fordelEierskap,
+  IKKE_RETTSSUBJEKT,
+  importer,
+  KILDER,
+  kopierteOrganer,
+  navneBrudd,
+  sensitivType,
+  type ImportUt,
+} from "./brreg/importer";
 import {
   kommunekonfig,
   lesKonfig,
@@ -59,15 +72,6 @@ import { dagensDato, orgNavnNokkel, pentOrgNavn, slug } from "./brreg/tekst";
 export const MELLOMLAGER = join(ROT, "node_modules", ".cache", "maktkart-brreg");
 export const AVVIKMAPPE = join(ROT, "docs", "avvik");
 export const REGIONFIL = join(ROT, "src", "data", "region", "nord-norge.json");
-
-/** Organtyper som aldri er egne rettssubjekter, og som derfor ikke slås opp på navn. */
-const IKKE_RETTSSUBJEKT = new Set([
-  "folkevalgt_organ",
-  "utvalg",
-  "raad",
-  "administrasjon",
-  "lovgivende",
-]);
 
 const KOMMUNELOVEN = {
   key: "kommuneloven",
@@ -106,12 +110,6 @@ export interface KjorResultat {
 }
 
 export const serialiser = (d: Kommunedatasett): string => `${JSON.stringify(d, null, 2)}\n`;
-
-type Kjent = Kommunedatasett["organisasjoner"][number];
-const erImportert = (o: Kjent) =>
-  o.belegg.verifisering === "verifisert" &&
-  Object.values(KILDER).some((k) => k.key === o.belegg.kilde) &&
-  !(o.belegg.merknad ?? "").startsWith("Bekrefter grunnlaget");
 
 function lesRegion(fil: string | null | undefined): Regionregister | null {
   if (!fil || !existsSync(fil)) return null;
@@ -252,7 +250,18 @@ export async function kjor(v: KjorValg): Promise<KjorResultat[]> {
         : k0;
     const egen = [...tilstand].find(([, d]) => d.meta.kommunenr === nr);
     const d = egen?.[1];
-    const grunnOrg = (d?.organisasjoner ?? []).filter((o) => !erImportert(o));
+    // Grunnlaget, uten kopier av grunnlagsrader fra andre datasett: de er med
+    // bare fordi et organ her viste til dem sist, og utvalget skal ikke avhenge
+    // av forrige kjøring.
+    const kopier = d
+      ? kopierteOrganer(
+          d,
+          [...tilstand].filter(([s]) => s !== egen?.[0]).map(([s, data]) => ({ slug: s, data })),
+        ).kopier
+      : new Set<string>();
+    const grunnOrg = (d?.organisasjoner ?? []).filter(
+      (o) => !erImportert(o.belegg) && !kopier.has(o.key),
+    );
     const alltidOrgnr = [
       ...k.alltid.orgnr,
       ...Object.values(k.koblinger),
@@ -315,7 +324,29 @@ export async function kjor(v: KjorValg): Promise<KjorResultat[]> {
     jobber.push({ nr, slug: slugNy, k, bilde });
   }
   const kjoringen = new Set(jobber.map((j) => j.slug));
-  const inn = (j: (typeof jobber)[number], personregister: Map<string, Person>) => ({
+  const utenfor = [...tilstand]
+    .filter(([s]) => !kjoringen.has(s))
+    .map(([s, data]) => ({ slug: s, data }))
+    .sort((a, b) => (a.data.meta.kommunenr < b.data.meta.kommunenr ? -1 : 1));
+  // `koblinger` i konfigurasjonen for datasett utenfor kjøringen: grunnlagets
+  // organ er kjent uten at kommunen hentes.
+  const koblingerUtenfor = new Map<string, { slug: string; key: string }>();
+  for (const { slug: s, data } of utenfor) {
+    const koblinger = kommunekonfig(v.konfig, data.meta.kommunenr).koblinger;
+    for (const [key, orgnr] of Object.entries(koblinger).sort(([a], [b]) => (a < b ? -1 : 1))) {
+      if (koblingerUtenfor.has(orgnr)) continue;
+      if (data.organisasjoner.some((o) => o.key === key && !erImportert(o.belegg)))
+        koblingerUtenfor.set(orgnr, { slug: s, key });
+    }
+  }
+  const inn = (
+    j: (typeof jobber)[number],
+    personregister: Map<string, Person>,
+    eierskap: {
+      grunnlenker: Map<string, { slug: string; key: string }>;
+      eiere?: Map<string, string>;
+    },
+  ) => ({
     datasett: tilstand.get(j.slug)!,
     slug: j.slug,
     bilde: j.bilde,
@@ -325,14 +356,20 @@ export async function kjor(v: KjorValg): Promise<KjorResultat[]> {
     andre: [...tilstand].filter(([s]) => s !== j.slug).map(([s, data]) => ({ slug: s, data })),
     kjoringen,
     personregister,
+    ...eierskap,
   });
 
-  // 2. Grunnlagskoblingene i alle kommunene, så en person i grunnlaget i én
-  //    kommune får samme nøkkel i de andre.
+  // 2. Forhåndskjøring for alle kommunene: grunnlagskoblingene for personer,
+  //    så en person i grunnlaget i én kommune får samme nøkkel i de andre, og
+  //    for organer, så et grunnlagsorgan får samme nøkkel overalt. Og utvalget
+  //    til hver kommune, som eierskapet fordeles etter.
   const register = new Map<string, Person>();
   const motstrid = new Set<string>();
+  const forhand = new Map<string, ImportUt>();
   for (const j of jobber) {
-    for (const [pid, p] of importer(inn(j, new Map())).personlenker) {
+    const r = importer(inn(j, new Map(), { grunnlenker: koblingerUtenfor }));
+    forhand.set(j.slug, r);
+    for (const [pid, p] of r.personlenker) {
       const f = register.get(pid);
       if (f && f.key !== p.key) motstrid.add(pid);
       else register.set(pid, p);
@@ -340,10 +377,33 @@ export async function kjor(v: KjorValg): Promise<KjorResultat[]> {
   }
   for (const pid of motstrid) register.delete(pid);
 
+  const grunnlenker = new Map<string, { slug: string; key: string }>();
+  for (const j of jobber)
+    for (const [orgnr, key] of forhand.get(j.slug)!.grunnlagHer)
+      if (!grunnlenker.has(orgnr)) grunnlenker.set(orgnr, { slug: j.slug, key });
+  for (const [orgnr, x] of koblingerUtenfor) if (!grunnlenker.has(orgnr)) grunnlenker.set(orgnr, x);
+  const grunnlagUtenfor = new Map([...koblingerUtenfor].map(([o, x]) => [o, x.slug] as const));
+  for (const j of jobber)
+    for (const [orgnr, s] of forhand.get(j.slug)!.grunnlagAndre)
+      if (!kjoringen.has(s) && !grunnlagUtenfor.has(orgnr)) grunnlagUtenfor.set(orgnr, s);
+  // Hvem som fører roller og regnskap for hvert organ: én gang for hele
+  // kjøringen, så rekkefølgen kommunene importeres i, ikke spiller inn.
+  const eiere = fordelEierskap({
+    kommuner: jobber.map((j) => ({
+      slug: j.slug,
+      kommunenr: j.nr,
+      omfang: new Set(forhand.get(j.slug)!.omfang),
+      grunnlag: new Set(forhand.get(j.slug)!.grunnlagHer.keys()),
+    })),
+    sete: (orgnr) => jobber.find((j) => j.bilde.enheter[orgnr])?.bilde.enheter[orgnr]?.kommunenr,
+    grunnlagUtenfor,
+    forerUtenfor: forerRegisterrader(utenfor),
+  });
+
   // 3. Importen, kommune for kommune. Hver kommune ser de andres resultat.
   const ut: KjorResultat[] = [];
   for (const j of jobber) {
-    const resultat = importer(inn(j, register));
+    const resultat = importer(inn(j, register, { grunnlenker, eiere }));
     tilstand.set(j.slug, resultat.datasett);
     for (const [s, d] of resultat.andreOppdatert) tilstand.set(s, d);
     for (const [pid, p] of resultat.personnokler) if (!register.has(pid)) register.set(pid, p);

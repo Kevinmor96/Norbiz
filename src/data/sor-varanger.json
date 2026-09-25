@@ -36,6 +36,12 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "skatteetaten-no",
+      "navn": "Skatteetaten (skatteetaten.no)",
+      "url": "https://www.skatteetaten.no",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
@@ -58,6 +64,25 @@
         "verifisering": "oppgitt",
         "per": "2026-09-25",
         "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "skatteetaten",
+      "navn": "Skatteetaten",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Skatt og merverdiavgift. Etaten består av et direktorat og fem divisjoner med landsdekkende ansvar; den har ingen region Nord.",
+      "belegg": {
+        "kilde": "skatteetaten-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Beskrivelsen er rettet 25.09.2026 etter skatteetaten.no (om-skatteetaten/om-oss/organisasjon-og-ledelse). Grunnlaget viste til en region Nord."
       }
     },
     {
@@ -454,31 +479,12 @@
       }
     },
     {
-      "key": "skatteetaten-974761076",
-      "orgnr": "974761076",
-      "navn": "Skatteetaten",
-      "nivaa": "stat",
-      "organtype": "etat",
-      "kommunenr": "0301",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
       "key": "skatteetaten-bjornevatn",
       "orgnr": "936508960",
       "navn": "Skatteetaten Bjørnevatn",
       "nivaa": "stat",
       "organtype": "etat",
-      "overordnet": "skatteetaten-974761076",
+      "overordnet": "skatteetaten",
       "kommunenr": "5605",
       "myndighet": [],
       "segmenter": [],
@@ -1501,7 +1507,7 @@
     },
     {
       "fra": "skatteetaten-bjornevatn",
-      "til": "skatteetaten-974761076",
+      "til": "skatteetaten",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",

@@ -15,6 +15,13 @@
 // et menneske har merket `motsagt`, står også; bekrefter registeret den
 // senere, tas merket bort.
 //
+// EIERSKAP TIL ORGANER. Står et organ i flere kommuner, fører nøyaktig ett
+// datasett rollene, regnskapet og styreplassene: der organet er grunnlag,
+// ellers kommunen det ligger i, ellers kommunen med lavest nummer som har det
+// i utvalget. Regelen står i `fordelEierskap`, og `scripts/brreg.ts` bruker den
+// én gang for hele kjøringen. Et grunnlagsorgan får grunnlagets nøkkel i alle
+// kommunene, også når grunnlaget bare er koblet på navn.
+//
 // ROLLER REGISTERET IKKE FØRER. I statlige forvaltningsorganer
 // (organisasjonsledd) er toppleder, sorenskriver og embetsleder ikke roller i
 // Enhetsregisteret. Registerets daglig leder kan bekrefte dem, men er
@@ -165,6 +172,19 @@ export interface ImportInn {
    * i hver kommune.
    */
   personregister?: Map<string, Person>;
+  /**
+   * orgnr → grunnlagsorganet i et annet datasett: koblingene kommunene i
+   * kjøringen gjorde mot sitt eget grunnlag (også på navn), og `koblinger` i
+   * konfigurasjonen for datasett utenfor kjøringen. Et organ her med samme
+   * orgnr får grunnlagets nøkkel og rad, ikke en egen.
+   */
+  grunnlenker?: Map<string, { slug: string; key: string }>;
+  /**
+   * orgnr → datasettet som fører roller, regnskap og styreplasser for organet
+   * (se `fordelEierskap`). Uten den regnes eierskapet som om denne kommunen
+   * var alene i kjøringen.
+   */
+  eiere?: Map<string, string>;
 }
 
 export type Avvikskategori =
@@ -234,6 +254,12 @@ export interface ImportUt {
   personlenker: Map<string, Person>;
   /** pid → person for hver registerperson datasettet viser til. */
   personnokler: Map<string, Person>;
+  /** Utvalget: orgnr kommunen henter roller og regnskap for, sortert. */
+  omfang: string[];
+  /** orgnr → nøkkel for grunnlagets egne organer (orgnr, `koblinger` eller navn). */
+  grunnlagHer: Map<string, string>;
+  /** orgnr → slug for organer her som er grunnlag i et annet datasett. */
+  grunnlagAndre: Map<string, string>;
 }
 
 // ---------------------------------------------------------------------------
@@ -383,6 +409,167 @@ function henvisninger(d: Kommunedatasett, bareGrunnlag = false): Set<string> {
   ]);
 }
 
+/** Organtyper som aldri er egne rettssubjekter, og som derfor ikke slås opp eller kobles på navn. */
+export const IKKE_RETTSSUBJEKT = new Set<string>([
+  "folkevalgt_organ",
+  "utvalg",
+  "raad",
+  "administrasjon",
+  "lovgivende",
+]);
+
+/** Belegget fra en Brreg-kilde: importørens egne rader og grunnlagsrader registeret har bekreftet. */
+const fraRegisteret = (b: Belegg) => b.verifisering === "verifisert" && BRREG_KILDER.has(b.kilde);
+/** Importørens egne rader: fra en Brreg-kilde, uten «Bekrefter grunnlaget» først i merknaden. */
+export const erImportert = (b: Belegg) =>
+  fraRegisteret(b) && !(b.merknad ?? "").startsWith(BEKREFTER);
+
+/**
+ * Grunnlagsrader et datasett har kopiert fra et annet: like originalen og ikke
+ * nevnt av datasettets egne grunnlagsrader. En kopi er ikke grunnlag der den
+ * står, og hentes på nytt fra originalen ved hver kjøring. `originaler` er
+ * key → originalen i de andre datasettene.
+ */
+export function kopierteOrganer(
+  d: Kommunedatasett,
+  andre: { slug: string; data: Kommunedatasett }[],
+): { kopier: Set<string>; originaler: Map<string, { slug: string; org: Organisasjon }> } {
+  const originaler = new Map<string, { slug: string; org: Organisasjon }>();
+  for (const a of [...andre].sort((x, y) => cmp(x.slug, y.slug))) {
+    const ref = henvisninger(a.data);
+    for (const o of a.data.organisasjoner) {
+      if (erImportert(o.belegg) || originaler.has(o.key)) continue;
+      if (ref.has(o.key) || (o.kommunenr !== undefined && o.kommunenr === a.data.meta.kommunenr))
+        originaler.set(o.key, { slug: a.slug, org: o });
+    }
+  }
+  const egneRef = henvisninger(d, true);
+  const kopier = new Set(
+    d.organisasjoner
+      .filter((o) => !erImportert(o.belegg) && !egneRef.has(o.key))
+      .filter((o) => {
+        const orig = originaler.get(o.key);
+        return orig !== undefined && json(orig.org) === json(o);
+      })
+      .map((o) => o.key),
+  );
+  // En kopi som et eget organ viser til som overordnet, er ikke en kopi.
+  for (let endret = true; endret;) {
+    endret = false;
+    for (const o of d.organisasjoner) {
+      if (
+        o.overordnet &&
+        kopier.has(o.overordnet) &&
+        !kopier.has(o.key) &&
+        !erImportert(o.belegg)
+      ) {
+        kopier.delete(o.overordnet);
+        endret = true;
+      }
+    }
+  }
+  return { kopier, originaler };
+}
+
+/**
+ * Organnøklene et datasett har bundet til registeret: organer med roller,
+ * nøkkeltall, relasjoner, valutahull eller underenheter fra en Brreg-kilde,
+ * også grunnlagsrader registeret har bekreftet. Et grunnlagsorgan uten orgnr
+ * med slike rader er koblet til en enhet i registeret.
+ */
+export function registerbundet(d: Kommunedatasett): Set<string> {
+  return new Set([
+    ...d.roller.filter((r) => fraRegisteret(r.belegg)).map((r) => r.org),
+    ...d.nokkeltall.filter((n) => fraRegisteret(n.belegg)).map((n) => n.org),
+    ...d.relasjoner.filter((r) => fraRegisteret(r.belegg)).flatMap((r) => [r.fra, r.til]),
+    ...d.hull.filter((h) => h.hvorfor === VALUTA_HVORFOR).map((h) => h.gjelder),
+    ...d.organisasjoner.flatMap((o) =>
+      o.overordnet && fraRegisteret(o.belegg) ? [o.overordnet] : [],
+    ),
+  ]);
+}
+
+/**
+ * orgnr → slug for organer et datasett allerede fører registerradene for:
+ * importerte roller, nøkkeltall, valutahull eller styreplasser. Ved flere
+ * vinner lavest kommunenummer.
+ */
+export function forerRegisterrader(
+  datasett: { slug: string; data: Kommunedatasett }[],
+): Map<string, string> {
+  const ut = new Map<string, string>();
+  const sortert_ = [...datasett].sort(
+    (a, b) => cmp(a.data.meta.kommunenr, b.data.meta.kommunenr) || cmp(a.slug, b.slug),
+  );
+  for (const { slug: s, data: d } of sortert_) {
+    const forer = new Set([
+      ...d.roller.filter((r) => erImportert(r.belegg)).map((r) => r.org),
+      ...d.nokkeltall.filter((n) => erImportert(n.belegg)).map((n) => n.org),
+      ...d.hull.filter((h) => h.hvorfor === VALUTA_HVORFOR).map((h) => h.gjelder),
+      ...d.relasjoner
+        .filter((r) => r.type === "medlem_av" && erImportert(r.belegg))
+        .map((r) => r.til),
+    ]);
+    for (const o of d.organisasjoner)
+      if (o.orgnr && forer.has(o.key) && !ut.has(o.orgnr)) ut.set(o.orgnr, s);
+  }
+  return ut;
+}
+
+/** En kommune i kjøringen, sett fra eierskapsregelen. */
+export interface Eierkandidat {
+  slug: string;
+  kommunenr: string;
+  /** Utvalget: orgnr kommunen henter roller og regnskap for. */
+  omfang: ReadonlySet<string>;
+  /** orgnr som er grunnlag i kommunens eget datasett (orgnr, `koblinger` eller navn). */
+  grunnlag: ReadonlySet<string>;
+}
+
+/**
+ * Hvem som fører roller, regnskap og styreplasser for hvert organ i utvalget
+ * til minst én kommune i kjøringen: orgnr → slug. Første regel som treffer:
+ *
+ * 1. Kommunen i kjøringen der organet er grunnlag og i utvalget. Den
+ *    avstemmer grunnlagets roller mot registeret, og registerets rader må stå
+ *    samme sted, ellers står samme rolle to ganger.
+ * 2. Et datasett utenfor kjøringen der organet er grunnlag. Ingen i
+ *    kjøringen skriver da noe for organet.
+ * 3. Kommunen organet ligger i, når den er med og organet er i utvalget der.
+ * 4. Et datasett utenfor kjøringen som allerede fører radene. Det beholder dem.
+ * 5. Kommunen med lavest kommunenummer som har organet i utvalget.
+ *
+ * Regelen avhenger ikke av rekkefølgen kommunene importeres i. Et organ får
+ * dermed radene sine nøyaktig én gang: eieren skriver dem og tar dem bort fra
+ * de andre datasettene, og ingen andre skriver dem.
+ */
+export function fordelEierskap(inn: {
+  kommuner: Eierkandidat[];
+  /** Kommunenummeret organet ligger i, eller null. */
+  sete: (orgnr: string) => string | null | undefined;
+  /** orgnr → slug for organer som er grunnlag i et datasett utenfor kjøringen. */
+  grunnlagUtenfor: ReadonlyMap<string, string>;
+  /** orgnr → slug for organer et datasett utenfor kjøringen allerede fører radene for. */
+  forerUtenfor: ReadonlyMap<string, string>;
+}): Map<string, string> {
+  const kommuner = [...inn.kommuner].sort(
+    (a, b) => cmp(a.kommunenr, b.kommunenr) || cmp(a.slug, b.slug),
+  );
+  const ut = new Map<string, string>();
+  for (const orgnr of [...new Set(kommuner.flatMap((k) => [...k.omfang]))].sort()) {
+    const med = kommuner.filter((k) => k.omfang.has(orgnr));
+    const sete = inn.sete(orgnr);
+    const eier =
+      med.find((k) => k.grunnlag.has(orgnr))?.slug ??
+      inn.grunnlagUtenfor.get(orgnr) ??
+      med.find((k) => k.kommunenr === sete)?.slug ??
+      inn.forerUtenfor.get(orgnr) ??
+      med[0]!.slug;
+    ut.set(orgnr, eier);
+  }
+  return ut;
+}
+
 export function importer(inn: ImportInn): ImportUt {
   const { bilde: S, konfig: K, felles: F, tabeller: T } = inn;
   const D: Kommunedatasett = structuredClone(inn.datasett);
@@ -421,35 +608,7 @@ export function importer(inn: ImportInn): ImportUt {
   // til dem (en underenhet her med forelder i grunnlaget der). En kopi er lik
   // raden i originalen, og datasettet her har ingen egne rader om den. Kopier
   // hentes på nytt fra originalen ved hver kjøring.
-  const originaler = new Map<string, { slug: string; org: Organisasjon }>(); // key → original
-  for (const a of andre) {
-    const ref = henvisninger(a.data);
-    for (const o of a.data.organisasjoner) {
-      if (erGenerert(o.belegg) || originaler.has(o.key)) continue;
-      if (ref.has(o.key) || (o.kommunenr !== undefined && o.kommunenr === a.data.meta.kommunenr))
-        originaler.set(o.key, { slug: a.slug, org: o });
-    }
-  }
-  const egneRef = henvisninger(D, true);
-  const kopier = new Set(
-    D.organisasjoner
-      .filter((o) => !erGenerert(o.belegg) && !egneRef.has(o.key))
-      .filter((o) => {
-        const orig = originaler.get(o.key);
-        return orig !== undefined && json(orig.org) === json(o);
-      })
-      .map((o) => o.key),
-  );
-  // En kopi som et eget organ viser til som overordnet, er ikke en kopi.
-  for (let endret = true; endret;) {
-    endret = false;
-    for (const o of D.organisasjoner) {
-      if (o.overordnet && kopier.has(o.overordnet) && !kopier.has(o.key) && !erGenerert(o.belegg)) {
-        kopier.delete(o.overordnet);
-        endret = true;
-      }
-    }
-  }
+  const { kopier, originaler } = kopierteOrganer(D, andre);
 
   const gamleOrg = D.organisasjoner.filter((o) => erGenerert(o.belegg));
   const gamleOrgKeys = new Set(gamleOrg.map((o) => o.key));
@@ -500,19 +659,16 @@ export function importer(inn: ImportInn): ImportUt {
           andreGrunn.set(o.orgnr, { slug: a.slug, org: o });
       }
     }
-    // Personer i en kommune i samme kjøring regnes ut på nytt, bortsett fra grunnlagets.
+    // Personer i en kommune i samme kjøring regnes ut på nytt, bortsett fra
+    // grunnlagets. Utenfor kjøringen er de tatt (se under, i steg 6).
     const grunnPers = new Set([
       ...a.data.roller.filter((r) => !erGenerert(r.belegg)).map((r) => r.person),
       ...a.data.hendelser.flatMap((h) => h.personer ?? []),
       ...a.data.hull.flatMap((h) => h.personer ?? []),
     ]);
-    for (const p of a.data.personer)
-      if (!kjoringen.has(a.slug) || grunnPers.has(p.key)) tattePersoner.add(p.key);
+    if (kjoringen.has(a.slug))
+      for (const p of a.data.personer) if (grunnPers.has(p.key)) tattePersoner.add(p.key);
   }
-  const slugForKommune = new Map<string, string>([
-    ...andre.map((a) => [a.data.meta.kommunenr, a.slug] as const),
-    [K.kommunenr, inn.slug],
-  ]);
 
   // --- 2. Utvalget -----------------------------------------------------------
 
@@ -637,6 +793,82 @@ export function importer(inn: ImportInn): ImportUt {
     });
   }
 
+  // --- 3b. Grunnlagsorganer i andre datasett --------------------------------
+  //
+  // Et organ her som er grunnlag i et annet datasett, får grunnlagets nøkkel
+  // og rad (en kopi), ikke en egen rad, og grunnlagets datasett fører rollene
+  // (se `fordelEierskap`). Grunnlag med orgnr kjennes på raden. Grunnlag som
+  // en kommune i kjøringen koblet på navn eller med `koblinger`, kommer inn
+  // som `grunnlenker`. Grunnlag uten orgnr i et datasett utenfor kjøringen
+  // kobles på eksakt navn, men bare når organet der er bundet til registeret
+  // fra før (roller eller tall fra Brreg), eller når datasettet her har en
+  // kopi av raden fra en tidligere kjøring. Da er koblingen gjort før, av
+  // kommunen som har grunnlaget, og samme organ får ikke to rader.
+  //
+  // Unntak: en enhet datasettet her har en egen rad for, som eget grunnlag
+  // viser til (kommunens egen enhet under kommunestyret), beholder nøkkelen.
+  // Grunnlaget i det andre datasettet avgjør fortsatt hvem som fører rollene.
+  const egneGrunnRef = new Set([
+    ...henvisninger(D, true),
+    ...gOrg.flatMap((o) => (o.overordnet ? [o.overordnet] : [])),
+    ...gRel.filter((r) => r.type === "overordnet").flatMap((r) => [r.fra, r.til]),
+  ]);
+  const egenIdentitet = new Set(
+    [...tidligereKey].filter(([, key]) => egneGrunnRef.has(key)).map(([orgnr]) => orgnr),
+  );
+  const identifisert = new Set([...andreGrunn.values()].map((x) => `${x.slug}|${x.org.key}`));
+  for (const [orgnr, { slug: s, key }] of sortert([...(inn.grunnlenker ?? [])], ([o]) => o)) {
+    if (s === inn.slug || grunnPaaOrgnr.has(orgnr) || andreGrunn.has(orgnr)) continue;
+    const org = andre
+      .find((a) => a.slug === s)
+      ?.data.organisasjoner.find((o) => o.key === key && !erGenerert(o.belegg));
+    if (!org) continue;
+    andreGrunn.set(orgnr, { slug: s, org });
+    identifisert.add(`${s}|${key}`);
+  }
+  const navnekandidater = new Map<string, Map<string, { slug: string; org: Organisasjon }>>();
+  for (const a of andre) {
+    if (kjoringen.has(a.slug)) continue;
+    const bundet = registerbundet(a.data);
+    for (const o of a.data.organisasjoner) {
+      if (o.orgnr || erGenerert(o.belegg) || IKKE_RETTSSUBJEKT.has(o.organtype)) continue;
+      if (!bundet.has(o.key) && !kopier.has(o.key)) continue;
+      const orig = originaler.get(o.key) ?? { slug: a.slug, org: o };
+      if (identifisert.has(`${orig.slug}|${o.key}`)) continue;
+      const n = orgNavnNokkel(o.navn);
+      const m = navnekandidater.get(n) ?? new Map<string, { slug: string; org: Organisasjon }>();
+      if (!m.has(o.key)) m.set(o.key, orig);
+      navnekandidater.set(n, m);
+    }
+  }
+  const leddPaaNavn = new Map<string, Ledd[]>();
+  for (const l of [...ledd.values()].sort((a, b) => cmp(a.orgnr, b.orgnr))) {
+    if (l.type !== "enhet" || grunnPaaOrgnr.has(l.orgnr) || andreGrunn.has(l.orgnr)) continue;
+    const n = orgNavnNokkel(l.navn);
+    if (navnekandidater.has(n)) leddPaaNavn.set(n, [...(leddPaaNavn.get(n) ?? []), l]);
+  }
+  for (const [n, gruppe] of sortert([...leddPaaNavn], ([x]) => x)) {
+    const kandidat = [...navnekandidater.get(n)!.values()];
+    const [l] = gruppe;
+    const [k] = kandidat;
+    if (gruppe.length !== 1 || kandidat.length !== 1 || !l || !k) continue;
+    andreGrunn.set(l.orgnr, k);
+    nyttAvvik({
+      kategori: "koblinger",
+      gjelder: k.org.key,
+      grunnlaget: `${k.org.navn}, grunnlag i ${k.slug}.json uten orgnr`,
+      registeret: `${l.navn} (${l.orgnr})`,
+      tiltak: `Koblet på eksakt navn, fordi organet er bundet til registeret i ${k.slug}.json fra før. Legg orgnr inn i grunnlaget der.`,
+    });
+  }
+  /** orgnr → datasettet der organet er grunnlag, når det ikke er her. */
+  const grunnlagAndre = new Map(
+    [...andreGrunn]
+      .filter(([orgnr]) => !grunnPaaOrgnr.has(orgnr))
+      .map(([orgnr, x]) => [orgnr, x.slug] as const),
+  );
+  for (const orgnr of egenIdentitet) andreGrunn.delete(orgnr);
+
   // --- 4. Hvilke enheter tas med, med hvilken nøkkel, og hvem eier dem ------
 
   const formRegel = (e: Enhet): OrgformRegel | "hopp" | null =>
@@ -715,20 +947,26 @@ export function importer(inn: ImportInn): ImportUt {
     ueOrgnr.has(orgnr) ? K.kommunenr : (enhet(orgnr)?.kommunenr ?? null);
   /**
    * Datasettet som eier organet, og som alene fører rollene, regnskapet og
-   * styreplassene: kommunen organet ligger i, når den har et datasett. Ellers
-   * datasettet der organet er grunnlag. Ellers ingen.
+   * styreplassene. Regelen står i `fordelEierskap`. Kjøres kommunen for seg
+   * selv, er den alene i kjøringen, og alle andre datasett står utenfor.
    */
-  const eier = (orgnr: string): string | null => {
-    const lok = lokasjon(orgnr);
-    const hjem = lok ? slugForKommune.get(lok) : undefined;
-    if (hjem) return hjem;
-    if (grunnPaaOrgnr.has(orgnr)) return inn.slug;
-    const k = kopiPaaOrgnr.get(orgnr) ?? andreGrunn.get(orgnr);
-    if (k) return k.slug;
-    if (K.roller_for_overordnede && kontekst.get(orgnr)?.has("overordnet")) return inn.slug;
-    return null;
-  };
-  const eierHer = (orgnr: string) => eier(orgnr) === inn.slug;
+  const omfang = new Set(e1.map((e) => e.orgnr));
+  const eiere =
+    inn.eiere ??
+    fordelEierskap({
+      kommuner: [
+        {
+          slug: inn.slug,
+          kommunenr: K.kommunenr,
+          omfang,
+          grunnlag: new Set(grunnPaaOrgnr.keys()),
+        },
+      ],
+      sete: (orgnr) => enhet(orgnr)?.kommunenr,
+      grunnlagUtenfor: grunnlagAndre,
+      forerUtenfor: forerRegisterrader(andre),
+    });
+  const eierHer = (orgnr: string) => eiere.get(orgnr) === inn.slug;
 
   const medRoller = e1.filter((e) => nokkelFor.has(e.orgnr) || nyeEnheter.includes(e));
   for (const e of medRoller) {
@@ -1305,6 +1543,29 @@ export function importer(inn: ImportInn): ImportUt {
     grunnSlugs.set(slug(p.navn), p.key);
     grunnSlugs.set(p.key, p.key);
   }
+  // Personene i datasett utenfor kjøringen er tatt, bortsett fra dem som bare
+  // står i importerte roller for organer dette datasettet eier: de rollene tas
+  // bort der (steg 9), og personen får samme nøkkel her som hun ville fått om
+  // kommunene var kjørt sammen.
+  const eideOrgnr = new Set([...eiere].filter(([, s]) => s === inn.slug).map(([o]) => o));
+  const eideKeys = new Set([...eideOrgnr].flatMap((o) => nokkelFor.get(o) ?? []));
+  const overtas = (d: Kommunedatasett) =>
+    new Set([
+      ...eideKeys,
+      ...d.organisasjoner
+        .filter((o) => erGenerert(o.belegg) && o.orgnr !== undefined && eideOrgnr.has(o.orgnr))
+        .map((o) => o.key),
+    ]);
+  for (const a of andre) {
+    if (kjoringen.has(a.slug)) continue;
+    const ov = overtas(a.data);
+    const star = new Set([
+      ...a.data.roller.filter((r) => !(erGenerert(r.belegg) && ov.has(r.org))).map((r) => r.person),
+      ...a.data.hendelser.flatMap((h) => h.personer ?? []),
+      ...a.data.hull.flatMap((h) => h.personer ?? []),
+    ]);
+    for (const p of a.data.personer) if (star.has(p.key)) tattePersoner.add(p.key);
+  }
   const brukte = new Set([
     ...gPersonKeys,
     ...tattePersoner,
@@ -1765,13 +2026,21 @@ export function importer(inn: ImportInn): ImportUt {
   // Et organ som står i flere kommuner, må stå likt i alle, ellers stopper
   // samle.ts. Datasettet som eier organet, skriver den kanoniske raden inn i
   // de andre, og tar bort importerte roller, regnskap og styreplasser for
-  // organet der: de føres bare hos eieren.
+  // organet der: de føres bare hos eieren. Det gjelder også en importert rad
+  // med samme orgnr under en annen nøkkel (en eldre kjøring kan ha laget en
+  // egen rad for et grunnlagsorgan som bare var koblet på navn).
   const andreOppdatert = new Map<string, Kommunedatasett>();
   const eideNokler = new Set([...eide].filter((k) => ut.organisasjoner.some((o) => o.key === k)));
   for (const a of andre) {
     const d = a.data;
     let endret = false;
     const gen = new Set(d.organisasjoner.filter((o) => erGenerert(o.belegg)).map((o) => o.key));
+    const eidHer = new Set([
+      ...eideNokler,
+      ...d.organisasjoner
+        .filter((o) => erGenerert(o.belegg) && o.orgnr !== undefined && eideOrgnr.has(o.orgnr))
+        .map((o) => o.key),
+    ]);
     const organisasjoner = d.organisasjoner.map((o) => {
       const k = gen.has(o.key) ? kanoniske.get(o.key) : undefined;
       if (k && json(k.org) !== json(o)) {
@@ -1799,12 +2068,12 @@ export function importer(inn: ImportInn): ImportUt {
       if (ut.length !== xs.length) endret = true;
       return ut;
     };
-    const roller = fjern(d.roller, (r) => erGenerert(r.belegg) && eideNokler.has(r.org));
-    const nokkeltall = fjern(d.nokkeltall, (n) => erGenerert(n.belegg) && eideNokler.has(n.org));
-    const hull = fjern(d.hull, (h) => erGenerertHull(h) && eideNokler.has(h.gjelder));
+    const roller = fjern(d.roller, (r) => erGenerert(r.belegg) && eidHer.has(r.org));
+    const nokkeltall = fjern(d.nokkeltall, (n) => erGenerert(n.belegg) && eidHer.has(n.org));
+    const hull = fjern(d.hull, (h) => erGenerertHull(h) && eidHer.has(h.gjelder));
     const relasjoner = fjern(
       d.relasjoner,
-      (r) => erGenerert(r.belegg) && r.type === "medlem_av" && eideNokler.has(r.til),
+      (r) => erGenerert(r.belegg) && r.type === "medlem_av" && eidHer.has(r.til),
     );
     if (!endret) continue;
     const brukt = new Set([
@@ -1896,5 +2165,13 @@ export function importer(inn: ImportInn): ImportUt {
     andreOppdatert,
     personlenker,
     personnokler,
+    omfang: [...omfang].sort(),
+    grunnlagHer: new Map(sortert([...grunnPaaOrgnr], ([o]) => o)),
+    grunnlagAndre: new Map(
+      sortert(
+        [...grunnlagAndre].filter(([o]) => omfang.has(o)),
+        ([o]) => o,
+      ),
+    ),
   };
 }

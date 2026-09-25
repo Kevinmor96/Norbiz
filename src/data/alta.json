@@ -36,6 +36,11 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "snl",
+      "navn": "Store norske leksikon (SNL)",
+      "type": "oppslagsverk"
     }
   ],
   "organisasjoner": [
@@ -58,6 +63,30 @@
         "verifisering": "oppgitt",
         "per": "2026-09-25",
         "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "uit",
+      "navn": "UiT Norges arktiske universitet",
+      "kortnavn": "UiT",
+      "nivaa": "stat",
+      "organtype": "universitet",
+      "myndighet": [
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [
+        "utdanning-forskning",
+        "helse",
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Statlig universitet for utdanning og forskning, eid av staten ved KD.",
+      "belegg": {
+        "kilde": "snl",
+        "verifisering": "oppgitt",
+        "per": "2026"
       }
     },
     {
@@ -1316,33 +1345,12 @@
       }
     },
     {
-      "key": "universitetet-i-tromso-norges-arktiske-universitet",
-      "orgnr": "970422528",
-      "navn": "Universitetet i Tromsø - Norges Arktiske Universitet",
-      "nivaa": "stat",
-      "organtype": "etat",
-      "kommunenr": "5501",
-      "myndighet": [],
-      "segmenter": [
-        "utdanning-forskning"
-      ],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 85.401 «Undervisning ved universiteter».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
       "key": "universitetet-i-tromso-norges-arktiske-universitet-uit-campus-alta",
       "orgnr": "874651842",
       "navn": "Universitetet i Tromsø - Norges Arktiske Universitet UiT Campus Alta",
       "nivaa": "stat",
-      "organtype": "etat",
-      "overordnet": "universitetet-i-tromso-norges-arktiske-universitet",
+      "organtype": "universitet",
+      "overordnet": "uit",
       "kommunenr": "5601",
       "myndighet": [],
       "segmenter": [
@@ -1350,7 +1358,7 @@
       ],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Arbeidssted i Alta for Universitetet i Tromsø - Norges Arktiske Universitet, med næringskode 85.401 «Undervisning ved universiteter».",
+      "beskrivelse": "Arbeidssted i Alta for UiT Norges arktiske universitet, med næringskode 85.401 «Undervisning ved universiteter».",
       "belegg": {
         "kilde": "enhetsregisteret",
         "verifisering": "verifisert",
@@ -4558,7 +4566,7 @@
     },
     {
       "fra": "universitetet-i-tromso-norges-arktiske-universitet-uit-campus-alta",
-      "til": "universitetet-i-tromso-norges-arktiske-universitet",
+      "til": "uit",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -6469,6 +6477,21 @@
   ],
   "org_segment": [
     {
+      "org": "uit",
+      "segment": "eiendom-bygg",
+      "styrke": 2
+    },
+    {
+      "org": "uit",
+      "segment": "helse",
+      "styrke": 2
+    },
+    {
+      "org": "uit",
+      "segment": "utdanning-forskning",
+      "styrke": 3
+    },
+    {
       "org": "boreal-travel-as-avd-north-adventure",
       "segment": "reiseliv",
       "styrke": 3
@@ -6595,11 +6618,6 @@
     },
     {
       "org": "universitetet-i-tromso-norges-arktiske-universitet-uit-campus-alta",
-      "segment": "utdanning-forskning",
-      "styrke": 3
-    },
-    {
-      "org": "universitetet-i-tromso-norges-arktiske-universitet",
       "segment": "utdanning-forskning",
       "styrke": 3
     }

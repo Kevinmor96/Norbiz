@@ -36,6 +36,12 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "avinor-no",
+      "navn": "Avinor (avinor.no)",
+      "url": "https://www.avinor.no",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
@@ -58,6 +64,27 @@
         "verifisering": "oppgitt",
         "per": "2026-09-25",
         "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "avinor",
+      "navn": "Avinor",
+      "nivaa": "stat",
+      "organtype": "AS",
+      "rekkevidde": "region",
+      "myndighet": [
+        "konsesjon"
+      ],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Driver Tromsø lufthavn Langnes, med arealer og kommersielle konsesjoner.",
+      "belegg": {
+        "kilde": "avinor-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
       }
     },
     {
@@ -126,34 +153,12 @@
       }
     },
     {
-      "key": "avinor-985198292",
-      "orgnr": "985198292",
-      "navn": "Avinor AS",
-      "nivaa": "privat",
-      "organtype": "AS",
-      "kommunenr": "0301",
-      "myndighet": [],
-      "segmenter": [
-        "transport"
-      ],
-      "gyldig_fra": "2002-12-12",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 52.230 «Andre tjenester tilknyttet lufttransport».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
       "key": "avinor-as-avd-harstad-narvik-lufthavn",
       "orgnr": "974719851",
       "navn": "Avinor AS Avd Harstad/Narvik Lufthavn",
-      "nivaa": "privat",
+      "nivaa": "stat",
       "organtype": "AS",
-      "overordnet": "avinor-985198292",
+      "overordnet": "avinor",
       "kommunenr": "1853",
       "myndighet": [],
       "segmenter": [
@@ -161,7 +166,7 @@
       ],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Arbeidssted i Evenes - Evenášši for Avinor AS, med næringskode 52.230 «Andre tjenester tilknyttet lufttransport».",
+      "beskrivelse": "Arbeidssted i Evenes - Evenášši for Avinor, med næringskode 52.230 «Andre tjenester tilknyttet lufttransport».",
       "belegg": {
         "kilde": "enhetsregisteret",
         "verifisering": "verifisert",
@@ -582,7 +587,7 @@
     },
     {
       "fra": "avinor-as-avd-harstad-narvik-lufthavn",
-      "til": "avinor-985198292",
+      "til": "avinor",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -773,6 +778,11 @@
   ],
   "org_segment": [
     {
+      "org": "avinor",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
       "org": "actio-omsorg",
       "segment": "helse",
       "styrke": 3
@@ -781,11 +791,6 @@
       "org": "avarn-security-aviation",
       "segment": "transport",
       "styrke": 2
-    },
-    {
-      "org": "avinor-985198292",
-      "segment": "transport",
-      "styrke": 3
     },
     {
       "org": "avinor-as-avd-harstad-narvik-lufthavn",

@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "kommunenr": "9995",
+    "kommune": "Austvik",
+    "fylkesnr": "99",
+    "fylke": "Fiktivfylket",
+    "sammenstilt": "2026-09-24",
+    "grunnlag": "tests/fixtures/brreg/eierskap/datasett.json",
+    "merknad": "Oppdiktet grunnlag for testene av eierskapsregelen. Ingenting her er fakta."
+  },
+  "kilder": [
+    {
+      "key": "testgrunnlag",
+      "navn": "Fiktivt researchgrunnlag",
+      "type": "sekundaer"
+    },
+    {
+      "key": "austvik-kommune-no",
+      "navn": "Austvik kommune (fiktiv nettside)",
+      "type": "offisiell"
+    }
+  ],
+  "organisasjoner": [
+    {
+      "key": "austvik-kommune",
+      "orgnr": "999950001",
+      "navn": "Austvik kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "kommunenr": "9995",
+      "myndighet": ["vedtak", "eierskap"],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Oppdiktet kommune for tester.",
+      "belegg": {
+        "kilde": "austvik-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "austvik-kommunestyre",
+      "navn": "Austvik kommunestyre",
+      "nivaa": "kommune",
+      "organtype": "folkevalgt_organ",
+      "overordnet": "austvik-kommune",
+      "kommunenr": "9995",
+      "myndighet": ["vedtak"],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Øverste folkevalgte organ i den oppdiktede kommunen.",
+      "belegg": {
+        "kilde": "austvik-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "regionhelse-rhf",
+      "navn": "Regionhelse RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "myndighet": ["eierskap"],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Oppdiktet regionalt helseforetak i nabokommunen.",
+      "belegg": {
+        "kilde": "testgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09"
+      }
+    },
+    {
+      "key": "vestvik-kommune",
+      "navn": "Vestvik kommune",
+      "nivaa": "kommune",
+      "organtype": "kommune",
+      "myndighet": ["eierskap"],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Nabokommunen, medeier i et oppdiktet selskap.",
+      "belegg": {
+        "kilde": "testgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09"
+      }
+    }
+  ],
+  "personer": [
+    {
+      "key": "stine-styre",
+      "navn": "Stine Styre"
+    }
+  ],
+  "roller": [
+    {
+      "org": "regionhelse-rhf",
+      "person": "stine-styre",
+      "tittel": "Styreleder",
+      "rolletype": "styreleder",
+      "status": "fast",
+      "belegg": {
+        "kilde": "testgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09"
+      }
+    }
+  ],
+  "relasjoner": [
+    {
+      "fra": "austvik-kommunestyre",
+      "til": "austvik-kommune",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "austvik-kommune-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
+      "fra": "vestvik-kommune",
+      "til": "regionhelse-rhf",
+      "type": "samarbeid",
+      "belegg": {
+        "kilde": "testgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09"
+      }
+    }
+  ],
+  "nokkeltall": [],
+  "hendelser": [],
+  "prosesser": [],
+  "segmenter": [],
+  "org_segment": [],
+  "hull": []
+}

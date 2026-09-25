@@ -42,6 +42,29 @@
       "navn": "Helse Nord: Organisasjonskart",
       "url": "https://www.helse-nord.no/om-oss/organisasjonskart-helse-nord/",
       "type": "offisiell"
+    },
+    {
+      "key": "avinor-no",
+      "navn": "Avinor (avinor.no)",
+      "url": "https://www.avinor.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "skatteetaten-no",
+      "navn": "Skatteetaten (skatteetaten.no)",
+      "url": "https://www.skatteetaten.no",
+      "type": "offisiell"
+    },
+    {
+      "key": "vegvesen-no",
+      "navn": "Statens vegvesen (vegvesen.no)",
+      "url": "https://www.vegvesen.no",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
@@ -67,6 +90,27 @@
       }
     },
     {
+      "key": "avinor",
+      "navn": "Avinor",
+      "nivaa": "stat",
+      "organtype": "AS",
+      "rekkevidde": "region",
+      "myndighet": [
+        "konsesjon"
+      ],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Driver Tromsø lufthavn Langnes, med arealer og kommersielle konsesjoner.",
+      "belegg": {
+        "kilde": "avinor-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
       "key": "helse-nord-ikt",
       "orgnr": "918177833",
       "navn": "Helse Nord IKT",
@@ -87,6 +131,66 @@
         "verifisering": "oppgitt",
         "per": "2026-09-25",
         "merknad": "Hentet fra helse-nord.no 25.09.2026. Orgnr, kommunenummer og stiftelsesdato er fra Enhetsregisteret, der foretaket heter «Helse Nord IKT HF»."
+      }
+    },
+    {
+      "key": "helse-nord-rhf",
+      "navn": "Helse Nord RHF",
+      "nivaa": "stat",
+      "organtype": "RHF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "eierskap"
+      ],
+      "segmenter": [
+        "helse"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Eier helseforetakene i regionen og er selv eid av staten ved HOD.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "skatteetaten",
+      "navn": "Skatteetaten",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "myndighet": [
+        "vedtak"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Skatt og merverdiavgift. Etaten består av et direktorat og fem divisjoner med landsdekkende ansvar; den har ingen region Nord.",
+      "belegg": {
+        "kilde": "skatteetaten-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09",
+        "merknad": "Beskrivelsen er rettet 25.09.2026 etter skatteetaten.no (om-skatteetaten/om-oss/organisasjon-og-ledelse). Grunnlaget viste til en region Nord."
+      }
+    },
+    {
+      "key": "statens-vegvesen",
+      "navn": "Statens vegvesen",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "rekkevidde": "region",
+      "myndighet": [],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Har ansvar for riksveg, planlegging og trafikksikkerhet; grunnlaget viser til divisjon eller avdeling nord.",
+      "belegg": {
+        "kilde": "vegvesen-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
       }
     },
     {
@@ -405,34 +509,12 @@
       }
     },
     {
-      "key": "avinor-985198292",
-      "orgnr": "985198292",
-      "navn": "Avinor AS",
-      "nivaa": "privat",
-      "organtype": "AS",
-      "kommunenr": "0301",
-      "myndighet": [],
-      "segmenter": [
-        "transport"
-      ],
-      "gyldig_fra": "2002-12-12",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Aksjeselskap registrert i Enhetsregisteret med næringskode 52.230 «Andre tjenester tilknyttet lufttransport».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
       "key": "avinor-as-avd-bodo-lufthavn",
       "orgnr": "974719835",
       "navn": "Avinor AS Avd Bodø Lufthavn",
-      "nivaa": "privat",
+      "nivaa": "stat",
       "organtype": "AS",
-      "overordnet": "avinor-985198292",
+      "overordnet": "avinor",
       "kommunenr": "1804",
       "myndighet": [],
       "segmenter": [
@@ -440,7 +522,7 @@
       ],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Arbeidssted i Bodø for Avinor AS, med næringskode 52.230 «Andre tjenester tilknyttet lufttransport».",
+      "beskrivelse": "Arbeidssted i Bodø for Avinor, med næringskode 52.230 «Andre tjenester tilknyttet lufttransport».",
       "belegg": {
         "kilde": "enhetsregisteret",
         "verifisering": "verifisert",
@@ -1311,26 +1393,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: ansatte>=50."
-      }
-    },
-    {
-      "key": "helse-nord",
-      "orgnr": "883658752",
-      "navn": "Helse Nord RHF",
-      "nivaa": "stat",
-      "organtype": "RHF",
-      "kommunenr": "1804",
-      "myndighet": [],
-      "segmenter": [],
-      "gyldig_fra": "2001-08-17",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 84.120 «Offentlig administrasjon tilknyttet helsestell, undervisning, kultur og annen sosial virksomhet».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025."
       }
     },
     {
@@ -2929,31 +2991,12 @@
       }
     },
     {
-      "key": "skatteetaten-974761076",
-      "orgnr": "974761076",
-      "navn": "Skatteetaten",
-      "nivaa": "stat",
-      "organtype": "etat",
-      "kommunenr": "0301",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
       "key": "skatteetaten-bodo",
       "orgnr": "974754673",
       "navn": "Skatteetaten Bodø",
       "nivaa": "stat",
       "organtype": "etat",
-      "overordnet": "skatteetaten-974761076",
+      "overordnet": "skatteetaten",
       "kommunenr": "1804",
       "myndighet": [],
       "segmenter": [],
@@ -2968,37 +3011,18 @@
       }
     },
     {
-      "key": "statens-vegvesen-971032081",
-      "orgnr": "971032081",
-      "navn": "Statens Vegvesen",
-      "nivaa": "stat",
-      "organtype": "etat",
-      "kommunenr": "0301",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
       "key": "statens-vegvesen-bodo-kontorsted",
       "orgnr": "974754509",
       "navn": "Statens Vegvesen Bodø Kontorsted",
       "nivaa": "stat",
       "organtype": "etat",
-      "overordnet": "statens-vegvesen-971032081",
+      "overordnet": "statens-vegvesen",
       "kommunenr": "1804",
       "myndighet": [],
       "segmenter": [],
       "status": "aktiv",
       "sensitiv": false,
-      "beskrivelse": "Arbeidssted i Bodø for Statens Vegvesen, med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
+      "beskrivelse": "Arbeidssted i Bodø for Statens vegvesen, med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
       "belegg": {
         "kilde": "enhetsregisteret",
         "verifisering": "verifisert",
@@ -3423,10 +3447,6 @@
       "navn": "Anita Foshaug"
     },
     {
-      "key": "ann-mari-jenssen",
-      "navn": "Ann-Mari Jenssen"
-    },
-    {
       "key": "ann-wenche-reiersen",
       "navn": "Ann Wenche Reiersen"
     },
@@ -3441,10 +3461,6 @@
     {
       "key": "anne-kathrine-gjerdrum",
       "navn": "Anne Kathrine Gjerdrum"
-    },
-    {
-      "key": "anne-malene-schevik-isaksen",
-      "navn": "Anne-Malene Schevik Isaksen"
     },
     {
       "key": "anne-ringen-pedersen",
@@ -3497,10 +3513,6 @@
     {
       "key": "audun-andreas-baeko",
       "navn": "Audun Andreas Bækø"
-    },
-    {
-      "key": "baard-einar-martinsen",
-      "navn": "Baard Einar Martinsen"
     },
     {
       "key": "beate-tverbak",
@@ -3703,10 +3715,6 @@
       "navn": "Eirin Kjølstad"
     },
     {
-      "key": "eivind-berg",
-      "navn": "Eivind Berg"
-    },
-    {
       "key": "eivind-eriksen-tommeras",
       "navn": "Eivind Eriksen Tømmerås"
     },
@@ -3753,10 +3761,6 @@
     {
       "key": "espen-viig-syversen",
       "navn": "Espen Viig Syversen"
-    },
-    {
-      "key": "eva-jeanett-ytrehauge",
-      "navn": "Eva Jeanett Ytrehauge"
     },
     {
       "key": "eva-maria-kristoffersen",
@@ -3847,10 +3851,6 @@
       "navn": "Gunn-Iren Gerdsdatter"
     },
     {
-      "key": "gunnar-alskog",
-      "navn": "Gunnar Alskog"
-    },
-    {
       "key": "gunnar-herder-nilssen",
       "navn": "Gunnar Herder Nilssen"
     },
@@ -3901,10 +3901,6 @@
     {
       "key": "hans-petter-solvei",
       "navn": "Hans Petter Solvei"
-    },
-    {
-      "key": "harald-larssen",
-      "navn": "Harald Larssen"
     },
     {
       "key": "harald-rise",
@@ -4419,20 +4415,8 @@
       "navn": "Marie Elise Abelsen"
     },
     {
-      "key": "marit-lind",
-      "navn": "Marit Lind"
-    },
-    {
-      "key": "marit-mikkelsdatter-kemi",
-      "navn": "Marit Mikkelsdatter Kemi"
-    },
-    {
       "key": "marte-fredly-steen",
       "navn": "Marte Fredly-Steen"
-    },
-    {
-      "key": "martin-alexander-oien-jenssen",
-      "navn": "Martin Alexander Øien Jenssen"
     },
     {
       "key": "martin-olaf-nikolaisen",
@@ -4715,10 +4699,6 @@
       "navn": "Roy Ove Espe"
     },
     {
-      "key": "rune-gjertin-rafaelsen",
-      "navn": "Rune Gjertin Rafaelsen"
-    },
-    {
       "key": "ruth-hildegun-johnsen",
       "navn": "Ruth Hildegun Johnsen"
     },
@@ -4749,10 +4729,6 @@
     {
       "key": "siri-tau-ursin",
       "navn": "Siri Tau Ursin"
-    },
-    {
-      "key": "sissel-viola-alterskjaer",
-      "navn": "Sissel Viola Alterskjær"
     },
     {
       "key": "siv-anita-johnsen-brekke",
@@ -4879,10 +4855,6 @@
       "navn": "Thomas Smedsrud"
     },
     {
-      "key": "thor-allan-stenberg",
-      "navn": "Thor Allan Stenberg"
-    },
-    {
       "key": "thorvald-holmvag",
       "navn": "Thorvald Holmvåg"
     },
@@ -4907,10 +4879,6 @@
       "navn": "Tone Elisabeth Vangen"
     },
     {
-      "key": "tone-helen-hauge",
-      "navn": "Tone Helen Hauge"
-    },
-    {
       "key": "tone-stromsnes-lyng",
       "navn": "Tone Strømsnes Lyng"
     },
@@ -4929,10 +4897,6 @@
     {
       "key": "tor-gausemel-kristensen",
       "navn": "Tor Gausemel Kristensen"
-    },
-    {
-      "key": "tor-ingebrigtsen",
-      "navn": "Tor Ingebrigtsen"
     },
     {
       "key": "torbjorn-grimstad",
@@ -7163,198 +7127,6 @@
     {
       "org": "heimdall-guard-service",
       "person": "vibeke-asplem",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "ann-mari-jenssen",
-      "tittel": "Varamedlem (valgt av de ansatte)",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "anne-malene-schevik-isaksen",
-      "tittel": "Styremedlem (valgt av de ansatte)",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "baard-einar-martinsen",
-      "tittel": "Varamedlem (valgt av de ansatte)",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "eivind-berg",
-      "tittel": "Varamedlem (valgt av de ansatte)",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "eva-jeanett-ytrehauge",
-      "tittel": "Varamedlem (valgt av de ansatte)",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "gunnar-alskog",
-      "tittel": "Styreleder",
-      "rolletype": "styreleder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "hanne-elise-skare",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "harald-larssen",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "marit-lind",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "marit-mikkelsdatter-kemi",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "martin-alexander-oien-jenssen",
-      "tittel": "Styremedlem (valgt av de ansatte)",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "rune-gjertin-rafaelsen",
-      "tittel": "Nestleder",
-      "rolletype": "nestleder",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "sissel-viola-alterskjaer",
-      "tittel": "Styremedlem (valgt av de ansatte)",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "thor-allan-stenberg",
-      "tittel": "Varamedlem (valgt av de ansatte)",
-      "rolletype": "varamedlem",
-      "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "tone-helen-hauge",
-      "tittel": "Styremedlem",
-      "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "helse-nord",
-      "person": "tor-ingebrigtsen",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
       "status": "fast",
@@ -11209,7 +10981,7 @@
     },
     {
       "fra": "avinor-as-avd-bodo-lufthavn",
-      "til": "avinor-985198292",
+      "til": "avinor",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -11469,7 +11241,7 @@
     },
     {
       "fra": "skatteetaten-bodo",
-      "til": "skatteetaten-974761076",
+      "til": "skatteetaten",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -11479,7 +11251,7 @@
     },
     {
       "fra": "statens-vegvesen-bodo-kontorsted",
-      "til": "statens-vegvesen-971032081",
+      "til": "statens-vegvesen",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -12890,62 +12662,6 @@
       "aar": 2025,
       "type": "omsetning",
       "verdi": 9458017,
-      "enhet": "NOK",
-      "konsern": false,
-      "belegg": {
-        "kilde": "regnskapsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Morselskapets eget regnskap, ikke konsern."
-      }
-    },
-    {
-      "org": "helse-nord",
-      "aar": 2025,
-      "type": "aarsresultat",
-      "verdi": -10019000,
-      "enhet": "NOK",
-      "konsern": false,
-      "belegg": {
-        "kilde": "regnskapsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Morselskapets eget regnskap, ikke konsern."
-      }
-    },
-    {
-      "org": "helse-nord",
-      "aar": 2025,
-      "type": "driftsresultat",
-      "verdi": -76081000,
-      "enhet": "NOK",
-      "konsern": false,
-      "belegg": {
-        "kilde": "regnskapsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Morselskapets eget regnskap, ikke konsern."
-      }
-    },
-    {
-      "org": "helse-nord",
-      "aar": 2025,
-      "type": "egenkapital",
-      "verdi": 11506236000,
-      "enhet": "NOK",
-      "konsern": false,
-      "belegg": {
-        "kilde": "regnskapsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Morselskapets eget regnskap, ikke konsern."
-      }
-    },
-    {
-      "org": "helse-nord",
-      "aar": 2025,
-      "type": "omsetning",
-      "verdi": 26228820000,
       "enhet": "NOK",
       "konsern": false,
       "belegg": {
@@ -15298,8 +15014,23 @@
   ],
   "org_segment": [
     {
+      "org": "avinor",
+      "segment": "transport",
+      "styrke": 3
+    },
+    {
       "org": "helse-nord-ikt",
       "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "helse-nord-rhf",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "statens-vegvesen",
+      "segment": "transport",
       "styrke": 3
     },
     {
@@ -15324,11 +15055,6 @@
     },
     {
       "org": "aviator-airport-alliance",
-      "segment": "transport",
-      "styrke": 3
-    },
-    {
-      "org": "avinor-985198292",
       "segment": "transport",
       "styrke": 3
     },

@@ -36,6 +36,11 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
     }
   ],
   "organisasjoner": [
@@ -58,6 +63,32 @@
         "verifisering": "oppgitt",
         "per": "2026-09-25",
         "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "unn",
+      "navn": "Universitetssykehuset Nord-Norge HF",
+      "kortnavn": "UNN",
+      "nivaa": "stat",
+      "organtype": "HF",
+      "rekkevidde": "region",
+      "myndighet": [
+        "innkjop",
+        "finansiering"
+      ],
+      "segmenter": [
+        "helse",
+        "utdanning-forskning",
+        "eiendom-bygg"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Driver sykehus i Tromsø, Harstad og Narvik og er en stor arbeidsgiver og byggherre.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
       }
     },
     {
@@ -292,35 +323,12 @@
       }
     },
     {
-      "key": "universitetssykehuset-nord-norge",
-      "orgnr": "983974899",
-      "navn": "Universitetssykehuset Nord-Norge HF",
-      "nivaa": "stat",
-      "organtype": "HF",
-      "kommunenr": "5501",
-      "myndighet": [],
-      "segmenter": [
-        "helse",
-        "reiseliv"
-      ],
-      "gyldig_fra": "2001-12-18",
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Annet foretak iflg. særskilt lov registrert i Enhetsregisteret med næringskode 86.101 «Somatiske sykehustjenester».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
       "key": "universitetssykehuset-nord-norge-hf-voksenpsykiatrisk-polikl-storslett",
       "orgnr": "874547042",
       "navn": "Universitetssykehuset Nord-Norge HF Voksenpsykiatrisk Polikl Storslett",
       "nivaa": "stat",
       "organtype": "HF",
-      "overordnet": "universitetssykehuset-nord-norge",
+      "overordnet": "unn",
       "kommunenr": "5544",
       "myndighet": [],
       "segmenter": [
@@ -587,7 +595,7 @@
     },
     {
       "fra": "universitetssykehuset-nord-norge-hf-voksenpsykiatrisk-polikl-storslett",
-      "til": "universitetssykehuset-nord-norge",
+      "til": "unn",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -732,9 +740,32 @@
     {
       "kode": "transport",
       "navn": "Transport"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "utdanning-forskning",
+      "navn": "Utdanning og forskning"
     }
   ],
   "org_segment": [
+    {
+      "org": "unn",
+      "segment": "eiendom-bygg",
+      "styrke": 2
+    },
+    {
+      "org": "unn",
+      "segment": "helse",
+      "styrke": 3
+    },
+    {
+      "org": "unn",
+      "segment": "utdanning-forskning",
+      "styrke": 2
+    },
     {
       "org": "bussring",
       "segment": "transport",
@@ -764,16 +795,6 @@
       "org": "universitetssykehuset-nord-norge-hf-voksenpsykiatrisk-polikl-storslett",
       "segment": "helse",
       "styrke": 3
-    },
-    {
-      "org": "universitetssykehuset-nord-norge",
-      "segment": "helse",
-      "styrke": 3
-    },
-    {
-      "org": "universitetssykehuset-nord-norge",
-      "segment": "reiseliv",
-      "styrke": 2
     },
     {
       "org": "vissi",

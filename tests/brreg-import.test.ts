@@ -1182,6 +1182,215 @@ describe("flere kommuner (Fiskvik og Testnes)", () => {
 });
 
 // ---------------------------------------------------------------------------
+// Eierskap: hvem fører rollene og regnskapet for et organ som står i flere
+// kommuner. Austvik (9995) har grunnlag; Vestvik (9994) har ikke datasett.
+// Alle de delte organene ligger i Vestvik:
+//
+// - Regionhelse RHF: grunnlag i Austvik uten orgnr (koblet på navn), og i
+//   Vestviks eget utvalg. Som Helse Nord RHF i Tromsø og Bodø.
+// - Fjellkraft AS: alltid med i Austvik, men for lite til å være kandidat i
+//   Vestvik. Som Nordkraft AS i Tromsø og Narvik.
+// - Kystbanken: alltid med i Austvik og i Vestviks eget utvalg.
+// - Vestvik kommune: Vestviks egen enhet, og grunnlag i Austvik uten orgnr.
+//   Som Karlsøy kommune.
+// ---------------------------------------------------------------------------
+
+describe("eierskap på tvers av kommuner (Austvik og Vestvik)", () => {
+  const mappe = join(FIKSTUR, "eierskap");
+  const konfig: Konfig = tolkKonfig({
+    felles: { ...felles, sidestorrelse: 50 },
+    kommuner: {
+      "9995": { alltid: { fra_datasett: true, orgnr: ["999940003", "999940004"], navn: [] } },
+    },
+  });
+  const tmper: string[] = [];
+  afterAll(() => {
+    for (const t of tmper) rmSync(t, { recursive: true, force: true });
+  });
+  const ny = () => {
+    const tmp = mkdtempSync(join(tmpdir(), "maktkart-brreg-eierskap-"));
+    tmper.push(tmp);
+    cpSync(join(mappe, "datasett.json"), join(tmp, "data", "austvik.json"));
+    return tmp;
+  };
+  const kjorI = (tmp: string, kommunenr: string[]) =>
+    kjor({
+      kommunenr,
+      dataMappe: join(tmp, "data"),
+      avvikMappe: join(tmp, "avvik"),
+      http: fiksturHttp(mappe).http,
+      mellomlager: join(tmp, "lager"),
+      regionfil: join(mappe, "region.json"),
+      salt: SALT,
+      idag: IDAG,
+      konfig,
+      tabeller,
+      skriv: true,
+      logg: () => {},
+    });
+  const datasett = (tmp: string) =>
+    readdirSync(join(tmp, "data"))
+      .filter((f) => f.endsWith(".json"))
+      .sort()
+      .map((f) => ({
+        slug: f.slice(0, -5),
+        data: JSON.parse(readFileSync(join(tmp, "data", f), "utf8")) as Kommunedatasett,
+      }));
+  const filer = (tmp: string) =>
+    Object.fromEntries(
+      readdirSync(join(tmp, "data"))
+        .sort()
+        .map((f) => [f, readFileSync(join(tmp, "data", f), "utf8")]),
+    );
+  /** Grunnlaget kobler disse på navn; ellers er orgnr på raden identiteten. */
+  const PAA_NAVN: Record<string, string> = {
+    "regionhelse-rhf": "999940002",
+    "vestvik-kommune": "999940001",
+  };
+  const identitet = (d: Kommunedatasett, key: string) =>
+    d.organisasjoner.find((o) => o.key === key)?.orgnr ?? PAA_NAVN[key] ?? key;
+
+  /**
+   * Hver rolle fra registeret (bekreftet eller importert) i alle datasettene:
+   * organets identitet, personens navn og rolletypen, med fila den står i.
+   */
+  const registerroller = (tmp: string) => {
+    const ut: { rolle: string; fil: string; org: string }[] = [];
+    for (const { slug, data } of datasett(tmp)) {
+      const navn = new Map(data.personer.map((p) => [p.key, p.navn]));
+      for (const r of data.roller) {
+        if (r.belegg.kilde !== "brreg-roller") continue;
+        ut.push({
+          rolle: `${identitet(data, r.org)}|${navn.get(r.person)}|${r.rolletype}|${r.status}`,
+          fil: slug,
+          org: r.org,
+        });
+      }
+    }
+    return ut.sort((a, b) => (a.rolle < b.rolle ? -1 : a.rolle > b.rolle ? 1 : 0));
+  };
+  const registertall = (tmp: string) =>
+    datasett(tmp).flatMap(({ slug, data }) =>
+      data.nokkeltall
+        .filter((n) => n.belegg.kilde === "regnskapsregisteret")
+        .map((n) => `${identitet(data, n.org)}|${n.aar}|${n.type}|${slug}`),
+    );
+
+  const FORVENTET = [
+    "999940001|Viggo Vestmann|daglig_leder|fast",
+    "999940002|Dag Direktør|daglig_leder|fast",
+    "999940002|Mats Medlem|styremedlem|fast",
+    "999940002|Mona Medlem|styremedlem|fast",
+    "999940002|Stine Styre|styreleder|fast",
+    "999940002|Vera Vara|varamedlem|vara",
+    "999940003|Frida Foss|styremedlem|fast",
+    "999940003|Kari Kraft|daglig_leder|fast",
+    "999940003|Leif Leder|styreleder|fast",
+    "999940004|Bent Bank|daglig_leder|fast",
+    "999940004|Siri Sparer|styreleder|fast",
+    "999950001|Anne Austmann|daglig_leder|fast",
+  ];
+
+  it("fører rollene og regnskapet for hvert organ nøyaktig én gang når begge kommunene er med", async () => {
+    const tmp = ny();
+    await kjorI(tmp, ["9995", "9994"]);
+    const alle = datasett(tmp);
+    expect(valider(samle(alle))).toEqual([]);
+    for (const { data } of alle) expect(regelbrudd(data)).toEqual([]);
+    const roller = registerroller(tmp);
+    expect(roller.map((r) => r.rolle)).toEqual(FORVENTET);
+    // Fjellkraft ligger i Vestvik, men er bare i Austviks utvalg: Austvik fører det.
+    expect(roller.filter((r) => r.rolle.startsWith("999940003|")).map((r) => r.fil)).toEqual([
+      "austvik",
+      "austvik",
+      "austvik",
+    ]);
+    expect(registertall(tmp).sort()).toEqual([
+      "999940003|2025|aarsresultat|austvik",
+      "999940003|2025|driftsresultat|austvik",
+      "999940003|2025|egenkapital|austvik",
+      "999940003|2025|omsetning|austvik",
+    ]);
+    // Kystbanken er i begge utvalgene: kommunen den ligger i, fører den.
+    expect(
+      new Set(roller.filter((r) => r.rolle.startsWith("999940004|")).map((r) => r.fil)),
+    ).toEqual(new Set(["vestvik"]));
+    // Regionhelse er grunnlag i Austvik: Austvik bekrefter styrelederen og fører resten.
+    expect(
+      new Set(roller.filter((r) => r.rolle.startsWith("999940002|")).map((r) => r.org)),
+    ).toEqual(new Set(["regionhelse-rhf"]));
+    expect(
+      new Set(roller.filter((r) => r.rolle.startsWith("999940002|")).map((r) => r.fil)),
+    ).toEqual(new Set(["austvik"]));
+  });
+
+  it("gir et grunnlagsorgan koblet på navn samme nøkkel i kommunen det ligger i", async () => {
+    const tmp = ny();
+    await kjorI(tmp, ["9995", "9994"]);
+    const a = datasett(tmp).find((d) => d.slug === "austvik")!.data;
+    const v = datasett(tmp).find((d) => d.slug === "vestvik")!.data;
+    // Ingen egen rad for Regionhelse i Vestvik: grunnlagets rad, kopiert likt.
+    for (const { data } of datasett(tmp))
+      expect(data.organisasjoner.filter((o) => o.orgnr === "999940002")).toEqual([]);
+    expect(v.organisasjoner.find((o) => o.key === "regionhelse-rhf")).toEqual(
+      a.organisasjoner.find((o) => o.key === "regionhelse-rhf"),
+    );
+    // Vestviks egen kommune beholder sin nøkkel, for kommunestyret viser til den.
+    const kommunen = v.organisasjoner.find((o) => o.orgnr === "999940001")!;
+    expect(kommunen.kommunenr).toBe("9994");
+    expect(v.organisasjoner.find((o) => o.key === "vestvik-kommunestyre")?.overordnet).toBe(
+      kommunen.key,
+    );
+    const o = await lagLokal(samle(datasett(tmp))).kommune_oversikt("9994");
+    expect(o?.kommuneorgan?.key).toBe(kommunen.key);
+  });
+
+  it("gir samme rollesett når Austvik kjøres alene som når begge kjøres sammen", async () => {
+    const alene = ny();
+    await kjorI(alene, ["9995"]);
+    const sammen = ny();
+    await kjorI(sammen, ["9995", "9994"]);
+    const sett = (tmp: string) => registerroller(tmp).map((r) => r.rolle);
+    // Alene fører Austvik alt i sitt utvalg; sammen fører Vestvik Kystbanken.
+    // Rollene er de samme, og hver står én gang.
+    expect(sett(alene)).toEqual(FORVENTET);
+    expect(sett(sammen)).toEqual(FORVENTET);
+    expect(registertall(alene).sort()).toEqual(registertall(sammen).sort());
+  });
+
+  it("står stille når kommunene kjøres hver for seg etterpå, i hvilken som helst rekkefølge", async () => {
+    const tmp = ny();
+    await kjorI(tmp, ["9995", "9994"]);
+    const etter = filer(tmp);
+    await kjorI(tmp, ["9995"]);
+    expect(filer(tmp)).toEqual(etter);
+    await kjorI(tmp, ["9994"]);
+    expect(filer(tmp)).toEqual(etter);
+    await kjorI(tmp, ["9994", "9995"]);
+    expect(filer(tmp)).toEqual(etter);
+  });
+
+  it("ender likt når Vestvik kjøres først, alene, før Austvik har vært kjørt", async () => {
+    const sammen = ny();
+    await kjorI(sammen, ["9995", "9994"]);
+    const tmp = ny();
+    await kjorI(tmp, ["9994"]);
+    await kjorI(tmp, ["9995"]);
+    // Hvert organ har rollene sine nøyaktig én gang underveis ...
+    expect(registerroller(tmp).map((r) => r.rolle)).toEqual(FORVENTET);
+    await kjorI(tmp, ["9994"]);
+    // ... og etter en runde til er datasettene de samme som når begge kjøres
+    // sammen. Unntaket er segmentlista: en segmentdefinisjon importøren la til
+    // for Vestviks første, egne rad for Regionhelse, blir stående, fordi den
+    // ikke kan skilles fra grunnlagets egne definisjoner.
+    const utenSegmenter = (t: string) =>
+      datasett(t).map(({ slug, data }) => ({ slug, data: { ...data, segmenter: [] } }));
+    expect(utenSegmenter(tmp)).toEqual(utenSegmenter(sammen));
+    expect(registerroller(tmp)).toEqual(registerroller(sammen));
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Tromsø: grunnlagets egne påstander mot syntetiske svar for to orgnr
 // ---------------------------------------------------------------------------
 

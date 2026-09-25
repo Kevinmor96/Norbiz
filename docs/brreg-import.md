@@ -42,7 +42,7 @@ API-et 25.09.2026.
 |---|---|---|
 | Enheter i kommunen | `enhetsregisteret/api/enheter?kommunenummer=…&fraAntallAnsatte=20` | Kandidater: forretningsadressen i kommunen og minst 20 ansatte, sjekket på nytt per rad. |
 | Underenheter i kommunen | `enhetsregisteret/api/underenheter?kommunenummer=…&fraAntallAnsatte=20` | Kandidater: bare de med overordnet enhet **utenfor** kommunen (statens lokale kontorer, bankfilialer, kjeder). Lagres som eget organ med `overordnet` til forelderen, og forelderen tas med som eget organ. Tall summeres aldri på tvers av enhet og underenhet. |
-| Alltid med | `enhetsregisteret/api/enheter/{orgnr}` | Hvert orgnr i grunnlaget, orgnr, `koblinger` og navn i `scripts/brreg.config.json`, og grunnlagets organer uten orgnr som har et eksakt navnetreff. |
+| Alltid med | `enhetsregisteret/api/enheter/{orgnr}` | Hvert orgnr i grunnlaget, orgnr, `koblinger` og navn i `scripts/brreg.config.json`, og grunnlagets organer uten orgnr som har et eksakt navnetreff. Kopier av en annen kommunes grunnlagsrader telles ikke: de står der bare fordi et organ viste til dem sist, og utvalget skal ikke avhenge av forrige kjøring. |
 | Regnskap | `regnskapsregisteret/regnskap/{orgnr}` (uten `/api/`) | Siste årsregnskap for kandidatene og de som alltid er med, for AS, ASA, SA, sparebanker, stiftelser, IKS, SF og SÆR. Hentes før utvalget, fordi omsetningen er ett av kriteriene. |
 | Roller | `enhetsregisteret/api/enheter/{orgnr}/roller` | Daglig leder, styreleder, nestleder, styremedlem og varamedlem, bare for enhetene i utvalget. |
 
@@ -118,16 +118,55 @@ sin egen fil, `src/data/<slug>.json`.
   har etter kommuneloven § 5-1 (kilde `kommuneloven`, `oppgitt`). Medlemmer og
   ordfører er ikke hentet, og merknaden sier det.
 - **Felles organer.** Et organ kan stå i flere kommuner (en statlig forelder,
-  en styreeier), og `samle.ts` krever at raden er lik i alle. Det **eier**
-  organet som ligger i kommunen: den skriver den kanoniske raden (med sine
-  grunner) inn i de andre filene og tar bort importerte roller, regnskap og
-  styreplasser for organet der. Roller, regnskap og styreplasser føres bare hos
-  eieren. Har kommunen organet ligger i, ikke noe datasett ennå, eier datasettet
-  der organet er grunnlag; ellers ingen, og organet står uten roller.
+  en styreeier, et organ på en annen kommunes alltid-med-liste), og `samle.ts`
+  krever at raden er lik i alle. Et importert organ får den kanoniske raden
+  (med sine grunner) fra kommunen det ligger i, og den skrives inn i de andre
+  filene. Et grunnlagsorgan står med grunnlagets rad, kopiert likt (se under).
+- **Hvem som fører rollene.** Roller, regnskap, valutahull og styreplasser for
+  et organ føres i nøyaktig ett datasett, eierens. Eieren velges én gang for
+  hele kjøringen (`fordelEierskap` i `scripts/brreg/importer.ts`), blant
+  kommunene som har organet i utvalget sitt. Første regel som treffer:
+  1. Kommunen i kjøringen der organet er **grunnlag**. Den avstemmer
+     grunnlagets roller mot registeret. Skrev en annen kommune registerets
+     rader, sto samme rolle to steder (Helse Nord RHFs styreleder sto både
+     bekreftet i Tromsø og importert i Bodø).
+  2. Et datasett **utenfor kjøringen** der organet er grunnlag. Ingen i
+     kjøringen skriver da noe for organet.
+  3. Kommunen organet **ligger i**, når den er med og organet er i utvalget der.
+  4. Et datasett utenfor kjøringen som allerede **fører radene**, beholder dem.
+  5. Kommunen med **lavest kommunenummer** som har organet i utvalget.
+
+  Eieren tar bort importerte rader for organet i alle de andre datasettene,
+  også under en annen nøkkel med samme orgnr, og ingen andre skriver dem.
+  Regelen avhenger ikke av rekkefølgen kommunene importeres i, og en kommune
+  kjørt alene gir de samme rollene for et organ som en kjøring med flere.
+  Tester: «eierskap på tvers av kommuner» i `tests/brreg-import.test.ts`.
+
+  Den første kjøringen for 80 kommuner (25.09.2026) ga organet til kommunen det
+  ligger i når den hadde et datasett, også når organet ikke var i utvalget
+  der. Nordkraft AS (Narvik) er på Tromsøs liste, men ikke i Narviks utvalg,
+  og sto uten roller. Grunnlagsorganer koblet på navn i Tromsø (Helse Nord RHF,
+  Finnmark fylkeskommune, Statsforvalteren i Troms og Finnmark, Karlsøy
+  kommune) fikk en egen rad og rollene i kommunen de ligger i. 41 roller var
+  borte fra Tromsøs organer, og elleve enheter sto med to rader.
 - **Grunnlag i en annen kommune.** Viser en kommune til et organ som er
   grunnlag i en annen (UNN som forelder til en avdeling i Harstad), kopieres
   grunnlagsraden, segmentene, kjeden av overordnede og kildene nøyaktig. Kopien
-  hentes på nytt fra originalen ved hver kjøring.
+  hentes på nytt fra originalen ved hver kjøring. Det gjelder også grunnlag
+  uten orgnr: en kommune i kjøringen som kobler sitt grunnlag på navn eller med
+  `koblinger`, deler koblingen med de andre, så Helse Nord RHF heter
+  `helse-nord-rhf` også i Bodø. `koblinger` for en kommune utenfor kjøringen
+  gjelder alltid. Et grunnlagsorgan uten orgnr i en kommune utenfor kjøringen
+  kobles på eksakt navn bare når det er bundet til registeret der fra før
+  (roller eller tall fra Brreg), eller når kommunen har en kopi av raden fra
+  en tidligere kjøring. Koblingen meldes i rapporten.
+- **Kommunens egen enhet beholder nøkkelen.** En enhet kommunen har en egen
+  rad for, og som eget grunnlag viser til (kommunens enhet under
+  kommunestyret), blir ikke byttet ut med en annen kommunes grunnlagsrad.
+  Grunnlaget avgjør likevel hvem som fører rollene. Karlsøy kommune står
+  derfor som `karlsoy-kommune` i Tromsøs grunnlag, med daglig leder, og som
+  `karlsoy-kommune-940330408` i Karlsøy, uten roller. Radene må slås sammen
+  for hånd.
 - **Samme person.** Grunnlagskoblingene fra alle kommunene i kjøringen samles
   først, så en person som er koblet til grunnlaget i én kommune, får samme
   nøkkel i de andre. Registerpersoner får samme nøkkel i alle kommunene i samme
@@ -279,9 +318,19 @@ Begge tabellene ligger i `src/data/brreg/` og ikke i `src/data/`, fordi hver
 - **Offentlig hierarki.** `overordnetEnhet` for enheter (UNN under Helse Nord)
   brukes ikke ennå, så den kanoniske raden for et felles organ er lik uansett
   hvilken kommune som skriver den. Bare underenheter får `overordnet`.
-- **Grunnlagsorganer uten orgnr** kobles bare på navn innen kommunen. Legg
-  orgnr inn i grunnlaget (rapporten lister dem), ellers kan en annen kommune
-  lage en egen rad for det samme organet.
+- **Grunnlagsorganer uten orgnr** kobles på navn i sin egen kommune, og de
+  andre kjenner koblingen bare når kommunen er med i kjøringen eller organet
+  er bundet til registeret der fra før. Kjøres en kommune alene før
+  grunnlagets kommune er importert, lager den en egen rad for organet. Rollene
+  står likevel bare ett sted, og raden forsvinner ved neste kjøring. Legg
+  orgnr inn i grunnlaget (rapporten lister dem), så gjelder koblingen alltid.
+- **Segment- og kildedefinisjoner ryddes ikke.** En definisjon importøren har
+  lagt til, blir stående når organet som trengte den, er borte («reiseliv» i
+  Kåfjord og Nordreisa etter rettingen av eierskapet), og rekkefølgen følger
+  historikken. De kan ikke skilles fra grunnlagets egne.
+- **Mislykkede svar mellomlagres ikke.** Bare 200, 404 og 410 lagres. Et
+  regnskap Brreg svarte feil på (Sparebanken Narvik), spørres det etter på nytt
+  ved hver kjøring.
 - **Nøkkelskifte ved ny kollisjon.** Dukker det opp en navnebror senere, får
   begge hashsuffiks, og den første skifter nøkkel.
 

@@ -36,6 +36,12 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "kystverket-no-organisering",
+      "navn": "Kystverket: Organisering og leiing",
+      "url": "https://www.kystverket.no/om-kystverket/organisering/",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
@@ -58,6 +64,28 @@
         "verifisering": "oppgitt",
         "per": "2026-09-25",
         "merknad": "Følger av kommuneloven § 5-1. Medlemmer og ordfører er ikke hentet."
+      }
+    },
+    {
+      "key": "kystverket",
+      "navn": "Kystverket",
+      "nivaa": "stat",
+      "organtype": "etat",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "konsesjon"
+      ],
+      "segmenter": [
+        "transport"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Statlig etat for sjøveien, organisert i fire landsdekkende virksomhetsområder under kystdirektøren.",
+      "belegg": {
+        "kilde": "kystverket-no-organisering",
+        "verifisering": "oppgitt",
+        "per": "2026-09-25",
+        "merknad": "Hentet fra kystverket.no 25.09.2026."
       }
     },
     {
@@ -354,31 +382,12 @@
       }
     },
     {
-      "key": "kystverket-874783242",
-      "orgnr": "874783242",
-      "navn": "Kystverket",
-      "nivaa": "stat",
-      "organtype": "etat",
-      "kommunenr": "1508",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.130 «Offentlig administrasjon tilknyttet næringsvirksomhet og arbeidsmarked».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: overordnet."
-      }
-    },
-    {
       "key": "kystverket-kabelvag",
       "orgnr": "974756633",
       "navn": "Kystverket Kabelvåg",
       "nivaa": "stat",
       "organtype": "etat",
-      "overordnet": "kystverket-874783242",
+      "overordnet": "kystverket",
       "kommunenr": "1865",
       "myndighet": [],
       "segmenter": [],
@@ -2294,7 +2303,7 @@
     },
     {
       "fra": "kystverket-kabelvag",
-      "til": "kystverket-874783242",
+      "til": "kystverket",
       "type": "overordnet",
       "belegg": {
         "kilde": "enhetsregisteret",
@@ -3390,6 +3399,11 @@
     }
   ],
   "org_segment": [
+    {
+      "org": "kystverket",
+      "segment": "transport",
+      "styrke": 3
+    },
     {
       "org": "bylofoten",
       "segment": "reiseliv",

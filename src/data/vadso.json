@@ -36,6 +36,17 @@
       "url": "https://data.brreg.no/regnskapsregisteret/regnskap",
       "type": "register",
       "lisens": "NLOD"
+    },
+    {
+      "key": "researchgrunnlag",
+      "navn": "Researchgrunnlaget for Maktkart (sammenstilt 24.09.2026)",
+      "type": "sekundaer"
+    },
+    {
+      "key": "statsforvalteren-no",
+      "navn": "Statsforvalteren (statsforvalteren.no)",
+      "url": "https://www.statsforvalteren.no",
+      "type": "offisiell"
     }
   ],
   "organisasjoner": [
@@ -61,6 +72,73 @@
       }
     },
     {
+      "key": "finnmark-fylkeskommune",
+      "navn": "Finnmark fylkeskommune",
+      "nivaa": "fylke",
+      "organtype": "fylkeskommune",
+      "myndighet": [],
+      "segmenter": [],
+      "gyldig_fra": "2024-01-01",
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fylkeskommunen for Finnmark, skilt ut fra Troms og Finnmark fylkeskommune 1.1.2024.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2024-01-01",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "kommunal-og-distriktsdepartementet",
+      "navn": "Kommunal- og distriktsdepartementet",
+      "kortnavn": "KDD",
+      "nivaa": "stat",
+      "organtype": "departement",
+      "rekkevidde": "nasjonal",
+      "myndighet": [
+        "regelverk"
+      ],
+      "segmenter": [],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Tolker plan- og bygningsloven, og er overordnet Statsforvalteren.",
+      "belegg": {
+        "kilde": "researchgrunnlag",
+        "verifisering": "maa_verifiseres",
+        "per": "2026-09",
+        "merknad": "Grunnlaget oppgir ikke kilde for dette."
+      }
+    },
+    {
+      "key": "statsforvalteren-troms-og-finnmark",
+      "navn": "Statsforvalteren i Troms og Finnmark",
+      "kortnavn": "Statsforvalteren",
+      "nivaa": "stat",
+      "organtype": "statsforvalter",
+      "overordnet": "kommunal-og-distriktsdepartementet",
+      "rekkevidde": "region",
+      "myndighet": [
+        "klage",
+        "tilsyn",
+        "planmyndighet"
+      ],
+      "segmenter": [
+        "eiendom-bygg",
+        "sjomat",
+        "energi",
+        "landbruk"
+      ],
+      "status": "aktiv",
+      "sensitiv": false,
+      "beskrivelse": "Fører tilsyn med kommunene, er klageinstans i plan- og byggesaker, kan fremme innsigelse mot arealplaner og har ansvar for miljø, landbruk og verneplaner.",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
+      }
+    },
+    {
       "key": "barents-nett",
       "orgnr": "971058854",
       "navn": "Barents Nett AS",
@@ -80,25 +158,6 @@
         "verifisering": "verifisert",
         "per": "2026-09-25",
         "merknad": "Utvalg: ansatte>=50, omsetning>=100000000:2025, topp10-ansatte."
-      }
-    },
-    {
-      "key": "finnmark-fylkeskommune-830090282",
-      "orgnr": "830090282",
-      "navn": "Finnmark Fylkeskommune",
-      "nivaa": "fylke",
-      "organtype": "fylkeskommune",
-      "kommunenr": "5607",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Fylkeskommune registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
       }
     },
     {
@@ -282,25 +341,6 @@
       }
     },
     {
-      "key": "statsforvalteren-i-troms-og-finnmark",
-      "orgnr": "967311014",
-      "navn": "Statsforvalteren i Troms og Finnmark",
-      "nivaa": "stat",
-      "organtype": "etat",
-      "kommunenr": "5607",
-      "myndighet": [],
-      "segmenter": [],
-      "status": "aktiv",
-      "sensitiv": false,
-      "beskrivelse": "Organisasjonsledd registrert i Enhetsregisteret med næringskode 84.110 «Generell offentlig administrasjon».",
-      "belegg": {
-        "kilde": "enhetsregisteret",
-        "verifisering": "verifisert",
-        "per": "2026-09-25",
-        "merknad": "Utvalg: ansatte>=50, topp10-ansatte."
-      }
-    },
-    {
       "key": "sykehusinnkjop",
       "orgnr": "916879067",
       "navn": "Sykehusinnkjøp HF",
@@ -452,10 +492,6 @@
       "navn": "Tom Erik Nilsen"
     },
     {
-      "key": "toril-feldt",
-      "navn": "Toril Feldt"
-    },
-    {
       "key": "tormod-harila",
       "navn": "Tormod Harila"
     },
@@ -539,18 +575,6 @@
       "tittel": "Varamedlem (valgt av de ansatte)",
       "rolletype": "varamedlem",
       "status": "vara",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "finnmark-fylkeskommune-830090282",
-      "person": "kjersti-vevstad",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
-      "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
         "verifisering": "verifisert",
@@ -694,18 +718,6 @@
       "person": "vegard-brevik-harila",
       "tittel": "Styremedlem",
       "rolletype": "styremedlem",
-      "status": "fast",
-      "belegg": {
-        "kilde": "brreg-roller",
-        "verifisering": "verifisert",
-        "per": "2026-09-25"
-      }
-    },
-    {
-      "org": "statsforvalteren-i-troms-og-finnmark",
-      "person": "toril-feldt",
-      "tittel": "Daglig leder",
-      "rolletype": "daglig_leder",
       "status": "fast",
       "belegg": {
         "kilde": "brreg-roller",
@@ -892,6 +904,16 @@
         "verifisering": "oppgitt",
         "per": "2026-09-25",
         "merknad": "Kommunestyret er kommunens øverste organ (kommuneloven § 5-1)."
+      }
+    },
+    {
+      "fra": "statsforvalteren-troms-og-finnmark",
+      "til": "kommunal-og-distriktsdepartementet",
+      "type": "overordnet",
+      "belegg": {
+        "kilde": "statsforvalteren-no",
+        "verifisering": "oppgitt",
+        "per": "2026-09"
       }
     },
     {
@@ -1151,9 +1173,41 @@
     {
       "kode": "helse",
       "navn": "Helse"
+    },
+    {
+      "kode": "eiendom-bygg",
+      "navn": "Eiendom og bygg"
+    },
+    {
+      "kode": "landbruk",
+      "navn": "Landbruk"
+    },
+    {
+      "kode": "sjomat",
+      "navn": "Sjømat, fiskeri og havbruk"
     }
   ],
   "org_segment": [
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "eiendom-bygg",
+      "styrke": 3
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "energi",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "landbruk",
+      "styrke": 2
+    },
+    {
+      "org": "statsforvalteren-troms-og-finnmark",
+      "segment": "sjomat",
+      "styrke": 2
+    },
     {
       "org": "barents-nett",
       "segment": "energi",
