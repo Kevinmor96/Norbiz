@@ -149,6 +149,34 @@ describe("den late implementasjonen", () => {
     );
   });
 
+  it("oppdager et endret regionregister, som ingen fil som lastes, ville vist", async () => {
+    // Regionen svarer uten å laste en eneste fil. Uten registerets avtrykk i
+    // indeksen sto de gamle tallene der, uten varsel.
+    const endret = structuredClone(region)!;
+    endret.kommuner[0]!.navn = "Omdøpt kommune";
+    const varsler: string[] = [];
+    const d = lagLatLokal({
+      filer: Object.fromEntries(
+        alle.map(({ slug, data }) => [slug, async () => structuredClone(data)]),
+      ),
+      indeks,
+      region: endret,
+      kontroll: "lastede",
+      varsle: (m) => varsler.push(m),
+    });
+    const fasit = lagLokal(samle(alle), { region: endret });
+    expect(await d.region_oversikt()).toStrictEqual(await fasit.region_oversikt());
+    expect(varsler.join("\n")).toMatch(/regionregisteret er endret/);
+  });
+
+  it("gir null for nøkler som finnes på alle objekter, ikke en feil", async () => {
+    const d = lat();
+    for (const key of ["constructor", "__proto__", "toString", "hasOwnProperty"]) {
+      expect(await d.organ_profil(key), key).toBeNull();
+      expect(await d.fylke_oversikt(key), key).toBeNull();
+    }
+  });
+
   it("bygger indeksen selv når det kommer en ny fil", async () => {
     const varsler: string[] = [];
     const uten = { ...indeks, datasett: indeks.datasett.filter((x) => x.slug !== "nullvik") };

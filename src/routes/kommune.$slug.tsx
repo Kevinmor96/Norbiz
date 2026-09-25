@@ -22,7 +22,7 @@
 
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { createIsomorphicFn } from "@tanstack/react-start";
-import { Suspense, use, type ReactNode } from "react";
+import { memo, Suspense, use, type ComponentType } from "react";
 
 import { BransjeSeksjon } from "@/components/kommune/bransje";
 import { EndringerSeksjon } from "@/components/kommune/endringer";
@@ -102,14 +102,14 @@ export const Route = createFileRoute("/kommune/$slug")({
 function Medsiden({
   slug,
   full,
-  children,
+  Seksjon,
 }: {
   slug: string;
   full: Side | null;
-  children: (side: Side) => ReactNode;
+  Seksjon: ComponentType<{ side: Side }>;
 }) {
   const side = full ?? use(hentSikkert(slug));
-  return children(side);
+  return <Seksjon side={side} />;
 }
 
 /**
@@ -138,24 +138,31 @@ function hentSikkert(slug: string): Promise<Side> {
   return p;
 }
 
-/** En seksjon som hydreres når hele siden er hentet. Reserven vises bare ved en feil i grensen. */
-function Utsatt({
+/**
+ * En seksjon som hydreres når hele siden er hentet. Reserven vises bare ved en
+ * feil i grensen.
+ *
+ * Grensen skal ikke få nye props før den er hydrert: da forkaster React
+ * serverens HTML og tegner seksjonen i nettleseren, med den tomme reserven i
+ * mellomtiden. `memo` og en stabil komponent i stedet for en render-funksjon
+ * gjør at en ny rendering av siden ikke gir nye props. Det samme gjelder
+ * kontekst over grensen; se ThemeProvider.
+ */
+const Utsatt = memo(function Utsatt({
   slug,
   full,
-  children,
+  Seksjon,
 }: {
   slug: string;
   full: Side | null;
-  children: (side: Side) => ReactNode;
+  Seksjon: ComponentType<{ side: Side }>;
 }) {
   return (
     <Suspense fallback={<div className="ramme min-h-[40vh]" aria-busy="true" />}>
-      <Medsiden slug={slug} full={full}>
-        {children}
-      </Medsiden>
+      <Medsiden slug={slug} full={full} Seksjon={Seksjon} />
     </Suspense>
   );
-}
+});
 
 function Kommuneside() {
   const { lett, full } = Route.useLoaderData();
@@ -174,34 +181,16 @@ function Kommuneside() {
         proHref="#pro"
       />
       <main id="innhold">
-        <Utsatt slug={slug} full={side}>
-          {(s) => <ToppSeksjon side={s} />}
-        </Utsatt>
+        <Utsatt slug={slug} full={side} Seksjon={ToppSeksjon} />
         <MargIndeks seksjoner={SEKSJONER}>
-          <Utsatt slug={slug} full={side}>
-            {(s) => <KjedeSeksjon side={s} />}
-          </Utsatt>
-          <Utsatt slug={slug} full={side}>
-            {(s) => <OrgankartSeksjon side={s} />}
-          </Utsatt>
-          <Utsatt slug={slug} full={side}>
-            {(s) => <PengeneSeksjon side={s} />}
-          </Utsatt>
-          <Utsatt slug={slug} full={side}>
-            {(s) => <NettverkSeksjon side={s} />}
-          </Utsatt>
-          <Utsatt slug={slug} full={side}>
-            {(s) => <EndringerSeksjon side={s} />}
-          </Utsatt>
-          <Utsatt slug={slug} full={side}>
-            {(s) => <BransjeSeksjon side={s} />}
-          </Utsatt>
-          <Utsatt slug={slug} full={side}>
-            {(s) => <NesteSeksjon side={s} />}
-          </Utsatt>
-          <Utsatt slug={slug} full={side}>
-            {(s) => <MetodeProSeksjon side={s} />}
-          </Utsatt>
+          <Utsatt slug={slug} full={side} Seksjon={KjedeSeksjon} />
+          <Utsatt slug={slug} full={side} Seksjon={OrgankartSeksjon} />
+          <Utsatt slug={slug} full={side} Seksjon={PengeneSeksjon} />
+          <Utsatt slug={slug} full={side} Seksjon={NettverkSeksjon} />
+          <Utsatt slug={slug} full={side} Seksjon={EndringerSeksjon} />
+          <Utsatt slug={slug} full={side} Seksjon={BransjeSeksjon} />
+          <Utsatt slug={slug} full={side} Seksjon={NesteSeksjon} />
+          <Utsatt slug={slug} full={side} Seksjon={MetodeProSeksjon} />
         </MargIndeks>
       </main>
       <Sidefot

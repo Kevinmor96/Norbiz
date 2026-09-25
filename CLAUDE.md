@@ -74,6 +74,8 @@ trenger, fordi samlingen er en union: rollene i et organ kan stå i en annen
 kommunes fil. `tests/lat.test.ts` beviser at svaret over de filene er likt
 svaret over alle, og at den innsjekkede indeksen er oppdatert. Kjør derfor
 `npm run data:indeks` etter hver endring i `src/data/`, som `seed:build`.
+Byggene stopper ellers (`prebuild`), fordi en gammel indeks kan gi feil svar
+uten feilmelding.
 Nettleseren får aldri datalaget. HTML-en har en lett nyttelast
 (`src/lib/lettside.ts`), og resten hentes etter visning via serverfunksjoner i
 `src/lib/data/hent.ts`. I den statiske eksporten er det filer under `/data/`.

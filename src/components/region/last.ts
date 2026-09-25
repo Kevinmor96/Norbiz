@@ -32,14 +32,20 @@ const tomKlasser = (): Klassetelling =>
   Object.fromEntries(DEKNINGSKLASSER.map((k) => [k, 0])) as Klassetelling;
 
 /**
- * Dekningsklassen: hvor mye av svaret datasettet har. Beslutningskjeder når
- * datasettet har prosessteg, ordfører når kommunen har en aktiv politisk leder
- * (`datasett.ledere.politisk_leder`, samme telling som `kommune_oversikt.ledere`),
- * ellers bare registre. Uten datasett: ikke kartlagt.
+ * Dekningsklassen: hvor mye av svaret datasettet har.
+ *
+ * Beslutningskjeder med kilde når minst ett steg i en kjede er oppgitt eller
+ * verifisert. Hver kommune har kjeder for reguleringsplan og budsjett etter
+ * vanlig saksgang, men uten hentet lovhjemmel er de ikke etterprøvd, og det
+ * skiller ikke kommunene. Folkevalgte når kommunen har en aktiv politisk leder
+ * (`datasett.ledere.politisk_leder`, samme telling som
+ * `kommune_oversikt.ledere`), ellers bare registre. Uten datasett: ikke
+ * kartlagt.
  */
 function klasseFor(k: RegionKommune): Dekningsklasse {
   if (!k.datasett) return "ingen";
-  if (k.datasett.grader.prosess_steg.totalt > 0) return "kjeder";
+  const steg = k.datasett.grader.prosess_steg;
+  if (steg.verifisert + steg.oppgitt > 0) return "kjeder";
   if (k.datasett.ledere.politisk_leder > 0) return "folkevalgte";
   return "register";
 }

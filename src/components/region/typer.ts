@@ -28,19 +28,19 @@ export const DEKNINGSKLASSER: readonly Dekningsklasse[] = [
 
 export const DEKNING: Record<Dekningsklasse, { navn: string; forklaring: string }> = {
   kjeder: {
-    navn: "Beslutningskjeder",
+    navn: "Beslutningskjeder med kilde",
     forklaring:
-      "Hvem som forbereder og hvem som vedtar, steg for steg. I tillegg ordføreren og roller fra registrene.",
+      "Hvem som forbereder og hvem som vedtar, steg for steg, med kilde på stegene. I tillegg ordføreren, kommunestyret og roller fra registrene.",
   },
   folkevalgte: {
-    navn: "Ordfører og registre",
+    navn: "Folkevalgte og registre",
     forklaring:
-      "Ordføreren og de folkevalgte organene datasettet har, og roller i kommunen, selskapene og styrene fra registrene.",
+      "Ordføreren, kommunestyret og kommuneledelsen, og roller i kommunen, selskapene og styrene fra registrene. Beslutningskjedene følger vanlig saksgang og er ikke etterprøvd.",
   },
   register: {
     navn: "Bare registre",
     forklaring:
-      "Roller i kommunen, selskapene og styrene fra Brønnøysundregistrene. Ordføreren og de folkevalgte er ikke hentet ennå.",
+      "Roller i kommunen, selskapene og styrene fra Brønnøysundregistrene. Ordføreren er ikke hentet ennå.",
   },
   ingen: {
     navn: "Ikke kartlagt",

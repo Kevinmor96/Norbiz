@@ -13,10 +13,16 @@
 // kommune, hvert organ og hvert fylke.
 //
 // Indeksen regnes fra datasettene og regionregisteret, deterministisk: samme
-// filer gir byte-lik indeks. `tests/lat.test.ts` krever at den innsjekkede er
-// oppdatert, som seed-en. Er den likevel gammel når siden kjører (en ny fil,
-// eller en fil med annet innhold), bygger `lat.ts` den på nytt fra alle
-// filene og sier fra i loggen. Da er siden treg, ikke feil.
+// filer gir byte-lik indeks. En gammel indeks kan gi feil svar uten feilmelding:
+// endres en fil siden ikke laster for svaret, ser ingen at en rad mangler. Den
+// stoppes derfor før siden kjører. `tests/lat.test.ts` krever at den
+// innsjekkede er oppdatert, som seed-en, og byggene (`prebuild` i
+// package.json) stopper med `data:indeks -- --sjekk`.
+//
+// Når siden kjører, sjekker `lat.ts` det som er billig: filsettet,
+// regionregisterets avtrykk og avtrykket til hver fil den laster. Stemmer ikke
+// det, bygges indeksen på nytt fra alle filene, med en melding i loggen. En
+// endret fil som ikke lastes, fanges bare i utvikling (`kontroll: "alle"`).
 //
 // Fila er ren: ingen filsystem og ingen Vite. Skriptet og testene gir den
 // datasettene.
@@ -37,7 +43,13 @@ export interface IndeksDatasett {
 }
 
 export interface Dataindeks {
-  versjon: 1;
+  /** 2: med `region`. En eldre indeks stemmer ikke og bygges på nytt. */
+  versjon: 2;
+  /**
+   * Avtrykk av regionregisteret indeksen er regnet med, eller `null` uten
+   * register. Kommunelista, fylkene og tallene per fylke kommer derfra.
+   */
+  region: string | null;
   /** Sortert på slug. */
   datasett: IndeksDatasett[];
   /** Alle segmentene i samlingen, sortert på kode. `kommune_oversikt` lister dem alle. */
@@ -300,7 +312,8 @@ export function byggIndeks(
   }
 
   return {
-    versjon: 1,
+    versjon: 2,
+    region: region ? avtrykk(region) : null,
     datasett: filer.map(({ slug, data }) => ({
       slug,
       avtrykk: avtrykk(data),
@@ -334,6 +347,7 @@ export function skrivIndeks(ix: Dataindeks): string {
   return [
     "{",
     `  "versjon": ${ix.versjon},`,
+    `  "region": ${JSON.stringify(ix.region)},`,
     `  "datasett": ${liste(ix.datasett, 2)},`,
     `  "segmenter": ${liste(ix.segmenter, 2)},`,
     `  "kommune": ${blokk(ix.kommune, 2)},`,

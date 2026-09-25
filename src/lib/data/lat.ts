@@ -8,11 +8,12 @@
 // kommune og fylke fra indeksen, fordi det er ting en del av samlingen ikke
 // kan vite.
 //
-// Er indeksen gammel, bygges den på nytt fra alle filene. `kontroll` sier hvor
-// grundig det sjekkes:
+// Er indeksen gammel, bygges den på nytt fra alle filene. Versjonen,
+// filsettet og regionregisterets avtrykk sjekkes alltid. `kontroll` sier hvor
+// grundig filene sjekkes:
 //
 // - `lastede`: filsettet, og avtrykket til hver fil som lastes. Billig, og det
-//   som brukes i produksjon, der testene har sjekket indeksen før bygget.
+//   som brukes i produksjon, der bygget stopper en gammel indeks (`prebuild`).
 // - `alle`: laster alle filene første gang og sammenligner hvert avtrykk. For
 //   utvikling, der datasettene endres mens serveren går.
 
@@ -89,6 +90,11 @@ export function lagLatLokal(kilde: Datakilde): LatDatalag {
     sjekket ??= (async () => {
       const ix = kilde.indeks;
       if (!ix) return byggFraFilene("den mangler");
+      if (ix.versjon !== 2) return byggFraFilene(`den har versjon ${String(ix.versjon)}`);
+      // Kommunelista, fylkene og tallene per fylke kommer fra registeret, og
+      // ingen fil som lastes, ville vist at det er endret.
+      const region = kilde.region ? avtrykk(kilde.region) : null;
+      if (ix.region !== region) return byggFraFilene("regionregisteret er endret");
       const iIndeks = ix.datasett.map((d) => d.slug);
       if (iIndeks.join(",") !== slugs.join(",")) {
         const nye = slugs.filter((x) => !iIndeks.includes(x));
@@ -113,7 +119,13 @@ export function lagLatLokal(kilde: Datakilde): LatDatalag {
 
   // Én samling per mengde filer. Nøkkelen tar med hvilken indeks den er
   // regnet med, så en ny indeks ikke gjenbruker samlinger fra den gamle.
+  //
+  // Bufferet har et tak og kaster den som er brukt minst nylig. Uten tak ga
+  // alle 80 kommunesider og 1 656 organer 196 samlinger og rundt 70 MB mer
+  // minne, og en Cloudflare-isolat har 128 MB. Filene selv (rundt 11 MB for
+  // alle) holdes fortsatt, så en kastet samling er rask å regne igjen.
   const samlinger = new Map<string, LokalDatalag>();
+  const MAKS_SAMLINGER = 24;
 
   async function over(finn: (ix: Dataindeks) => string[] | null): Promise<LokalDatalag | null> {
     let ix = await indeks();
@@ -130,7 +142,11 @@ export function lagLatLokal(kilde: Datakilde): LatDatalag {
     }
     const nokkel = `${ix === kilde.indeks ? "innsjekket" : "bygget"}:${[...filer].sort(tekst).join(",")}`;
     let d = samlinger.get(nokkel);
-    if (!d) {
+    if (d) {
+      // Sist brukt bakerst: en Map holder innsettingsrekkefølgen.
+      samlinger.delete(nokkel);
+      samlinger.set(nokkel, d);
+    } else {
       const s = samle(data);
       const egne = new Map(s.kommuner.map((k) => [k.slug, k]));
       // Hele kommunelista fra indeksen. Prosessene finnes bare for kommunene som
@@ -143,6 +159,7 @@ export function lagLatLokal(kilde: Datakilde): LatDatalag {
         if (!s.segmenter.has(seg.kode)) s.segmenter.set(seg.kode, seg);
       d = lagLokal(s, { region: kilde.region, aggregater: ix.aggregater });
       samlinger.set(nokkel, d);
+      if (samlinger.size > MAKS_SAMLINGER) samlinger.delete(samlinger.keys().next().value!);
     }
     return d;
   }

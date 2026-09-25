@@ -1,4 +1,12 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import {
+  createContext,
+  startTransition,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 
 /** «system» betyr at prefers-color-scheme bestemmer. Det er standard. */
 export type Theme = "light" | "dark" | "system";
@@ -53,9 +61,16 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setThemeState(readStoredTheme());
-    setSystemDark(systemPrefersDark());
-    setMounted(true);
+    // I en transition: React vet ikke hvilke kontekster en uhydrert
+    // Suspense-grense bruker, så en vanlig oppdatering her tvinger hver grense
+    // som venter på data (kommunesidens seksjoner) over til å tegnes i
+    // nettleseren, med tom reserve i mellomtiden. En transition kan vente til
+    // grensene er hydrert.
+    startTransition(() => {
+      setThemeState(readStoredTheme());
+      setSystemDark(systemPrefersDark());
+      setMounted(true);
+    });
 
     const mql = window.matchMedia("(prefers-color-scheme: dark)");
     const onChange = () => setSystemDark(mql.matches);
@@ -77,15 +92,19 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const resolvedTheme: "light" | "dark" =
     theme === "system" ? (systemDark ? "dark" : "light") : theme;
 
-  const toggleTheme = () => {
-    setThemeState(resolvedTheme === "dark" ? "light" : "dark");
-  };
-
-  return (
-    <ThemeContext.Provider value={{ theme, resolvedTheme, setTheme: setThemeState, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+  // Samme objekt så lenge temaet er det samme. Et nytt objekt per rendering er
+  // en kontekstendring, og den har samme virkning som over.
+  const verdi = useMemo<ThemeContextValue>(
+    () => ({
+      theme,
+      resolvedTheme,
+      setTheme: setThemeState,
+      toggleTheme: () => setThemeState(resolvedTheme === "dark" ? "light" : "dark"),
+    }),
+    [theme, resolvedTheme],
   );
+
+  return <ThemeContext.Provider value={verdi}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {

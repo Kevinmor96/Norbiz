@@ -25,7 +25,7 @@ omskriving. Dette dokumentet er rekkefølgen.
 
 1. **Opprett et eget Supabase-prosjekt for Maktkart** i EU-region. Bruk ikke
    Bransjesjekk-basen, fordi personopplysninger gir en annen personvernprofil.
-2. **Kjør migrasjonene** `0001`–`0016` i rekkefølge med `supabase db push`, eller
+2. **Kjør migrasjonene** `0001`–`0018` i rekkefølge med `supabase db push`, eller
    med `apply_migration` via MCP. Kjør deretter `supabase/seed/seed.sql`.
    Kontroller i SQL-editoren at `select public.kommuner();` returnerer Tromsø.
 3. **Bytt datakilde.** I `src/lib/data/index.ts` byttes `data = lokal` med
@@ -61,7 +61,12 @@ Grunnmuren er kopiert fra Bransjesjekk-prosjektet, med disse bevisste avvikene:
 - **Temaleverandøren** støtter system, lys og mørk via `data-theme`. Et lite
   skript i `<head>` setter temaet før første maling.
 - **Ekstra skript** i `package.json`: `typecheck`, `test`, `seed:build`,
-  `terreng`, `build:node`, `build:statisk` og `start`. Ekstra filer er
+  `data:indeks`, `terreng`, `build:node`, `build:statisk` og `start`.
+- **`prebuild`** kjører `data:indeks -- --sjekk` og stopper bygget når
+  dataindeksen er eldre enn datasettene. En gammel indeks kan gi feil svar
+  uten feilmelding. Bygger Lovable med `vite build` direkte, uten `npm run
+  build`, gjelder ikke sjekken. Da må indeksen være oppdatert før push, og
+  testene sjekker det. Ekstra filer er
   `vite.statisk.config.ts` og `vitest.config.ts`. Lovable trenger ingen av dem,
   og de kan ligge.
 - **`npm run preview` virker ikke** med Lovables konfigurasjon i dette oppsettet.

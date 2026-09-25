@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "prebuild": "tsx scripts/dataindeks.ts --sjekk",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "prebuild:node": "tsx scripts/dataindeks.ts --sjekk",
     "build:node": "NITRO_PRESET=node-server vite build",
+    "prebuild:statisk": "tsx scripts/dataindeks.ts --sjekk",
     "build:statisk": "vite build --config vite.statisk.config.ts",
     "preview": "vite preview",
     "start": "node .output/server/index.mjs",
