@@ -16,7 +16,8 @@ import type { Kommuneside } from "@/lib/kommuneside";
 import { DEL_AV_EIEREN } from "@/lib/graf/modell";
 
 const nb = new Intl.Collator("nb");
-const etterNavn = (a: OrganRef, b: OrganRef) => nb.compare(a.navn, b.navn) || (a.key < b.key ? -1 : 1);
+const etterNavn = (a: OrganRef, b: OrganRef) =>
+  nb.compare(a.navn, b.navn) || (a.key < b.key ? -1 : 1);
 
 /** Kilden sier at beløpet er et forslag. Datasettet har det i fritekst, ikke i et felt. */
 const FORSLAG = /foresl|forslag/i;
@@ -85,7 +86,12 @@ export function eierandeler(side: Kommuneside, elvSelskap: string | null) {
   // i siste omsetning eller egenkapital. Ukjent andel sist, fordi den ikke kan
   // rangeres. Da står de viktigste øverst også når lista er lang.
   const storrelse = (r: Eierrad) =>
-    Math.max(0, ...r.tall.filter((t) => t.type === "omsetning" || t.type === "egenkapital").map((t) => t.verdi));
+    Math.max(
+      0,
+      ...r.tall
+        .filter((t) => t.type === "omsetning" || t.type === "egenkapital")
+        .map((t) => t.verdi),
+    );
   direkte.sort(
     (a, b) =>
       (a.andel === null ? 1 : 0) - (b.andel === null ? 1 : 0) ||
@@ -124,7 +130,8 @@ export function utbytteElv(side: Kommuneside) {
   const total = (u: Eierskap["utbytte"][number]) => Math.max(u.total?.verdi ?? 0, u.sum_mottakere);
   const kandidater = e.utbytte.filter((u) => u.mottakere.some((m) => (m.belop_nok ?? 0) > 0));
   const valgt = [...kandidater].sort(
-    (a, b) => tilEier(b) - tilEier(a) || total(b) - total(a) || (a.selskap.key < b.selskap.key ? -1 : 1),
+    (a, b) =>
+      tilEier(b) - tilEier(a) || total(b) - total(a) || (a.selskap.key < b.selskap.key ? -1 : 1),
   )[0];
   if (!valgt) return null;
 
@@ -143,7 +150,9 @@ export function utbytteElv(side: Kommuneside) {
   const endringer = [...side.endringer.skjedd, ...side.endringer.ikke_skjedd].filter(
     (x: Endringer["skjedd"][number]) => x.type === "utbytte" && x.org?.key === valgt.selskap.key,
   );
-  const hull = side.hull.filter((h) => h.gjelder.key === valgt.selskap.key && /utbytte/i.test(h.hva));
+  const hull = side.hull.filter(
+    (h) => h.gjelder.key === valgt.selskap.key && /utbytte/i.test(h.hva),
+  );
   const tekster = [
     valgt.total?.belegg.merknad,
     ...valgt.mottakere.map((m) => m.belegg.merknad),
@@ -173,9 +182,7 @@ export function kommuneregnskap(side: Kommuneside) {
   // Rekkefølgen er datakontraktens (nøkkeltallene er alt sortert på type innenfor året).
   const rekke: Nokkeltalltype[] = [];
   for (const t of p.nokkeltall) if (!rekke.includes(t.type)) rekke.push(t.type);
-  const ordnet = [...rekke].sort(
-    (a, b) => TYPEREKKE.indexOf(a) - TYPEREKKE.indexOf(b),
-  );
+  const ordnet = [...rekke].sort((a, b) => TYPEREKKE.indexOf(a) - TYPEREKKE.indexOf(b));
   return ordnet.map((type) => ({
     type,
     tall: [...(grupper.get(type) ?? [])].sort((a, b) => b.aar - a.aar),

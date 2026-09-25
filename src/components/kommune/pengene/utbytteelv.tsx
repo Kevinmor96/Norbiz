@@ -41,7 +41,11 @@ interface Gren {
 
 function grener(elv: Elv): Gren[] {
   const deler = [
-    ...elv.mottakere.map((m) => ({ nokkel: m.org.key, mottaker: m as Mottaker | null, belop: m.belop })),
+    ...elv.mottakere.map((m) => ({
+      nokkel: m.org.key,
+      mottaker: m as Mottaker | null,
+      belop: m.belop,
+    })),
     ...(elv.ufordelt > 0 ? [{ nokkel: "ufordelt", mottaker: null, belop: elv.ufordelt }] : []),
   ];
   const n = deler.length;
@@ -167,10 +171,23 @@ export function Utbytteelv({
               />
             ),
           )}
+          {/* Kilden: en strek over stammen, der hele beløpet går ut. */}
+          <line
+            x1={r((B - STAMME) / 2 - 8)}
+            x2={r((B + STAMME) / 2 + 8)}
+            y1="1"
+            y2="1"
+            className="stroke-trykk"
+            strokeWidth="2"
+            vectorEffect="non-scaling-stroke"
+          />
           {gs
             .filter((g) => g.mottaker && g.w >= 8)
             .map((g) => (
-              <g key={`strom-${g.nokkel}`} className={g.mottaker?.erEieren ? "stroke-papir" : "stroke-vann"}>
+              <g
+                key={`strom-${g.nokkel}`}
+                className={g.mottaker?.erEieren ? "stroke-papir" : "stroke-vann"}
+              >
                 <path
                   d={stromsti(g)}
                   pathLength={1}
@@ -229,7 +246,9 @@ export function Utbytteelv({
                     {g.mottaker.org.navn}
                   </span>
                   {g.mottaker.andel !== null && (
-                    <span className="text-[0.75rem] text-dempet">eier {prosent(g.mottaker.andel)}</span>
+                    <span className="text-[0.75rem] text-dempet">
+                      eier {prosent(g.mottaker.andel)}
+                    </span>
                   )}
                 </>
               ) : (
@@ -247,7 +266,11 @@ export function Utbytteelv({
         <div className="flex flex-col gap-1.5 text-[0.8125rem] leading-[1.5] text-dempet">
           {elv.hull.length > 0
             ? elv.hull.map((h) => <p key={h.hva}>{lesbar(h.hva)}</p>)
-            : elv.forslag && <p>Kilden omtaler beløpet som et forslag. Datasettet sier ikke om det er vedtatt.</p>}
+            : elv.forslag && (
+                <p>
+                  Kilden omtaler beløpet som et forslag. Datasettet sier ikke om det er vedtatt.
+                </p>
+              )}
         </div>
       )}
     </div>

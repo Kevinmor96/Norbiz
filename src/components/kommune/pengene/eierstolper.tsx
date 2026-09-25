@@ -137,8 +137,8 @@ export function Eierstolper({
       <Blokktittel id={tittelId}>Eierandeler</Blokktittel>
       <p className="brodtekst text-[0.9375rem] text-dempet">
         {rader.length} selskaper {eier.navn} eier direkte, størst andel først
-        {utenAndel > 0 ? `. ${utenAndel} av dem uten oppgitt andel står sist` : ""}. Stolpen er
-        hele selskapet, og den fylte delen er kommunens andel.
+        {utenAndel > 0 ? `. ${utenAndel} av dem uten oppgitt andel står sist` : ""}. Stolpen er hele
+        selskapet, og den fylte delen er kommunens andel.
       </p>
       <VisAlle
         className="mt-2"

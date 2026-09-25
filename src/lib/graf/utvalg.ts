@@ -129,7 +129,17 @@ export function passer(k: Personkant, f: Filter, ktx: Kontekst): boolean {
 
 /** Fast rekkefølge for avkorting: etter organ, så person. Aldri etter hvor mange koblinger en person har. */
 const rekkefolge = (a: Personkant, b: Personkant) =>
-  a.fra < b.fra ? -1 : a.fra > b.fra ? 1 : a.til < b.til ? -1 : a.til > b.til ? 1 : a.person.key < b.person.key ? -1 : 1;
+  a.fra < b.fra
+    ? -1
+    : a.fra > b.fra
+      ? 1
+      : a.til < b.til
+        ? -1
+        : a.til > b.til
+          ? 1
+          : a.person.key < b.person.key
+            ? -1
+            : 1;
 
 export function velgKoblinger(modell: Grafmodell, filter: Filter, ktx: Kontekst): Utvalg {
   const alle = [...modell.personkanter].sort(rekkefolge);
@@ -150,8 +160,7 @@ export function velgKoblinger(modell: Grafmodell, filter: Filter, ktx: Kontekst)
     return { kanter: alle, treff: totalt, totalt, regel: "alle", lag: null, avkortet: false };
   }
   // Så langt ut fra kommunen som det er plass til.
-  const naermest = (k: Personkant) =>
-    Math.min(ktx.lag.get(k.fra) ?? 9, ktx.lag.get(k.til) ?? 9);
+  const naermest = (k: Personkant) => Math.min(ktx.lag.get(k.fra) ?? 9, ktx.lag.get(k.til) ?? 9);
   let valgt: Personkant[] = [];
   let lag: Kommunelag = 1;
   for (const l of [1, 2, 3] as const) {
@@ -189,6 +198,9 @@ export function delnettverk(nettverk: Nettverk, kanter: Personkant[]): Nettverk 
     kanter: nk,
     personer: nettverk.personer
       .filter((p) => perPerson.has(p.person.key))
-      .map((p) => ({ ...p, roller: p.roller.filter((r) => perPerson.get(p.person.key)?.has(r.org.key)) })),
+      .map((p) => ({
+        ...p,
+        roller: p.roller.filter((r) => perPerson.get(p.person.key)?.has(r.org.key)),
+      })),
   };
 }

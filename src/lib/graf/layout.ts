@@ -257,7 +257,10 @@ const rund = (v: number) => Math.round(v * 10) / 10;
 
 function overlapp(a: Boks, b: Boks, luft = KLARING): boolean {
   return (
-    a.x < b.x + b.b + luft && b.x < a.x + a.b + luft && a.y < b.y + b.h + luft && b.y < a.y + a.h + luft
+    a.x < b.x + b.b + luft &&
+    b.x < a.x + a.b + luft &&
+    a.y < b.y + b.h + luft &&
+    b.y < a.y + a.h + luft
   );
 }
 
@@ -398,7 +401,8 @@ class Rutenett {
     const y0 = Math.floor(b.y / CELLE);
     const y1 = Math.floor((b.y + b.h) / CELLE);
     const ut: number[] = [];
-    for (let x = x0; x <= x1; x++) for (let y = y0; y <= y1; y++) ut.push((x + 2048) * 8192 + (y + 2048));
+    for (let x = x0; x <= x1; x++)
+      for (let y = y0; y <= y1; y++) ut.push((x + 2048) * 8192 + (y + 2048));
     return ut;
   }
 
@@ -459,12 +463,22 @@ function leggKant(g: Rutenett, id: string, punkter: [number, number][]): void {
       const ay = y1 + ((y2 - y1) * j) / biter;
       const bx = x1 + ((x2 - x1) * (j + 1)) / biter;
       const by = y1 + ((y2 - y1) * (j + 1)) / biter;
-      g.legg(id, { x: Math.min(ax, bx) - 1, y: Math.min(ay, by) - 1, b: Math.abs(bx - ax) + 2, h: Math.abs(by - ay) + 2 });
+      g.legg(id, {
+        x: Math.min(ax, bx) - 1,
+        y: Math.min(ay, by) - 1,
+        b: Math.abs(bx - ax) + 2,
+        h: Math.abs(by - ay) + 2,
+      });
     }
   }
 }
 
-const utvid = (b: Boks, d: number): Boks => ({ x: b.x - d, y: b.y - d, b: b.b + 2 * d, h: b.h + 2 * d });
+const utvid = (b: Boks, d: number): Boks => ({
+  x: b.x - d,
+  y: b.y - d,
+  b: b.b + 2 * d,
+  h: b.h + 2 * d,
+});
 
 // ---------------------------------------------------------------------------
 // Etikettplassering
@@ -546,7 +560,9 @@ const PARAMETRE = [
  * Først avstandene med startposisjonene fra nøkkelen alene, så de samme
  * avstandene fra to andre, like faste startoppsett.
  */
-const VARIANTER: Variant[] = ["", "b", "c"].flatMap((salt) => PARAMETRE.map((p) => ({ ...p, salt })));
+const VARIANTER: Variant[] = ["", "b", "c"].flatMap((salt) =>
+  PARAMETRE.map((p) => ({ ...p, salt })),
+);
 
 /** Store grafer prøver færre varianter og færre steg, så de holder seg under 200 ms. */
 function budsjett(antall: number): { varianter: number; steg: number } {
@@ -606,7 +622,10 @@ function simuler(
   // Fjæra er minst så lang som det bredeste skiltet på kanten, så navnet får
   // plass mellom organene.
   type Lenke = SimulationLinkDatum<SimNode> & { lengde: number; styrke: number };
-  const par = new Map<string, { source: string; target: string; person: number; eier: number; skilt: number }>();
+  const par = new Map<
+    string,
+    { source: string; target: string; person: number; eier: number; skilt: number }
+  >();
   for (const k of [...inn.kanter].sort((a, b) => (a.id < b.id ? -1 : 1))) {
     if (!finnes.has(k.fra) || !finnes.has(k.til) || k.fra === k.til) continue;
     const [s, t] = k.fra < k.til ? [k.fra, k.til] : [k.til, k.fra];
@@ -648,7 +667,10 @@ function simuler(
         .distance((l) => l.lengde)
         .strength((l) => l.styrke),
     )
-    .force("frastoting", forceManyBody<SimNode>().strength(v.frastoting).distanceMax(700).theta(0.9))
+    .force(
+      "frastoting",
+      forceManyBody<SimNode>().strength(v.frastoting).distanceMax(700).theta(0.9),
+    )
     .force("x", forceX<SimNode>(bredde / 2).strength(0.04))
     .force("y", forceY<SimNode>(midtY).strength(0.085))
     // Kollisjonskraften er den dyreste. Store grafer klarer seg med frastøtingen.
@@ -676,7 +698,10 @@ function simuler(
   const oy = (hoyde - (maxY - minY) * s) / 2;
   const pos = new Map<string, { x: number; y: number }>();
   for (const n of noder) {
-    pos.set(n.key, { x: rund(ox + ((n.x ?? 0) - minX) * s), y: rund(oy + ((n.y ?? 0) - minY) * s) });
+    pos.set(n.key, {
+      x: rund(ox + ((n.x ?? 0) - minX) * s),
+      y: rund(oy + ((n.y ?? 0) - minY) * s),
+    });
   }
   return { pos, hoyde };
 }
@@ -702,7 +727,12 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
   const nodeNett = new Rutenett();
   for (const n of noder) {
     const p = punkt(n.key);
-    nodeNett.legg(n.key, { x: p.x - NODE_RADIUS, y: p.y - NODE_RADIUS, b: 2 * NODE_RADIUS, h: 2 * NODE_RADIUS });
+    nodeNett.legg(n.key, {
+      x: p.x - NODE_RADIUS,
+      y: p.y - NODE_RADIUS,
+      b: 2 * NODE_RADIUS,
+      h: 2 * NODE_RADIUS,
+    });
   }
   const noderNaer = (b: Boks, r: number) => nodeNett.finn(utvid(b, r));
 
@@ -723,11 +753,23 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
     for (let i = 1; i < punkter.length; i++) {
       const [x1, y1] = punkter[i - 1] ?? [0, 0];
       const [x2, y2] = punkter[i] ?? [0, 0];
-      const b = { x: Math.min(x1, x2), y: Math.min(y1, y2), b: Math.abs(x2 - x1), h: Math.abs(y2 - y1) };
+      const b = {
+        x: Math.min(x1, x2),
+        y: Math.min(y1, y2),
+        b: Math.abs(x2 - x1),
+        h: Math.abs(y2 - y1),
+      };
       for (const key of noderNaer(b, NODE_RADIUS + 10)) {
         if (key === k.fra || key === k.til) continue;
         const r = punkt(key);
-        if (avstandTilLinje(r.x, r.y, [[x1, y1], [x2, y2]]) < NODE_RADIUS + 10) n += 1;
+        if (
+          avstandTilLinje(r.x, r.y, [
+            [x1, y1],
+            [x2, y2],
+          ]) <
+          NODE_RADIUS + 10
+        )
+          n += 1;
       }
     }
     return n;
@@ -747,7 +789,9 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
       return s ? (Math.abs(nx) * s.bredde) / 2 + (Math.abs(ny) * s.hoyde) / 2 : 2;
     };
     // Eierkanten i midten, personkantene fordelt på begge sider.
-    const personer = gruppe.filter((k) => k.lag === "person").sort((a, b) => (a.id < b.id ? -1 : 1));
+    const personer = gruppe
+      .filter((k) => k.lag === "person")
+      .sort((a, b) => (a.id < b.id ? -1 : 1));
     const eiere = gruppe.filter((k) => k.lag === "eier").sort((a, b) => (a.id < b.id ? -1 : 1));
     const halv = Math.ceil(personer.length / 2);
     const ordnet = [...personer.slice(0, halv), ...eiere, ...personer.slice(halv)];
@@ -777,7 +821,16 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
           }
         }
       }
-      kanter.push({ id: k.id, fra: k.fra, til: k.til, lag: k.lag, bue, sti: kv.sti, punkter: kv.punkter, skilt: null });
+      kanter.push({
+        id: k.id,
+        fra: k.fra,
+        til: k.til,
+        lag: k.lag,
+        bue,
+        sti: kv.sti,
+        punkter: kv.punkter,
+        skilt: null,
+      });
     });
   }
 
@@ -790,7 +843,12 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
       id: k.id,
       x: c.x,
       y: c.y,
-      boks: { x: c.x - k.skilt.bredde / 2, y: c.y - k.skilt.hoyde / 2, b: k.skilt.bredde, h: k.skilt.hoyde },
+      boks: {
+        x: c.x - k.skilt.bredde / 2,
+        y: c.y - k.skilt.hoyde / 2,
+        b: k.skilt.bredde,
+        h: k.skilt.hoyde,
+      },
       skjult: false,
     });
     for (const o of [...k.organer].sort()) {
@@ -913,14 +971,17 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
     const ts = skiltT(grad.get(k.fra) ?? 0, grad.get(k.til) ?? 0);
     for (const [i, t] of (stor ? ts.slice(0, 3) : ts).entries()) {
       const [x, y] =
-        bue === 0 ? [a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t] : bezier([a.x, a.y], kp, [b.x, b.y], t);
+        bue === 0
+          ? [a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t]
+          : bezier([a.x, a.y], kp, [b.x, b.y], t);
       const boks = { x: x - s.bredde / 2, y: y - s.hoyde / 2, b: s.bredde, h: s.hoyde };
       let poeng = i * 0.1;
       if (utenfor(boks, lerret)) poeng += 100;
       poeng += 100 * etiketterOver(boks, `skilt:${k.id}`);
       poeng += 100 * noderUnder(boks, "");
       poeng += 10 * kanterIBoks(boks, (m) => m.id === k.id);
-      if (!best || poeng < best.poeng) best = { skilt: { x: rund(x), y: rund(y), boks, skjult: false }, poeng };
+      if (!best || poeng < best.poeng)
+        best = { skilt: { x: rund(x), y: rund(y), boks, skjult: false }, poeng };
       if (poeng < 1) break;
     }
     void punkter;
@@ -935,8 +996,17 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
       const s = skiltFor.get(k.id);
       const a = punkt(k.fra);
       const b = punkt(k.til);
-      const [x, y] = k.bue === 0 ? [(a.x + b.x) / 2, (a.y + b.y) / 2] : bezier([a.x, a.y], kontroll(a, b, k.bue), [b.x, b.y], 0.5);
-      if (s) k.skilt = { x: rund(x), y: rund(y), boks: { x: x - s.bredde / 2, y: y - s.hoyde / 2, b: s.bredde, h: s.hoyde }, skjult: true };
+      const [x, y] =
+        k.bue === 0
+          ? [(a.x + b.x) / 2, (a.y + b.y) / 2]
+          : bezier([a.x, a.y], kontroll(a, b, k.bue), [b.x, b.y], 0.5);
+      if (s)
+        k.skilt = {
+          x: rund(x),
+          y: rund(y),
+          boks: { x: x - s.bredde / 2, y: y - s.hoyde / 2, b: s.bredde, h: s.hoyde },
+          skjult: true,
+        };
       continue;
     }
     const best = plasserSkilt(k, k.punkter, k.bue);
@@ -959,7 +1029,12 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
     for (let i = 1; i < punkter.length; i++) {
       const [x1, y1] = punkter[i - 1] ?? [0, 0];
       const [x2, y2] = punkter[i] ?? [0, 0];
-      const b = { x: Math.min(x1, x2), y: Math.min(y1, y2), b: Math.abs(x2 - x1), h: Math.abs(y2 - y1) };
+      const b = {
+        x: Math.min(x1, x2),
+        y: Math.min(y1, y2),
+        b: Math.abs(x2 - x1),
+        h: Math.abs(y2 - y1),
+      };
       for (const id of etikettNett.finn(b)) {
         if (id === `skilt:${k.id}`) continue;
         const e = bokser.get(id);
@@ -988,13 +1063,19 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
       // Skiltet tas ut mens nye plasser prøves, så det ikke kolliderer med seg selv.
       if (k.skilt) fjernEtikett(`skilt:${k.id}`);
       kantNett.fjern(k.id);
-      let best: { bue: number; c: number; skilt: Skilt | null; punkter: [number, number][]; sti: string } | null =
-        null;
+      let best: {
+        bue: number;
+        c: number;
+        skilt: Skilt | null;
+        punkter: [number, number][];
+        sti: string;
+      } | null = null;
       for (const bue of [k.bue + 20, k.bue - 20, k.bue + 40, k.bue - 40, k.bue + 64, k.bue - 64]) {
         const kv = kurve(a, b, bue);
         const s = skiltFor.get(k.id) ? plasserSkilt(k, kv.punkter, bue) : null;
         const c = kantKost(k, kv.punkter, s?.skilt ?? null);
-        if (!best || c < best.c) best = { bue, c, skilt: s?.skilt ?? null, punkter: kv.punkter, sti: kv.sti };
+        if (!best || c < best.c)
+          best = { bue, c, skilt: s?.skilt ?? null, punkter: kv.punkter, sti: kv.sti };
       }
       if (best && best.c < naa) {
         k.bue = best.bue;
@@ -1012,7 +1093,11 @@ function sett(inn: GrafInn, lerret: Lerret, pos: Map<string, { x: number; y: num
     hoyde: lerret.hoyde,
     noder: noder.map((n) => {
       const p = punkt(n.key);
-      const e = plassert.get(n.key) ?? { boks: etikettBoks(p.x, p.y, n.etikett, "h"), side: "h" as Side, skjult: false };
+      const e = plassert.get(n.key) ?? {
+        boks: etikettBoks(p.x, p.y, n.etikett, "h"),
+        side: "h" as Side,
+        skjult: false,
+      };
       return { key: n.key, x: p.x, y: p.y, etikett: e };
     }),
     kanter,
@@ -1061,7 +1146,9 @@ function skjulKollisjoner(g: GrafUt): GrafUt {
       const kandidater = [c.a, c.b]
         .map((id) => organer.get(id))
         .filter((n): n is NodeUt => Boolean(n && !n.etikett.skjult))
-        .sort((x, y) => (grad.get(x.key) ?? 0) - (grad.get(y.key) ?? 0) || (x.key < y.key ? -1 : 1));
+        .sort(
+          (x, y) => (grad.get(x.key) ?? 0) - (grad.get(y.key) ?? 0) || (x.key < y.key ? -1 : 1),
+        );
       const n = kandidater[0];
       if (n) {
         n.etikett.skjult = true;
@@ -1084,7 +1171,10 @@ function skjulKollisjoner(g: GrafUt): GrafUt {
  * etiketter overlapper, at ingen kant går gjennom en node den ikke hører til,
  * og at alt står innenfor lerretet.
  */
-export function finnKollisjoner(g: GrafUt, { kanter = true }: { kanter?: boolean } = {}): Kollisjon[] {
+export function finnKollisjoner(
+  g: GrafUt,
+  { kanter = true }: { kanter?: boolean } = {},
+): Kollisjon[] {
   const medKanter = kanter;
   const ut: Kollisjon[] = [];
   const lerret = { bredde: g.bredde, hoyde: g.hoyde };
@@ -1092,10 +1182,22 @@ export function finnKollisjoner(g: GrafUt, { kanter = true }: { kanter?: boolean
   const alle: Etikett[] = [
     ...g.noder
       .filter((n) => !n.etikett.skjult)
-      .map((n) => ({ id: `organ:${n.key}`, node: n.key, kant: "", knute: "", boks: n.etikett.boks })),
+      .map((n) => ({
+        id: `organ:${n.key}`,
+        node: n.key,
+        kant: "",
+        knute: "",
+        boks: n.etikett.boks,
+      })),
     ...g.kanter
       .filter((k) => k.skilt && !k.skilt.skjult)
-      .map((k) => ({ id: `skilt:${k.id}`, node: "", kant: k.id, knute: "", boks: (k.skilt as Skilt).boks })),
+      .map((k) => ({
+        id: `skilt:${k.id}`,
+        node: "",
+        kant: k.id,
+        knute: "",
+        boks: (k.skilt as Skilt).boks,
+      })),
     ...g.knuter
       .filter((k) => !k.skjult)
       .map((k) => ({ id: `knute:${k.id}`, node: "", kant: "", knute: k.id, boks: k.boks })),
@@ -1108,36 +1210,55 @@ export function finnKollisjoner(g: GrafUt, { kanter = true }: { kanter?: boolean
   for (const k of g.kanter) leggKant(kantNett, k.id, k.punkter);
   const nodeNett = new Rutenett();
   const nodeEtterKey = new Map(g.noder.map((n) => [n.key, n]));
-  for (const n of g.noder) nodeNett.legg(n.key, { x: n.x - NODE_RADIUS, y: n.y - NODE_RADIUS, b: 2 * NODE_RADIUS, h: 2 * NODE_RADIUS });
+  for (const n of g.noder)
+    nodeNett.legg(n.key, {
+      x: n.x - NODE_RADIUS,
+      y: n.y - NODE_RADIUS,
+      b: 2 * NODE_RADIUS,
+      h: 2 * NODE_RADIUS,
+    });
 
   for (const e of alle) {
     if (utenfor(e.boks, lerret)) ut.push({ hva: "utenfor lerretet", a: e.id, b: "" });
     for (const id of etikettNett.finn(e.boks)) {
       if (id <= e.id) continue;
       const f = etterId.get(id);
-      if (f && overlapp(e.boks, f.boks, 0)) ut.push({ hva: "etiketter overlapper", a: e.id, b: f.id });
+      if (f && overlapp(e.boks, f.boks, 0))
+        ut.push({ hva: "etiketter overlapper", a: e.id, b: f.id });
     }
     for (const id of medKanter ? kantNett.finn(e.boks) : []) {
       const k = kantEtterId.get(id);
       // Skiltet står på sin egen kant, og knuteskiltet der eikene møtes, med vilje.
       if (!k || e.kant === k.id || (e.knute && e.knute === k.knute)) continue;
-      if (linjeIBoks(k.punkter, e.boks)) ut.push({ hva: "kant krysser etikett", a: e.id, b: `kant:${k.id}` });
+      if (linjeIBoks(k.punkter, e.boks))
+        ut.push({ hva: "kant krysser etikett", a: e.id, b: `kant:${k.id}` });
     }
     for (const key of nodeNett.finn(e.boks)) {
       const n = nodeEtterKey.get(key);
       if (!n || e.node === n.key) continue;
-      if (sirkelIBoks(n.x, n.y, NODE_RADIUS, e.boks)) ut.push({ hva: "etikett dekker node", a: e.id, b: `node:${n.key}` });
+      if (sirkelIBoks(n.x, n.y, NODE_RADIUS, e.boks))
+        ut.push({ hva: "etikett dekker node", a: e.id, b: `node:${n.key}` });
     }
   }
   for (const k of medKanter ? g.kanter : []) {
     for (let i = 1; i < k.punkter.length; i++) {
       const [x1, y1] = k.punkter[i - 1] ?? [0, 0];
       const [x2, y2] = k.punkter[i] ?? [0, 0];
-      const b = { x: Math.min(x1, x2) - NODE_RADIUS, y: Math.min(y1, y2) - NODE_RADIUS, b: Math.abs(x2 - x1) + 2 * NODE_RADIUS, h: Math.abs(y2 - y1) + 2 * NODE_RADIUS };
+      const b = {
+        x: Math.min(x1, x2) - NODE_RADIUS,
+        y: Math.min(y1, y2) - NODE_RADIUS,
+        b: Math.abs(x2 - x1) + 2 * NODE_RADIUS,
+        h: Math.abs(y2 - y1) + 2 * NODE_RADIUS,
+      };
       for (const key of nodeNett.finn(b)) {
         const n = nodeEtterKey.get(key);
         if (!n || n.key === k.fra || n.key === k.til) continue;
-        if (avstandTilLinje(n.x, n.y, [[x1, y1], [x2, y2]]) < NODE_RADIUS) {
+        if (
+          avstandTilLinje(n.x, n.y, [
+            [x1, y1],
+            [x2, y2],
+          ]) < NODE_RADIUS
+        ) {
           ut.push({ hva: "kant går gjennom node", a: `kant:${k.id}`, b: `node:${n.key}` });
         }
       }
@@ -1200,7 +1321,8 @@ export function regnOppsett(inn: GrafInn, lerret: Lerret): Oppsett {
     const uten = utenEierskap(inn);
     const personer = sett(uten, l, pos);
     // Uten eierkanter er lagene like, og oppsettet regnes én gang.
-    const likeLag = uten.kanter.length === inn.kanter.length && uten.noder.length === inn.noder.length;
+    const likeLag =
+      uten.kanter.length === inn.kanter.length && uten.noder.length === inn.noder.length;
     const o = { personer, medEierskap: likeLag ? personer : sett(inn, l, pos) };
     const n = o.personer.kollisjoner.length + o.medEierskap.kollisjoner.length;
     if (n === 0 && inn.noder.length <= 150) return o;
@@ -1221,7 +1343,8 @@ export function regnOppsett(inn: GrafInn, lerret: Lerret): Oppsett {
   const personer = skjulKollisjoner(best.o.personer);
   return {
     personer,
-    medEierskap: best.o.medEierskap === best.o.personer ? personer : skjulKollisjoner(best.o.medEierskap),
+    medEierskap:
+      best.o.medEierskap === best.o.personer ? personer : skjulKollisjoner(best.o.medEierskap),
   };
 }
 

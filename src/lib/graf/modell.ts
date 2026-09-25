@@ -161,8 +161,7 @@ export function byggGrafmodell({
 }): Grafmodell {
   const overordnet = new Map<string, string | null>();
   for (const g of organkart.grupper) for (const o of g.organer) overordnet.set(o.key, o.overordnet);
-  const erRettUnder = (a: string, b: string) =>
-    overordnet.get(a) === b || overordnet.get(b) === a;
+  const erRettUnder = (a: string, b: string) => overordnet.get(a) === b || overordnet.get(b) === a;
 
   const roller = new Map(nettverk.personer.map((p) => [p.person.key, p.roller]));
 
@@ -204,10 +203,9 @@ export function byggGrafmodell({
         rs.map((r) => r.belegg),
         { per: sammenstilt, merknad },
       ),
-      pastand:
-        `${k.person.navn} er ${[...iFra, ...iTil]
-          .map((r) => `${tittelISetning(r.tittel)} i ${r.org.navn}`)
-          .join(" og ")}`,
+      pastand: `${k.person.navn} er ${[...iFra, ...iTil]
+        .map((r) => `${tittelISetning(r.tittel)} i ${r.org.navn}`)
+        .join(" og ")}`,
       knute: null,
     });
   }
@@ -217,7 +215,8 @@ export function byggGrafmodell({
   // seg, så knuten ikke antyder en kobling som ikke vises.
   const knuter: Personknute[] = [];
   const perPerson = new Map<string, Personkant[]>();
-  for (const k of personkanter) perPerson.set(k.person.key, [...(perPerson.get(k.person.key) ?? []), k]);
+  for (const k of personkanter)
+    perPerson.set(k.person.key, [...(perPerson.get(k.person.key) ?? []), k]);
   for (const [personKey, ks] of [...perPerson.entries()].sort((a, b) => (a[0] < b[0] ? -1 : 1))) {
     const organerSett = [...new Set(ks.flatMap((k) => [k.fra, k.til]))].sort();
     const n = organerSett.length;
@@ -283,13 +282,20 @@ export function byggGrafmodell({
   const noder: GrafNode[] = [
     ...[...iGrafen].map((key) => organer.get(key)).filter((o): o is OrganRef => Boolean(o)),
   ].map((organ) => ({ organ, linjer: brytNavn(organnavn(organ)), bareEierskap: false }));
-  for (const [, organ] of bareEier) noder.push({ organ, linjer: brytNavn(organnavn(organ)), bareEierskap: true });
+  for (const [, organ] of bareEier)
+    noder.push({ organ, linjer: brytNavn(organnavn(organ)), bareEierskap: true });
   noder.sort((a, b) => (a.organ.key < b.organ.key ? -1 : 1));
 
   const personer = nettverk.personer
-    .map((p) => ({ person: p.person, roller: p.roller, kanter: personkanter.filter((k) => k.person.key === p.person.key) }))
+    .map((p) => ({
+      person: p.person,
+      roller: p.roller,
+      kanter: personkanter.filter((k) => k.person.key === p.person.key),
+    }))
     .filter((p) => p.kanter.length > 0)
-    .sort((a, b) => nb.compare(a.person.navn, b.person.navn) || (a.person.key < b.person.key ? -1 : 1));
+    .sort(
+      (a, b) => nb.compare(a.person.navn, b.person.navn) || (a.person.key < b.person.key ? -1 : 1),
+    );
 
   return { noder, personkanter, knuter, eierkanter, struktur, personer };
 }
@@ -309,13 +315,15 @@ export function grafInn(m: Grafmodell): GrafInn {
       },
     })),
     kanter: [
-      ...m.personkanter.filter((k) => !k.knute).map<KantInn>((k) => ({
-        id: k.id,
-        fra: k.fra,
-        til: k.til,
-        lag: "person",
-        skilt: { bredde: tekstbredde(k.person.navn, s.skilt) + s.skiltLuft, hoyde: s.skiltHoyde },
-      })),
+      ...m.personkanter
+        .filter((k) => !k.knute)
+        .map<KantInn>((k) => ({
+          id: k.id,
+          fra: k.fra,
+          til: k.til,
+          lag: "person",
+          skilt: { bredde: tekstbredde(k.person.navn, s.skilt) + s.skiltLuft, hoyde: s.skiltHoyde },
+        })),
       ...m.eierkanter.map<KantInn>((k) => ({
         id: k.id,
         fra: k.fra,

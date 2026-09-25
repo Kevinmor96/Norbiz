@@ -31,7 +31,9 @@ export function Foretak({
   return (
     <div className="flex flex-col gap-3">
       <Blokktittel id={tittelId}>
-        {fylke ? "Fylkeskommunale foretak, del av fylkeskommunen" : "Kommunale foretak, del av kommunen"}
+        {fylke
+          ? "Fylkeskommunale foretak, del av fylkeskommunen"
+          : "Kommunale foretak, del av kommunen"}
       </Blokktittel>
       <p className="brodtekst text-[0.9375rem] text-dempet">
         Foretakene er en del av {eier.navn}. De har ingen eierandel, og derfor står de ikke blant
@@ -41,7 +43,14 @@ export function Foretak({
         className="mt-1"
         antall={rader.length}
         hva="foretak"
-        forste={<ForetakListe rader={rader.slice(0, TOPP)} eier={eier} fylke={fylke} tittelId={tittelId} />}
+        forste={
+          <ForetakListe
+            rader={rader.slice(0, TOPP)}
+            eier={eier}
+            fylke={fylke}
+            tittelId={tittelId}
+          />
+        }
         resten={
           rader.length > TOPP && (
             <div className="mt-3">
@@ -66,28 +75,28 @@ function ForetakListe({
   tittelId?: string;
 }) {
   return (
-      <ul aria-labelledby={tittelId} className="border-b border-linje">
-        {rader.map((r) => (
-          <li key={r.org.key} className="flex flex-col gap-1 border-t border-linje py-2.5">
-            <p className="font-semibold text-pretty">
-              <span className="whitespace-nowrap">
-                <OrganLenke org={r.org} />
-                <Kildemerke
-                  belegg={r.belegg}
-                  pastand={`${r.org.navn} er et ${fylke ? "fylkeskommunalt" : "kommunalt"} foretak i ${eier.navn}`}
-                />
-              </span>
-            </p>
-            {r.tall.length > 0 && (
-              <dl className="flex flex-wrap gap-x-5 gap-y-1 text-[0.8125rem]">
-                {r.tall.map((t) => (
-                  <Nokkeltall key={`${t.aar}-${t.type}-${String(t.konsern)}`} t={t} organ={r.org} />
-                ))}
-              </dl>
-            )}
-          </li>
-        ))}
-      </ul>
+    <ul aria-labelledby={tittelId} className="border-b border-linje">
+      {rader.map((r) => (
+        <li key={r.org.key} className="flex flex-col gap-1 border-t border-linje py-2.5">
+          <p className="font-semibold text-pretty">
+            <span className="whitespace-nowrap">
+              <OrganLenke org={r.org} />
+              <Kildemerke
+                belegg={r.belegg}
+                pastand={`${r.org.navn} er et ${fylke ? "fylkeskommunalt" : "kommunalt"} foretak i ${eier.navn}`}
+              />
+            </span>
+          </p>
+          {r.tall.length > 0 && (
+            <dl className="flex flex-wrap gap-x-5 gap-y-1 text-[0.8125rem]">
+              {r.tall.map((t) => (
+                <Nokkeltall key={`${t.aar}-${t.type}-${String(t.konsern)}`} t={t} organ={r.org} />
+              ))}
+            </dl>
+          )}
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -118,48 +127,48 @@ export function Eierkjede({ rader, tittelId }: { rader: Indirekterad[]; tittelId
 
 function KjedeListe({ rader, tittelId }: { rader: Indirekterad[]; tittelId?: string }) {
   return (
-      <ul aria-labelledby={tittelId} className="border-b border-linje">
-        {rader.map((r) => (
-          <li key={r.org.key} className="flex flex-col gap-1 border-t border-linje py-2.5">
-            <p className="font-semibold text-pretty">
-              <OrganLenke org={r.org} />
-            </p>
-            <p className="text-[0.8125rem] leading-[1.5] text-dempet">
-              Eid av{" "}
-              {r.eiere.map((e, i) => (
-                <span key={e.org.key}>
-                  {i > 0 && (i === r.eiere.length - 1 ? " og " : ", ")}
-                  <span className="text-trykk">{e.org.navn}</span>{" "}
-                  {e.andel !== null ? (
-                    <MedMerke
+    <ul aria-labelledby={tittelId} className="border-b border-linje">
+      {rader.map((r) => (
+        <li key={r.org.key} className="flex flex-col gap-1 border-t border-linje py-2.5">
+          <p className="font-semibold text-pretty">
+            <OrganLenke org={r.org} />
+          </p>
+          <p className="text-[0.8125rem] leading-[1.5] text-dempet">
+            Eid av{" "}
+            {r.eiere.map((e, i) => (
+              <span key={e.org.key}>
+                {i > 0 && (i === r.eiere.length - 1 ? " og " : ", ")}
+                <span className="text-trykk">{e.org.navn}</span>{" "}
+                {e.andel !== null ? (
+                  <MedMerke
+                    belegg={e.belegg}
+                    pastand={`${e.org.navn} eier ${prosent(e.andel)} av ${r.org.navn}`}
+                    className="font-semibold text-trykk"
+                  >
+                    {prosent(e.andel)}
+                  </MedMerke>
+                ) : (
+                  <span className="whitespace-nowrap">
+                    (andel ikke oppgitt)
+                    <Kildemerke
                       belegg={e.belegg}
-                      pastand={`${e.org.navn} eier ${prosent(e.andel)} av ${r.org.navn}`}
-                      className="font-semibold text-trykk"
-                    >
-                      {prosent(e.andel)}
-                    </MedMerke>
-                  ) : (
-                    <span className="whitespace-nowrap">
-                      (andel ikke oppgitt)
-                      <Kildemerke
-                        belegg={e.belegg}
-                        pastand={`${e.org.navn} er eier i ${r.org.navn}. Andelen er ikke oppgitt`}
-                      />
-                    </span>
-                  )}
-                </span>
+                      pastand={`${e.org.navn} er eier i ${r.org.navn}. Andelen er ikke oppgitt`}
+                    />
+                  </span>
+                )}
+              </span>
+            ))}
+          </p>
+          {r.tall.length > 0 && (
+            <dl className="flex flex-wrap gap-x-5 gap-y-1 text-[0.8125rem]">
+              {r.tall.map((t) => (
+                <Nokkeltall key={`${t.aar}-${t.type}-${String(t.konsern)}`} t={t} organ={r.org} />
               ))}
-            </p>
-            {r.tall.length > 0 && (
-              <dl className="flex flex-wrap gap-x-5 gap-y-1 text-[0.8125rem]">
-                {r.tall.map((t) => (
-                  <Nokkeltall key={`${t.aar}-${t.type}-${String(t.konsern)}`} t={t} organ={r.org} />
-                ))}
-              </dl>
-            )}
-          </li>
-        ))}
-      </ul>
+            </dl>
+          )}
+        </li>
+      ))}
+    </ul>
   );
 }
 

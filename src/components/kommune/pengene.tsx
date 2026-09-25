@@ -31,7 +31,9 @@ export function PengeneSeksjon({ side }: SeksjonProps) {
   const eie = eierandeler(side, elv?.selskap.key ?? null);
   const regnskap = kommuneregnskap(side);
   const kommuneorgan = side.kommuneprofil?.organ ?? side.oversikt.kommuneorgan;
-  const harEierskap = Boolean(eie && (eie.direkte.length || eie.foretak.length || eie.indirekte.length));
+  const harEierskap = Boolean(
+    eie && (eie.direkte.length || eie.foretak.length || eie.indirekte.length),
+  );
 
   return (
     <Seksjon
@@ -58,7 +60,11 @@ export function PengeneSeksjon({ side }: SeksjonProps) {
 
         <div className="flex min-w-0 flex-col gap-14 lg:col-span-5">
           {elv ? (
-            <Utbytteelv elv={elv} tittelId="pengene-utbytte" sammenstilt={side.kommune.sammenstilt} />
+            <Utbytteelv
+              elv={elv}
+              tittelId="pengene-utbytte"
+              sammenstilt={side.kommune.sammenstilt}
+            />
           ) : (
             <IngenUtbytte tittelId="pengene-utbytte" />
           )}
@@ -67,11 +73,7 @@ export function PengeneSeksjon({ side }: SeksjonProps) {
         </div>
 
         <div className="min-w-0 lg:col-span-12">
-          <Regnskap
-            grupper={regnskap}
-            organ={kommuneorgan ?? null}
-            tittelId="pengene-regnskap"
-          />
+          <Regnskap grupper={regnskap} organ={kommuneorgan ?? null} tittelId="pengene-regnskap" />
         </div>
       </div>
     </Seksjon>
@@ -98,8 +100,8 @@ function IngenAndeler() {
     <div className="flex flex-col gap-3">
       <h3 className="seksjon text-[1.25rem] leading-[1.15]">Eierandeler</h3>
       <p className="brodtekst text-[0.9375rem] text-dempet">
-        Kommunen eier ingen aksjeselskaper direkte i datasettet. Foretakene og selskapene lenger
-        ned i eierkjeden står ved siden av.
+        Kommunen eier ingen aksjeselskaper direkte i datasettet. Foretakene og selskapene lenger ned
+        i eierkjeden står ved siden av.
       </p>
     </div>
   );

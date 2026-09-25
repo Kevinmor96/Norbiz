@@ -52,8 +52,8 @@ export function Regnskap({
         <>
           {grupper.length > 1 && (
             <p className="brodtekst text-[0.9375rem] text-dempet">
-              {liste(navn).charAt(0).toUpperCase() + liste(navn).slice(1)} er ulike mål, regnet
-              på ulike måter. Tallene står hver for seg og kan ikke trekkes fra hverandre.
+              {liste(navn).charAt(0).toUpperCase() + liste(navn).slice(1)} er ulike mål, regnet på
+              ulike måter. Tallene står hver for seg og kan ikke trekkes fra hverandre.
             </p>
           )}
           <div
@@ -85,7 +85,9 @@ export function Regnskap({
                       key={`${t.aar}-${t.periode ?? ""}-${String(t.konsern)}-${t.belegg.kilde.key}`}
                       className="grid grid-cols-[4.5rem_minmax(0,1fr)] items-baseline gap-x-3 border-t border-linje py-2.5"
                     >
-                      <dt className="text-[0.875rem] font-semibold text-dempet">{aarOgOmfang(t)}</dt>
+                      <dt className="text-[0.875rem] font-semibold text-dempet">
+                        {aarOgOmfang(t)}
+                      </dt>
                       <dd className="flex flex-col gap-0.5">
                         <MedMerke
                           belegg={t.belegg}

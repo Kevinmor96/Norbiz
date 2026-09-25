@@ -28,7 +28,13 @@ import type { Nivaa } from "@/lib/data";
 import { NIVAAER } from "@/lib/data/kontrakt";
 import { antall, tall } from "@/lib/format";
 import { lerretFor, regnOppsett } from "@/lib/graf/layout";
-import { byggGrafmodell, grafInn, iSetning, organnavn, type Strukturkobling } from "@/lib/graf/modell";
+import {
+  byggGrafmodell,
+  grafInn,
+  iSetning,
+  organnavn,
+  type Strukturkobling,
+} from "@/lib/graf/modell";
 import {
   delnettverk,
   erTomt,
@@ -151,10 +157,18 @@ export function NettverkSeksjon({ side }: SeksjonProps) {
         eierskap: side.eierskap,
         kommuneorgan: side.oversikt.kommuneorgan,
       }),
-      segmenter: new Map(side.segmenter.map((s) => [s.segment.kode, new Set(s.organer.map((o) => o.org.key))])),
+      segmenter: new Map(
+        side.segmenter.map((s) => [s.segment.kode, new Set(s.organer.map((o) => o.org.key))]),
+      ),
       organer: new Map(side.nettverk.noder.map((o) => [o.key, o])),
     }),
-    [side.organkart, side.eierskap, side.oversikt.kommuneorgan, side.segmenter, side.nettverk.noder],
+    [
+      side.organkart,
+      side.eierskap,
+      side.oversikt.kommuneorgan,
+      side.segmenter,
+      side.nettverk.noder,
+    ],
   );
 
   const [filter, settFilter] = useState<Filter>(TOMT_FILTER);
@@ -173,7 +187,10 @@ export function NettverkSeksjon({ side }: SeksjonProps) {
   );
   const oppsett = useMemo(() => regnOppsett(grafInn(vis), lerretFor(vis.noder.length)), [vis]);
   const listePersoner = useMemo(
-    () => (erTomt(utsatt) ? full.personer : full.personer.filter((p) => p.kanter.some((k) => passer(k, utsatt, ktx)))),
+    () =>
+      erTomt(utsatt)
+        ? full.personer
+        : full.personer.filter((p) => p.kanter.some((k) => passer(k, utsatt, ktx))),
     [full, utsatt, ktx],
   );
 
@@ -233,9 +250,9 @@ export function NettverkSeksjon({ side }: SeksjonProps) {
         <div
           role="search"
           aria-label="Søk og filtrer nettverket"
-          className="grid gap-x-4 gap-y-3 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)_minmax(0,1fr)]"
+          className="grid grid-cols-2 gap-x-3 gap-y-3 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)_minmax(0,1fr)] lg:gap-x-4"
         >
-          <div className="flex min-w-0 flex-col gap-1 sm:col-span-2 lg:col-span-1">
+          <div className="col-span-2 flex min-w-0 flex-col gap-1 lg:col-span-1">
             <label htmlFor={sokId} className="text-[0.8125rem] font-semibold">
               Søk etter organ eller person
             </label>

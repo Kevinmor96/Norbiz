@@ -102,7 +102,9 @@ export function Nettverksgraf({
 
   // Hvem kanten tilhører, for markeringen når leseren peker på et navn.
   const eierAv = (kant: KantUt) =>
-    kant.knute ? (knute.get(kant.knute)?.person.key ?? null) : (personkant.get(kant.id)?.person.key ?? null);
+    kant.knute
+      ? (knute.get(kant.knute)?.person.key ?? null)
+      : (personkant.get(kant.id)?.person.key ?? null);
   const maa = (kant: KantUt) =>
     kant.knute
       ? Boolean(knute.get(kant.knute)?.maaVerifiseres)
@@ -144,7 +146,10 @@ export function Nettverksgraf({
               {eierkanter.map((e) => {
                 const spiss = pil(e);
                 return (
-                  <g key={e.id} className={cn("transition-opacity duration-200", aktiv && "opacity-25")}>
+                  <g
+                    key={e.id}
+                    className={cn("transition-opacity duration-200", aktiv && "opacity-25")}
+                  >
                     <path
                       d={e.sti}
                       fill="none"
@@ -193,15 +198,29 @@ export function Nettverksgraf({
         if (node.bareEierskap && !visEierskap) return null;
         const b = n.etikett.boks;
         const side = n.etikett.side;
-        const juster = side.startsWith("v") ? "slutt" : side === "u" || side === "o" ? "midt" : "start";
-        const dx = juster === "slutt" ? b.x + b.b - n.x : juster === "midt" ? b.x + b.b / 2 - n.x : b.x - n.x;
+        const juster = side.startsWith("v")
+          ? "slutt"
+          : side === "u" || side === "o"
+            ? "midt"
+            : "start";
+        const dx =
+          juster === "slutt"
+            ? b.x + b.b - n.x
+            : juster === "midt"
+              ? b.x + b.b / 2 - n.x
+              : b.x - n.x;
         const av = aktiv !== null && !aktiveOrganer.has(n.key);
         // Et navn som ikke fikk plass, vises når personen er pekt på, eller ved fokus.
         const skjult = n.etikett.skjult && !(aktiv !== null && aktiveOrganer.has(n.key));
         const stil: CSSProperties = {
           left: `calc(${px(n.x)} + ${dx.toFixed(1)}px)`,
           top: `calc(${py(n.y)} + ${(b.y - n.y).toFixed(1)}px)`,
-          transform: juster === "slutt" ? "translateX(-100%)" : juster === "midt" ? "translateX(-50%)" : undefined,
+          transform:
+            juster === "slutt"
+              ? "translateX(-100%)"
+              : juster === "midt"
+                ? "translateX(-50%)"
+                : undefined,
           lineHeight: `${GRAFSKRIFT.organLinje}px`,
           fontSize: `${GRAFSKRIFT.organ}px`,
         };
@@ -225,7 +244,10 @@ export function Nettverksgraf({
               )}
               style={stil}
             >
-              <OrganLenke org={node.organ} className="decoration-transparent hover:decoration-signal">
+              <OrganLenke
+                org={node.organ}
+                className="decoration-transparent hover:decoration-signal"
+              >
                 {node.linjer.map((l, i) => (
                   <span key={i} className="block">
                     {l}
@@ -252,7 +274,8 @@ export function Nettverksgraf({
               className={cn(
                 "etikett absolute inline-flex h-5 -translate-1/2 items-center border border-vann bg-papir px-1.5 text-[12px] font-semibold whitespace-nowrap transition-opacity duration-200",
                 aktiv && "opacity-25",
-                e.skilt.skjult && "pointer-events-none opacity-0 focus-within:pointer-events-auto focus-within:z-10 focus-within:opacity-100",
+                e.skilt.skjult &&
+                  "pointer-events-none opacity-0 focus-within:pointer-events-auto focus-within:z-10 focus-within:opacity-100",
               )}
               style={{ left: px(e.skilt.x), top: py(e.skilt.y) }}
             >
@@ -327,8 +350,10 @@ function Skilt({
     <span
       className={cn(
         "etikett absolute inline-flex h-6 -translate-1/2 items-center border border-trykk bg-papir pr-1.5 pl-2 font-semibold whitespace-nowrap transition-opacity duration-200",
-        dempet && "opacity-25",
-        skjult && "pointer-events-none opacity-0 focus-within:pointer-events-auto focus-within:z-10 focus-within:opacity-100",
+        // Dempet skilt beholder papiret, så kanter bak ikke skinner gjennom.
+        dempet && "border-linje text-dempet [&_.kildemerke]:opacity-30",
+        skjult &&
+          "pointer-events-none opacity-0 focus-within:pointer-events-auto focus-within:z-10 focus-within:opacity-100",
         !skjult && "z-[1]",
       )}
       style={{ left: x, top: y, fontSize: `${GRAFSKRIFT.skilt}px` }}

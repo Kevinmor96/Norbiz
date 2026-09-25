@@ -54,7 +54,11 @@ export function Personliste({
   const igjen = personer.length - synlige.length;
 
   if (personer.length === 0) {
-    return <p className="border-t border-linje py-4 text-[0.9375rem] text-dempet">Ingen personer passer søket.</p>;
+    return (
+      <p className="border-t border-linje py-4 text-[0.9375rem] text-dempet">
+        Ingen personer passer søket.
+      </p>
+    );
   }
   return (
     <div className={className}>

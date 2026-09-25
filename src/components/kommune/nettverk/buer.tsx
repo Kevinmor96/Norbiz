@@ -8,6 +8,7 @@
 // høyre for buene, med en tynn ledelinje til toppen av buen sin.
 
 import { Kildemerke } from "@/components/maktkart/kildemerke";
+import { splittSisteOrd } from "@/lib/format";
 import type { Grafmodell } from "@/lib/graf/modell";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +16,7 @@ import { OrganLenke } from "../pengene/felles";
 
 const RAD = 56;
 const X0 = 8;
-const LUFT_NAVN = 26;
+const LUFT_NAVN = 16;
 
 interface Bue {
   id: string;
@@ -47,7 +48,9 @@ function rekkefolge(modell: Grafmodell): string[] {
     while (ko2.length) {
       const n = ko2.shift() as string;
       ko.push(n);
-      for (const m of [...(nabo.get(n) ?? [])].sort((a, b) => grad(b) - grad(a) || (a < b ? -1 : 1))) {
+      for (const m of [...(nabo.get(n) ?? [])].sort(
+        (a, b) => grad(b) - grad(a) || (a < b ? -1 : 1),
+      )) {
         if (!sett.has(m)) {
           sett.add(m);
           ko2.push(m);
@@ -102,14 +105,17 @@ export function Buediagram({
   // utenfor dem, så ingen buer ligger oppå hverandre.
   buer.sort(
     (a, b) =>
-      (a.rader[a.rader.length - 1] ?? 0) - (a.rader[0] ?? 0) - ((b.rader[b.rader.length - 1] ?? 0) - (b.rader[0] ?? 0)) ||
-      (a.id < b.id ? -1 : 1),
+      (a.rader[a.rader.length - 1] ?? 0) -
+        (a.rader[0] ?? 0) -
+        ((b.rader[b.rader.length - 1] ?? 0) - (b.rader[0] ?? 0)) || (a.id < b.id ? -1 : 1),
   );
   const lagt: Bue[] = [];
   for (const b of buer) {
     const fra = b.rader[0] ?? 0;
     const til = b.rader[b.rader.length - 1] ?? 0;
-    const under = lagt.filter((l) => (l.rader[0] ?? 0) < til && (l.rader[l.rader.length - 1] ?? 0) > fra);
+    const under = lagt.filter(
+      (l) => (l.rader[0] ?? 0) < til && (l.rader[l.rader.length - 1] ?? 0) > fra,
+    );
     b.bx = Math.max(24 + (til - fra) * 6, ...under.map((l) => l.bx + 13));
     lagt.push(b);
   }
@@ -123,7 +129,7 @@ export function Buediagram({
     .sort((a, c) => a.midt - c.midt || (a.b.id < c.b.id ? -1 : 1));
   let forrige = -Infinity;
   for (const n of navn) {
-    n.yN = Math.max(n.midt, forrige + 28);
+    n.yN = Math.max(n.midt, forrige + 32);
     forrige = n.yN;
   }
   const hoyde = Math.max(rekke.length * RAD, forrige + 20);
@@ -142,7 +148,7 @@ export function Buediagram({
     <div
       role="group"
       aria-label="Buediagram. Organene står på en linje, og hver bue er en person med roller i organene buen går mellom. Samme innhold står i lista."
-      className="grid grid-cols-[minmax(0,8.75rem)_minmax(0,1fr)] gap-x-2"
+      className="grid grid-cols-[minmax(0,8.25rem)_minmax(0,1fr)] gap-x-2"
       onPointerLeave={() => settAktiv(null)}
     >
       <ol style={{ height: hoyde }}>
@@ -159,7 +165,7 @@ export function Buediagram({
           );
         })}
       </ol>
-      <div className="relative min-w-0" style={{ height: hoyde }}>
+      <div className="relative min-w-0 overflow-x-clip" style={{ height: hoyde }}>
         <svg
           width={xNavn}
           height={hoyde}
@@ -177,7 +183,10 @@ export function Buediagram({
           {navn.map(({ b, midt, yN }) => {
             const av = aktiv !== null && aktiv !== b.person;
             return (
-              <g key={b.id} className={cn("stroke-trykk transition-opacity duration-200", av && "opacity-20")}>
+              <g
+                key={b.id}
+                className={cn("stroke-trykk transition-opacity duration-200", av && "opacity-20")}
+              >
                 <path
                   d={sti(b)}
                   fill="none"
@@ -209,16 +218,20 @@ export function Buediagram({
           <p
             key={b.id}
             className={cn(
-              "etikett absolute -translate-y-1/2 text-[0.8125rem] font-semibold whitespace-nowrap transition-opacity duration-200",
+              "etikett absolute -translate-y-1/2 text-[0.8125rem] leading-[1.15] font-semibold transition-opacity duration-200",
               aktiv !== null && aktiv !== b.person && "opacity-35",
             )}
-            style={{ left: xNavn, top: yN }}
+            // Et langt navn brytes før det når kanten. Merket følger siste ord.
+            style={{ left: xNavn, top: yN, maxWidth: `calc(100% - ${xNavn}px)` }}
             onPointerEnter={() => settAktiv(b.person)}
             onFocus={() => settAktiv(b.person)}
             onBlur={() => settAktiv(null)}
           >
-            {b.navn}
-            <Kildemerke belegg={b.belegg} pastand={b.pastand} />
+            {splittSisteOrd(b.navn)[0]}
+            <span className="whitespace-nowrap">
+              {splittSisteOrd(b.navn)[1]}
+              <Kildemerke belegg={b.belegg} pastand={b.pastand} />
+            </span>
           </p>
         ))}
       </div>
