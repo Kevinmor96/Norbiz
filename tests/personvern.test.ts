@@ -5,15 +5,17 @@ import type { PGlite } from "@electric-sql/pglite";
 import { beforeAll, describe, expect, it } from "vitest";
 
 import type { Kommunedatasett } from "@/data/types";
-import { lesDatasett } from "../scripts/seed-build";
-import { rpc, seedetDb, som, stoppetAv } from "./helpers/db";
+import { byggSeed, lesDatasett, lesRegion } from "../scripts/seed-build";
+import { samle } from "@/lib/data/samle";
+import { ferskDb, rpc, som, stoppetAv } from "./helpers/db";
 
 let db: PGlite;
-const tromso = lesDatasett().find((d) => d.slug === "tromso")!.data as Kommunedatasett;
+const datasett = lesDatasett();
+const tromso = datasett.find((d) => d.slug === "tromso")!.data as Kommunedatasett;
 const NR = tromso.meta.kommunenr;
 
 beforeAll(async () => {
-  db = await seedetDb();
+  db = await ferskDb();
 });
 
 /** Kjører `fn` i en transaksjon som alltid rulles tilbake. */
@@ -29,11 +31,14 @@ async function iTransaksjon<T>(fn: () => Promise<T>): Promise<T> {
 /**
  * Alle offentlige svar for kommunen, som én tekst. `organer` avgrenser
  * organprofilene. `sporringer` er søk som også tas med: navnene testen ser
- * etter, så et søk på personen heller ikke finner henne.
+ * etter, så et søk på personen heller ikke finner henne. `fylket` tar med
+ * fylkessiden, som viser lederne i fylkets organer. Den og søket går over alle
+ * kommunene og er trege, så løkkene over mange personer lar dem være.
  */
 async function alleSvar(
   organer: string[] = tromso.organisasjoner.map((o) => o.key),
   sporringer: string[] = [],
+  fylket = sporringer.length > 0,
 ): Promise<string> {
   const svar: unknown[] = [
     await rpc(db, "kommuner"),
@@ -43,11 +48,14 @@ async function alleSvar(
     await rpc(db, "nettverk", [NR]),
     await rpc(db, "endringer", [NR]),
     await rpc(db, "hull", [NR]),
-    await rpc(db, "kommune_grader", [NR]),
-    await rpc(db, "region_oversikt"),
-    await rpc(db, "fylke_oversikt", [tromso.meta.fylkesnr]),
   ];
-  for (const q of sporringer) svar.push(await rpc(db, "sok", [q, 50]));
+  if (fylket) svar.push(await rpc(db, "fylke_oversikt", [tromso.meta.fylkesnr]));
+  // Fra søket tas bare nøklene med: et søk på et navn finner også navnebrødre
+  // og lengre navn som inneholder det, og de er ikke personen som er sperret.
+  for (const q of sporringer) {
+    const s = await rpc<{ roller: { treff: { person: { key: string } }[] } }>(db, "sok", [q, 50]);
+    svar.push(s.roller.treff.map((r) => `"${r.person.key}"`));
+  }
   for (const p of tromso.prosesser) svar.push(await rpc(db, "beslutningskjede", [NR, p.key]));
   for (const s of tromso.segmenter) svar.push(await rpc(db, "organer_for_segment", [s.kode, NR]));
   for (const o of organer) svar.push(await rpc(db, "organ_profil", [o]));
@@ -133,7 +141,7 @@ describe("rettigheter på tabellene", () => {
       "anon",
       async () => (await db.query(`select id, key, navn from person`)).rows.length,
     );
-    expect(n).toBe(tromso.personer.length);
+    expect(n).toBe(new Set(datasett.flatMap((d) => d.data.personer.map((p) => p.key))).size);
     for (const kolonne of ["brreg_person_hash", "innsigelse_status", "*"]) {
       await expect(
         som(db, "anon", () => db.query(`select ${kolonne} from person`)),
@@ -229,6 +237,18 @@ describe("sensitive organer", () => {
   });
 });
 
+it("regionoversikten og gradene har ingen personer, bare tall", async () => {
+  const svar = JSON.stringify([
+    await som(db, "anon", () => rpc(db, "region_oversikt")),
+    await som(db, "anon", () => rpc(db, "kommune_grader", [NR])),
+  ]);
+  const nevnt = datasett
+    .flatMap((d) => d.data.personer)
+    .filter((p) => svar.includes(`"${p.key}"`))
+    .map((p) => p.key);
+  expect(nevnt).toEqual([]);
+});
+
 describe("en sperret person forsvinner", () => {
   const sperr = (key: string) =>
     db.exec(`update person set innsigelse_status = 'sperret' where key = '${key}';`);
@@ -270,7 +290,7 @@ describe("en sperret person forsvinner", () => {
       await iTransaksjon(async () => {
         await sperr(p.key);
         await db.exec("set local role anon;");
-        const etter = await alleSvar(organerFor(p.key), [p.navn]);
+        const etter = await alleSvar(organerFor(p.key));
         expect(etter.includes(p.navn), p.key).toBe(false);
         expect(etter.includes(`"${p.key}"`), p.key).toBe(false);
       });
@@ -318,11 +338,11 @@ describe("en sperret person forsvinner", () => {
   it("og en ny seed opphever ikke sperringen", async () => {
     await iTransaksjon(async () => {
       await sperr("kjell-are-vassmyr");
-      const { readFile } = await import("node:fs/promises");
-      const { SEED } = await import("./helpers/db");
       // Seed-en har sin egen begin/commit; innenfor denne transaksjonen blir
       // de en advarsel og en commit. Kjør den uten dem.
-      const sql = (await readFile(SEED, "utf8")).replace(/^begin;$/m, "").replace(/^commit;$/m, "");
+      const sql = byggSeed(samle(datasett), lesRegion())
+        .replace(/^begin;$/m, "")
+        .replace(/^commit;$/m, "");
       await db.exec(sql);
       const r = await db.query<{ s: string }>(
         `select innsigelse_status as s from person where key = 'kjell-are-vassmyr'`,

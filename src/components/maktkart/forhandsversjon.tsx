@@ -9,8 +9,9 @@
 // Setningen regnes fra gradene til det siden viser, aldri fra koden:
 //
 //   1. Et varsel siden regner selv (`varsel`), fra datalagets gradtellinger:
-//      «1 005 av 1 180 roller i Tromsø er hentet direkte fra registrene
-//      25.09.2026. Resten er ikke etterprøvd.»
+//      «1 803 av 1 976 roller i Troms er hentet direkte fra registrene
+//      25.09.2026. Resten er ikke etterprøvd.» Er alle rollene hentet, sier
+//      det også hvor mange andre påstander som ikke er etterprøvd.
 //   2. Ellers, på en kommuneside, påstandene i kommunens omfang fra
 //      KommuneKontekst.
 //   3. Ellers en setning som er sann uansett datasett: bare det som er merket
@@ -23,7 +24,7 @@
 
 import { Drawer as DrawerPrimitive } from "vaul";
 
-import type { Gradtelling } from "@/lib/data";
+import type { Grader } from "@/lib/data";
 import { antall, datoKort, tall } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
@@ -37,19 +38,35 @@ export interface Forhandsvarsel {
   lang: string;
 }
 
+/** Det et varsel regnes fra: gradtellingene datalaget gir for et omfang. */
+export type Gradgrunnlag = Pick<Grader, "roller" | "alle" | "forst_hentet" | "sist_hentet">;
+
 /**
- * Varselet for rollene i et omfang: «i Tromsø», «i Troms», «i Nord-Norge».
- * `hentet` er den siste datoen innhentingen hentet noe fra registrene.
+ * « 25.09.2026», eller « mellom 24.09.2026 og 25.09.2026» når innhentingen gikk
+ * over flere dager. Én dato når de er ulike, ville sagt at alt ble hentet den
+ * dagen.
+ */
+export function hentetDato(forst: string | null, sist: string | null): string {
+  if (!sist) return "";
+  if (!forst || forst === sist) return ` ${datoKort(sist)}`;
+  return ` mellom ${datoKort(forst)} og ${datoKort(sist)}`;
+}
+
+/** Påstander i omfanget som ikke er rollene og ikke er verifisert. */
+function andreUetterprovd(g: Gradgrunnlag): number {
+  const alle = g.alle.totalt - g.alle.verifisert;
+  const roller = g.roller.totalt - g.roller.verifisert;
+  return Math.max(0, alle - roller);
+}
+
+/**
+ * Varselet for rollene i et omfang: «i Tromsø», «i Troms».
  * `null` når omfanget ikke har roller.
  */
-export function varselForRoller(
-  omfang: string,
-  roller: Gradtelling,
-  hentet: string | null,
-): Forhandsvarsel | null {
-  const { totalt, verifisert, fra_register } = roller;
+export function varselForRoller(omfang: string, g: Gradgrunnlag): Forhandsvarsel | null {
+  const { totalt, verifisert, fra_register } = g.roller;
   if (totalt === 0) return null;
-  const dato = hentet ? ` ${datoKort(hentet)}` : "";
+  const dato = hentetDato(g.forst_hentet, g.sist_hentet);
   const ikkeHentet = Math.max(0, fra_register - verifisert);
   const andre = totalt - verifisert - ikkeHentet;
   const resten = [
@@ -66,8 +83,18 @@ export function varselForRoller(
     };
   }
   if (verifisert === totalt) {
+    // Alle rollene er hentet, men siden viser også organer, tall og hendelser.
+    // Er noen av dem ikke etterprøvd, sier varselet det, så «alle» ikke leses
+    // som alt på siden.
     const s = `Alle de ${tall(totalt)} rollene ${omfang} er hentet direkte fra registrene${dato}.`;
-    return { kort: s, lang: `${s} Organer og tall kan bygge på andre kilder. Merket ved hver påstand sier hvilken.` };
+    const n = andreUetterprovd(g);
+    const tillegg = n
+      ? ` ${tall(n)} ${n === 1 ? "annen påstand" : "andre påstander"} er ikke etterprøvd.`
+      : "";
+    return {
+      kort: `${s}${tillegg}`,
+      lang: `${s}${tillegg} Merket ved hver påstand sier hvor den kommer fra.`,
+    };
   }
   const s = `${tall(verifisert)} av ${tall(totalt)} roller ${omfang} er hentet direkte fra registrene${dato}.`;
   return { kort: `${s} Resten er ikke etterprøvd.`, lang: `${s}${restSetning}` };
@@ -79,39 +106,57 @@ export function varselForRoller(
  * nevner fylkene som ikke har roller ennå.
  */
 export function varselForFylker(
-  fylker: { navn: string; roller: Gradtelling; hentet: string | null }[],
+  fylker: { navn: string; grader: Gradgrunnlag }[],
 ): Forhandsvarsel | null {
-  const med = fylker.filter((f) => f.roller.totalt > 0);
+  const med = fylker.filter((f) => f.grader.roller.totalt > 0);
   if (!med.length) return null;
-  const uten = fylker.filter((f) => f.roller.totalt === 0).map((f) => f.navn);
+  const uten = fylker.filter((f) => f.grader.roller.totalt === 0).map((f) => f.navn);
   const liste = (xs: string[]) =>
     xs.length > 1 ? `${xs.slice(0, -1).join(", ")} og ${xs.at(-1)}` : (xs[0] ?? "");
-  const hentet = med.reduce<string | null>((d, f) => (f.hentet && (!d || f.hentet > d) ? f.hentet : d), null);
-  const dato = hentet ? ` ${datoKort(hentet)}` : "";
+  const datoer = (velg: (g: Gradgrunnlag) => string | null) =>
+    med
+      .map((f) => velg(f.grader))
+      .filter((d): d is string => d !== null)
+      .sort();
+  const dato = hentetDato(
+    datoer((g) => g.forst_hentet)[0] ?? null,
+    datoer((g) => g.sist_hentet).at(-1) ?? null,
+  );
   const detaljer = med
-    .map((f) => `${f.navn}: ${tall(f.roller.verifisert)} av ${tall(f.roller.totalt)}`)
+    .map((f) => `${f.navn}: ${tall(f.grader.roller.verifisert)} av ${tall(f.grader.roller.totalt)}`)
     .join(". ");
-  const utenSetning = uten.length
-    ? ` ${liste(uten)} har ingen roller i datasettene ennå.`
-    : "";
+  const utenSetning = uten.length ? ` ${liste(uten)} har ingen roller i datasettene ennå.` : "";
+  const hvor =
+    uten.length || med.length === 1 ? `i ${liste(med.map((f) => f.navn))}` : "i hvert fylke";
+  const alleRoller = med.every((f) => f.grader.roller.verifisert === f.grader.roller.totalt);
+  // Påstandene kan heller ikke summeres over fylkene, så varselet sier bare om
+  // noe utenom rollene står uetterprøvd, ikke hvor mye.
+  const andreUten = med.some((f) => andreUetterprovd(f.grader) > 0);
 
   let hoved: string;
-  if (med.length === 1) {
-    const f = med[0]!;
-    hoved = `${tall(f.roller.verifisert)} av ${tall(f.roller.totalt)} roller i ${f.navn} er hentet direkte fra registrene${dato}.`;
+  let rest: string;
+  if (med.length === 1 && !alleRoller) {
+    const r = med[0]!.grader.roller;
+    hoved = `${tall(r.verifisert)} av ${tall(r.totalt)} roller i ${med[0]!.navn} er hentet direkte fra registrene${dato}.`;
+    rest = "Resten er ikke etterprøvd.";
+  } else if (alleRoller) {
+    hoved = `Alle rollene ${hvor} er hentet direkte fra registrene${dato}.`;
+    rest = andreUten ? "Noen andre påstander er ikke etterprøvd." : "";
   } else {
-    const andeler = med.map((f) => Math.floor((100 * f.roller.verifisert) / f.roller.totalt));
+    const andeler = med.map((f) =>
+      Math.floor((100 * f.grader.roller.verifisert) / f.grader.roller.totalt),
+    );
     const lav = Math.min(...andeler);
     const hoy = Math.max(...andeler);
     const spenn = lav === hoy ? `${lav} %` : `Mellom ${lav} og ${hoy} %`;
-    const hvor = uten.length ? `i ${liste(med.map((f) => f.navn))}` : "i hvert fylke";
     hoved = `${spenn} av rollene ${hvor} er hentet direkte fra registrene${dato}.`;
+    rest = "Resten er ikke etterprøvd.";
   }
   return {
     // Den korte står i topplinjen og må holde seg til to linjer. Fylkene uten
     // roller står i den lange og på fylkeskortene.
-    kort: `${hoved} Resten er ikke etterprøvd.`,
-    lang: `${hoved}${med.length > 1 ? ` ${detaljer}.` : ""} Resten er ikke etterprøvd av oss. Merket ved hver påstand sier hvor den kommer fra.${utenSetning}`,
+    kort: rest ? `${hoved} ${rest}` : hoved,
+    lang: `${hoved}${med.length > 1 ? ` ${detaljer}.` : ""}${rest ? ` ${rest.replace(/\.$/, " av oss.")}` : ""} Merket ved hver påstand sier hvor den kommer fra.${utenSetning}`,
   };
 }
 
@@ -134,6 +179,10 @@ export function useForhandsvarsel(varsel?: Forhandsvarsel | null): Forhandsvarse
           kort: `Ingen av de ${tall(totalt)} påstandene ${omfang} er hentet direkte fra registrene ennå.`,
           lang: `Ingen av de ${tall(totalt)} påstandene ${omfang} er hentet direkte fra registrene ennå. De er sammenstilt ${datoKort(kommune.kommune.sammenstilt)} og ikke etterprøvd av oss.`,
         };
+      }
+      if (verifisert === totalt) {
+        const s = `Alle de ${tall(totalt)} påstandene ${omfang} er hentet direkte fra registrene.`;
+        return { kort: s, lang: `${s} Merket ved hver påstand sier hvor den kommer fra.` };
       }
       const s = `${tall(verifisert)} av ${antall(totalt, "påstand", "påstander")} ${omfang} er hentet direkte fra registrene.`;
       return {

@@ -19,7 +19,8 @@ import { fiktiveDatasett } from "./helpers/fiktive";
 const datasett = lesDatasett();
 const region = lesRegion();
 const tromso = datasett.find((d) => d.slug === "tromso")!;
-const alle = [...datasett, ...fiktiveDatasett(tromso.data)];
+// Tromsø og de fiktive kommunene. Kontrakttesten dekker de andre ekte.
+const alle = [tromso, ...fiktiveDatasett(tromso.data)];
 const samling = samle(alle);
 const lokal = lagLokal(samling, { region });
 
@@ -71,7 +72,15 @@ for (const { slug, data } of alle) {
 it("regionen, fylkene og søket er like, også med fiktive kommuner utenfor registeret", async () => {
   await lik("region_oversikt");
   for (const f of region?.fylker ?? []) await lik("fylke_oversikt", f.nr);
-  for (const q of ["testvik", "fiktiv", "kari fiktiv", "Ola", "lise", "mette motsagt", "styreleder"]) {
+  for (const q of [
+    "testvik",
+    "fiktiv",
+    "kari fiktiv",
+    "Ola",
+    "lise",
+    "mette motsagt",
+    "styreleder",
+  ]) {
     await lik("sok", q, 20);
   }
 });

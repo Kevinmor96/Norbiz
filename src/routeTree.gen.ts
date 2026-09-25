@@ -14,9 +14,13 @@ import { Route as MetodeRouteImport } from './routes/metode'
 import { Route as ProRouteImport } from './routes/pro'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as DataSokeindeksDotjsonRouteImport } from './routes/data.sokeindeks[.]json'
 import { Route as FylkeSlugRouteImport } from './routes/fylke.$slug'
 import { Route as KommuneSlugRouteImport } from './routes/kommune.$slug'
 import { Route as OrganKeyRouteImport } from './routes/organ.$key'
+import { Route as DataKommuneFilRouteImport } from './routes/data.kommune.$fil'
+import { Route as DataOrganFilRouteImport } from './routes/data.organ.$fil'
+import { Route as KartTerrengFilRouteImport } from './routes/kart.terreng.$fil'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -43,6 +47,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DataSokeindeksDotjsonRoute = DataSokeindeksDotjsonRouteImport.update({
+  id: '/data/sokeindeks.json',
+  path: '/data/sokeindeks.json',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FylkeSlugRoute = FylkeSlugRouteImport.update({
   id: '/fylke/$slug',
   path: '/fylke/$slug',
@@ -58,6 +67,21 @@ const OrganKeyRoute = OrganKeyRouteImport.update({
   path: '/organ/$key',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DataKommuneFilRoute = DataKommuneFilRouteImport.update({
+  id: '/data/kommune/$fil',
+  path: '/data/kommune/$fil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataOrganFilRoute = DataOrganFilRouteImport.update({
+  id: '/data/organ/$fil',
+  path: '/data/organ/$fil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KartTerrengFilRoute = KartTerrengFilRouteImport.update({
+  id: '/kart/terreng/$fil',
+  path: '/kart/terreng/$fil',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -65,9 +89,13 @@ export interface FileRoutesByFullPath {
   '/pro': typeof ProRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/data/sokeindeks.json': typeof DataSokeindeksDotjsonRoute
   '/fylke/$slug': typeof FylkeSlugRoute
   '/kommune/$slug': typeof KommuneSlugRoute
   '/organ/$key': typeof OrganKeyRoute
+  '/data/kommune/$fil': typeof DataKommuneFilRoute
+  '/data/organ/$fil': typeof DataOrganFilRoute
+  '/kart/terreng/$fil': typeof KartTerrengFilRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -75,9 +103,13 @@ export interface FileRoutesByTo {
   '/pro': typeof ProRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/data/sokeindeks.json': typeof DataSokeindeksDotjsonRoute
   '/fylke/$slug': typeof FylkeSlugRoute
   '/kommune/$slug': typeof KommuneSlugRoute
   '/organ/$key': typeof OrganKeyRoute
+  '/data/kommune/$fil': typeof DataKommuneFilRoute
+  '/data/organ/$fil': typeof DataOrganFilRoute
+  '/kart/terreng/$fil': typeof KartTerrengFilRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -86,9 +118,13 @@ export interface FileRoutesById {
   '/pro': typeof ProRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/data/sokeindeks.json': typeof DataSokeindeksDotjsonRoute
   '/fylke/$slug': typeof FylkeSlugRoute
   '/kommune/$slug': typeof KommuneSlugRoute
   '/organ/$key': typeof OrganKeyRoute
+  '/data/kommune/$fil': typeof DataKommuneFilRoute
+  '/data/organ/$fil': typeof DataOrganFilRoute
+  '/kart/terreng/$fil': typeof KartTerrengFilRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -98,9 +134,13 @@ export interface FileRouteTypes {
     | '/pro'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/data/sokeindeks.json'
     | '/fylke/$slug'
     | '/kommune/$slug'
     | '/organ/$key'
+    | '/data/kommune/$fil'
+    | '/data/organ/$fil'
+    | '/kart/terreng/$fil'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -108,9 +148,13 @@ export interface FileRouteTypes {
     | '/pro'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/data/sokeindeks.json'
     | '/fylke/$slug'
     | '/kommune/$slug'
     | '/organ/$key'
+    | '/data/kommune/$fil'
+    | '/data/organ/$fil'
+    | '/kart/terreng/$fil'
   id:
     | '__root__'
     | '/'
@@ -118,9 +162,13 @@ export interface FileRouteTypes {
     | '/pro'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/data/sokeindeks.json'
     | '/fylke/$slug'
     | '/kommune/$slug'
     | '/organ/$key'
+    | '/data/kommune/$fil'
+    | '/data/organ/$fil'
+    | '/kart/terreng/$fil'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -129,9 +177,13 @@ export interface RootRouteChildren {
   ProRoute: typeof ProRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  DataSokeindeksDotjsonRoute: typeof DataSokeindeksDotjsonRoute
   FylkeSlugRoute: typeof FylkeSlugRoute
   KommuneSlugRoute: typeof KommuneSlugRoute
   OrganKeyRoute: typeof OrganKeyRoute
+  DataKommuneFilRoute: typeof DataKommuneFilRoute
+  DataOrganFilRoute: typeof DataOrganFilRoute
+  KartTerrengFilRoute: typeof KartTerrengFilRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -171,6 +223,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/data/sokeindeks.json': {
+      id: '/data/sokeindeks.json'
+      path: '/data/sokeindeks.json'
+      fullPath: '/data/sokeindeks.json'
+      preLoaderRoute: typeof DataSokeindeksDotjsonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/fylke/$slug': {
       id: '/fylke/$slug'
       path: '/fylke/$slug'
@@ -192,6 +251,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OrganKeyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/data/kommune/$fil': {
+      id: '/data/kommune/$fil'
+      path: '/data/kommune/$fil'
+      fullPath: '/data/kommune/$fil'
+      preLoaderRoute: typeof DataKommuneFilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data/organ/$fil': {
+      id: '/data/organ/$fil'
+      path: '/data/organ/$fil'
+      fullPath: '/data/organ/$fil'
+      preLoaderRoute: typeof DataOrganFilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kart/terreng/$fil': {
+      id: '/kart/terreng/$fil'
+      path: '/kart/terreng/$fil'
+      fullPath: '/kart/terreng/$fil'
+      preLoaderRoute: typeof KartTerrengFilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -201,9 +281,13 @@ const rootRouteChildren: RootRouteChildren = {
   ProRoute: ProRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  DataSokeindeksDotjsonRoute: DataSokeindeksDotjsonRoute,
   FylkeSlugRoute: FylkeSlugRoute,
   KommuneSlugRoute: KommuneSlugRoute,
   OrganKeyRoute: OrganKeyRoute,
+  DataKommuneFilRoute: DataKommuneFilRoute,
+  DataOrganFilRoute: DataOrganFilRoute,
+  KartTerrengFilRoute: KartTerrengFilRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

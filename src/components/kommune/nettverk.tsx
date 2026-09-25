@@ -370,9 +370,13 @@ export function NettverkSeksjon({ side }: SeksjonProps) {
                 settAktiv={settAktiv}
               />
             </div>
-            <div className={cn(visning === "buer" ? "block lg:hidden" : "hidden")}>
-              <Buediagram modell={vis} aktiv={aktiv} settAktiv={settAktiv} />
-            </div>
+            {/* Buene vises bare når leseren velger dem, og bare under skrivebordsbredden.
+                Til da står de ikke i HTML-en: de var skjult på alle bredder likevel. */}
+            {visning === "buer" && (
+              <div className="block lg:hidden">
+                <Buediagram modell={vis} aktiv={aktiv} settAktiv={settAktiv} />
+              </div>
+            )}
           </>
         ) : (
           <div className="hidden border border-dashed border-linje-sterk px-5 py-10 text-center text-[0.9375rem] text-dempet lg:block">

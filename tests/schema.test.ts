@@ -20,12 +20,12 @@ import {
   ROLLETYPER,
   VERIFISERINGER,
 } from "@/lib/data/kontrakt";
-import { migrasjonsfiler, seedetDb, stoppetAv } from "./helpers/db";
+import { ferskDb, migrasjonsfiler, stoppetAv } from "./helpers/db";
 
 let db: PGlite;
 
 beforeAll(async () => {
-  db = await seedetDb();
+  db = await ferskDb();
 });
 
 const RPCER = [

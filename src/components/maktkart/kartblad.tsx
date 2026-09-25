@@ -1,7 +1,10 @@
 // Kartbladet: kommunen som et topografisk kart (DESIGN.md §5.1).
 //
-// Terrenget er et byggesteg (`npm run terreng`), og stiene tegnes her som SVG
-// på serveren. Kartet trenger ingen JavaScript for å vises. Kotene trykkes ved
+// Terrenget er et byggesteg (`npm run terreng`). Stiene står i en egen
+// SVG-fil per kommune og tegnes her med <use href> (src/lib/terreng.ts), så de
+// ikke står i HTML-en og i sidens tilstand. Kartet tegnes likevel på serveren og
+// trenger ingen JavaScript for å vises. Farge og strek settes av klassene på
+// <use> og arves inn i stiene. Kotene trykkes ved
 // lasting med en ren CSS-animasjon: kystlinjen først, så nivå for nivå oppover,
 // ferdig på 1,1 s. Med redusert bevegelse står kartet ferdig fra start.
 //
@@ -14,7 +17,7 @@
 import type { CSSProperties, ReactNode } from "react";
 
 import { orgnr as formaterOrgnr } from "@/lib/format";
-import type { Terreng } from "@/lib/terreng";
+import { koteId, type Terreng } from "@/lib/terreng";
 import { cn } from "@/lib/utils";
 
 /** Hele trykket skal være ferdig innen denne tiden (DESIGN.md §7). */
@@ -36,11 +39,11 @@ function Terrengflate({ terreng }: { terreng: Terreng }) {
       focusable="false"
       className="kartblad-terreng absolute inset-[5px] block h-[calc(100%-10px)] w-[calc(100%-10px)]"
     >
-      <path d={terreng.hav} className="fill-vann-lys" />
+      <use href={`${terreng.fil}#hav`} className="fill-vann-lys" />
       {terreng.koter.map((k, i) => (
-        <path
+        <use
           key={k.hoyde}
-          d={k.d}
+          href={`${terreng.fil}#${koteId(k.hoyde)}`}
           className="kartblad-kote kartblad-strek"
           data-tellekurve={k.tellekurve ? "" : undefined}
           style={
@@ -52,8 +55,8 @@ function Terrengflate({ terreng }: { terreng: Terreng }) {
           }
         />
       ))}
-      <path
-        d={terreng.kyst.d}
+      <use
+        href={`${terreng.fil}#kyst`}
         className="kartblad-kyst kartblad-strek"
         style={{ "--lengde": terreng.kyst.lengde, "--varighet": `${KYST_MS}ms` } as Strekstil}
       />
@@ -111,7 +114,7 @@ export interface KartbladProps {
   kommune: { navn: string; kommunenr: string; fylke: string };
   /** Kommunens organisasjonsnummer, eller `null` når det ikke er kjent. */
   orgnr: string | null;
-  /** Fra `src/data/terreng/<kommunenr>.json`, eller `null` for reservevarianten. */
+  /** Fra `hentTerreng` (src/lib/terreng.ts), eller `null` for reservevarianten. */
   terreng: Terreng | null;
   /** Randopplysningene: nøkkeltallene i en kolonne langs kartet. */
   rand?: ReactNode;

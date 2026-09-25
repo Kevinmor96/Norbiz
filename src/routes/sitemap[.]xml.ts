@@ -1,5 +1,5 @@
-// /sitemap.xml: forsiden, metoden, Pro, hver kommune med datasett og hvert
-// organ som har en side. Listen regnes fra lese-API-et, så en ny kommune
+// /sitemap.xml: forsiden, metoden, Pro, hvert fylke i regionregisteret, hver
+// kommune med datasett og hvert organ som har en side. Listen regnes fra lese-API-et, så en ny kommune
 // kommer med når datasettet finnes, uten at denne fila endres.
 //
 // Organene er de kommunesidene lenker til, og de organprofilene lenker videre
@@ -79,10 +79,12 @@ async function adresser(): Promise<Adresse[]> {
     for (const o of naboer) if (o) legg(o, dato);
   }
 
+  const region = await data.region_oversikt();
   return [
     { sti: "/", lastmod: sist },
     { sti: "/metode", lastmod: sist },
     { sti: "/pro", lastmod: null },
+    ...region.fylker.map((f) => ({ sti: `/fylke/${f.slug}`, lastmod: sist })),
     ...kommuner.map((k) => ({ sti: `/kommune/${k.slug}`, lastmod: k.sammenstilt })),
     ...[...organer.entries()]
       .sort(([a], [b]) => (a < b ? -1 : 1))

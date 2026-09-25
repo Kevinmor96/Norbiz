@@ -32,7 +32,11 @@ export function KommuneKontekst({
   proHref = "/pro",
   children,
 }: {
-  oversikt: KommuneOversikt;
+  /** Bare det konteksten bruker, så en side kan gi en utdragsvis oversikt. */
+  oversikt: Pick<
+    KommuneOversikt,
+    "kommune" | "kommuneorgan" | "verifisering" | "kilder" | "dekning"
+  >;
   metodeHref?: string;
   proHref?: string;
   children: ReactNode;

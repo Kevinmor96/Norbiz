@@ -6,15 +6,23 @@
 // treff på rollen personen har, og treffet peker til organet.
 //
 // Søket tåler aksenter og norske bokstaver i begge retninger: «tromso» finner
-// Tromsø og «hermes» ville funnet Hermès (lærdom fra Bransjesjekk).
+// Tromsø og «hermes» ville funnet Hermès (lærdom fra Bransjesjekk). Brettingen
+// er datalagets egen (`normaliser` i src/lib/data/sok.ts), så dette søket og
+// søket i hele regionen finner det samme.
+//
+// Finner søket lite i kommunen, spør det datalaget om resten av regionen
+// (serverfunksjonen i region/sok.tsx). Treffene der står under en egen
+// overskrift og går til kommunesiden eller organsiden.
 
 import { useNavigate } from "@tanstack/react-router";
 import { Command as CommandPrimitive } from "cmdk";
 import { Search } from "lucide-react";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { aapneOrgan } from "@/components/organ/organ-skuff";
-import type { Organkart } from "@/lib/data";
+import { sokRegionen } from "@/components/region/sok";
+import type { Organkart, Sokeresultat } from "@/lib/data";
+import { normaliser as brett } from "@/lib/data/sok";
 import { antall } from "@/lib/format";
 import { NIVAANAVN } from "@/lib/navn";
 import { cn } from "@/lib/utils";
@@ -28,15 +36,49 @@ interface Treff {
   tekst: string;
 }
 
-/** Små bokstaver uten aksenter, ø som o, æ som ae. Brukes på både søk og indeks. */
-function normaliser(s: string): string {
-  return s
-    .toLowerCase()
-    .replace(/\u00ad/g, "")
-    .replace(/æ/g, "ae")
-    .replace(/ø/g, "o")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+/** Datalagets bretting: små bokstaver uten aksenter, æ som ae. Brukes på både søk og indeks. */
+const normaliser = (s: string) => brett(s.replace(/\u00ad/g, ""));
+
+/** Et treff utenfor kommunen, fra søket i hele regionen. */
+interface Regiontreff {
+  id: string;
+  tittel: string;
+  under: string;
+  gaaTil:
+    | { to: "/kommune/$slug"; params: { slug: string } }
+    | { to: "/organ/$key"; params: { key: string } };
+}
+
+function regiontreff(r: Sokeresultat, her: Set<string>, kommunenavn: string): Regiontreff[] {
+  const ut: Regiontreff[] = [];
+  for (const k of r.kommuner.treff) {
+    if (!k.har_datasett || k.navn === kommunenavn) continue;
+    ut.push({
+      id: `r-kommune:${k.kommunenr}`,
+      tittel: k.navn_offisielt.replace(/ - /g, "\u00a0- "),
+      under: "Kommune",
+      gaaTil: { to: "/kommune/$slug", params: { slug: k.slug } },
+    });
+  }
+  for (const o of r.organer.treff) {
+    if (her.has(o.key)) continue;
+    ut.push({
+      id: `r-organ:${o.key}`,
+      tittel: o.navn,
+      under: NIVAANAVN[o.nivaa],
+      gaaTil: { to: "/organ/$key", params: { key: o.key } },
+    });
+  }
+  for (const x of r.roller.treff) {
+    if (her.has(x.org.key)) continue;
+    ut.push({
+      id: `r-rolle:${x.org.key}:${x.person.key}:${x.rolletype}`,
+      tittel: x.person.navn,
+      under: `${x.tittel}, ${x.org.kortnavn ?? x.org.navn}`,
+      gaaTil: { to: "/organ/$key", params: { key: x.org.key } },
+    });
+  }
+  return ut.slice(0, 6);
 }
 
 function lagIndeks(organkart: Organkart): { treff: Treff[]; organer: number; roller: number } {
@@ -118,6 +160,32 @@ export function Sok({ organkart, kommunenavn }: { organkart: Organkart; kommunen
   const treff = useMemo(() => sok(indeks.treff, q), [indeks, q]);
   const vis = aapen && q.trim().length > 0;
 
+  // Resten av regionen, bare når kommunen selv gir få treff. Uten server (den
+  // statiske eksporten) søkes det i søkeindeksen fra eksporten. Feiler begge,
+  // blir lista tom, og søket i kommunen virker som før.
+  const [region, settRegion] = useState<{ q: string; treff: Regiontreff[] } | null>(null);
+  const sporring = q.trim();
+  const faa = treff.length < 3 && normaliser(sporring).length >= 2;
+  useEffect(() => {
+    if (!faa) return;
+    let avbrutt = false;
+    const her = new Set(indeks.treff.map((t) => t.org));
+    const t = window.setTimeout(() => {
+      sokRegionen(sporring)
+        .then((r) => {
+          if (!avbrutt) settRegion({ q: sporring, treff: regiontreff(r, her, kommunenavn) });
+        })
+        .catch(() => {
+          if (!avbrutt) settRegion({ q: sporring, treff: [] });
+        });
+    }, 160);
+    return () => {
+      avbrutt = true;
+      window.clearTimeout(t);
+    };
+  }, [faa, sporring, indeks, kommunenavn]);
+  const utenfor = faa && region?.q === sporring ? region.treff : [];
+
   const velg = (t: Treff) => {
     settAapen(false);
     // Fokus tilbake til søkefeltet når skuffen lukkes, ikke til et treff som er borte.
@@ -159,7 +227,9 @@ export function Sok({ organkart, kommunenavn }: { organkart: Organkart; kommunen
             }}
             onFocus={() => settAapen(true)}
             onBlur={() => settAapen(false)}
-            placeholder="For eksempel Troms Kraft eller ordfører"
+            // Malen vet ikke hvilken kommune den viser, så eksempelet nevner ingen
+            // bestemt virksomhet (det sto «Troms Kraft» her, også i Alta).
+            placeholder="For eksempel ordfører eller et selskap"
             className={cn(
               "h-[52px] w-full appearance-none border border-trykk bg-flate pr-4 pl-11 text-base text-trykk",
               "placeholder:text-dempet focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-signal",
@@ -174,7 +244,8 @@ export function Sok({ organkart, kommunenavn }: { organkart: Organkart; kommunen
         >
           {vis && (
             <CommandPrimitive.Empty className="px-4 py-3.5 text-[0.875rem] text-dempet">
-              Ingen treff på «{q.trim()}». Søket dekker organer og ledere i {kommunenavn}.
+              Ingen treff på «{q.trim()}». Søket dekker organer og ledere i {kommunenavn}
+              {faa ? ", og kommuner, organer og roller i resten av regionen" : ""}.
             </CommandPrimitive.Empty>
           )}
           {vis &&
@@ -193,6 +264,31 @@ export function Sok({ organkart, kommunenavn }: { organkart: Organkart; kommunen
                 </span>
               </CommandPrimitive.Item>
             ))}
+          {vis && utenfor.length > 0 && (
+            <CommandPrimitive.Group
+              heading={`Utenfor ${kommunenavn}`}
+              className="border-t border-trykk [&_[cmdk-group-heading]]:px-3.5 [&_[cmdk-group-heading]]:pt-2.5 [&_[cmdk-group-heading]]:pb-1 [&_[cmdk-group-heading]]:text-[0.75rem] [&_[cmdk-group-heading]]:text-dempet"
+            >
+              {utenfor.map((t) => (
+                <CommandPrimitive.Item
+                  key={t.id}
+                  value={t.id}
+                  onSelect={() => {
+                    settAapen(false);
+                    void navigate(t.gaaTil);
+                  }}
+                  onMouseDown={(e) => e.preventDefault()}
+                  className="flex cursor-pointer gap-2.5 border-b border-linje px-3.5 py-2.5 last:border-b-0 data-[selected=true]:bg-flate-2"
+                >
+                  <Symbol type={t.id.startsWith("r-rolle") ? "rolle" : "organ"} />
+                  <span className="min-w-0">
+                    <b className="block font-semibold">{t.tittel}</b>
+                    <span className="block text-[0.8125rem] text-dempet">{t.under}</span>
+                  </span>
+                </CommandPrimitive.Item>
+              ))}
+            </CommandPrimitive.Group>
+          )}
         </CommandPrimitive.List>
       </CommandPrimitive>
       <p className="mt-2 text-[0.8125rem] text-dempet">

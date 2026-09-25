@@ -3,7 +3,8 @@
 // én kartlagt kommune som eksempel på hva siden gir, merkene og Pro.
 //
 // Alt som nevner en kommune, et fylke eller et tall, kommer fra datalaget
-// gjennom loaderne (region/last.ts og forside/last.ts). Forsiden teller ingen
+// gjennom loaderne (region/last.ts og forside/last.ts, hentet på serveren via
+// region/hent.ts). Forsiden teller ingen
 // ting selv. Malen vet ikke hvilken region den viser: navnet, fylkene og
 // kommunene kommer fra regionregisteret.
 //
@@ -39,24 +40,22 @@ import { Topplinje } from "@/components/maktkart/topplinje";
 import { Dekningsforklaring } from "@/components/region/dekning";
 import { Fylkekort } from "@/components/region/fylkekort";
 import { GRENSER } from "@/components/region/geometri";
+import { fraServeren, hentForside } from "@/components/region/hent";
 import { Regionkart } from "@/components/region/regionkart";
 import { Regionsok } from "@/components/region/sok";
 import { antall, tall } from "@/lib/format";
 import { nettstedUrl } from "@/lib/nettsted";
 
 export const Route = createFileRoute("/")({
-  loader: async () => {
-    // Dynamisk import: loadere deles ikke opp, og datalaget skal ikke i hovedbunten.
-    const [{ lastForside }, { lastRegionside }] = await Promise.all([
-      import("@/components/forside/last"),
-      import("@/components/region/last"),
-    ]);
-    const [forside, region] = await Promise.all([lastForside(), lastRegionside()]);
-    return { utvalgt: forside.utvalgt, region };
-  },
+  // Gjennom en serverfunksjon, så datalaget aldri lastes i nettleseren (region/hent.ts).
+  // Svaret endres bare ved en ny utrulling, så det hentes én gang per økt.
+  loader: () => fraServeren(() => hentForside(), "/"),
+  staleTime: Infinity,
   head: ({ loaderData }) => {
     const r = loaderData?.region;
-    const tittel = r ? `Hvem bestemmer i ${r.region.navn}? Innflytelse, kommune for kommune | Maktkart` : "Maktkart";
+    const tittel = r
+      ? `Hvem bestemmer i ${r.region.navn}? Innflytelse, kommune for kommune | Maktkart`
+      : "Maktkart";
     const beskrivelse = r
       ? `Hvem bestemmer i ${r.region.navn}? Organene, rollene og pengene i ${tall(r.kommuner.length)} kommuner i ${r.fylker
           .map((f) => f.navn)
@@ -90,9 +89,7 @@ function oppramsing(navn: string[]): string {
 function Forside() {
   const { utvalgt, region } = Route.useLoaderData();
   const { fylker, kommuner } = region;
-  const varsel = varselForFylker(
-    fylker.map((f) => ({ navn: f.navn, roller: f.grader.roller, hentet: f.grader.sist_hentet })),
-  );
+  const varsel = varselForFylker(fylker.map((f) => ({ navn: f.navn, grader: f.grader })));
   const fylkeAv = new Map(fylker.map((f) => [f.fylkesnr, f]));
   // Pro-skjemaet velger blant alle kommunene i regionen. De med datasett står først.
   const proKommuner: KjentKommune[] = kommuner
@@ -115,7 +112,7 @@ function Forside() {
         >
           {/* På mobil kommer kartet rett etter ingressen: det er beviset. På skrivebord står
               det til høyre for både tittelen og søket. */}
-          <div className="grid gap-x-6 gap-y-8 lg:grid-cols-12 lg:gap-y-7">
+          <div className="grid gap-x-6 gap-y-8 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-y-7">
             <div className="flex min-w-0 flex-col gap-7 lg:col-span-5 lg:pt-3">
               <div className="flex flex-col gap-4">
                 <p className="region text-[0.75rem] text-dempet sm:text-[0.8125rem]">
@@ -129,8 +126,9 @@ function Forside() {
                 </h1>
               </div>
               <p className="ingress max-w-[38ch] text-[clamp(1.0625rem,1rem+0.35vw,1.25rem)] text-dempet">
-                {tall(kommuner.length)} kommuner i {oppramsing(fylker.map((f) => f.navn))}. Organene,
-                rollene og pengene, og hvordan de henger sammen. Hver påstand har kilde og dato.
+                {tall(kommuner.length)} kommuner i {oppramsing(fylker.map((f) => f.navn))}.
+                Organene, rollene og pengene, og hvordan de henger sammen. Hver påstand har kilde og
+                dato.
               </p>
             </div>
             <Regionkart
@@ -143,7 +141,7 @@ function Forside() {
               <Dekningsforklaring klasser={region.region.klasser} />
             </Regionkart>
             <div className="grid min-w-0 content-start gap-7 md:grid-cols-2 md:gap-x-8 lg:col-span-5 lg:grid-cols-1">
-              <Regionsok kommuner={kommuner} fylker={fylker} />
+              <Regionsok kommuner={kommuner} fylker={fylker} regionnavn={region.region.navn} />
               <Tegnforklaring className="max-w-[30rem]" visTall={false} />
             </div>
           </div>
@@ -190,7 +188,11 @@ function Forside() {
             ingress="Merket viser hvor påstanden kommer fra og hvor langt den er etterprøvd. Formen bærer graden, så den kan leses uten farge."
           >
             <div className="grid gap-x-12 gap-y-10 lg:grid-cols-12">
-              <Tegnforklaring className="max-w-[30rem] lg:col-span-5" overskrift="h3" visTall={false} />
+              <Tegnforklaring
+                className="max-w-[30rem] lg:col-span-5"
+                overskrift="h3"
+                visTall={false}
+              />
               <div className="flex max-w-[60ch] flex-col gap-5 lg:col-span-7">
                 <Avsnitt tittel="Prøv et merke">
                   {fylker[0] ? (
@@ -210,8 +212,8 @@ function Forside() {
                   Tellingene per grad står på hver fylkes- og kommuneside.
                 </Avsnitt>
                 <Avsnitt tittel="Institusjon først">
-                  Personer vises bare gjennom en rolle i et organ. Ingen bilder, ingen personprofiler og
-                  ingen lister som rangerer mennesker.
+                  Personer vises bare gjennom en rolle i et organ. Ingen bilder, ingen
+                  personprofiler og ingen lister som rangerer mennesker.
                 </Avsnitt>
                 <Link
                   to="/metode"

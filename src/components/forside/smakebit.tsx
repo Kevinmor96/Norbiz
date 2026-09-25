@@ -94,23 +94,35 @@ function Rand({ u }: { u: Utvalgt }) {
       ) : (
         <Hull>Ingen utbytte i datasettet</Hull>
       )}
-      {kjede && (
-        <Modul
-          className="col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1"
-          tall={
-            <MedMerke
-              belegg={kjede.belegg}
-              pastand={`${kjede.utenLeder} av ${kjede.steg} steg i kjeden «${kjede.tittel}» har ingen navngitt leder i datasettet`}
-            >
-              <Stort className="text-signal-tekst">
-                {tall(kjede.utenLeder)} av {tall(kjede.steg)}
-              </Stort>
-            </MedMerke>
-          }
-          etikett={`steg i kjeden «${kjede.tittel.toLowerCase()}» har ingen navngitt leder i datasettet`}
-        />
-      )}
+      {kjede && <Kjedemodul kjede={kjede} />}
     </div>
+  );
+}
+
+/**
+ * Kjeden i tall. Mangler noen steg en navngitt leder, er det hullet som telles.
+ * Har alle stegene en, telles de som har: «0 av 4 steg har ingen navngitt
+ * leder» er en dobbel nektelse leseren må snu selv.
+ */
+function Kjedemodul({ kjede }: { kjede: NonNullable<Utvalgt["kjede"]> }) {
+  const hull = kjede.utenLeder > 0;
+  const antallTalt = hull ? kjede.utenLeder : kjede.steg;
+  const hva = hull ? "har ingen navngitt leder i datasettet" : "har en navngitt leder i datasettet";
+  return (
+    <Modul
+      className="col-span-2 md:col-span-1 lg:col-span-2 xl:col-span-1"
+      tall={
+        <MedMerke
+          belegg={kjede.belegg}
+          pastand={`${antallTalt} av ${kjede.steg} steg i kjeden «${kjede.tittel}» ${hva}`}
+        >
+          <Stort className="text-signal-tekst">
+            {tall(antallTalt)} av {tall(kjede.steg)}
+          </Stort>
+        </MedMerke>
+      }
+      etikett={`steg i kjeden «${kjede.tittel.toLowerCase()}» ${hva}`}
+    />
   );
 }
 

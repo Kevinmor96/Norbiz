@@ -84,7 +84,7 @@ export async function lastForside(): Promise<Forsidedata> {
           kjede.steg.flatMap((st) => [st.belegg, ...st.ledere.map((l) => l.belegg)]),
           {
             per,
-            merknad: `Telt fra kjeden «${kjede.prosess.tittel}» i datasettet: steg der organet ikke har en navngitt leder.`,
+            merknad: `Telt fra kjeden «${kjede.prosess.tittel}» i datasettet: steg der organet har eller mangler en navngitt leder.`,
           },
         ),
       }

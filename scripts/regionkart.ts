@@ -113,7 +113,15 @@ function hentOmrade(nr: string): { omrade: Omrade; hentet: string } {
 }
 
 function hentFlis(z: number, x: number, y: number): PNG {
-  const fil = join(ROT, "node_modules", ".cache", "maktkart-terreng", String(z), String(x), `${y}.png`);
+  const fil = join(
+    ROT,
+    "node_modules",
+    ".cache",
+    "maktkart-terreng",
+    String(z),
+    String(x),
+    `${y}.png`,
+  );
   if (!existsSync(fil)) {
     mkdirSync(dirname(fil), { recursive: true });
     const url = `https://s3.amazonaws.com/elevation-tiles-prod/terrarium/${z}/${x}/${y}.png`;
@@ -421,7 +429,10 @@ function inni(p: Punkt, ring: Punkt[]): boolean {
   for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
     const a = ring[i]!;
     const b = ring[j]!;
-    if (a[1] > p[1] !== b[1] > p[1] && p[0] < ((b[0] - a[0]) * (p[1] - a[1])) / (b[1] - a[1]) + a[0]) {
+    if (
+      a[1] > p[1] !== b[1] > p[1] &&
+      p[0] < ((b[0] - a[0]) * (p[1] - a[1])) / (b[1] - a[1]) + a[0]
+    ) {
       ja = !ja;
     }
   }
@@ -431,7 +442,8 @@ function inni(p: Punkt, ring: Punkt[]): boolean {
 function tilKant(p: Punkt, ringer: Punkt[][]): number {
   let min = Infinity;
   for (const r of ringer) {
-    for (let i = 0, j = r.length - 1; i < r.length; j = i++) min = Math.min(min, avstand(p, r[j]!, r[i]!));
+    for (let i = 0, j = r.length - 1; i < r.length; j = i++)
+      min = Math.min(min, avstand(p, r[j]!, r[i]!));
   }
   return min;
 }
@@ -510,7 +522,10 @@ function main() {
   const skala = (BREDDE - 2 * MARG) / (maxX - minX);
   const hoyde = Math.round((maxY - minY) * skala + 2 * MARG);
   const tilVb = (p: Punkt): Punkt => [(p[0] - minX) * skala + MARG, (maxY - p[1]) * skala + MARG];
-  const tilMeter = (p: Punkt): Punkt => [(p[0] - MARG) / skala + minX, maxY - (p[1] - MARG) / skala];
+  const tilMeter = (p: Punkt): Punkt => [
+    (p[0] - MARG) / skala + minX,
+    maxY - (p[1] - MARG) / skala,
+  ];
   const xy = new Map([...meter.entries()].map(([k, p]) => [k, tilVb(p)] as const));
 
   // 3. Buer, forenklet én gang hver.

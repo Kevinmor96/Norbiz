@@ -22,6 +22,7 @@ import { avtrykk, byggIndeks, type Dataindeks } from "./indeks";
 import type { Datalag } from "./kontrakt";
 import { lagLokal, type LokalDatalag } from "./lokal";
 import { samle } from "./samle";
+import type { Sokegrunnlag } from "./sok";
 
 export interface Datakilde {
   /** Slug → laster for datasettet. */
@@ -37,6 +38,8 @@ export interface Datakilde {
 export interface LatDatalag extends Datalag {
   /** Datasettene som er lastet så langt, sortert. Til målinger og tester. */
   lastet(): string[];
+  /** Søkegrunnlaget over alle datasettene. Til den statiske eksporten. */
+  sokegrunnlag(): Promise<Sokegrunnlag>;
 }
 
 const tekst = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
@@ -191,6 +194,7 @@ export function lagLatLokal(kilde: Datakilde): LatDatalag {
     // Søket går over alt. Første søk laster derfor alle datasettene; i
     // Supabase er det én spørring.
     sok: async (sporring, limit) => (await over(() => slugs))!.sok(sporring, limit),
+    sokegrunnlag: async () => (await over(() => slugs))!.sokegrunnlag(),
     lastet: () => [...lastede.keys()].sort(tekst),
   };
 }

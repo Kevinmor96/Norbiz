@@ -61,7 +61,12 @@ export function Organblokk({
   className?: string;
 }) {
   return (
-    <article className={cn("flex min-w-0 flex-col gap-3 border border-trykk bg-flate p-4 sm:p-5", className)}>
+    <article
+      className={cn(
+        "flex min-w-0 flex-col gap-3 border border-trykk bg-flate p-4 sm:p-5",
+        className,
+      )}
+    >
       <header className="flex flex-col gap-1">
         <p className="region text-[0.6875rem] text-dempet">{ORGANTYPENAVN[organ.organtype]}</p>
         <h3 className="text-[1.125rem] leading-[1.2] font-bold tracking-[-0.01em] [font-stretch:105%]">
@@ -74,7 +79,9 @@ export function Organblokk({
           </Link>
         </h3>
         {organ.beskrivelse && (
-          <p className="text-[0.875rem] leading-[1.45] text-dempet text-pretty">{organ.beskrivelse}</p>
+          <p className="text-[0.875rem] leading-[1.45] text-dempet text-pretty">
+            {organ.beskrivelse}
+          </p>
         )}
         {organ.antall_medlemmer !== null && (
           <p className="text-[0.8125rem] text-dempet">
@@ -90,7 +97,11 @@ export function Organblokk({
       {ledere.length ? (
         <ul className="flex flex-col">
           {ledere.map((r) => (
-            <Lederlinje key={`${r.person.key}:${r.rolletype}:${r.fra ?? ""}`} rolle={r} organ={organ.navn} />
+            <Lederlinje
+              key={`${r.person.key}:${r.rolletype}:${r.fra ?? ""}`}
+              rolle={r}
+              organ={organ.navn}
+            />
           ))}
         </ul>
       ) : (
@@ -157,7 +168,9 @@ export function Kommuneindeks({
             className="flex min-w-0 scroll-mt-[calc(var(--topp)+16px)] flex-col gap-2 border-r border-b border-trykk p-4 target:bg-flate-2"
           >
             <div className="flex items-center justify-between gap-3">
-              <span className="text-[0.75rem] text-dempet tabular-nums">Kartblad {k.kommunenr}</span>
+              <span className="text-[0.75rem] text-dempet tabular-nums">
+                Kartblad {k.kommunenr}
+              </span>
               <svg viewBox="0 0 22 14" width="22" height="14" aria-hidden="true">
                 <defs>
                   <Skravur id={`${id}-${k.kommunenr}`} tetthet={0.7} />

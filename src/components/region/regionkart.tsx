@@ -33,7 +33,10 @@ const FYLL: Record<Exclude<Dekningsklasse, "ingen">, string> = {
 };
 
 /** Klassen for en flate: fyll eller skravur. `skravur` er mønsterets id. */
-export function fyllFor(klasse: Dekningsklasse, skravur: string): { className?: string; fill?: string } {
+export function fyllFor(
+  klasse: Dekningsklasse,
+  skravur: string,
+): { className?: string; fill?: string } {
   return klasse === "ingen" ? { fill: `url(#${skravur})` } : { className: FYLL[klasse] };
 }
 
@@ -41,7 +44,13 @@ export function fyllFor(klasse: Dekningsklasse, skravur: string): { className?: 
 export function Skravur({ id, tetthet = 1 }: { id: string; tetthet?: number }) {
   const s = 6 * tetthet;
   return (
-    <pattern id={id} width={s} height={s} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <pattern
+      id={id}
+      width={s}
+      height={s}
+      patternUnits="userSpaceOnUse"
+      patternTransform="rotate(45)"
+    >
       <rect width={s} height={s} className="fill-papir" />
       <line x1="0" y1="0" x2="0" y2={s} className="stroke-linje-sterk" strokeWidth={s / 5} />
     </pattern>
@@ -69,7 +78,11 @@ function Nordpil({ className }: { className?: string }) {
 export function kommuneHref(k: KommuneIRegion, fylkeslug: string | undefined) {
   return k.datasett
     ? ({ to: "/kommune/$slug", params: { slug: k.slug } } as const)
-    : ({ to: "/fylke/$slug", params: { slug: fylkeslug ?? "" }, hash: `k-${k.kommunenr}` } as const);
+    : ({
+        to: "/fylke/$slug",
+        params: { slug: fylkeslug ?? "" },
+        hash: `k-${k.kommunenr}`,
+      } as const);
 }
 
 interface Etikett {
@@ -79,6 +92,8 @@ interface Etikett {
   y: number;
   /** Får plass på smal skjerm også. */
   smal: boolean;
+  /** Står på en mørk flate (mest blekk): trykkes i papir med mørk utsparing. */
+  invers?: boolean;
 }
 
 /**
@@ -88,17 +103,23 @@ interface Etikett {
  * Deterministisk, så serveren og nettleseren velger det samme.
  */
 function plasser(
-  kandidater: { nr: string; tekst: string; x: number; y: number; vekt: number }[],
+  kandidater: { nr: string; tekst: string; x: number; y: number; vekt: number; invers: boolean }[],
   utsnitt: Utsnitt,
 ): Etikett[] {
   const velg = (pikslerBredde: number) => {
     const skala = pikslerBredde / utsnitt[2];
-    const bokser: [number, number, number, number][] = [];
+    const [ux, uy, ub, uh] = utsnitt;
+    // Kartbladets tittel står øverst til venstre og nordpilen nederst til
+    // høyre. Navnene holder seg unna dem.
+    const bokser: [number, number, number, number][] = [
+      [ux, uy, ux + 210 / skala, uy + 58 / skala],
+      [ux + ub - 48 / skala, uy + uh - 60 / skala, ux + ub, uy + uh],
+    ];
     const valgt = new Set<string>();
     for (const k of [...kandidater].sort((a, b) => b.vekt - a.vekt || (a.nr < b.nr ? -1 : 1))) {
       // 12 px Archivo i 84 % bredde: rundt 6,2 px per tegn, pluss luft rundt.
-      const b = ((k.tekst.length * 6.2 + 10) / skala) / 2;
-      const h = (18 / skala) / 2;
+      const b = (k.tekst.length * 6.2 + 10) / skala / 2;
+      const h = 18 / skala / 2;
       const boks: [number, number, number, number] = [k.x - b, k.y - h, k.x + b, k.y + h];
       const utenfor =
         boks[0] < utsnitt[0] ||
@@ -106,7 +127,9 @@ function plasser(
         boks[1] < utsnitt[1] ||
         boks[3] > utsnitt[1] + utsnitt[3];
       if (utenfor) continue;
-      if (bokser.some((o) => boks[0] < o[2] && boks[2] > o[0] && boks[1] < o[3] && boks[3] > o[1])) {
+      if (
+        bokser.some((o) => boks[0] < o[2] && boks[2] > o[0] && boks[1] < o[3] && boks[3] > o[1])
+      ) {
         continue;
       }
       bokser.push(boks);
@@ -114,11 +137,19 @@ function plasser(
     }
     return valgt;
   };
-  const stor = velg(720);
+  // Et høyt utsnitt (Nordland) får smalere kart, fordi høyden er begrenset til skjermen.
+  const stor = velg(Math.min(720, (740 * utsnitt[2]) / utsnitt[3]));
   const liten = velg(340);
   return kandidater
     .filter((k) => stor.has(k.nr))
-    .map((k) => ({ nr: k.nr, tekst: k.tekst, x: k.x, y: k.y, smal: liten.has(k.nr) }));
+    .map((k) => ({
+      nr: k.nr,
+      tekst: k.tekst,
+      x: k.x,
+      y: k.y,
+      smal: liten.has(k.nr),
+      invers: k.invers,
+    }));
 }
 
 export interface RegionkartProps {
@@ -148,8 +179,12 @@ export function Regionkart({
   const [aktiv, settAktiv] = useState<string | null>(null);
 
   const fylkeskart = fylkesnr ? FYLKESKART.filter((f) => f.fylkesnr === fylkesnr) : FYLKESKART;
-  const utsnitt: Utsnitt =
-    (fylkesnr ? fylkeskart[0]?.utsnitt : undefined) ?? [0, 0, GRENSER.bredde, GRENSER.hoyde];
+  const utsnitt: Utsnitt = (fylkesnr ? fylkeskart[0]?.utsnitt : undefined) ?? [
+    0,
+    0,
+    GRENSER.bredde,
+    GRENSER.hoyde,
+  ];
   const land = fylkesnr ? (fylkeskart[0]?.land ?? REGIONLAND) : REGIONLAND;
   const [x0, y0, b, h] = utsnitt;
 
@@ -163,7 +198,8 @@ export function Regionkart({
   );
 
   const skravur = `${id}-skravur`;
-  const klipp = `${id}-land`;
+  const klipp = `${id}-klipp`;
+  const landId = `${id}-land`;
   const sti = (nr: string) => `${id}-k${nr}`;
 
   // Navnene: fylkene på regionkartet, kommunene på fylkeskartet.
@@ -175,6 +211,7 @@ export function Regionkart({
           x: g.etikett[0],
           y: g.etikett[1],
           vekt: k.folketall.verdi,
+          invers: k.klasse === "kjeder",
         })),
         utsnitt,
       )
@@ -203,31 +240,62 @@ export function Regionkart({
           >
             <defs>
               <Skravur id={skravur} tetthet={b / 900} />
+              {/* Landet står én gang og brukes tre ganger: som flate, som klippesti og som kyst. */}
+              <path id={landId} d={land} vectorEffect="non-scaling-stroke" />
               <clipPath id={klipp}>
-                <path d={land} />
+                <use href={`#${landId}`} />
               </clipPath>
               {flater.map(({ g }) => (
                 <path key={g.nr} id={sti(g.nr)} d={g.d} vectorEffect="non-scaling-stroke" />
               ))}
             </defs>
 
-            <path d={land} className="fill-papir" />
+            <use href={`#${landId}`} className="fill-papir" />
             <g opacity="0.22" aria-hidden="true">
               {flater.map(({ k }) => (
-                <use key={k.kommunenr} href={`#${sti(k.kommunenr)}`} {...fyllFor(k.klasse, skravur)} />
+                <use
+                  key={k.kommunenr}
+                  href={`#${sti(k.kommunenr)}`}
+                  {...fyllFor(k.klasse, skravur)}
+                />
               ))}
             </g>
             <g clipPath={`url(#${klipp})`} aria-hidden="true">
               {flater.map(({ k }) => (
-                <use key={k.kommunenr} href={`#${sti(k.kommunenr)}`} {...fyllFor(k.klasse, skravur)} />
+                <use
+                  key={k.kommunenr}
+                  href={`#${sti(k.kommunenr)}`}
+                  {...fyllFor(k.klasse, skravur)}
+                />
               ))}
             </g>
             <g fill="none" aria-hidden="true" strokeLinejoin="round">
-              <path d={land} className="stroke-vann" strokeWidth="0.6" opacity="0.7" vectorEffect="non-scaling-stroke" />
-              <path d={GRENSER.kommunegrenser} className="stroke-papir" strokeWidth="0.9" vectorEffect="non-scaling-stroke" />
-              <path d={GRENSER.ytre} className="stroke-linje-sterk" strokeWidth="0.8" vectorEffect="non-scaling-stroke" />
+              <use
+                href={`#${landId}`}
+                className="stroke-vann"
+                strokeWidth="0.6"
+                opacity="0.7"
+                vectorEffect="non-scaling-stroke"
+              />
+              <path
+                d={GRENSER.kommunegrenser}
+                className="stroke-papir"
+                strokeWidth="0.9"
+                vectorEffect="non-scaling-stroke"
+              />
+              <path
+                d={GRENSER.ytre}
+                className="stroke-linje-sterk"
+                strokeWidth="0.8"
+                vectorEffect="non-scaling-stroke"
+              />
               {/* Administrativ grense: strek-prikk, som mellom nivåbåndene på kommunesiden. */}
-              <path d={GRENSER.fylkesgrenser} className="stroke-papir" strokeWidth="3.5" vectorEffect="non-scaling-stroke" />
+              <path
+                d={GRENSER.fylkesgrenser}
+                className="stroke-papir"
+                strokeWidth="3.5"
+                vectorEffect="non-scaling-stroke"
+              />
               <path
                 d={GRENSER.fylkesgrenser}
                 className="stroke-trykk"
@@ -268,10 +336,11 @@ export function Regionkart({
               key={e.nr}
               aria-hidden="true"
               className={cn(
-                "utsparing pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap",
+                "pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap",
+                e.invers ? "utsparing-invers text-paa-trykk" : "utsparing text-trykk",
                 fylkesnr
-                  ? "etikett text-[0.75rem] text-trykk"
-                  : "region text-[0.6875rem] tracking-[0.24em] text-trykk sm:text-[0.8125rem]",
+                  ? "etikett text-[0.75rem]"
+                  : "region text-[0.6875rem] tracking-[0.24em] sm:text-[0.8125rem]",
                 !e.smal && "max-md:hidden",
               )}
               style={{ left: `${((e.x - x0) / b) * 100}%`, top: `${((e.y - y0) / h) * 100}%` }}
@@ -292,32 +361,41 @@ export function Regionkart({
         <i className="gradert gradert-b" aria-hidden="true" />
         <i className="gradert gradert-v" aria-hidden="true" />
         <i className="gradert gradert-h" aria-hidden="true" />
-        <span className="pointer-events-none absolute inset-[5px] border border-trykk" aria-hidden="true" />
+        <span
+          className="pointer-events-none absolute inset-[5px] border border-trykk"
+          aria-hidden="true"
+        />
       </div>
 
       <figcaption className="flex flex-col gap-3">
-        {/* Kommunen leseren peker på. Står i DOM-en hele tiden, så høyden ikke hopper. */}
-        <p aria-live="polite" className="min-h-[2.75rem] text-[0.875rem] leading-[1.4]">
+        {/* Kommunen leseren peker på. Står i DOM-en hele tiden, så høyden ikke hopper.
+            Folketallet står med år; kildemerket står ved det samme tallet i kommuneindeksen
+            på fylkessiden, fordi et merke her forsvinner før pekeren når det. */}
+        <p aria-live="polite" className="text-[0.875rem] leading-[1.4] md:min-h-[2.75rem]">
           {vist ? (
             <>
               <b className="font-semibold">{offisielt(vist.navn_offisielt)}</b>
               <span className="text-dempet">
                 {" "}
-                · {tall(vist.folketall.verdi)} innbyggere · {DEKNING[vist.klasse].navn}
+                · {tall(vist.folketall.verdi)} innbyggere 1.1.{vist.folketall.aar} ·{" "}
+                {DEKNING[vist.klasse].navn}
                 {vist.datasett &&
                   ` · ${tall(vist.datasett.organer)} organer og ${tall(vist.datasett.roller)} roller`}
               </span>
             </>
           ) : (
             <span className="text-dempet">
-              Pek på en kommune for å se navnet og hva vi har. Trykk for å åpne den.
+              <span className="max-md:hidden">
+                Pek på en kommune for å se navnet og hva vi har. Trykk for å åpne den.
+              </span>
+              <span className="md:hidden">Trykk på en kommune for å åpne den.</span>
             </span>
           )}
         </p>
         {children}
         <span className="text-[0.75rem] leading-[1.4] text-dempet">
-          {GRENSER.meta.attribusjon} Kommunegrensene er hentet {datoKort(GRENSER.meta.hentet)} og tar
-          med sjøarealet, slik Kartverket fører dem.
+          {GRENSER.meta.attribusjon} Kommunegrensene er hentet {datoKort(GRENSER.meta.hentet)} og
+          tar med sjøarealet, slik Kartverket fører dem.
         </span>
       </figcaption>
     </figure>

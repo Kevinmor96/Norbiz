@@ -1302,7 +1302,31 @@ function utenEierskap(inn: GrafInn): GrafInn {
  * lagene er uten kollisjoner, vinner. Finnes ingen, brukes den med færrest,
  * og det som fortsatt kolliderer, skjules.
  */
+/**
+ * Oppsettet er likt for samme inndata, og det er den tyngste utregningen på
+ * kommunesiden (nesten to sekunder for Tromsø). Det huskes derfor for de siste
+ * grafene, på serveren mellom forespørsler og i nettleseren mellom filtrene.
+ * Svaret deles og skal bare leses.
+ */
+const oppsettMinne = new Map<string, Oppsett>();
+const OPPSETT_MINNE = 24;
+
 export function regnOppsett(inn: GrafInn, lerret: Lerret): Oppsett {
+  const nokkel = JSON.stringify([inn, lerret]);
+  const kjent = oppsettMinne.get(nokkel);
+  if (kjent) {
+    // Sist brukt bakerst, så det eldste går ut først.
+    oppsettMinne.delete(nokkel);
+    oppsettMinne.set(nokkel, kjent);
+    return kjent;
+  }
+  const o = regnOppsettPaaNytt(inn, lerret);
+  oppsettMinne.set(nokkel, o);
+  if (oppsettMinne.size > OPPSETT_MINNE) oppsettMinne.delete(oppsettMinne.keys().next().value!);
+  return o;
+}
+
+function regnOppsettPaaNytt(inn: GrafInn, lerret: Lerret): Oppsett {
   const tom: GrafUt = {
     bredde: lerret.bredde,
     hoyde: lerret.hoyde,

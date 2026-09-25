@@ -10,6 +10,7 @@
 // og #retting.
 
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import type { ReactNode } from "react";
 
 import { Sidedel } from "@/components/forside/sidedel";
@@ -25,8 +26,8 @@ import { MargIndeks } from "@/components/maktkart/marg-indeks";
 import { Sidefot } from "@/components/maktkart/sidefot";
 import { Tegnforklaring } from "@/components/maktkart/tegnforklaring";
 import { Topplinje } from "@/components/maktkart/topplinje";
+import { fraServeren } from "@/lib/data/hent";
 import { datoKort, tall } from "@/lib/format";
-import { tilSiden } from "@/lib/nyttelast";
 import { nettstedUrl } from "@/lib/nettsted";
 
 const TITTEL = "Metode og personvern | Maktkart";
@@ -44,36 +45,13 @@ const DELER = [
   { id: "retting", navn: "Er dette deg?" },
 ] as const;
 
+/** Gjennom en serverfunksjon, så datalaget aldri lastes i nettleseren (src/lib/data/hent.ts). */
+const metodeFn = createServerFn({ method: "GET" }).handler(async () =>
+  (await import("@/lib/metode-data")).lastMetode(),
+);
+
 export const Route = createFileRoute("/metode")({
-  loader: async () => {
-    // Dynamisk import: loadere deles ikke opp, og datasettet skal ikke i hovedbunten.
-    const { data } = await import("@/lib/data");
-    const kommuner = await data.kommuner();
-    const datasett = (
-      await Promise.all(
-        kommuner.map(async (k) => {
-          const [oversikt, organkart, hull] = await Promise.all([
-            data.kommune_oversikt(k.kommunenr),
-            data.organkart(k.kommunenr),
-            data.hull(k.kommunenr),
-          ]);
-          if (!oversikt) return null;
-          return {
-            oversikt,
-            hull: hull ?? [],
-            // Bare det skjemaet trenger, så siden ikke bærer hele organkartet.
-            organer: (organkart?.grupper ?? []).flatMap((g) =>
-              g.organer.map((o) => ({ key: o.key, navn: o.navn, nivaa: o.nivaa })),
-            ),
-          };
-        }),
-      )
-    )
-      .filter((d): d is NonNullable<typeof d> => d !== null)
-      .sort((a, b) => b.oversikt.dekning.organer - a.oversikt.dekning.organer);
-    // Svaret serialiseres inn i HTML-en. Se src/lib/nyttelast.ts.
-    return tilSiden({ datasett });
-  },
+  loader: () => fraServeren(() => metodeFn(), "/metode"),
   head: () => {
     const url = nettstedUrl("/metode");
     return {

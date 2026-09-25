@@ -106,15 +106,17 @@ describe("RPC-ene gir det samme som lokal.ts", () => {
         expect(await base.organkart(nr)).toStrictEqual(await lokal.organkart(nr));
       });
 
+      // En liten kommune kan mangle eierskap og nettverk; den tomme tilstanden
+      // er designet. At svarene ikke er tomme overalt, sjekkes under.
       it("eierskap", async () => {
         const svar = await base.eierskap(nr);
-        expect(svar?.selskaper.length).toBeGreaterThan(0);
+        expect(svar).not.toBeNull();
         expect(svar).toStrictEqual(await lokal.eierskap(nr));
       });
 
       it("nettverk", async () => {
         const svar = await base.nettverk(nr);
-        expect(svar?.personer.length).toBeGreaterThan(0);
+        expect(svar).not.toBeNull();
         expect(svar).toStrictEqual(await lokal.nettverk(nr));
       });
 
@@ -155,6 +157,17 @@ describe("RPC-ene gir det samme som lokal.ts", () => {
     });
   }
 
+  it("sammenligner ikke bare tomme svar: minst én kommune har eierskap og nettverk", async () => {
+    const tall = await Promise.all(
+      kommuner.map(async (k) => ({
+        selskaper: (await lokal.eierskap(k.meta.kommunenr))?.selskaper.length ?? 0,
+        personer: (await lokal.nettverk(k.meta.kommunenr))?.personer.length ?? 0,
+      })),
+    );
+    expect(tall.some((t) => t.selskaper > 0)).toBe(true);
+    expect(tall.some((t) => t.personer > 0)).toBe(true);
+  });
+
   it("region_oversikt()", async () => {
     const svar = await base.region_oversikt();
     expect(svar.kommuner.length).toBe(region?.kommuner.length ?? 0);
@@ -190,7 +203,9 @@ describe("RPC-ene gir det samme som lokal.ts", () => {
     ];
     for (const q of sporringer) {
       for (const limit of [1, 10, 500]) {
-        expect(await base.sok(q, limit), `${q} (${limit})`).toStrictEqual(await lokal.sok(q, limit));
+        expect(await base.sok(q, limit), `${q} (${limit})`).toStrictEqual(
+          await lokal.sok(q, limit),
+        );
       }
     }
   });

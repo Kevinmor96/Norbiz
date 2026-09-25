@@ -6,6 +6,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState, useSyncExternalStore, type MouseEvent, type ReactNode } from "react";
 
 import type { OrganProfil, OrganRef } from "@/lib/data";
+import { forhandslastOrganprofil, hentOrganprofil } from "@/lib/data/hent";
 
 // ---------------------------------------------------------------------------
 // Butikken
@@ -108,27 +109,17 @@ export function useOrganSkuff() {
 }
 
 // ---------------------------------------------------------------------------
-// Profilene. Datalaget lastes med dynamisk import (spec: datasettet skal ikke
-// i hovedbunten), og det starter alt når leseren peker på et organ.
+// Profilene. Datalaget kommer aldri i nettleseren: profilen hentes fra
+// serveren, eller som fil i den statiske eksporten (src/lib/data/hent.ts), og
+// hentingen starter alt når leseren peker på eller fokuserer organet.
 // ---------------------------------------------------------------------------
 
-const profiler = new Map<string, Promise<OrganProfil | null>>();
-
-/** Starter nedlastingen av datalaget. Kalles når leseren peker på eller fokuserer et organ. */
-export function forhandslastOrganer() {
-  void import("@/lib/data");
+/** Starter hentingen av organets profil. Kalles når leseren peker på eller fokuserer et organ. */
+export function forhandslastOrganer(key?: string) {
+  if (key) forhandslastOrganprofil(key);
 }
 
-function hentProfil(key: string): Promise<OrganProfil | null> {
-  let p = profiler.get(key);
-  if (!p) {
-    p = import("@/lib/data").then(({ data }) => data.organ_profil(key));
-    profiler.set(key, p);
-    // En feil skal kunne prøves igjen, ikke huskes.
-    p.catch(() => profiler.delete(key));
-  }
-  return p;
-}
+const hentProfil = (key: string): Promise<OrganProfil | null> => hentOrganprofil(key);
 
 export type Tilstand =
   | { key: string; status: "laster" }
@@ -209,8 +200,8 @@ export function OrganLenke({
       aria-label={ariaLabel}
       aria-describedby={ariaDescribedby}
       onClick={klikk}
-      onPointerEnter={forhandslastOrganer}
-      onFocus={forhandslastOrganer}
+      onPointerEnter={() => forhandslastOrganer(key)}
+      onFocus={() => forhandslastOrganer(key)}
     >
       {tekst}
     </Link>

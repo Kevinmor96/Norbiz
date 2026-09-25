@@ -34,7 +34,12 @@ export function Gradstolpe({
   const { totalt } = telling;
   if (totalt === 0) {
     return (
-      <p className={cn("self-start border border-dashed border-kote px-2 py-1 text-[0.8125rem] text-kote-tekst", className)}>
+      <p
+        className={cn(
+          "self-start border border-dashed border-kote px-2 py-1 text-[0.8125rem] text-kote-tekst",
+          className,
+        )}
+      >
         Ingen {hva} i datasettet ennå
       </p>
     );

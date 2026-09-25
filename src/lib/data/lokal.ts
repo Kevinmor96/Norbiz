@@ -192,6 +192,11 @@ export interface LokalValg {
 export interface LokalDatalag extends Datalag {
   /** Tallene `region_oversikt` og `fylke_oversikt` bygger på, regnet over `s`. */
   beregnAggregater(): Aggregater;
+  /**
+   * Det søket leter i. Den statiske eksporten skriver det til
+   * /data/sokeindeks.json, og nettleseren søker i det med `sokI` (sok.ts).
+   */
+  sokegrunnlag(): Sokegrunnlag;
 }
 
 /** ASCII-kebab, samme regel som sluggene i regionregisteret: æ→ae, ø→o, å→a. */
@@ -1183,5 +1188,6 @@ export function lagLokal(s: Samling, valg: LokalValg = {}): LokalDatalag {
     fylke_oversikt: async (fylkesnr) => fylke_oversikt(fylkesnr),
     sok: async (sporring, limit) => sokI(sokegrunnlag(), sporring, limit),
     beregnAggregater,
+    sokegrunnlag,
   };
 }

@@ -36,11 +36,29 @@ export const sokServer = createServerFn({ method: "GET" })
 /** Søkeindeksen fra den statiske eksporten, hentet én gang og bare når serveren mangler. */
 let statiskIndeks: Promise<Sokegrunnlag> | null = null;
 async function sokStatisk(q: string): Promise<Sokeresultat> {
-  statiskIndeks ??= fetch("/data/sokeindeks.json").then((r) => {
-    if (!r.ok) throw new Error(`Søkeindeksen svarte ${r.status}`);
-    return r.json() as Promise<Sokegrunnlag>;
-  });
+  statiskIndeks ??= fetch("/data/sokeindeks.json")
+    .then((r) => {
+      if (!r.ok) throw new Error(`Søkeindeksen svarte ${r.status}`);
+      return r.json() as Promise<Sokegrunnlag>;
+    })
+    .catch((feil: unknown) => {
+      // Et brudd i nettet skal ikke låse søket til neste sidelasting.
+      statiskIndeks = null;
+      throw feil;
+    });
   return sokI(await statiskIndeks, q, GRENSE);
+}
+
+/**
+ * Søket over hele regionen: serverfunksjonen, og søkeindeksen fra den statiske
+ * eksporten der det ikke finnes noen server. Kommunesøket bruker det samme.
+ */
+export async function sokRegionen(q: string): Promise<Sokeresultat> {
+  try {
+    return await sokServer({ data: { q } });
+  } catch {
+    return sokStatisk(q);
+  }
 }
 
 type Treff =
@@ -52,7 +70,13 @@ type Treff =
 function Symbol({ type }: { type: Treff["type"] }) {
   // Fylke og kommune: grenseflate. Organ: rute (institusjonen). Rolle: prikk i rute.
   return (
-    <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true" className="mt-1 shrink-0 text-trykk">
+    <svg
+      viewBox="0 0 14 14"
+      width="14"
+      height="14"
+      aria-hidden="true"
+      className="mt-1 shrink-0 text-trykk"
+    >
       {type === "fylke" || type === "kommune" ? (
         <path
           d="M2 4.5 6 1.5l6 2.5-1 6-5 2.5-4-3Z"
@@ -63,7 +87,15 @@ function Symbol({ type }: { type: Treff["type"] }) {
         />
       ) : (
         <>
-          <rect x="1.5" y="1.5" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="1.4" />
+          <rect
+            x="1.5"
+            y="1.5"
+            width="11"
+            height="11"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+          />
           {type === "rolle" && <circle cx="7" cy="7" r="2.2" fill="currentColor" />}
         </>
       )}
@@ -74,16 +106,21 @@ function Symbol({ type }: { type: Treff["type"] }) {
 export function Regionsok({
   kommuner,
   fylker,
+  regionnavn,
   className,
 }: {
   kommuner: KommuneIRegion[];
   fylker: FylkeIRegion[];
+  /** Regionens navn fra regionregisteret, til etiketten skjermlesere hører. */
+  regionnavn: string;
   className?: string;
 }) {
   const navigate = useNavigate();
   const [q, settQ] = useState("");
   const [aapen, settAapen] = useState(false);
-  const [svar, settSvar] = useState<{ q: string; r: Sokeresultat | null; feil: boolean } | null>(null);
+  const [svar, settSvar] = useState<{ q: string; r: Sokeresultat | null; feil: boolean } | null>(
+    null,
+  );
   const felt = useRef<HTMLInputElement>(null);
 
   // Kommunene søkes lokalt, med datalagets regler, så de kommer uten ventetid.
@@ -103,6 +140,10 @@ export function Regionsok({
     [kommuner],
   );
   const fylkeAv = useMemo(() => new Map(fylker.map((f) => [f.fylkesnr, f])), [fylker]);
+  const kommunenavn = useMemo(
+    () => new Map(kommuner.map((k) => [k.kommunenr, k.navn])),
+    [kommuner],
+  );
 
   const sporring = q.trim();
   useEffect(() => {
@@ -115,13 +156,9 @@ export function Regionsok({
       let r: Sokeresultat | null = null;
       let feil = false;
       try {
-        r = await sokServer({ data: { q: sporring } });
+        r = await sokRegionen(sporring);
       } catch {
-        try {
-          r = await sokStatisk(sporring);
-        } catch {
-          feil = true;
-        }
+        feil = true;
       }
       if (!avbrutt) settSvar({ q: sporring, r, feil });
     }, 140);
@@ -144,7 +181,8 @@ export function Regionsok({
       ut.push({ type: "kommune", id: `kommune:${k.kommunenr}`, kommune: k });
     }
     const r = svar?.q === sporring ? svar.r : null;
-    for (const o of r?.organer.treff ?? []) ut.push({ type: "organ", id: `organ:${o.key}`, organ: o });
+    for (const o of r?.organer.treff ?? [])
+      ut.push({ type: "organ", id: `organ:${o.key}`, organ: o });
     for (const x of r?.roller.treff ?? []) {
       ut.push({ type: "rolle", id: `rolle:${x.org.key}:${x.person.key}:${x.rolletype}`, rolle: x });
     }
@@ -167,16 +205,24 @@ export function Regionsok({
       if (k.har_datasett) void navigate({ to: "/kommune/$slug", params: { slug: k.slug } });
       else {
         const f = fylkeAv.get(k.fylkesnr);
-        void navigate({ to: "/fylke/$slug", params: { slug: f?.slug ?? "" }, hash: `k-${k.kommunenr}` });
+        void navigate({
+          to: "/fylke/$slug",
+          params: { slug: f?.slug ?? "" },
+          hash: `k-${k.kommunenr}`,
+        });
       }
-    } else if (t.type === "organ") void navigate({ to: "/organ/$key", params: { key: t.organ.key } });
+    } else if (t.type === "organ")
+      void navigate({ to: "/organ/$key", params: { key: t.organ.key } });
     else void navigate({ to: "/organ/$key", params: { key: t.rolle.org.key } });
   };
 
   const linjer = (t: Treff): [string, string] => {
     switch (t.type) {
       case "fylke":
-        return [offisielt(t.fylke.navn_offisielt), `Fylke, ${antall(t.fylke.antall_kommuner, "kommune", "kommuner")}`];
+        return [
+          offisielt(t.fylke.navn_offisielt),
+          `Fylke, ${antall(t.fylke.antall_kommuner, "kommune", "kommuner")}`,
+        ];
       case "kommune": {
         const f = fylkeAv.get(t.kommune.fylkesnr);
         return [
@@ -184,10 +230,24 @@ export function Regionsok({
           `Kommune i ${f?.navn ?? "fylket"}${t.kommune.har_datasett ? "" : ", ikke kartlagt ennå"}`,
         ];
       }
-      case "organ":
-        return [t.organ.navn, t.organ.kortnavn && t.organ.kortnavn !== t.organ.navn ? `${NIVAANAVN[t.organ.nivaa]}, ${t.organ.kortnavn}` : NIVAANAVN[t.organ.nivaa]];
+      case "organ": {
+        const sted = t.organ.kommunenr ? kommunenavn.get(t.organ.kommunenr) : undefined;
+        return [
+          t.organ.navn,
+          [
+            NIVAANAVN[t.organ.nivaa],
+            t.organ.kortnavn && t.organ.kortnavn !== t.organ.navn ? t.organ.kortnavn : null,
+            sted,
+          ]
+            .filter(Boolean)
+            .join(", "),
+        ];
+      }
       case "rolle":
-        return [t.rolle.person.navn, `${t.rolle.tittel}, ${t.rolle.org.kortnavn ?? t.rolle.org.navn}`];
+        return [
+          t.rolle.person.navn,
+          `${t.rolle.tittel}, ${t.rolle.org.kortnavn ?? t.rolle.org.navn}`,
+        ];
     }
   };
 
@@ -204,7 +264,7 @@ export function Regionsok({
       <CommandPrimitive
         shouldFilter={false}
         loop
-        label="Søk i kommuner, organer og roller i Nord-Norge"
+        label={`Søk i kommuner, organer og roller i ${regionnavn}`}
         className="relative"
         onKeyDown={(e) => {
           if (e.key === "Escape") settAapen(false);
@@ -239,8 +299,8 @@ export function Regionsok({
         >
           {vis && !venter && treff.length === 0 && (
             <p className="px-4 py-3.5 text-[0.875rem] leading-[1.45] text-dempet">
-              Ingen treff på «{sporring}». Søket dekker de {kommuner.length} kommunene i regionen, og
-              organene og rollene i datasettene.
+              Ingen treff på «{sporring}». Søket dekker de {kommuner.length} kommunene i regionen,
+              og organene og rollene i datasettene.
             </p>
           )}
           {vis &&

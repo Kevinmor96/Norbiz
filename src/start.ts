@@ -1,5 +1,6 @@
 import { createStart, createCsrfMiddleware, createMiddleware } from "@tanstack/react-start";
 
+import { bareServerAdapter } from "./lib/bare-server";
 import { renderErrorPage } from "./lib/error-page";
 
 const errorMiddleware = createMiddleware().server(async ({ next }) => {
@@ -26,4 +27,6 @@ const csrfMiddleware = createCsrfMiddleware({
 
 export const startInstance = createStart(() => ({
   requestMiddleware: [errorMiddleware, csrfMiddleware],
+  // Data merket bare-server (src/lib/bare-server.ts) skrives som null i HTML-en.
+  serializationAdapters: [bareServerAdapter],
 }));

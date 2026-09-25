@@ -4,10 +4,10 @@
 // kildemerke (components/kommune/metode-pro/grunnlag.ts).
 
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import { Bell, Download, History, Waypoints, type LucideIcon } from "lucide-react";
 
 import { Sidedel } from "@/components/forside/sidedel";
-import { lastProGrunnlag } from "@/components/kommune/metode-pro/grunnlag";
 import { PRO_FUNKSJONER, type ProFunksjon } from "@/components/kommune/metode-pro/prishypoteser";
 import { Planlagt, Pristabell, ProSkjema } from "@/components/kommune/metode-pro/pro";
 import { kjenteKommuner } from "@/components/kommune/neste/valgkretser";
@@ -15,14 +15,23 @@ import { ForhandsversjonBunn } from "@/components/maktkart/forhandsversjon";
 import { Pastand } from "@/components/maktkart/kildemerke";
 import { Sidefot } from "@/components/maktkart/sidefot";
 import { Topplinje } from "@/components/maktkart/topplinje";
+import { fraServeren } from "@/lib/data/hent";
 import { nettstedUrl } from "@/lib/nettsted";
 
 const TITTEL = "Maktkart Pro: følg med på hvem som bestemmer | Maktkart";
 const BESKRIVELSE =
   "Maktkart Pro skal gi varsler ved rollebytte, hele grafen, historikk som per dato og eksport. Pro finnes ikke ennå. Prisene er hypoteser vi tester. Meld deg på ventelisten.";
 
+/**
+ * Gjennom en serverfunksjon: grunnlaget lastes fra datasettene, og datalaget
+ * skal aldri i nettleseren (src/lib/data/hent.ts).
+ */
+const proFn = createServerFn({ method: "GET" }).handler(async () =>
+  (await import("@/components/kommune/metode-pro/grunnlag")).lastProGrunnlag(),
+);
+
 export const Route = createFileRoute("/pro")({
-  loader: () => lastProGrunnlag(),
+  loader: () => fraServeren(() => proFn(), "/pro"),
   head: () => {
     const url = nettstedUrl("/pro");
     return {

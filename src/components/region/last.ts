@@ -7,16 +7,11 @@
 // gjennom `tilSiden`, så «[verifiser]» ikke står i HTML-en og like objekter
 // står der én gang.
 //
-// Datalaget lastes med dynamisk import, som i kommuneside.ts: loadere deles
-// ikke opp, og en vanlig import ville lagt datalaget i hovedbunten.
+// Fila kjøres bare på serveren: rutene kaller den gjennom serverfunksjonene i
+// hent.ts. Datalaget lastes likevel med dynamisk import, som i kommuneside.ts,
+// så det aldri havner i en bunt nettleseren kan laste.
 
-import type {
-  Datalag,
-  FylkeOrgan,
-  RegionKommune,
-  RegionOversikt,
-  Sokeresultat,
-} from "@/lib/data";
+import type { Datalag, FylkeOrgan, RegionKommune, RegionOversikt, Sokeresultat } from "@/lib/data";
 import { tilSiden } from "@/lib/nyttelast";
 
 import {
@@ -50,7 +45,17 @@ function klasseFor(k: RegionKommune): Dekningsklasse {
 }
 
 function medKlasser(o: RegionOversikt) {
-  const kommuner: KommuneIRegion[] = o.kommuner.map((k) => ({ ...k, klasse: klasseFor(k) }));
+  const kommuner: KommuneIRegion[] = o.kommuner.map((k) => ({
+    kommunenr: k.kommunenr,
+    navn: k.navn,
+    navn_offisielt: k.navn_offisielt,
+    slug: k.slug,
+    fylkesnr: k.fylkesnr,
+    folketall: k.folketall,
+    samisk_forvaltningsomrade: k.samisk_forvaltningsomrade,
+    datasett: k.datasett ? { organer: k.datasett.organer, roller: k.datasett.roller } : null,
+    klasse: klasseFor(k),
+  }));
   const fylker: FylkeIRegion[] = o.fylker.map((f) => {
     const klasser = tomKlasser();
     for (const k of kommuner) if (k.fylkesnr === f.fylkesnr) klasser[k.klasse] += 1;
@@ -66,14 +71,7 @@ export async function lastRegionside(): Promise<Regionside> {
   const klasser = tomKlasser();
   for (const k of kommuner) klasser[k.klasse] += 1;
   return tilSiden({
-    region: {
-      ...o.region,
-      folketall: {
-        verdi: fylker.reduce((sum, f) => sum + f.folketall.verdi, 0),
-        aar: fylker[0]?.folketall.aar ?? 0,
-      },
-      klasser,
-    },
+    region: { ...o.region, klasser },
     fylker,
     kommuner,
     kilder: o.kilder,
@@ -90,7 +88,15 @@ export async function lastFylkeside(slug: string): Promise<Fylkeside | null> {
   if (!fo) return null;
   const { kommuner, fylker } = medKlasser(o);
 
-  const av = (...typer: string[]) => fo.organer.filter((x) => typer.includes(x.organtype));
+  // Fylkets egne organer. Kommunens organer (nivå kommune) står på kommunesiden,
+  // selv om de også har fylkesnummeret (Tromsø kommunestyre har begge). Et organ
+  // på fylkesnivå beholdes selv om registeret har gitt det kommunenummeret til
+  // adressen sin (fylkeskommunen har forretningsadresse i en kommune). Andre
+  // organer med kommunenummer, som et Nav-kontor, hører til kommunen.
+  const egne = fo.organer.filter(
+    (x) => x.nivaa !== "kommune" && (x.kommunenr === null || x.nivaa === "fylke"),
+  );
+  const av = (...typer: string[]) => egne.filter((x) => typer.includes(x.organtype));
   const statsforvaltere = av("statsforvalter");
   const nokler = new Set(statsforvaltere.map((x) => x.key));
   const plassert = new Set<string>();
@@ -106,13 +112,18 @@ export async function lastFylkeside(slug: string): Promise<Fylkeside | null> {
     politisk: merk(av("folkevalgt_organ")),
     administrativ: merk(av("administrasjon")),
     // Embetet, ikke kontorene under det: et kontor har embetet som overordnet.
-    statsforvalter: merk(statsforvaltere.filter((x) => !(x.overordnet && nokler.has(x.overordnet)))),
+    statsforvalter: merk(
+      statsforvaltere.filter((x) => !(x.overordnet && nokler.has(x.overordnet))),
+    ),
     storting: merk(av("lovgivende")),
     andre: [],
+    utenfor: [],
     storste: fo.storste,
   };
   merk(statsforvaltere);
-  side.andre = fo.organer.filter((x) => !plassert.has(x.key));
+  const rest = egne.filter((x) => !plassert.has(x.key));
+  side.andre = rest.filter((x) => x.nivaa === "fylke");
+  side.utenfor = rest.filter((x) => x.nivaa !== "fylke");
   return tilSiden(side);
 }
 

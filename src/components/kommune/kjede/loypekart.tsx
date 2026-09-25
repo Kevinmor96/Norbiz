@@ -13,7 +13,7 @@
 import { useId, type CSSProperties } from "react";
 
 import { MYNDIGHETNAVN } from "@/lib/navn";
-import type { Terreng } from "@/lib/terreng";
+import { koteId, type Terreng } from "@/lib/terreng";
 import { cn } from "@/lib/utils";
 
 import { kortnavn, POSTRADIUS, type Loype, type Post } from "./modell";
@@ -95,8 +95,13 @@ function Terrengbakgrunn({ terreng }: { terreng: Terreng | null }) {
     );
   }
   // Annenhver kote og tellekurvene holder: bakgrunnen skal leses som terreng,
-  // ikke telles. Det halverer også stiene i HTML-en.
+  // ikke telles.
   const koter = terreng.koter.filter((k, i) => k.tellekurve || i % 2 === 0);
+  // Stiene hentes med <use> fra terrengfila, og vector-effect arves ikke inn i
+  // dem. Streken settes derfor i terrengets enheter, delt på skalaen `slice`
+  // gir, så den blir like tynn som før i løypekartets egne enheter.
+  const skala = Math.max(B / terreng.bredde, H / terreng.hoyde);
+  const strek = (px: number) => px / skala;
   return (
     <svg
       x="0"
@@ -106,23 +111,21 @@ function Terrengbakgrunn({ terreng }: { terreng: Terreng | null }) {
       viewBox={`0 0 ${terreng.bredde} ${terreng.hoyde}`}
       preserveAspectRatio="xMidYMid slice"
     >
-      <path d={terreng.hav} className="fill-vann-lys opacity-70" />
+      <use href={`${terreng.fil}#hav`} className="fill-vann-lys opacity-70" />
       {koter.map((k) => (
-        <path
+        <use
           key={k.hoyde}
-          d={k.d}
+          href={`${terreng.fil}#${koteId(k.hoyde)}`}
           className="fill-none stroke-kote"
-          strokeWidth={k.tellekurve ? 1.3 : 0.9}
+          strokeWidth={strek(k.tellekurve ? 1.3 : 0.9)}
           opacity={k.tellekurve ? 0.42 : 0.3}
-          vectorEffect="non-scaling-stroke"
         />
       ))}
-      <path
-        d={terreng.kyst.d}
+      <use
+        href={`${terreng.fil}#kyst`}
         className="fill-none stroke-vann"
-        strokeWidth={1.2}
+        strokeWidth={strek(1.2)}
         opacity={0.45}
-        vectorEffect="non-scaling-stroke"
       />
     </svg>
   );

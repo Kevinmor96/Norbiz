@@ -29,7 +29,7 @@ import { fileURLToPath } from "node:url";
 import { contours } from "d3-contour";
 import { PNG } from "pngjs";
 
-import type { Linjesett, Terreng } from "../src/lib/terreng";
+import type { Linjesett, Terrengfil as Terreng } from "../src/lib/terreng";
 
 const ROT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const MAPPE = join(ROT, "src", "data", "terreng");

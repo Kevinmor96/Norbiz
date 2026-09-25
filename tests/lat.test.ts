@@ -33,10 +33,7 @@ const indeks = byggIndeks(alle, region);
 /** En lat datalag over `datasett`, med kopier, så en test ikke kan endre et annet. */
 function lat(datasett = alle, ix: Dataindeks | null = indeks, varsler: string[] = []) {
   const filer = Object.fromEntries(
-    datasett.map(({ slug, data }) => [
-      slug,
-      async () => structuredClone(data) as Kommunedatasett,
-    ]),
+    datasett.map(({ slug, data }) => [slug, async () => structuredClone(data) as Kommunedatasett]),
   );
   return lagLatLokal({
     filer,
@@ -173,7 +170,12 @@ describe("indeksen", () => {
   it("dekker de ekte datasettene, og datalaget laster Tromsø uten resten", async () => {
     const ix = JSON.parse(readFileSync(INDEKSFIL, "utf8")) as Dataindeks;
     expect(ix.datasett.map((x) => x.slug)).toEqual(Object.keys(datafiler).sort());
-    const d = lagLatLokal({ filer: datafiler, indeks: ix, region: registeret, kontroll: "lastede" });
+    const d = lagLatLokal({
+      filer: datafiler,
+      indeks: ix,
+      region: registeret,
+      kontroll: "lastede",
+    });
     await d.kommune_oversikt(tromso.data.meta.kommunenr);
     expect(d.lastet()).toEqual([...(ix.kommune["tromso"] ?? ["tromso"])].sort());
   });

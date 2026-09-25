@@ -8,6 +8,7 @@
 // slår uttrykk.
 
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createIsomorphicFn } from "@tanstack/react-start";
 import { ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -23,17 +24,31 @@ import {
   profilbeskrivelse,
 } from "@/components/organ/organ-profil";
 import type { OrganProfil, Verifiseringstelling } from "@/lib/data";
-import { tilSiden } from "@/lib/nyttelast";
+import { hentOrganprofil } from "@/lib/data/hent";
 import { nettstedUrl } from "@/lib/nettsted";
+
+/**
+ * Profilen: på serveren fra datalaget, i nettleseren fra serveren eller som fil
+ * i den statiske eksporten (src/lib/data/hent.ts). Datalaget kommer aldri i
+ * nettleserbunten.
+ */
+const lastProfil = createIsomorphicFn()
+  .server(async (key: string) => {
+    const [{ data }, { tilSiden }] = await Promise.all([
+      import("@/lib/data"),
+      import("@/lib/nyttelast"),
+    ]);
+    const p = await data.organ_profil(key);
+    // Profilen serialiseres inn i HTML-en. Se src/lib/nyttelast.ts.
+    return p ? tilSiden(p) : null;
+  })
+  .client((key: string) => hentOrganprofil(key));
 
 export const Route = createFileRoute("/organ/$key")({
   loader: async ({ params }) => {
-    // Dynamisk import: loadere deles ikke opp, og datasettet skal ikke i hovedbunten.
-    const { data } = await import("@/lib/data");
-    const profil = await data.organ_profil(params.key);
+    const profil = await lastProfil(params.key);
     if (!profil) throw notFound();
-    // Profilen serialiseres inn i HTML-en. Se src/lib/nyttelast.ts.
-    return tilSiden(profil);
+    return profil;
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) {
