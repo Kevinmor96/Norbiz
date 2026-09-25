@@ -47,7 +47,7 @@ export function aarOgOmfang(t: NokkeltallUt): string {
 }
 
 export function verdiTekst(t: NokkeltallUt): string {
-  return t.enhet === "aarsverk" ? `${tall(t.verdi)} årsverk` : kroner(t.verdi);
+  return t.enhet === "aarsverk" ? `${tall(t.verdi)}\u00a0årsverk` : kroner(t.verdi);
 }
 
 /**

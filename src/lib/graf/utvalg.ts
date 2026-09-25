@@ -38,10 +38,10 @@ export const erTomt = (f: Filter) => f.sok.trim() === "" && f.nivaa === null && 
 export function normaliser(tekst: string): string {
   return tekst
     .toLowerCase()
-    .replace(/å/g, "\u0001")
+    .replace(/å/g, "\ue000")
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
-    .replace(/\u0001/g, "å")
+    .replace(/\ue000/g, "å")
     .trim();
 }
 
